@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,12 +74,15 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoader = {};
+mojo.internal.bindings.network.mojom.URLLoaderSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.URLLoader.$interfaceName = 'network.mojom.URLLoader';
 mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClient = {};
+mojo.internal.bindings.network.mojom.URLLoaderClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.URLLoaderClient.$interfaceName = 'network.mojom.URLLoaderClient';
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = { $: {} };
@@ -90,11 +94,17 @@ mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $
 
 mojo.internal.bindings.network.mojom.kClientDisconnectReason = 1;
 
+// Struct: URLRequestRedirectInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
+    ],
+    [[0, 8]]);
+
 // Struct: URLLoaderClientEndpoints
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
-      mojo.internal.StructField('arg_url_loader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -151,7 +161,7 @@ mojo.internal.bindings.network.mojom.URLLoaderRemote = class {
 mojo.internal.bindings.network.mojom.URLLoaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('URLLoader', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.URLLoader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -192,7 +202,7 @@ mojo.internal.bindings.network.mojom.URLLoaderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('URLLoader', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.URLLoader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -237,7 +247,7 @@ mojo.internal.bindings.network.mojom.URLLoaderReceiver = class {
         // Try Method 0: FollowRedirect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FollowRedirect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -248,7 +258,7 @@ mojo.internal.bindings.network.mojom.URLLoaderReceiver = class {
         // Try Method 1: SetPriority
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPriority (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -385,7 +395,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemote = class {
 mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('URLLoaderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.URLLoaderClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -466,7 +476,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('URLLoaderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.URLLoaderClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -515,7 +525,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 0: OnReceiveEarlyHints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveEarlyHints (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -526,7 +536,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 1: OnReceiveResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -537,7 +547,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 2: OnReceiveRedirect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveRedirect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -548,7 +558,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 3: OnUploadProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUploadProgress (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -559,7 +569,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 4: OnTransferSizeUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferSizeUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -570,7 +580,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
         // Try Method 5: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

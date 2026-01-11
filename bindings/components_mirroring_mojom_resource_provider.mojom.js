@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 
 mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient = {};
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientSpec = { $ : {} };
 mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient.$interfaceName = 'mirroring.mojom.AudioStreamCreatorClient';
 mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.mirroring.mojom.ResourceProvider = {};
+mojo.internal.bindings.mirroring.mojom.ResourceProviderSpec = { $ : {} };
 mojo.internal.bindings.mirroring.mojom.ResourceProvider.$interfaceName = 'mirroring.mojom.ResourceProvider';
 mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = { $: {} };
 mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = { $: {} };
@@ -129,7 +132,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemote = class {
 mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioStreamCreatorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.AudioStreamCreatorClient', [
       { explicit: null },
     ]);
   }
@@ -160,7 +163,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioStreamCreatorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.AudioStreamCreatorClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -204,7 +207,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver = class 
         // Try Method 0: StreamCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -267,7 +270,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec, 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_param', 8, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_memory_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -328,7 +331,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote = class {
 mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ResourceProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.ResourceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -409,7 +412,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ResourceProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.ResourceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,7 +461,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 0: BindGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -469,7 +472,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 1: GetVideoCaptureHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoCaptureHost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -480,7 +483,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 2: GetVideoEncoderMetricsProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoEncoderMetricsProvider (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -491,7 +494,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 3: GetNetworkContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkContext (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -502,7 +505,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 4: CreateAudioStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioStream (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -513,7 +516,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 5: ConnectToRemotingSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToRemotingSource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

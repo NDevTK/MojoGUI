@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.add_supervision.mojom = mojo.internal.bindings.add_superv
 
 mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec = { $ : {} };
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler.$interfaceName = 'add_supervision.mojom.AddSupervisionHandler';
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = { $: {} };
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = { $: {} };
@@ -189,7 +191,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemote = class
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AddSupervisionHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('add_supervision.mojom.AddSupervisionHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -270,7 +272,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AddSupervisionHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('add_supervision.mojom.AddSupervisionHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -319,7 +321,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 0: RequestClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -330,7 +332,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 1: GetInstalledArcApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInstalledArcApps (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -341,7 +343,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 2: GetOAuthToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOAuthToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -352,7 +354,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 3: LogOut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogOut (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -363,7 +365,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 4: NotifySupervisionEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySupervisionEnabled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -374,7 +376,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
         // Try Method 5: SetCloseOnEscape
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCloseOnEscape (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

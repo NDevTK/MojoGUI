@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,6 +85,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec 
 mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService = {};
+mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService.$interfaceName = 'crosapi.mojom.DiagnosticsService';
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = { $: {} };
@@ -789,7 +791,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemote = class {
 mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiagnosticsService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DiagnosticsService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1130,7 +1132,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiagnosticsService', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DiagnosticsService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1205,7 +1207,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 0: GetAvailableRoutines
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableRoutines (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1216,7 +1218,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 1: GetRoutineUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRoutineUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1227,7 +1229,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 2: RunBatteryCapacityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryCapacityRoutine (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1238,7 +1240,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 3: RunBatteryHealthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryHealthRoutine (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1249,7 +1251,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 4: RunSmartctlCheckRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSmartctlCheckRoutine (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1260,7 +1262,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 5: RunAcPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAcPowerRoutine (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1271,7 +1273,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 6: RunCpuCacheRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuCacheRoutine (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1282,7 +1284,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 7: RunCpuStressRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuStressRoutine (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1293,7 +1295,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 8: RunFloatingPointAccuracyRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFloatingPointAccuracyRoutine (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1304,7 +1306,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 9: DEPRECATED_RunNvmeWearLevelRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunNvmeWearLevelRoutine (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1315,7 +1317,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 10: RunNvmeSelfTestRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunNvmeSelfTestRoutine (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1326,7 +1328,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 11: RunDiskReadRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDiskReadRoutine (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1337,7 +1339,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 12: RunPrimeSearchRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPrimeSearchRoutine (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1348,7 +1350,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 13: RunBatteryDischargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryDischargeRoutine (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1359,7 +1361,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 14: RunBatteryChargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryChargeRoutine (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1370,7 +1372,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 15: RunMemoryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunMemoryRoutine (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1381,7 +1383,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 16: RunLanConnectivityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunLanConnectivityRoutine (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1392,7 +1394,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 17: RunDnsResolutionRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolutionRoutine (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1403,7 +1405,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 18: RunSignalStrengthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSignalStrengthRoutine (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1414,7 +1416,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 19: RunGatewayCanBePingedRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGatewayCanBePingedRoutine (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1425,7 +1427,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 20: RunDnsResolverPresentRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolverPresentRoutine (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1436,7 +1438,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 21: RunSensitiveSensorRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSensitiveSensorRoutine (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1447,7 +1449,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 22: RunFingerprintAliveRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFingerprintAliveRoutine (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1458,7 +1460,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 23: RunEmmcLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunEmmcLifetimeRoutine (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1469,7 +1471,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 24: RunBluetoothPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPowerRoutine (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1480,7 +1482,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 25: RunUfsLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunUfsLifetimeRoutine (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1491,7 +1493,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 26: RunPowerButtonRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPowerButtonRoutine (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1502,7 +1504,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 27: RunAudioDriverRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAudioDriverRoutine (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1513,7 +1515,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 28: RunBluetoothDiscoveryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothDiscoveryRoutine (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1524,7 +1526,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 29: RunBluetoothScanningRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothScanningRoutine (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1535,7 +1537,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 30: RunBluetoothPairingRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPairingRoutine (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1546,7 +1548,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         // Try Method 31: RunFanRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFanRoutine (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;

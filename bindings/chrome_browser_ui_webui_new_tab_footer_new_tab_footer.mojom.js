@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.inter
 mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandlerFactory';
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec = { $ : {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandler';
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = { $: {} };
@@ -91,6 +94,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrent
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec = { $ : {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument.$interfaceName = 'new_tab_footer.mojom.NewTabFooterDocument';
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = { $: {} };
@@ -123,8 +127,8 @@ mojo.internal.Struct(
 // Interface: NewTabFooterHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params', [
-      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -161,7 +165,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote = c
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -192,7 +196,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -236,7 +240,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver =
         // Try Method 0: CreateNewTabFooterHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewTabFooterHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -377,7 +381,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemote = class {
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -488,7 +492,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -540,7 +544,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 0: UpdateNtpExtensionName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNtpExtensionName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -551,7 +555,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 1: UpdateManagementNotice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateManagementNotice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -562,7 +566,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 2: UpdateAttachedTabState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAttachedTabState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -573,7 +577,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 3: UpdateBackgroundAttribution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBackgroundAttribution (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -584,7 +588,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 4: OpenExtensionOptionsPageWithFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenExtensionOptionsPageWithFallback (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -595,7 +599,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 5: OpenManagementPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenManagementPage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -606,7 +610,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 6: OpenUrlInCurrentTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInCurrentTab (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -617,7 +621,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 7: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -628,7 +632,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
         // Try Method 8: NotifyCustomizationButtonVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyCustomizationButtonVisible (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -788,7 +792,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemote = class {
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterDocument', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterDocument', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -849,7 +853,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterDocument', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_footer.mojom.NewTabFooterDocument', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -896,7 +900,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
         // Try Method 0: SetNtpExtensionName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNtpExtensionName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -907,7 +911,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
         // Try Method 1: SetManagementNotice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetManagementNotice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -918,7 +922,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
         // Try Method 2: AttachedTabStateUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachedTabStateUpdated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -929,7 +933,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
         // Try Method 3: SetBackgroundAttribution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundAttribution (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

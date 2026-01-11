@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ProcessInstance = {};
+mojo.internal.bindings.arc.mojom.ProcessInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ProcessInstance.$interfaceName = 'arc.mojom.ProcessInstance';
 mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = { $: {} };
@@ -313,7 +315,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProcessInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ProcessInstance', [
       { explicit: 1 },
       { explicit: 5 },
       { explicit: 8 },
@@ -404,7 +406,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProcessInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ProcessInstance', [
       { explicit: 1 },
       { explicit: 5 },
       { explicit: 8 },
@@ -454,7 +456,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 0: KillProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KillProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -465,7 +467,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 1: RequestProcessList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestProcessList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -476,7 +478,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 2: RequestApplicationProcessMemoryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestApplicationProcessMemoryInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -487,7 +489,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 3: RequestSystemProcessMemoryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSystemProcessMemoryInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -498,7 +500,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 4: ApplyHostMemoryPressureDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyHostMemoryPressureDeprecated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -509,7 +511,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 5: ApplyHostMemoryPressure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyHostMemoryPressure (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -520,7 +522,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
         // Try Method 6: RequestLowMemoryKillCounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLowMemoryKillCounts (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -95,6 +96,7 @@ mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.PageHandler = {};
+mojo.internal.bindings.searchbox.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.searchbox.mojom.PageHandler.$interfaceName = 'searchbox.mojom.PageHandler';
 mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = { $: {} };
@@ -124,6 +126,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = { $: 
 mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.Page = {};
+mojo.internal.bindings.searchbox.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.searchbox.mojom.Page.$interfaceName = 'searchbox.mojom.Page';
 mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec = { $: {} };
@@ -337,7 +340,7 @@ mojo.internal.Struct(
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -616,7 +619,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -857,7 +860,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -922,7 +925,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 0: SetPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -933,7 +936,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 1: OnFocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -944,7 +947,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 2: QueryAutocomplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryAutocomplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -955,7 +958,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 3: StopAutocomplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAutocomplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -966,7 +969,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 4: OpenAutocompleteMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAutocompleteMatch (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -977,7 +980,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 5: OnNavigationLikely
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNavigationLikely (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -988,7 +991,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 6: DeleteAutocompleteMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAutocompleteMatch (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -999,7 +1002,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 7: ActivateKeyword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateKeyword (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1010,7 +1013,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 8: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1021,7 +1024,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 9: ExecuteAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteAction (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1032,7 +1035,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 10: OnThumbnailRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnThumbnailRemoved (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1043,7 +1046,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 11: GetPlaceholderConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlaceholderConfig (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1054,7 +1057,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 12: GetRecentTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentTabs (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1065,7 +1068,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 13: GetTabPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabPreview (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1076,7 +1079,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 14: NotifySessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionStarted (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1087,7 +1090,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 15: NotifySessionAbandoned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionAbandoned (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1098,7 +1101,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 16: AddFileContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1109,7 +1112,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 17: AddTabContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTabContext (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1120,7 +1123,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 18: DeleteContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteContext (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1131,7 +1134,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 19: ClearFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFiles (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1142,7 +1145,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 20: SubmitQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitQuery (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1153,7 +1156,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 21: OpenLensSearch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLensSearch (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1536,7 +1539,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemote = class {
 mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1697,7 +1700,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1754,7 +1757,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 0: AutocompleteResultChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AutocompleteResultChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1765,7 +1768,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 1: UpdateSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSelection (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1776,7 +1779,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 2: SetKeywordSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeywordSelected (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1787,7 +1790,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 3: OnShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1798,7 +1801,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 4: SetInputText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1809,7 +1812,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 5: SetThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThumbnail (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1820,7 +1823,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 6: OnContextualInputStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextualInputStatusChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1831,7 +1834,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 7: OnTabStripChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabStripChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1842,7 +1845,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 8: AddFileContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1853,7 +1856,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 9: UpdateAutoSuggestedTabContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAutoSuggestedTabContext (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1864,7 +1867,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 10: UpdateLensSearchEligibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLensSearchEligibility (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1875,7 +1878,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 11: UpdateContentSharingPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateContentSharingPolicy (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1886,7 +1889,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 12: UpdateAimEligibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAimEligibility (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1897,7 +1900,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         // Try Method 13: OnShowAiModePrefChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShowAiModePrefChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

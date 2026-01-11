@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -114,11 +115,13 @@ mojo.internal.bindings.media.mojom.AutoPipReasonSpec = { $: mojo.internal.Enum()
 mojo.internal.bindings.media.mojom.DecoderBufferSideDataNextConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DecoderBufferSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoFrameDataSpec = { $: {} };
+mojo.internal.bindings.media.mojom.MediaLogRecordSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoTransformationSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoAspectRatioSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoColorSpaceSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SubsampleEntrySpec = { $: {} };
 mojo.internal.bindings.media.mojom.DecryptConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DecoderBufferSideDataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DataDecoderBufferSpec = { $: {} };
@@ -474,6 +477,12 @@ mojo.internal.Union(
       },
     });
 
+// Struct: MediaLogRecord
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaLogRecordSpec, 'media.mojom.MediaLogRecord', [
+    ],
+    [[0, 8]]);
+
 // Struct: VideoTransformation
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoTransformationSpec, 'media.mojom.VideoTransformation', [
@@ -540,6 +549,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_alpha', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 104]]);
+
+// Struct: SubsampleEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SubsampleEntrySpec, 'media.mojom.SubsampleEntry', [
+    ],
+    [[0, 8]]);
 
 // Struct: DecryptConfig
 mojo.internal.Struct(

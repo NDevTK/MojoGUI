@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,16 +73,18 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.TimeZoneMonitor = {};
+mojo.internal.bindings.device.mojom.TimeZoneMonitorSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.TimeZoneMonitor.$interfaceName = 'device.mojom.TimeZoneMonitor';
 mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClient = {};
+mojo.internal.bindings.device.mojom.TimeZoneMonitorClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClient.$interfaceName = 'device.mojom.TimeZoneMonitorClient';
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = { $: {} };
 
 // Interface: TimeZoneMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec, 'device.mojom.TimeZoneMonitor_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.TimeZoneMonitorClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,7 +121,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorRemote = class {
 mojo.internal.bindings.device.mojom.TimeZoneMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TimeZoneMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.TimeZoneMonitor', [
       { explicit: null },
     ]);
   }
@@ -149,7 +152,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TimeZoneMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.TimeZoneMonitor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +196,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorReceiver = class {
         // Try Method 0: AddClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +272,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemote = class {
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TimeZoneMonitorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.TimeZoneMonitorClient', [
       { explicit: null },
     ]);
   }
@@ -300,7 +303,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TimeZoneMonitorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.TimeZoneMonitorClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -344,7 +347,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientReceiver = class {
         // Try Method 0: OnTimeZoneChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTimeZoneChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

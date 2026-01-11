@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.blink.mojom.BlobReaderClient = {};
+mojo.internal.bindings.blink.mojom.BlobReaderClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BlobReaderClient.$interfaceName = 'blink.mojom.BlobReaderClient';
 mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Blob = {};
+mojo.internal.bindings.blink.mojom.BlobSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.Blob.$interfaceName = 'blink.mojom.Blob';
 mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = { $: {} };
@@ -142,7 +145,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRemote = class {
 mojo.internal.bindings.blink.mojom.BlobReaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BlobReaderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobReaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -183,7 +186,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BlobReaderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobReaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -228,7 +231,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientReceiver = class {
         // Try Method 0: OnCalculatedSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalculatedSize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,7 +242,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientReceiver = class {
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -285,7 +288,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRequest = mojo.internal.bindi
 // Interface: Blob
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec, 'blink.mojom.Blob_Clone_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -298,7 +301,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec, 'blink.mojom.Blob_ReadAll_Params', [
       mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -307,7 +310,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -408,7 +411,7 @@ mojo.internal.bindings.blink.mojom.BlobRemote = class {
 mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Blob', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Blob', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -509,7 +512,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Blob', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Blob', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -560,7 +563,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -571,7 +574,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 1: AsDataPipeGetter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AsDataPipeGetter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -582,7 +585,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 2: ReadAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAll (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -593,7 +596,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 3: ReadRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadRange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -604,7 +607,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 4: Load
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Load (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -615,7 +618,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 5: ReadSideData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSideData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -626,7 +629,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 6: CaptureSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureSnapshot (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -637,7 +640,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
         // Try Method 7: GetInternalUUID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInternalUUID (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,14 +75,17 @@ mojo.internal.bindings.infobar_internals.mojom = mojo.internal.bindings.infobar_
 mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.Page = {};
+mojo.internal.bindings.infobar_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.infobar_internals.mojom.Page.$interfaceName = 'infobar_internals.mojom.Page';
 mojo.internal.bindings.infobar_internals.mojom.PageHandler = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandler.$interfaceName = 'infobar_internals.mojom.PageHandler';
 mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory.$interfaceName = 'infobar_internals.mojom.PageHandlerFactory';
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 
@@ -132,7 +136,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageRemote = class {
 mojo.internal.bindings.infobar_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.Page', [
     ]);
   }
 
@@ -153,7 +157,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.Page', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -274,7 +278,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -315,7 +319,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -360,7 +364,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetInfoBars
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInfoBars (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -371,7 +375,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: TriggerInfoBar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerInfoBar (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -433,8 +437,8 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRequest = mojo.interna
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.infobar_internals.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.infobar_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -471,7 +475,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRemote = class 
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -502,7 +506,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('infobar_internals.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -546,7 +550,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryReceiver = clas
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

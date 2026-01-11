@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -114,6 +115,7 @@ mojo.internal.bindings.ash.boca.mojom.SessionSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.StudentActivitySpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.IdentifiedActivitySpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.PageHandler = {};
+mojo.internal.bindings.ash.boca.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.boca.mojom.PageHandler.$interfaceName = 'ash.boca.mojom.PageHandler';
 mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec = { $: {} };
@@ -178,6 +180,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParam
 mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.Page = {};
+mojo.internal.bindings.ash.boca.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.boca.mojom.Page.$interfaceName = 'ash.boca.mojom.Page';
 mojo.internal.bindings.ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = { $: {} };
@@ -190,6 +193,7 @@ mojo.internal.bindings.ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_Pa
 mojo.internal.bindings.ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory = {};
+mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory.$interfaceName = 'ash.boca.mojom.BocaPageHandlerFactory';
 mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
@@ -999,7 +1003,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1330,7 +1334,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1404,7 +1408,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 0: AuthenticateWebview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AuthenticateWebview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1415,7 +1419,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetWindowsTabsList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowsTabsList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1426,7 +1430,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 2: ListCourses
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListCourses (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1437,7 +1441,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 3: ListStudents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListStudents (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1448,7 +1452,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 4: ListAssignments
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListAssignments (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1459,7 +1463,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 5: CreateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSession (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1470,7 +1474,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 6: GetSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSession (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1481,7 +1485,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 7: EndSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1492,7 +1496,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 8: ExtendSessionDuration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSessionDuration (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1503,7 +1507,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 9: RemoveStudent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveStudent (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1514,7 +1518,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 10: RenotifyStudent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenotifyStudent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1525,7 +1529,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 11: AddStudents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddStudents (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1536,7 +1540,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 12: UpdateOnTaskConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOnTaskConfig (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1547,7 +1551,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 13: UpdateCaptionConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCaptionConfig (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1558,7 +1562,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 14: SetFloatMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFloatMode (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1569,7 +1573,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 15: SubmitAccessCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitAccessCode (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1580,7 +1584,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 16: ViewStudentScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewStudentScreen (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1591,7 +1595,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 17: EndViewScreenSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndViewScreenSession (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1602,7 +1606,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 18: SetViewScreenSessionActive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewScreenSessionActive (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1613,7 +1617,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 19: GetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserPref (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1624,7 +1628,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 20: SetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserPref (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1635,7 +1639,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 21: SetSitePermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSitePermission (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1646,7 +1650,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 22: CloseTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTab (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1657,7 +1661,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 23: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1668,7 +1672,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 24: RefreshWorkbook
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWorkbook (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1679,7 +1683,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 25: GetSpeechRecognitionInstallationStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSpeechRecognitionInstallationStatus (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1690,7 +1694,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 26: StartSpotlight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSpotlight (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1701,7 +1705,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 27: PresentStudentScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PresentStudentScreen (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1712,7 +1716,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 28: StopPresentingStudentScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPresentingStudentScreen (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1723,7 +1727,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 29: PresentOwnScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PresentOwnScreen (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1734,7 +1738,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         // Try Method 30: StopPresentingOwnScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPresentingOwnScreen (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -2346,7 +2350,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemote = class {
 mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2467,7 +2471,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2520,7 +2524,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 0: OnStudentActivityUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStudentActivityUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2531,7 +2535,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 1: OnSessionConfigUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionConfigUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2542,7 +2546,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 2: OnActiveNetworkStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveNetworkStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2553,7 +2557,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 3: OnLocalCaptionDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalCaptionDisabled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2564,7 +2568,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 4: OnSpeechRecognitionInstallStateUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRecognitionInstallStateUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2575,7 +2579,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 5: OnSessionCaptionDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionCaptionDisabled (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2586,7 +2590,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 6: OnFrameDataReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameDataReceived (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2597,7 +2601,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 7: OnSpotlightCrdSessionStatusUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpotlightCrdSessionStatusUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2608,7 +2612,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 8: OnPresentStudentScreenEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentStudentScreenEnded (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2619,7 +2623,7 @@ mojo.internal.bindings.ash.boca.mojom.PageReceiver = class {
         // Try Method 9: OnPresentOwnScreenEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentOwnScreenEnded (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2721,8 +2725,8 @@ mojo.internal.bindings.ash.boca.mojom.PageRequest = mojo.internal.bindings.ash.b
 // Interface: BocaPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec, 'ash.boca.mojom.BocaPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.boca.mojom.PageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2759,7 +2763,7 @@ mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactoryRemote = class {
 mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BocaPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.BocaPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -2790,7 +2794,7 @@ mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BocaPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.BocaPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2834,7 +2838,7 @@ mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

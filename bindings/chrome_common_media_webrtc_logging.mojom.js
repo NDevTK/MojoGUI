@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient.$interfaceName = 'chrome.mojom.WebRtcLoggingClient';
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent.$interfaceName = 'chrome.mojom.WebRtcLoggingAgent';
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = { $: {} };
@@ -138,7 +141,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemote = class {
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebRtcLoggingClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.WebRtcLoggingClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -179,7 +182,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebRtcLoggingClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.WebRtcLoggingClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -224,7 +227,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientReceiver = class {
         // Try Method 0: OnAddMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAddMessages (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -235,7 +238,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientReceiver = class {
         // Try Method 1: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -281,7 +284,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRequest = mojo.internal.b
 // Interface: WebRtcLoggingAgent
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Start_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -326,7 +329,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemote = class {
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebRtcLoggingAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.WebRtcLoggingAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -367,7 +370,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebRtcLoggingAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.WebRtcLoggingAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -412,7 +415,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -423,7 +426,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

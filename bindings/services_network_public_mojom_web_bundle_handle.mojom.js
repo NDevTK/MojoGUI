@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.WebBundleHandle = {};
+mojo.internal.bindings.network.mojom.WebBundleHandleSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebBundleHandle.$interfaceName = 'network.mojom.WebBundleHandle';
 mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = { $: {} };
@@ -93,7 +95,7 @@ mojo.internal.bindings.network.mojom.WebBundleErrorType = {
 // Interface: WebBundleHandle
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec, 'network.mojom.WebBundleHandle_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebBundleHandleSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebBundleHandleRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -149,7 +151,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemote = class {
 mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebBundleHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebBundleHandle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -200,7 +202,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebBundleHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebBundleHandle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -246,7 +248,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +259,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
         // Try Method 1: OnWebBundleError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebBundleError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -268,7 +270,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
         // Try Method 2: OnWebBundleLoadFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebBundleLoadFinished (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.SharedWorkerHost = {};
+mojo.internal.bindings.blink.mojom.SharedWorkerHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerHost.$interfaceName = 'blink.mojom.SharedWorkerHost';
 mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec = { $: {} };
@@ -165,7 +167,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemote = class {
 mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharedWorkerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -246,7 +248,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharedWorkerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -295,7 +297,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 0: OnConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -306,7 +308,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 1: OnContextClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -317,7 +319,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 2: OnReadyForInspection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadyForInspection (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -328,7 +330,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 3: OnScriptLoadFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptLoadFailed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -339,7 +341,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 4: OnReportException
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportException (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -350,7 +352,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
         // Try Method 5: OnFeatureUsed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFeatureUsed (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

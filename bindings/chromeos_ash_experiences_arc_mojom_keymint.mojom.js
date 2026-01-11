@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -116,14 +117,17 @@ mojo.internal.bindings.arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec = { 
 mojo.internal.bindings.arc.mojom.keymint.CertificateRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.GenerateCertificateRequestResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintHost = {};
+mojo.internal.bindings.arc.mojom.keymint.KeyMintHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintHost.$interfaceName = 'arc.mojom.keymint.KeyMintHost';
 mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance = {};
+mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance.$interfaceName = 'arc.mojom.keymint.KeyMintInstance';
 mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintServer = {};
+mojo.internal.bindings.arc.mojom.keymint.KeyMintServerSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintServer.$interfaceName = 'arc.mojom.keymint.KeyMintServer';
 mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec = { $: {} };
@@ -767,7 +771,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintHost_GetServer_ResponseParams', [
-      mojo.internal.StructField('arg_server_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.keymint.KeyMintServerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_server_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -804,7 +808,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRemote = class {
 mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyMintHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintHost', [
       { explicit: 0 },
     ]);
   }
@@ -835,7 +839,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyMintHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -879,7 +883,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostReceiver = class {
         // Try Method 0: GetServer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetServer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -926,7 +930,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRequest = mojo.internal.bind
 // Interface: KeyMintInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec, 'arc.mojom.keymint.KeyMintInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.keymint.KeyMintHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -968,7 +972,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyMintInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintInstance', [
       { explicit: 0 },
     ]);
   }
@@ -999,7 +1003,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyMintInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1043,7 +1047,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1508,7 +1512,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemote = class {
 mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyMintServer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintServer', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1799,7 +1803,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyMintServer', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.keymint.KeyMintServer', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1869,7 +1873,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 0: SetSystemVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemVersion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1880,7 +1884,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 1: AddRngEntropy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRngEntropy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1891,7 +1895,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 2: GenerateKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateKey (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1902,7 +1906,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 3: ImportKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportKey (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1913,7 +1917,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 4: ImportWrappedKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportWrappedKey (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1924,7 +1928,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 5: UpgradeKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeKey (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1935,7 +1939,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 6: DeleteKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteKey (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1946,7 +1950,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 7: DeleteAllKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllKeys (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1957,7 +1961,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 8: DestroyAttestationIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyAttestationIds (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1968,7 +1972,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 9: Begin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Begin (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1979,7 +1983,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 10: DeviceLocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceLocked (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1990,7 +1994,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 11: EarlyBootEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EarlyBootEnded (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2001,7 +2005,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 12: ConvertStorageKeyToEphemeral
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertStorageKeyToEphemeral (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2012,7 +2016,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 13: GetKeyCharacteristics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyCharacteristics (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2023,7 +2027,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 14: GetRootOfTrustChallenge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRootOfTrustChallenge (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2034,7 +2038,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 15: GetRootOfTrust
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRootOfTrust (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2045,7 +2049,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 16: SendRootOfTrust
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRootOfTrust (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2056,7 +2060,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 17: UpdateAad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAad (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2067,7 +2071,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 18: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2078,7 +2082,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 19: Finish
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Finish (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2089,7 +2093,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 20: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2100,7 +2104,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 21: GetSharedSecretParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedSecretParameters (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2111,7 +2115,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 22: ComputeSharedSecret
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ComputeSharedSecret (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2122,7 +2126,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 23: GenerateTimeStamp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateTimeStamp (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2133,7 +2137,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 24: GenerateEcdsaP256KeyPair
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateEcdsaP256KeyPair (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2144,7 +2148,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 25: GenerateCertificateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateCertificateRequest (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2155,7 +2159,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
         // Try Method 26: SetVendorPatchLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVendorPatchLevel (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;

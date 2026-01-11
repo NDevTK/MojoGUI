@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ax.mojom.FocusRingInfoSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.UserInterface = {};
+mojo.internal.bindings.ax.mojom.UserInterfaceSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.UserInterface.$interfaceName = 'ax.mojom.UserInterface';
 mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = { $: {} };
@@ -207,7 +209,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemote = class {
 mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UserInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.UserInterface', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -288,7 +290,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UserInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.UserInterface', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -337,7 +339,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 0: DarkenScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DarkenScreen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -348,7 +350,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 1: OpenSettingsSubpage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSettingsSubpage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -359,7 +361,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 2: ShowConfirmationDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowConfirmationDialog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -370,7 +372,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 3: SetFocusRings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFocusRings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -381,7 +383,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 4: SetHighlights
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHighlights (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -392,7 +394,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
         // Try Method 5: SetVirtualKeyboardVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVirtualKeyboardVisible (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

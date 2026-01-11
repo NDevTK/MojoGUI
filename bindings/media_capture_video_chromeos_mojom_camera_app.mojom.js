@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.cros.mojom.StreamTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.cros.mojom.CaptureIntentSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider = {};
+mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider.$interfaceName = 'cros.mojom.CameraAppDeviceProvider';
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponsePa
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge = {};
+mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge.$interfaceName = 'cros.mojom.CameraAppDeviceBridge';
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = { $: {} };
@@ -96,6 +99,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDevice = {};
+mojo.internal.bindings.cros.mojom.CameraAppDeviceSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraAppDevice.$interfaceName = 'cros.mojom.CameraAppDevice';
 mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec = { $: {} };
@@ -124,18 +128,23 @@ mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSp
 mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.ResultMetadataObserver = {};
+mojo.internal.bindings.cros.mojom.ResultMetadataObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.ResultMetadataObserver.$interfaceName = 'cros.mojom.ResultMetadataObserver';
 mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraEventObserver = {};
+mojo.internal.bindings.cros.mojom.CameraEventObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraEventObserver.$interfaceName = 'cros.mojom.CameraEventObserver';
 mojo.internal.bindings.cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.DocumentCornersObserver = {};
+mojo.internal.bindings.cros.mojom.DocumentCornersObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.DocumentCornersObserver.$interfaceName = 'cros.mojom.DocumentCornersObserver';
 mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraInfoObserver = {};
+mojo.internal.bindings.cros.mojom.CameraInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraInfoObserver.$interfaceName = 'cros.mojom.CameraInfoObserver';
 mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.StillCaptureResultObserver = {};
+mojo.internal.bindings.cros.mojom.StillCaptureResultObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.StillCaptureResultObserver.$interfaceName = 'cros.mojom.StillCaptureResultObserver';
 mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = { $: {} };
 
@@ -178,7 +187,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -244,7 +253,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemote = class {
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraAppDeviceProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDeviceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -295,7 +304,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraAppDeviceProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDeviceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -341,7 +350,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
         // Try Method 0: GetCameraAppDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraAppDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +361,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
         // Try Method 1: IsSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -363,7 +372,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
         // Try Method 2: IsDeviceInUse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDeviceInUse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -447,7 +456,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -529,7 +538,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemote = class {
 mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraAppDeviceBridge', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDeviceBridge', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -590,7 +599,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraAppDeviceBridge', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDeviceBridge', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -637,7 +646,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
         // Try Method 0: GetCameraAppDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraAppDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -648,7 +657,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
         // Try Method 1: IsSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -659,7 +668,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
         // Try Method 2: SetVirtualDeviceEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVirtualDeviceEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -670,7 +679,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
         // Try Method 3: IsDeviceInUse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDeviceInUse (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -762,7 +771,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRequest = mojo.internal.b
 // Interface: CameraAppDevice
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec, 'cros.mojom.CameraAppDevice_TakePortraitModePhoto_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.StillCaptureResultObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.StillCaptureResultObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -807,7 +816,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddResultMetadataObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.ResultMetadataObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.ResultMetadataObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_type', 8, 0, mojo.internal.bindings.cros.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -819,7 +828,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddCameraEventObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraEventObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraEventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -853,7 +862,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.DocumentCornersObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.DocumentCornersObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -875,7 +884,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraInfoObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraInfoObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -974,7 +983,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote = class {
 mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraAppDevice', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDevice', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1125,7 +1134,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraAppDevice', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraAppDevice', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1181,7 +1190,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 0: TakePortraitModePhoto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakePortraitModePhoto (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1192,7 +1201,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 1: SetFpsRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFpsRange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1203,7 +1212,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 2: SetStillCaptureResolution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStillCaptureResolution (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1214,7 +1223,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 3: SetCaptureIntent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCaptureIntent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1225,7 +1234,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 4: AddResultMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddResultMetadataObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1236,7 +1245,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 5: AddCameraEventObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCameraEventObserver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1247,7 +1256,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 6: SetCameraFrameRotationEnabledAtSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCameraFrameRotationEnabledAtSource (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1258,7 +1267,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 7: GetCameraFrameRotation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraFrameRotation (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1269,7 +1278,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 8: RegisterDocumentCornersObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDocumentCornersObserver (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1280,7 +1289,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 9: SetMultipleStreamsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMultipleStreamsEnabled (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1291,7 +1300,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 10: RegisterCameraInfoObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCameraInfoObserver (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1302,7 +1311,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 11: SetCropRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCropRegion (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1313,7 +1322,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         // Try Method 12: ResetCropRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetCropRegion (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1577,7 +1586,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverRemote = class {
 mojo.internal.bindings.cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ResultMetadataObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.ResultMetadataObserver', [
       { explicit: null },
     ]);
   }
@@ -1608,7 +1617,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ResultMetadataObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.ResultMetadataObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1652,7 +1661,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverReceiver = class {
         // Try Method 0: OnMetadataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetadataAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1727,7 +1736,7 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverRemote = class {
 mojo.internal.bindings.cros.mojom.CameraEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraEventObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraEventObserver', [
       { explicit: null },
     ]);
   }
@@ -1758,7 +1767,7 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraEventObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraEventObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1802,7 +1811,7 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverReceiver = class {
         // Try Method 0: OnShutterDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShutterDone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1878,7 +1887,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverRemote = class {
 mojo.internal.bindings.cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DocumentCornersObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.DocumentCornersObserver', [
       { explicit: null },
     ]);
   }
@@ -1909,7 +1918,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DocumentCornersObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.DocumentCornersObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1953,7 +1962,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverReceiver = class {
         // Try Method 0: OnDocumentCornersUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDocumentCornersUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2029,7 +2038,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverRemote = class {
 mojo.internal.bindings.cros.mojom.CameraInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraInfoObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraInfoObserver', [
       { explicit: null },
     ]);
   }
@@ -2060,7 +2069,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraInfoObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraInfoObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2104,7 +2113,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverReceiver = class {
         // Try Method 0: OnCameraInfoUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraInfoUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2182,7 +2191,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverRemote = class {
 mojo.internal.bindings.cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StillCaptureResultObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.StillCaptureResultObserver', [
       { explicit: null },
     ]);
   }
@@ -2213,7 +2222,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StillCaptureResultObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.StillCaptureResultObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2257,7 +2266,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverReceiver = class {
         // Try Method 0: OnStillCaptureDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStillCaptureDone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.
 
 mojo.internal.bindings.media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media_router.mojom.Logger = {};
+mojo.internal.bindings.media_router.mojom.LoggerSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.Logger.$interfaceName = 'media_router.mojom.Logger';
 mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec = { $: {} };
@@ -123,7 +125,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec, 'media_router.mojom.Logger_BindReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -169,7 +171,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemote = class {
 mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Logger', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.Logger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -230,7 +232,7 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Logger', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.Logger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -277,7 +279,7 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
         // Try Method 0: LogInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -288,7 +290,7 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
         // Try Method 1: LogWarning
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogWarning (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -299,7 +301,7 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
         // Try Method 2: LogError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -310,7 +312,7 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
         // Try Method 3: BindReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

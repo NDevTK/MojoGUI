@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 
 mojo.internal.bindings.audio.mojom.DeviceListener = {};
+mojo.internal.bindings.audio.mojom.DeviceListenerSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.DeviceListener.$interfaceName = 'audio.mojom.DeviceListener';
 mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.DeviceNotifier = {};
+mojo.internal.bindings.audio.mojom.DeviceNotifierSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.DeviceNotifier.$interfaceName = 'audio.mojom.DeviceNotifier';
 mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
 
@@ -117,7 +120,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerRemote = class {
 mojo.internal.bindings.audio.mojom.DeviceListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DeviceListener', [
       { explicit: null },
     ]);
   }
@@ -148,7 +151,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DeviceListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -192,7 +195,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerReceiver = class {
         // Try Method 0: DevicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DevicesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -231,7 +234,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerRequest = mojo.internal.binding
 // Interface: DeviceNotifier
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DeviceListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DeviceListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,7 +271,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierRemote = class {
 mojo.internal.bindings.audio.mojom.DeviceNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceNotifier', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DeviceNotifier', [
       { explicit: null },
     ]);
   }
@@ -299,7 +302,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceNotifier', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DeviceNotifier', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -343,7 +346,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = class {
         // Try Method 0: RegisterListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterListener (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

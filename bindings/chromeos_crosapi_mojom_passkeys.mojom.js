@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator.$interfaceName = 'crosapi.mojom.PasskeyAuthenticator';
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = { $: {} };
@@ -241,7 +243,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemote = class {
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasskeyAuthenticator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PasskeyAuthenticator', [
       { explicit: 1 },
       { explicit: 0 },
     ]);
@@ -282,7 +284,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasskeyAuthenticator', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PasskeyAuthenticator', [
       { explicit: 1 },
       { explicit: 0 },
     ]);
@@ -327,7 +329,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -338,7 +340,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorReceiver = class {
         // Try Method 1: Assert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Assert (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

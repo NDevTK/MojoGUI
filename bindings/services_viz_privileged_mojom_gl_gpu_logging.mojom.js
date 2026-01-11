@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.GpuLogging = {};
+mojo.internal.bindings.viz.mojom.GpuLoggingSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.GpuLogging.$interfaceName = 'viz.mojom.GpuLogging';
 mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = { $: {} };
 
@@ -117,7 +119,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingRemote = class {
 mojo.internal.bindings.viz.mojom.GpuLoggingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GpuLogging', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuLogging', [
       { explicit: null },
     ]);
   }
@@ -148,7 +150,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GpuLogging', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuLogging', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -192,7 +194,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingReceiver = class {
         // Try Method 0: RecordLogMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordLogMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

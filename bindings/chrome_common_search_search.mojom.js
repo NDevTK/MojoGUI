@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,16 +76,21 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
+mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearch = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearch.$interfaceName = 'search.mojom.EmbeddedSearch';
 mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient.$interfaceName = 'search.mojom.EmbeddedSearchClient';
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = { $: {} };
@@ -104,11 +110,23 @@ mojo.internal.bindings.search.mojom.OmniboxFocusState = {
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReason = {
 };
 
+// Struct: InstantMostVisitedInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: NtpTheme
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.NtpThemeSpec, 'search.mojom.NtpTheme', [
+    ],
+    [[0, 8]]);
+
 // Interface: EmbeddedSearchConnector
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
-      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -145,7 +163,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorRemote = class {
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearchConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearchConnector', [
       { explicit: null },
     ]);
   }
@@ -176,7 +194,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearchConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearchConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -220,7 +238,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorReceiver = class {
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +344,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchRemote = class {
 mojo.internal.bindings.search.mojom.EmbeddedSearchRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearch', [
+    this.ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearch', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -387,7 +405,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearch', [
+    const ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearch', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -434,7 +452,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
         // Try Method 0: FocusOmnibox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusOmnibox (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +463,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
         // Try Method 1: DeleteMostVisitedItem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteMostVisitedItem (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +474,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
         // Try Method 2: UndoAllMostVisitedDeletions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoAllMostVisitedDeletions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -467,7 +485,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
         // Try Method 3: UndoMostVisitedDeletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedDeletion (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -601,7 +619,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote = class {
 mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearchClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearchClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -672,7 +690,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedSearchClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('search.mojom.EmbeddedSearchClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -720,7 +738,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
         // Try Method 0: SetPageSequenceNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageSequenceNumber (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -731,7 +749,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
         // Try Method 1: FocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -742,7 +760,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
         // Try Method 2: MostVisitedInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MostVisitedInfoChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -753,7 +771,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
         // Try Method 3: SetInputInProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputInProgress (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -764,7 +782,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
         // Try Method 4: ThemeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ThemeChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

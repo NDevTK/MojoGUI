@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.page_image_service.mojom.ClientIdSpec = { $: mojo.interna
 mojo.internal.bindings.page_image_service.mojom.OptionsSpec = { $: {} };
 mojo.internal.bindings.page_image_service.mojom.ImageResultSpec = { $: {} };
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler = {};
+mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec = { $ : {} };
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler.$interfaceName = 'page_image_service.mojom.PageImageServiceHandler';
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = { $: {} };
@@ -154,7 +156,7 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerRemote = 
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageImageServiceHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('page_image_service.mojom.PageImageServiceHandler', [
       { explicit: null },
     ]);
   }
@@ -185,7 +187,7 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageImageServiceHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('page_image_service.mojom.PageImageServiceHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -229,7 +231,7 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerReceiver 
         // Try Method 0: GetPageImageUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPageImageUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

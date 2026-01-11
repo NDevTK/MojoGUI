@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.media.mojom.KeyTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.SessionDataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorageSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage.$interfaceName = 'media.mojom.MediaDrmStorage';
 mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = { $: {} };
@@ -207,7 +209,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemote = class {
 mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaDrmStorage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaDrmStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -278,7 +280,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaDrmStorage', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaDrmStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -326,7 +328,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -337,7 +339,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
         // Try Method 1: OnProvisioned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProvisioned (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -348,7 +350,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
         // Try Method 2: SavePersistentSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SavePersistentSession (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -359,7 +361,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
         // Try Method 3: LoadPersistentSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPersistentSession (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -370,7 +372,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
         // Try Method 4: RemovePersistentSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePersistentSession (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,16 +73,21 @@
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 
 mojo.internal.bindings.content.mojom.TestInterfaceForDefer = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForDefer.$interfaceName = 'content.mojom.TestInterfaceForDefer';
 mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForGrant = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForGrant.$interfaceName = 'content.mojom.TestInterfaceForGrant';
 mojo.internal.bindings.content.mojom.TestInterfaceForCancel = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForCancel.$interfaceName = 'content.mojom.TestInterfaceForCancel';
 mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected.$interfaceName = 'content.mojom.TestInterfaceForUnexpected';
 mojo.internal.bindings.content.mojom.MojoContextProvider = {};
+mojo.internal.bindings.content.mojom.MojoContextProviderSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.MojoContextProvider.$interfaceName = 'content.mojom.MojoContextProvider';
 mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec = { $: {} };
 
@@ -129,7 +135,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferRemote = class {
 mojo.internal.bindings.content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForDefer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForDefer', [
       { explicit: null },
     ]);
   }
@@ -160,7 +166,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForDefer', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForDefer', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -204,7 +210,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferReceiver = class {
         // Try Method 0: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +285,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForGrantRemote = class {
 mojo.internal.bindings.content.mojom.TestInterfaceForGrantRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForGrant', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForGrant', [
     ]);
   }
 
@@ -300,7 +306,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForGrantReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForGrant', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForGrant', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -392,7 +398,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForCancelRemote = class {
 mojo.internal.bindings.content.mojom.TestInterfaceForCancelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForCancel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForCancel', [
     ]);
   }
 
@@ -413,7 +419,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForCancelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForCancel', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForCancel', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -505,7 +511,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedRemote = class {
 mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForUnexpected', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForUnexpected', [
     ]);
   }
 
@@ -526,7 +532,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestInterfaceForUnexpected', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestInterfaceForUnexpected', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -626,7 +632,7 @@ mojo.internal.bindings.content.mojom.MojoContextProviderRemote = class {
 mojo.internal.bindings.content.mojom.MojoContextProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MojoContextProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.MojoContextProvider', [
       { explicit: null },
     ]);
   }
@@ -657,7 +663,7 @@ mojo.internal.bindings.content.mojom.MojoContextProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MojoContextProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.MojoContextProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -701,7 +707,7 @@ mojo.internal.bindings.content.mojom.MojoContextProviderReceiver = class {
         // Try Method 0: GrantAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GrantAll (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

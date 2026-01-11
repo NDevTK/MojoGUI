@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,6 +80,7 @@ mojo.internal.bindings.watermark = mojo.internal.bindings.watermark || {};
 mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.printing.mojom.PrintCompositor = {};
+mojo.internal.bindings.printing.mojom.PrintCompositorSpec = { $ : {} };
 mojo.internal.bindings.printing.mojom.PrintCompositor.$interfaceName = 'printing.mojom.PrintCompositor';
 mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = { $: {} };
@@ -284,7 +286,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorRemote = class {
 mojo.internal.bindings.printing.mojom.PrintCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintCompositor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('printing.mojom.PrintCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -425,7 +427,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintCompositor', [
+    const ordinals = window.mojoScrambler.getOrdinals('printing.mojom.PrintCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -480,7 +482,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 0: NotifyUnavailableSubframe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUnavailableSubframe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +493,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 1: AddSubframeContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSubframeContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -502,7 +504,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 2: SetAccessibilityTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccessibilityTree (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -513,7 +515,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 3: CompositePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompositePage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -524,7 +526,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 4: CompositeDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompositeDocument (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -535,7 +537,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 5: PrepareToCompositeDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareToCompositeDocument (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -546,7 +548,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 6: FinishDocumentComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishDocumentComposition (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -557,7 +559,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 7: SetWebContentsURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebContentsURL (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -568,7 +570,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 8: SetUserAgent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserAgent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -579,7 +581,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 9: SetGenerateDocumentOutline
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGenerateDocumentOutline (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -590,7 +592,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 10: SetTitle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTitle (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -601,7 +603,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
         // Try Method 11: SetWatermarkBlock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWatermarkBlock (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

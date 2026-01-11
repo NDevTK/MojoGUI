@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.UtilReadIcon = {};
+mojo.internal.bindings.chrome.mojom.UtilReadIconSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.UtilReadIcon.$interfaceName = 'chrome.mojom.UtilReadIcon';
 mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = { $: {} };
@@ -135,7 +137,7 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconRemote = class {
 mojo.internal.bindings.chrome.mojom.UtilReadIconRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UtilReadIcon', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.UtilReadIcon', [
       { explicit: null },
     ]);
   }
@@ -166,7 +168,7 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UtilReadIcon', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.UtilReadIcon', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -210,7 +212,7 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconReceiver = class {
         // Try Method 0: ReadIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadIcon (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

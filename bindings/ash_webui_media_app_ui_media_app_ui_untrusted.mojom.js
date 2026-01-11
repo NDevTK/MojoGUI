@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,6 +80,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory.$interfaceName = 'ash.media_app_ui.mojom.UntrustedServiceFactory';
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec = { $: {} };
@@ -87,28 +89,33 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAv
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService.$interfaceName = 'ash.media_app_ui.mojom.OcrUntrustedService';
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage.$interfaceName = 'ash.media_app_ui.mojom.OcrUntrustedPage';
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService.$interfaceName = 'ash.media_app_ui.mojom.MahiUntrustedService';
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage.$interfaceName = 'ash.media_app_ui.mojom.MahiUntrustedPage';
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService.$interfaceName = 'ash.media_app_ui.mojom.MantisUntrustedService';
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = { $: {} };
@@ -123,6 +130,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyIma
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage.$interfaceName = 'ash.media_app_ui.mojom.MantisUntrustedPage';
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = { $: {} };
 
@@ -131,7 +139,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, 'ash.media_app_ui.mojom.MantisUntrustedServiceResult', {
       'arg_service': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceSpec),
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemote),
         'nullable': false,
       },
       'arg_error': {
@@ -152,15 +160,15 @@ mojo.internal.Struct(
 // Interface: UntrustedServiceFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -178,7 +186,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_dlc_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -231,7 +239,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemote = cl
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedServiceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.UntrustedServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -292,7 +300,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedServiceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.UntrustedServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -339,7 +347,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
         // Try Method 0: CreateOcrUntrustedService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOcrUntrustedService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -350,7 +358,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
         // Try Method 1: CreateMahiUntrustedService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMahiUntrustedService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -361,7 +369,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
         // Try Method 2: IsMantisAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMantisAvailable (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -372,7 +380,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
         // Try Method 3: CreateMantisUntrustedService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMantisUntrustedService (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -504,7 +512,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemote = class 
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OcrUntrustedService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.OcrUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -555,7 +563,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OcrUntrustedService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.OcrUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -601,7 +609,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = clas
         // Try Method 0: PageMetadataUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageMetadataUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -612,7 +620,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = clas
         // Try Method 1: PageContentsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentsUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -623,7 +631,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = clas
         // Try Method 2: ViewportUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewportUpdated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -737,7 +745,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemote = class {
 mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OcrUntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.OcrUntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -788,7 +796,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OcrUntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.OcrUntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -834,7 +842,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         // Try Method 0: RequestBitmap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBitmap (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -845,7 +853,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         // Try Method 1: SetViewport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewport (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -856,7 +864,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         // Try Method 2: SetPdfOcrEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPdfOcrEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -980,7 +988,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemote = class
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MahiUntrustedService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MahiUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1041,7 +1049,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MahiUntrustedService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MahiUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1088,7 +1096,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
         // Try Method 0: OnPdfLoaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfLoaded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1099,7 +1107,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
         // Try Method 1: OnPdfFileNameUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfFileNameUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1110,7 +1118,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
         // Try Method 2: OnPdfContextMenuShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfContextMenuShow (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1121,7 +1129,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
         // Try Method 3: OnPdfContextMenuHide
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfContextMenuHide (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1232,7 +1240,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemote = class {
 mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MahiUntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MahiUntrustedPage', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1273,7 +1281,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MahiUntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MahiUntrustedPage', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1318,7 +1326,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
         // Try Method 0: HidePdfContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HidePdfContextMenu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1329,7 +1337,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
         // Try Method 1: GetPdfContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPdfContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1509,7 +1517,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemote = cla
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MantisUntrustedService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MantisUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1590,7 +1598,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MantisUntrustedService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MantisUntrustedService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1639,7 +1647,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 0: SegmentImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SegmentImage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1650,7 +1658,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 1: GenerativeFillImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerativeFillImage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1661,7 +1669,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 2: InpaintImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InpaintImage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1672,7 +1680,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 3: OutpaintImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OutpaintImage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1683,7 +1691,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 4: ClassifyImageSafety
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1694,7 +1702,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
         // Try Method 5: InferSegmentationMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InferSegmentationMode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1853,7 +1861,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemote = class 
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MantisUntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MantisUntrustedPage', [
       { explicit: null },
     ]);
   }
@@ -1884,7 +1892,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MantisUntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.media_app_ui.mojom.MantisUntrustedPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1928,7 +1936,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageReceiver = clas
         // Try Method 0: ReportMantisProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMantisProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

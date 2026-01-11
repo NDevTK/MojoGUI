@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.media.mojom.MediaURLSchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.MediaMetricsProvider = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaMetricsProvider.$interfaceName = 'media.mojom.MediaMetricsProvider';
 mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec = { $: {} };
@@ -362,7 +364,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemote = class {
 mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaMetricsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaMetricsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -623,7 +625,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaMetricsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaMetricsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -690,7 +692,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -701,7 +703,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 1: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -712,7 +714,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -723,7 +725,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 3: OnFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -734,7 +736,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 4: SetHasPlayed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasPlayed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -745,7 +747,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 5: SetHaveEnough
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHaveEnough (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -756,7 +758,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 6: SetIsEME
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsEME (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -767,7 +769,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 7: SetTimeToMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToMetadata (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -778,7 +780,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 8: SetTimeToFirstFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToFirstFrame (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -789,7 +791,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 9: SetTimeToPlayReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeToPlayReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -800,7 +802,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 10: SetRendererType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRendererType (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -811,7 +813,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 11: SetDemuxerType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDemuxerType (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -822,7 +824,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 12: SetKeySystem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeySystem (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -833,7 +835,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 13: SetHasWaitingForKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasWaitingForKey (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -844,7 +846,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 14: SetIsHardwareSecure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsHardwareSecure (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -855,7 +857,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 15: SetHasTrackChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasTrackChange (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -866,7 +868,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 16: SetContainerName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetContainerName (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -877,7 +879,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 17: AcquireWatchTimeRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireWatchTimeRecorder (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -888,7 +890,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 18: AcquireVideoDecodeStatsRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireVideoDecodeStatsRecorder (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -899,7 +901,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 19: AcquirePlaybackEventsRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquirePlaybackEventsRecorder (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -910,7 +912,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 20: SetHasAudio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasAudio (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -921,7 +923,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 21: SetHasVideo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasVideo (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -932,7 +934,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 22: SetVideoPipelineInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoPipelineInfo (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -943,7 +945,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         // Try Method 23: SetAudioPipelineInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioPipelineInfo (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;

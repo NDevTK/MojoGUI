@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,14 +74,17 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyConfigClient = {};
+mojo.internal.bindings.network.mojom.ProxyConfigClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ProxyConfigClient.$interfaceName = 'network.mojom.ProxyConfigClient';
 mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyConfigPollerClient = {};
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ProxyConfigPollerClient.$interfaceName = 'network.mojom.ProxyConfigPollerClient';
 mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyErrorClient = {};
+mojo.internal.bindings.network.mojom.ProxyErrorClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ProxyErrorClient.$interfaceName = 'network.mojom.ProxyErrorClient';
 mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = { $: {} };
@@ -146,7 +150,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientRemote = class {
 mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProxyConfigClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyConfigClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -187,7 +191,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProxyConfigClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyConfigClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -232,7 +236,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
         // Try Method 0: OnProxyConfigUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProxyConfigUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -243,7 +247,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
         // Try Method 1: FlushProxyConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushProxyConfig (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -333,7 +337,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote = class {
 mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProxyConfigPollerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyConfigPollerClient', [
       { explicit: null },
     ]);
   }
@@ -364,7 +368,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProxyConfigPollerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyConfigPollerClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -408,7 +412,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientReceiver = class {
         // Try Method 0: OnLazyProxyConfigPoll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLazyProxyConfigPoll (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -494,7 +498,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientRemote = class {
 mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProxyErrorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyErrorClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -535,7 +539,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProxyErrorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyErrorClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -580,7 +584,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = class {
         // Try Method 0: OnPACScriptError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPACScriptError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -591,7 +595,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = class {
         // Try Method 1: OnRequestMaybeFailedDueToProxySettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestMaybeFailedDueToProxySettings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

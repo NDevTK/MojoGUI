@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.audio.mojom.MlModelManager = {};
+mojo.internal.bindings.audio.mojom.MlModelManagerSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.MlModelManager.$interfaceName = 'audio.mojom.MlModelManager';
 mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = { $: {} };
@@ -126,7 +128,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerRemote = class {
 mojo.internal.bindings.audio.mojom.MlModelManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MlModelManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.MlModelManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -167,7 +169,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MlModelManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.MlModelManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -212,7 +214,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = class {
         // Try Method 0: SetResidualEchoEstimationModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetResidualEchoEstimationModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -223,7 +225,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = class {
         // Try Method 1: StopServingResidualEchoEstimationModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopServingResidualEchoEstimationModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

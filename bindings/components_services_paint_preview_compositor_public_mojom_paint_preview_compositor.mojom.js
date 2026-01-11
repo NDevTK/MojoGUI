@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,6 +85,7 @@ mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.FrameDataSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec = { $ : {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositor';
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = { $: {} };
@@ -95,6 +97,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainF
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec = { $ : {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositorCollection';
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = { $: {} };
@@ -257,7 +260,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemote = class 
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaintPreviewCompositor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -328,7 +331,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaintPreviewCompositor', [
+    const ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -376,7 +379,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
         // Try Method 0: BeginSeparatedFrameComposite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginSeparatedFrameComposite (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -387,7 +390,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
         // Try Method 1: BitmapForSeparatedFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BitmapForSeparatedFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -398,7 +401,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
         // Try Method 2: BeginMainFrameComposite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginMainFrameComposite (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -409,7 +412,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
         // Try Method 3: BitmapForMainFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BitmapForMainFrame (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -420,7 +423,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
         // Try Method 4: SetRootFrameUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRootFrameUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -525,7 +528,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_Params', [
-      mojo.internal.StructField('arg_compositor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -585,7 +588,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaintPreviewCompositorCollection', [
+    this.ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewCompositorCollection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -636,7 +639,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaintPreviewCompositorCollection', [
+    const ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewCompositorCollection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -682,7 +685,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
         // Try Method 0: SetDiscardableSharedMemoryManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDiscardableSharedMemoryManager (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -693,7 +696,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
         // Try Method 1: CreateCompositor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -704,7 +707,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
         // Try Method 2: ListCompositors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListCompositors (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

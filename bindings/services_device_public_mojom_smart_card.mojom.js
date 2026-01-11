@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -93,10 +94,12 @@ mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardStatusSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardTransaction = {};
+mojo.internal.bindings.device.mojom.SmartCardTransactionSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SmartCardTransaction.$interfaceName = 'device.mojom.SmartCardTransaction';
 mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardConnection = {};
+mojo.internal.bindings.device.mojom.SmartCardConnectionSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SmartCardConnection.$interfaceName = 'device.mojom.SmartCardConnection';
 mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = { $: {} };
@@ -113,9 +116,11 @@ mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpe
 mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher = {};
+mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher.$interfaceName = 'device.mojom.SmartCardConnectionWatcher';
 mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardContext = {};
+mojo.internal.bindings.device.mojom.SmartCardContextSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SmartCardContext.$interfaceName = 'device.mojom.SmartCardContext';
 mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = { $: {} };
@@ -126,6 +131,7 @@ mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec =
 mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardContextFactory = {};
+mojo.internal.bindings.device.mojom.SmartCardContextFactorySpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SmartCardContextFactory.$interfaceName = 'device.mojom.SmartCardContextFactory';
 mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = { $: {} };
@@ -254,7 +260,7 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, 'device.mojom.SmartCardCreateContextResult', {
       'arg_context': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardContextSpec),
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardContextRemote),
         'nullable': false,
       },
       'arg_error': {
@@ -314,7 +320,7 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, 'device.mojom.SmartCardTransactionResult', {
       'arg_transaction': {
         'ordinal': 0,
-        'type': mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardTransactionSpec),
+        'type': mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardTransactionRemote),
         'nullable': false,
       },
       'arg_error': {
@@ -382,7 +388,7 @@ mojo.internal.Struct(
 // Struct: SmartCardConnectSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec, 'device.mojom.SmartCardConnectSuccess', [
-      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_active_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -433,7 +439,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionRemote = class {
 mojo.internal.bindings.device.mojom.SmartCardTransactionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmartCardTransaction', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardTransaction', [
       { explicit: null },
     ]);
   }
@@ -464,7 +470,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmartCardTransaction', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardTransaction', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -508,7 +514,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionReceiver = class {
         // Try Method 0: EndTransaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndTransaction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -689,7 +695,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemote = class {
 mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmartCardConnection', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardConnection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -780,7 +786,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmartCardConnection', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardConnection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -830,7 +836,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 0: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -841,7 +847,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 1: Transmit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Transmit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -852,7 +858,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 2: Control
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Control (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -863,7 +869,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 3: GetAttrib
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAttrib (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -874,7 +880,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 4: SetAttrib
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAttrib (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -885,7 +891,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 5: Status
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Status (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -896,7 +902,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
         // Try Method 6: BeginTransaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginTransaction (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1069,7 +1075,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote = class {
 mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmartCardConnectionWatcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardConnectionWatcher', [
       { explicit: null },
     ]);
   }
@@ -1100,7 +1106,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmartCardConnectionWatcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardConnectionWatcher', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1144,7 +1150,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherReceiver = class {
         // Try Method 0: NotifyConnectionUsed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyConnectionUsed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1221,7 +1227,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_share_mode', 8, 0, mojo.internal.bindings.device.mojom.SmartCardShareModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_preferred_protocols', 16, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1273,7 +1279,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemote = class {
 mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmartCardContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1334,7 +1340,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmartCardContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1381,7 +1387,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
         // Try Method 0: ListReaders
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListReaders (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1392,7 +1398,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
         // Try Method 1: GetStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatusChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1403,7 +1409,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
         // Try Method 2: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1414,7 +1420,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
         // Try Method 3: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1548,7 +1554,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryRemote = class {
 mojo.internal.bindings.device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmartCardContextFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardContextFactory', [
       { explicit: null },
     ]);
   }
@@ -1579,7 +1585,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmartCardContextFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SmartCardContextFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1623,7 +1629,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = class {
         // Try Method 0: CreateContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

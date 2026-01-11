@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,14 +88,17 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec 
 mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient.$interfaceName = 'auction_worklet.mojom.GenerateBidClient';
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer.$interfaceName = 'auction_worklet.mojom.GenerateBidFinalizer';
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.BidderWorklet = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.BidderWorklet.$interfaceName = 'auction_worklet.mojom.BidderWorklet';
 mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec = { $: {} };
@@ -287,7 +291,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemote = class {
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GenerateBidClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.GenerateBidClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -328,7 +332,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GenerateBidClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.GenerateBidClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -373,7 +377,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientReceiver = class {
         // Try Method 0: OnBiddingSignalsReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBiddingSignalsReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -384,7 +388,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientReceiver = class {
         // Try Method 1: OnGenerateBidComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGenerateBidComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -482,7 +486,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerRemote = class 
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GenerateBidFinalizer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.GenerateBidFinalizer', [
       { explicit: null },
     ]);
   }
@@ -513,7 +517,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GenerateBidFinalizer', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.GenerateBidFinalizer', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -557,7 +561,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerReceiver = clas
         // Try Method 0: FinishGenerateBid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishGenerateBid (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -610,8 +614,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_requested_ad_size', 88, 0, mojo.internal.bindings.blink.mojom.AdSizeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_group_by_origin_id', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_generate_bid_client', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_bid_finalizer', 120, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_generate_bid_client', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bid_finalizer', 120, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_multi_bid_limit', 128, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_browser_signal_for_debugging_only_sampling', 130, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -720,7 +724,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemote = class {
 mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BidderWorklet', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.BidderWorklet', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -781,7 +785,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BidderWorklet', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.BidderWorklet', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -828,7 +832,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
         // Try Method 0: BeginGenerateBid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginGenerateBid (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -839,7 +843,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
         // Try Method 1: SendPendingSignalsRequests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPendingSignalsRequests (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -850,7 +854,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
         // Try Method 2: ReportWin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportWin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -861,7 +865,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
         // Try Method 3: ConnectDevToolsAgent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDevToolsAgent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

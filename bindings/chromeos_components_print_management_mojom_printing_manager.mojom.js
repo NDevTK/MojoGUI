@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,10 +84,12 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.CompletedPrintJo
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver = {};
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver.$interfaceName = 'chromeos.printing.printing_manager.mojom.PrintJobsObserver';
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider = {};
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProviderSpec = { $ : {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.$interfaceName = 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider';
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec = { $: {} };
@@ -101,6 +104,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler = {};
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandlerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler.$interfaceName = 'chromeos.printing.printing_manager.mojom.PrintManagementHandler';
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec = { $: {} };
@@ -220,7 +224,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintJobsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintJobsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -261,7 +265,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintJobsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintJobsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -306,7 +310,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
         // Try Method 0: OnAllPrintJobsDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAllPrintJobsDeleted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +321,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
         // Try Method 1: OnPrintJobUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintJobUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -363,7 +367,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
 // Interface: PrintingMetadataProvider
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -477,7 +481,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintingMetadataProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintingMetadataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -558,7 +562,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintingMetadataProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintingMetadataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -607,7 +611,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 0: ObservePrintJobs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePrintJobs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -618,7 +622,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 1: GetPrintJobs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrintJobs (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -629,7 +633,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 2: DeleteAllPrintJobs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllPrintJobs (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -640,7 +644,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 3: CancelPrintJob
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPrintJob (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -651,7 +655,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 4: GetDeletePrintJobHistoryAllowedByPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeletePrintJobHistoryAllowedByPolicy (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -662,7 +666,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
         // Try Method 5: GetPrintJobHistoryExpirationPeriod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrintJobHistoryExpirationPeriod (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -830,7 +834,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintManagementHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintManagementHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -871,7 +875,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintManagementHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.printing.printing_manager.mojom.PrintManagementHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -916,7 +920,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
         // Try Method 0: LaunchPrinterSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchPrinterSettings (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -927,7 +931,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
         // Try Method 1: RecordGetPrintJobsRequestDuration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordGetPrintJobsRequestDuration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

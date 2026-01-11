@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec = { $: mojo.internal.E
 mojo.internal.bindings.feed_internals.mojom.PropertiesSpec = { $: {} };
 mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec = { $: {} };
 mojo.internal.bindings.feed_internals.mojom.PageHandler = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.feed_internals.mojom.PageHandler.$interfaceName = 'feed_internals.mojom.PageHandler';
 mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = { $: {} };
 mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = { $: {} };
@@ -297,7 +299,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('feed_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -448,7 +450,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('feed_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -504,7 +506,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetGeneralProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGeneralProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -515,7 +517,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetLastFetchProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLastFetchProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -526,7 +528,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 2: RefreshForYouFeed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshForYouFeed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -537,7 +539,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 3: RefreshFollowingFeed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshFollowingFeed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -548,7 +550,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 4: RefreshWebFeedSuggestions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWebFeedSuggestions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -559,7 +561,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 5: GetFeedProcessScopeDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedProcessScopeDump (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -570,7 +572,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 6: GetFeedHistograms
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedHistograms (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -581,7 +583,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 7: OverrideFeedHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideFeedHost (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -592,7 +594,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 8: OverrideDiscoverApiEndpoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideDiscoverApiEndpoint (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -603,7 +605,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 9: OverrideFeedStreamData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OverrideFeedStreamData (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -614,7 +616,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 10: SetWebFeedFollowIntroDebugEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebFeedFollowIntroDebugEnabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -625,7 +627,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 11: SetUseFeedQueryRequests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseFeedQueryRequests (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -636,7 +638,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
         // Try Method 12: SetFollowingFeedOrder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFollowingFeedOrder (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

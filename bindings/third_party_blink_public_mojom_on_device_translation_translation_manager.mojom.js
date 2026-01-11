@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient = {};
+mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient.$interfaceName = 'blink.mojom.TranslationManagerCreateTranslatorClient';
 mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslationManager = {};
+mojo.internal.bindings.blink.mojom.TranslationManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.TranslationManager.$interfaceName = 'blink.mojom.TranslationManager';
 mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = { $: {} };
@@ -186,7 +189,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRemot
 mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TranslationManagerCreateTranslatorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TranslationManagerCreateTranslatorClient', [
       { explicit: null },
     ]);
   }
@@ -217,7 +220,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TranslationManagerCreateTranslatorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TranslationManagerCreateTranslatorClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -261,7 +264,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRecei
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +303,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientReque
 // Interface: TranslationManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec, 'blink.mojom.TranslationManager_CreateTranslator_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -354,7 +357,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerRemote = class {
 mojo.internal.bindings.blink.mojom.TranslationManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TranslationManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TranslationManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -395,7 +398,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TranslationManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TranslationManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -440,7 +443,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerReceiver = class {
         // Try Method 0: CreateTranslator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTranslator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -451,7 +454,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerReceiver = class {
         // Try Method 1: TranslationAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TranslationAvailable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

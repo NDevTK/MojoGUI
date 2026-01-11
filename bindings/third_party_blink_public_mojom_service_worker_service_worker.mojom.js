@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec = { $: mojo.interna
 mojo.internal.bindings.blink.mojom.FocusResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ExtendableMessageEventSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost.$interfaceName = 'blink.mojom.ServiceWorkerHost';
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = { $: {} };
@@ -103,6 +105,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParams
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorker = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorker.$interfaceName = 'blink.mojom.ServiceWorker';
 mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = { $: {} };
@@ -397,7 +400,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemote = class {
 mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -538,7 +541,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -593,7 +596,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 0: SetCachedMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCachedMetadata (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -604,7 +607,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 1: ClearCachedMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCachedMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -615,7 +618,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 2: GetClients
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClients (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -626,7 +629,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 3: GetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClient (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -637,7 +640,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 4: OpenNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNewTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -648,7 +651,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 5: OpenPaymentHandlerWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPaymentHandlerWindow (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -659,7 +662,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 6: PostMessageToClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessageToClient (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -670,7 +673,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 7: FocusClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusClient (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -681,7 +684,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 8: NavigateClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NavigateClient (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -692,7 +695,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 9: SkipWaiting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SkipWaiting (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -703,7 +706,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 10: ClaimClients
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClaimClients (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -714,7 +717,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
         // Try Method 11: AddRoutes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRoutes (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -902,7 +905,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRequest = mojo.internal.bind
 // Interface: ServiceWorker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec, 'blink.mojom.ServiceWorker_InitializeGlobalScope_Params', [
-      mojo.internal.StructField('arg_service_worker_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_associated_interfaces_to_browser', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_registration_info', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec.$, null, false, 0, undefined),
@@ -1322,7 +1325,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemote = class {
 mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorker', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1613,7 +1616,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorker', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorker', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1683,7 +1686,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 0: InitializeGlobalScope
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeGlobalScope (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1694,7 +1697,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 1: DispatchInstallEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchInstallEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1705,7 +1708,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 2: DispatchActivateEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchActivateEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1716,7 +1719,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 3: DispatchBackgroundFetchAbortEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchAbortEvent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1727,7 +1730,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 4: DispatchBackgroundFetchClickEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchClickEvent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1738,7 +1741,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 5: DispatchBackgroundFetchFailEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchFailEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1749,7 +1752,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 6: DispatchBackgroundFetchSuccessEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchSuccessEvent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1760,7 +1763,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 7: DispatchCookieChangeEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchCookieChangeEvent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1771,7 +1774,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 8: DispatchFetchEventForMainResource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchFetchEventForMainResource (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1782,7 +1785,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 9: DispatchNotificationClickEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchNotificationClickEvent (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1793,7 +1796,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 10: DispatchNotificationCloseEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchNotificationCloseEvent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1804,7 +1807,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 11: DispatchPushEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushEvent (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1815,7 +1818,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 12: DispatchPushEventRecordingNetworkRequests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushEventRecordingNetworkRequests (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1826,7 +1829,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 13: DispatchPushSubscriptionChangeEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushSubscriptionChangeEvent (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1837,7 +1840,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 14: DispatchSyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchSyncEvent (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1848,7 +1851,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 15: DispatchPeriodicSyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPeriodicSyncEvent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1859,7 +1862,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 16: DispatchAbortPaymentEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAbortPaymentEvent (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1870,7 +1873,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 17: DispatchCanMakePaymentEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchCanMakePaymentEvent (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1881,7 +1884,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 18: DispatchPaymentRequestEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPaymentRequestEvent (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1892,7 +1895,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 19: DispatchExtendableMessageEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchExtendableMessageEvent (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1903,7 +1906,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 20: DispatchContentDeleteEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchContentDeleteEvent (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1914,7 +1917,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 21: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1925,7 +1928,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 22: SetIdleDelay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIdleDelay (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1936,7 +1939,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 23: AddKeepAlive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddKeepAlive (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1947,7 +1950,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 24: ClearKeepAlive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearKeepAlive (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1958,7 +1961,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 25: AddMessageToConsole
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMessageToConsole (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1969,7 +1972,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
         // Try Method 26: ExecuteScriptForTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteScriptForTest (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;

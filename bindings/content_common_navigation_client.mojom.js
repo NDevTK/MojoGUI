@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,11 +79,13 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.CookieManagerInfoSpec = { $: {} };
 mojo.internal.bindings.content.mojom.StorageInfoSpec = { $: {} };
 mojo.internal.bindings.content.mojom.NavigationClient = {};
+mojo.internal.bindings.content.mojom.NavigationClientSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.NavigationClient.$interfaceName = 'content.mojom.NavigationClient';
 mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = { $: {} };
@@ -106,6 +109,12 @@ mojo.internal.bindings.content.mojom.NavigationClientDisconnectReason = {
   kResetForDuplicateNavigation: 4,
 };
 
+// Struct: PageState
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
+    ],
+    [[0, 8]]);
+
 // Struct: DidCommitProvisionalLoadParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, 'content.mojom.DidCommitProvisionalLoadParams', [
@@ -118,8 +127,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_contents_mime_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_post_id', 64, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_page_state', 72, 0, mojo.internal.bindings.blink.mojom.PageStateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_state', 80, 0, mojo.internal.bindings.blink.mojom.PageStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_page_state', 72, 0, mojo.internal.bindings.content.mojom.PageStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_state', 80, 0, mojo.internal.bindings.content.mojom.PageStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin', 88, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_initiator_base_url', 96, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_permissions_policy_header', 104, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
@@ -267,7 +276,7 @@ mojo.internal.bindings.content.mojom.NavigationClientRemote = class {
 mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NavigationClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.NavigationClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -308,7 +317,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NavigationClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.NavigationClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -353,7 +362,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
         // Try Method 0: CommitNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitNavigation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +373,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
         // Try Method 1: CommitFailedNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitFailedNavigation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

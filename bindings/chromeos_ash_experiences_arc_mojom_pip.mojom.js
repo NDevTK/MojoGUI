@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.PipHost = {};
+mojo.internal.bindings.arc.mojom.PipHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PipHost.$interfaceName = 'arc.mojom.PipHost';
 mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PipInstance = {};
+mojo.internal.bindings.arc.mojom.PipInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PipInstance.$interfaceName = 'arc.mojom.PipInstance';
 mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec = { $: {} };
@@ -127,7 +130,7 @@ mojo.internal.bindings.arc.mojom.PipHostRemote = class {
 mojo.internal.bindings.arc.mojom.PipHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PipHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PipHost', [
       { explicit: 0 },
     ]);
   }
@@ -158,7 +161,7 @@ mojo.internal.bindings.arc.mojom.PipHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PipHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PipHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -202,7 +205,7 @@ mojo.internal.bindings.arc.mojom.PipHostReceiver = class {
         // Try Method 0: OnPipEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +244,7 @@ mojo.internal.bindings.arc.mojom.PipHostRequest = mojo.internal.bindings.arc.moj
 // Interface: PipInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec, 'arc.mojom.PipInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PipHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PipHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -300,7 +303,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PipInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PipInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -351,7 +354,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PipInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PipInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -397,7 +400,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -408,7 +411,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
         // Try Method 1: ClosePip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePip (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -419,7 +422,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
         // Try Method 2: SetPipSuppressionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPipSuppressionStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

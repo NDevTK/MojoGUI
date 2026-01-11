@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzStructSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface = {};
+mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec = { $ : {} };
 mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface.$interfaceName = 'fuzz.mojom.FuzzDummyInterface';
 mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzInterface = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec = { $ : {} };
 mojo.internal.bindings.fuzz.mojom.FuzzInterface.$interfaceName = 'fuzz.mojom.FuzzInterface';
 mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = { $: {} };
@@ -277,7 +280,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceRemote = class {
 mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FuzzDummyInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('fuzz.mojom.FuzzDummyInterface', [
       { explicit: null },
     ]);
   }
@@ -308,7 +311,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FuzzDummyInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('fuzz.mojom.FuzzDummyInterface', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -352,7 +355,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceReceiver = class {
         // Try Method 0: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -447,7 +450,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzAssociated_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -502,7 +505,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemote = class {
 mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FuzzInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('fuzz.mojom.FuzzInterface', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -593,7 +596,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FuzzInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('fuzz.mojom.FuzzInterface', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -643,7 +646,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 0: FuzzBasic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasic (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -654,7 +657,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 1: FuzzBasicResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasicResp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -665,7 +668,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 2: FuzzBasicSyncResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzBasicSyncResp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -676,7 +679,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 3: FuzzArgs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -687,7 +690,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 4: FuzzArgsResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgsResp (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -698,7 +701,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 5: FuzzArgsSyncResp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzArgsSyncResp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -709,7 +712,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
         // Try Method 6: FuzzAssociated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FuzzAssociated (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

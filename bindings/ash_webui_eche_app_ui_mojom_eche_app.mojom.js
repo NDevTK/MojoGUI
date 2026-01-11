@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,30 +81,36 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionSpec = { $: mojo.internal.
 mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.eche_app.mojom.AppStreamLaunchEntryPointSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger = {};
+mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger.$interfaceName = 'ash.eche_app.mojom.SignalingMessageExchanger';
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver.$interfaceName = 'ash.eche_app.mojom.SignalingMessageObserver';
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider = {};
+mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider.$interfaceName = 'ash.eche_app.mojom.SystemInfoProvider';
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver.$interfaceName = 'ash.eche_app.mojom.SystemInfoObserver';
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider = {};
+mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider.$interfaceName = 'ash.eche_app.mojom.AccessibilityProvider';
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver.$interfaceName = 'ash.eche_app.mojom.AccessibilityObserver';
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = { $: {} };
@@ -112,32 +119,40 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_Re
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.UidGenerator = {};
+mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.UidGenerator.$interfaceName = 'ash.eche_app.mojom.UidGenerator';
 mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator = {};
+mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator.$interfaceName = 'ash.eche_app.mojom.NotificationGenerator';
 mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler = {};
+mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler.$interfaceName = 'ash.eche_app.mojom.DisplayStreamHandler';
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver.$interfaceName = 'ash.eche_app.mojom.StreamActionObserver';
 mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver.$interfaceName = 'ash.eche_app.mojom.StreamOrientationObserver';
 mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver.$interfaceName = 'ash.eche_app.mojom.ConnectionStatusObserver';
 mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler = {};
+mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler.$interfaceName = 'ash.eche_app.mojom.KeyboardLayoutHandler';
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver = {};
+mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver.$interfaceName = 'ash.eche_app.mojom.KeyboardLayoutObserver';
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = { $: {} };
 
@@ -204,7 +219,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -252,7 +267,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemote = clas
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SignalingMessageExchanger', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SignalingMessageExchanger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -303,7 +318,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SignalingMessageExchanger', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SignalingMessageExchanger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -349,7 +364,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerReceiver = cl
         // Try Method 0: SendSignalingMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendSignalingMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -360,7 +375,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerReceiver = cl
         // Try Method 1: SetSignalingMessageObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSignalingMessageObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -371,7 +386,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerReceiver = cl
         // Try Method 2: TearDownSignaling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TearDownSignaling (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -461,7 +476,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverRemote = class
 mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SignalingMessageObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SignalingMessageObserver', [
       { explicit: null },
     ]);
   }
@@ -492,7 +507,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SignalingMessageObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SignalingMessageObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -536,7 +551,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverReceiver = cla
         // Try Method 0: OnReceivedSignalingMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedSignalingMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -586,7 +601,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec, 'ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -626,7 +641,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemInfoProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SystemInfoProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -667,7 +682,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemInfoProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SystemInfoProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -712,7 +727,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
         // Try Method 0: GetSystemInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -723,7 +738,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
         // Try Method 1: SetSystemInfoObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemInfoObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -833,7 +848,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemInfoObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SystemInfoObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -884,7 +899,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemInfoObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.SystemInfoObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -930,7 +945,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverReceiver = class {
         // Try Method 0: OnScreenBacklightStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenBacklightStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -941,7 +956,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverReceiver = class {
         // Try Method 1: OnReceivedTabletModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedTabletModeChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -952,7 +967,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverReceiver = class {
         // Try Method 2: OnAndroidDeviceNetworkInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAndroidDeviceNetworkInfoChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1011,7 +1026,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1065,7 +1080,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessibilityProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.AccessibilityProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1116,7 +1131,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessibilityProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.AccessibilityProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1162,7 +1177,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
         // Try Method 0: HandleAccessibilityEventReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAccessibilityEventReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1173,7 +1188,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
         // Try Method 1: SetAccessibilityObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccessibilityObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1184,7 +1199,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
         // Try Method 2: IsAccessibilityEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAccessibilityEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1321,7 +1336,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessibilityObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.AccessibilityObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1382,7 +1397,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessibilityObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.AccessibilityObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1429,7 +1444,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
         // Try Method 0: EnableAccessibilityTreeStreaming
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAccessibilityTreeStreaming (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1440,7 +1455,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
         // Try Method 1: EnableExploreByTouch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableExploreByTouch (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1451,7 +1466,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
         // Try Method 2: PerformAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1462,7 +1477,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
         // Try Method 3: RefreshWithExtraData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWithExtraData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1580,7 +1595,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UidGenerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.UidGenerator', [
       { explicit: null },
     ]);
   }
@@ -1611,7 +1626,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UidGenerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.UidGenerator', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1655,7 +1670,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorReceiver = class {
         // Try Method 0: GetUid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUid (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1750,7 +1765,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NotificationGenerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.NotificationGenerator', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1791,7 +1806,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NotificationGenerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.NotificationGenerator', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1836,7 +1851,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorReceiver = class 
         // Try Method 0: ShowNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowNotification (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1847,7 +1862,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorReceiver = class 
         // Try Method 1: ShowToast
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowToast (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1904,7 +1919,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1947,7 +1962,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplayStreamHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.DisplayStreamHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1998,7 +2013,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplayStreamHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.DisplayStreamHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2044,7 +2059,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
         // Try Method 0: StartStreaming
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartStreaming (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2055,7 +2070,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
         // Try Method 1: OnStreamStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreamStatusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2066,7 +2081,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
         // Try Method 2: SetStreamActionObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStreamActionObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2156,7 +2171,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StreamActionObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.StreamActionObserver', [
       { explicit: null },
     ]);
   }
@@ -2187,7 +2202,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StreamActionObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.StreamActionObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2231,7 +2246,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverReceiver = class {
         // Try Method 0: OnStreamAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreamAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2307,7 +2322,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverRemote = clas
 mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StreamOrientationObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.StreamOrientationObserver', [
       { explicit: null },
     ]);
   }
@@ -2338,7 +2353,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StreamOrientationObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.StreamOrientationObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2382,7 +2397,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverReceiver = cl
         // Try Method 0: OnStreamOrientationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreamOrientationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2458,7 +2473,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverRemote = class
 mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ConnectionStatusObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.ConnectionStatusObserver', [
       { explicit: null },
     ]);
   }
@@ -2489,7 +2504,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ConnectionStatusObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.ConnectionStatusObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2533,7 +2548,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverReceiver = cla
         // Try Method 0: OnConnectionStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2577,7 +2592,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec, 'ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2617,7 +2632,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardLayoutHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.KeyboardLayoutHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -2658,7 +2673,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardLayoutHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.KeyboardLayoutHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -2703,7 +2718,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class 
         // Try Method 0: RequestCurrentKeyboardLayout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCurrentKeyboardLayout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2714,7 +2729,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class 
         // Try Method 1: SetKeyboardLayoutObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardLayoutObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2800,7 +2815,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverRemote = class {
 mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardLayoutObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.KeyboardLayoutObserver', [
       { explicit: null },
     ]);
   }
@@ -2831,7 +2846,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardLayoutObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.eche_app.mojom.KeyboardLayoutObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2875,7 +2890,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class
         // Try Method 0: OnKeyboardLayoutChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardLayoutChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

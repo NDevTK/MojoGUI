@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.chromecast.media.mojom = mojo.internal.bindings.chromecas
 
 mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec = { $: {} };
 mojo.internal.bindings.chromecast.media.mojom.MediaCaps = {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec = { $ : {} };
 mojo.internal.bindings.chromecast.media.mojom.MediaCaps.$interfaceName = 'chromecast.media.mojom.MediaCaps';
 mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver = {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver.$interfaceName = 'chromecast.media.mojom.MediaCapsObserver';
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = { $: {} };
 
@@ -92,7 +95,7 @@ mojo.internal.Struct(
 // Interface: MediaCaps
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec, 'chromecast.media.mojom.MediaCaps_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -129,7 +132,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsRemote = class {
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaCaps', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.MediaCaps', [
       { explicit: null },
     ]);
   }
@@ -160,7 +163,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaCaps', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.MediaCaps', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -204,7 +207,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsReceiver = class {
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -280,7 +283,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemote = class {
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaCapsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.MediaCapsObserver', [
       { explicit: null },
     ]);
   }
@@ -311,7 +314,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaCapsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.MediaCapsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -355,7 +358,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverReceiver = class 
         // Try Method 0: AddSupportedCodecProfileLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSupportedCodecProfileLevel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

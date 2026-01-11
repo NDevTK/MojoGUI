@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildMemoryConsumer = {};
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.ChildMemoryConsumer.$interfaceName = 'content.mojom.ChildMemoryConsumer';
 mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry = {};
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec = { $ : {} };
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
 
@@ -144,7 +147,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote = class {
 mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildMemoryConsumer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildMemoryConsumer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -185,7 +188,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildMemoryConsumer', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildMemoryConsumer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -230,7 +233,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = class {
         // Try Method 0: NotifyReleaseMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyReleaseMemory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +244,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = class {
         // Try Method 1: NotifyUpdateMemoryLimit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUpdateMemoryLimit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -289,7 +292,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
       mojo.internal.StructField('arg_consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -326,7 +329,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemote = class
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BrowserMemoryConsumerRegistry', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.BrowserMemoryConsumerRegistry', [
       { explicit: null },
     ]);
   }
@@ -357,7 +360,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BrowserMemoryConsumerRegistry', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.BrowserMemoryConsumerRegistry', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -401,7 +404,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = cla
         // Try Method 0: RegisterChildMemoryConsumer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterChildMemoryConsumer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

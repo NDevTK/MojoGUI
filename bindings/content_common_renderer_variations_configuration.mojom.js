@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.variations = mojo.internal.bindings.variations || {};
 
 mojo.internal.bindings.content.mojom.RendererVariationsConfiguration = {};
+mojo.internal.bindings.content.mojom.RendererVariationsConfigurationSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.RendererVariationsConfiguration.$interfaceName = 'content.mojom.RendererVariationsConfiguration';
 mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = { $: {} };
@@ -127,7 +129,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemote = cla
 mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererVariationsConfiguration', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.RendererVariationsConfiguration', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -168,7 +170,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererVariationsConfiguration', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.RendererVariationsConfiguration', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -213,7 +215,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = c
         // Try Method 0: SetVariationsHeaders
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVariationsHeaders (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -224,7 +226,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = c
         // Try Method 1: SetFieldTrialGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFieldTrialGroup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

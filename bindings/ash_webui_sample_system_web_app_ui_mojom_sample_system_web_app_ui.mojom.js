@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,15 +75,18 @@ mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.s
 
 mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory.$interfaceName = 'ash.mojom.sample_swa.PageHandlerFactory';
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler.$interfaceName = 'ash.mojom.sample_swa.PageHandler';
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.Page = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.sample_swa.Page.$interfaceName = 'ash.mojom.sample_swa.Page';
 mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = { $: {} };
@@ -98,8 +102,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -136,7 +140,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -167,7 +171,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -211,7 +215,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -309,7 +313,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemote = class {
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -360,7 +364,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -406,7 +410,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
         // Try Method 0: GetPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPreferences (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -417,7 +421,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
         // Try Method 1: Send
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -428,7 +432,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
         // Try Method 2: DoSomething
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomething (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -536,7 +540,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageRemote = class {
 mojo.internal.bindings.ash.mojom.sample_swa.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -577,7 +581,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -622,7 +626,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = class {
         // Try Method 0: OnEventOccurred
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEventOccurred (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -633,7 +637,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = class {
         // Try Method 1: CreateParentPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateParentPage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

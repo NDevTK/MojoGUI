@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DevToolsObserver = {};
+mojo.internal.bindings.network.mojom.DevToolsObserverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DevToolsObserver.$interfaceName = 'network.mojom.DevToolsObserver';
 mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = { $: {} };
@@ -256,7 +258,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec, 'network.mojom.DevToolsObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DevToolsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DevToolsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -332,7 +334,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemote = class {
 mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DevToolsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,7 +495,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevToolsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DevToolsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -550,7 +552,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 0: OnRawRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRawRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -561,7 +563,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 1: OnRawResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRawResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -572,7 +574,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 2: OnEarlyHintsResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEarlyHintsResponse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -583,7 +585,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 3: OnPrivateNetworkRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrivateNetworkRequest (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -594,7 +596,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 4: OnCorsPreflightRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightRequest (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -605,7 +607,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 5: OnCorsPreflightResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightResponse (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -616,7 +618,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 6: OnCorsPreflightRequestCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsPreflightRequestCompleted (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -627,7 +629,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 7: OnTrustTokenOperationDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrustTokenOperationDone (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -638,7 +640,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 8: OnCorsError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCorsError (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -649,7 +651,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 9: OnOrbError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOrbError (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -660,7 +662,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 10: OnSharedDictionaryError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedDictionaryError (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -671,7 +673,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 11: OnSRIMessageSignatureIssue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSRIMessageSignatureIssue (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -682,7 +684,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 12: OnUnencodedDigestError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnencodedDigestError (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -693,7 +695,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
         // Try Method 13: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

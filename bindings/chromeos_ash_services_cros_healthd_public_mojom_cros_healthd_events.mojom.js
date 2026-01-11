@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -113,6 +114,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec = { $: {}
 mojo.internal.bindings.ash.cros_healthd.mojom.CrashUploadInfoSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = { $: {} };
@@ -121,34 +123,41 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDev
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver.$interfaceName = 'ash.cros_healthd.mojom.EventObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec = { $: {} };
 
@@ -703,7 +712,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdBluetoothObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdBluetoothObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -784,7 +793,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdBluetoothObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdBluetoothObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -833,7 +842,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 0: OnAdapterAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -844,7 +853,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 1: OnAdapterRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -855,7 +864,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 2: OnAdapterPropertyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterPropertyChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -866,7 +875,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 3: OnDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -877,7 +886,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 4: OnDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -888,7 +897,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         // Try Method 5: OnDevicePropertyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicePropertyChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1006,7 +1015,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = cla
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdLidObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdLidObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1047,7 +1056,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdLidObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdLidObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1092,7 +1101,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = c
         // Try Method 0: OnLidClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1103,7 +1112,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = c
         // Try Method 1: OnLidOpened
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidOpened (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1209,7 +1218,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = c
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdPowerObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdPowerObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1270,7 +1279,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdPowerObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdPowerObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1317,7 +1326,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
         // Try Method 0: OnAcInserted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcInserted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1328,7 +1337,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
         // Try Method 1: OnAcRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1339,7 +1348,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
         // Try Method 2: OnOsSuspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsSuspend (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1350,7 +1359,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
         // Try Method 3: OnOsResume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsResume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1454,7 +1463,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = c
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdAudioObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdAudioObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1495,7 +1504,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdAudioObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdAudioObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1540,7 +1549,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver =
         // Try Method 0: OnUnderrun
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnderrun (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1551,7 +1560,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver =
         // Try Method 1: OnSevereUnderrun
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSevereUnderrun (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1657,7 +1666,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemo
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdThunderboltObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdThunderboltObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1718,7 +1727,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdThunderboltObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdThunderboltObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1765,7 +1774,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1776,7 +1785,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1787,7 +1796,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
         // Try Method 2: OnAuthorized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthorized (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1798,7 +1807,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
         // Try Method 3: OnUnAuthorized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnAuthorized (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1904,7 +1913,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = cla
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdUsbObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdUsbObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1945,7 +1954,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdUsbObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdUsbObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1990,7 +1999,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = c
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2001,7 +2010,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = c
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2091,7 +2100,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = 
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdSdCardObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdSdCardObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -2132,7 +2141,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdSdCardObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdSdCardObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -2177,7 +2186,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver 
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2188,7 +2197,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver 
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2271,7 +2280,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote = class {
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EventObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.EventObserver', [
       { explicit: 0 },
     ]);
   }
@@ -2302,7 +2311,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EventObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.EventObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2346,7 +2355,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = class {
         // Try Method 0: OnEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

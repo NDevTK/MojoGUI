@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
+mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerSpec = { $ : {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler.$interfaceName = 'commerce.product_specifications.mojom.ProductSpecificationsHandler';
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = { $: {} };
@@ -91,12 +93,14 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.Page = {};
+mojo.internal.bindings.commerce.product_specifications.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.Page.$interfaceName = 'commerce.product_specifications.mojom.Page';
 mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory = {};
+mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.$interfaceName = 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory';
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = { $: {} };
 
@@ -244,7 +248,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProductSpecificationsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.ProductSpecificationsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -355,7 +359,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProductSpecificationsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.ProductSpecificationsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -407,7 +411,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 0: SetAcceptedDisclosureVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAcceptedDisclosureVersion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -418,7 +422,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 1: MaybeShowDisclosure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeShowDisclosure (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -429,7 +433,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 2: DeclineDisclosure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeclineDisclosure (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -440,7 +444,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 3: ShowSyncSetupFlow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSyncSetupFlow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -451,7 +455,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 4: GetPageTitleFromHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPageTitleFromHistory (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -462,7 +466,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 5: ShowProductSpecificationsSetForUuid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowProductSpecificationsSetForUuid (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -473,7 +477,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 6: ShowProductSpecificationsSetsForUuids
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowProductSpecificationsSetsForUuids (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -484,7 +488,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 7: ShowComparePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowComparePage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -495,7 +499,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 8: GetComparisonTableUrlForUuid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetComparisonTableUrlForUuid (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -677,7 +681,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemote = class 
 mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -738,7 +742,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -785,7 +789,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
         // Try Method 0: OnProductSpecificationsSetAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProductSpecificationsSetAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -796,7 +800,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
         // Try Method 1: OnProductSpecificationsSetUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProductSpecificationsSetUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -807,7 +811,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
         // Try Method 2: OnProductSpecificationsSetRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProductSpecificationsSetRemoved (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -818,7 +822,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
         // Try Method 3: OnSyncStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSyncStateChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -878,8 +882,8 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRequest = mojo.
 // Interface: ProductSpecificationsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.product_specifications.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.product_specifications.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -916,7 +920,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProductSpecificationsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -947,7 +951,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProductSpecificationsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -991,7 +995,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
         // Try Method 0: CreateProductSpecificationsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProductSpecificationsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

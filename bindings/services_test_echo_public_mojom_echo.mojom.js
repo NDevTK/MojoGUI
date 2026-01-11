@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.echo.mojom.EchoService = {};
+mojo.internal.bindings.echo.mojom.EchoServiceSpec = { $ : {} };
 mojo.internal.bindings.echo.mojom.EchoService.$interfaceName = 'echo.mojom.EchoService';
 mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec = { $: {} };
 mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec = { $: {} };
@@ -209,7 +211,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemote = class {
 mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EchoService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('echo.mojom.EchoService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -300,7 +302,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EchoService', [
+    const ordinals = window.mojoScrambler.getOrdinals('echo.mojom.EchoService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -350,7 +352,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 0: EchoString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoString (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,7 +363,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 1: EchoStringToSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringToSharedMemory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +374,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 2: Quit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Quit (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -383,7 +385,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 3: Crash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Crash (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -394,7 +396,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 4: DelayLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DelayLoad (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -405,7 +407,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 5: LoadNativeLibrary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadNativeLibrary (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -416,7 +418,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
         // Try Method 6: DecryptEncrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptEncrypt (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

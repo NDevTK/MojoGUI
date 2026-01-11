@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory.$interfaceName = 'certificate_manager.mojom.CertificateManagerPageHandlerFactory';
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler.$interfaceName = 'certificate_manager.mojom.CertificateManagerPageHandler';
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = { $: {} };
@@ -96,6 +99,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_D
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec = { $ : {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage.$interfaceName = 'certificate_manager.mojom.CertificateManagerPage';
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = { $: {} };
@@ -165,8 +169,8 @@ mojo.internal.Struct(
 // Interface: CertificateManagerPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -203,7 +207,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -234,7 +238,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -278,7 +282,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
         // Try Method 0: CreateCertificateManagerPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCertificateManagerPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -457,7 +461,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -568,7 +572,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -620,7 +624,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 0: GetCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCertificates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -631,7 +635,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 1: GetCertManagementMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCertManagementMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -642,7 +646,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 2: ViewCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewCertificate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -653,7 +657,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 3: ExportCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportCertificates (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -664,7 +668,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 4: ImportCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportCertificate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -675,7 +679,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 5: ImportAndBindCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportAndBindCertificate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -686,7 +690,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 6: DeleteCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteCertificate (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -697,7 +701,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 7: ShowNativeManageCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowNativeManageCertificates (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -708,7 +712,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
         // Try Method 8: SetIncludeSystemTrustStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIncludeSystemTrustStore (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -918,7 +922,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemote = 
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -979,7 +983,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertificateManagerPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1026,7 +1030,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
         // Try Method 0: AskForImportPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AskForImportPassword (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1037,7 +1041,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
         // Try Method 1: AskForConfirmation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AskForConfirmation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1048,7 +1052,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
         // Try Method 2: TriggerReload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerReload (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1059,7 +1063,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
         // Try Method 3: TriggerMetadataUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerMetadataUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

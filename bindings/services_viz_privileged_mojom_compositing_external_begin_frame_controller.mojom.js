@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController.$interfaceName = 'viz.mojom.ExternalBeginFrameController';
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = { $: {} };
@@ -80,6 +82,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBegin
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient.$interfaceName = 'viz.mojom.ExternalBeginFrameControllerClient';
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = { $: {} };
@@ -160,7 +163,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemote = class {
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExternalBeginFrameController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -221,7 +224,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExternalBeginFrameController', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -268,7 +271,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 0: IssueExternalBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +282,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 1: IssueExternalBeginFrameNoAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalBeginFrameNoAck (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -290,7 +293,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 2: IssueExternalVSync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalVSync (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -301,7 +304,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
         // Try Method 3: SetSupportedDisplayLinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportedDisplayLinkId (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -425,7 +428,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote = clas
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExternalBeginFrameControllerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameControllerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -476,7 +479,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExternalBeginFrameControllerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameControllerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -522,7 +525,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
         // Try Method 0: SetNeedsBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -533,7 +536,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
         // Try Method 1: NeedsBeginFrameWithId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NeedsBeginFrameWithId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -544,7 +547,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
         // Try Method 2: SetPreferredInterval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredInterval (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

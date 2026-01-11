@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,19 +84,23 @@ mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec = 
 mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing = {};
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing.$interfaceName = 'safe_browsing.mojom.SafeBrowsing';
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.ThreatReporter = {};
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.ThreatReporter.$interfaceName = 'safe_browsing.mojom.ThreatReporter';
 mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingDetector = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingDetector.$interfaceName = 'safe_browsing.mojom.PhishingDetector';
 mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter.$interfaceName = 'safe_browsing.mojom.PhishingModelSetter';
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = { $: {} };
@@ -104,13 +109,16 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_Param
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver.$interfaceName = 'safe_browsing.mojom.PhishingModelSetterTestObserver';
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector.$interfaceName = 'safe_browsing.mojom.PhishingImageEmbedderDetector';
 mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter = {};
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter.$interfaceName = 'safe_browsing.mojom.ExtensionWebRequestReporter';
 mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = { $: {} };
@@ -213,7 +221,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -253,7 +261,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote = class {
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SafeBrowsing', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.SafeBrowsing', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -294,7 +302,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SafeBrowsing', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.SafeBrowsing', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -339,7 +347,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
         // Try Method 0: CreateCheckerAndCheck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCheckerAndCheck (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -350,7 +358,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -446,7 +454,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemote = class {
 mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThreatReporter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.ThreatReporter', [
       { explicit: null },
     ]);
   }
@@ -477,7 +485,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThreatReporter', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.ThreatReporter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -521,7 +529,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = class {
         // Try Method 0: GetThreatDOMDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetThreatDOMDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -613,7 +621,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemote = class {
 mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PhishingDetector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingDetector', [
       { explicit: null },
     ]);
   }
@@ -644,7 +652,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PhishingDetector', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingDetector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -688,7 +696,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = class {
         // Try Method 0: StartPhishingDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPhishingDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -761,7 +769,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -815,7 +823,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote = class {
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -886,7 +894,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetter', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -934,7 +942,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 0: SetImageEmbeddingAndPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetImageEmbeddingAndPhishingFlatBufferModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -945,7 +953,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 1: AttachImageEmbeddingModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -956,7 +964,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 2: SetPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingFlatBufferModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -967,7 +975,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 3: ClearScorer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearScorer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -978,7 +986,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 4: SetTestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1089,7 +1097,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetterTestObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetterTestObserver', [
       { explicit: null },
     ]);
   }
@@ -1120,7 +1128,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetterTestObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetterTestObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1164,7 +1172,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReceiv
         // Try Method 0: PhishingModelUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PhishingModelUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1247,7 +1255,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemote =
 mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PhishingImageEmbedderDetector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingImageEmbedderDetector', [
       { explicit: null },
     ]);
   }
@@ -1278,7 +1286,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PhishingImageEmbedderDetector', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingImageEmbedderDetector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1322,7 +1330,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver
         // Try Method 0: StartImageEmbedding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartImageEmbedding (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1378,7 +1386,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1418,7 +1426,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote = c
 mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExtensionWebRequestReporter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.ExtensionWebRequestReporter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1459,7 +1467,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExtensionWebRequestReporter', [
+    const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.ExtensionWebRequestReporter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1504,7 +1512,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver =
         // Try Method 0: SendWebRequestData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendWebRequestData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1515,7 +1523,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver =
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

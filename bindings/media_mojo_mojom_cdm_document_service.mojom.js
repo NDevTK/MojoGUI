@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService = {};
+mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
 mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
@@ -208,7 +210,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote = class {
 mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmDocumentService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmDocumentService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -289,7 +291,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmDocumentService', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmDocumentService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -338,7 +340,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 0: ChallengePlatform
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChallengePlatform (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -349,7 +351,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 1: GetStorageId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStorageId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -360,7 +362,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 2: IsVerifiedAccessEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsVerifiedAccessEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -371,7 +373,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 3: GetMediaFoundationCdmData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFoundationCdmData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -382,7 +384,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 4: SetCdmClientToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdmClientToken (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -393,7 +395,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 5: OnCdmEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCdmEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

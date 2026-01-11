@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -85,12 +86,15 @@ mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec = { $: 
 mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkListObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkStateObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider.$interfaceName = 'ash.diagnostics.mojom.NetworkHealthProvider';
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = { $: {} };
@@ -259,7 +263,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkListObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkListObserver', [
       { explicit: null },
     ]);
   }
@@ -290,7 +294,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkListObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkListObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -334,7 +338,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverReceiver = class
         // Try Method 0: OnNetworkListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -410,7 +414,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRemote = class 
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkStateObserver', [
       { explicit: null },
     ]);
   }
@@ -441,7 +445,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -485,7 +489,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverReceiver = clas
         // Try Method 0: OnNetworkStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -524,13 +528,13 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRequest = mojo.
 // Interface: NetworkHealthProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec, 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec, 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -571,7 +575,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemote = class
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkHealthProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkHealthProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -612,7 +616,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkHealthProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.NetworkHealthProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -657,7 +661,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderReceiver = cla
         // Try Method 0: ObserveNetworkList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveNetworkList (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -668,7 +672,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderReceiver = cla
         // Try Method 1: ObserveNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveNetwork (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

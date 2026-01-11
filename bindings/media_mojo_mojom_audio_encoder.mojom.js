@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoder = {};
+mojo.internal.bindings.media.mojom.AudioEncoderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioEncoder.$interfaceName = 'media.mojom.AudioEncoder';
 mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec = { $:
 mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoderClient = {};
+mojo.internal.bindings.media.mojom.AudioEncoderClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioEncoderClient.$interfaceName = 'media.mojom.AudioEncoderClient';
 mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = { $: {} };
 
@@ -125,7 +128,7 @@ mojo.internal.Struct(
 // Interface: AudioEncoder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec, 'media.mojom.AudioEncoder_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioEncoderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioEncoderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -198,7 +201,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemote = class {
 mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioEncoder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioEncoder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -249,7 +252,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioEncoder', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioEncoder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -295,7 +298,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -306,7 +309,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
         // Try Method 1: Encode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Encode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -317,7 +320,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
         // Try Method 2: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -432,7 +435,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientRemote = class {
 mojo.internal.bindings.media.mojom.AudioEncoderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioEncoderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioEncoderClient', [
       { explicit: null },
     ]);
   }
@@ -463,7 +466,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioEncoderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioEncoderClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -507,7 +510,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientReceiver = class {
         // Try Method 0: OnEncodedBufferReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEncodedBufferReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

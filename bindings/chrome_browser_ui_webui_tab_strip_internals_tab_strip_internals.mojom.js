@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -100,13 +101,16 @@ mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory.$interfaceName = 'tab_strip_internals.mojom.PageHandlerFactory';
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandler = {};
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandler.$interfaceName = 'tab_strip_internals.mojom.PageHandler';
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.Page = {};
+mojo.internal.bindings.tab_strip_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.tab_strip_internals.mojom.Page.$interfaceName = 'tab_strip_internals.mojom.Page';
 mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = { $: {} };
 
@@ -365,8 +369,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tab_strip_internals.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tab_strip_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -403,7 +407,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote = clas
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -434,7 +438,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -478,7 +482,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = cl
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -559,7 +563,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
       { explicit: null },
     ]);
   }
@@ -590,7 +594,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -634,7 +638,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetTabStripData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabStripData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -718,7 +722,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageRemote = class {
 mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -749,7 +753,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -793,7 +797,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
         // Try Method 0: OnTabStripUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabStripUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

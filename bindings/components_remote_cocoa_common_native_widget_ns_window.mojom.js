@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,6 +83,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec = { $: mojo
 mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow = {};
+mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow.$interfaceName = 'remote_cocoa.mojom.NativeWidgetNSWindow';
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec = { $: {} };
@@ -716,7 +718,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NativeWidgetNSWindow', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.NativeWidgetNSWindow', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1277,7 +1279,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NativeWidgetNSWindow', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.NativeWidgetNSWindow', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1374,7 +1376,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 0: CreateWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWindow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1385,7 +1387,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 1: SetParent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1396,7 +1398,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 2: CreateSelectFileDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSelectFileDialog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1407,7 +1409,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 3: ShowCertificateViewer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowCertificateViewer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1418,7 +1420,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 4: StackAbove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StackAbove (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1429,7 +1431,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 5: StackAtTop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StackAtTop (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1440,7 +1442,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 6: ShowEmojiPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowEmojiPanel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1451,7 +1453,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 7: InitWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitWindow (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1462,7 +1464,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 8: InitCompositorView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitCompositorView (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1473,7 +1475,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 9: CreateContentView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateContentView (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1484,7 +1486,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 10: DestroyContentView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyContentView (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1495,7 +1497,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 11: CloseWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseWindow (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1506,7 +1508,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 12: CloseWindowNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseWindowNow (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1517,7 +1519,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 13: SetInitialBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialBounds (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1528,7 +1530,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 14: SetBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBounds (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1539,7 +1541,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 15: SetSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSize (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1550,7 +1552,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 16: SetSizeAndCenter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSizeAndCenter (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1561,7 +1563,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 17: SetVisibilityState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisibilityState (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1572,7 +1574,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 18: SetAnimationEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAnimationEnabled (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1583,7 +1585,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 19: SetTransitionsToAnimate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTransitionsToAnimate (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1594,7 +1596,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 20: SetVisibleOnAllSpaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisibleOnAllSpaces (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1605,7 +1607,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 21: EnterFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnterFullscreen (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1616,7 +1618,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 22: ExitFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExitFullscreen (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1627,7 +1629,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 23: SetCanAppearInExistingFullscreenSpaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanAppearInExistingFullscreenSpaces (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1638,7 +1640,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 24: SetMiniaturized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMiniaturized (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1649,7 +1651,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 25: SetZoomed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetZoomed (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1660,7 +1662,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 26: SetSizeConstraints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSizeConstraints (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1671,7 +1673,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 27: SetOpacity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOpacity (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1682,7 +1684,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 28: SetWindowLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowLevel (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1693,7 +1695,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 29: SetActivationIndependence
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActivationIndependence (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1704,7 +1706,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 30: SetAspectRatio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAspectRatio (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1715,7 +1717,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 31: SetCALayerParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCALayerParams (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1726,7 +1728,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 32: SetWindowTitle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowTitle (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1737,7 +1739,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 33: SetIgnoresMouseEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIgnoresMouseEvents (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -1748,7 +1750,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 34: MakeFirstResponder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeFirstResponder (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -1759,7 +1761,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 35: SortSubviews
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SortSubviews (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -1770,7 +1772,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 36: ClearTouchBar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTouchBar (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -1781,7 +1783,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 37: UpdateTooltip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltip (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -1792,7 +1794,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 38: AcquireCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireCapture (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -1803,7 +1805,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 39: ReleaseCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseCapture (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -1814,7 +1816,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 40: RedispatchKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RedispatchKeyEvent (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -1825,7 +1827,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 41: SetLocalEventMonitorEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalEventMonitorEnabled (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -1836,7 +1838,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 42: SetCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -1847,7 +1849,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 43: EnableImmersiveFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableImmersiveFullscreen (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -1858,7 +1860,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 44: DisableImmersiveFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableImmersiveFullscreen (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -1869,7 +1871,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 45: UpdateToolbarVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateToolbarVisibility (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -1880,7 +1882,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 46: OnTopContainerViewBoundsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopContainerViewBoundsChanged (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -1891,7 +1893,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 47: ImmersiveFullscreenRevealLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImmersiveFullscreenRevealLock (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -1902,7 +1904,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 48: ImmersiveFullscreenRevealUnlock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImmersiveFullscreenRevealUnlock (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -1913,7 +1915,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 49: SetCanGoBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoBack (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -1924,7 +1926,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 50: SetCanGoForward
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoForward (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -1935,7 +1937,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 51: DisplayContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayContextMenu (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -1946,7 +1948,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 52: SetAllowScreenshots
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowScreenshots (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -1957,7 +1959,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         // Try Method 53: SetColorMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorMode (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;

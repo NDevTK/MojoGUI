@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,12 +74,15 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver = {};
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver.$interfaceName = 'blink.mojom.PaidContentMetadataObserver';
 mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MetaTagsObserver = {};
+mojo.internal.bindings.blink.mojom.MetaTagsObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MetaTagsObserver.$interfaceName = 'blink.mojom.MetaTagsObserver';
 mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry = {};
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistrySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry.$interfaceName = 'blink.mojom.FrameMetadataObserverRegistry';
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = { $: {} };
@@ -123,7 +127,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote = class {
 mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaidContentMetadataObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PaidContentMetadataObserver', [
       { explicit: null },
     ]);
   }
@@ -154,7 +158,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaidContentMetadataObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PaidContentMetadataObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -198,7 +202,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver = class {
         // Try Method 0: OnPaidContentMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaidContentMetadataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +278,7 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote = class {
 mojo.internal.bindings.blink.mojom.MetaTagsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MetaTagsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MetaTagsObserver', [
       { explicit: null },
     ]);
   }
@@ -305,7 +309,7 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MetaTagsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MetaTagsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -349,7 +353,7 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver = class {
         // Try Method 0: OnMetaTagsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetaTagsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,14 +392,14 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverRequest = mojo.internal.bindi
 // Interface: FrameMetadataObserverRegistry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
       mojo.internal.StructField('arg_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MetaTagsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -435,7 +439,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemote = class {
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameMetadataObserverRegistry', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameMetadataObserverRegistry', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -476,7 +480,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameMetadataObserverRegistry', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameMetadataObserverRegistry', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -521,7 +525,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = class
         // Try Method 0: AddPaidContentMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPaidContentMetadataObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -532,7 +536,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = class
         // Try Method 1: AddMetaTagsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMetaTagsObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

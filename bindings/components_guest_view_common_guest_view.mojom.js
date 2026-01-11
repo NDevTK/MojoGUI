@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,8 +74,10 @@ mojo.internal.bindings.guest_view.mojom = mojo.internal.bindings.guest_view.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.guest_view.mojom.ViewHandle = {};
+mojo.internal.bindings.guest_view.mojom.ViewHandleSpec = { $ : {} };
 mojo.internal.bindings.guest_view.mojom.ViewHandle.$interfaceName = 'guest_view.mojom.ViewHandle';
 mojo.internal.bindings.guest_view.mojom.GuestViewHost = {};
+mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec = { $ : {} };
 mojo.internal.bindings.guest_view.mojom.GuestViewHost.$interfaceName = 'guest_view.mojom.GuestViewHost';
 mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec = { $: {} };
@@ -111,7 +114,7 @@ mojo.internal.bindings.guest_view.mojom.ViewHandleRemote = class {
 mojo.internal.bindings.guest_view.mojom.ViewHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ViewHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('guest_view.mojom.ViewHandle', [
     ]);
   }
 
@@ -132,7 +135,7 @@ mojo.internal.bindings.guest_view.mojom.ViewHandleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ViewHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('guest_view.mojom.ViewHandle', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -210,7 +213,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
       mojo.internal.StructField('arg_view_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_view_instance_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -251,7 +254,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostRemote = class {
 mojo.internal.bindings.guest_view.mojom.GuestViewHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GuestViewHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('guest_view.mojom.GuestViewHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -292,7 +295,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GuestViewHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('guest_view.mojom.GuestViewHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -337,7 +340,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
         // Try Method 0: AttachToEmbedderFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachToEmbedderFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -348,7 +351,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
         // Try Method 1: ViewCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

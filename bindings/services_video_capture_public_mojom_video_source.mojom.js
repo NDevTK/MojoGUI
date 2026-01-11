@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription.$interfaceName = 'video_capture.mojom.PushVideoStreamSubscription';
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = { $: {} };
@@ -90,6 +92,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_Par
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoSource = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceSpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.VideoSource.$interfaceName = 'video_capture.mojom.VideoSource';
 mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = { $: {} };
@@ -240,7 +243,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemote = c
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PushVideoStreamSubscription', [
+    this.ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.PushVideoStreamSubscription', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -341,7 +344,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PushVideoStreamSubscription', [
+    const ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.PushVideoStreamSubscription', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -392,7 +395,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 0: Activate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Activate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -403,7 +406,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 1: Suspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -414,7 +417,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 2: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -425,7 +428,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 3: GetPhotoState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPhotoState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -436,7 +439,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 4: SetPhotoOptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhotoOptions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -447,7 +450,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 5: TakePhoto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakePhoto (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -458,7 +461,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 6: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -469,7 +472,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
         // Try Method 7: ProcessFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessFeedback (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -599,7 +602,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_Params', [
       mojo.internal.StructField('arg_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_requested_settings', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_force_reopen_with_new_settings', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -644,7 +647,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceRemote = class {
 mojo.internal.bindings.video_capture.mojom.VideoSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoSource', [
+    this.ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoSource', [
       { explicit: null },
     ]);
   }
@@ -675,7 +678,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoSource', [
+    const ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoSource', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -719,7 +722,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceReceiver = class {
         // Try Method 0: CreatePushSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePushSubscription (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

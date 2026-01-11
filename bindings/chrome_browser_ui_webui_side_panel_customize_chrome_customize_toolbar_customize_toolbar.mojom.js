@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec = { $: m
 mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory';
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec = { $ : {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler';
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = { $: {} };
@@ -91,6 +94,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec = { $ : {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarClient';
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec = { $: {} };
@@ -155,8 +159,8 @@ mojo.internal.Struct(
 // Interface: CustomizeToolbarHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -193,7 +197,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -224,7 +228,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -268,7 +272,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 0: CreateCustomizeToolbarHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomizeToolbarHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -395,7 +399,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -466,7 +470,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -514,7 +518,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 0: ListActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListActions (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -525,7 +529,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 1: ListCategories
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListCategories (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -536,7 +540,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 2: PinAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PinAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -547,7 +551,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 3: GetIsCustomized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsCustomized (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -558,7 +562,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
         // Try Method 4: ResetToDefault
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetToDefault (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -695,7 +699,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -736,7 +740,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeToolbarClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('side_panel.customize_chrome.mojom.CustomizeToolbarClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -781,7 +785,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
         // Try Method 0: SetActionPinned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActionPinned (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -792,7 +796,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
         // Try Method 1: NotifyActionsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActionsUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

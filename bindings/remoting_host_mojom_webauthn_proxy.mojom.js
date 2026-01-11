@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller = {};
+mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller.$interfaceName = 'remoting.mojom.WebAuthnRequestCanceller';
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnProxy = {};
+mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnProxy.$interfaceName = 'remoting.mojom.WebAuthnProxy';
 mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = { $: {} };
@@ -170,7 +173,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote = class {
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebAuthnRequestCanceller', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WebAuthnRequestCanceller', [
       { explicit: null },
     ]);
   }
@@ -201,7 +204,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebAuthnRequestCanceller', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WebAuthnRequestCanceller', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -245,7 +248,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
         // Try Method 0: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -304,7 +307,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
       mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -317,7 +320,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
       mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -366,7 +369,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote = class {
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebAuthnProxy', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WebAuthnProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -417,7 +420,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebAuthnProxy', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WebAuthnProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -463,7 +466,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
         // Try Method 0: IsUserVerifyingPlatformAuthenticatorAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsUserVerifyingPlatformAuthenticatorAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -474,7 +477,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
         // Try Method 1: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -485,7 +488,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
         // Try Method 2: Get
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

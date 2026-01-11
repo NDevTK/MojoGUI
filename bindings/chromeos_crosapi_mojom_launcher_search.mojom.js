@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,13 +85,16 @@ mojo.internal.bindings.crosapi.mojom.TextTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.crosapi.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.crosapi.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher = {};
+mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher.$interfaceName = 'crosapi.mojom.SearchResultsPublisher';
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.SearchController = {};
+mojo.internal.bindings.crosapi.mojom.SearchControllerSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.SearchController.$interfaceName = 'crosapi.mojom.SearchController';
 mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumer = {};
+mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumer.$interfaceName = 'crosapi.mojom.SearchResultConsumer';
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = { $: {} };
 
@@ -201,7 +205,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_description_type', 168, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec.$, null, false, 2, undefined),
       mojo.internal.StructField('arg_description_a11y_label', 176, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 3, undefined),
       mojo.internal.StructField('arg_metrics_type', 184, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec.$, null, false, 5, undefined),
-      mojo.internal.StructField('arg_receiver', 192, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec), null, true, 5, undefined),
+      mojo.internal.StructField('arg_receiver', 192, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
     ],
     [[0, 144], [2, 184], [3, 192], [5, 208]]);
 
@@ -246,7 +250,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemote = class {
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchResultsPublisher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchResultsPublisher', [
       { explicit: 0 },
     ]);
   }
@@ -277,7 +281,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchResultsPublisher', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchResultsPublisher', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -321,7 +325,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherReceiver = class {
         // Try Method 0: OnSearchResultsReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchResultsReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,7 +370,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
-      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,7 +407,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerRemote = class {
 mojo.internal.bindings.crosapi.mojom.SearchControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchController', [
       { explicit: 0 },
     ]);
   }
@@ -434,7 +438,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchController', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchController', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -478,7 +482,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerReceiver = class {
         // Try Method 0: Search
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Search (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -562,7 +566,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote = class {
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchResultConsumer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchResultConsumer', [
       { explicit: 0 },
     ]);
   }
@@ -593,7 +597,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchResultConsumer', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.SearchResultConsumer', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -637,7 +641,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerReceiver = class {
         // Try Method 0: OnFaviconReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

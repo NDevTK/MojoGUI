@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,18 +74,21 @@ mojo.internal.bindings.ash.file_manager = mojo.internal.bindings.ash.file_manage
 mojo.internal.bindings.ash.file_manager.mojom = mojo.internal.bindings.ash.file_manager.mojom || {};
 
 mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory.$interfaceName = 'ash.file_manager.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.file_manager.mojom.PageHandler = {};
+mojo.internal.bindings.ash.file_manager.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.file_manager.mojom.PageHandler.$interfaceName = 'ash.file_manager.mojom.PageHandler';
 mojo.internal.bindings.ash.file_manager.mojom.Page = {};
+mojo.internal.bindings.ash.file_manager.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.file_manager.mojom.Page.$interfaceName = 'ash.file_manager.mojom.Page';
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.file_manager.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.file_manager.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -121,7 +125,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -152,7 +156,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -196,7 +200,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryReceiver = class
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -263,7 +267,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.file_manager.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.PageHandler', [
     ]);
   }
 
@@ -284,7 +288,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.PageHandler', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -376,7 +380,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageRemote = class {
 mojo.internal.bindings.ash.file_manager.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.Page', [
     ]);
   }
 
@@ -397,7 +401,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.file_manager.mojom.Page', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

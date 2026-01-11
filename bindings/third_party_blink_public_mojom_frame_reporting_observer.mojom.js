@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.blink.mojom.ReportBodyElementSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ReportBodySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ReportSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ReportingObserver = {};
+mojo.internal.bindings.blink.mojom.ReportingObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ReportingObserver.$interfaceName = 'blink.mojom.ReportingObserver';
 mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec = { $: {} };
 
@@ -143,7 +145,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverRemote = class {
 mojo.internal.bindings.blink.mojom.ReportingObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ReportingObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ReportingObserver', [
       { explicit: null },
     ]);
   }
@@ -174,7 +176,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ReportingObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ReportingObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -218,7 +220,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverReceiver = class {
         // Try Method 0: Notify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Notify (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

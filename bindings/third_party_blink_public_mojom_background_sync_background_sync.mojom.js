@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.E
 mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService.$interfaceName = 'blink.mojom.OneShotBackgroundSyncService';
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegist
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService.$interfaceName = 'blink.mojom.PeriodicBackgroundSyncService';
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = { $: {} };
@@ -213,7 +216,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemote = class {
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OneShotBackgroundSyncService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OneShotBackgroundSyncService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -264,7 +267,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OneShotBackgroundSyncService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OneShotBackgroundSyncService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -310,7 +313,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -321,7 +324,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
         // Try Method 1: DidResolveRegistration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidResolveRegistration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -332,7 +335,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
         // Try Method 2: GetRegistrations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRegistrations (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -478,7 +481,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemote = class {
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PeriodicBackgroundSyncService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PeriodicBackgroundSyncService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -529,7 +532,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PeriodicBackgroundSyncService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PeriodicBackgroundSyncService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -575,7 +578,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -586,7 +589,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
         // Try Method 1: Unregister
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unregister (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -597,7 +600,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
         // Try Method 2: GetRegistrations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRegistrations (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

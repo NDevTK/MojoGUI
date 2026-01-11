@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver = {};
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.$interfaceName = 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver';
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject = {};
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.$interfaceName = 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject';
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = { $: {} };
 
@@ -118,7 +121,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRem
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GeneralAudienceBrowsingAPIKeyObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver', [
       { explicit: null },
     ]);
   }
@@ -149,7 +152,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GeneralAudienceBrowsingAPIKeyObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +196,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRec
         // Try Method 0: OnGeneralAudienceBrowsingAPIKeyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGeneralAudienceBrowsingAPIKeyChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -232,7 +235,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverReq
 // Interface: GeneralAudienceBrowsingAPIKeySubject
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -269,7 +272,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemo
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GeneralAudienceBrowsingAPIKeySubject', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject', [
       { explicit: null },
     ]);
   }
@@ -300,7 +303,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GeneralAudienceBrowsingAPIKeySubject', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -344,7 +347,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRece
         // Try Method 0: AddGeneralAudienceBrowsingAPIKeyObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddGeneralAudienceBrowsingAPIKeyObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

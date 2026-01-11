@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,8 +77,16 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.SourceProfileSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = { $: {} };
@@ -95,6 +104,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImport = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProfileImport.$interfaceName = 'chrome.mojom.ProfileImport';
 mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec = { $: {} };
@@ -109,6 +119,48 @@ mojo.internal.bindings.chrome.mojom.Scheme = {
   kHtml: 0,
   kBasic: 1,
 };
+
+// Struct: ImportedBookmarkEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec, 'chrome.mojom.ImportedBookmarkEntry', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterAutofillFormDataEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec, 'chrome.mojom.ImporterAutofillFormDataEntry', [
+    ],
+    [[0, 8]]);
+
+// Struct: SearchEngineInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec, 'chrome.mojom.SearchEngineInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterURLRow
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec, 'chrome.mojom.ImporterURLRow', [
+    ],
+    [[0, 8]]);
+
+// Struct: SourceProfile
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SourceProfileSpec, 'chrome.mojom.SourceProfile', [
+    ],
+    [[0, 8]]);
+
+// Struct: FaviconUsageDataList
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec, 'chrome.mojom.FaviconUsageDataList', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterIE7PasswordInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec, 'chrome.mojom.ImporterIE7PasswordInfo', [
+    ],
+    [[0, 8]]);
 
 // Struct: ImportedPasswordForm
 mojo.internal.Struct(
@@ -287,7 +339,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemote = class {
 mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProfileImportObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProfileImportObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,7 +510,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProfileImportObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProfileImportObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -516,7 +568,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 0: OnImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -527,7 +579,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 1: OnImportFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -538,7 +590,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 2: OnImportItemStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportItemStart (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -549,7 +601,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 3: OnImportItemFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImportItemFinished (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -560,7 +612,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 4: OnHistoryImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHistoryImportStart (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -571,7 +623,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 5: OnHistoryImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHistoryImportGroup (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -582,7 +634,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 6: OnHomePageImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHomePageImportReady (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -593,7 +645,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 7: OnBookmarksImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarksImportStart (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -604,7 +656,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 8: OnBookmarksImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBookmarksImportGroup (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -615,7 +667,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 9: OnFaviconsImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconsImportStart (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -626,7 +678,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 10: OnFaviconsImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconsImportGroup (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -637,7 +689,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 11: OnPasswordFormImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasswordFormImportReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -648,7 +700,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 12: OnKeywordsImportReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeywordsImportReady (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -659,7 +711,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 13: OnAutofillFormDataImportStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAutofillFormDataImportStart (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -670,7 +722,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
         // Try Method 14: OnAutofillFormDataImportGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAutofillFormDataImportGroup (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -809,7 +861,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec, 'chrome.mojom.ProfileImport_StartImport_Params', [
       mojo.internal.StructField('arg_source_profile', 0, 0, mojo.internal.bindings.chrome.mojom.SourceProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_localized_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_items', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -864,7 +916,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemote = class {
 mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProfileImport', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProfileImport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -915,7 +967,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProfileImport', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProfileImport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -961,7 +1013,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
         // Try Method 0: StartImport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartImport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -972,7 +1024,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
         // Try Method 1: CancelImport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelImport (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -983,7 +1035,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
         // Try Method 2: ReportImportItemFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportImportItemFinished (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,13 +74,16 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 
 mojo.internal.bindings.blink.mojom.SurfaceEmbedder = {};
+mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SurfaceEmbedder.$interfaceName = 'blink.mojom.SurfaceEmbedder';
 mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient.$interfaceName = 'blink.mojom.EmbeddedFrameSinkClient';
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider.$interfaceName = 'blink.mojom.EmbeddedFrameSinkProvider';
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = { $: {} };
@@ -139,7 +143,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemote = class {
 mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SurfaceEmbedder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SurfaceEmbedder', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -180,7 +184,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SurfaceEmbedder', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SurfaceEmbedder', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -225,7 +229,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderReceiver = class {
         // Try Method 0: SetLocalSurfaceId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalSurfaceId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +240,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderReceiver = class {
         // Try Method 1: OnOpacityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpacityChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -282,7 +286,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRequest = mojo.internal.bindin
 // Interface: EmbeddedFrameSinkClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_Params', [
-      mojo.internal.StructField('arg_embedder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,7 +323,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemote = class {
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedFrameSinkClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedFrameSinkClient', [
       { explicit: null },
     ]);
   }
@@ -350,7 +354,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedFrameSinkClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedFrameSinkClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -394,7 +398,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientReceiver = class {
         // Try Method 0: BindSurfaceEmbedder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSurfaceEmbedder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -435,7 +439,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_Params', [
       mojo.internal.StructField('arg_parent_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -468,7 +472,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_Params', [
       mojo.internal.StructField('arg_parent_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_sink', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
     ],
@@ -477,7 +481,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_Params', [
       mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedder', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedder', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -547,7 +551,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemote = class {
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedFrameSinkProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedFrameSinkProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -648,7 +652,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedFrameSinkProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedFrameSinkProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -699,7 +703,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 0: RegisterEmbeddedFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterEmbeddedFrameSink (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -710,7 +714,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 1: RegisterEmbeddedFrameSinkBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterEmbeddedFrameSinkBundle (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -721,7 +725,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 2: CreateCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositorFrameSink (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -732,7 +736,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 3: CreateBundledCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBundledCompositorFrameSink (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -743,7 +747,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 4: CreateSimpleCompositorFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSimpleCompositorFrameSink (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -754,7 +758,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 5: ConnectToEmbedder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToEmbedder (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -765,7 +769,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 6: RegisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFrameSinkHierarchy (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -776,7 +780,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         // Try Method 7: UnregisterFrameSinkHierarchy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterFrameSinkHierarchy (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

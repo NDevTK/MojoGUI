@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,13 +79,16 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.recording.mojom.RecordingStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate = {};
+mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec = { $ : {} };
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate.$interfaceName = 'recording.mojom.DriveFsQuotaDelegate';
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = { $: {} };
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.recording.mojom.RecordingServiceClient = {};
+mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec = { $ : {} };
 mojo.internal.bindings.recording.mojom.RecordingServiceClient.$interfaceName = 'recording.mojom.RecordingServiceClient';
 mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.recording.mojom.RecordingService = {};
+mojo.internal.bindings.recording.mojom.RecordingServiceSpec = { $ : {} };
 mojo.internal.bindings.recording.mojom.RecordingService.$interfaceName = 'recording.mojom.RecordingService';
 mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = { $: {} };
 mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec = { $: {} };
@@ -154,7 +158,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote = class {
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DriveFsQuotaDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('recording.mojom.DriveFsQuotaDelegate', [
       { explicit: null },
     ]);
   }
@@ -185,7 +189,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DriveFsQuotaDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('recording.mojom.DriveFsQuotaDelegate', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -229,7 +233,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateReceiver = class {
         // Try Method 0: GetDriveFsFreeSpaceBytes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDriveFsFreeSpaceBytes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -314,7 +318,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientRemote = class {
 mojo.internal.bindings.recording.mojom.RecordingServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RecordingServiceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('recording.mojom.RecordingServiceClient', [
       { explicit: null },
     ]);
   }
@@ -345,7 +349,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RecordingServiceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('recording.mojom.RecordingServiceClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -389,7 +393,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientReceiver = class {
         // Try Method 0: OnRecordingEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordingEnded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -428,11 +432,11 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientRequest = mojo.inte
 // Interface: RecordingService
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec, 'recording.mojom.RecordingService_RecordFullscreen_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_capturer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
@@ -442,11 +446,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec, 'recording.mojom.RecordingService_RecordWindow_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_capturer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
@@ -458,11 +462,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec, 'recording.mojom.RecordingService_RecordRegion_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.RecordingServiceClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_capturer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
@@ -548,7 +552,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemote = class {
 mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RecordingService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('recording.mojom.RecordingService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -639,7 +643,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RecordingService', [
+    const ordinals = window.mojoScrambler.getOrdinals('recording.mojom.RecordingService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -689,7 +693,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 0: RecordFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordFullscreen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -700,7 +704,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 1: RecordWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordWindow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -711,7 +715,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 2: RecordRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordRegion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -722,7 +726,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 3: StopRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopRecording (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -733,7 +737,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 4: OnRecordedWindowChangingRoot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordedWindowChangingRoot (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -744,7 +748,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 5: OnRecordedWindowSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordedWindowSizeChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -755,7 +759,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
         // Try Method 6: OnFrameSinkSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameSinkSizeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

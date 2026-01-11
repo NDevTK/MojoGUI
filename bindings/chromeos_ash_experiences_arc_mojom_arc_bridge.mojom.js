@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 
 mojo.internal.bindings.arc.mojom.ArcBridgeHost = {};
+mojo.internal.bindings.arc.mojom.ArcBridgeHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ArcBridgeHost.$interfaceName = 'arc.mojom.ArcBridgeHost';
 mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = { $: {} };
@@ -687,7 +689,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemote = class {
 mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ArcBridgeHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcBridgeHost', [
       { explicit: 127 },
       { explicit: 158 },
       { explicit: 100 },
@@ -1288,7 +1290,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ArcBridgeHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcBridgeHost', [
       { explicit: 127 },
       { explicit: 158 },
       { explicit: 100 },
@@ -1389,7 +1391,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 0: OnAccessibilityHelperInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccessibilityHelperInstanceReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1400,7 +1402,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 1: OnAdbdMonitorInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdbdMonitorInstanceReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1411,7 +1413,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 2: OnAppInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppInstanceReady (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1422,7 +1424,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 3: OnAppPermissionsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppPermissionsInstanceReady (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1433,7 +1435,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 4: OnAppfuseInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppfuseInstanceReady (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1444,7 +1446,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 5: OnArcShellExecutionInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnArcShellExecutionInstanceReady (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1455,7 +1457,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 6: OnArcWifiInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnArcWifiInstanceReady (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1466,7 +1468,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 7: OnAudioInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioInstanceReady (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1477,7 +1479,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 8: OnAuthInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthInstanceReady (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1488,7 +1490,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 9: OnBackupSettingsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackupSettingsInstanceReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1499,7 +1501,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 10: OnBluetoothInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBluetoothInstanceReady (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1510,7 +1512,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 11: OnBootPhaseMonitorInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootPhaseMonitorInstanceReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1521,7 +1523,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 12: OnCameraInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraInstanceReady (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1532,7 +1534,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 13: OnChromeFeatureFlagsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnChromeFeatureFlagsInstanceReady (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1543,7 +1545,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 14: OnCompatibilityModeInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompatibilityModeInstanceReady (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1554,7 +1556,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 15: OnCrashCollectorInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCrashCollectorInstanceReady (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1565,7 +1567,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 16: OnOnDeviceSafetyInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOnDeviceSafetyInstanceReady (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1576,7 +1578,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 17: OnDigitalGoodsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDigitalGoodsInstanceReady (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1587,7 +1589,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 18: OnDiskSpaceInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiskSpaceInstanceReady (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1598,7 +1600,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 19: OnEnterpriseReportingInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnterpriseReportingInstanceReady (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1609,7 +1611,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 20: OnErrorNotificationInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnErrorNotificationInstanceReady (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1620,7 +1622,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 21: OnFileSystemInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFileSystemInstanceReady (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1631,7 +1633,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 22: OnIioSensorInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIioSensorInstanceReady (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1642,7 +1644,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 23: OnImeInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeInstanceReady (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1653,7 +1655,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 24: OnInputMethodManagerInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInputMethodManagerInstanceReady (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1664,7 +1666,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 25: OnIntentHelperInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIntentHelperInstanceReady (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1675,7 +1677,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 26: OnKeymasterInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeymasterInstanceReady (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1686,7 +1688,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 27: OnKeyMintInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyMintInstanceReady (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1697,7 +1699,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 28: OnKioskInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKioskInstanceReady (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1708,7 +1710,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 29: OnMediaSessionInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaSessionInstanceReady (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1719,7 +1721,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 30: OnMemoryInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryInstanceReady (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1730,7 +1732,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 31: OnMetricsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetricsInstanceReady (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1741,7 +1743,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 32: OnMidisInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMidisInstanceReady (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1752,7 +1754,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 33: OnNearbyShareInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyShareInstanceReady (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -1763,7 +1765,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 34: OnNetInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetInstanceReady (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -1774,7 +1776,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 35: OnNotificationsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationsInstanceReady (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -1785,7 +1787,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 36: OnObbMounterInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnObbMounterInstanceReady (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -1796,7 +1798,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 37: OnOemCryptoInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOemCryptoInstanceReady (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -1807,7 +1809,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 38: OnPaymentAppInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentAppInstanceReady (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -1818,7 +1820,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 39: OnPipInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipInstanceReady (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -1829,7 +1831,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 40: OnPolicyInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyInstanceReady (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -1840,7 +1842,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 41: OnPowerInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerInstanceReady (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -1851,7 +1853,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 42: OnPrintSpoolerInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintSpoolerInstanceReady (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -1862,7 +1864,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 43: OnPrivacyItemsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrivacyItemsInstanceReady (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -1873,7 +1875,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 44: OnProcessInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProcessInstanceReady (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -1884,7 +1886,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 45: OnScreenCaptureInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenCaptureInstanceReady (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -1895,7 +1897,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 46: OnSharesheetInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharesheetInstanceReady (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -1906,7 +1908,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 47: OnSystemStateInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemStateInstanceReady (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -1917,7 +1919,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 48: OnSystemUiInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemUiInstanceReady (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -1928,7 +1930,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 49: OnTimerInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTimerInstanceReady (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -1939,7 +1941,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 50: OnTracingInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingInstanceReady (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -1950,7 +1952,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 51: OnTtsInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsInstanceReady (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -1961,7 +1963,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 52: OnUsbHostInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUsbHostInstanceReady (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -1972,7 +1974,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 53: OnVideoInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoInstanceReady (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
@@ -1983,7 +1985,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 54: OnVolumeMounterInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVolumeMounterInstanceReady (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
@@ -1994,7 +1996,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 55: OnWakeLockInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakeLockInstanceReady (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
@@ -2005,7 +2007,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 56: OnWallpaperInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperInstanceReady (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
@@ -2016,7 +2018,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostReceiver = class {
         // Try Method 57: OnWebApkInstanceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebApkInstanceReady (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;

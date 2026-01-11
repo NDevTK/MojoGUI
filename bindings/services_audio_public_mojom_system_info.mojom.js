@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.audio.mojom.SystemInfo = {};
+mojo.internal.bindings.audio.mojom.SystemInfoSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.SystemInfo.$interfaceName = 'audio.mojom.SystemInfo';
 mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = { $: {} };
@@ -240,7 +242,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemote = class {
 mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemInfo', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.SystemInfo', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -341,7 +343,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemInfo', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.SystemInfo', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -392,7 +394,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 0: GetInputStreamParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInputStreamParameters (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -403,7 +405,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 1: GetOutputStreamParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOutputStreamParameters (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -414,7 +416,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 2: HasInputDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasInputDevices (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -425,7 +427,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 3: HasOutputDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasOutputDevices (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -436,7 +438,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 4: GetInputDeviceDescriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInputDeviceDescriptions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -447,7 +449,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 5: GetOutputDeviceDescriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOutputDeviceDescriptions (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -458,7 +460,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 6: GetAssociatedOutputDeviceID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAssociatedOutputDeviceID (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -469,7 +471,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
         // Try Method 7: GetInputDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInputDeviceInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

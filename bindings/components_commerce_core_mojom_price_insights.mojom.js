@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.commerce.price_insights = mojo.internal.bindings.commerce
 mojo.internal.bindings.commerce.price_insights.mojom = mojo.internal.bindings.commerce.price_insights.mojom || {};
 
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler = {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec = { $ : {} };
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler.$interfaceName = 'commerce.price_insights.mojom.PriceInsightsHandler';
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory = {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory.$interfaceName = 'commerce.price_insights.mojom.PriceInsightsHandlerFactory';
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec = { $: {} };
 
@@ -127,7 +130,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemote 
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PriceInsightsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.price_insights.mojom.PriceInsightsHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -168,7 +171,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PriceInsightsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.price_insights.mojom.PriceInsightsHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -213,7 +216,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerReceive
         // Try Method 0: ShowSidePanelUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSidePanelUI (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -224,7 +227,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerReceive
         // Try Method 1: ShowFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFeedback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -270,7 +273,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRequest
 // Interface: PriceInsightsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -307,7 +310,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PriceInsightsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.price_insights.mojom.PriceInsightsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -338,7 +341,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PriceInsightsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.price_insights.mojom.PriceInsightsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -382,7 +385,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
         // Try Method 0: CreatePriceInsightsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePriceInsightsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

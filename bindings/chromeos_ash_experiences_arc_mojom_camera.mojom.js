@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraService = {};
+mojo.internal.bindings.arc.mojom.CameraServiceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CameraService.$interfaceName = 'arc.mojom.CameraService';
 mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec = { $: {} };
@@ -93,6 +95,7 @@ mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_Respons
 mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraHost = {};
+mojo.internal.bindings.arc.mojom.CameraHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CameraHost.$interfaceName = 'arc.mojom.CameraHost';
 mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec = { $: {} };
@@ -100,6 +103,7 @@ mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_Params
 mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraInstance = {};
+mojo.internal.bindings.arc.mojom.CameraInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CameraInstance.$interfaceName = 'arc.mojom.CameraInstance';
 mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec = { $: {} };
@@ -286,7 +290,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemote = class {
 mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -387,7 +391,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraService', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -438,7 +442,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -449,7 +453,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 1: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -460,7 +464,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 2: StreamOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamOn (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -471,7 +475,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 3: StreamOff
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamOff (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -482,7 +486,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 4: GetNextFrameBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNextFrameBuffer (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -493,7 +497,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 5: ReuseFrameBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReuseFrameBuffer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -504,7 +508,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 6: GetDeviceSupportedFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceSupportedFormats (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -515,7 +519,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
         // Try Method 7: GetCameraDeviceInfos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraDeviceInfos (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -672,7 +676,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec, 'arc.mojom.CameraHost_StartCameraService_ResponseParams', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CameraServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CameraServiceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -733,7 +737,7 @@ mojo.internal.bindings.arc.mojom.CameraHostRemote = class {
 mojo.internal.bindings.arc.mojom.CameraHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -784,7 +788,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -830,7 +834,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
         // Try Method 0: StartCameraService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCameraService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -841,7 +845,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
         // Try Method 1: RegisterCameraHalClientLegacy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCameraHalClientLegacy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -852,7 +856,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
         // Try Method 2: RegisterCameraHalClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCameraHalClient (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -921,7 +925,7 @@ mojo.internal.bindings.arc.mojom.CameraHostRequest = mojo.internal.bindings.arc.
 // Interface: CameraInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec, 'arc.mojom.CameraInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CameraHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CameraHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -963,7 +967,7 @@ mojo.internal.bindings.arc.mojom.CameraInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.CameraInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraInstance', [
       { explicit: 0 },
     ]);
   }
@@ -994,7 +998,7 @@ mojo.internal.bindings.arc.mojom.CameraInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CameraInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1038,7 +1042,7 @@ mojo.internal.bindings.arc.mojom.CameraInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

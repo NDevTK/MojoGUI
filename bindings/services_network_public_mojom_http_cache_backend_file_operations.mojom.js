@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,10 +77,12 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mo
 mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec = { $: {} };
 mojo.internal.bindings.network.mojom.FileEnumerator = {};
+mojo.internal.bindings.network.mojom.FileEnumeratorSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.FileEnumerator.$interfaceName = 'network.mojom.FileEnumerator';
 mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations.$interfaceName = 'network.mojom.HttpCacheBackendFileOperations';
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = { $: {} };
@@ -99,6 +102,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFil
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec = { $ : {} };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory.$interfaceName = 'network.mojom.HttpCacheBackendFileOperationsFactory';
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = { $: {} };
 
@@ -176,7 +180,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorRemote = class {
 mojo.internal.bindings.network.mojom.FileEnumeratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileEnumerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.FileEnumerator', [
       { explicit: null },
     ]);
   }
@@ -207,7 +211,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileEnumerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.FileEnumerator', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -251,7 +255,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorReceiver = class {
         // Try Method 0: GetNext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -387,7 +391,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.FileEnumeratorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.FileEnumeratorRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -460,7 +464,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemote = clas
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HttpCacheBackendFileOperations', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.HttpCacheBackendFileOperations', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -571,7 +575,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HttpCacheBackendFileOperations', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.HttpCacheBackendFileOperations', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -623,7 +627,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 0: CreateDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDirectory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -634,7 +638,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 1: PathExists
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PathExists (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -645,7 +649,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 2: DirectoryExists
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DirectoryExists (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -656,7 +660,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 3: OpenFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -667,7 +671,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 4: DeleteFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteFile (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -678,7 +682,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 5: RenameFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameFile (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -689,7 +693,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 6: GetFileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -700,7 +704,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 7: EnumerateFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateFiles (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -711,7 +715,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
         // Try Method 8: CleanupDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanupDirectory (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -870,7 +874,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRequest = moj
 // Interface: HttpCacheBackendFileOperationsFactory
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperationsFactory_Create_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -907,7 +911,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemote
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HttpCacheBackendFileOperationsFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.HttpCacheBackendFileOperationsFactory', [
       { explicit: null },
     ]);
   }
@@ -938,7 +942,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HttpCacheBackendFileOperationsFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.HttpCacheBackendFileOperationsFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -982,7 +986,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryReceiv
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

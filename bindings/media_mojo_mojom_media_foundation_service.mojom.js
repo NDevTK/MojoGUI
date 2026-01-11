@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,14 +76,17 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.media.mojom.GpuInfoObserver = {};
+mojo.internal.bindings.media.mojom.GpuInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.GpuInfoObserver.$interfaceName = 'media.mojom.GpuInfoObserver';
 mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationService = {};
+mojo.internal.bindings.media.mojom.MediaFoundationServiceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaFoundationService.$interfaceName = 'media.mojom.MediaFoundationService';
 mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker = {};
+mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker.$interfaceName = 'media.mojom.MediaFoundationServiceBroker';
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = { $: {} };
@@ -128,7 +132,7 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverRemote = class {
 mojo.internal.bindings.media.mojom.GpuInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GpuInfoObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.GpuInfoObserver', [
       { explicit: null },
     ]);
   }
@@ -159,7 +163,7 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GpuInfoObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.GpuInfoObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +207,7 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverReceiver = class {
         // Try Method 0: OnGpuInfoUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGpuInfoUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -296,7 +300,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote = class {
 mojo.internal.bindings.media.mojom.MediaFoundationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaFoundationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -337,7 +341,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaFoundationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -382,7 +386,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
         // Try Method 0: IsKeySystemSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsKeySystemSupported (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -393,7 +397,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
         // Try Method 1: CreateInterfaceFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateInterfaceFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -453,14 +457,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParams', [
-      mojo.internal.StructField('arg_gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.GpuInfoObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.GpuInfoObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
       mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -500,7 +504,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRemote = class {
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaFoundationServiceBroker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationServiceBroker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -541,7 +545,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaFoundationServiceBroker', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationServiceBroker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -586,7 +590,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
         // Try Method 0: UpdateGpuInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateGpuInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -597,7 +601,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
         // Try Method 1: GetService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

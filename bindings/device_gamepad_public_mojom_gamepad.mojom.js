@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -86,11 +87,13 @@ mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadObserver = {};
+mojo.internal.bindings.device.mojom.GamepadObserverSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.GamepadObserver.$interfaceName = 'device.mojom.GamepadObserver';
 mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadMonitor = {};
+mojo.internal.bindings.device.mojom.GamepadMonitorSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.GamepadMonitor.$interfaceName = 'device.mojom.GamepadMonitor';
 mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = { $: {} };
@@ -98,6 +101,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec
 mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadHapticsManager = {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.GamepadHapticsManager.$interfaceName = 'device.mojom.GamepadHapticsManager';
 mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = { $: {} };
@@ -290,7 +294,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemote = class {
 mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GamepadObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -341,7 +345,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GamepadObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -387,7 +391,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverReceiver = class {
         // Try Method 0: GamepadConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -398,7 +402,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverReceiver = class {
         // Try Method 1: GamepadDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadDisconnected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -409,7 +413,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverReceiver = class {
         // Try Method 2: GamepadRawInputChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadRawInputChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -483,7 +487,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec, 'device.mojom.GamepadMonitor_SetObserver_Params', [
-      mojo.internal.StructField('arg_gamepad_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.GamepadObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gamepad_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.GamepadObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -526,7 +530,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemote = class {
 mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GamepadMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadMonitor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -577,7 +581,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GamepadMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadMonitor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -623,7 +627,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
         // Try Method 0: GamepadStartPolling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadStartPolling (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -634,7 +638,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
         // Try Method 1: GamepadStopPolling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GamepadStopPolling (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -645,7 +649,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
         // Try Method 2: SetObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -774,7 +778,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemote = class {
 mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GamepadHapticsManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadHapticsManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -815,7 +819,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GamepadHapticsManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.GamepadHapticsManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -860,7 +864,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
         // Try Method 0: PlayVibrationEffectOnce
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PlayVibrationEffectOnce (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -871,7 +875,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
         // Try Method 1: ResetVibrationActuator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetVibrationActuator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

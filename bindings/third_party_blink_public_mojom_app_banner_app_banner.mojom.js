@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,14 +74,17 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.AppBannerController = {};
+mojo.internal.bindings.blink.mojom.AppBannerControllerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AppBannerController.$interfaceName = 'blink.mojom.AppBannerController';
 mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AppBannerEvent = {};
+mojo.internal.bindings.blink.mojom.AppBannerEventSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AppBannerEvent.$interfaceName = 'blink.mojom.AppBannerEvent';
 mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AppBannerService = {};
+mojo.internal.bindings.blink.mojom.AppBannerServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AppBannerService.$interfaceName = 'blink.mojom.AppBannerService';
 mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = { $: {} };
 
@@ -93,8 +97,8 @@ mojo.internal.bindings.blink.mojom.AppBannerPromptReply = {
 // Interface: AppBannerController
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AppBannerServiceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AppBannerEventSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AppBannerServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AppBannerEventRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_platform', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -138,7 +142,7 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerRemote = class {
 mojo.internal.bindings.blink.mojom.AppBannerControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppBannerController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerController', [
       { explicit: null },
     ]);
   }
@@ -169,7 +173,7 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppBannerController', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerController', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -213,7 +217,7 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerReceiver = class {
         // Try Method 0: BannerPromptRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerPromptRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -305,7 +309,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventRemote = class {
 mojo.internal.bindings.blink.mojom.AppBannerEventRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppBannerEvent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerEvent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -346,7 +350,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppBannerEvent', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerEvent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -391,7 +395,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventReceiver = class {
         // Try Method 0: BannerAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerAccepted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -402,7 +406,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventReceiver = class {
         // Try Method 1: BannerDismissed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BannerDismissed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -484,7 +488,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceRemote = class {
 mojo.internal.bindings.blink.mojom.AppBannerServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppBannerService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerService', [
       { explicit: null },
     ]);
   }
@@ -515,7 +519,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppBannerService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AppBannerService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -559,7 +563,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceReceiver = class {
         // Try Method 0: DisplayAppBanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayAppBanner (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

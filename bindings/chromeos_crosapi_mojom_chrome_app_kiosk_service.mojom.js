@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,14 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec = { $: mojo.in
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController = {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController.$interfaceName = 'crosapi.mojom.ChromeKioskLaunchController';
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService = {};
+mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService.$interfaceName = 'crosapi.mojom.ChromeAppKioskService';
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = { $: {} };
 
@@ -177,7 +180,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemote = class {
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromeKioskLaunchController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ChromeKioskLaunchController', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -218,7 +221,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromeKioskLaunchController', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ChromeKioskLaunchController', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -263,7 +266,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
         // Try Method 0: InstallKioskApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallKioskApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +277,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
         // Try Method 1: LaunchKioskApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchKioskApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -336,7 +339,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRequest = mojo.i
 // Interface: ChromeAppKioskService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec, 'crosapi.mojom.ChromeAppKioskService_BindLaunchController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -373,7 +376,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRemote = class {
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromeAppKioskService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ChromeAppKioskService', [
       { explicit: 0 },
     ]);
   }
@@ -404,7 +407,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromeAppKioskService', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ChromeAppKioskService', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -448,7 +451,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceReceiver = class {
         // Try Method 0: BindLaunchController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLaunchController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

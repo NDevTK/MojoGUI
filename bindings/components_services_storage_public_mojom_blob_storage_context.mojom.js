@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,12 +78,14 @@ mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.E
 mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.storage.mojom.BlobDataItemSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader = {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader.$interfaceName = 'storage.mojom.BlobDataItemReader';
 mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobStorageContext = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContextSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.BlobStorageContext.$interfaceName = 'storage.mojom.BlobStorageContext';
 mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = { $: {} };
@@ -114,7 +117,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_side_data_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reader', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reader', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -181,7 +184,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemote = class {
 mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BlobDataItemReader', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.BlobDataItemReader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -222,7 +225,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BlobDataItemReader', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.BlobDataItemReader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -267,7 +270,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -278,7 +281,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderReceiver = class {
         // Try Method 1: ReadSideData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSideData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -371,7 +374,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec, 'storage.mojom.BlobStorageContext_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.BlobStorageContextSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.BlobStorageContextRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -417,7 +420,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemote = class {
 mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BlobStorageContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.BlobStorageContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -478,7 +481,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BlobStorageContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.BlobStorageContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -525,7 +528,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 0: RegisterFromDataItem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFromDataItem (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -536,7 +539,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 1: RegisterFromMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterFromMemory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -547,7 +550,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 2: WriteBlobToFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteBlobToFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -558,7 +561,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
         // Try Method 3: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

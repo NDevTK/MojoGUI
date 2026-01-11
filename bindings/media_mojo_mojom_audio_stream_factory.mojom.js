@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,8 +75,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.media.mojom.LocalMuter = {};
+mojo.internal.bindings.media.mojom.LocalMuterSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.LocalMuter.$interfaceName = 'media.mojom.LocalMuter';
 mojo.internal.bindings.media.mojom.AudioStreamFactory = {};
+mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioStreamFactory.$interfaceName = 'media.mojom.AudioStreamFactory';
 mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = { $: {} };
@@ -119,7 +122,7 @@ mojo.internal.bindings.media.mojom.LocalMuterRemote = class {
 mojo.internal.bindings.media.mojom.LocalMuterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalMuter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.LocalMuter', [
     ]);
   }
 
@@ -140,7 +143,7 @@ mojo.internal.bindings.media.mojom.LocalMuterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalMuter', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.LocalMuter', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -269,7 +272,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec, 'media.mojom.AudioStreamFactory_BindMuter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.LocalMuterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.LocalMuterRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -339,7 +342,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote = class {
 mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioStreamFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioStreamFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -420,7 +423,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioStreamFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioStreamFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -469,7 +472,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 0: CreateInputStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateInputStream (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -480,7 +483,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 1: AssociateInputAndOutputForAec
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AssociateInputAndOutputForAec (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -491,7 +494,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 2: CreateOutputStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOutputStream (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -502,7 +505,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 3: CreateSwitchableOutputStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSwitchableOutputStream (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -513,7 +516,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 4: BindMuter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMuter (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -524,7 +527,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
         // Try Method 5: CreateLoopbackStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateLoopbackStream (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

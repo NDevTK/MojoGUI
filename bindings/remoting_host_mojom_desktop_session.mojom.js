@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -105,30 +106,36 @@ mojo.internal.bindings.remoting.mojom.VideoTrackLayoutSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoLayoutSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SourceLocationSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler.$interfaceName = 'remoting.mojom.DesktopSessionRequestHandler';
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionManager = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionManagerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionManager.$interfaceName = 'remoting.mojom.DesktopSessionManager';
 mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionAgent = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionAgentSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionAgent.$interfaceName = 'remoting.mojom.DesktopSessionAgent';
 mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileWriter = {};
+mojo.internal.bindings.remoting.mojom.FileWriterSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.FileWriter.$interfaceName = 'remoting.mojom.FileWriter';
 mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileReader = {};
+mojo.internal.bindings.remoting.mojom.FileReaderSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.FileReader.$interfaceName = 'remoting.mojom.FileReader';
 mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionControlSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl.$interfaceName = 'remoting.mojom.DesktopSessionControl';
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = { $: {} };
@@ -148,15 +155,18 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_Param
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturer = {};
+mojo.internal.bindings.remoting.mojom.VideoCapturerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturer.$interfaceName = 'remoting.mojom.VideoCapturer';
 mojo.internal.bindings.remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler = {};
+mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler.$interfaceName = 'remoting.mojom.VideoCapturerEventHandler';
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler.$interfaceName = 'remoting.mojom.DesktopSessionEventHandler';
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = { $: {} };
@@ -168,9 +178,11 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayou
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler.$interfaceName = 'remoting.mojom.DesktopSessionStateHandler';
 mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.WorkerProcessControl = {};
+mojo.internal.bindings.remoting.mojom.WorkerProcessControlSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.WorkerProcessControl.$interfaceName = 'remoting.mojom.WorkerProcessControl';
 mojo.internal.bindings.remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = { $: {} };
 
@@ -474,7 +486,7 @@ mojo.internal.Struct(
 // Struct: BeginFileReadSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.BeginFileReadSuccessSpec, 'remoting.mojom.BeginFileReadSuccess', [
-      mojo.internal.StructField('arg_file_reader', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileReaderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_reader', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileReaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_filename', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -483,15 +495,15 @@ mojo.internal.Struct(
 // Struct: BeginFileWriteSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.BeginFileWriteSuccessSpec, 'remoting.mojom.BeginFileWriteSuccess', [
-      mojo.internal.StructField('arg_file_writer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileWriterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_writer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileWriterRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CreateVideoCapturerResult
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.CreateVideoCapturerResultSpec, 'remoting.mojom.CreateVideoCapturerResult', [
-      mojo.internal.StructField('arg_video_capturer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.VideoCapturerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_capturer_event_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_capturer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.VideoCapturerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_capturer_event_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -581,7 +593,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRemote = class
 mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionRequestHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionRequestHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -632,7 +644,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionRequestHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionRequestHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -678,7 +690,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerReceiver = cla
         // Try Method 0: ConnectDesktopChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDesktopChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -689,7 +701,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerReceiver = cla
         // Try Method 1: InjectSecureAttentionSequence
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectSecureAttentionSequence (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -700,7 +712,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerReceiver = cla
         // Try Method 2: CrashNetworkProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashNetworkProcess (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -811,7 +823,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerRemote = class {
 mojo.internal.bindings.remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -862,7 +874,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -908,7 +920,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerReceiver = class {
         // Try Method 0: CreateDesktopSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDesktopSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -919,7 +931,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerReceiver = class {
         // Try Method 1: CloseDesktopSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDesktopSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -930,7 +942,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerReceiver = class {
         // Try Method 2: SetScreenResolution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenResolution (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -991,7 +1003,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, 'remoting.mojom.DesktopSessionAgent_Start_ResponseParams', [
-      mojo.internal.StructField('arg_desktop_session_control', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.DesktopSessionControlSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_session_control', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1028,7 +1040,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentRemote = class {
 mojo.internal.bindings.remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionAgent', [
       { explicit: null },
     ]);
   }
@@ -1059,7 +1071,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionAgent', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1103,7 +1115,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1207,7 +1219,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterRemote = class {
 mojo.internal.bindings.remoting.mojom.FileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileWriter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.FileWriter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1248,7 +1260,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileWriter', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.FileWriter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1293,7 +1305,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
         // Try Method 0: WriteChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1304,7 +1316,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
         // Try Method 1: CloseFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1409,7 +1421,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderRemote = class {
 mojo.internal.bindings.remoting.mojom.FileReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileReader', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.FileReader', [
       { explicit: null },
     ]);
   }
@@ -1440,7 +1452,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileReader', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.FileReader', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1484,7 +1496,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderReceiver = class {
         // Try Method 0: ReadChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1697,7 +1709,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemote = class {
 mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1858,7 +1870,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1915,7 +1927,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 0: CreateVideoCapturer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoCapturer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1926,7 +1938,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 1: SetScreenResolution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenResolution (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1937,7 +1949,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 2: LockWorkstation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockWorkstation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1948,7 +1960,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 3: InjectSendAttentionSequence
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectSendAttentionSequence (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1959,7 +1971,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 4: InjectClipboardEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectClipboardEvent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1970,7 +1982,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 5: InjectKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectKeyEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1981,7 +1993,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 6: InjectMouseEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectMouseEvent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1992,7 +2004,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 7: InjectTextEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectTextEvent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2003,7 +2015,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 8: InjectTouchEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectTouchEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2014,7 +2026,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 9: SetUpUrlForwarder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpUrlForwarder (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2025,7 +2037,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 10: SignalWebAuthnExtension
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignalWebAuthnExtension (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2036,7 +2048,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 11: BeginFileRead
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFileRead (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2047,7 +2059,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 12: BeginFileWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFileWrite (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2058,7 +2070,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         // Try Method 13: SetHostCursorRenderedByClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostCursorRenderedByClient (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2257,7 +2269,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerRemote = class {
 mojo.internal.bindings.remoting.mojom.VideoCapturerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCapturer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.VideoCapturer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -2298,7 +2310,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCapturer', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.VideoCapturer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -2343,7 +2355,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerReceiver = class {
         // Try Method 0: CaptureFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2354,7 +2366,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerReceiver = class {
         // Try Method 1: SetComposeEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposeEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2457,7 +2469,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemote = class {
 mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCapturerEventHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.VideoCapturerEventHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2508,7 +2520,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCapturerEventHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.VideoCapturerEventHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2554,7 +2566,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerReceiver = class 
         // Try Method 0: OnSharedMemoryRegionCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedMemoryRegionCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2565,7 +2577,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerReceiver = class 
         // Try Method 1: OnSharedMemoryRegionReleased
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedMemoryRegionReleased (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2576,7 +2588,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerReceiver = class 
         // Try Method 2: OnCaptureResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCaptureResult (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2738,7 +2750,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemote = class {
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionEventHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionEventHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2849,7 +2861,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionEventHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionEventHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2901,7 +2913,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 0: OnClipboardEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClipboardEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2912,7 +2924,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 1: OnUrlForwarderStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUrlForwarderStateChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2923,7 +2935,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 2: OnAudioPacket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioPacket (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2934,7 +2946,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 3: OnDesktopDisplayChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDesktopDisplayChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2945,7 +2957,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 4: OnMouseCursorChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseCursorChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2956,7 +2968,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 5: OnMouseCursorFractionalPositionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseCursorFractionalPositionChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2967,7 +2979,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 6: OnKeyboardLayoutChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardLayoutChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2978,7 +2990,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 7: OnLocalMouseMoveDetected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalMouseMoveDetected (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2989,7 +3001,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerReceiver = class
         // Try Method 8: OnLocalKeyboardInputDetected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalKeyboardInputDetected (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3123,7 +3135,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerRemote = class {
 mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DesktopSessionStateHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionStateHandler', [
       { explicit: null },
     ]);
   }
@@ -3154,7 +3166,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DesktopSessionStateHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionStateHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -3198,7 +3210,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerReceiver = class
         // Try Method 0: DisconnectSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3276,7 +3288,7 @@ mojo.internal.bindings.remoting.mojom.WorkerProcessControlRemote = class {
 mojo.internal.bindings.remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WorkerProcessControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WorkerProcessControl', [
       { explicit: null },
     ]);
   }
@@ -3307,7 +3319,7 @@ mojo.internal.bindings.remoting.mojom.WorkerProcessControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WorkerProcessControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.WorkerProcessControl', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -3351,7 +3363,7 @@ mojo.internal.bindings.remoting.mojom.WorkerProcessControlReceiver = class {
         // Try Method 0: CrashProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

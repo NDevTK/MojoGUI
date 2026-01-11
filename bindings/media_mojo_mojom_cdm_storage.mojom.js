@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmStorage = {};
+mojo.internal.bindings.media.mojom.CdmStorageSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmStorage.$interfaceName = 'media.mojom.CdmStorage';
 mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmFile = {};
+mojo.internal.bindings.media.mojom.CdmFileSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmFile.$interfaceName = 'media.mojom.CdmFile';
 mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec = { $: {} };
@@ -107,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm_file', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.CdmFileSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm_file', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.CdmFileRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -144,7 +147,7 @@ mojo.internal.bindings.media.mojom.CdmStorageRemote = class {
 mojo.internal.bindings.media.mojom.CdmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmStorage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmStorage', [
       { explicit: null },
     ]);
   }
@@ -175,7 +178,7 @@ mojo.internal.bindings.media.mojom.CdmStorageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmStorage', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmStorage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -219,7 +222,7 @@ mojo.internal.bindings.media.mojom.CdmStorageReceiver = class {
         // Try Method 0: Open
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -324,7 +327,7 @@ mojo.internal.bindings.media.mojom.CdmFileRemote = class {
 mojo.internal.bindings.media.mojom.CdmFileRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmFile', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmFile', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -365,7 +368,7 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmFile', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmFile', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -410,7 +413,7 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -421,7 +424,7 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
         // Try Method 1: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

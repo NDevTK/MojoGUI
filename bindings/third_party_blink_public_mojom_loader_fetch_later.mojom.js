@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory = {};
+mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory.$interfaceName = 'blink.mojom.FetchLaterLoaderFactory';
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FetchLaterLoader = {};
+mojo.internal.bindings.blink.mojom.FetchLaterLoaderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FetchLaterLoader.$interfaceName = 'blink.mojom.FetchLaterLoader';
 mojo.internal.bindings.blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = { $: {} };
@@ -84,7 +87,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = { $: {} 
 // Interface: FetchLaterLoaderFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_CreateLoader_Params', [
-      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.network.mojom.URLRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 16, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -94,7 +97,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_Clone_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,7 +137,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemote = class {
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FetchLaterLoaderFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FetchLaterLoaderFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -175,7 +178,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FetchLaterLoaderFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FetchLaterLoaderFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -220,7 +223,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryReceiver = class {
         // Try Method 0: CreateLoader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateLoader (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -231,7 +234,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -321,7 +324,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemote = class {
 mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FetchLaterLoader', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FetchLaterLoader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -362,7 +365,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FetchLaterLoader', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FetchLaterLoader', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -407,7 +410,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderReceiver = class {
         // Try Method 0: SendNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoader_SendNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -418,7 +421,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderReceiver = class {
         // Try Method 1: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

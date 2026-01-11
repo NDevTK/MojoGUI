@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.ImpressionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AttributionHost = {};
+mojo.internal.bindings.blink.mojom.AttributionHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AttributionHost.$interfaceName = 'blink.mojom.AttributionHost';
 mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = { $: {} };
@@ -152,7 +154,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemote = class {
 mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AttributionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AttributionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -203,7 +205,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AttributionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AttributionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -249,7 +251,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
         // Try Method 0: RegisterDataHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDataHost (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -260,7 +262,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
         // Try Method 1: RegisterNavigationDataHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterNavigationDataHost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -271,7 +273,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
         // Try Method 2: NotifyNavigationWithBackgroundRegistrationsWillStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyNavigationWithBackgroundRegistrationsWillStart (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.
 mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec = { $: {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory.$interfaceName = 'ash.help_app.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandler = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandler.$interfaceName = 'ash.help_app.mojom.PageHandler';
 mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
@@ -143,7 +146,7 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -180,7 +183,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.help_app.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -211,7 +214,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.help_app.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -255,7 +258,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -439,7 +442,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.help_app.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -580,7 +583,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.help_app.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -635,7 +638,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 0: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -646,7 +649,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 1: ShowOnDeviceAppControls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowOnDeviceAppControls (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -657,7 +660,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 2: ShowParentalControls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowParentalControls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -668,7 +671,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 3: TriggerWelcomeTipCallToAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerWelcomeTipCallToAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -679,7 +682,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 4: IsLauncherSearchEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsLauncherSearchEnabled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -690,7 +693,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 5: LaunchMicrosoft365Setup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchMicrosoft365Setup (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -701,7 +704,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 6: MaybeShowReleaseNotesNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeShowReleaseNotesNotification (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -712,7 +715,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 7: GetDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -723,7 +726,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 8: OpenUrlInBrowserAndTriggerInstallDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInBrowserAndTriggerInstallDialog (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -734,7 +737,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 9: OpenSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSettings (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -745,7 +748,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 10: SetHasCompletedNewDeviceChecklist
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasCompletedNewDeviceChecklist (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -756,7 +759,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
         // Try Method 11: SetHasVisitedHowToPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasVisitedHowToPage (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

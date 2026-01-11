@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.ReportingServiceProxy = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ReportingServiceProxy.$interfaceName = 'blink.mojom.ReportingServiceProxy';
 mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = { $: {} };
@@ -243,7 +245,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemote = class {
 mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ReportingServiceProxy', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ReportingServiceProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -344,7 +346,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ReportingServiceProxy', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ReportingServiceProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -395,7 +397,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 0: QueueInterventionReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueInterventionReport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +408,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 1: QueueDeprecationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueDeprecationReport (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -417,7 +419,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 2: QueueCspViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueCspViolationReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -428,7 +430,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 3: QueueIntegrityViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueIntegrityViolationReport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -439,7 +441,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 4: QueuePermissionsPolicyViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueuePermissionsPolicyViolationReport (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -450,7 +452,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 5: QueuePotentialPermissionsPolicyViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueuePotentialPermissionsPolicyViolationReport (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -461,7 +463,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 6: QueueDocumentPolicyViolationReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueDocumentPolicyViolationReport (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -472,7 +474,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
         // Try Method 7: QueueCSPHashReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueCSPHashReport (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

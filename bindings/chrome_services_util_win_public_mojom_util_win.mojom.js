@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,6 +85,7 @@ mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ClsIdSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.UtilWin = {};
+mojo.internal.bindings.chrome.mojom.UtilWinSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.UtilWin.$interfaceName = 'chrome.mojom.UtilWin';
 mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = { $: {} };
@@ -100,6 +102,7 @@ mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsS
 mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProcessorMetrics = {};
+mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProcessorMetrics.$interfaceName = 'chrome.mojom.ProcessorMetrics';
 mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec = { $: {} };
@@ -345,7 +348,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemote = class {
 mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UtilWin', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.UtilWin', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -436,7 +439,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UtilWin', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.UtilWin', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -486,7 +489,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 0: IsPinnedToTaskbar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsPinnedToTaskbar (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -497,7 +500,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 1: UnpinShortcuts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinShortcuts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -508,7 +511,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 2: CreateOrUpdateShortcuts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOrUpdateShortcuts (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -519,7 +522,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 3: CallExecuteSelectFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallExecuteSelectFile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -530,7 +533,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 4: InspectModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectModule (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -541,7 +544,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 5: GetAntiVirusProducts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAntiVirusProducts (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -552,7 +555,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
         // Try Method 6: GetTpmIdentifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTpmIdentifier (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -730,7 +733,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsRemote = class {
 mojo.internal.bindings.chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProcessorMetrics', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProcessorMetrics', [
       { explicit: null },
     ]);
   }
@@ -761,7 +764,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProcessorMetrics', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ProcessorMetrics', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -805,7 +808,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
         // Try Method 0: RecordProcessorMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordProcessorMetrics (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

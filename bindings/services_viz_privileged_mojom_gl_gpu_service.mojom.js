@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 
 mojo.internal.bindings.viz.mojom.GpuService = {};
+mojo.internal.bindings.viz.mojom.GpuServiceSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.GpuService.$interfaceName = 'viz.mojom.GpuService';
 mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = { $: {} };
@@ -495,7 +497,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemote = class {
 mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GpuService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -846,7 +848,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GpuService', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -922,7 +924,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 0: EstablishGpuChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishGpuChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -933,7 +935,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 1: SetChannelClientPid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelClientPid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelClientPid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetChannelClientPid (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -944,7 +946,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 2: SetChannelDiskCacheHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetChannelDiskCacheHandle (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -955,7 +957,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 3: SetChannelPersistentCachePendingBackend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetChannelPersistentCachePendingBackend (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -966,7 +968,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 4: OnDiskCacheHandleDestoyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiskCacheHandleDestoyed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -977,7 +979,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 5: CloseChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CloseChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CloseChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseChannel (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -988,7 +990,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 6: CreateJpegDecodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegDecodeAccelerator (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -999,7 +1001,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 7: CreateJpegEncodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegEncodeAccelerator (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1010,7 +1012,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 8: RegisterDCOMPSurfaceHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDCOMPSurfaceHandle (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1021,7 +1023,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 9: UnregisterDCOMPSurfaceHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterDCOMPSurfaceHandle (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1032,7 +1034,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 10: CreateVideoEncodeAcceleratorProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAcceleratorProvider (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1043,7 +1045,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 11: BindWebNNContextProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebNNContextProvider (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1054,7 +1056,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 12: GetVideoMemoryUsageStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoMemoryUsageStats (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1065,7 +1067,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 13: StartPeakMemoryMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPeakMemoryMonitor (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1076,7 +1078,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 14: GetPeakMemoryUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPeakMemoryUsage (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1087,7 +1089,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 15: RequestDXGIInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDXGIInfo (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1098,7 +1100,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 16: LoadedBlob
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_LoadedBlob_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_LoadedBlob_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadedBlob (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1109,7 +1111,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 17: WakeUpGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_WakeUpGpu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_WakeUpGpu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WakeUpGpu (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1120,7 +1122,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 18: GpuSwitched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GpuSwitched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GpuSwitched_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GpuSwitched (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1131,7 +1133,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 19: DisplayAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayAdded (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1142,7 +1144,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 20: DisplayRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayRemoved (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1153,7 +1155,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 21: DisplayMetricsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayMetricsChanged (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1164,7 +1166,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 22: DestroyAllChannels
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DestroyAllChannels_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_DestroyAllChannels_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyAllChannels (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1175,7 +1177,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 23: OnBackgroundCleanup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackgroundCleanup (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1186,7 +1188,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 24: OnBackgrounded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnBackgrounded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnBackgrounded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackgrounded (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1197,7 +1199,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 25: OnForegrounded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnForegrounded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_OnForegrounded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnForegrounded (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1208,7 +1210,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 26: BeginCATransaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_BeginCATransaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_BeginCATransaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginCATransaction (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1219,7 +1221,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 27: CommitCATransaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CommitCATransaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_CommitCATransaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitCATransaction (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1230,7 +1232,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 28: WriteClangProfilingProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1241,7 +1243,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 29: GetDawnInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDawnInfo (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1252,7 +1254,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 30: Crash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_Crash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_Crash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Crash (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1263,7 +1265,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 31: Hang
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Hang (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1274,7 +1276,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         // Try Method 32: ThrowJavaException
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ThrowJavaException (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;

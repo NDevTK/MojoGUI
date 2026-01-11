@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.ash.office_fallback.mojom = mojo.internal.bindings.ash.of
 
 mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory.$interfaceName = 'ash.office_fallback.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandler = {};
+mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandler.$interfaceName = 'ash.office_fallback.mojom.PageHandler';
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = { $: {} };
 
@@ -91,7 +94,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.DialogChoice = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -128,7 +131,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRemote = clas
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.office_fallback.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -159,7 +162,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.office_fallback.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +206,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryReceiver = cl
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +282,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.office_fallback.mojom.PageHandler', [
       { explicit: null },
     ]);
   }
@@ -310,7 +313,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.office_fallback.mojom.PageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -354,7 +357,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerReceiver = class {
         // Try Method 0: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,9 +83,11 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdDependencyLatenciesSpec = { 
 mojo.internal.bindings.auction_worklet.mojom.SellerTimingMetricsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.CreativeInfoWithoutOwnerSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient = {};
+mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient.$interfaceName = 'auction_worklet.mojom.ScoreAdClient';
 mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.SellerWorklet = {};
+mojo.internal.bindings.auction_worklet.mojom.SellerWorkletSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.SellerWorklet.$interfaceName = 'auction_worklet.mojom.SellerWorklet';
 mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec = { $: {} };
@@ -208,7 +211,7 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientRemote = class {
 mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScoreAdClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.ScoreAdClient', [
       { explicit: null },
     ]);
   }
@@ -239,7 +242,7 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScoreAdClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.ScoreAdClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -283,7 +286,7 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientReceiver = class {
         // Try Method 0: OnScoreAdComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScoreAdComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -342,7 +345,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_group_by_origin_id', 136, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 144, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bidder_joining_origin', 152, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score_ad_client', 160, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_score_ad_client', 160, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_signal_bidding_duration_msecs', 168, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_browser_signal_for_debugging_only_in_cooldown_or_lockout', 172, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_browser_signal_for_debugging_only_sampling', 172, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -439,7 +442,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemote = class {
 mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SellerWorklet', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.SellerWorklet', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -500,7 +503,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SellerWorklet', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.SellerWorklet', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -547,7 +550,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
         // Try Method 0: ScoreAd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScoreAd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -558,7 +561,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
         // Try Method 1: SendPendingSignalsRequests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPendingSignalsRequests (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -569,7 +572,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
         // Try Method 2: ReportResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportResult (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -580,7 +583,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
         // Try Method 3: ConnectDevToolsAgent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDevToolsAgent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

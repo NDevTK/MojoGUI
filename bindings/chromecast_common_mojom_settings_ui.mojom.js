@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromecast.mojom.SettingsClient = {};
+mojo.internal.bindings.chromecast.mojom.SettingsClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.SettingsClient.$interfaceName = 'chromecast.mojom.SettingsClient';
 mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.SettingsPlatform = {};
+mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.SettingsPlatform.$interfaceName = 'chromecast.mojom.SettingsPlatform';
 mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = { $: {} };
@@ -149,7 +152,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRemote = class {
 mojo.internal.bindings.chromecast.mojom.SettingsClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SettingsClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.SettingsClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -190,7 +193,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SettingsClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.SettingsClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -235,7 +238,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientReceiver = class {
         // Try Method 0: HandleSideSwipe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSideSwipe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -246,7 +249,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientReceiver = class {
         // Try Method 1: SendPlatformInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPlatformInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -292,7 +295,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRequest = mojo.internal.bi
 // Interface: SettingsPlatform
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec, 'chromecast.mojom.SettingsPlatform_Connect_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.SettingsClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.SettingsClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -338,7 +341,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemote = class {
 mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SettingsPlatform', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.SettingsPlatform', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -379,7 +382,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SettingsPlatform', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.SettingsPlatform', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -424,7 +427,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = class {
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -435,7 +438,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = class {
         // Try Method 1: RequestVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestVisible (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom ||
 mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec = { $ : {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService.$interfaceName = 'ui.ozone.mojom.GesturePropertiesService';
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = { $: {} };
@@ -219,7 +221,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemote = class {
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GesturePropertiesService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.GesturePropertiesService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -280,7 +282,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GesturePropertiesService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.GesturePropertiesService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -327,7 +329,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 0: ListDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -338,7 +340,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 1: ListProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -349,7 +351,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 2: GetProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProperty (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -360,7 +362,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         // Try Method 3: SetProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProperty (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

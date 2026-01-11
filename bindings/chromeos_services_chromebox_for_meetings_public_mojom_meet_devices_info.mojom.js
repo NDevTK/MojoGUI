@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesInfo';
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponsePar
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver = {};
+mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver.$interfaceName = 'chromeos.cfm.mojom.PolicyInfoObserver';
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = { $: {} };
 
@@ -125,7 +128,7 @@ mojo.internal.Struct(
 // Interface: MeetDevicesInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,7 +207,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemote = class {
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MeetDevicesInfo', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.MeetDevicesInfo', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -265,7 +268,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MeetDevicesInfo', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.MeetDevicesInfo', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -312,7 +315,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 0: AddDeviceSettingsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceSettingsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -323,7 +326,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 1: GetPolicyInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPolicyInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -334,7 +337,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 2: GetSysInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSysInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -345,7 +348,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         // Try Method 3: GetMachineStatisticsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMachineStatisticsInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -466,7 +469,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemote = class {
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PolicyInfoObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.PolicyInfoObserver', [
       { explicit: 0 },
     ]);
   }
@@ -497,7 +500,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PolicyInfoObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.PolicyInfoObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -541,7 +544,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
         // Try Method 0: OnPolicyInfoChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyInfoChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

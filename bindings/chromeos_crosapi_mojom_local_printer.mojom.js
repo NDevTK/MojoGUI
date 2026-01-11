@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -109,17 +110,21 @@ mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintServerObserver = {};
+mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.PrintServerObserver.$interfaceName = 'crosapi.mojom.PrintServerObserver';
 mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintJobObserver = {};
+mojo.internal.bindings.crosapi.mojom.PrintJobObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.PrintJobObserver.$interfaceName = 'crosapi.mojom.PrintJobObserver';
 mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver = {};
+mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver.$interfaceName = 'crosapi.mojom.LocalPrintersObserver';
 mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.LocalPrinter = {};
+mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.LocalPrinter.$interfaceName = 'crosapi.mojom.LocalPrinter';
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec = { $: {} };
@@ -556,7 +561,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemote = class {
 mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintServerObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PrintServerObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -597,7 +602,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintServerObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PrintServerObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -642,7 +647,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverReceiver = class {
         // Try Method 0: OnPrintServersChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintServersChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -653,7 +658,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverReceiver = class {
         // Try Method 1: OnServerPrintersChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServerPrintersChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -749,7 +754,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemote = class {
 mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintJobObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PrintJobObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -790,7 +795,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintJobObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.PrintJobObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -835,7 +840,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverReceiver = class {
         // Try Method 0: OnPrintJobUpdateDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintJobUpdateDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -846,7 +851,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverReceiver = class {
         // Try Method 1: OnPrintJobUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintJobUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -929,7 +934,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverRemote = class {
 mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalPrintersObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrintersObserver', [
       { explicit: 0 },
     ]);
   }
@@ -960,7 +965,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalPrintersObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrintersObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1004,7 +1009,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverReceiver = class {
         // Try Method 0: OnLocalPrintersUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalPrintersUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1146,7 +1151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintServerObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1190,7 +1195,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintJobObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.PrintJobObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1226,7 +1231,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1317,7 +1322,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemote = class {
 mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalPrinter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrinter', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1508,7 +1513,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalPrinter', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrinter', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1568,7 +1573,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 0: GetPrinters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrinters (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1579,7 +1584,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 1: GetCapability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCapability (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1590,7 +1595,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 2: GetEulaUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEulaUrl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1601,7 +1606,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 3: GetStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatus (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1612,7 +1617,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 4: ShowSystemPrintSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSystemPrintSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1623,7 +1628,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 5: CreatePrintJob
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePrintJob (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1634,7 +1639,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 6: CancelPrintJob
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPrintJob (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1645,7 +1650,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 7: GetPrintServersConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrintServersConfig (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1656,7 +1661,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 8: ChoosePrintServers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChoosePrintServers (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1667,7 +1672,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 9: AddPrintServerObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPrintServerObserver (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1678,7 +1683,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 10: GetPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPolicies (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1689,7 +1694,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 11: GetUsernamePerPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsernamePerPolicy (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1700,7 +1705,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 12: GetPrinterTypeDenyList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrinterTypeDenyList (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1711,7 +1716,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 13: AddPrintJobObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPrintJobObserver (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1722,7 +1727,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 14: GetOAuthAccessToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOAuthAccessToken (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1733,7 +1738,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 15: GetIppClientInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIppClientInfo (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1744,7 +1749,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
         // Try Method 16: AddLocalPrintersObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddLocalPrintersObserver (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;

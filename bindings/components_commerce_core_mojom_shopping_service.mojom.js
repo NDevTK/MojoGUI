@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,9 +88,11 @@ mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsProductSpec =
 mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsFeatureStateSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory = {};
+mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory.$interfaceName = 'shopping_service.mojom.ShoppingServiceHandlerFactory';
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler = {};
+mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerSpec = { $ : {} };
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler.$interfaceName = 'shopping_service.mojom.ShoppingServiceHandler';
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec = { $: {} };
@@ -241,7 +244,7 @@ mojo.internal.Struct(
 // Interface: ShoppingServiceHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec, 'shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -278,7 +281,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactoryRemot
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ShoppingServiceHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('shopping_service.mojom.ShoppingServiceHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -309,7 +312,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactoryRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ShoppingServiceHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('shopping_service.mojom.ShoppingServiceHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -353,7 +356,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactoryRecei
         // Try Method 0: CreateShoppingServiceHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateShoppingServiceHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -693,7 +696,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerRemote = cla
 mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ShoppingServiceHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('shopping_service.mojom.ShoppingServiceHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -914,7 +917,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ShoppingServiceHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('shopping_service.mojom.ShoppingServiceHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -977,7 +980,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 0: GetProductInfoForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForCurrentUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -988,7 +991,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 1: GetProductInfoForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForUrl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -999,7 +1002,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 2: GetProductInfoForUrls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForUrls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1010,7 +1013,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 3: GetPriceInsightsInfoForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceInsightsInfoForCurrentUrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1021,7 +1024,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 4: GetPriceInsightsInfoForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceInsightsInfoForUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1032,7 +1035,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 5: GetProductSpecificationsForUrls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsForUrls (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1043,7 +1046,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 6: GetUrlInfosForProductTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUrlInfosForProductTabs (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1054,7 +1057,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 7: GetUrlInfosForRecentlyViewedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUrlInfosForRecentlyViewedTabs (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1065,7 +1068,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 8: IsShoppingListEligible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsShoppingListEligible (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1076,7 +1079,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 9: GetPriceTrackingStatusForCurrentUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceTrackingStatusForCurrentUrl (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1087,7 +1090,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 10: OpenUrlInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInNewTab (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1098,7 +1101,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 11: SwitchToOrOpenTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchToOrOpenTab (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1109,7 +1112,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 12: GetAllProductSpecificationsSets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllProductSpecificationsSets (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1120,7 +1123,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 13: GetProductSpecificationsSetByUuid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsSetByUuid (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1131,7 +1134,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 14: AddProductSpecificationsSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddProductSpecificationsSet (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1142,7 +1145,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 15: DeleteProductSpecificationsSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteProductSpecificationsSet (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1153,7 +1156,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 16: SetNameForProductSpecificationsSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNameForProductSpecificationsSet (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1164,7 +1167,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 17: SetUrlsForProductSpecificationsSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUrlsForProductSpecificationsSet (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1175,7 +1178,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 18: SetProductSpecificationsUserFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProductSpecificationsUserFeedback (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1186,7 +1189,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
         // Try Method 19: GetProductSpecificationsFeatureState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsFeatureState (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;

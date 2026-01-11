@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,6 +84,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceSt
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceManager';
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec = { $: {} };
@@ -90,9 +92,11 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec = { $ : {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceProvider';
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceObserver';
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec = { $: {} };
 
@@ -197,7 +201,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Register_Params', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -223,7 +227,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -269,7 +273,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemote 
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceManager', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -330,7 +334,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceManager', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -377,7 +381,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,7 +392,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
         // Try Method 1: Request
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -399,7 +403,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
         // Try Method 2: Query
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Query (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -410,7 +414,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
         // Try Method 3: AddServiceObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddServiceObserver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -516,7 +520,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderRemote
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceProvider', [
       { explicit: 0 },
     ]);
   }
@@ -547,7 +551,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceProvider', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -591,7 +595,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderReceiv
         // Try Method 0: Request
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -667,7 +671,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverRemote
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceObserver', [
       { explicit: 0 },
     ]);
   }
@@ -698,7 +702,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.mojo_service_manager.mojom.ServiceObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -742,7 +746,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverReceiv
         // Try Method 0: OnServiceEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

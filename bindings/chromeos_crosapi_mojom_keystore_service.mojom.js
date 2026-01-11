@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -93,6 +94,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreService = {};
+mojo.internal.bindings.crosapi.mojom.KeystoreServiceSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreService.$interfaceName = 'crosapi.mojom.KeystoreService';
 mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = { $: {} };
@@ -794,7 +796,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemote = class {
 mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeystoreService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.KeystoreService', [
       { explicit: 20 },
       { explicit: 16 },
       { explicit: 11 },
@@ -1035,7 +1037,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeystoreService', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.KeystoreService', [
       { explicit: 20 },
       { explicit: 16 },
       { explicit: 11 },
@@ -1100,7 +1102,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 0: ChallengeAttestationOnlyKeystore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChallengeAttestationOnlyKeystore (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1111,7 +1113,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 1: GetKeyStores
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyStores (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1122,7 +1124,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 2: SelectClientCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectClientCertificates (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1133,7 +1135,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 3: GetCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCertificates (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1144,7 +1146,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 4: AddCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCertificate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1155,7 +1157,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 5: RemoveCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveCertificate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1166,7 +1168,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 6: GetPublicKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPublicKey (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1177,7 +1179,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 7: GenerateKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateKey (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1188,7 +1190,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 8: RemoveKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveKey (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1199,7 +1201,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 9: Sign
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Sign (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1210,7 +1212,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 10: GetKeyTags
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyTags (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1221,7 +1223,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 11: AddKeyTags
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddKeyTags (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1232,7 +1234,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 12: CanUserGrantPermissionForKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanUserGrantPermissionForKey (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1243,7 +1245,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 13: SetAttributeForKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAttributeForKey (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1254,7 +1256,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 14: DEPRECATED_ExtensionGenerateKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_ExtensionGenerateKey (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1265,7 +1267,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 15: DEPRECATED_ExtensionSign
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_ExtensionSign (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1276,7 +1278,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 16: DEPRECATED_GetPublicKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_GetPublicKey (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1287,7 +1289,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 17: DEPRECATED_GetKeyStores
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_GetKeyStores (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1298,7 +1300,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 18: DEPRECATED_GetCertificates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_GetCertificates (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1309,7 +1311,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 19: DEPRECATED_AddCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddCertificate (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1320,7 +1322,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 20: DEPRECATED_RemoveCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RemoveCertificate (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1331,7 +1333,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
         // Try Method 21: DEPRECATED_ChallengeAttestationOnlyKeystore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_ChallengeAttestationOnlyKeystore (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;

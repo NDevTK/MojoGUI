@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.media.mojom.VideoCodecInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmCapabilitySpec = { $: {} };
 mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec = { $: {} };
 mojo.internal.bindings.media.mojom.KeySystemSupportObserver = {};
+mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.KeySystemSupportObserver.$interfaceName = 'media.mojom.KeySystemSupportObserver';
 mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.KeySystemSupport = {};
+mojo.internal.bindings.media.mojom.KeySystemSupportSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.KeySystemSupport.$interfaceName = 'media.mojom.KeySystemSupport';
 mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec = { $: {} };
 
@@ -169,7 +172,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemote = class {
 mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeySystemSupportObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.KeySystemSupportObserver', [
       { explicit: null },
     ]);
   }
@@ -200,7 +203,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeySystemSupportObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.KeySystemSupportObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -244,7 +247,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverReceiver = class {
         // Try Method 0: OnKeySystemSupportUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeySystemSupportUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -283,7 +286,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverRequest = mojo.intern
 // Interface: KeySystemSupport
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec, 'media.mojom.KeySystemSupport_SetObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -320,7 +323,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportRemote = class {
 mojo.internal.bindings.media.mojom.KeySystemSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeySystemSupport', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.KeySystemSupport', [
       { explicit: null },
     ]);
   }
@@ -351,7 +354,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeySystemSupport', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.KeySystemSupport', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -395,7 +398,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportReceiver = class {
         // Try Method 0: SetObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager = {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = { $ : {} };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager.$interfaceName = 'content_settings.mojom.ContentSettingsManager';
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = { $: {} };
@@ -95,7 +97,7 @@ mojo.internal.bindings.content_settings.mojom.StorageType = {
 // Interface: ContentSettingsManager
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
-      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,7 +163,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote = cla
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentSettingsManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content_settings.mojom.ContentSettingsManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -212,7 +214,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentSettingsManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('content_settings.mojom.ContentSettingsManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -258,7 +260,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +271,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
         // Try Method 1: AllowStorageAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowStorageAccess (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -280,7 +282,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
         // Try Method 2: OnContentBlocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContentBlocked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SystemStateHost = {};
+mojo.internal.bindings.arc.mojom.SystemStateHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.SystemStateHost.$interfaceName = 'arc.mojom.SystemStateHost';
 mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SystemStateInstance = {};
+mojo.internal.bindings.arc.mojom.SystemStateInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.SystemStateInstance.$interfaceName = 'arc.mojom.SystemStateInstance';
 mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec = { $: {} };
@@ -131,7 +134,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostRemote = class {
 mojo.internal.bindings.arc.mojom.SystemStateHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemStateHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SystemStateHost', [
       { explicit: 0 },
     ]);
   }
@@ -162,7 +165,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemStateHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SystemStateHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -206,7 +209,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostReceiver = class {
         // Try Method 0: UpdateAppRunningState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAppRunningState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -245,7 +248,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostRequest = mojo.internal.bindings
 // Interface: SystemStateInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec, 'arc.mojom.SystemStateInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SystemStateHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SystemStateHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -287,7 +290,7 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.SystemStateInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemStateInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SystemStateInstance', [
       { explicit: 0 },
     ]);
   }
@@ -318,7 +321,7 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemStateInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SystemStateInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -362,7 +365,7 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

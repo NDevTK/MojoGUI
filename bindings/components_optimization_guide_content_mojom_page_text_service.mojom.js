@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer = {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer.$interfaceName = 'optimization_guide.mojom.PageTextConsumer';
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextService = {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextService.$interfaceName = 'optimization_guide.mojom.PageTextService';
 mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = { $: {} };
 
@@ -144,7 +147,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemote = class {
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageTextConsumer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.PageTextConsumer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -185,7 +188,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageTextConsumer', [
+    const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.PageTextConsumer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -230,7 +233,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerReceiver = class
         // Try Method 0: OnTextDumpChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextDumpChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +244,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerReceiver = class
         // Try Method 1: OnChunksEnd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnChunksEnd (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -288,7 +291,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRequest = mojo.i
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consumer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_consumer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -325,7 +328,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRemote = class {
 mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageTextService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.PageTextService', [
       { explicit: null },
     ]);
   }
@@ -356,7 +359,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageTextService', [
+    const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.PageTextService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -400,7 +403,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceReceiver = class 
         // Try Method 0: RequestPageTextDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPageTextDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

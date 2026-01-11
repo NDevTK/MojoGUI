@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener.$interfaceName = 'blink.mojom.FileSystemAccessDirectoryEntriesListener';
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle.$interfaceName = 'blink.mojom.FileSystemAccessDirectoryHandle';
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = { $: {} };
@@ -113,7 +116,7 @@ mojo.internal.Union(
       },
       'arg_directory': {
         'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec),
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote),
         'nullable': false,
       },
     });
@@ -168,7 +171,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRemot
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessDirectoryEntriesListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FileSystemAccessDirectoryEntriesListener', [
       { explicit: null },
     ]);
   }
@@ -199,7 +202,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessDirectoryEntriesListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FileSystemAccessDirectoryEntriesListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -243,7 +246,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRecei
         // Try Method 0: DidReadDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidReadDirectory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -329,13 +332,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec, 'blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec, 'blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -501,7 +504,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote = class
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessDirectoryHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FileSystemAccessDirectoryHandle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -652,7 +655,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessDirectoryHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FileSystemAccessDirectoryHandle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -708,7 +711,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 0: GetPermissionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPermissionStatus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -719,7 +722,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 1: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -730,7 +733,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 2: GetFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -741,7 +744,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 3: GetDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectory (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -752,7 +755,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 4: GetEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEntries (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -763,7 +766,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 5: Rename
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Rename (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -774,7 +777,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 6: Move
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Move (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -785,7 +788,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 7: Remove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -796,7 +799,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 8: RemoveEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveEntry (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -807,7 +810,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 9: Resolve
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resolve (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -818,7 +821,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 10: Transfer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Transfer (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -829,7 +832,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 11: GetUniqueId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUniqueId (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -840,7 +843,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
         // Try Method 12: GetCloudIdentifiers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCloudIdentifiers (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

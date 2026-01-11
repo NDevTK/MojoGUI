@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.app_management = mojo.internal.bindings.app_management ||
 mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler.$interfaceName = 'ash.settings.app_notification.mojom.AppNotificationsHandler';
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = { $: {} };
@@ -87,6 +89,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver.$interfaceName = 'ash.settings.app_notification.mojom.AppNotificationsObserver';
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = { $: {} };
@@ -124,7 +127,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -210,7 +213,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppNotificationsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_notification.mojom.AppNotificationsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -291,7 +294,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppNotificationsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_notification.mojom.AppNotificationsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -340,7 +343,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 0: SetQuietMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetQuietMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -351,7 +354,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 1: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -362,7 +365,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 2: SetNotificationPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNotificationPermission (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -373,7 +376,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 3: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -384,7 +387,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 4: GetQuietMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuietMode (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -395,7 +398,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
         // Try Method 5: OpenBrowserNotificationSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBrowserNotificationSettings (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -531,7 +534,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppNotificationsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_notification.mojom.AppNotificationsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -572,7 +575,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppNotificationsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_notification.mojom.AppNotificationsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -617,7 +620,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
         // Try Method 0: OnNotificationAppChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationAppChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -628,7 +631,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
         // Try Method 1: OnQuietModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQuietModeChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

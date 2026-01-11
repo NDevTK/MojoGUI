@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals = mojo.internal.bindings.
 
 mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler.$interfaceName = 'ash.mojom.status_area_internals.PageHandler';
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = { $: {} };
@@ -238,7 +240,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemote = class
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.status_area_internals.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -379,7 +381,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.status_area_internals.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -434,7 +436,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 0: ToggleImeTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleImeTray (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +447,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 1: TogglePaletteTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePaletteTray (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +458,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 2: ToggleLogoutTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleLogoutTray (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -467,7 +469,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 3: ToggleVirtualKeyboardTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVirtualKeyboardTray (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -478,7 +480,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 4: ToggleDictationTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleDictationTray (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -489,7 +491,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 5: ToggleVideoConferenceTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVideoConferenceTray (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -500,7 +502,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 6: ToggleAnnotationTray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleAnnotationTray (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -511,7 +513,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 7: SetIsInUserChildSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsInUserChildSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -522,7 +524,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 8: TriggerPrivacyIndicators
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerPrivacyIndicators (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -533,7 +535,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 9: ResetHmrConsentStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetHmrConsentStatus (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -544,7 +546,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 10: SetBatteryIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryIcon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -555,7 +557,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
         // Try Method 11: SetBatteryPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryPercent (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

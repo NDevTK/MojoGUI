@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,13 +78,16 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.InfoSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.UnzipFilter = {};
+mojo.internal.bindings.unzip.mojom.UnzipFilterSpec = { $ : {} };
 mojo.internal.bindings.unzip.mojom.UnzipFilter.$interfaceName = 'unzip.mojom.UnzipFilter';
 mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.UnzipListener = {};
+mojo.internal.bindings.unzip.mojom.UnzipListenerSpec = { $ : {} };
 mojo.internal.bindings.unzip.mojom.UnzipListener.$interfaceName = 'unzip.mojom.UnzipListener';
 mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.Unzipper = {};
+mojo.internal.bindings.unzip.mojom.UnzipperSpec = { $ : {} };
 mojo.internal.bindings.unzip.mojom.Unzipper.$interfaceName = 'unzip.mojom.Unzipper';
 mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec = { $: {} };
 mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = { $: {} };
@@ -158,7 +162,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterRemote = class {
 mojo.internal.bindings.unzip.mojom.UnzipFilterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UnzipFilter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.UnzipFilter', [
       { explicit: null },
     ]);
   }
@@ -189,7 +193,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UnzipFilter', [
+    const ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.UnzipFilter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -233,7 +237,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
         // Try Method 0: ShouldUnzipFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldUnzipFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +321,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerRemote = class {
 mojo.internal.bindings.unzip.mojom.UnzipListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UnzipListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.UnzipListener', [
       { explicit: null },
     ]);
   }
@@ -348,7 +352,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UnzipListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.UnzipListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -392,7 +396,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerReceiver = class {
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -434,8 +438,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_dir', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipFilterSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipListenerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipFilterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipListenerRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -524,7 +528,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemote = class {
 mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Unzipper', [
+    this.ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.Unzipper', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -585,7 +589,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Unzipper', [
+    const ordinals = window.mojoScrambler.getOrdinals('unzip.mojom.Unzipper', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -632,7 +636,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
         // Try Method 0: Unzip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unzip (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -643,7 +647,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
         // Try Method 1: DetectEncoding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectEncoding (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -654,7 +658,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
         // Try Method 2: GetExtractedInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExtractedInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -665,7 +669,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
         // Try Method 3: DecodeXz
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeXz (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

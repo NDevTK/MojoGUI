@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.LineBoxSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.WordBoxSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator.$interfaceName = 'screen_ai.mojom.ScreenAIAnnotator';
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec = { $: {} };
@@ -93,6 +95,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsS
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor.$interfaceName = 'screen_ai.mojom.Screen2xMainContentExtractor';
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = { $: {} };
@@ -102,9 +105,11 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMain
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.OCRService = {};
+mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.OCRService.$interfaceName = 'screen_ai.mojom.OCRService';
 mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService = {};
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService.$interfaceName = 'screen_ai.mojom.MainContentExtractionService';
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = { $: {} };
 
@@ -276,7 +281,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote = class {
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScreenAIAnnotator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIAnnotator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -357,7 +362,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScreenAIAnnotator', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIAnnotator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -406,7 +411,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 0: PerformOcrAndReturnAXTreeUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAXTreeUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -417,7 +422,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 1: PerformOcrAndReturnAnnotation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAnnotation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -428,7 +433,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 2: SetClientType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -439,7 +444,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 3: GetMaxImageDimension
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxImageDimension (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -450,7 +455,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 4: SetOCRLightMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOCRLightMode (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -461,7 +466,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Try Method 5: IsOCRBusy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOCRBusy (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -650,7 +655,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote = clas
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Screen2xMainContentExtractor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.Screen2xMainContentExtractor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -711,7 +716,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Screen2xMainContentExtractor', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.Screen2xMainContentExtractor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -758,7 +763,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
         // Try Method 0: ExtractMainContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractMainContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -769,7 +774,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
         // Try Method 1: ExtractMainNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractMainNode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -780,7 +785,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
         // Try Method 2: IdentifyMainNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IdentifyMainNode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -791,7 +796,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
         // Try Method 3: SetClientType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -875,7 +880,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRequest = moj
 // Interface: OCRService
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec, 'screen_ai.mojom.OCRService_BindAnnotator_Params', [
-      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -912,7 +917,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote = class {
 mojo.internal.bindings.screen_ai.mojom.OCRServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OCRService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.OCRService', [
       { explicit: null },
     ]);
   }
@@ -943,7 +948,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OCRService', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.OCRService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -987,7 +992,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceReceiver = class {
         // Try Method 0: BindAnnotator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAnnotator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1026,7 +1031,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceRequest = mojo.internal.binding
 // Interface: MainContentExtractionService
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec, 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params', [
-      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1063,7 +1068,7 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote = clas
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MainContentExtractionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.MainContentExtractionService', [
       { explicit: null },
     ]);
   }
@@ -1094,7 +1099,7 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MainContentExtractionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.MainContentExtractionService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1138,7 +1143,7 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceReceiver = cl
         // Try Method 0: BindMainContentExtractor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMainContentExtractor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

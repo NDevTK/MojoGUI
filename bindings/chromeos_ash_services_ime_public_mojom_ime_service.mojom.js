@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,16 +77,19 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager = {};
+mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec = { $ : {} };
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager.$interfaceName = 'ash.ime.mojom.InputEngineManager';
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider = {};
+mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider.$interfaceName = 'ash.ime.mojom.PlatformAccessProvider';
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.ImeService = {};
+mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.ime.mojom.ImeService.$interfaceName = 'ash.ime.mojom.ImeService';
 mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = { $: {} };
@@ -155,7 +159,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemote = class {
 mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputEngineManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputEngineManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -196,7 +200,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputEngineManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputEngineManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -241,7 +245,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
         // Try Method 0: ConnectToImeEngine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToImeEngine (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -252,7 +256,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
         // Try Method 1: InitializeConnectionFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeConnectionFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -358,7 +362,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemote = class {
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PlatformAccessProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.PlatformAccessProvider', [
       { explicit: null },
     ]);
   }
@@ -389,7 +393,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PlatformAccessProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.PlatformAccessProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -433,7 +437,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
         // Try Method 0: DownloadImeFileTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadImeFileTo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -480,13 +484,13 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRequest = mojo.intern
 // Interface: ImeService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec, 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params', [
-      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputEngineManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -535,7 +539,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemote = class {
 mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ImeService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.ImeService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -586,7 +590,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ImeService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.ImeService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -632,7 +636,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
         // Try Method 0: SetPlatformAccessProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPlatformAccessProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -643,7 +647,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
         // Try Method 1: BindInputEngineManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputEngineManager (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -654,7 +658,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
         // Try Method 2: BindInputMethodUserDataService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputMethodUserDataService (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

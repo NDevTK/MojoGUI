@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec = { $: mojo.internal.E
 mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.auth.mojom.FactorObserver = {};
+mojo.internal.bindings.ash.auth.mojom.FactorObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.FactorObserver.$interfaceName = 'ash.auth.mojom.FactorObserver';
 mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig = {};
+mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig.$interfaceName = 'ash.auth.mojom.AuthFactorConfig';
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = { $: {} };
@@ -94,10 +97,12 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor = {};
+mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor.$interfaceName = 'ash.auth.mojom.RecoveryFactorEditor';
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor = {};
+mojo.internal.bindings.ash.auth.mojom.PinFactorEditorSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor.$interfaceName = 'ash.auth.mojom.PinFactorEditor';
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = { $: {} };
@@ -110,6 +115,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_Res
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor = {};
+mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor.$interfaceName = 'ash.auth.mojom.PasswordFactorEditor';
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec = { $: {} };
@@ -218,7 +224,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverRemote = class {
 mojo.internal.bindings.ash.auth.mojom.FactorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FactorObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.FactorObserver', [
       { explicit: null },
     ]);
   }
@@ -249,7 +255,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FactorObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.FactorObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -293,7 +299,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverReceiver = class {
         // Try Method 0: OnFactorChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFactorChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +338,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverRequest = mojo.internal.bind
 // Interface: AuthFactorConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.auth.mojom.FactorObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.auth.mojom.FactorObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -442,7 +448,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemote = class {
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AuthFactorConfig', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.AuthFactorConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -523,7 +529,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AuthFactorConfig', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.AuthFactorConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -572,7 +578,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 0: ObserveFactorChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveFactorChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -583,7 +589,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 1: IsSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -594,7 +600,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 2: IsConfigured
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsConfigured (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -605,7 +611,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 3: GetManagementType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagementType (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -616,7 +622,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 4: IsEditable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsEditable (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -627,7 +633,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         // Try Method 5: GetLocalAuthFactorsComplexity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalAuthFactorsComplexity (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -777,7 +783,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorRemote = class {
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RecoveryFactorEditor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.RecoveryFactorEditor', [
       { explicit: null },
     ]);
   }
@@ -808,7 +814,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RecoveryFactorEditor', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.RecoveryFactorEditor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -852,7 +858,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
         // Try Method 0: Configure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Configure (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1005,7 +1011,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemote = class {
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PinFactorEditor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.PinFactorEditor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1076,7 +1082,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PinFactorEditor', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.PinFactorEditor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1124,7 +1130,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         // Try Method 0: SetPin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPin (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1135,7 +1141,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         // Try Method 1: UpdatePin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePin (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1146,7 +1152,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         // Try Method 2: RemovePin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1157,7 +1163,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         // Try Method 3: GetConfiguredPinFactor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConfiguredPinFactor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1168,7 +1174,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         // Try Method 4: CheckPinComplexity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckPinComplexity (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1397,7 +1403,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemote = class {
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasswordFactorEditor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.PasswordFactorEditor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1478,7 +1484,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasswordFactorEditor', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.auth.mojom.PasswordFactorEditor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1527,7 +1533,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 0: UpdateOrSetLocalPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOrSetLocalPassword (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1538,7 +1544,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 1: UpdateOrSetOnlinePassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOrSetOnlinePassword (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1549,7 +1555,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 2: SetLocalPassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalPassword (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1560,7 +1566,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 3: SetOnlinePassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOnlinePassword (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1571,7 +1577,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 4: CheckLocalPasswordComplexity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckLocalPasswordComplexity (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1582,7 +1588,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         // Try Method 5: RemovePassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePassword (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

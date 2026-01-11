@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
 mojo.internal.bindings.blink.mojom.WebPressureManager = {};
+mojo.internal.bindings.blink.mojom.WebPressureManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPressureManager.$interfaceName = 'blink.mojom.WebPressureManager';
 mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPressureClient = {};
+mojo.internal.bindings.blink.mojom.WebPressureClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPressureClient.$interfaceName = 'blink.mojom.WebPressureClient';
 mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 
@@ -127,7 +130,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerRemote = class {
 mojo.internal.bindings.blink.mojom.WebPressureManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPressureManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPressureManager', [
       { explicit: null },
     ]);
   }
@@ -158,7 +161,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPressureManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPressureManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -202,7 +205,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerReceiver = class {
         // Try Method 0: AddClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -286,7 +289,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClientRemote = class {
 mojo.internal.bindings.blink.mojom.WebPressureClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPressureClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPressureClient', [
       { explicit: null },
     ]);
   }
@@ -317,7 +320,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPressureClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPressureClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -361,7 +364,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClientReceiver = class {
         // Try Method 0: OnPressureUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPressureUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

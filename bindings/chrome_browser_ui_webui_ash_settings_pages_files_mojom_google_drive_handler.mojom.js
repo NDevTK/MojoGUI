@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
 
 mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.google_drive.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler.$interfaceName = 'ash.settings.google_drive.mojom.PageHandler';
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = { $: {} };
@@ -87,6 +90,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFi
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.Page = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.Page.$interfaceName = 'ash.settings.google_drive.mojom.Page';
 mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = { $: {} };
@@ -105,8 +109,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -143,7 +147,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryRemote 
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -174,7 +178,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -218,7 +222,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryReceive
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -328,7 +332,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemote = class
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -389,7 +393,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -436,7 +440,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
         // Try Method 0: CalculateRequiredSpace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CalculateRequiredSpace (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -447,7 +451,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
         // Try Method 1: GetContentCacheSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentCacheSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -458,7 +462,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
         // Try Method 2: ClearPinnedFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPinnedFiles (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -469,7 +473,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
         // Try Method 3: RecordBulkPinningEnabledMetric
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordBulkPinningEnabledMetric (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -590,7 +594,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemote = class {
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -631,7 +635,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.google_drive.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -676,7 +680,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageReceiver = class {
         // Try Method 0: OnServiceUnavailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceUnavailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -687,7 +691,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

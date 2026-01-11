@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.lobster.mojom.CandidateSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.ErrorSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler.$interfaceName = 'lobster.mojom.UntrustedLobsterPageHandler';
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = { $: {} };
@@ -324,7 +326,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemote = class {
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedLobsterPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lobster.mojom.UntrustedLobsterPageHandler', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -445,7 +447,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedLobsterPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('lobster.mojom.UntrustedLobsterPageHandler', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -498,7 +500,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 0: RequestCandidates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCandidates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -509,7 +511,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 1: DownloadCandidate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadCandidate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -520,7 +522,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 2: CommitAsInsert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitAsInsert (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -531,7 +533,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 3: CommitAsDownload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitAsDownload (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -542,7 +544,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 4: PreviewFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewFeedback (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -553,7 +555,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 5: SubmitFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFeedback (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -564,7 +566,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 6: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -575,7 +577,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 7: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -586,7 +588,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 8: EmitMetricEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EmitMetricEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -597,7 +599,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
         // Try Method 9: OpenUrlInNewWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInNewWindow (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

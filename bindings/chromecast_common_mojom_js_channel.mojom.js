@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,13 +73,16 @@
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 
 mojo.internal.bindings.chromecast.mojom.JsChannel = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.JsChannel.$interfaceName = 'chromecast.mojom.JsChannel';
 mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.JsChannelClient = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.JsChannelClient.$interfaceName = 'chromecast.mojom.JsChannelClient';
 mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider.$interfaceName = 'chromecast.mojom.JsChannelBindingProvider';
 mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = { $: {} };
 
@@ -122,7 +126,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelRemote = class {
 mojo.internal.bindings.chromecast.mojom.JsChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsChannel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannel', [
       { explicit: null },
     ]);
   }
@@ -153,7 +157,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsChannel', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannel', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -197,7 +201,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelReceiver = class {
         // Try Method 0: PostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -237,7 +241,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelRequest = mojo.internal.binding
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec, 'chromecast.mojom.JsChannelClient_CreateChannel_Params', [
       mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -283,7 +287,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRemote = class {
 mojo.internal.bindings.chromecast.mojom.JsChannelClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsChannelClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannelClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -324,7 +328,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsChannelClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannelClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -369,7 +373,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientReceiver = class {
         // Try Method 0: CreateChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -380,7 +384,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientReceiver = class {
         // Try Method 1: RemoveChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveChannel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -426,7 +430,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRequest = mojo.internal.b
 // Interface: JsChannelBindingProvider
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec, 'chromecast.mojom.JsChannelBindingProvider_Register_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -464,7 +468,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderRemote = class {
 mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsChannelBindingProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannelBindingProvider', [
       { explicit: null },
     ]);
   }
@@ -495,7 +499,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsChannelBindingProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.JsChannelBindingProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -539,7 +543,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderReceiver = class
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

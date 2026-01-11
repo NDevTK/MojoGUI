@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.inte
 mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver.$interfaceName = 'blink.mojom.SpeechSynthesisVoiceListObserver';
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient.$interfaceName = 'blink.mojom.SpeechSynthesisClient';
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = { $: {} };
@@ -87,6 +90,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBounda
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesis = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesis.$interfaceName = 'blink.mojom.SpeechSynthesis';
 mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec = { $: {} };
@@ -173,7 +177,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverRemote = clas
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesisVoiceListObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesisVoiceListObserver', [
       { explicit: null },
     ]);
   }
@@ -204,7 +208,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesisVoiceListObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesisVoiceListObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -248,7 +252,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverReceiver = cl
         // Try Method 0: OnSetVoiceList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSetVoiceList (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -376,7 +380,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemote = class {
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesisClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesisClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -467,7 +471,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesisClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesisClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -517,7 +521,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 0: OnStartedSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartedSpeaking (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -528,7 +532,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 1: OnFinishedSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinishedSpeaking (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -539,7 +543,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 2: OnPausedSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPausedSpeaking (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -550,7 +554,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 3: OnResumedSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResumedSpeaking (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -561,7 +565,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 4: OnEncounteredWordBoundary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEncounteredWordBoundary (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -572,7 +576,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 5: OnEncounteredSentenceBoundary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEncounteredSentenceBoundary (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -583,7 +587,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientReceiver = class {
         // Try Method 6: OnEncounteredSpeakingError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEncounteredSpeakingError (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -664,14 +668,14 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRequest = mojo.internal.
 // Interface: SpeechSynthesis
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec, 'blink.mojom.SpeechSynthesis_AddVoiceListObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec, 'blink.mojom.SpeechSynthesis_Speak_Params', [
       mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -735,7 +739,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemote = class {
 mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesis', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesis', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -806,7 +810,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechSynthesis', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SpeechSynthesis', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -854,7 +858,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
         // Try Method 0: AddVoiceListObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVoiceListObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -865,7 +869,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
         // Try Method 1: Speak
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Speak (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -876,7 +880,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
         // Try Method 2: Pause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -887,7 +891,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
         // Try Method 3: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -898,7 +902,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisReceiver = class {
         // Try Method 4: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

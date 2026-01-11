@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient = {};
+mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient.$interfaceName = 'network.mojom.ConnectionChangeObserverClient';
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = { $: {} };
@@ -153,7 +155,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemote = clas
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ConnectionChangeObserverClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ConnectionChangeObserverClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -204,7 +206,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ConnectionChangeObserverClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ConnectionChangeObserverClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -250,7 +252,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
         // Try Method 0: OnSessionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -261,7 +263,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
         // Try Method 1: OnNetworkEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -272,7 +274,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
         // Try Method 2: OnConnectionFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

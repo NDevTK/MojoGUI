@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,6 +83,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.in
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec = { $ : {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfig';
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = { $: {} };
@@ -94,9 +96,11 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfigObserver';
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver.$interfaceName = 'ash.hotspot_config.mojom.HotspotEnabledStateObserver';
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = { $: {} };
@@ -207,13 +211,13 @@ mojo.internal.Struct(
 // Interface: CrosHotspotConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -310,7 +314,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemote = class 
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHotspotConfig', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.CrosHotspotConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -391,7 +395,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHotspotConfig', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.CrosHotspotConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -440,7 +444,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -451,7 +455,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 1: ObserveEnabledStateChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveEnabledStateChanges (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -462,7 +466,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 2: GetHotspotInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHotspotInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -473,7 +477,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 3: SetHotspotConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHotspotConfig (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -484,7 +488,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 4: EnableHotspot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableHotspot (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -495,7 +499,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
         // Try Method 5: DisableHotspot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableHotspot (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -637,7 +641,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote 
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHotspotConfigObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.CrosHotspotConfigObserver', [
       { explicit: null },
     ]);
   }
@@ -668,7 +672,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHotspotConfigObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.CrosHotspotConfigObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -712,7 +716,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverReceive
         // Try Method 0: OnHotspotInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotInfoChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -796,7 +800,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemot
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HotspotEnabledStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.HotspotEnabledStateObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -837,7 +841,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HotspotEnabledStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.hotspot_config.mojom.HotspotEnabledStateObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -882,7 +886,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRecei
         // Try Method 0: OnHotspotTurnedOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotTurnedOn (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -893,7 +897,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRecei
         // Try Method 1: OnHotspotTurnedOff
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHotspotTurnedOff (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

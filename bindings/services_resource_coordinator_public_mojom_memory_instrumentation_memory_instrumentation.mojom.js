@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -95,20 +96,24 @@ mojo.internal.bindings.memory_instrumentation.mojom.AggregatedMetricsSpec = { $:
 mojo.internal.bindings.memory_instrumentation.mojom.GlobalMemoryDumpSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfileResultSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess = {};
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess.$interfaceName = 'memory_instrumentation.mojom.ClientProcess';
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler = {};
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler.$interfaceName = 'memory_instrumentation.mojom.HeapProfiler';
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper = {};
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper.$interfaceName = 'memory_instrumentation.mojom.HeapProfilerHelper';
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator = {};
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator.$interfaceName = 'memory_instrumentation.mojom.Coordinator';
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec = { $: {} };
@@ -119,6 +124,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMe
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector = {};
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector.$interfaceName = 'memory_instrumentation.mojom.CoordinatorConnector';
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = { $: {} };
 
@@ -430,7 +436,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote = class 
 mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ClientProcess', [
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -471,7 +477,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ClientProcess', [
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -516,7 +522,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
         // Try Method 0: RequestChromeMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestChromeMemoryDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -527,7 +533,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
         // Try Method 1: RequestOSMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestOSMemoryDump (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -633,7 +639,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote = class {
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HeapProfiler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
       { explicit: null },
     ]);
   }
@@ -664,7 +670,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HeapProfiler', [
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -708,7 +714,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
         // Try Method 0: DumpProcessesForTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpProcessesForTracing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -798,7 +804,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote = c
 mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HeapProfilerHelper', [
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
       { explicit: null },
     ]);
   }
@@ -829,7 +835,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HeapProfilerHelper', [
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -873,7 +879,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
         // Try Method 0: GetVmRegionsForHeapProfiler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVmRegionsForHeapProfiler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1018,7 +1024,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote = class {
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Coordinator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1079,7 +1085,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Coordinator', [
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1126,7 +1132,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
         // Try Method 0: RequestGlobalMemoryDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1137,7 +1143,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
         // Try Method 1: RequestGlobalMemoryDumpForPid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpForPid (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1148,7 +1154,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
         // Try Method 2: RequestPrivateMemoryFootprint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrivateMemoryFootprint (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1159,7 +1165,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
         // Try Method 3: RequestGlobalMemoryDumpAndAppendToTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpAndAppendToTrace (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1251,8 +1257,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRequest = mojo.in
 // Interface: CoordinatorConnector
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec, 'memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_process', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_process', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1289,7 +1295,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote =
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CoordinatorConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
       { explicit: null },
     ]);
   }
@@ -1320,7 +1326,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CoordinatorConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1364,7 +1370,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver
         // Try Method 0: RegisterCoordinatorClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCoordinatorClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

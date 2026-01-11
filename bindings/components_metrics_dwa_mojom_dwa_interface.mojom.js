@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,11 +75,14 @@ mojo.internal.bindings.metrics.dwa.mojom = mojo.internal.bindings.metrics.dwa.mo
 
 mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec = { $: {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface = {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec = { $ : {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderClientInterface';
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface = {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec = { $ : {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderInterface';
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory = {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec = { $ : {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory.$interfaceName = 'metrics.dwa.mojom.DwaRecorderFactory';
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = { $: {} };
 
@@ -123,7 +127,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemote = clas
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DwaRecorderClientInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderClientInterface', [
     ]);
   }
 
@@ -144,7 +148,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DwaRecorderClientInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderClientInterface', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -245,7 +249,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemote = class {
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DwaRecorderInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderInterface', [
       { explicit: null },
     ]);
   }
@@ -276,7 +280,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DwaRecorderInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderInterface', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -320,7 +324,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
         // Try Method 0: AddEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEntry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -359,8 +363,8 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRequest = mojo.inte
 // Interface: DwaRecorderFactory
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -397,7 +401,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRemote = class {
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DwaRecorderFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderFactory', [
       { explicit: null },
     ]);
   }
@@ -428,7 +432,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DwaRecorderFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.dwa.mojom.DwaRecorderFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -472,7 +476,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
         // Try Method 0: CreateDwaRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDwaRecorder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

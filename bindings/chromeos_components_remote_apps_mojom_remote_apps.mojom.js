@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec = { $ : {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps.$interfaceName = 'chromeos.remote_apps.mojom.RemoteApps';
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = { $: {} };
@@ -88,9 +90,11 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRem
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec = { $ : {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppsFactory';
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver';
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = { $: {} };
 
@@ -234,7 +238,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemote = class {
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RemoteApps', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteApps', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -305,7 +309,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RemoteApps', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteApps', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -353,7 +357,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 0: AddFolder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFolder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +368,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 1: AddApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -375,7 +379,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 2: DeleteApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,7 +390,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 3: SortLauncherWithRemoteAppsFirst
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SortLauncherWithRemoteAppsFirst (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -397,7 +401,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         // Try Method 4: SetPinnedApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinnedApps (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -505,8 +509,8 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRequest = mojo.inter
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_Params', [
       mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_apps', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_apps', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -543,7 +547,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryRemote = clas
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RemoteAppsFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteAppsFactory', [
       { explicit: 0 },
     ]);
   }
@@ -574,7 +578,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RemoteAppsFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteAppsFactory', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -618,7 +622,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = cl
         // Try Method 0: BindRemoteAppsAndAppLaunchObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemoteAppsAndAppLaunchObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -695,7 +699,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote 
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RemoteAppLaunchObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteAppLaunchObserver', [
       { explicit: 0 },
     ]);
   }
@@ -726,7 +730,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RemoteAppLaunchObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.remote_apps.mojom.RemoteAppLaunchObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -770,7 +774,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceive
         // Try Method 0: OnRemoteAppLaunched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemoteAppLaunched (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

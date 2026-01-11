@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.mirroring.mojom.MirroringService = {};
+mojo.internal.bindings.mirroring.mojom.MirroringServiceSpec = { $ : {} };
 mojo.internal.bindings.mirroring.mojom.MirroringService.$interfaceName = 'mirroring.mojom.MirroringService';
 mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = { $: {} };
@@ -154,7 +156,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemote = class {
 mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MirroringService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.MirroringService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -205,7 +207,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MirroringService', [
+    const ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.MirroringService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -251,7 +253,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -262,7 +264,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 1: SwitchMirroringSourceTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchMirroringSourceTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -273,7 +275,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 2: GetMirroringStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMirroringStats (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

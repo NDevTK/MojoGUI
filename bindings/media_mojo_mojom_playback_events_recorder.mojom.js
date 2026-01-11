@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorder = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorder.$interfaceName = 'media.mojom.PlaybackEventsRecorder';
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = { $: {} };
@@ -190,7 +192,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemote = class {
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PlaybackEventsRecorder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.PlaybackEventsRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -301,7 +303,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PlaybackEventsRecorder', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.PlaybackEventsRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -353,7 +355,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 0: OnPlaying
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPlaying (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +366,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 1: OnPaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaused (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -375,7 +377,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 2: OnSeeking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSeeking (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,7 +388,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 3: OnEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnded (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -397,7 +399,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 4: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -408,7 +410,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 5: OnBuffering
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBuffering (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -419,7 +421,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 6: OnBufferingComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferingComplete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -430,7 +432,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 7: OnNaturalSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNaturalSizeChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -441,7 +443,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
         // Try Method 8: OnPipelineStatistics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipelineStatistics (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

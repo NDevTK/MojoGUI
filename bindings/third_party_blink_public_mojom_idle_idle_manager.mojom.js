@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.IdleStateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IdleMonitor = {};
+mojo.internal.bindings.blink.mojom.IdleMonitorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IdleMonitor.$interfaceName = 'blink.mojom.IdleMonitor';
 mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IdleManager = {};
+mojo.internal.bindings.blink.mojom.IdleManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IdleManager.$interfaceName = 'blink.mojom.IdleManager';
 mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = { $: {} };
@@ -139,7 +142,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorRemote = class {
 mojo.internal.bindings.blink.mojom.IdleMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IdleMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IdleMonitor', [
       { explicit: null },
     ]);
   }
@@ -170,7 +173,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IdleMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IdleMonitor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -214,7 +217,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -253,7 +256,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorRequest = mojo.internal.bindings.b
 // Interface: IdleManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec, 'blink.mojom.IdleManager_AddMonitor_Params', [
-      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.IdleMonitorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.IdleMonitorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -297,7 +300,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerRemote = class {
 mojo.internal.bindings.blink.mojom.IdleManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IdleManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IdleManager', [
       { explicit: null },
     ]);
   }
@@ -328,7 +331,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IdleManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IdleManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -372,7 +375,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerReceiver = class {
         // Try Method 0: AddMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMonitor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

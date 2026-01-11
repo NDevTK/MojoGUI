@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -115,6 +116,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PerfEventParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.MemoryUsageEventParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.OcrEventParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender = {};
+mojo.internal.bindings.ash.camera_app.mojom.EventsSenderSpec = { $ : {} };
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender.$interfaceName = 'ash.camera_app.mojom.EventsSender';
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = { $: {} };
@@ -667,7 +669,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemote = class {
 mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EventsSender', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.camera_app.mojom.EventsSender', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -818,7 +820,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EventsSender', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.camera_app.mojom.EventsSender', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -874,7 +876,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 0: SendStartSessionEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendStartSessionEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -885,7 +887,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 1: SendCaptureEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendCaptureEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -896,7 +898,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 2: SendAndroidIntentEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendAndroidIntentEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -907,7 +909,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 3: SendOpenPTZPanelEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOpenPTZPanelEvent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -918,7 +920,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 4: SendDocScanActionEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendDocScanActionEvent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -929,7 +931,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 5: SendDocScanResultEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendDocScanResultEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -940,7 +942,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 6: SendOpenCameraEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOpenCameraEvent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -951,7 +953,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 7: SendLowStorageActionEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendLowStorageActionEvent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -962,7 +964,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 8: SendBarcodeDetectedEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBarcodeDetectedEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -973,7 +975,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 9: SendPerfEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPerfEvent (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -984,7 +986,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 10: SendUnsupportedProtocolEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendUnsupportedProtocolEvent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -995,7 +997,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 11: UpdateMemoryUsageEventParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMemoryUsageEventParams (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1006,7 +1008,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderReceiver = class {
         // Try Method 12: SendOcrEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOcrEvent (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

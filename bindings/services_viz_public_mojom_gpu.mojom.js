@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.viz.mojom.Gpu = {};
+mojo.internal.bindings.viz.mojom.GpuSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.Gpu.$interfaceName = 'viz.mojom.Gpu';
 mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = { $: {} };
@@ -150,7 +152,7 @@ mojo.internal.bindings.viz.mojom.GpuRemote = class {
 mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Gpu', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.Gpu', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -201,7 +203,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Gpu', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.Gpu', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -247,7 +249,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
         // Try Method 0: EstablishGpuChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishGpuChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -258,7 +260,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
         // Try Method 1: CreateJpegDecodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegDecodeAccelerator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -269,7 +271,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
         // Try Method 2: CreateVideoEncodeAcceleratorProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAcceleratorProvider (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

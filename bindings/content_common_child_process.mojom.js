@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,11 +77,13 @@ mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 
 mojo.internal.bindings.content.mojom.LoggingSettingsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcessHost = {};
+mojo.internal.bindings.content.mojom.ChildProcessHostSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.ChildProcessHost.$interfaceName = 'content.mojom.ChildProcessHost';
 mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess = {};
+mojo.internal.bindings.content.mojom.ChildProcessSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.ChildProcess.$interfaceName = 'content.mojom.ChildProcess';
 mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec = { $: {} };
@@ -160,7 +163,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostRemote = class {
 mojo.internal.bindings.content.mojom.ChildProcessHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildProcessHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildProcessHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -201,7 +204,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildProcessHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildProcessHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -246,7 +249,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
         // Try Method 0: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +260,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
         // Try Method 1: BindHostReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindHostReceiver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -472,7 +475,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemote = class {
 mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildProcess', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildProcess', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -633,7 +636,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildProcess', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildProcess', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -690,7 +693,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 0: ProcessShutdown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessShutdown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -701,7 +704,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 1: GetTaskPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTaskPort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -712,7 +715,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 2: SetIPCLoggingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPCLoggingEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -723,7 +726,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 3: GetBackgroundTracingAgentProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBackgroundTracingAgentProvider (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -734,7 +737,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 4: EnableSystemTracingService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableSystemTracingService (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -745,7 +748,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 5: CrashHungProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashHungProcess (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -756,7 +759,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 6: BindServiceInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindServiceInterface (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -767,7 +770,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 7: BindReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -778,7 +781,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 8: SetProfilingFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfilingFile (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -789,7 +792,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 9: WriteClangProfilingProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -800,7 +803,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 10: SetPseudonymizationSalt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPseudonymizationSalt (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -811,7 +814,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 11: ReinitializeLogging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReinitializeLogging (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -822,7 +825,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 12: OnMemoryPressure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryPressure (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -833,7 +836,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         // Try Method 13: SetBatterySaverMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatterySaverMode (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

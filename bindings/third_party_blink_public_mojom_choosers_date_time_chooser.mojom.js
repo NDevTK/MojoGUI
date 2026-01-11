@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DateTimeChooser = {};
+mojo.internal.bindings.blink.mojom.DateTimeChooserSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DateTimeChooser.$interfaceName = 'blink.mojom.DateTimeChooser';
 mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = { $: {} };
@@ -157,7 +159,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserRemote = class {
 mojo.internal.bindings.blink.mojom.DateTimeChooserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DateTimeChooser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DateTimeChooser', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -198,7 +200,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DateTimeChooser', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DateTimeChooser', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -243,7 +245,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserReceiver = class {
         // Try Method 0: OpenDateTimeDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDateTimeDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -254,7 +256,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserReceiver = class {
         // Try Method 1: CloseDateTimeDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDateTimeDialog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

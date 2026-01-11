@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierConfigSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector = {};
+mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorSpec = { $ : {} };
 mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector.$interfaceName = 'cert_verifier.mojom.URLLoaderFactoryConnector';
 mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceSpec = { $ : {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService.$interfaceName = 'cert_verifier.mojom.CertVerifierService';
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = { $: {} };
@@ -86,9 +89,11 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBindin
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientSpec = { $ : {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient.$interfaceName = 'cert_verifier.mojom.CertVerifierServiceClient';
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestSpec = { $ : {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest.$interfaceName = 'cert_verifier.mojom.CertVerifierRequest';
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = { $: {} };
 
@@ -152,7 +157,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRemote = cla
 mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('URLLoaderFactoryConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.URLLoaderFactoryConnector', [
       { explicit: null },
     ]);
   }
@@ -183,7 +188,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('URLLoaderFactoryConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.URLLoaderFactoryConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -227,7 +232,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = c
         // Try Method 0: CreateURLLoaderFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateURLLoaderFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -267,7 +272,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRequest = mo
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_Params', [
       mojo.internal.StructField('arg_url_loader_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reconnector', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_reconnector', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -275,7 +280,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -342,7 +347,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote = class {
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertVerifierService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -403,7 +408,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertVerifierService', [
+    const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -450,7 +455,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
         // Try Method 0: EnableNetworkAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableNetworkAccess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -461,7 +466,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
         // Try Method 1: Verify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -472,7 +477,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
         // Try Method 2: Verify2QwacBinding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify2QwacBinding (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -483,7 +488,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
         // Try Method 3: SetConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfig (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -587,7 +592,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote = cla
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertVerifierServiceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceClient', [
       { explicit: null },
     ]);
   }
@@ -618,7 +623,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertVerifierServiceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -662,7 +667,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientReceiver = c
         // Try Method 0: OnCertVerifierChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCertVerifierChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -739,7 +744,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemote = class {
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertVerifierRequest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierRequest', [
       { explicit: null },
     ]);
   }
@@ -770,7 +775,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertVerifierRequest', [
+    const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierRequest', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -814,7 +819,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestReceiver = class {
         // Try Method 0: Complete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.InstallOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebInstallService = {};
+mojo.internal.bindings.blink.mojom.WebInstallServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebInstallService.$interfaceName = 'blink.mojom.WebInstallService';
 mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec = { $: {} };
@@ -159,7 +161,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemote = class {
 mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebInstallService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebInstallService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -200,7 +202,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebInstallService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebInstallService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -245,7 +247,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
         // Try Method 0: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -256,7 +258,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
         // Try Method 1: InstallFromElement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallFromElement (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

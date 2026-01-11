@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,12 +79,15 @@ mojo.internal.bindings.chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum()
 mojo.internal.bindings.chrome.mojom.PluginInfoSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginParamSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginHost = {};
+mojo.internal.bindings.chrome.mojom.PluginHostSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.PluginHost.$interfaceName = 'chrome.mojom.PluginHost';
 mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginAuthHost = {};
+mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.PluginAuthHost.$interfaceName = 'chrome.mojom.PluginAuthHost';
 mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginInfoHost = {};
+mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.PluginInfoHost.$interfaceName = 'chrome.mojom.PluginInfoHost';
 mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = { $: {} };
@@ -157,7 +161,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostRemote = class {
 mojo.internal.bindings.chrome.mojom.PluginHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PluginHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginHost', [
       { explicit: null },
     ]);
   }
@@ -188,7 +192,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PluginHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -232,7 +236,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostReceiver = class {
         // Try Method 0: OpenPDF
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPDF (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -309,7 +313,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostRemote = class {
 mojo.internal.bindings.chrome.mojom.PluginAuthHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PluginAuthHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginAuthHost', [
       { explicit: null },
     ]);
   }
@@ -340,7 +344,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PluginAuthHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginAuthHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -384,7 +388,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostReceiver = class {
         // Try Method 0: BlockedUnauthorizedPlugin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BlockedUnauthorizedPlugin (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -468,7 +472,7 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostRemote = class {
 mojo.internal.bindings.chrome.mojom.PluginInfoHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PluginInfoHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginInfoHost', [
       { explicit: null },
     ]);
   }
@@ -499,7 +503,7 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PluginInfoHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.PluginInfoHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -543,7 +547,7 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostReceiver = class {
         // Try Method 0: GetPluginInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPluginInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

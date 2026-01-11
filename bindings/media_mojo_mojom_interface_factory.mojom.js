@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,8 +74,10 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.media.mojom.VideoDecoderTracker = {};
+mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoDecoderTracker.$interfaceName = 'media.mojom.VideoDecoderTracker';
 mojo.internal.bindings.media.mojom.InterfaceFactory = {};
+mojo.internal.bindings.media.mojom.InterfaceFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory.$interfaceName = 'media.mojom.InterfaceFactory';
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = { $: {} };
@@ -118,7 +121,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote = class {
 mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoDecoderTracker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoDecoderTracker', [
     ]);
   }
 
@@ -139,7 +142,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderTrackerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoDecoderTracker', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoDecoderTracker', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -217,7 +220,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,7 +331,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemote = class {
 mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InterfaceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.InterfaceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -439,7 +442,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InterfaceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.InterfaceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -491,7 +494,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 0: CreateAudioDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioDecoder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -502,7 +505,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 1: CreateVideoDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -513,7 +516,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 2: CreateVideoDecoderWithTracker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoderWithTracker (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -524,7 +527,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 3: CreateAudioEncoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioEncoder (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -535,7 +538,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 4: CreateDefaultRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDefaultRenderer (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -546,7 +549,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 5: CreateCastRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCastRenderer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -557,7 +560,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 6: CreateMediaFoundationRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaFoundationRenderer (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -568,7 +571,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 7: CreateFlingingRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFlingingRenderer (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -579,7 +582,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
         // Try Method 8: CreateCdm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

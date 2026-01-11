@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom = mojo.internal.bindings
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider.$interfaceName = 'ash.printing.print_preview.mojom.DestinationProvider';
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = { $: {} };
@@ -126,7 +128,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRemot
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DestinationProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.printing.print_preview.mojom.DestinationProvider', [
       { explicit: null },
     ]);
   }
@@ -157,7 +159,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DestinationProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.printing.print_preview.mojom.DestinationProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -201,7 +203,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
         // Try Method 0: FetchCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchCapabilities (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

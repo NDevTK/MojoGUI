@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.device.mojom.SensorInitParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec = { $: {} };
 mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorProvider = {};
+mojo.internal.bindings.device.mojom.SensorProviderSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SensorProvider.$interfaceName = 'device.mojom.SensorProvider';
 mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = { $: {} };
@@ -276,7 +278,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemote = class {
 mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SensorProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -347,7 +349,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SensorProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -395,7 +397,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
         // Try Method 0: GetSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSensor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +408,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
         // Try Method 1: CreateVirtualSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVirtualSensor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -417,7 +419,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
         // Try Method 2: UpdateVirtualSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVirtualSensor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -428,7 +430,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
         // Try Method 3: RemoveVirtualSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveVirtualSensor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -439,7 +441,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
         // Try Method 4: GetVirtualSensorInformation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVirtualSensorInformation (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

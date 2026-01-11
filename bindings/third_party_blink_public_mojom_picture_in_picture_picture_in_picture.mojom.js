@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,16 +77,19 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver = {};
+mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver.$interfaceName = 'blink.mojom.PictureInPictureSessionObserver';
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSession = {};
+mojo.internal.bindings.blink.mojom.PictureInPictureSessionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSession.$interfaceName = 'blink.mojom.PictureInPictureSession';
 mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureService = {};
+mojo.internal.bindings.blink.mojom.PictureInPictureServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureService.$interfaceName = 'blink.mojom.PictureInPictureService';
 mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = { $: {} };
@@ -138,7 +142,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemote = class
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PictureInPictureSessionObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureSessionObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -179,7 +183,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PictureInPictureSessionObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureSessionObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -224,7 +228,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverReceiver = cla
         // Try Method 0: OnWindowSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowSizeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -235,7 +239,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverReceiver = cla
         // Try Method 1: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -344,7 +348,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemote = class {
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PictureInPictureSession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureSession', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -395,7 +399,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PictureInPictureSession', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureSession', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -441,7 +445,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -452,7 +456,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -463,7 +467,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
         // Try Method 2: UpdateMediaPosition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMediaPosition (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -527,7 +531,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_natural_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_source_bounds', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_player_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_show_play_pause_button', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -536,7 +540,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -574,7 +578,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceRemote = class {
 mojo.internal.bindings.blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PictureInPictureService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureService', [
       { explicit: null },
     ]);
   }
@@ -605,7 +609,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PictureInPictureService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PictureInPictureService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -649,7 +653,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceReceiver = class {
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

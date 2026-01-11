@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.media.mojom.MuteStateObserver = {};
+mojo.internal.bindings.media.mojom.MuteStateObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MuteStateObserver.$interfaceName = 'media.mojom.MuteStateObserver';
 mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory.$interfaceName = 'media.mojom.FrameInterfaceFactory';
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = { $: {} };
@@ -126,7 +129,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverRemote = class {
 mojo.internal.bindings.media.mojom.MuteStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MuteStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MuteStateObserver', [
       { explicit: null },
     ]);
   }
@@ -157,7 +160,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MuteStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MuteStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -201,7 +204,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverReceiver = class {
         // Try Method 0: OnMuteStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMuteStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -252,7 +255,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params', [
-      mojo.internal.StructField('arg_site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MuteStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MuteStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -327,7 +330,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote = class {
 mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameInterfaceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.FrameInterfaceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -408,7 +411,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameInterfaceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.FrameInterfaceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -457,7 +460,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 0: CreateProvisionFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProvisionFetcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -468,7 +471,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 1: CreateCdmStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdmStorage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -479,7 +482,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 2: RegisterMuteStateObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMuteStateObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -490,7 +493,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 3: CreateDCOMPSurfaceRegistry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDCOMPSurfaceRegistry (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -501,7 +504,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 4: GetCdmOrigin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCdmOrigin (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -512,7 +515,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
         // Try Method 5: BindEmbedderReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindEmbedderReceiver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

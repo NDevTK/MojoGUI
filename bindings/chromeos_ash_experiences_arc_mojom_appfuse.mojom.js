@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.AppfuseHost = {};
+mojo.internal.bindings.arc.mojom.AppfuseHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AppfuseHost.$interfaceName = 'arc.mojom.AppfuseHost';
 mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = { $: {} };
@@ -80,6 +82,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = { $: {
 mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppfuseInstance = {};
+mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AppfuseInstance.$interfaceName = 'arc.mojom.AppfuseInstance';
 mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec = { $: {} };
@@ -165,7 +168,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemote = class {
 mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppfuseHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppfuseHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -216,7 +219,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppfuseHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppfuseHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -262,7 +265,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
         // Try Method 0: Mount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Mount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +276,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
         // Try Method 1: Unmount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unmount (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -284,7 +287,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
         // Try Method 2: OpenFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -361,7 +364,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRequest = mojo.internal.bindings.arc
 // Interface: AppfuseInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec, 'arc.mojom.AppfuseInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppfuseHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppfuseHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,7 +406,7 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.AppfuseInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppfuseInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppfuseInstance', [
       { explicit: 0 },
     ]);
   }
@@ -434,7 +437,7 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppfuseInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppfuseInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -478,7 +481,7 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

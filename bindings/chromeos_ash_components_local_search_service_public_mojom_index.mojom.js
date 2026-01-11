@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.a
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.ash.local_search_service.mojom.Index = {};
+mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec = { $ : {} };
 mojo.internal.bindings.ash.local_search_service.mojom.Index.$interfaceName = 'ash.local_search_service.mojom.Index';
 mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = { $: {} };
@@ -223,7 +225,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote = class {
 mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Index', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.Index', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -314,7 +316,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Index', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.Index', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -364,7 +366,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 0: GetSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -375,7 +377,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 1: AddOrUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOrUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -386,7 +388,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 2: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -397,7 +399,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 3: UpdateDocuments
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDocuments (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -408,7 +410,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 4: Find
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Find (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -419,7 +421,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 5: ClearIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearIndex (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -430,7 +432,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
         // Try Method 6: SetSearchParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSearchParams (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

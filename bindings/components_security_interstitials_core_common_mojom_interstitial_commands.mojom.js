@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.security_interstitials.mojom = mojo.internal.bindings.security_interstitials.mojom || {};
 
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec = { $ : {} };
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands.$interfaceName = 'security_interstitials.mojom.InterstitialCommands';
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = { $: {} };
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = { $: {} };
@@ -294,7 +296,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemote =
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InterstitialCommands', [
+    this.ordinals = window.mojoScrambler.getOrdinals('security_interstitials.mojom.InterstitialCommands', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -525,7 +527,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InterstitialCommands', [
+    const ordinals = window.mojoScrambler.getOrdinals('security_interstitials.mojom.InterstitialCommands', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -589,7 +591,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 0: DontProceed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontProceed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -600,7 +602,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 1: Proceed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Proceed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -611,7 +613,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 2: ShowMoreSection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowMoreSection (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -622,7 +624,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 3: OpenHelpCenter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -633,7 +635,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 4: OpenDiagnostic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnostic (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -644,7 +646,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 5: Reload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -655,7 +657,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 6: OpenDateSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDateSettings (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -666,7 +668,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 7: OpenLogin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLogin (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -677,7 +679,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 8: DoReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoReport (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -688,7 +690,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 9: DontReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontReport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -699,7 +701,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 10: OpenReportingPrivacy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacy (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -710,7 +712,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 11: OpenWhitepaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaper (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -721,7 +723,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 12: OpenHelpCenterInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenterInNewTab (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -732,7 +734,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 13: OpenDiagnosticInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnosticInNewTab (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -743,7 +745,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 14: OpenReportingPrivacyInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacyInNewTab (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -754,7 +756,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 15: OpenWhitepaperInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaperInNewTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -765,7 +767,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 16: ReportPhishingErrorInNewTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingErrorInNewTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -776,7 +778,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 17: ReportPhishingError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingError (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -787,7 +789,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 18: OpenEnhancedProtectionSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEnhancedProtectionSettings (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -798,7 +800,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 19: ShowCertificateViewer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowCertificateViewer (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -809,7 +811,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
         // Try Method 20: OpenAndroidAdvancedProtectionSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAndroidAdvancedProtectionSettings (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;

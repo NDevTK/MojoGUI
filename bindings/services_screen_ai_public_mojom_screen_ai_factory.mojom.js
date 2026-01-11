@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler.$interfaceName = 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactorySpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory.$interfaceName = 'screen_ai.mojom.ScreenAIServiceFactory';
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = { $: {} };
@@ -124,7 +127,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = cl
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceShutdownHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIServiceShutdownHandler', [
       { explicit: null },
     ]);
   }
@@ -155,7 +158,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceShutdownHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIServiceShutdownHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -199,7 +202,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = 
         // Try Method 0: ShuttingDownOnIdle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShuttingDownOnIdle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +269,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params', [
-      mojo.internal.StructField('arg_shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -309,7 +312,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -360,7 +363,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -406,7 +409,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 0: InitializeOCR
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeOCR (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -417,7 +420,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 1: InitializeMainContentExtraction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeMainContentExtraction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -428,7 +431,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 2: BindShutdownHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindShutdownHandler (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

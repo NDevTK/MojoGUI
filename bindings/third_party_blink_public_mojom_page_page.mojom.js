@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PageBroadcast = {};
+mojo.internal.bindings.blink.mojom.PageBroadcastSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PageBroadcast.$interfaceName = 'blink.mojom.PageBroadcast';
 mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec = { $: {} };
@@ -301,7 +303,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemote = class {
 mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageBroadcast', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PageBroadcast', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -442,7 +444,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageBroadcast', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PageBroadcast', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -497,7 +499,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 0: SetPageLifecycleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageLifecycleState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -508,7 +510,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 1: AudioStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -519,7 +521,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 2: ActivatePrerenderedPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivatePrerenderedPage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -530,7 +532,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 3: UpdateWebPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWebPreferences (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -541,7 +543,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 4: UpdateRendererPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRendererPreferences (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -552,7 +554,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 5: SetHistoryIndexAndLength
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHistoryIndexAndLength (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -563,7 +565,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 6: SetPageBaseBackgroundColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageBaseBackgroundColor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -574,7 +576,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 7: CreateRemoteMainFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRemoteMainFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -585,7 +587,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 8: UpdatePageBrowsingContextGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePageBrowsingContextGroup (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -596,7 +598,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 9: SetPageAttributionSupport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageAttributionSupport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -607,7 +609,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 10: UpdateColorProviders
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateColorProviders (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -618,7 +620,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
         // Try Method 11: SetSupportsDraggableRegions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportsDraggableRegions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

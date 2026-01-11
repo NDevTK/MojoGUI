@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.device.mojom.GeolocationContext = {};
+mojo.internal.bindings.device.mojom.GeolocationContextSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.GeolocationContext.$interfaceName = 'device.mojom.GeolocationContext';
 mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = { $: {} };
@@ -157,7 +159,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemote = class {
 mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GeolocationContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.GeolocationContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -218,7 +220,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GeolocationContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.GeolocationContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -265,7 +267,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
         // Try Method 0: BindGeolocation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGeolocation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -276,7 +278,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
         // Try Method 1: OnPermissionUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPermissionUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -287,7 +289,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
         // Try Method 2: SetOverride
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOverride (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -298,7 +300,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
         // Try Method 3: ClearOverride
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOverride (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

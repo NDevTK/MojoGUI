@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.UDPSocket = {};
+mojo.internal.bindings.network.mojom.UDPSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.UDPSocket.$interfaceName = 'network.mojom.UDPSocket';
 mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.UDPSocket_Bind_ResponseParamsSpec = { $: {} };
@@ -97,6 +99,7 @@ mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.UDPSocket_Send_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.UDPSocket_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.UDPSocketListener = {};
+mojo.internal.bindings.network.mojom.UDPSocketListenerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.UDPSocketListener.$interfaceName = 'network.mojom.UDPSocketListener';
 mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec = { $: {} };
 
@@ -316,7 +319,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemote = class {
 mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UDPSocket', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.UDPSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -457,7 +460,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UDPSocket', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.UDPSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -512,7 +515,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 0: Bind
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Bind (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -523,7 +526,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 1: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -534,7 +537,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 2: SetBroadcast
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBroadcast (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -545,7 +548,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 3: SetSendBufferSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSendBufferSize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -556,7 +559,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 4: SetReceiveBufferSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReceiveBufferSize (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -567,7 +570,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 5: JoinGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinGroup (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -578,7 +581,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 6: LeaveGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveGroup (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -589,7 +592,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 7: ReceiveMore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveMore (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -600,7 +603,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 8: ReceiveMoreWithBufferSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveMoreWithBufferSize (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -611,7 +614,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 9: SendTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendTo (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -622,7 +625,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 10: Send
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -633,7 +636,7 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
         // Try Method 11: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -860,7 +863,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerRemote = class {
 mojo.internal.bindings.network.mojom.UDPSocketListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UDPSocketListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.UDPSocketListener', [
       { explicit: null },
     ]);
   }
@@ -891,7 +894,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UDPSocketListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.UDPSocketListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -935,7 +938,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerReceiver = class {
         // Try Method 0: OnReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

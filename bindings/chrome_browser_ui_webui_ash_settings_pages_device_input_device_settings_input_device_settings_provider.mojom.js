@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,35 +77,45 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver.$interfaceName = 'ash.settings.mojom.KeyboardSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver.$interfaceName = 'ash.settings.mojom.TouchpadSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver.$interfaceName = 'ash.settings.mojom.PointingStickSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver.$interfaceName = 'ash.settings.mojom.MouseSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver = {};
+mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver.$interfaceName = 'ash.settings.mojom.ButtonPressObserver';
 mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver.$interfaceName = 'ash.settings.mojom.GraphicsTabletSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver = {};
+mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver.$interfaceName = 'ash.settings.mojom.KeyboardBrightnessObserver';
 mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver = {};
+mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver.$interfaceName = 'ash.settings.mojom.KeyboardAmbientLightSensorObserver';
 mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.LidStateObserver = {};
+mojo.internal.bindings.ash.settings.mojom.LidStateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.LidStateObserver.$interfaceName = 'ash.settings.mojom.LidStateObserver';
 mojo.internal.bindings.ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider = {};
+mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider.$interfaceName = 'ash.settings.mojom.InputDeviceSettingsProvider';
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec = { $: {} };
@@ -216,7 +227,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRemote = class
 mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardSettingsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -257,7 +268,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardSettingsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -302,7 +313,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverReceiver = cla
         // Try Method 0: OnKeyboardListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardListUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -313,7 +324,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverReceiver = cla
         // Try Method 1: OnKeyboardPoliciesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardPoliciesUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -396,7 +407,7 @@ mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverRemote = class
 mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TouchpadSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.TouchpadSettingsObserver', [
       { explicit: null },
     ]);
   }
@@ -427,7 +438,7 @@ mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TouchpadSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.TouchpadSettingsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -471,7 +482,7 @@ mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverReceiver = cla
         // Try Method 0: OnTouchpadListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTouchpadListUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -547,7 +558,7 @@ mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverRemote = 
 mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PointingStickSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.PointingStickSettingsObserver', [
       { explicit: null },
     ]);
   }
@@ -578,7 +589,7 @@ mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PointingStickSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.PointingStickSettingsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -622,7 +633,7 @@ mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverReceiver 
         // Try Method 0: OnPointingStickListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointingStickListUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -707,7 +718,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRemote = class {
 mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MouseSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.MouseSettingsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -748,7 +759,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MouseSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.MouseSettingsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -793,7 +804,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverReceiver = class 
         // Try Method 0: OnMouseListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseListUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -804,7 +815,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverReceiver = class 
         // Try Method 1: OnMousePoliciesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMousePoliciesUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -887,7 +898,7 @@ mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverRemote = class {
 mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ButtonPressObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.ButtonPressObserver', [
       { explicit: null },
     ]);
   }
@@ -918,7 +929,7 @@ mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ButtonPressObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.ButtonPressObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -962,7 +973,7 @@ mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverReceiver = class {
         // Try Method 0: OnButtonPressed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnButtonPressed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1038,7 +1049,7 @@ mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverRemote =
 mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraphicsTabletSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.GraphicsTabletSettingsObserver', [
       { explicit: null },
     ]);
   }
@@ -1069,7 +1080,7 @@ mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraphicsTabletSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.GraphicsTabletSettingsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1113,7 +1124,7 @@ mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverReceiver
         // Try Method 0: OnGraphicsTabletListUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGraphicsTabletListUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1189,7 +1200,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverRemote = cla
 mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardBrightnessObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardBrightnessObserver', [
       { explicit: null },
     ]);
   }
@@ -1220,7 +1231,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardBrightnessObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardBrightnessObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1264,7 +1275,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverReceiver = c
         // Try Method 0: OnKeyboardBrightnessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardBrightnessChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1340,7 +1351,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRemo
 mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardAmbientLightSensorObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardAmbientLightSensorObserver', [
       { explicit: null },
     ]);
   }
@@ -1371,7 +1382,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardAmbientLightSensorObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.KeyboardAmbientLightSensorObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1415,7 +1426,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRece
         // Try Method 0: OnKeyboardAmbientLightSensorEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardAmbientLightSensorEnabledChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1491,7 +1502,7 @@ mojo.internal.bindings.ash.settings.mojom.LidStateObserverRemote = class {
 mojo.internal.bindings.ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LidStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.LidStateObserver', [
       { explicit: null },
     ]);
   }
@@ -1522,7 +1533,7 @@ mojo.internal.bindings.ash.settings.mojom.LidStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LidStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.LidStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1566,7 +1577,7 @@ mojo.internal.bindings.ash.settings.mojom.LidStateObserverReceiver = class {
         // Try Method 0: OnLidStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1605,55 +1616,55 @@ mojo.internal.bindings.ash.settings.mojom.LidStateObserverRequest = mojo.interna
 // Interface: InputDeviceSettingsProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.LidStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.LidStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1939,7 +1950,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemote = cl
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputDeviceSettingsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.InputDeviceSettingsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2250,7 +2261,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputDeviceSettingsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.InputDeviceSettingsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2322,7 +2333,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 0: ObserveKeyboardSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveKeyboardSettings (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2333,7 +2344,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 1: ObserveTouchpadSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveTouchpadSettings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2344,7 +2355,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 2: ObservePointingStickSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePointingStickSettings (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2355,7 +2366,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 3: ObserveMouseSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveMouseSettings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2366,7 +2377,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 4: ObserveGraphicsTabletSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveGraphicsTabletSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2377,7 +2388,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 5: ObserveButtonPresses
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveButtonPresses (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2388,7 +2399,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 6: ObserveKeyboardBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveKeyboardBrightness (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2399,7 +2410,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 7: ObserveKeyboardAmbientLightSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveKeyboardAmbientLightSensor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2410,7 +2421,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 8: ObserveLidState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveLidState (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2421,7 +2432,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 9: RestoreDefaultKeyboardRemappings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreDefaultKeyboardRemappings (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2432,7 +2443,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 10: SetKeyboardSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardSettings (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2443,7 +2454,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 11: SetPointingStickSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPointingStickSettings (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2454,7 +2465,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 12: SetMouseSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMouseSettings (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2465,7 +2476,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 13: SetTouchpadSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTouchpadSettings (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2476,7 +2487,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 14: SetGraphicsTabletSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGraphicsTabletSettings (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2487,7 +2498,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 15: SetKeyboardBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardBrightness (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2498,7 +2509,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 16: SetKeyboardAmbientLightSensorEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardAmbientLightSensorEnabled (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2509,7 +2520,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 17: StartObserving
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObserving (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2520,7 +2531,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 18: StopObserving
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopObserving (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2531,7 +2542,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 19: GetActionsForMouseButtonCustomization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActionsForMouseButtonCustomization (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2542,7 +2553,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 20: GetActionsForGraphicsTabletButtonCustomization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActionsForGraphicsTabletButtonCustomization (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2553,7 +2564,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 21: GetMetaKeyToDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetaKeyToDisplay (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2564,7 +2575,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 22: HasKeyboardBacklight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasKeyboardBacklight (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2575,7 +2586,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 23: HasAmbientLightSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasAmbientLightSensor (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2586,7 +2597,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 24: IsRgbKeyboardSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRgbKeyboardSupported (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2597,7 +2608,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 25: RecordKeyboardColorLinkClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordKeyboardColorLinkClicked (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2608,7 +2619,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 26: RecordKeyboardBrightnessChangeFromSlider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordKeyboardBrightnessChangeFromSlider (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2619,7 +2630,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 27: GetDeviceIconImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceIconImage (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2630,7 +2641,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderReceiver = 
         // Try Method 28: LaunchCompanionApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchCompanionApp (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;

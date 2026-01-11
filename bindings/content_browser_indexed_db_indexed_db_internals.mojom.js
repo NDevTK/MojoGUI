@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.storage.mojom.IdbPartitionMetadataSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IdbInternalsHandler = {};
+mojo.internal.bindings.storage.mojom.IdbInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.IdbInternalsHandler.$interfaceName = 'storage.mojom.IdbInternalsHandler';
 mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec = { $: {} };
@@ -218,7 +220,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemote = class {
 mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IdbInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IdbInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -299,7 +301,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IdbInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IdbInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -348,7 +350,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 0: GetAllBucketsAcrossAllStorageKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBucketsAcrossAllStorageKeys (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -359,7 +361,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 1: DownloadBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadBucketData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -370,7 +372,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 2: ForceClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -381,7 +383,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 3: StartMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMetadataRecording (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -392,7 +394,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 4: StopMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMetadataRecording (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -403,7 +405,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
         // Try Method 5: InspectClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectClient (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

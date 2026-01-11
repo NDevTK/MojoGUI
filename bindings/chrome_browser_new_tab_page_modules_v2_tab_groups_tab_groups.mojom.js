@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec = { $: {} };
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler.$interfaceName = 'ntp.tab_groups.mojom.PageHandler';
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = { $: {} };
@@ -177,7 +179,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp.tab_groups.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -248,7 +250,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp.tab_groups.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -296,7 +298,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 0: CreateNewTabGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewTabGroup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -307,7 +309,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetTabGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabGroups (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -318,7 +320,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 2: OpenTabGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenTabGroup (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -329,7 +331,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 3: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -340,7 +342,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
         // Try Method 4: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

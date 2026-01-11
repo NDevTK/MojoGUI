@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attr
 
 mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost = {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = { $ : {} };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost.$interfaceName = 'attribution_reporting.mojom.DataHost';
 mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = { $: {} };
@@ -169,7 +171,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote = class {
 mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DataHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('attribution_reporting.mojom.DataHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -240,7 +242,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DataHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('attribution_reporting.mojom.DataHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -288,7 +290,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
         // Try Method 0: SourceDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SourceDataAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -299,7 +301,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
         // Try Method 1: TriggerDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerDataAvailable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -310,7 +312,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
         // Try Method 2: OsSourceDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OsSourceDataAvailable (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -321,7 +323,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
         // Try Method 3: OsTriggerDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OsTriggerDataAvailable (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -332,7 +334,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
         // Try Method 4: ReportRegistrationHeaderError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportRegistrationHeaderError (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

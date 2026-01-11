@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuService = {};
+mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuService.$interfaceName = 'viz.mojom.InfoCollectionGpuService';
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec = { $: {} };
@@ -141,7 +143,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote = class {
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InfoCollectionGpuService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.InfoCollectionGpuService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -182,7 +184,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InfoCollectionGpuService', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.InfoCollectionGpuService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -227,7 +229,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
         // Try Method 0: GetGpuSupportedDirectXVersionAndDevicePerfInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGpuSupportedDirectXVersionAndDevicePerfInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -238,7 +240,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
         // Try Method 1: GetGpuSupportedVulkanVersionInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGpuSupportedVulkanVersionInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

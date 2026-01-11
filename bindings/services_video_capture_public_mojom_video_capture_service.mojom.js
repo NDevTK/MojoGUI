@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 
 mojo.internal.bindings.video_capture.mojom.AcceleratorFactory = {};
+mojo.internal.bindings.video_capture.mojom.AcceleratorFactorySpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.AcceleratorFactory.$interfaceName = 'video_capture.mojom.AcceleratorFactory';
 mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService = {};
+mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceSpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService.$interfaceName = 'video_capture.mojom.VideoCaptureService';
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec = { $: {} };
@@ -132,7 +135,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRemote = class {
 mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AcceleratorFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.AcceleratorFactory', [
       { explicit: null },
     ]);
   }
@@ -163,7 +166,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AcceleratorFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.AcceleratorFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -207,7 +210,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryReceiver = class {
         // Try Method 0: CreateJpegDecodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegDecodeAccelerator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -246,7 +249,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRequest = mojo.inte
 // Interface: VideoCaptureService
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec, 'video_capture.mojom.VideoCaptureService_InjectGpuDependencies_Params', [
-      mojo.internal.StructField('arg_accelerator_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.AcceleratorFactorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -328,7 +331,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemote = class {
 mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCaptureService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoCaptureService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -409,7 +412,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCaptureService', [
+    const ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoCaptureService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,7 +461,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 0: InjectGpuDependencies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectGpuDependencies (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -469,7 +472,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 1: ConnectToCameraAppDeviceBridge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToCameraAppDeviceBridge (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -480,7 +483,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 2: BindVideoCaptureDeviceFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindVideoCaptureDeviceFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -491,7 +494,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 3: ConnectToVideoSourceProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoSourceProvider (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -502,7 +505,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 4: BindControlsForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindControlsForTesting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -513,7 +516,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
         // Try Method 5: OnGpuInfoUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGpuInfoUpdate (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

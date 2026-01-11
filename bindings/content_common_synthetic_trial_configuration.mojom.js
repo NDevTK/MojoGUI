@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 
 mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration = {};
+mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration.$interfaceName = 'content.mojom.SyntheticTrialConfiguration';
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = { $: {} };
@@ -134,7 +136,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemote = class {
 mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SyntheticTrialConfiguration', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.SyntheticTrialConfiguration', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -175,7 +177,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SyntheticTrialConfiguration', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.SyntheticTrialConfiguration', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -220,7 +222,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = class
         // Try Method 0: AddOrUpdateSyntheticTrialGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOrUpdateSyntheticTrialGroups (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -231,7 +233,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = class
         // Try Method 1: RemoveSyntheticTrialGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSyntheticTrialGroups (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

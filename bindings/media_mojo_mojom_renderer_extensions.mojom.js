@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.media.mojom.FrameTextureInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtension = {};
+mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtension.$interfaceName = 'media.mojom.FlingingRendererClientExtension';
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension.$interfaceName = 'media.mojom.MediaFoundationRendererExtension';
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = { $: {} };
@@ -86,8 +89,10 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStre
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver.$interfaceName = 'media.mojom.MediaFoundationRendererObserver';
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier.$interfaceName = 'media.mojom.MediaFoundationRendererNotifier';
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = { $: {} };
 
@@ -147,7 +152,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRemote = class
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FlingingRendererClientExtension', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.FlingingRendererClientExtension', [
       { explicit: null },
     ]);
   }
@@ -178,7 +183,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FlingingRendererClientExtension', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.FlingingRendererClientExtension', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -222,7 +227,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionReceiver = cla
         // Try Method 0: OnRemotePlayStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemotePlayStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -328,7 +333,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote = clas
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererExtension', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererExtension', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -379,7 +384,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererExtension', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererExtension', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -425,7 +430,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
         // Try Method 0: GetDCOMPSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDCOMPSurface (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -436,7 +441,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
         // Try Method 1: SetVideoStreamEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoStreamEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -447,7 +452,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
         // Try Method 2: SetOutputRect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputRect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -544,7 +549,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemote = class
 mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererObserver', [
     ]);
   }
 
@@ -565,7 +570,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererObserver', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -629,7 +634,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRequest = mojo
 // Interface: MediaFoundationRendererNotifier
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -666,7 +671,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRemote = class
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererNotifier', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererNotifier', [
       { explicit: null },
     ]);
   }
@@ -697,7 +702,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaFoundationRendererNotifier', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaFoundationRendererNotifier', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -741,7 +746,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = cla
         // Try Method 0: MediaFoundationRendererCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaFoundationRendererCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

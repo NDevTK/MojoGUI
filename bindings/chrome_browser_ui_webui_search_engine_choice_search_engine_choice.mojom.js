@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.search_engine_choice.mojom = mojo.internal.bindings.searc
 
 mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory.$interfaceName = 'search_engine_choice.mojom.PageHandlerFactory';
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandler = {};
+mojo.internal.bindings.search_engine_choice.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandler.$interfaceName = 'search_engine_choice.mojom.PageHandler';
 mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = { $: {} };
@@ -93,7 +96,7 @@ mojo.internal.bindings.search_engine_choice.mojom.ScrollState = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -130,7 +133,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryRemote = cla
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('search_engine_choice.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -161,7 +164,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('search_engine_choice.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -205,7 +208,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryReceiver = c
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +318,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('search_engine_choice.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -386,7 +389,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('search_engine_choice.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -434,7 +437,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
         // Try Method 0: DisplayDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayDialog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +448,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
         // Try Method 1: HandleSearchEngineChoiceSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSearchEngineChoiceSelected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +459,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
         // Try Method 2: HandleLearnMoreLinkClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleLearnMoreLinkClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -467,7 +470,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
         // Try Method 3: HandleMoreButtonClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleMoreButtonClicked (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -478,7 +481,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
         // Try Method 4: RecordScrollState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordScrollState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -86,6 +87,7 @@ mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec = { $: {} }
 mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.PageHandler = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.connectors_internals.mojom.PageHandler.$interfaceName = 'connectors_internals.mojom.PageHandler';
 mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = { $: {} };
@@ -317,7 +319,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('connectors_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -378,7 +380,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('connectors_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -425,7 +427,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetDeviceTrustState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceTrustState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -436,7 +438,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: DeleteDeviceTrustKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteDeviceTrustKey (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -447,7 +449,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetClientCertificateState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClientCertificateState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -458,7 +460,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
         // Try Method 3: GetSignalsReportingState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSignalsReportingState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

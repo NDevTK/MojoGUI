@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler = {};
+mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler.$interfaceName = 'chrome.mojom.OpenSearchDescriptionDocumentHandler';
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = { $: {} };
 
@@ -117,7 +119,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote =
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OpenSearchDescriptionDocumentHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.OpenSearchDescriptionDocumentHandler', [
       { explicit: null },
     ]);
   }
@@ -148,7 +150,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OpenSearchDescriptionDocumentHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.OpenSearchDescriptionDocumentHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -192,7 +194,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver
         // Try Method 0: PageHasOpenSearchDescriptionDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageHasOpenSearchDescriptionDocument (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

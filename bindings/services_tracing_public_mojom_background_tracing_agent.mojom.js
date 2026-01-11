@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,14 +74,17 @@ mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {
 
 mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient.$interfaceName = 'tracing.mojom.BackgroundTracingAgentClient';
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent.$interfaceName = 'tracing.mojom.BackgroundTracingAgent';
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider.$interfaceName = 'tracing.mojom.BackgroundTracingAgentProvider';
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = { $: {} };
 
@@ -142,7 +146,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemote = class 
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgentClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -183,7 +187,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgentClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -228,7 +232,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientReceiver = clas
         // Try Method 0: OnInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialized (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,7 +243,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientReceiver = clas
         // Try Method 1: OnTriggerBackgroundTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTriggerBackgroundTrace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -334,7 +338,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemote = class {
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -375,7 +379,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -420,7 +424,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentReceiver = class {
         // Try Method 0: SetUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUMACallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -431,7 +435,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentReceiver = class {
         // Try Method 1: ClearUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUMACallback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -478,8 +482,8 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRequest = mojo.intern
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
       mojo.internal.StructField('arg_tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -516,7 +520,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote = clas
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgentProvider', [
       { explicit: null },
     ]);
   }
@@ -547,7 +551,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.BackgroundTracingAgentProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -591,7 +595,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderReceiver = cl
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

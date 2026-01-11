@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
 mojo.internal.bindings.viz.mojom.DisplayPrivate = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivateSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.DisplayPrivate.$interfaceName = 'viz.mojom.DisplayPrivate';
 mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = { $: {} };
@@ -98,6 +100,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_Par
 mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayClient = {};
+mojo.internal.bindings.viz.mojom.DisplayClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.DisplayClient.$interfaceName = 'viz.mojom.DisplayClient';
 mojo.internal.bindings.viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = { $: {} };
@@ -307,7 +310,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemote = class {
 mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplayPrivate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.DisplayPrivate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -508,7 +511,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplayPrivate', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.DisplayPrivate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -569,7 +572,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 0: SetDisplayVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayVisible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -580,7 +583,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 1: DisableSwapUntilResize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableSwapUntilResize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -591,7 +594,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 2: Resize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resize (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -602,7 +605,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 3: SetDisplayColorMatrix
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayColorMatrix (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -613,7 +616,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 4: SetDisplayColorSpaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayColorSpaces (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -624,7 +627,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 5: SetOutputIsSecure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputIsSecure (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -635,7 +638,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 6: SetVSyncDisplayID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVSyncDisplayID (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -646,7 +649,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 7: SetDisplayVSyncParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDisplayVSyncParameters (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -657,7 +660,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 8: ForceImmediateDrawAndSwapIfPossible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceImmediateDrawAndSwapIfPossible (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -668,7 +671,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 9: UpdateRefreshRate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRefreshRate (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -679,7 +682,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 10: SetAdaptiveRefreshRateInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAdaptiveRefreshRateInfo (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -690,7 +693,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 11: SetSupportedRefreshRates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportedRefreshRates (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -701,7 +704,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 12: PreserveChildSurfaceControls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreserveChildSurfaceControls (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -712,7 +715,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 13: SetSwapCompletionCallbackEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSwapCompletionCallbackEnabled (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -723,7 +726,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 14: AddVSyncParameterObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVSyncParameterObserver (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -734,7 +737,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 15: SetDelegatedInkPointRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDelegatedInkPointRenderer (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -745,7 +748,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 16: SetStandaloneBeginFrameObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStandaloneBeginFrameObserver (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -756,7 +759,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
         // Try Method 17: SetMaxVSyncAndVrr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMaxVSyncAndVrr (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1022,7 +1025,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemote = class {
 mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplayClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.DisplayClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1123,7 +1126,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplayClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.DisplayClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1174,7 +1177,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 0: OnDisplayReceivedCALayerParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayReceivedCALayerParams (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1185,7 +1188,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 1: CreateLayeredWindowUpdater
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateLayeredWindowUpdater (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1196,7 +1199,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 2: AddChildWindowToBrowser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddChildWindowToBrowser (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1207,7 +1210,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 3: DidCompleteSwapWithSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCompleteSwapWithSize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1218,7 +1221,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 4: DidCompleteSwapWithNewSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCompleteSwapWithNewSize (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1229,7 +1232,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 5: OnContextCreationResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextCreationResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1240,7 +1243,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 6: SetWideColorEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWideColorEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1251,7 +1254,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
         // Try Method 7: SetPreferredRefreshRate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredRefreshRate (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

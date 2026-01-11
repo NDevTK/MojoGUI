@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec = { $ : {} };
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth.$interfaceName = 'chromeos.auth.mojom.InSessionAuth';
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = { $: {} };
@@ -189,7 +191,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemote = class {
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InSessionAuth', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.auth.mojom.InSessionAuth', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -250,7 +252,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InSessionAuth', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.auth.mojom.InSessionAuth', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -297,7 +299,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 0: RequestToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -308,7 +310,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 1: CheckToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckToken (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -319,7 +321,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 2: InvalidateToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidateToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -330,7 +332,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 3: RequestLegacyWebAuthn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLegacyWebAuthn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

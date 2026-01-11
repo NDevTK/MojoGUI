@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.chromecast.shell.mojom = mojo.internal.bindings.chromecas
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver.$interfaceName = 'chromecast.shell.mojom.CastDemoVolumeChangeObserver';
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.shell.mojom.CastDemo = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec = { $ : {} };
 mojo.internal.bindings.chromecast.shell.mojom.CastDemo.$interfaceName = 'chromecast.shell.mojom.CastDemo';
 mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = { $: {} };
@@ -137,7 +140,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastDemoVolumeChangeObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.CastDemoVolumeChangeObserver', [
       { explicit: null },
     ]);
   }
@@ -168,7 +171,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastDemoVolumeChangeObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.CastDemoVolumeChangeObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -212,7 +215,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiv
         // Try Method 0: VolumeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VolumeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -343,7 +346,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec, 'chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -421,7 +424,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemote = class {
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastDemo', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.CastDemo', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -572,7 +575,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastDemo', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.CastDemo', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -628,7 +631,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 0: RecordEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -639,7 +642,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 1: SetRetailerName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRetailerName (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -650,7 +653,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 2: SetStoreId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStoreId (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -661,7 +664,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 3: GetRetailerName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRetailerName (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -672,7 +675,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 4: GetStoreId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStoreId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -683,7 +686,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 5: SetDefaultVolumeLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultVolumeLevel (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -694,7 +697,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 6: GetDefaultVolumeLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultVolumeLevel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -705,7 +708,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 7: ApplyDefaultVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyDefaultVolume (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -716,7 +719,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 8: SetWifiCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWifiCredentials (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -727,7 +730,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 9: GetAvailableWifiNetworks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableWifiNetworks (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -738,7 +741,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 10: GetConnectionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConnectionStatus (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -749,7 +752,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 11: AddVolumeChangeObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVolumeChangeObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -760,7 +763,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
         // Try Method 12: PersistLocalStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PersistLocalStorage (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

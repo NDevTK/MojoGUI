@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.chromeos.connectivity.mojom = mojo.internal.bindings.chro
 
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec = { $: {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener.$interfaceName = 'chromeos.connectivity.mojom.PasspointEventsListener';
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService.$interfaceName = 'chromeos.connectivity.mojom.PasspointService';
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = { $: {} };
@@ -148,7 +151,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasspointEventsListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.connectivity.mojom.PasspointEventsListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -189,7 +192,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasspointEventsListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.connectivity.mojom.PasspointEventsListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -234,7 +237,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerReceiv
         // Try Method 0: OnPasspointSubscriptionAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasspointSubscriptionAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -245,7 +248,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerReceiv
         // Try Method 1: OnPasspointSubscriptionRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPasspointSubscriptionRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -326,7 +329,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec, 'chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -372,7 +375,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemote = clas
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasspointService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.connectivity.mojom.PasspointService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -433,7 +436,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasspointService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.connectivity.mojom.PasspointService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -480,7 +483,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
         // Try Method 0: GetPasspointSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPasspointSubscription (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +494,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
         // Try Method 1: ListPasspointSubscriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPasspointSubscriptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -502,7 +505,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
         // Try Method 2: DeletePasspointSubscription
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeletePasspointSubscription (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -513,7 +516,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
         // Try Method 3: RegisterPasspointListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPasspointListener (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.ash.borealis_installer.mojom = mojo.internal.bindings.ash
 mojo.internal.bindings.borealis = mojo.internal.bindings.borealis || {};
 
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.borealis_installer.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler.$interfaceName = 'ash.borealis_installer.mojom.PageHandler';
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = { $: {} };
@@ -85,6 +88,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_Pa
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.Page = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.Page.$interfaceName = 'ash.borealis_installer.mojom.Page';
 mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = { $: {} };
@@ -93,8 +97,8 @@ mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -131,7 +135,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryRemote = c
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -162,7 +166,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -206,7 +210,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryReceiver =
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -321,7 +325,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -402,7 +406,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -451,7 +455,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 0: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -462,7 +466,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 1: ShutDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutDown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -473,7 +477,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 2: Launch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Launch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -484,7 +488,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 3: CancelInstall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInstall (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -495,7 +499,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 4: OnPageClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageClosed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -506,7 +510,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerReceiver = class 
         // Try Method 5: OpenStoragePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStoragePage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -635,7 +639,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote = class {
 mojo.internal.bindings.ash.borealis_installer.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -686,7 +690,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.borealis_installer.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -732,7 +736,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
         // Try Method 0: OnProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgressUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -743,7 +747,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
         // Try Method 1: OnInstallFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -754,7 +758,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
         // Try Method 2: RequestClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

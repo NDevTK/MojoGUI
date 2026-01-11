@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {
 mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDog = {};
+mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec = { $ : {} };
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDog.$interfaceName = 'ash.cfm.mojom.DataWatchDog';
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataSource = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec = { $ : {} };
 mojo.internal.bindings.ash.cfm.mojom.DataSource.$interfaceName = 'ash.cfm.mojom.DataSource';
 mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = { $: {} };
@@ -85,6 +88,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = { $: {}
 mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataAggregator = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec = { $ : {} };
 mojo.internal.bindings.ash.cfm.mojom.DataAggregator.$interfaceName = 'ash.cfm.mojom.DataAggregator';
 mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = { $: {} };
@@ -147,7 +151,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote = class {
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DataWatchDog', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataWatchDog', [
       { explicit: 0 },
     ]);
   }
@@ -178,7 +182,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DataWatchDog', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataWatchDog', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -222,7 +226,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogReceiver = class {
         // Try Method 0: OnNotify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotify (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +277,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
       mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_watch_dog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_dog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -327,7 +331,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceRemote = class {
 mojo.internal.bindings.ash.cfm.mojom.DataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DataSource', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataSource', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -378,7 +382,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DataSource', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataSource', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -424,7 +428,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
         // Try Method 0: Fetch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Fetch (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -435,7 +439,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
         // Try Method 1: AddWatchDog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddWatchDog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -446,7 +450,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
         // Try Method 2: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -527,7 +531,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_Params', [
       mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataSourceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -541,7 +545,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
       mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_filter', 8, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_watch_dog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_dog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -590,7 +594,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemote = class {
 mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DataAggregator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataAggregator', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -641,7 +645,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DataAggregator', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.DataAggregator', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -687,7 +691,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
         // Try Method 0: GetDataSourceNames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDataSourceNames (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -698,7 +702,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
         // Try Method 1: AddDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -709,7 +713,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
         // Try Method 2: AddWatchDog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddWatchDog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

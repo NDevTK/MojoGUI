@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec = { $ : {} };
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice.$interfaceName = 'ui.ozone.mojom.DrmDevice';
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = { $: {} };
@@ -383,7 +385,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemote = class {
 mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DrmDevice', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.DrmDevice', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -594,7 +596,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DrmDevice', [
+    const ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.DrmDevice', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -656,7 +658,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 0: CreateWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWindow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -667,7 +669,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 1: DestroyWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyWindow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -678,7 +680,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 2: SetWindowBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowBounds (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -689,7 +691,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 3: TakeDisplayControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakeDisplayControl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -700,7 +702,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 4: RelinquishDisplayControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RelinquishDisplayControl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -711,7 +713,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 5: RefreshNativeDisplays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshNativeDisplays (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -722,7 +724,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 6: AddGraphicsDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddGraphicsDevice (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -733,7 +735,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 7: RemoveGraphicsDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveGraphicsDevice (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -744,7 +746,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 8: ShouldDisplayEventTriggerConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldDisplayEventTriggerConfiguration (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -755,7 +757,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 9: ConfigureNativeDisplays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureNativeDisplays (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -766,7 +768,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 10: SetHdcpKeyProp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHdcpKeyProp (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -777,7 +779,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 11: GetHDCPState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHDCPState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -788,7 +790,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 12: SetHDCPState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHDCPState (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -799,7 +801,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 13: SetColorTemperatureAdjustment
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorTemperatureAdjustment (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -810,7 +812,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 14: SetColorCalibration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorCalibration (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -821,7 +823,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 15: SetGammaAdjustment
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGammaAdjustment (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -832,7 +834,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 16: SetPrivacyScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivacyScreen (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -843,7 +845,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 17: GetSeamlessRefreshRates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSeamlessRefreshRates (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -854,7 +856,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
         // Try Method 18: GetDeviceCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceCursor (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;

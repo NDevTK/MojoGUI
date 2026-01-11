@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,10 +73,12 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.MtpManagerClient = {};
+mojo.internal.bindings.device.mojom.MtpManagerClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.MtpManagerClient.$interfaceName = 'device.mojom.MtpManagerClient';
 mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.MtpManager = {};
+mojo.internal.bindings.device.mojom.MtpManagerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.MtpManager.$interfaceName = 'device.mojom.MtpManager';
 mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = { $: {} };
@@ -151,7 +154,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRemote = class {
 mojo.internal.bindings.device.mojom.MtpManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MtpManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.MtpManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -192,7 +195,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MtpManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.MtpManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -237,7 +240,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientReceiver = class {
         // Try Method 0: StorageAttached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StorageAttached (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -248,7 +251,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientReceiver = class {
         // Try Method 1: StorageDetached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StorageDetached (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -294,7 +297,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRequest = mojo.internal.bind
 // Interface: MtpManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.MtpManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.MtpManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -521,7 +524,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemote = class {
 mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MtpManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.MtpManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -662,7 +665,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MtpManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.MtpManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -717,7 +720,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 0: EnumerateStoragesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateStoragesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -728,7 +731,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 1: GetStorageInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStorageInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -739,7 +742,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 2: GetStorageInfoFromDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStorageInfoFromDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -750,7 +753,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 3: OpenStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -761,7 +764,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 4: CloseStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseStorage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -772,7 +775,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 5: CreateDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDirectory (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -783,7 +786,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 6: ReadDirectoryEntryIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadDirectoryEntryIds (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -794,7 +797,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 7: ReadFileChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadFileChunk (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -805,7 +808,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 8: GetFileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInfo (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -816,7 +819,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 9: RenameObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameObject (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -827,7 +830,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 10: CopyFileFromLocal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyFileFromLocal (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -838,7 +841,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
         // Try Method 11: DeleteObject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteObject (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

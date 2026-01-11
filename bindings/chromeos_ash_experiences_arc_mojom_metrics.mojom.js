@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -100,6 +101,7 @@ mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec = { $: 
 mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MetricsHost = {};
+mojo.internal.bindings.arc.mojom.MetricsHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MetricsHost.$interfaceName = 'arc.mojom.MetricsHost';
 mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec = { $: {} };
@@ -135,6 +137,7 @@ mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsS
 mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MetricsInstance = {};
+mojo.internal.bindings.arc.mojom.MetricsInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MetricsInstance.$interfaceName = 'arc.mojom.MetricsInstance';
 mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec = { $: {} };
@@ -802,7 +805,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemote = class {
 mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MetricsHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MetricsHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1153,7 +1156,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MetricsHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MetricsHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1229,7 +1232,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 0: ReportBootProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportBootProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1240,7 +1243,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 1: ReportNativeBridge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportNativeBridge (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1251,7 +1254,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 2: ReportCompanionLibApiUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportCompanionLibApiUsage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1262,7 +1265,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 3: ReportAppKill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAppKill (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1273,7 +1276,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 4: ReportArcCorePriAbiMigEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcCorePriAbiMigEvent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1284,7 +1287,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 5: ReportArcCorePriAbiMigFailedTries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcCorePriAbiMigFailedTries (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1295,7 +1298,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 6: ReportArcCorePriAbiMigDowngradeDelay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcCorePriAbiMigDowngradeDelay (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1306,7 +1309,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 7: ReportArcCorePriAbiMigBootTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcCorePriAbiMigBootTime (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1317,7 +1320,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 8: ReportAnr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAnr (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1328,7 +1331,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 9: ReportArcSystemHealthUpgrade
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcSystemHealthUpgrade (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1339,7 +1342,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 10: ReportLowLatencyStylusLibApiUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportLowLatencyStylusLibApiUsage (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1350,7 +1353,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 11: ReportLowLatencyStylusLibPredictionTarget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportLowLatencyStylusLibPredictionTarget (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1361,7 +1364,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 12: ReportDnsQueryResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportDnsQueryResult (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1372,7 +1375,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 13: ReportMainAccountHashMigrationMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMainAccountHashMigrationMetrics (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1383,7 +1386,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 14: ReportArcNetworkEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcNetworkEvent (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1394,7 +1397,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 15: ReportArcNetworkError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcNetworkError (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1405,7 +1408,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 16: ReportAppPrimaryAbi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAppPrimaryAbi (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1416,7 +1419,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 17: ReportDataRestore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportDataRestore (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1427,7 +1430,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 18: ReportMemoryPressure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMemoryPressure (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1438,7 +1441,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 19: ReportProvisioningPreSignIn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportProvisioningPreSignIn (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1449,7 +1452,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 20: ReportWaylandLateTimingEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportWaylandLateTimingEvent (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1460,7 +1463,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 21: ReportWebViewProcessStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportWebViewProcessStarted (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1471,7 +1474,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 22: ReportVpnServiceBuilderCompatApiUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportVpnServiceBuilderCompatApiUsage (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1482,7 +1485,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 23: ReportNewQosSocketCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportNewQosSocketCount (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1493,7 +1496,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 24: ReportQosSocketPercentage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportQosSocketPercentage (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1504,7 +1507,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 25: ReportArcKeyMintError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcKeyMintError (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1515,7 +1518,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 26: ReportDragResizeLatency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportDragResizeLatency (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1526,7 +1529,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 27: ReportAppErrorDialogType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAppErrorDialogType (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1537,7 +1540,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 28: ReportApkCacheHit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportApkCacheHit (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1548,7 +1551,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 29: ReportAppCategoryDataSizeList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAppCategoryDataSizeList (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1559,7 +1562,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 30: ReportDataDirectorySizeList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportDataDirectorySizeList (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1570,7 +1573,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 31: ReportArcKeyMintErrorForOperation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportArcKeyMintErrorForOperation (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1581,7 +1584,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
         // Try Method 32: ReportCertificateSigningResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportCertificateSigningResult (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1844,7 +1847,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRequest = mojo.internal.bindings.arc
 // Interface: MetricsInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec, 'arc.mojom.MetricsInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MetricsHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MetricsHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1901,7 +1904,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.MetricsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MetricsInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MetricsInstance', [
       { explicit: 1 },
       { explicit: 2 },
     ]);
@@ -1942,7 +1945,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MetricsInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MetricsInstance', [
       { explicit: 1 },
       { explicit: 2 },
     ]);
@@ -1987,7 +1990,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1998,7 +2001,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = class {
         // Try Method 1: GetGfxMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGfxMetrics (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder = {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = { $ : {} };
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder.$interfaceName = 'webnn.mojom.WebNNGraphBuilder';
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = { $: {} };
@@ -156,7 +158,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote = class {
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebNNGraphBuilder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraphBuilder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -207,7 +209,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebNNGraphBuilder', [
+    const ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraphBuilder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -253,7 +255,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
         // Try Method 0: CreatePendingConstant
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePendingConstant (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -264,7 +266,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
         // Try Method 1: CreateGraph
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGraph (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -275,7 +277,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
         // Try Method 2: IsValidGraphForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsValidGraphForTesting (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,17 +75,19 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory = {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactory';
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient = {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactoryClient';
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = { $: {} };
 
 // Interface: RendererAudioInputStreamFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_CreateStream_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_processing_config', 24, 0, mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec.$, null, true, 0, undefined),
@@ -136,7 +139,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemote = class
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererAudioInputStreamFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RendererAudioInputStreamFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -177,7 +180,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererAudioInputStreamFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RendererAudioInputStreamFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -222,7 +225,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryReceiver = cla
         // Try Method 0: CreateStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateStream (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -233,7 +236,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryReceiver = cla
         // Try Method 1: AssociateInputAndOutputForAec
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AssociateInputAndOutputForAec (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -320,7 +323,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemote =
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererAudioInputStreamFactoryClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RendererAudioInputStreamFactoryClient', [
       { explicit: null },
     ]);
   }
@@ -351,7 +354,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererAudioInputStreamFactoryClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RendererAudioInputStreamFactoryClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -395,7 +398,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientReceiver
         // Try Method 0: StreamCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

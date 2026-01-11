@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService = {};
+mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceSpec = { $ : {} };
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService.$interfaceName = 'gfx.mojom.RangeTraitsTestService';
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = { $: {} };
@@ -139,7 +141,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemote = class {
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RangeTraitsTestService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('gfx.mojom.RangeTraitsTestService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -180,7 +182,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RangeTraitsTestService', [
+    const ordinals = window.mojoScrambler.getOrdinals('gfx.mojom.RangeTraitsTestService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -225,7 +227,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
         // Try Method 0: EchoRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoRange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +238,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
         // Try Method 1: EchoRangeF
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoRangeF (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

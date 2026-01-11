@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink = {};
+mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkSpec = { $ : {} };
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink.$interfaceName = 'visitedlink.mojom.VisitedLinkNotificationSink';
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = { $: {} };
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = { $: {} };
@@ -147,7 +149,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemote = cla
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VisitedLinkNotificationSink', [
+    this.ordinals = window.mojoScrambler.getOrdinals('visitedlink.mojom.VisitedLinkNotificationSink', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -208,7 +210,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VisitedLinkNotificationSink', [
+    const ordinals = window.mojoScrambler.getOrdinals('visitedlink.mojom.VisitedLinkNotificationSink', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -255,7 +257,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
         // Try Method 0: UpdateVisitedLinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVisitedLinks (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +268,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
         // Try Method 1: AddVisitedLinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVisitedLinks (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -277,7 +279,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
         // Try Method 2: ResetVisitedLinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetVisitedLinks (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -288,7 +290,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
         // Try Method 3: UpdateOriginSalts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOriginSalts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

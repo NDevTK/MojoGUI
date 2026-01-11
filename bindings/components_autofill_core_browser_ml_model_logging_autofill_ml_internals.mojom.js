@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.Page = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.Page.$interfaceName = 'autofill_ml_internals.mojom.Page';
 mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler.$interfaceName = 'autofill_ml_internals.mojom.PageHandler';
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
 
@@ -168,7 +171,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageRemote = class {
 mojo.internal.bindings.autofill_ml_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill_ml_internals.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -199,7 +202,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill_ml_internals.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -243,7 +246,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageReceiver = class {
         // Try Method 0: OnLogAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -282,7 +285,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageRequest = mojo.internal.b
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec, 'autofill_ml_internals.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.autofill_ml_internals.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,7 +322,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill_ml_internals.mojom.PageHandler', [
       { explicit: null },
     ]);
   }
@@ -350,7 +353,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill_ml_internals.mojom.PageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -394,7 +397,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: SetPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

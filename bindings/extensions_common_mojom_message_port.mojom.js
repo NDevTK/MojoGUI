@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,10 +84,12 @@ mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessageSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePort = {};
+mojo.internal.bindings.extensions.mojom.MessagePortSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.MessagePort.$interfaceName = 'extensions.mojom.MessagePort';
 mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePortHost = {};
+mojo.internal.bindings.extensions.mojom.MessagePortHostSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.MessagePortHost.$interfaceName = 'extensions.mojom.MessagePortHost';
 mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = { $: {} };
@@ -232,7 +235,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortRemote = class {
 mojo.internal.bindings.extensions.mojom.MessagePortRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MessagePort', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MessagePort', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -273,7 +276,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MessagePort', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MessagePort', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -318,7 +321,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortReceiver = class {
         // Try Method 0: DispatchDisconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchDisconnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -329,7 +332,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortReceiver = class {
         // Try Method 1: DeliverMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeliverMessage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -430,7 +433,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemote = class {
 mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MessagePortHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MessagePortHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -481,7 +484,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MessagePortHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MessagePortHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -527,7 +530,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostReceiver = class {
         // Try Method 0: ClosePort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePort (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -538,7 +541,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostReceiver = class {
         // Try Method 1: PostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -549,7 +552,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostReceiver = class {
         // Try Method 2: ResponsePending
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponsePending (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory.$interfaceName = 'most_visited.mojom.MostVisitedPageHandlerFactory';
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler.$interfaceName = 'most_visited.mojom.MostVisitedPageHandler';
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = { $: {} };
@@ -103,6 +106,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedE
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPage = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec = { $ : {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPage.$interfaceName = 'most_visited.mojom.MostVisitedPage';
 mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = { $: {} };
@@ -143,8 +147,8 @@ mojo.internal.Struct(
 // Interface: MostVisitedPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -181,7 +185,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryRemote = 
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MostVisitedPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -212,7 +216,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MostVisitedPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -256,7 +260,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryReceiver 
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -492,7 +496,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemote = class {
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MostVisitedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -673,7 +677,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MostVisitedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -732,7 +736,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 0: AddMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMostVisitedTile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -743,7 +747,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 1: DeleteMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteMostVisitedTile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -754,7 +758,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 2: ReorderMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReorderMostVisitedTile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -765,7 +769,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 3: RestoreMostVisitedDefaults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreMostVisitedDefaults (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -776,7 +780,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 4: UndoMostVisitedAutoRemoval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedAutoRemoval (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -787,7 +791,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 5: UndoMostVisitedTileAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedTileAction (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -798,7 +802,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 6: UpdateMostVisitedInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMostVisitedInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -809,7 +813,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 7: UpdateMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMostVisitedTile (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -820,7 +824,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 8: PrerenderMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrerenderMostVisitedTile (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -831,7 +835,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 9: PrefetchMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrefetchMostVisitedTile (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -842,7 +846,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 10: PreconnectMostVisitedTile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreconnectMostVisitedTile (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -853,7 +857,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 11: CancelPrerender
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPrerender (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -864,7 +868,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 12: GetMostVisitedExpandedState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMostVisitedExpandedState (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -875,7 +879,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 13: SetMostVisitedExpandedState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMostVisitedExpandedState (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -886,7 +890,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 14: OnMostVisitedTilesRendered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTilesRendered (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -897,7 +901,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
         // Try Method 15: OnMostVisitedTileNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTileNavigation (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1110,7 +1114,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemote = class {
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MostVisitedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPage', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1151,7 +1155,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MostVisitedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('most_visited.mojom.MostVisitedPage', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1196,7 +1200,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = class {
         // Try Method 0: SetMostVisitedInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMostVisitedInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1207,7 +1211,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = class {
         // Try Method 1: OnMostVisitedTilesAutoRemoval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMostVisitedTilesAutoRemoval (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

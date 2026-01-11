@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec = { $ : {} };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit.$interfaceName = 'performance_manager.mojom.DocumentCoordinationUnit';
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = { $: {} };
@@ -90,6 +92,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebM
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec = { $ : {} };
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ProcessCoordinationUnit';
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = { $: {} };
@@ -98,6 +101,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8Con
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit = {};
+mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec = { $ : {} };
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ChildProcessCoordinationUnit';
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = { $: {} };
@@ -248,7 +252,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemote 
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DocumentCoordinationUnit', [
+    this.ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.DocumentCoordinationUnit', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -389,7 +393,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DocumentCoordinationUnit', [
+    const ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.DocumentCoordinationUnit', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -444,7 +448,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 0: SetNetworkAlmostIdle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkAlmostIdle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -455,7 +459,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 1: SetLifecycleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLifecycleState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -466,7 +470,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 2: SetHasNonEmptyBeforeUnload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHasNonEmptyBeforeUnload (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -477,7 +481,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 3: SetHadFormInteraction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHadFormInteraction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -488,7 +492,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 4: SetHadUserEdits
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHadUserEdits (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -499,7 +503,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 5: OnStartedUsingWebRTC
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartedUsingWebRTC (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -510,7 +514,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 6: OnStoppedUsingWebRTC
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStoppedUsingWebRTC (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -521,7 +525,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 7: SetIsAdFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsAdFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -532,7 +536,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 8: OnNonPersistentNotificationCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNonPersistentNotificationCreated (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -543,7 +547,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 9: OnFirstContentfulPaint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFirstContentfulPaint (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -554,7 +558,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 10: OnWebMemoryMeasurementRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebMemoryMeasurementRequested (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -565,7 +569,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
         // Try Method 11: OnFreezingOriginTrialOptOut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFreezingOriginTrialOptOut (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -775,7 +779,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemote =
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProcessCoordinationUnit', [
+    this.ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.ProcessCoordinationUnit', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -856,7 +860,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProcessCoordinationUnit', [
+    const ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.ProcessCoordinationUnit', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -905,7 +909,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 0: SetMainThreadTaskLoadIsLow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMainThreadTaskLoadIsLow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -916,7 +920,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 1: OnV8ContextCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnV8ContextCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -927,7 +931,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 2: OnV8ContextDetached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnV8ContextDetached (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -938,7 +942,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 3: OnV8ContextDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnV8ContextDestroyed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -949,7 +953,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 4: OnRemoteIframeAttached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemoteIframeAttached (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -960,7 +964,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
         // Try Method 5: OnRemoteIframeDetached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemoteIframeDetached (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1077,7 +1081,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRem
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildProcessCoordinationUnit', [
+    this.ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.ChildProcessCoordinationUnit', [
       { explicit: null },
     ]);
   }
@@ -1108,7 +1112,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildProcessCoordinationUnit', [
+    const ordinals = window.mojoScrambler.getOrdinals('performance_manager.mojom.ChildProcessCoordinationUnit', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1152,7 +1156,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRec
         // Try Method 0: InitializeChildProcessCoordination
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeChildProcessCoordination (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

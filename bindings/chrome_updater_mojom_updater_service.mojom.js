@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -85,6 +86,7 @@ mojo.internal.bindings.updater.mojom.AppStateSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.PolicyValueSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdaterStateSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService = {};
+mojo.internal.bindings.updater.mojom.UpdateServiceSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.UpdateService.$interfaceName = 'updater.mojom.UpdateService';
 mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec = { $: {} };
@@ -114,6 +116,7 @@ mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponsePa
 mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.StateChangeObserver = {};
+mojo.internal.bindings.updater.mojom.StateChangeObserverSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.StateChangeObserver.$interfaceName = 'updater.mojom.StateChangeObserver';
 mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec = { $: {} };
@@ -333,7 +336,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec, 'updater.mojom.UpdateService_UpdateAll_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -350,7 +353,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec, 'updater.mojom.UpdateService_Update_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -366,7 +369,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec, 'updater.mojom.UpdateService_Install_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -389,7 +392,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec, 'updater.mojom.UpdateService_RunInstaller_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -404,7 +407,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, 'updater.mojom.UpdateService_CheckForUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -513,7 +516,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemote = class {
 mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UpdateService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.UpdateService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -674,7 +677,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UpdateService', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.UpdateService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -731,7 +734,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 0: GetVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVersion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -742,7 +745,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 1: FetchPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchPolicies (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -753,7 +756,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 2: RegisterApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -764,7 +767,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 3: GetAppStates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppStates (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -775,7 +778,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 4: RunPeriodicTasks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPeriodicTasks (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -786,7 +789,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 5: UpdateAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAll (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -797,7 +800,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 6: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -808,7 +811,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 7: Install
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Install (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -819,7 +822,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 8: CancelInstalls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CancelInstalls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInstalls (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -830,7 +833,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 9: RunInstaller
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunInstaller (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -841,7 +844,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 10: CheckForUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckForUpdate (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -852,7 +855,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 11: GetUpdaterState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUpdaterState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -863,7 +866,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 12: GetUpdaterPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUpdaterPolicies (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -874,7 +877,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         // Try Method 13: GetAppPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppPolicies (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1154,7 +1157,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverRemote = class {
 mojo.internal.bindings.updater.mojom.StateChangeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StateChangeObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.StateChangeObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1195,7 +1198,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StateChangeObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.StateChangeObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1240,7 +1243,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverReceiver = class {
         // Try Method 0: OnStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1251,7 +1254,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverReceiver = class {
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

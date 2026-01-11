@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver = {};
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoObserver';
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor = {};
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoMonitor';
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = { $: {} };
 
@@ -119,7 +122,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemote = class {
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCaptureDeviceInfoObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VideoCaptureDeviceInfoObserver', [
       { explicit: 0 },
     ]);
   }
@@ -150,7 +153,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCaptureDeviceInfoObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VideoCaptureDeviceInfoObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -194,7 +197,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class
         // Try Method 0: OnGetCameraIdToDeviceIdMapping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetCameraIdToDeviceIdMapping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -233,7 +236,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRequest = mojo.i
 // Interface: VideoCaptureDeviceInfoMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -270,7 +273,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRemote = class {
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCaptureDeviceInfoMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VideoCaptureDeviceInfoMonitor', [
       { explicit: 0 },
     ]);
   }
@@ -301,7 +304,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCaptureDeviceInfoMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VideoCaptureDeviceInfoMonitor', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -345,7 +348,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class 
         // Try Method 0: AddVideoCaptureDeviceInfoObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddVideoCaptureDeviceInfoObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

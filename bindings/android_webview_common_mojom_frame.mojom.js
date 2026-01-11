@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.android_webview.mojom.HitTestDataSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec = { $ : {} };
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame.$interfaceName = 'android_webview.mojom.LocalMainFrame';
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_Res
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.FrameHost = {};
+mojo.internal.bindings.android_webview.mojom.FrameHostSpec = { $ : {} };
 mojo.internal.bindings.android_webview.mojom.FrameHost.$interfaceName = 'android_webview.mojom.FrameHost';
 mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = { $: {} };
@@ -196,7 +199,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemote = class {
 mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalMainFrame', [
+    this.ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.LocalMainFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -267,7 +270,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalMainFrame', [
+    const ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.LocalMainFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -315,7 +318,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
         // Try Method 0: SetInitialPageScale
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialPageScale (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +329,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
         // Try Method 1: SetTextZoomFactor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextZoomFactor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -337,7 +340,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
         // Try Method 2: DocumentHasImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DocumentHasImage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -348,7 +351,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
         // Try Method 3: ResetScrollAndScaleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetScrollAndScaleState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -359,7 +362,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
         // Try Method 4: SmoothScroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SmoothScroll (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -498,7 +501,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemote = class {
 mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.FrameHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -549,7 +552,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.FrameHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -595,7 +598,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
         // Try Method 0: UpdateHitTestData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHitTestData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -606,7 +609,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
         // Try Method 1: ContentsSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContentsSizeChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -617,7 +620,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
         // Try Method 2: ShouldOverrideUrlLoading
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldOverrideUrlLoading (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,16 +75,20 @@ mojo.internal.bindings.ukm.mojom = mojo.internal.bindings.ukm.mojom || {};
 mojo.internal.bindings.ukm.mojom.UkmEntrySpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.SingularUkmInterface = {};
+mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec = { $ : {} };
 mojo.internal.bindings.ukm.mojom.SingularUkmInterface.$interfaceName = 'ukm.mojom.SingularUkmInterface';
 mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec = { $ : {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface.$interfaceName = 'ukm.mojom.UkmRecorderClientInterface';
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterface = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec = { $ : {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterface.$interfaceName = 'ukm.mojom.UkmRecorderInterface';
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = { $: {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec = { $ : {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory.$interfaceName = 'ukm.mojom.UkmRecorderFactory';
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = { $: {} };
 
@@ -144,7 +149,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRemote = class {
 mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SingularUkmInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.SingularUkmInterface', [
       { explicit: null },
     ]);
   }
@@ -175,7 +180,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SingularUkmInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.SingularUkmInterface', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -219,7 +224,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceReceiver = class {
         // Try Method 0: Submit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Submit (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -295,7 +300,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote = class {
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UkmRecorderClientInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderClientInterface', [
       { explicit: null },
     ]);
   }
@@ -326,7 +331,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UkmRecorderClientInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderClientInterface', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -370,7 +375,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
         // Try Method 0: SetParameters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParameters (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -456,7 +461,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemote = class {
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UkmRecorderInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderInterface', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -497,7 +502,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UkmRecorderInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderInterface', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -542,7 +547,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceReceiver = class {
         // Try Method 0: AddEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEntry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -553,7 +558,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceReceiver = class {
         // Try Method 1: UpdateSourceURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSourceURL (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -599,8 +604,8 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRequest = mojo.internal.bin
 // Interface: UkmRecorderFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec, 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -637,7 +642,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRemote = class {
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UkmRecorderFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderFactory', [
       { explicit: null },
     ]);
   }
@@ -668,7 +673,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UkmRecorderFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ukm.mojom.UkmRecorderFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -712,7 +717,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryReceiver = class {
         // Try Method 0: CreateUkmRecorder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUkmRecorder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

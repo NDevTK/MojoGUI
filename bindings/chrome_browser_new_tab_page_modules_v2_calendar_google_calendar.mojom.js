@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.ntp.calendar = mojo.internal.bindings.ntp.calendar || {};
 mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.mojom || {};
 
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler = {};
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler.$interfaceName = 'ntp.calendar.mojom.GoogleCalendarPageHandler';
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = { $: {} };
@@ -140,7 +142,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerRemote = clas
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GoogleCalendarPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp.calendar.mojom.GoogleCalendarPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -191,7 +193,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GoogleCalendarPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp.calendar.mojom.GoogleCalendarPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -237,7 +239,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = cl
         // Try Method 0: GetEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEvents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -248,7 +250,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = cl
         // Try Method 1: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -259,7 +261,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = cl
         // Try Method 2: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

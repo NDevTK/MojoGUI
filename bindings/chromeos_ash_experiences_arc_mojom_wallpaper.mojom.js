@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,12 +73,14 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.WallpaperHost = {};
+mojo.internal.bindings.arc.mojom.WallpaperHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.WallpaperHost.$interfaceName = 'arc.mojom.WallpaperHost';
 mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WallpaperInstance = {};
+mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.WallpaperInstance.$interfaceName = 'arc.mojom.WallpaperInstance';
 mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec = { $: {} };
@@ -146,7 +149,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemote = class {
 mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.WallpaperHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -197,7 +200,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.WallpaperHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -243,7 +246,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
         // Try Method 0: GetWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWallpaper (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -254,7 +257,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
         // Try Method 1: SetWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWallpaper (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -265,7 +268,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
         // Try Method 2: SetDefaultWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultWallpaper (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -326,7 +329,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRequest = mojo.internal.bindings.a
 // Interface: WallpaperInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec, 'arc.mojom.WallpaperInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.WallpaperHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.WallpaperHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -377,7 +380,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.WallpaperInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.WallpaperInstance', [
       { explicit: 3 },
       { explicit: 1 },
     ]);
@@ -418,7 +421,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.WallpaperInstance', [
       { explicit: 3 },
       { explicit: 1 },
     ]);
@@ -463,7 +466,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -474,7 +477,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
         // Try Method 1: OnWallpaperChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

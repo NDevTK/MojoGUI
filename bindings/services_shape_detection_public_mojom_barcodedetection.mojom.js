@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetection = {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec = { $ : {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetection.$interfaceName = 'shape_detection.mojom.BarcodeDetection';
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec = { $: {} };
@@ -154,7 +156,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote = class {
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BarcodeDetection', [
+    this.ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.BarcodeDetection', [
       { explicit: null },
     ]);
   }
@@ -185,7 +187,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BarcodeDetection', [
+    const ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.BarcodeDetection', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -229,7 +231,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionReceiver = class {
         // Try Method 0: Detect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Detect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

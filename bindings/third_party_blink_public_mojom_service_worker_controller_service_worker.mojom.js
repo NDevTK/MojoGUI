@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,11 +77,13 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker.$interfaceName = 'blink.mojom.ControllerServiceWorker';
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector.$interfaceName = 'blink.mojom.ControllerServiceWorkerConnector';
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = { $: {} };
 
@@ -100,7 +103,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fetch_handler_bypass_option', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sha256_script_checksum', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_router_data', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_remote_controller', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote_controller', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_client_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_fetch_request_window_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_object_info', 48, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
@@ -125,7 +128,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec, 'blink.mojom.ControllerServiceWorker_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_coep_reporter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_document_isolation_policy', 24, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
@@ -169,7 +172,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote = class {
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ControllerServiceWorker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ControllerServiceWorker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -210,7 +213,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ControllerServiceWorker', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ControllerServiceWorker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -255,7 +258,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
         // Try Method 0: DispatchFetchEventForSubresource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchFetchEventForSubresource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +269,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -320,7 +323,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRequest = mojo.interna
 // Interface: ControllerServiceWorkerConnector
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec, 'blink.mojom.ControllerServiceWorkerConnector_UpdateController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -357,7 +360,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorRemote = clas
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ControllerServiceWorkerConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ControllerServiceWorkerConnector', [
       { explicit: null },
     ]);
   }
@@ -388,7 +391,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ControllerServiceWorkerConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ControllerServiceWorkerConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -432,7 +435,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorReceiver = cl
         // Try Method 0: UpdateController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

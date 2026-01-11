@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.BroadcastChannelClient = {};
+mojo.internal.bindings.blink.mojom.BroadcastChannelClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BroadcastChannelClient.$interfaceName = 'blink.mojom.BroadcastChannelClient';
 mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BroadcastChannelProvider = {};
+mojo.internal.bindings.blink.mojom.BroadcastChannelProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BroadcastChannelProvider.$interfaceName = 'blink.mojom.BroadcastChannelProvider';
 mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = { $: {} };
 
@@ -118,7 +121,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote = class {
 mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BroadcastChannelClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BroadcastChannelClient', [
       { explicit: null },
     ]);
   }
@@ -149,7 +152,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BroadcastChannelClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BroadcastChannelClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +196,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -233,8 +236,8 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRequest = mojo.internal
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec, 'blink.mojom.BroadcastChannelProvider_ConnectToChannel_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.BroadcastChannelClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.BroadcastChannelClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -271,7 +274,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRemote = class {
 mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BroadcastChannelProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BroadcastChannelProvider', [
       { explicit: null },
     ]);
   }
@@ -302,7 +305,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BroadcastChannelProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BroadcastChannelProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -346,7 +349,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderReceiver = class {
         // Try Method 0: ConnectToChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

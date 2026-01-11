@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.mirroring.mojom = mojo.internal.bindings.mirroring.mojom 
 
 mojo.internal.bindings.mirroring.mojom.CastMessageSpec = { $: {} };
 mojo.internal.bindings.mirroring.mojom.CastMessageChannel = {};
+mojo.internal.bindings.mirroring.mojom.CastMessageChannelSpec = { $ : {} };
 mojo.internal.bindings.mirroring.mojom.CastMessageChannel.$interfaceName = 'mirroring.mojom.CastMessageChannel';
 mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = { $: {} };
 
@@ -128,7 +130,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote = class {
 mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastMessageChannel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.CastMessageChannel', [
       { explicit: null },
     ]);
   }
@@ -159,7 +161,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastMessageChannel', [
+    const ordinals = window.mojoScrambler.getOrdinals('mirroring.mojom.CastMessageChannel', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +205,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

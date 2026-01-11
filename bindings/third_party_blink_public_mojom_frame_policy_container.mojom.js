@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PolicyContainerSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PolicyContainerHost = {};
+mojo.internal.bindings.blink.mojom.PolicyContainerHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PolicyContainerHost.$interfaceName = 'blink.mojom.PolicyContainerHost';
 mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = { $: {} };
@@ -98,14 +100,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
       mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PolicyContainerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PolicyContainerBindParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,7 +160,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote = class {
 mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PolicyContainerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PolicyContainerHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -199,7 +201,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PolicyContainerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PolicyContainerHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -244,7 +246,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
         // Try Method 0: SetReferrerPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReferrerPolicy (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -255,7 +257,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
         // Try Method 1: AddContentSecurityPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddContentSecurityPolicies (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

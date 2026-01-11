@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.webnn.mojom.CreateContextResultSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider = {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = { $ : {} };
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider.$interfaceName = 'webnn.mojom.WebNNContextProvider';
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = { $: {} };
@@ -169,7 +171,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote = class {
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebNNContextProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNContextProvider', [
       { explicit: null },
     ]);
   }
@@ -200,7 +202,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebNNContextProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNContextProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -244,7 +246,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderReceiver = class {
         // Try Method 0: CreateWebNNContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebNNContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

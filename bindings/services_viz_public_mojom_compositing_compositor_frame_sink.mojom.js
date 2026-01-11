@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink.$interfaceName = 'viz.mojom.CompositorFrameSink';
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpe
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient.$interfaceName = 'viz.mojom.CompositorFrameSinkClient';
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = { $: {} };
@@ -221,7 +224,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote = class {
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CompositorFrameSink', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSink', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -312,7 +315,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CompositorFrameSink', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSink', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -362,7 +365,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 0: SetParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParams (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -373,7 +376,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 1: SetNeedsBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -384,7 +387,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 2: SubmitCompositorFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitCompositorFrame (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -395,7 +398,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 3: DidNotProduceFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidNotProduceFrame (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -406,7 +409,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 4: NotifyNewLocalSurfaceIdExpectedWhilePaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyNewLocalSurfaceIdExpectedWhilePaused (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -417,7 +420,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 5: BindLayerContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLayerContext (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -428,7 +431,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
         // Try Method 6: SetThreads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -593,7 +596,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote = class {
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CompositorFrameSinkClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSinkClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -674,7 +677,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CompositorFrameSinkClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSinkClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -723,7 +726,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 0: DidReceiveCompositorFrameAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidReceiveCompositorFrameAck (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -734,7 +737,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 1: OnBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeginFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -745,7 +748,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 2: OnBeginFramePausedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeginFramePausedChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -756,7 +759,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 3: ReclaimResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReclaimResources (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -767,7 +770,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 4: OnCompositorFrameTransitionDirectiveProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -778,7 +781,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
         // Try Method 5: OnSurfaceEvicted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurfaceEvicted (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

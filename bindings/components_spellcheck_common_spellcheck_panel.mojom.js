@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.spellcheck.mojom = mojo.internal.bindings.spellcheck.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel.$interfaceName = 'spellcheck.mojom.SpellCheckPanel';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost.$interfaceName = 'spellcheck.mojom.SpellCheckPanelHost';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = { $: {} };
@@ -129,7 +132,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelRemote = class {
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckPanel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckPanel', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -170,7 +173,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckPanel', [
+    const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckPanel', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -215,7 +218,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelReceiver = class {
         // Try Method 0: ToggleSpellPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleSpellPanel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -226,7 +229,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelReceiver = class {
         // Try Method 1: AdvanceToNextMisspelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdvanceToNextMisspelling (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -318,7 +321,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRemote = class {
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckPanelHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckPanelHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -359,7 +362,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckPanelHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckPanelHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -404,7 +407,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = class {
         // Try Method 0: ShowSpellingPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSpellingPanel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +418,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = class {
         // Try Method 1: UpdateSpellingPanelWithMisspelledWord
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSpellingPanelWithMisspelledWord (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

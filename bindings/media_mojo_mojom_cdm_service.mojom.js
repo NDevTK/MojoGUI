@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,13 +76,16 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 
 mojo.internal.bindings.media.mojom.CdmService = {};
+mojo.internal.bindings.media.mojom.CdmServiceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmService.$interfaceName = 'media.mojom.CdmService';
 mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider = {};
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider.$interfaceName = 'media.mojom.SeatbeltExtensionTokenProvider';
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmServiceBroker = {};
+mojo.internal.bindings.media.mojom.CdmServiceBrokerSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmServiceBroker.$interfaceName = 'media.mojom.CdmServiceBroker';
 mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec = { $: {} };
 
@@ -126,7 +130,7 @@ mojo.internal.bindings.media.mojom.CdmServiceRemote = class {
 mojo.internal.bindings.media.mojom.CdmServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmService', [
       { explicit: null },
     ]);
   }
@@ -157,7 +161,7 @@ mojo.internal.bindings.media.mojom.CdmServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmService', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -201,7 +205,7 @@ mojo.internal.bindings.media.mojom.CdmServiceReceiver = class {
         // Try Method 0: CreateCdmFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdmFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -282,7 +286,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote = class 
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SeatbeltExtensionTokenProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.SeatbeltExtensionTokenProvider', [
       { explicit: null },
     ]);
   }
@@ -313,7 +317,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SeatbeltExtensionTokenProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.SeatbeltExtensionTokenProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -357,7 +361,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = clas
         // Try Method 0: GetTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTokens (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,8 +409,8 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRequest = mojo.
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
       mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -443,7 +447,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote = class {
 mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmServiceBroker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmServiceBroker', [
       { explicit: null },
     ]);
   }
@@ -474,7 +478,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmServiceBroker', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmServiceBroker', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -518,7 +522,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
         // Try Method 0: GetService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

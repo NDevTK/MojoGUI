@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,15 +77,18 @@ mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec = { $: mo
 mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory.$interfaceName = 'policy.local_user_files.mojom.PageHandlerFactory';
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler.$interfaceName = 'policy.local_user_files.mojom.PageHandler';
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.Page = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.policy.local_user_files.mojom.Page.$interfaceName = 'policy.local_user_files.mojom.Page';
 mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = { $: {} };
 
@@ -112,8 +116,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.policy.local_user_files.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.policy.local_user_files.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -150,7 +154,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryRemote = 
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -181,7 +185,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -225,7 +229,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryReceiver 
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -324,7 +328,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -375,7 +379,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -421,7 +425,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
         // Try Method 0: GetInitialDialogInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInitialDialogInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -432,7 +436,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
         // Try Method 1: UploadOrDeleteNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UploadOrDeleteNow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -443,7 +447,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
         // Try Method 2: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -541,7 +545,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageRemote = class {
 mojo.internal.bindings.policy.local_user_files.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -572,7 +576,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('policy.local_user_files.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -616,7 +620,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageReceiver = class {
         // Try Method 0: UpdateRemainingTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRemainingTime (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

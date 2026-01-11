@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojo
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.chromecast.mojom.GestureHandler = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.GestureHandler.$interfaceName = 'chromecast.mojom.GestureHandler';
 mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_Param
 mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.GestureSource = {};
+mojo.internal.bindings.chromecast.mojom.GestureSourceSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.GestureSource.$interfaceName = 'chromecast.mojom.GestureSource';
 mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = { $: {} };
@@ -203,7 +206,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemote = class {
 mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GestureHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GestureHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -314,7 +317,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GestureHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GestureHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -366,7 +369,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 0: OnBackGesture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGesture (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -377,7 +380,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 1: OnBackGestureProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGestureProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -388,7 +391,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 2: OnTopDragGestureProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopDragGestureProgress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -399,7 +402,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 3: OnTopDragGestureDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopDragGestureDone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -410,7 +413,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 4: OnRightDragGestureProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRightDragGestureProgress (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -421,7 +424,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 5: OnRightDragGestureDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRightDragGestureDone (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -432,7 +435,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 6: OnBackGestureCancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGestureCancel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -443,7 +446,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 7: OnTapGesture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTapGesture (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -454,7 +457,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
         // Try Method 8: OnTapDownGesture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTapDownGesture (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -557,7 +560,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRequest = mojo.internal.bi
 // Interface: GestureSource
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec, 'chromecast.mojom.GestureSource_Subscribe_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GestureHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -621,7 +624,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemote = class {
 mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GestureSource', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GestureSource', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -682,7 +685,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GestureSource', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.GestureSource', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -729,7 +732,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
         // Try Method 0: Subscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Subscribe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -740,7 +743,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
         // Try Method 1: SetCanGoBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoBack (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -751,7 +754,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
         // Try Method 2: SetCanTopDrag
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanTopDrag (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -762,7 +765,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
         // Try Method 3: SetCanRightDrag
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanRightDrag (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

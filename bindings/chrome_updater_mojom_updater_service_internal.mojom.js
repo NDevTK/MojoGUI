@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.updater.mojom = mojo.internal.bindings.updater.mojom || {};
 
 mojo.internal.bindings.updater.mojom.UpdateServiceInternal = {};
+mojo.internal.bindings.updater.mojom.UpdateServiceInternalSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.UpdateServiceInternal.$interfaceName = 'updater.mojom.UpdateServiceInternal';
 mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec = { $: {} };
@@ -135,7 +137,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemote = class {
 mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UpdateServiceInternal', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.UpdateServiceInternal', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -176,7 +178,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UpdateServiceInternal', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.UpdateServiceInternal', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -221,7 +223,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
         // Try Method 0: Run
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Run (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -232,7 +234,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
         // Try Method 1: Hello
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Hello (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

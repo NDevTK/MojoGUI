@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -103,11 +104,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.ProfileImageSpec = { $: {} 
 mojo.internal.bindings.ash.personalization_app.mojom.InvalidImageSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientModeAlbumSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver.$interfaceName = 'ash.personalization_app.mojom.WallpaperObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider.$interfaceName = 'ash.personalization_app.mojom.WallpaperProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = { $: {} };
@@ -156,6 +159,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_CancelPre
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver.$interfaceName = 'ash.personalization_app.mojom.ThemeObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec = { $: {} };
@@ -165,6 +169,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColor
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider.$interfaceName = 'ash.personalization_app.mojom.ThemeProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = { $: {} };
@@ -187,12 +192,14 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocation
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver.$interfaceName = 'ash.personalization_app.mojom.UserImageObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.UserProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider.$interfaceName = 'ash.personalization_app.mojom.UserProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = { $: {} };
@@ -205,6 +212,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraIm
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver.$interfaceName = 'ash.personalization_app.mojom.AmbientObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec = { $: {} };
@@ -217,6 +225,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUi
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider.$interfaceName = 'ash.personalization_app.mojom.AmbientProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec = { $: {} };
@@ -239,10 +248,12 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocati
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver.$interfaceName = 'ash.personalization_app.mojom.KeyboardBacklightObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider.$interfaceName = 'ash.personalization_app.mojom.KeyboardBacklightProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec = { $: {} };
@@ -604,7 +615,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemote = c
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.WallpaperObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -655,7 +666,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.WallpaperObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -701,7 +712,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
         // Try Method 0: OnWallpaperPreviewEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperPreviewEnded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -712,7 +723,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
         // Try Method 1: OnAttributionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAttributionChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -723,7 +734,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
         // Try Method 2: OnWallpaperChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -892,7 +903,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1151,7 +1162,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemote = c
 mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.WallpaperProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1432,7 +1443,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.WallpaperProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1501,7 +1512,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 0: MakeTransparent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeTransparent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1512,7 +1523,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 1: MakeOpaque
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeOpaque (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1523,7 +1534,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 2: FetchCollections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchCollections (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1534,7 +1545,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 3: FetchImagesForCollection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchImagesForCollection (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1545,7 +1556,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 4: FetchGooglePhotosAlbums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosAlbums (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1556,7 +1567,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 5: FetchGooglePhotosSharedAlbums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosSharedAlbums (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1567,7 +1578,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 6: FetchGooglePhotosEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1578,7 +1589,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 7: FetchGooglePhotosPhotos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosPhotos (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1589,7 +1600,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 8: GetLocalImages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalImages (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1600,7 +1611,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 9: GetDefaultImageThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultImageThumbnail (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1611,7 +1622,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 10: GetLocalImageThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalImageThumbnail (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1622,7 +1633,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 11: SetWallpaperObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWallpaperObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1633,7 +1644,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 12: SelectWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectWallpaper (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1644,7 +1655,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 13: SelectDefaultImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectDefaultImage (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1655,7 +1666,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 14: SelectLocalImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectLocalImage (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1666,7 +1677,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 15: SelectGooglePhotosPhoto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectGooglePhotosPhoto (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1677,7 +1688,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 16: SelectGooglePhotosAlbum
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectGooglePhotosAlbum (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1688,7 +1699,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 17: GetGooglePhotosDailyRefreshAlbumId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGooglePhotosDailyRefreshAlbumId (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1699,7 +1710,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 18: SetCurrentWallpaperLayout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCurrentWallpaperLayout (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1710,7 +1721,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 19: SetDailyRefreshCollectionId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDailyRefreshCollectionId (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1721,7 +1732,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 20: GetDailyRefreshCollectionId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDailyRefreshCollectionId (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1732,7 +1743,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 21: UpdateDailyRefreshWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDailyRefreshWallpaper (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1743,7 +1754,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 22: IsInTabletMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInTabletMode (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1754,7 +1765,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 23: ConfirmPreviewWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmPreviewWallpaper (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1765,7 +1776,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 24: CancelPreviewWallpaper
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPreviewWallpaper (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1776,7 +1787,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
         // Try Method 25: ShouldShowTimeOfDayWallpaperDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowTimeOfDayWallpaperDialog (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2243,7 +2254,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemote = class
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThemeObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.ThemeObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2334,7 +2345,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThemeObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.ThemeObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2384,7 +2395,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 0: OnColorModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorModeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2395,7 +2406,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 1: OnColorModeAutoScheduleChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorModeAutoScheduleChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2406,7 +2417,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 2: OnColorSchemeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorSchemeChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2417,7 +2428,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 3: OnSampleColorSchemesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSampleColorSchemesChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2428,7 +2439,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 4: OnStaticColorChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStaticColorChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2439,7 +2450,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 5: OnGeolocationPermissionForSystemServicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGeolocationPermissionForSystemServicesChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2450,7 +2461,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
         // Try Method 6: OnDaylightTimeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDaylightTimeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2531,7 +2542,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRequest = mojo
 // Interface: ThemeProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2710,7 +2721,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemote = class
 mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThemeProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.ThemeProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2861,7 +2872,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThemeProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.ThemeProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2917,7 +2928,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 0: SetThemeObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThemeObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2928,7 +2939,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 1: SetColorModePref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorModePref (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2939,7 +2950,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 2: SetColorModeAutoScheduleEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorModeAutoScheduleEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2950,7 +2961,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 3: SetColorScheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorScheme (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2961,7 +2972,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 4: SetStaticColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStaticColor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2972,7 +2983,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 5: EnableGeolocationForSystemServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableGeolocationForSystemServices (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2983,7 +2994,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 6: GetColorScheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetColorScheme (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2994,7 +3005,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 7: GetStaticColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStaticColor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3005,7 +3016,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 8: GenerateSampleColorSchemes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSampleColorSchemes (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3016,7 +3027,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 9: IsColorModeAutoScheduleEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsColorModeAutoScheduleEnabled (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3027,7 +3038,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 10: IsDarkModeEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDarkModeEnabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3038,7 +3049,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 11: IsGeolocationEnabledForSystemServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationEnabledForSystemServices (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3049,7 +3060,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
         // Try Method 12: IsGeolocationUserModifiable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationUserModifiable (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3292,7 +3303,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemote = c
 mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UserImageObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.UserImageObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3353,7 +3364,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UserImageObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.UserImageObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3400,7 +3411,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
         // Try Method 0: OnUserImageChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserImageChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3411,7 +3422,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
         // Try Method 1: OnUserProfileImageUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserProfileImageUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3422,7 +3433,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
         // Try Method 2: OnCameraPresenceCheckDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraPresenceCheckDone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3433,7 +3444,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
         // Try Method 3: OnIsEnterpriseManagedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIsEnterpriseManagedChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3493,7 +3504,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRequest = 
 // Interface: UserProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec, 'ash.personalization_app.mojom.UserProvider_SetUserImageObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3600,7 +3611,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemote = class 
 mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UserProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.UserProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3701,7 +3712,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UserProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.UserProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3752,7 +3763,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 0: SetUserImageObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserImageObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3763,7 +3774,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 1: GetUserInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3774,7 +3785,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 2: GetDefaultUserImages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultUserImages (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3785,7 +3796,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 3: SelectDefaultImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectDefaultImage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3796,7 +3807,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 4: SelectProfileImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectProfileImage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3807,7 +3818,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 5: SelectCameraImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectCameraImage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3818,7 +3829,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 6: SelectImageFromDisk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectImageFromDisk (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3829,7 +3840,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
         // Try Method 7: SelectLastExternalUserImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectLastExternalUserImage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -4052,7 +4063,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemote = cla
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AmbientObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.AmbientObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4173,7 +4184,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AmbientObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.AmbientObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4226,7 +4237,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 0: OnAmbientModeEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientModeEnabledChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4237,7 +4248,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 1: OnAmbientThemeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientThemeChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4248,7 +4259,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 2: OnTopicSourceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopicSourceChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -4259,7 +4270,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 3: OnScreenSaverDurationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenSaverDurationChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -4270,7 +4281,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 4: OnTemperatureUnitChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTemperatureUnitChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -4281,7 +4292,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 5: OnAlbumsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAlbumsChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -4292,7 +4303,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 6: OnPreviewsFetched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPreviewsFetched (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -4303,7 +4314,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 7: OnAmbientUiVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientUiVisibilityChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -4314,7 +4325,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 8: OnGeolocationPermissionForSystemServicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGeolocationPermissionForSystemServicesChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -4325,7 +4336,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
         // Try Method 9: OnAmbientThemePreviewImagesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientThemePreviewImagesChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -4444,7 +4455,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4616,7 +4627,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemote = cla
 mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AmbientProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.AmbientProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4797,7 +4808,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AmbientProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.AmbientProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4856,7 +4867,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 0: IsAmbientModeEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAmbientModeEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4867,7 +4878,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 1: SetAmbientModeEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientModeEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4878,7 +4889,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 2: SetAmbientObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -4889,7 +4900,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 3: SetAmbientTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientTheme (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -4900,7 +4911,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 4: SetScreenSaverDuration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenSaverDuration (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -4911,7 +4922,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 5: SetTopicSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTopicSource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -4922,7 +4933,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 6: SetTemperatureUnit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTemperatureUnit (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -4933,7 +4944,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 7: SetAlbumSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlbumSelected (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -4944,7 +4955,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 8: SetPageViewed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageViewed (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -4955,7 +4966,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 9: FetchSettingsAndAlbums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchSettingsAndAlbums (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -4966,7 +4977,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 10: StartScreenSaverPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScreenSaverPreview (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -4977,7 +4988,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 11: ShouldShowTimeOfDayBanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowTimeOfDayBanner (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -4988,7 +4999,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 12: HandleTimeOfDayBannerDismissed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleTimeOfDayBannerDismissed (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -4999,7 +5010,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 13: IsGeolocationEnabledForSystemServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationEnabledForSystemServices (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -5010,7 +5021,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 14: IsGeolocationUserModifiable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationUserModifiable (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -5021,7 +5032,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
         // Try Method 15: EnableGeolocationForSystemServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableGeolocationForSystemServices (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -5243,7 +5254,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardBacklightObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.KeyboardBacklightObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -5284,7 +5295,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardBacklightObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.KeyboardBacklightObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -5329,7 +5340,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
         // Try Method 0: OnBacklightStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBacklightStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -5340,7 +5351,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
         // Try Method 1: OnWallpaperColorChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperColorChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -5386,7 +5397,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
 // Interface: KeyboardBacklightProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -5464,7 +5475,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardBacklightProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.KeyboardBacklightProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5535,7 +5546,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardBacklightProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.KeyboardBacklightProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5583,7 +5594,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
         // Try Method 0: SetKeyboardBacklightObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardBacklightObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -5594,7 +5605,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
         // Try Method 1: SetBacklightColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBacklightColor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -5605,7 +5616,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
         // Try Method 2: SetBacklightZoneColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBacklightZoneColor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -5616,7 +5627,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
         // Try Method 3: ShouldShowNudge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowNudge (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -5627,7 +5638,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
         // Try Method 4: HandleNudgeShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNudgeShown (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

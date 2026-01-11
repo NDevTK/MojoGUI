@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.ash.common = mojo.internal.bindings.ash.common || {};
 mojo.internal.bindings.ash.common.mojom = mojo.internal.bindings.ash.common.mojom || {};
 
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver = {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver.$interfaceName = 'ash.common.mojom.ShortcutInputObserver';
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider = {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider.$interfaceName = 'ash.common.mojom.ShortcutInputProvider';
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = { $: {} };
@@ -132,7 +135,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemote = class {
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ShortcutInputObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ShortcutInputObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -173,7 +176,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ShortcutInputObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ShortcutInputObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -218,7 +221,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverReceiver = class {
         // Try Method 0: OnShortcutInputEventPressed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShortcutInputEventPressed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +232,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverReceiver = class {
         // Try Method 1: OnShortcutInputEventReleased
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShortcutInputEventReleased (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -275,7 +278,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRequest = mojo.inte
 // Interface: ShortcutInputProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -320,7 +323,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemote = class {
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ShortcutInputProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ShortcutInputProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -361,7 +364,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ShortcutInputProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ShortcutInputProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -406,7 +409,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = class {
         // Try Method 0: StartObservingShortcutInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingShortcutInput (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -417,7 +420,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = class {
         // Try Method 1: StopObservingShortcutInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopObservingShortcutInput (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

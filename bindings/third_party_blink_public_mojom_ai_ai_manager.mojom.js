@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,22 +74,27 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient.$interfaceName = 'blink.mojom.AIManagerCreateWriterClient';
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient.$interfaceName = 'blink.mojom.AIManagerCreateRewriterClient';
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient.$interfaceName = 'blink.mojom.AIManagerCreateSummarizerClient';
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient.$interfaceName = 'blink.mojom.AIManagerCreateProofreaderClient';
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManager = {};
+mojo.internal.bindings.blink.mojom.AIManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManager.$interfaceName = 'blink.mojom.AIManager';
 mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = { $: {} };
@@ -184,7 +190,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemote = class {
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateWriterClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateWriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -225,7 +231,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateWriterClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateWriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -270,7 +276,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientReceiver = class {
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -281,7 +287,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -374,7 +380,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemote = class {
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateRewriterClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateRewriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -415,7 +421,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateRewriterClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateRewriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -460,7 +466,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientReceiver = class
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -471,7 +477,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientReceiver = class
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -564,7 +570,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemote = class
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateSummarizerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateSummarizerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -605,7 +611,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateSummarizerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateSummarizerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -650,7 +656,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientReceiver = cla
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -661,7 +667,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientReceiver = cla
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -754,7 +760,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemote = clas
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateProofreaderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateProofreaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -795,7 +801,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AIManagerCreateProofreaderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManagerCreateProofreaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -840,7 +846,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientReceiver = cl
         // Try Method 0: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -851,7 +857,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientReceiver = cl
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -928,7 +934,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec, 'blink.mojom.AIManager_CreateSummarizer_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -958,7 +964,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec, 'blink.mojom.AIManager_CreateWriter_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -977,7 +983,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec, 'blink.mojom.AIManager_CreateRewriter_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.AIRewriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -996,7 +1002,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec, 'blink.mojom.AIManager_CreateProofreader_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1073,7 +1079,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemote = class {
 mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AIManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1214,7 +1220,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AIManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1269,7 +1275,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 0: CanCreateLanguageModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateLanguageModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1280,7 +1286,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 1: CreateLanguageModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateLanguageModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1291,7 +1297,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 2: CanCreateSummarizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateSummarizer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1302,7 +1308,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 3: CreateSummarizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSummarizer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1313,7 +1319,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 4: GetLanguageModelParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLanguageModelParams (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1324,7 +1330,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 5: CanCreateWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateWriter (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1335,7 +1341,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 6: CreateWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWriter (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1346,7 +1352,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 7: CanCreateRewriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateRewriter (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1357,7 +1363,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 8: CreateRewriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRewriter (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1368,7 +1374,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 9: CanCreateProofreader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCreateProofreader (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1379,7 +1385,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 10: CreateProofreader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProofreader (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1390,7 +1396,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         // Try Method 11: AddModelDownloadProgressObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddModelDownloadProgressObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

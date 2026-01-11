@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,10 +79,12 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec = { $: {} }
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec = { $ : {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts.$interfaceName = 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts';
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver.$interfaceName = 'ash.enhanced_network_tts.mojom.AudioDataObserver';
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = { $: {} };
 
@@ -149,7 +152,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,7 +189,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote =
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EnhancedNetworkTts', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.enhanced_network_tts.mojom.EnhancedNetworkTts', [
       { explicit: null },
     ]);
   }
@@ -217,7 +220,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EnhancedNetworkTts', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.enhanced_network_tts.mojom.EnhancedNetworkTts', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -261,7 +264,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver
         // Try Method 0: GetAudioData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAudioData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +348,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote = 
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioDataObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.enhanced_network_tts.mojom.AudioDataObserver', [
       { explicit: null },
     ]);
   }
@@ -376,7 +379,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioDataObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.enhanced_network_tts.mojom.AudioDataObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -420,7 +423,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverReceiver 
         // Try Method 0: OnAudioDataReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioDataReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

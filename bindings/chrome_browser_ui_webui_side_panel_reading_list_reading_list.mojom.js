@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec = { $: {}
 mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.WindowSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.reading_list.mojom.PageHandlerFactory.$interfaceName = 'reading_list.mojom.PageHandlerFactory';
 mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.PageHandler = {};
+mojo.internal.bindings.reading_list.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.reading_list.mojom.PageHandler.$interfaceName = 'reading_list.mojom.PageHandler';
 mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = { $: {} };
@@ -96,6 +99,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec = { $: 
 mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.Page = {};
+mojo.internal.bindings.reading_list.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.reading_list.mojom.Page.$interfaceName = 'reading_list.mojom.Page';
 mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = { $: {} };
@@ -138,8 +142,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'reading_list.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.reading_list.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.reading_list.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.reading_list.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.reading_list.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -176,7 +180,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.reading_list.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -207,7 +211,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -251,7 +255,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -427,7 +431,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -558,7 +562,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -612,7 +616,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetReadLaterEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetReadLaterEntries (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -623,7 +627,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 1: OpenURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenURL (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -634,7 +638,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 2: UpdateReadStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateReadStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -645,7 +649,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 3: MarkCurrentTabAsRead
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MarkCurrentTabAsRead (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -656,7 +660,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 4: AddCurrentTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCurrentTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -667,7 +671,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 5: RemoveEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveEntry (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -678,7 +682,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 6: ShowContextMenuForURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenuForURL (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -689,7 +693,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 7: UpdateCurrentPageActionButtonState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCurrentPageActionButtonState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -700,7 +704,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 8: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -711,7 +715,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 9: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -722,7 +726,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetWindowData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowData (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -893,7 +897,7 @@ mojo.internal.bindings.reading_list.mojom.PageRemote = class {
 mojo.internal.bindings.reading_list.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -934,7 +938,7 @@ mojo.internal.bindings.reading_list.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('reading_list.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -979,7 +983,7 @@ mojo.internal.bindings.reading_list.mojom.PageReceiver = class {
         // Try Method 0: ItemsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ItemsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -990,7 +994,7 @@ mojo.internal.bindings.reading_list.mojom.PageReceiver = class {
         // Try Method 1: CurrentPageActionButtonStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CurrentPageActionButtonStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

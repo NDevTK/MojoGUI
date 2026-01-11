@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaMetadataSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AttachedImageSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser = {};
+mojo.internal.bindings.chrome.mojom.MediaParserSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.MediaParser.$interfaceName = 'chrome.mojom.MediaParser';
 mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = { $: {} };
@@ -90,10 +92,12 @@ mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpe
 mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParserFactory = {};
+mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.MediaParserFactory.$interfaceName = 'chrome.mojom.MediaParserFactory';
 mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaDataSource = {};
+mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.MediaDataSource.$interfaceName = 'chrome.mojom.MediaDataSource';
 mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = { $: {} };
@@ -163,7 +167,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_Params', [
       mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_media_data_source', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_data_source', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_get_attached_images', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -179,7 +183,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_Params', [
       mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -257,7 +261,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemote = class {
 mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaParser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaParser', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -318,7 +322,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaParser', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaParser', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -365,7 +369,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         // Try Method 0: ParseMediaMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMediaMetadata (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -376,7 +380,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         // Try Method 1: ExtractVideoFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractVideoFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -387,7 +391,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         // Try Method 2: CheckMediaFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -398,7 +402,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         // Try Method 3: GetCpuInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -497,7 +501,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParams', [
-      mojo.internal.StructField('arg_media_parser', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaParserSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_parser', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaParserRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -534,7 +538,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryRemote = class {
 mojo.internal.bindings.chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaParserFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaParserFactory', [
       { explicit: null },
     ]);
   }
@@ -565,7 +569,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaParserFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaParserFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -609,7 +613,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
         // Try Method 0: CreateMediaParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaParser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -700,7 +704,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote = class {
 mojo.internal.bindings.chrome.mojom.MediaDataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaDataSource', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaDataSource', [
       { explicit: null },
     ]);
   }
@@ -731,7 +735,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaDataSource', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaDataSource', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -775,7 +779,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

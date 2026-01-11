@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,11 +75,13 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.extensions.mojom.GuestView = {};
+mojo.internal.bindings.extensions.mojom.GuestViewSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.GuestView.$interfaceName = 'extensions.mojom.GuestView';
 mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager.$interfaceName = 'extensions.mojom.MimeHandlerViewContainerManager';
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = { $: {} };
@@ -141,7 +144,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewRemote = class {
 mojo.internal.bindings.extensions.mojom.GuestViewRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GuestView', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.GuestView', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -182,7 +185,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GuestView', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.GuestView', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -227,7 +230,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
         // Try Method 0: ReadyToCreateMimeHandlerView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadyToCreateMimeHandlerView (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -238,7 +241,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
         // Try Method 1: CanExecuteContentScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanExecuteContentScript (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -362,7 +365,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemote = 
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MimeHandlerViewContainerManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MimeHandlerViewContainerManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -423,7 +426,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MimeHandlerViewContainerManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.MimeHandlerViewContainerManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -470,7 +473,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
         // Try Method 0: SetInternalId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -481,7 +484,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
         // Try Method 1: CreateBeforeUnloadControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBeforeUnloadControl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -492,7 +495,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
         // Try Method 2: DestroyFrameContainer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyFrameContainer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -503,7 +506,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
         // Try Method 3: DidLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidLoad (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient = {};
+mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient.$interfaceName = 'blink.mojom.AutoplayConfigurationClient';
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = { $: {} };
 
@@ -125,7 +127,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRemote = class {
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AutoplayConfigurationClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AutoplayConfigurationClient', [
       { explicit: null },
     ]);
   }
@@ -156,7 +158,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AutoplayConfigurationClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AutoplayConfigurationClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -200,7 +202,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientReceiver = class {
         // Try Method 0: AddAutoplayFlags
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAutoplayFlags (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

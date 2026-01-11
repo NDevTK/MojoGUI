@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
 
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage = {};
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage.$interfaceName = 'ash.mojom.sample_swa.ChildUntrustedPage';
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage = {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage.$interfaceName = 'ash.mojom.sample_swa.ParentTrustedPage';
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = { $: {} };
@@ -120,7 +123,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote = class {
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildUntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.ChildUntrustedPage', [
       { explicit: null },
     ]);
   }
@@ -151,7 +154,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildUntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.ChildUntrustedPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -195,7 +198,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
         // Try Method 0: DoSomethingForParent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomethingForParent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -277,7 +280,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote = class {
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ParentTrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.ParentTrustedPage', [
       { explicit: null },
     ]);
   }
@@ -308,7 +311,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ParentTrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.sample_swa.ParentTrustedPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -352,7 +355,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
         // Try Method 0: DoSomethingForChild
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomethingForChild (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,16 +81,19 @@ mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.MountOptionsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.CredentialsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec = { $ : {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap.$interfaceName = 'smbfs.mojom.SmbFsBootstrap';
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFs = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsSpec = { $ : {} };
 mojo.internal.bindings.smbfs.mojom.SmbFs.$interfaceName = 'smbfs.mojom.SmbFs';
 mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec = { $ : {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate.$interfaceName = 'smbfs.mojom.SmbFsDelegate';
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = { $: {} };
@@ -182,14 +186,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_smbfs', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_smbfs', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -226,7 +230,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapRemote = class {
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmbFsBootstrap', [
+    this.ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFsBootstrap', [
       { explicit: null },
     ]);
   }
@@ -257,7 +261,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmbFsBootstrap', [
+    const ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFsBootstrap', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -301,7 +305,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
         // Try Method 0: MountShare
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MountShare (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,7 +409,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRemote = class {
 mojo.internal.bindings.smbfs.mojom.SmbFsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmbFs', [
+    this.ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFs', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -446,7 +450,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmbFs', [
+    const ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFs', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -491,7 +495,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
         // Try Method 0: RemoveSavedCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSavedCredentials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -502,7 +506,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
         // Try Method 1: DeleteRecursively
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRecursively (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -606,7 +610,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemote = class {
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SmbFsDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFsDelegate', [
       { explicit: null },
     ]);
   }
@@ -637,7 +641,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SmbFsDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('smbfs.mojom.SmbFsDelegate', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -681,7 +685,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
         // Try Method 0: RequestCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCredentials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

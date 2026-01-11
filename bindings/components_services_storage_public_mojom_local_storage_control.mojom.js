@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.storage.mojom.LocalStorageControl = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControlSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.LocalStorageControl.$interfaceName = 'storage.mojom.LocalStorageControl';
 mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = { $: {} };
@@ -201,7 +203,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemote = class {
 mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalStorageControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.LocalStorageControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -302,7 +304,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalStorageControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.LocalStorageControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -353,7 +355,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 0: BindStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStorageArea (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +366,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 1: GetUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -375,7 +377,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 2: DeleteStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,7 +388,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 3: CleanUpStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanUpStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -397,7 +399,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 4: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -408,7 +410,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 5: PurgeMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeMemory (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -419,7 +421,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 6: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -430,7 +432,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
         // Try Method 7: ForceKeepSessionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceKeepSessionState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

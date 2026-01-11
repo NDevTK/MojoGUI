@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -88,20 +89,25 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDevicePropertiesSpec 
 mojo.internal.bindings.ash.bluetooth_config.mojom.PairedBluetoothDevicePropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothSystemPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver.$interfaceName = 'ash.bluetooth_config.mojom.SystemPropertiesObserver';
 mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.$interfaceName = 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver';
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.$interfaceName = 'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver';
 mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler.$interfaceName = 'ash.bluetooth_config.mojom.KeyEnteredHandler';
 mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate.$interfaceName = 'ash.bluetooth_config.mojom.DevicePairingDelegate';
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec = { $: {} };
@@ -114,17 +120,20 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmP
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler.$interfaceName = 'ash.bluetooth_config.mojom.DevicePairingHandler';
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.$interfaceName = 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate';
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig = {};
+mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigSpec = { $ : {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig.$interfaceName = 'ash.bluetooth_config.mojom.CrosBluetoothConfig';
 mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec = { $: {} };
@@ -298,7 +307,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverRemote
 mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemPropertiesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.SystemPropertiesObserver', [
       { explicit: null },
     ]);
   }
@@ -329,7 +338,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemPropertiesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.SystemPropertiesObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -373,7 +382,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverReceiv
         // Try Method 0: OnPropertiesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPropertiesUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -467,7 +476,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothDeviceStatusObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -518,7 +527,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BluetoothDeviceStatusObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -564,7 +573,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
         // Try Method 0: OnDevicePaired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicePaired (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -575,7 +584,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
         // Try Method 1: OnDeviceConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceConnected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -586,7 +595,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
         // Try Method 2: OnDeviceDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceDisconnected (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -676,7 +685,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver
 mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiscoverySessionStatusObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DiscoverySessionStatusObserver', [
       { explicit: null },
     ]);
   }
@@ -707,7 +716,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiscoverySessionStatusObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DiscoverySessionStatusObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -751,7 +760,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver
         // Try Method 0: OnHasAtLeastOneDiscoverySessionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHasAtLeastOneDiscoverySessionChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -827,7 +836,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemote = clas
 mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyEnteredHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.KeyEnteredHandler', [
       { explicit: null },
     ]);
   }
@@ -858,7 +867,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyEnteredHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.KeyEnteredHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -902,7 +911,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = cl
         // Try Method 0: HandleKeyEntered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleKeyEntered (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -964,14 +973,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_Params', [
       mojo.internal.StructField('arg_pin_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_Params', [
       mojo.internal.StructField('arg_passkey', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1046,7 +1055,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemote = 
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevicePairingDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DevicePairingDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1127,7 +1136,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevicePairingDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DevicePairingDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1176,7 +1185,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 0: RequestPinCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPinCode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1187,7 +1196,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 1: RequestPasskey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPasskey (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1198,7 +1207,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 2: DisplayPinCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayPinCode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1209,7 +1218,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 3: DisplayPasskey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayPasskey (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1220,7 +1229,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 4: ConfirmPasskey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmPasskey (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1231,7 +1240,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
         // Try Method 5: AuthorizePairing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AuthorizePairing (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1338,7 +1347,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRequest =
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_Params', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1396,7 +1405,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRemote = c
 mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevicePairingHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DevicePairingHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1437,7 +1446,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevicePairingHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.DevicePairingHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1482,7 +1491,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
         // Try Method 0: PairDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PairDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1493,7 +1502,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
         // Try Method 1: FetchDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchDevice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1555,7 +1564,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRequest = 
 // Interface: BluetoothDiscoveryDelegate
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec, 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1609,7 +1618,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemo
 mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothDiscoveryDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1660,7 +1669,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BluetoothDiscoveryDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1706,7 +1715,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRece
         // Try Method 0: OnBluetoothDiscoveryStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBluetoothDiscoveryStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1717,7 +1726,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRece
         // Try Method 1: OnBluetoothDiscoveryStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBluetoothDiscoveryStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1728,7 +1737,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRece
         // Try Method 2: OnDiscoveredDevicesListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiscoveredDevicesListChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1781,19 +1790,19 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequ
 // Interface: CrosBluetoothConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1816,7 +1825,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_Params', [
-      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1926,7 +1935,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemote = cl
 mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosBluetoothConfig', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.CrosBluetoothConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2057,7 +2066,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosBluetoothConfig', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.bluetooth_config.mojom.CrosBluetoothConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2111,7 +2120,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 0: ObserveSystemProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveSystemProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2122,7 +2131,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 1: ObserveDeviceStatusChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDeviceStatusChanges (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2133,7 +2142,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 2: ObserveDiscoverySessionStatusChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDiscoverySessionStatusChanges (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2144,7 +2153,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 3: SetBluetoothEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBluetoothEnabledState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2155,7 +2164,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 4: SetBluetoothEnabledWithoutPersistence
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBluetoothEnabledWithoutPersistence (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2166,7 +2175,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 5: SetBluetoothHidDetectionInactive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBluetoothHidDetectionInactive (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2177,7 +2186,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 6: StartDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscovery (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2188,7 +2197,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 7: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2199,7 +2208,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 8: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2210,7 +2219,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 9: Forget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Forget (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2221,7 +2230,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
         // Try Method 10: SetDeviceNickname
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeviceNickname (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;

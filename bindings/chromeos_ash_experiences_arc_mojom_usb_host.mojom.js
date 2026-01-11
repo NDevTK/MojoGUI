@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
 mojo.internal.bindings.arc.mojom.UsbHostHost = {};
+mojo.internal.bindings.arc.mojom.UsbHostHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.UsbHostHost.$interfaceName = 'arc.mojom.UsbHostHost';
 mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = { $: {} };
@@ -81,6 +83,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = 
 mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.UsbHostInstance = {};
+mojo.internal.bindings.arc.mojom.UsbHostInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.UsbHostInstance.$interfaceName = 'arc.mojom.UsbHostInstance';
 mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec = { $: {} };
@@ -167,7 +170,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemote = class {
 mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UsbHostHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.UsbHostHost', [
       { explicit: 3 },
       { explicit: 1 },
       { explicit: 2 },
@@ -218,7 +221,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UsbHostHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.UsbHostHost', [
       { explicit: 3 },
       { explicit: 1 },
       { explicit: 2 },
@@ -264,7 +267,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
         // Try Method 0: OpenDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +278,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
         // Try Method 1: GetDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -286,7 +289,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
         // Try Method 2: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -363,7 +366,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRequest = mojo.internal.bindings.arc
 // Interface: UsbHostInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec, 'arc.mojom.UsbHostInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.UsbHostHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.UsbHostHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -425,7 +428,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UsbHostInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.UsbHostInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -476,7 +479,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UsbHostInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.UsbHostInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -522,7 +525,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -533,7 +536,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
         // Try Method 1: OnDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -544,7 +547,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
         // Try Method 2: OnDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

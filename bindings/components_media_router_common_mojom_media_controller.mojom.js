@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.media_router.mojom.MediaController = {};
+mojo.internal.bindings.media_router.mojom.MediaControllerSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
 mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec = { $: {} };
@@ -172,7 +174,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemote = class {
 mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -263,7 +265,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaController', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -313,7 +315,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 0: Play
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Play (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -324,7 +326,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 1: Pause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -335,7 +337,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 2: SetMute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMute (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -346,7 +348,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 3: SetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVolume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -357,7 +359,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 4: Seek
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Seek (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -368,7 +370,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 5: NextTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NextTrack (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -379,7 +381,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
         // Try Method 6: PreviousTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviousTrack (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

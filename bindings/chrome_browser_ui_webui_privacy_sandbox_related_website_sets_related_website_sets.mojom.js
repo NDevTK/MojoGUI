@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseS
 mojo.internal.bindings.related_website_sets.mojom.MemberSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler = {};
+mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler.$interfaceName = 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler';
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = { $: {} };
@@ -164,7 +166,7 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerR
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RelatedWebsiteSetsPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('related_website_sets.mojom.RelatedWebsiteSetsPageHandler', [
       { explicit: null },
     ]);
   }
@@ -195,7 +197,7 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RelatedWebsiteSetsPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('related_website_sets.mojom.RelatedWebsiteSetsPageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -239,7 +241,7 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerR
         // Try Method 0: GetRelatedWebsiteSets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRelatedWebsiteSets (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

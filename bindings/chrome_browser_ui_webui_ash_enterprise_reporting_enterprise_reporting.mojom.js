@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec = { $: {} }
 mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory.$interfaceName = 'enterprise_reporting.mojom.PageHandlerFactory';
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler.$interfaceName = 'enterprise_reporting.mojom.PageHandler';
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = { $: {} };
@@ -85,6 +88,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_Resp
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_reporting.mojom.Page = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.enterprise_reporting.mojom.Page.$interfaceName = 'enterprise_reporting.mojom.Page';
 mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = { $: {} };
 
@@ -116,8 +120,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.enterprise_reporting.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.enterprise_reporting.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -154,7 +158,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryRemote = cla
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -185,7 +189,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -229,7 +233,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryReceiver = c
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -333,7 +337,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -384,7 +388,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -430,7 +434,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
         // Try Method 0: RecordDebugState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordDebugState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -441,7 +445,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetDebugState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -452,7 +456,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetErpHistoryData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetErpHistoryData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -558,7 +562,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageRemote = class {
 mojo.internal.bindings.enterprise_reporting.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -589,7 +593,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('enterprise_reporting.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -633,7 +637,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageReceiver = class {
         // Try Method 0: SetErpHistoryData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetErpHistoryData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

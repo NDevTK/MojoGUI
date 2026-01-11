@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_ma
 mojo.internal.bindings.service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec = { $ : {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener.$interfaceName = 'service_manager.mojom.ServiceManagerListener';
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = { $: {} };
@@ -82,6 +84,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePID
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManager = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec = { $ : {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManager.$interfaceName = 'service_manager.mojom.ServiceManager';
 mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec = { $: {} };
 
@@ -188,7 +191,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemote = clas
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceManagerListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('service_manager.mojom.ServiceManagerListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -269,7 +272,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceManagerListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('service_manager.mojom.ServiceManagerListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -318,7 +321,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 0: OnInit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInit (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -329,7 +332,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 1: OnServiceCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -340,7 +343,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 2: OnServiceStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceStarted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -351,7 +354,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 3: OnServicePIDReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServicePIDReceived (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -362,7 +365,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 4: OnServiceFailedToStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceFailedToStart (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -373,7 +376,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
         // Try Method 5: OnServiceStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceStopped (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -447,7 +450,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRequest = moj
 // Interface: ServiceManager
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec, 'service_manager.mojom.ServiceManager_AddListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -484,7 +487,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerRemote = class {
 mojo.internal.bindings.service_manager.mojom.ServiceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('service_manager.mojom.ServiceManager', [
       { explicit: null },
     ]);
   }
@@ -515,7 +518,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('service_manager.mojom.ServiceManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -559,7 +562,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerReceiver = class {
         // Try Method 0: AddListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddListener (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec = { $: {} };
 mojo.internal.bindings.input.mojom.TouchTransferStateSpec = { $: {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec = { $ : {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate.$interfaceName = 'input.mojom.RenderInputRouterDelegate';
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = { $: {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAc
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = { $: {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec = { $ : {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient.$interfaceName = 'input.mojom.RenderInputRouterDelegateClient';
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = { $: {} };
@@ -201,7 +204,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemote = class {
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('input.mojom.RenderInputRouterDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -282,7 +285,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('input.mojom.RenderInputRouterDelegate', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -331,7 +334,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 0: StateOnTouchTransfer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StateOnTouchTransfer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -342,7 +345,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 1: ForceEnableZoomStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceEnableZoomStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -353,7 +356,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 2: StopFlingingOnViz
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFlingingOnViz (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -364,7 +367,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 3: RestartInputEventAckTimeoutIfNecessary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartInputEventAckTimeoutIfNecessary (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -375,7 +378,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 4: NotifyVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyVisibilityChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -386,7 +389,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
         // Try Method 5: ResetGestureDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetGestureDetection (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -536,7 +539,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemote = class
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterDelegateClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('input.mojom.RenderInputRouterDelegateClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -607,7 +610,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterDelegateClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('input.mojom.RenderInputRouterDelegateClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -655,7 +658,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
         // Try Method 0: NotifyObserversOfInputEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyObserversOfInputEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -666,7 +669,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
         // Try Method 1: NotifyObserversOfInputEventAcks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyObserversOfInputEventAcks (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -677,7 +680,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
         // Try Method 2: OnInvalidInputEventSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInvalidInputEventSource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -688,7 +691,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
         // Try Method 3: StateOnOverscrollTransfer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StateOnOverscrollTransfer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -699,7 +702,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
         // Try Method 4: RendererInputResponsivenessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RendererInputResponsivenessChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

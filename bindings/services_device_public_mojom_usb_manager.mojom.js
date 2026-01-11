@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.device.mojom.UsbDeviceManager = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManager.$interfaceName = 'device.mojom.UsbDeviceManager';
 mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = { $: {} };
@@ -228,7 +230,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote = class {
 mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UsbDeviceManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -329,7 +331,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UsbDeviceManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -380,7 +382,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 0: EnumerateDevicesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -391,7 +393,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -402,7 +404,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 2: GetDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -413,7 +415,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 3: GetSecurityKeyDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSecurityKeyDevice (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -424,7 +426,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 4: RefreshDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshDeviceInfo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -435,7 +437,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 5: CheckAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckAccess (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -446,7 +448,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 6: OpenFileDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileDescriptor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -457,7 +459,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         // Try Method 7: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

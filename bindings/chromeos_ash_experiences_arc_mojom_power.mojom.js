@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum()
 mojo.internal.bindings.arc.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerHost = {};
+mojo.internal.bindings.arc.mojom.PowerHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PowerHost.$interfaceName = 'arc.mojom.PowerHost';
 mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = { $: {} };
@@ -89,6 +91,7 @@ mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = { $:
 mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerInstance = {};
+mojo.internal.bindings.arc.mojom.PowerInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PowerInstance.$interfaceName = 'arc.mojom.PowerInstance';
 mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec = { $: {} };
@@ -252,7 +255,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemote = class {
 mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PowerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PowerHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 5 },
@@ -353,7 +356,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PowerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PowerHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 5 },
@@ -404,7 +407,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 0: OnAcquireDisplayWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcquireDisplayWakeLock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +418,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 1: OnReleaseDisplayWakeLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReleaseDisplayWakeLock (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -426,7 +429,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 2: OnWakefulnessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakefulnessChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -437,7 +440,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 3: IsDisplayOn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDisplayOn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -448,7 +451,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 4: OnScreenBrightnessUpdateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenBrightnessUpdateRequest (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -459,7 +462,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 5: OnPreAnr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPreAnr (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -470,7 +473,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 6: OnAnrRecoveryFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAnrRecoveryFailed (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -481,7 +484,7 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
         // Try Method 7: GetBatterySaverModeState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatterySaverModeState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -585,7 +588,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRequest = mojo.internal.bindings.arc.m
 // Interface: PowerInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec, 'arc.mojom.PowerInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PowerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PowerHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -715,7 +718,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PowerInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PowerInstance', [
       { explicit: 5 },
       { explicit: 1 },
       { explicit: 2 },
@@ -836,7 +839,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PowerInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PowerInstance', [
       { explicit: 5 },
       { explicit: 1 },
       { explicit: 2 },
@@ -889,7 +892,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -900,7 +903,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 1: SetInteractiveDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInteractiveDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -911,7 +914,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 2: Suspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -922,7 +925,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 3: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -933,7 +936,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 4: UpdateScreenBrightnessSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScreenBrightnessSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -944,7 +947,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 5: PowerSupplyInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PowerSupplyInfoChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -955,7 +958,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 6: GetWakefulnessMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakefulnessMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -966,7 +969,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 7: OnCpuRestrictionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCpuRestrictionChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -977,7 +980,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 8: OnBatterySaverModeStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatterySaverModeStateChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -988,7 +991,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
         // Try Method 9: SetIdleState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIdleState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

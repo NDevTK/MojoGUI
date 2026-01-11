@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 
 mojo.internal.bindings.remoting.mojom.ChromotingHostServices = {};
+mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.ChromotingHostServices.$interfaceName = 'remoting.mojom.ChromotingHostServices';
 mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices.$interfaceName = 'remoting.mojom.ChromotingSessionServices';
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = { $: {} };
@@ -83,7 +86,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyF
 // Interface: ChromotingHostServices
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +123,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemote = class {
 mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromotingHostServices', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingHostServices', [
       { explicit: null },
     ]);
   }
@@ -151,7 +154,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromotingHostServices', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingHostServices', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -195,7 +198,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesReceiver = class {
         // Try Method 0: BindSessionServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionServices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +292,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote = class {
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromotingSessionServices', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingSessionServices', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -340,7 +343,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromotingSessionServices', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingSessionServices', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -386,7 +389,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
         // Try Method 0: BindWebAuthnProxy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebAuthnProxy (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -397,7 +400,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
         // Try Method 1: BindRemoteUrlOpener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemoteUrlOpener (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -408,7 +411,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
         // Try Method 2: BindSecurityKeyForwarder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSecurityKeyForwarder (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

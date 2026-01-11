@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.QuotaSpacesSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceHost = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceHost.$interfaceName = 'arc.mojom.DiskSpaceHost';
 mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = { $: {} };
@@ -89,6 +91,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_Respo
 mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceInstance = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceInstance.$interfaceName = 'arc.mojom.DiskSpaceInstance';
 mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec = { $: {} };
@@ -242,7 +245,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemote = class {
 mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiskSpaceHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.DiskSpaceHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -323,7 +326,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiskSpaceHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.DiskSpaceHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -372,7 +375,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 0: IsQuotaSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsQuotaSupported (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -383,7 +386,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 1: GetQuotaCurrentSpaceForUid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuotaCurrentSpaceForUid (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -394,7 +397,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 2: GetQuotaCurrentSpaceForGid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuotaCurrentSpaceForGid (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -405,7 +408,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 3: GetQuotaCurrentSpaceForProjectId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuotaCurrentSpaceForProjectId (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -416,7 +419,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 4: GetQuotaCurrentSpacesForIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuotaCurrentSpacesForIds (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -427,7 +430,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
         // Try Method 5: GetFreeDiskSpace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFreeDiskSpace (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -549,7 +552,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRequest = mojo.internal.bindings.a
 // Interface: DiskSpaceInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec, 'arc.mojom.DiskSpaceInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.DiskSpaceHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -615,7 +618,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiskSpaceInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.DiskSpaceInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -666,7 +669,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiskSpaceInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.DiskSpaceInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -712,7 +715,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -723,7 +726,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
         // Try Method 1: GetApplicationsSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApplicationsSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -734,7 +737,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
         // Try Method 2: ResizeStorageBalloon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResizeStorageBalloon (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

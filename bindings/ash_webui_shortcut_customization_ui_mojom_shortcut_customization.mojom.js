@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,12 +81,15 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SubactionsSpec = { $: mo
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorResultDataSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SimpleAcceleratorSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.$interfaceName = 'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver';
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver.$interfaceName = 'ash.shortcut_customization.mojom.PolicyUpdatedObserver';
 mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.$interfaceName = 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider';
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec = { $: {} };
@@ -218,7 +222,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AcceleratorsUpdatedObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver', [
       { explicit: null },
     ]);
   }
@@ -249,7 +253,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AcceleratorsUpdatedObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -293,7 +297,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
         // Try Method 0: OnAcceleratorsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcceleratorsUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -368,7 +372,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRem
 mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PolicyUpdatedObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.PolicyUpdatedObserver', [
       { explicit: null },
     ]);
   }
@@ -399,7 +403,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PolicyUpdatedObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.PolicyUpdatedObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -443,7 +447,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRec
         // Try Method 0: OnCustomizationPolicyUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCustomizationPolicyUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -553,13 +557,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec, 'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -778,7 +782,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AcceleratorConfigurationProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.AcceleratorConfigurationProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -999,7 +1003,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AcceleratorConfigurationProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.AcceleratorConfigurationProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1062,7 +1066,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 0: IsMutable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMutable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1073,7 +1077,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 1: IsCustomizationAllowedByPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsCustomizationAllowedByPolicy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1084,7 +1088,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 2: GetMetaKeyToDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetaKeyToDisplay (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1095,7 +1099,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 3: GetConflictAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConflictAccelerator (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1106,7 +1110,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 4: GetDefaultAcceleratorsForId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultAcceleratorsForId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1117,7 +1121,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 5: GetAccelerators
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccelerators (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1128,7 +1132,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 6: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1139,7 +1143,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 7: AddPolicyObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPolicyObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1150,7 +1154,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 8: GetAcceleratorLayoutInfos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAcceleratorLayoutInfos (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1161,7 +1165,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 9: PreventProcessingAccelerators
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreventProcessingAccelerators (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1172,7 +1176,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 10: AddAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAccelerator (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1183,7 +1187,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 11: RemoveAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveAccelerator (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1194,7 +1198,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 12: ReplaceAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceAccelerator (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1205,7 +1209,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 13: RestoreDefault
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreDefault (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1216,7 +1220,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 14: RestoreAllDefaults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreAllDefaults (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1227,7 +1231,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 15: RecordUserAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUserAction (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1238,7 +1242,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 16: RecordMainCategoryNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordMainCategoryNavigation (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1249,7 +1253,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 17: RecordEditDialogCompletedActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordEditDialogCompletedActions (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1260,7 +1264,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 18: RecordAddOrEditSubactions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordAddOrEditSubactions (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1271,7 +1275,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
         // Try Method 19: HasCustomAccelerators
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasCustomAccelerators (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPage';
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_Param
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory';
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = { $: {} };
 
@@ -205,7 +208,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemote = class {
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.boca_receiver.mojom.UntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -286,7 +289,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.boca_receiver.mojom.UntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -335,7 +338,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 0: OnInitReceiverInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitReceiverInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -346,7 +349,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 1: OnInitReceiverError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitReceiverError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -357,7 +360,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 2: OnFrameReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameReceived (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -368,7 +371,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 3: OnAudioPacket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioPacket (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -379,7 +382,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 4: OnConnecting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnecting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -390,7 +393,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageReceiver = class {
         // Try Method 5: OnConnectionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionClosed (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -464,7 +467,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRequest = mojo.inter
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -501,7 +504,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.boca_receiver.mojom.UntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -532,7 +535,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.boca_receiver.mojom.UntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -576,7 +579,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiv
         // Try Method 0: CreateUntrustedPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUntrustedPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

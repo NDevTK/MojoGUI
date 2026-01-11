@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,13 +79,16 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextReques
 mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec = { $: {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec = { $: {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory';
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler';
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec = { $ : {} };
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage';
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec = { $: {} };
 
@@ -115,8 +119,8 @@ mojo.internal.Struct(
 // Interface: ContextualTasksInternalsPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -153,7 +157,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -184,7 +188,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -228,7 +232,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -310,7 +314,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler', [
       { explicit: null },
     ]);
   }
@@ -341,7 +345,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -385,7 +389,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
         // Try Method 0: GetRelevantContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRelevantContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -472,7 +476,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPage', [
       { explicit: null },
     ]);
   }
@@ -503,7 +507,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContextualTasksInternalsPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -547,7 +551,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
         // Try Method 0: OnLogMessageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogMessageAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

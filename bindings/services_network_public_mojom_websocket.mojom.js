@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,20 +78,24 @@ mojo.internal.bindings.network.mojom.HttpHeaderSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler = {};
+mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler.$interfaceName = 'network.mojom.WebSocketAuthenticationHandler';
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient.$interfaceName = 'network.mojom.WebSocketHandshakeClient';
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketClient = {};
+mojo.internal.bindings.network.mojom.WebSocketClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebSocketClient.$interfaceName = 'network.mojom.WebSocketClient';
 mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocket = {};
+mojo.internal.bindings.network.mojom.WebSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebSocket.$interfaceName = 'network.mojom.WebSocket';
 mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec = { $: {} };
@@ -184,7 +189,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRemote = clas
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebSocketAuthenticationHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketAuthenticationHandler', [
       { explicit: null },
     ]);
   }
@@ -215,7 +220,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebSocketAuthenticationHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketAuthenticationHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -259,7 +264,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerReceiver = cl
         // Try Method 0: OnAuthRequired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthRequired (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -320,8 +325,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_Params', [
-      mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebSocketClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebSocketClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_response', 16, 0, mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_readable', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_writable', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -367,7 +372,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote = class {
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebSocketHandshakeClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketHandshakeClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -418,7 +423,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebSocketHandshakeClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketHandshakeClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -464,7 +469,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientReceiver = class {
         // Try Method 0: OnOpeningHandshakeStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpeningHandshakeStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -475,7 +480,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientReceiver = class {
         // Try Method 1: OnFailure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFailure (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -486,7 +491,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientReceiver = class {
         // Try Method 2: OnConnectionEstablished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionEstablished (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -597,7 +602,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemote = class {
 mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebSocketClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -648,7 +653,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebSocketClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocketClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -694,7 +699,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientReceiver = class {
         // Try Method 0: OnDataFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDataFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -705,7 +710,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientReceiver = class {
         // Try Method 1: OnDropChannel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDropChannel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -716,7 +721,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientReceiver = class {
         // Try Method 2: OnClosingHandshake
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosingHandshake (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -825,7 +830,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemote = class {
 mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebSocket', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -876,7 +881,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebSocket', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -922,7 +927,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -933,7 +938,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
         // Try Method 1: StartReceiving
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReceiving (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -944,7 +949,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
         // Try Method 2: StartClosingHandshake
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartClosingHandshake (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,10 +79,12 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec = { 
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec = { $ : {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder.$interfaceName = 'passage_embeddings.mojom.PassageEmbedder';
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec = { $ : {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService.$interfaceName = 'passage_embeddings.mojom.PassageEmbeddingsService';
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = { $: {} };
@@ -168,7 +171,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemote = class {
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PassageEmbedder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('passage_embeddings.mojom.PassageEmbedder', [
       { explicit: null },
     ]);
   }
@@ -199,7 +202,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PassageEmbedder', [
+    const ordinals = window.mojoScrambler.getOrdinals('passage_embeddings.mojom.PassageEmbedder', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -243,7 +246,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderReceiver = class 
         // Try Method 0: GenerateEmbeddings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateEmbeddings (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,7 +295,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_Params', [
       mojo.internal.StructField('arg_model_params', 0, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -335,7 +338,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceRemote =
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PassageEmbeddingsService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('passage_embeddings.mojom.PassageEmbeddingsService', [
       { explicit: null },
     ]);
   }
@@ -366,7 +369,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PassageEmbeddingsService', [
+    const ordinals = window.mojoScrambler.getOrdinals('passage_embeddings.mojom.PassageEmbeddingsService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -410,7 +413,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceReceiver
         // Try Method 0: LoadModels
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModels (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

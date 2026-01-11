@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.inter
 mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.PromoSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec = { $ : {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler.$interfaceName = 'ntp_promo.mojom.NtpPromoHandler';
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = { $: {} };
@@ -84,9 +86,11 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsS
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec = { $ : {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient.$interfaceName = 'ntp_promo.mojom.NtpPromoClient';
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory.$interfaceName = 'ntp_promo.mojom.NtpPromoHandlerFactory';
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = { $: {} };
 
@@ -205,7 +209,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote = class {
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NtpPromoHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -296,7 +300,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NtpPromoHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -346,7 +350,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 0: RequestPromos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPromos (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -357,7 +361,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 1: OnPromosShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPromosShown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -368,7 +372,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 2: OnPromoClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPromoClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -379,7 +383,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 3: SnoozeSetupList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SnoozeSetupList (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -390,7 +394,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 4: UnsnoozeSetupList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnsnoozeSetupList (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -401,7 +405,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 5: DisableSetupList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableSetupList (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -412,7 +416,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         // Try Method 6: UndisableSetupList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndisableSetupList (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -531,7 +535,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemote = class {
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NtpPromoClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoClient', [
       { explicit: null },
     ]);
   }
@@ -562,7 +566,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NtpPromoClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -606,7 +610,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientReceiver = class {
         // Try Method 0: SetPromos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPromos (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -645,8 +649,8 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRequest = mojo.internal.bin
 // Interface: NtpPromoHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -683,7 +687,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRemote = class {
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NtpPromoHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -714,7 +718,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NtpPromoHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -758,7 +762,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
         // Try Method 0: CreateNtpPromoHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNtpPromoHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

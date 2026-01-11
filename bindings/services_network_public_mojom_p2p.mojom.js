@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,23 +76,31 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
+mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.P2PPortRangeSpec = { $: {} };
+mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSendPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient = {};
+mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient.$interfaceName = 'network.mojom.P2PNetworkNotificationClient';
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketManager = {};
+mojo.internal.bindings.network.mojom.P2PSocketManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PSocketManager.$interfaceName = 'network.mojom.P2PSocketManager';
 mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocket = {};
+mojo.internal.bindings.network.mojom.P2PSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PSocket.$interfaceName = 'network.mojom.P2PSocket';
 mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient = {};
+mojo.internal.bindings.network.mojom.P2PSocketClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient.$interfaceName = 'network.mojom.P2PSocketClient';
 mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec = { $: {} };
@@ -113,6 +122,30 @@ mojo.internal.bindings.network.mojom.EcnMarking = {
   kEct0: 2,
   kCe: 3,
 };
+
+// Struct: P2PHostAndIPEndPoint
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PPacketInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, 'network.mojom.P2PPacketInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PPortRange
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PPortRangeSpec, 'network.mojom.P2PPortRange', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PSendPacketMetrics
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, 'network.mojom.P2PSendPacketMetrics', [
+    ],
+    [[0, 8]]);
 
 // Struct: P2PReceivedPacket
 mojo.internal.Struct(
@@ -174,7 +207,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemote = class 
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PNetworkNotificationClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PNetworkNotificationClient', [
       { explicit: null },
     ]);
   }
@@ -205,7 +238,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PNetworkNotificationClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PNetworkNotificationClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -249,7 +282,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientReceiver = clas
         // Try Method 0: NetworkListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NetworkListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -288,7 +321,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRequest = mojo.
 // Interface: P2PSocketManager
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec, 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -314,8 +347,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_remote_address', 24, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 56, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 56, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -358,7 +391,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerRemote = class {
 mojo.internal.bindings.network.mojom.P2PSocketManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PSocketManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocketManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -409,7 +442,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PSocketManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocketManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -455,7 +488,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
         // Try Method 0: StartNetworkNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartNetworkNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -466,7 +499,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
         // Try Method 1: GetHostAddress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostAddress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -477,7 +510,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
         // Try Method 2: CreateSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSocket (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -595,7 +628,7 @@ mojo.internal.bindings.network.mojom.P2PSocketRemote = class {
 mojo.internal.bindings.network.mojom.P2PSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PSocket', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -646,7 +679,7 @@ mojo.internal.bindings.network.mojom.P2PSocketReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PSocket', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -692,7 +725,7 @@ mojo.internal.bindings.network.mojom.P2PSocketReceiver = class {
         // Try Method 0: Send
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -703,7 +736,7 @@ mojo.internal.bindings.network.mojom.P2PSocketReceiver = class {
         // Try Method 1: SendBatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBatch (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -714,7 +747,7 @@ mojo.internal.bindings.network.mojom.P2PSocketReceiver = class {
         // Try Method 2: SetOption
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOption (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -832,7 +865,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientRemote = class {
 mojo.internal.bindings.network.mojom.P2PSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PSocketClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocketClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -893,7 +926,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PSocketClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PSocketClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -940,7 +973,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
         // Try Method 0: SocketCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SocketCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -951,7 +984,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
         // Try Method 1: SendComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -962,7 +995,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
         // Try Method 2: SendBatchComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBatchComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -973,7 +1006,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
         // Try Method 3: DataReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DataReceived (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.NetworkContextClient = {};
+mojo.internal.bindings.network.mojom.NetworkContextClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkContextClient.$interfaceName = 'network.mojom.NetworkContextClient';
 mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = { $: {} };
@@ -208,7 +210,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemote = class {
 mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkContextClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContextClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -289,7 +291,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkContextClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContextClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -338,7 +340,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 0: OnFileUploadRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFileUploadRequested (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -349,7 +351,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 1: OnCanSendReportingReports
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanSendReportingReports (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -360,7 +362,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 2: OnCanSendDomainReliabilityUpload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanSendDomainReliabilityUpload (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -371,7 +373,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 3: OnGenerateHttpNegotiateAuthToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGenerateHttpNegotiateAuthToken (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -382,7 +384,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 4: OnCanSendSCTAuditingReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanSendSCTAuditingReport (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -393,7 +395,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
         // Try Method 5: OnNewSCTAuditingReportSent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewSCTAuditingReportSent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,10 +79,12 @@ mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportReq
 mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Observer = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec = { $ : {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Observer.$interfaceName = 'private_aggregation_internals.mojom.Observer';
 mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec = { $ : {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler.$interfaceName = 'private_aggregation_internals.mojom.Handler';
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = { $: {} };
@@ -90,6 +93,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_R
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Factory = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec = { $ : {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.Factory.$interfaceName = 'private_aggregation_internals.mojom.Factory';
 mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec = { $: {} };
 
@@ -178,7 +182,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemote = clas
 mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Observer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Observer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -219,7 +223,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Observer', [
+    const ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Observer', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -264,7 +268,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverReceiver = cl
         // Try Method 0: OnRequestStorageModified
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestStorageModified (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +279,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverReceiver = cl
         // Try Method 1: OnReportHandled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportHandled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -390,7 +394,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemote = class
 mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Handler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Handler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -441,7 +445,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Handler', [
+    const ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Handler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -487,7 +491,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
         // Try Method 0: GetReports
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetReports (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -498,7 +502,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
         // Try Method 1: SendReports
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReports (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -509,7 +513,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
         // Try Method 2: ClearStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -586,8 +590,8 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRequest = mojo
 // Interface: Factory
 mojo.internal.Struct(
     mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec, 'private_aggregation_internals.mojom.Factory_Create_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -624,7 +628,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRemote = class
 mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Factory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Factory', [
       { explicit: null },
     ]);
   }
@@ -655,7 +659,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Factory', [
+    const ordinals = window.mojoScrambler.getOrdinals('private_aggregation_internals.mojom.Factory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -699,7 +703,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryReceiver = cla
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

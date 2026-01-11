@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,14 +74,17 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
 mojo.internal.bindings.media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.AudioInputStream = {};
+mojo.internal.bindings.media.mojom.AudioInputStreamSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioInputStream.$interfaceName = 'media.mojom.AudioInputStream';
 mojo.internal.bindings.media.mojom.AudioInputStream_Record_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamClient = {};
+mojo.internal.bindings.media.mojom.AudioInputStreamClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamClient.$interfaceName = 'media.mojom.AudioInputStreamClient';
 mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamObserver = {};
+mojo.internal.bindings.media.mojom.AudioInputStreamObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamObserver.$interfaceName = 'media.mojom.AudioInputStreamObserver';
 mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = { $: {} };
 
@@ -143,7 +147,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRemote = class {
 mojo.internal.bindings.media.mojom.AudioInputStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioInputStream', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStream', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -184,7 +188,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioInputStream', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStream', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -229,7 +233,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamReceiver = class {
         // Try Method 0: Record
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStream_Record_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStream_Record_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Record (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -240,7 +244,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamReceiver = class {
         // Try Method 1: SetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVolume (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -332,7 +336,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote = class {
 mojo.internal.bindings.media.mojom.AudioInputStreamClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioInputStreamClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStreamClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -373,7 +377,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioInputStreamClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStreamClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -418,7 +422,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientReceiver = class {
         // Try Method 0: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +433,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientReceiver = class {
         // Try Method 1: OnMutedStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMutedStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -511,7 +515,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemote = class {
 mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioInputStreamObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStreamObserver', [
       { explicit: null },
     ]);
   }
@@ -542,7 +546,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioInputStreamObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioInputStreamObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -586,7 +590,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverReceiver = class {
         // Try Method 0: DidStartRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStartRecording (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

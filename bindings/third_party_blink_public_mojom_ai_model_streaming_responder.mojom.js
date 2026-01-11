@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder.$interfaceName = 'blink.mojom.ModelStreamingResponder';
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = { $: {} };
@@ -174,7 +176,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = class {
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ModelStreamingResponder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelStreamingResponder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -235,7 +237,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ModelStreamingResponder', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelStreamingResponder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -282,7 +284,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
         // Try Method 0: OnCompletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompletion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +295,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +306,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
         // Try Method 2: OnStreaming
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreaming (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -315,7 +317,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
         // Try Method 3: OnQuotaOverflow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQuotaOverflow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,16 +75,19 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.arc.mojom.VideoHost = {};
+mojo.internal.bindings.arc.mojom.VideoHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VideoHost.$interfaceName = 'arc.mojom.VideoHost';
 mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoInstance = {};
+mojo.internal.bindings.arc.mojom.VideoInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VideoInstance.$interfaceName = 'arc.mojom.VideoInstance';
 mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory = {};
+mojo.internal.bindings.arc.mojom.VideoAcceleratorFactorySpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory.$interfaceName = 'arc.mojom.VideoAcceleratorFactory';
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec = { $: {} };
@@ -110,7 +114,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,7 +154,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRemote = class {
 mojo.internal.bindings.arc.mojom.VideoHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoHost', [
       { explicit: 1 },
       { explicit: 2 },
     ]);
@@ -191,7 +195,7 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoHost', [
       { explicit: 1 },
       { explicit: 2 },
     ]);
@@ -236,7 +240,7 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
         // Try Method 0: OnBootstrapVideoAcceleratorFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootstrapVideoAcceleratorFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -247,7 +251,7 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
         // Try Method 1: CreateVideoAcceleratorFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoAcceleratorFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,7 +313,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRequest = mojo.internal.bindings.arc.m
 // Interface: VideoInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec, 'arc.mojom.VideoInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -351,7 +355,7 @@ mojo.internal.bindings.arc.mojom.VideoInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.VideoInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoInstance', [
       { explicit: 1 },
     ]);
   }
@@ -382,7 +386,7 @@ mojo.internal.bindings.arc.mojom.VideoInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoInstance', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -426,7 +430,7 @@ mojo.internal.bindings.arc.mojom.VideoInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -539,7 +543,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemote = class {
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoAcceleratorFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoAcceleratorFactory', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 4 },
@@ -600,7 +604,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoAcceleratorFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoAcceleratorFactory', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 4 },
@@ -647,7 +651,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
         // Try Method 0: CreateEncodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateEncodeAccelerator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -658,7 +662,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
         // Try Method 1: CreateDecodeAccelerator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDecodeAccelerator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -669,7 +673,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
         // Try Method 2: CreateVideoDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -680,7 +684,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
         // Try Method 3: CreateProtectedBufferAllocator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProtectedBufferAllocator (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

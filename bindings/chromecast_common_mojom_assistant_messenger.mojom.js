@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,12 +74,15 @@ mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe = {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe.$interfaceName = 'chromecast.mojom.AssistantMessagePipe';
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClient = {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClient.$interfaceName = 'chromecast.mojom.AssistantMessageClient';
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.AssistantMessageService = {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.AssistantMessageService.$interfaceName = 'chromecast.mojom.AssistantMessageService';
 mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = { $: {} };
 
@@ -122,7 +126,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemote = class {
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AssistantMessagePipe', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessagePipe', [
       { explicit: null },
     ]);
   }
@@ -153,7 +157,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AssistantMessagePipe', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessagePipe', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -197,7 +201,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeReceiver = class {
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +277,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemote = class {
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AssistantMessageClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessageClient', [
       { explicit: null },
     ]);
   }
@@ -304,7 +308,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AssistantMessageClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessageClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -348,7 +352,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -388,8 +392,8 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRequest = mojo.int
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
       mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -426,7 +430,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRemote = class {
 mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AssistantMessageService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessageService', [
       { explicit: null },
     ]);
   }
@@ -457,7 +461,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AssistantMessageService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.AssistantMessageService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -501,7 +505,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceReceiver = class 
         // Try Method 0: CreateMessagePipe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMessagePipe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,6 +80,7 @@ mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec = 
 mojo.internal.bindings.nearby_share.mojom.ContactIdentifierSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ContactRecordSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver = {};
+mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver.$interfaceName = 'nearby_share.mojom.NearbyShareSettingsObserver';
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec = { $: {} };
@@ -89,6 +91,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibili
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings = {};
+mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings.$interfaceName = 'nearby_share.mojom.NearbyShareSettings';
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = { $: {} };
@@ -118,10 +121,12 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver = {};
+mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver.$interfaceName = 'nearby_share.mojom.DownloadContactsObserver';
 mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ContactManager = {};
+mojo.internal.bindings.nearby_share.mojom.ContactManagerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.ContactManager.$interfaceName = 'nearby_share.mojom.ContactManager';
 mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec = { $: {} };
@@ -292,7 +297,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemote = cl
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.NearbyShareSettingsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -393,7 +398,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.NearbyShareSettingsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -444,7 +449,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 0: OnEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnabledChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -455,7 +460,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 1: OnFastInitiationNotificationStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFastInitiationNotificationStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -466,7 +471,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 2: OnIsFastInitiationHardwareSupportedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIsFastInitiationHardwareSupportedChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -477,7 +482,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 3: OnDeviceNameChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceNameChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -488,7 +493,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 4: OnDataUsageChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDataUsageChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -499,7 +504,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 5: OnVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -510,7 +515,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 6: OnAllowedContactsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAllowedContactsChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -521,7 +526,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
         // Try Method 7: OnIsOnboardingCompleteChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIsOnboardingCompleteChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -609,7 +614,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRequest = m
 // Interface: NearbyShareSettings
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -842,7 +847,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemote = class {
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareSettings', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.NearbyShareSettings', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1033,7 +1038,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareSettings', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.NearbyShareSettings', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1093,7 +1098,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 0: AddSettingsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSettingsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1104,7 +1109,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 1: GetEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1115,7 +1120,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 2: SetEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1126,7 +1131,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 3: IsOnboardingComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOnboardingComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1137,7 +1142,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 4: SetIsOnboardingComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsOnboardingComplete (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1148,7 +1153,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 5: GetFastInitiationNotificationState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFastInitiationNotificationState (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1159,7 +1164,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 6: SetFastInitiationNotificationState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFastInitiationNotificationState (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1170,7 +1175,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 7: GetIsFastInitiationHardwareSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsFastInitiationHardwareSupported (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1181,7 +1186,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 8: GetDeviceName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceName (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1192,7 +1197,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 9: ValidateDeviceName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateDeviceName (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1203,7 +1208,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 10: SetDeviceName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeviceName (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1214,7 +1219,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 11: GetDataUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDataUsage (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1225,7 +1230,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 12: SetDataUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDataUsage (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1236,7 +1241,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 13: GetVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVisibility (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1247,7 +1252,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 14: SetVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisibility (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1258,7 +1263,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 15: GetAllowedContacts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllowedContacts (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1269,7 +1274,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
         // Try Method 16: SetAllowedContacts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowedContacts (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1547,7 +1552,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRemote = class
 mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DownloadContactsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DownloadContactsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1588,7 +1593,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DownloadContactsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DownloadContactsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1633,7 +1638,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverReceiver = cla
         // Try Method 0: OnContactsDownloaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContactsDownloaded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1644,7 +1649,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverReceiver = cla
         // Try Method 1: OnContactsDownloadFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContactsDownloadFailed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1690,7 +1695,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRequest = mojo
 // Interface: ContactManager
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec, 'nearby_share.mojom.ContactManager_AddDownloadContactsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1744,7 +1749,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.ContactManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContactManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ContactManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1795,7 +1800,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContactManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ContactManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1841,7 +1846,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
         // Try Method 0: AddDownloadContactsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDownloadContactsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1852,7 +1857,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
         // Try Method 1: DownloadContacts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadContacts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1863,7 +1868,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
         // Try Method 2: SetAllowedContacts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowedContacts (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

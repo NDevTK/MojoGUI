@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -88,28 +89,34 @@ mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveHostParametersSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveHostHandle = {};
+mojo.internal.bindings.network.mojom.ResolveHostHandleSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ResolveHostHandle.$interfaceName = 'network.mojom.ResolveHostHandle';
 mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveHostClient = {};
+mojo.internal.bindings.network.mojom.ResolveHostClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ResolveHostClient.$interfaceName = 'network.mojom.ResolveHostClient';
 mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.MdnsListenClient = {};
+mojo.internal.bindings.network.mojom.MdnsListenClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.MdnsListenClient.$interfaceName = 'network.mojom.MdnsListenClient';
 mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostResolver = {};
+mojo.internal.bindings.network.mojom.HostResolverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.HostResolver.$interfaceName = 'network.mojom.HostResolver';
 mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient = {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient.$interfaceName = 'network.mojom.DnsConfigChangeManagerClient';
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DnsConfigChangeManager = {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DnsConfigChangeManager.$interfaceName = 'network.mojom.DnsConfigChangeManager';
 mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = { $: {} };
 
@@ -273,7 +280,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleRemote = class {
 mojo.internal.bindings.network.mojom.ResolveHostHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ResolveHostHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ResolveHostHandle', [
       { explicit: null },
     ]);
   }
@@ -304,7 +311,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ResolveHostHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ResolveHostHandle', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -348,7 +355,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleReceiver = class {
         // Try Method 0: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +452,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientRemote = class {
 mojo.internal.bindings.network.mojom.ResolveHostClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ResolveHostClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ResolveHostClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -496,7 +503,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ResolveHostClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ResolveHostClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -542,7 +549,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
         // Try Method 0: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -553,7 +560,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
         // Try Method 1: OnTextResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextResults (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -564,7 +571,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
         // Try Method 2: OnHostnameResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostnameResults (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -688,7 +695,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRemote = class {
 mojo.internal.bindings.network.mojom.MdnsListenClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MdnsListenClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.MdnsListenClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -749,7 +756,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MdnsListenClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.MdnsListenClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -796,7 +803,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
         // Try Method 0: OnAddressResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAddressResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -807,7 +814,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
         // Try Method 1: OnTextResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -818,7 +825,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
         // Try Method 2: OnHostnameResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostnameResult (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -829,7 +836,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
         // Try Method 3: OnUnhandledResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnhandledResult (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -892,7 +899,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostResolverHostSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_optional_parameters', 16, 0, mojo.internal.bindings.network.mojom.ResolveHostParametersSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_response_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ResolveHostClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ResolveHostClientRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -900,7 +907,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_query_type', 8, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.MdnsListenClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -946,7 +953,7 @@ mojo.internal.bindings.network.mojom.HostResolverRemote = class {
 mojo.internal.bindings.network.mojom.HostResolverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HostResolver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.HostResolver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -987,7 +994,7 @@ mojo.internal.bindings.network.mojom.HostResolverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HostResolver', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.HostResolver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1032,7 +1039,7 @@ mojo.internal.bindings.network.mojom.HostResolverReceiver = class {
         // Try Method 0: ResolveHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveHost (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1043,7 +1050,7 @@ mojo.internal.bindings.network.mojom.HostResolverReceiver = class {
         // Try Method 1: MdnsListen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MdnsListen (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1133,7 +1140,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemote = class 
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DnsConfigChangeManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DnsConfigChangeManagerClient', [
       { explicit: null },
     ]);
   }
@@ -1164,7 +1171,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DnsConfigChangeManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DnsConfigChangeManagerClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1208,7 +1215,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientReceiver = clas
         // Try Method 0: OnDnsConfigChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDnsConfigChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1247,7 +1254,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRequest = mojo.
 // Interface: DnsConfigChangeManager
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1284,7 +1291,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRemote = class {
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DnsConfigChangeManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DnsConfigChangeManager', [
       { explicit: null },
     ]);
   }
@@ -1315,7 +1322,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DnsConfigChangeManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DnsConfigChangeManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1359,7 +1366,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerReceiver = class {
         // Try Method 0: RequestNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

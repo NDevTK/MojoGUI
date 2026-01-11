@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec = { $
 mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec = { $ : {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder.$interfaceName = 'paint_preview.mojom.PaintPreviewRecorder';
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = { $: {} };
@@ -206,7 +208,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderRemote = class {
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaintPreviewRecorder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewRecorder', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -247,7 +249,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaintPreviewRecorder', [
+    const ordinals = window.mojoScrambler.getOrdinals('paint_preview.mojom.PaintPreviewRecorder', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -292,7 +294,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderReceiver = class 
         // Try Method 0: CapturePaintPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CapturePaintPreview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -303,7 +305,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderReceiver = class 
         // Try Method 1: GetGeometryMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGeometryMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

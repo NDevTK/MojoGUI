@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,6 +84,7 @@ mojo.internal.bindings.discards.mojom.ProcessInfoSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.WorkerInfoSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.FavIconInfoSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.DetailsProvider = {};
+mojo.internal.bindings.discards.mojom.DetailsProviderSpec = { $ : {} };
 mojo.internal.bindings.discards.mojom.DetailsProvider.$interfaceName = 'discards.mojom.DetailsProvider';
 mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = { $: {} };
@@ -97,6 +99,7 @@ mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec
 mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.GraphChangeStream = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec = { $ : {} };
 mojo.internal.bindings.discards.mojom.GraphChangeStream.$interfaceName = 'discards.mojom.GraphChangeStream';
 mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = { $: {} };
@@ -109,6 +112,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec
 mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.GraphDump = {};
+mojo.internal.bindings.discards.mojom.GraphDumpSpec = { $ : {} };
 mojo.internal.bindings.discards.mojom.GraphDump.$interfaceName = 'discards.mojom.GraphDump';
 mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = { $: {} };
@@ -328,7 +332,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemote = class {
 mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DetailsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('discards.mojom.DetailsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -429,7 +433,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DetailsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('discards.mojom.DetailsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -480,7 +484,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 0: GetTabDiscardsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabDiscardsInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +495,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 1: SetAutoDiscardable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoDiscardable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -502,7 +506,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 2: DiscardById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DiscardById (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -513,7 +517,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 3: FreezeById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FreezeById (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -524,7 +528,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 4: LoadById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadById (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -535,7 +539,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 5: Discard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Discard (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -546,7 +550,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 6: ToggleBatterySaverMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleBatterySaverMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -557,7 +561,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
         // Try Method 7: RefreshPerformanceTabCpuMeasurements
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshPerformanceTabCpuMeasurements (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -795,7 +799,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemote = class {
 mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraphChangeStream', [
+    this.ordinals = window.mojoScrambler.getOrdinals('discards.mojom.GraphChangeStream', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -916,7 +920,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraphChangeStream', [
+    const ordinals = window.mojoScrambler.getOrdinals('discards.mojom.GraphChangeStream', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -969,7 +973,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 0: FrameCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -980,7 +984,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 1: PageCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -991,7 +995,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 2: ProcessCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessCreated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1002,7 +1006,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 3: WorkerCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WorkerCreated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1013,7 +1017,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 4: FrameChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1024,7 +1028,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 5: PageChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1035,7 +1039,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 6: ProcessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1046,7 +1050,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 7: WorkerChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WorkerChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1057,7 +1061,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 8: FavIconDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FavIconDataAvailable (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1068,7 +1072,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 9: NodeDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NodeDeleted (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1170,7 +1174,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRequest = mojo.internal.b
 // Interface: GraphDump
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec, 'discards.mojom.GraphDump_SubscribeToChanges_Params', [
-      mojo.internal.StructField('arg_change_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_change_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discards.mojom.GraphChangeStreamRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1222,7 +1226,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpRemote = class {
 mojo.internal.bindings.discards.mojom.GraphDumpRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraphDump', [
+    this.ordinals = window.mojoScrambler.getOrdinals('discards.mojom.GraphDump', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1263,7 +1267,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraphDump', [
+    const ordinals = window.mojoScrambler.getOrdinals('discards.mojom.GraphDump', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1308,7 +1312,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
         // Try Method 0: SubscribeToChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1319,7 +1323,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
         // Try Method 1: RequestNodeDescriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNodeDescriptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

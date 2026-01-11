@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,17 +73,22 @@
 mojo.internal.bindings.codelabs.mojom = mojo.internal.bindings.codelabs.mojom || {};
 
 mojo.internal.bindings.codelabs.mojom.ObjectA = {};
+mojo.internal.bindings.codelabs.mojom.ObjectASpec = { $ : {} };
 mojo.internal.bindings.codelabs.mojom.ObjectA.$interfaceName = 'codelabs.mojom.ObjectA';
 mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec = { $: {} };
 mojo.internal.bindings.codelabs.mojom.ObjectB = {};
+mojo.internal.bindings.codelabs.mojom.ObjectBSpec = { $ : {} };
 mojo.internal.bindings.codelabs.mojom.ObjectB.$interfaceName = 'codelabs.mojom.ObjectB';
 mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec = { $: {} };
 mojo.internal.bindings.codelabs.mojom.AssociatedProcess = {};
+mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec = { $ : {} };
 mojo.internal.bindings.codelabs.mojom.AssociatedProcess.$interfaceName = 'codelabs.mojom.AssociatedProcess';
 mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.codelabs.mojom.GenericInterface = {};
+mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec = { $ : {} };
 mojo.internal.bindings.codelabs.mojom.GenericInterface.$interfaceName = 'codelabs.mojom.GenericInterface';
 mojo.internal.bindings.codelabs.mojom.Process = {};
+mojo.internal.bindings.codelabs.mojom.ProcessSpec = { $ : {} };
 mojo.internal.bindings.codelabs.mojom.Process.$interfaceName = 'codelabs.mojom.Process';
 mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec = { $: {} };
 mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = { $: {} };
@@ -126,7 +132,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectARemote = class {
 mojo.internal.bindings.codelabs.mojom.ObjectARemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ObjectA', [
+    this.ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.ObjectA', [
       { explicit: null },
     ]);
   }
@@ -157,7 +163,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectAReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ObjectA', [
+    const ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.ObjectA', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -201,7 +207,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectAReceiver = class {
         // Try Method 0: DoA
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoA (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -276,7 +282,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectBRemote = class {
 mojo.internal.bindings.codelabs.mojom.ObjectBRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ObjectB', [
+    this.ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.ObjectB', [
       { explicit: null },
     ]);
   }
@@ -307,7 +313,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectBReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ObjectB', [
+    const ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.ObjectB', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -351,7 +357,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectBReceiver = class {
         // Try Method 0: DoB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoB (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -390,7 +396,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectBRequest = mojo.internal.bindings.co
 // Interface: AssociatedProcess
 mojo.internal.Struct(
     mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -427,7 +433,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessRemote = class {
 mojo.internal.bindings.codelabs.mojom.AssociatedProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AssociatedProcess', [
+    this.ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.AssociatedProcess', [
       { explicit: null },
     ]);
   }
@@ -458,7 +464,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AssociatedProcess', [
+    const ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.AssociatedProcess', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -502,7 +508,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessReceiver = class {
         // Try Method 0: SetProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -569,7 +575,7 @@ mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemote = class {
 mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GenericInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.GenericInterface', [
     ]);
   }
 
@@ -590,7 +596,7 @@ mojo.internal.bindings.codelabs.mojom.GenericInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GenericInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.GenericInterface', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -660,7 +666,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -700,7 +706,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessRemote = class {
 mojo.internal.bindings.codelabs.mojom.ProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Process', [
+    this.ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.Process', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -741,7 +747,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Process', [
+    const ordinals = window.mojoScrambler.getOrdinals('codelabs.mojom.Process', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -786,7 +792,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = class {
         // Try Method 0: SayHello
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SayHello (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -797,7 +803,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = class {
         // Try Method 1: GetAssociatedInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAssociatedInterface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,16 +74,19 @@ mojo.internal.bindings.ash.annotator = mojo.internal.bindings.ash.annotator || {
 mojo.internal.bindings.ash.annotator.mojom = mojo.internal.bindings.ash.annotator.mojom || {};
 
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec = { $ : {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPage';
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandler';
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory';
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
@@ -150,7 +154,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemote = class 
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -211,7 +215,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -258,7 +262,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
         // Try Method 0: Clear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clear (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +273,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
         // Try Method 1: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -280,7 +284,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
         // Try Method 2: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -291,7 +295,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
         // Try Method 3: SetTool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTool (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -398,7 +402,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote =
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -439,7 +443,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -484,7 +488,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
         // Try Method 0: OnUndoRedoAvailabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUndoRedoAvailabilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -495,7 +499,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
         // Try Method 1: OnCanvasInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanvasInitialized (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -541,8 +545,8 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest 
 // Interface: UntrustedAnnotatorPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_annotator', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotator', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -579,7 +583,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -610,7 +614,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedAnnotatorPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -654,7 +658,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

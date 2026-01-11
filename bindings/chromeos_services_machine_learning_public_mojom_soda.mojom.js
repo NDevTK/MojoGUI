@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -91,11 +92,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec = { $
 mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = { $ : {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient.$interfaceName = 'chromeos.machine_learning.mojom.SodaClient';
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer.$interfaceName = 'chromeos.machine_learning.mojom.SodaRecognizer';
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec = { $: {} };
@@ -341,7 +344,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote = class 
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SodaClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.SodaClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -392,7 +395,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SodaClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.SodaClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -438,7 +441,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
         // Try Method 0: OnStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -449,7 +452,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
         // Try Method 1: OnStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -460,7 +463,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
         // Try Method 2: OnSpeechRecognizerEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRecognizerEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -574,7 +577,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote = cl
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SodaRecognizer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.SodaRecognizer', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -635,7 +638,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SodaRecognizer', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.SodaRecognizer', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -682,7 +685,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
         // Try Method 0: AddAudio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAudio (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -693,7 +696,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -704,7 +707,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
         // Try Method 2: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -715,7 +718,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
         // Try Method 3: MarkDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MarkDone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

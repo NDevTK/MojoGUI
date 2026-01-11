@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,11 +82,13 @@ mojo.internal.bindings.blink.mojom.PresentationInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationErrorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationConnection = {};
+mojo.internal.bindings.blink.mojom.PresentationConnectionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PresentationConnection.$interfaceName = 'blink.mojom.PresentationConnection';
 mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationService = {};
+mojo.internal.bindings.blink.mojom.PresentationServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PresentationService.$interfaceName = 'blink.mojom.PresentationService';
 mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec = { $: {} };
@@ -99,12 +102,14 @@ mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_Res
 mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationController = {};
+mojo.internal.bindings.blink.mojom.PresentationControllerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PresentationController.$interfaceName = 'blink.mojom.PresentationController';
 mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationReceiver = {};
+mojo.internal.bindings.blink.mojom.PresentationReceiverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PresentationReceiver.$interfaceName = 'blink.mojom.PresentationReceiver';
 mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = { $: {} };
 
@@ -176,8 +181,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, 'blink.mojom.PresentationConnectionResult', [
       mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationConnectionSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -239,7 +244,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionRemote = class {
 mojo.internal.bindings.blink.mojom.PresentationConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PresentationConnection', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationConnection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -290,7 +295,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PresentationConnection', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationConnection', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -336,7 +341,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,7 +352,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionReceiver = class {
         // Try Method 1: DidChangeState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidChangeState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -358,7 +363,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionReceiver = class {
         // Try Method 2: DidClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidClose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -411,13 +416,13 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionRequest = mojo.internal
 // Interface: PresentationService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec, 'blink.mojom.PresentationService_SetController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationControllerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec, 'blink.mojom.PresentationService_SetReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationReceiverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationReceiverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,7 +542,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemote = class {
 mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PresentationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -648,7 +653,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PresentationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -700,7 +705,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 0: SetController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -711,7 +716,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 1: SetReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReceiver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -722,7 +727,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 2: SetDefaultPresentationUrls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultPresentationUrls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -733,7 +738,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 3: ListenForScreenAvailability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenForScreenAvailability (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -744,7 +749,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 4: StopListeningForScreenAvailability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopListeningForScreenAvailability (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -755,7 +760,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 5: StartPresentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPresentation (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -766,7 +771,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 6: ReconnectPresentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReconnectPresentation (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -777,7 +782,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 7: CloseConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseConnection (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -788,7 +793,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceReceiver = class {
         // Try Method 8: Terminate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Terminate (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -967,7 +972,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRemote = class {
 mojo.internal.bindings.blink.mojom.PresentationControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PresentationController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1028,7 +1033,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PresentationController', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1075,7 +1080,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerReceiver = class {
         // Try Method 0: OnScreenAvailabilityUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenAvailabilityUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1086,7 +1091,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerReceiver = class {
         // Try Method 1: OnDefaultPresentationStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDefaultPresentationStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1097,7 +1102,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerReceiver = class {
         // Try Method 2: OnConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1108,7 +1113,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerReceiver = class {
         // Try Method 3: OnConnectionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1205,7 +1210,7 @@ mojo.internal.bindings.blink.mojom.PresentationReceiverRemote = class {
 mojo.internal.bindings.blink.mojom.PresentationReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PresentationReceiver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationReceiver', [
       { explicit: null },
     ]);
   }
@@ -1236,7 +1241,7 @@ mojo.internal.bindings.blink.mojom.PresentationReceiverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PresentationReceiver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PresentationReceiver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1280,7 +1285,7 @@ mojo.internal.bindings.blink.mojom.PresentationReceiverReceiver = class {
         // Try Method 0: OnReceiverConnectionAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiverConnectionAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

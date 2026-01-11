@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.KeyValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StorageAreaObserver = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.StorageAreaObserver.$interfaceName = 'blink.mojom.StorageAreaObserver';
 mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = { $: {} };
@@ -80,6 +82,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
 mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StorageArea = {};
+mojo.internal.bindings.blink.mojom.StorageAreaSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.StorageArea.$interfaceName = 'blink.mojom.StorageArea';
 mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec = { $: {} };
@@ -188,7 +191,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemote = class {
 mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StorageAreaObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.StorageAreaObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -259,7 +262,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StorageAreaObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.StorageAreaObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -307,7 +310,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
         // Try Method 0: KeyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +321,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
         // Try Method 1: KeyChangeFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyChangeFailed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -329,7 +332,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
         // Try Method 2: KeyDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyDeleted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -340,7 +343,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
         // Try Method 3: AllDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllDeleted (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -351,7 +354,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
         // Try Method 4: ShouldSendOldValueOnMutations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldSendOldValueOnMutations (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -418,7 +421,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRequest = mojo.internal.bi
 // Interface: StorageArea
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec, 'blink.mojom.StorageArea_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -454,7 +457,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec, 'blink.mojom.StorageArea_DeleteAll_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_new_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -479,7 +482,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec, 'blink.mojom.StorageArea_GetAll_Params', [
-      mojo.internal.StructField('arg_new_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_new_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,7 +540,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemote = class {
 mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StorageArea', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.StorageArea', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -618,7 +621,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StorageArea', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.StorageArea', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -667,7 +670,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -678,7 +681,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 1: Put
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Put (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -689,7 +692,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 2: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -700,7 +703,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 3: DeleteAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAll (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -711,7 +714,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 4: Get
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -722,7 +725,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
         // Try Method 5: GetAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAll (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

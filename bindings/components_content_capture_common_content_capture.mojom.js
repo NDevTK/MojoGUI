@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,12 +73,14 @@
 mojo.internal.bindings.content_capture.mojom = mojo.internal.bindings.content_capture.mojom || {};
 
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec = { $ : {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec = { $ : {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender.$interfaceName = 'content_capture.mojom.ContentCaptureSender';
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
@@ -149,7 +152,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemote = clas
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentCaptureReceiver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content_capture.mojom.ContentCaptureReceiver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -210,7 +213,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentCaptureReceiver', [
+    const ordinals = window.mojoScrambler.getOrdinals('content_capture.mojom.ContentCaptureReceiver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -257,7 +260,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
         // Try Method 0: DidCompleteBatchCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCompleteBatchCaptureContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -268,7 +271,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
         // Try Method 1: DidCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCaptureContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -279,7 +282,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
         // Try Method 2: DidUpdateContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateContent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -290,7 +293,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
         // Try Method 3: DidRemoveContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidRemoveContent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -394,7 +397,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemote = class 
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentCaptureSender', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content_capture.mojom.ContentCaptureSender', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -435,7 +438,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentCaptureSender', [
+    const ordinals = window.mojoScrambler.getOrdinals('content_capture.mojom.ContentCaptureSender', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -480,7 +483,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = clas
         // Try Method 0: StartCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCapture (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +494,7 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = clas
         // Try Method 1: StopCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopCapture (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

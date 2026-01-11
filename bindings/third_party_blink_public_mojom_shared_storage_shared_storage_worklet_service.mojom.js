@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpe
 mojo.internal.bindings.blink.mojom.SharedStorageKeyAndOrValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PrivateAggregationOperationDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener = {};
+mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener.$interfaceName = 'blink.mojom.SharedStorageEntriesListener';
 mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient.$interfaceName = 'blink.mojom.SharedStorageWorkletServiceClient';
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec = { $: {} };
@@ -100,6 +103,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterest
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletService = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletService.$interfaceName = 'blink.mojom.SharedStorageWorkletService';
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec = { $: {} };
@@ -194,7 +198,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemote = class {
 mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharedStorageEntriesListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageEntriesListener', [
       { explicit: null },
     ]);
   }
@@ -225,7 +229,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharedStorageEntriesListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageEntriesListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -269,7 +273,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerReceiver = class 
         // Try Method 0: DidReadEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidReadEntries (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,13 +351,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_values_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -468,7 +472,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemote = cla
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharedStorageWorkletServiceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageWorkletServiceClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -589,7 +593,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharedStorageWorkletServiceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageWorkletServiceClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -642,7 +646,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 0: SharedStorageUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -653,7 +657,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 1: SharedStorageBatchUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageBatchUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -664,7 +668,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 2: SharedStorageGet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageGet (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -675,7 +679,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 3: SharedStorageKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageKeys (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -686,7 +690,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 4: SharedStorageEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageEntries (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -697,7 +701,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 5: SharedStorageLength
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageLength (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -708,7 +712,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 6: SharedStorageRemainingBudget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageRemainingBudget (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -719,7 +723,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 7: GetInterestGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInterestGroups (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -730,7 +734,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 8: DidAddMessageToConsole
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidAddMessageToConsole (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -741,7 +745,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
         // Try Method 9: RecordUseCounters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUseCounters (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -891,7 +895,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRequest = mo
 // Interface: SharedStorageWorkletService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_permissions_policy_state', 8, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_embedder_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
@@ -991,7 +995,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote = class {
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharedStorageWorkletService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageWorkletService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1052,7 +1056,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharedStorageWorkletService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageWorkletService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1099,7 +1103,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1110,7 +1114,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
         // Try Method 1: AddModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddModule (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1121,7 +1125,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
         // Try Method 2: RunURLSelectionOperation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunURLSelectionOperation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1132,7 +1136,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
         // Try Method 3: RunOperation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunOperation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

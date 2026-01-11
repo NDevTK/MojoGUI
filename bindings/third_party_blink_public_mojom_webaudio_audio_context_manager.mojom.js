@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.AudioContextManager = {};
+mojo.internal.bindings.blink.mojom.AudioContextManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AudioContextManager.$interfaceName = 'blink.mojom.AudioContextManager';
 mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = { $: {} };
@@ -145,7 +147,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemote = class {
 mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioContextManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AudioContextManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -206,7 +208,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioContextManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AudioContextManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -253,7 +255,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 0: AudioContextAudiblePlaybackStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextAudiblePlaybackStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -264,7 +266,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 1: AudioContextAudiblePlaybackStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextAudiblePlaybackStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -275,7 +277,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 2: AudioContextCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextCreated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -286,7 +288,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
         // Try Method 3: AudioContextClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioContextClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

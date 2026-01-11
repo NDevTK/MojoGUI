@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider = {};
+mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderSpec = { $ : {} };
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider.$interfaceName = 'metrics.mojom.SingleSampleMetricsProvider';
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics.mojom.SingleSampleMetric = {};
+mojo.internal.bindings.metrics.mojom.SingleSampleMetricSpec = { $ : {} };
 mojo.internal.bindings.metrics.mojom.SingleSampleMetric.$interfaceName = 'metrics.mojom.SingleSampleMetric';
 mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = { $: {} };
 
@@ -82,7 +85,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec, 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params', [
       mojo.internal.StructField('arg_histogram_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_min', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bucket_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -123,7 +126,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderRemote = class {
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SingleSampleMetricsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.SingleSampleMetricsProvider', [
       { explicit: null },
     ]);
   }
@@ -154,7 +157,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SingleSampleMetricsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.SingleSampleMetricsProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -198,7 +201,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderReceiver = class
         // Try Method 0: AcquireSingleSampleMetric
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireSingleSampleMetric (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +277,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote = class {
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SingleSampleMetric', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.SingleSampleMetric', [
       { explicit: null },
     ]);
   }
@@ -305,7 +308,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SingleSampleMetric', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.SingleSampleMetric', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -349,7 +352,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricReceiver = class {
         // Try Method 0: SetSample
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSample (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

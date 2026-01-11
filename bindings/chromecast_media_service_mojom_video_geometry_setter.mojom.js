@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,13 +76,16 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeClient';
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec = { $ : {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeSubscriber';
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec = { $ : {} };
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter.$interfaceName = 'chromecast.media.mojom.VideoGeometrySetter';
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = { $: {} };
 
@@ -126,7 +130,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemote = 
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoGeometryChangeClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometryChangeClient', [
       { explicit: null },
     ]);
   }
@@ -157,7 +161,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoGeometryChangeClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometryChangeClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -201,7 +205,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientReceiver 
         // Try Method 0: OnVideoGeometryChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoGeometryChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +245,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRequest =
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
       mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -283,7 +287,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRemot
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoGeometryChangeSubscriber', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometryChangeSubscriber', [
       { explicit: null },
     ]);
   }
@@ -314,7 +318,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoGeometryChangeSubscriber', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometryChangeSubscriber', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -358,7 +362,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRecei
         // Try Method 0: SubscribeToVideoGeometryChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToVideoGeometryChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -444,7 +448,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRemote = class 
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoGeometrySetter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometrySetter', [
       { explicit: null },
     ]);
   }
@@ -475,7 +479,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoGeometrySetter', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.media.mojom.VideoGeometrySetter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -519,7 +523,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterReceiver = clas
         // Try Method 0: SetVideoGeometry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVideoGeometry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

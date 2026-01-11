@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,9 +85,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec = 
 mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory.$interfaceName = 'ash.cloud_upload.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler = {};
+mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler.$interfaceName = 'ash.cloud_upload.mojom.PageHandler';
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
@@ -229,7 +232,7 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,7 +269,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cloud_upload.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -297,7 +300,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cloud_upload.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -341,7 +344,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -587,7 +590,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cloud_upload.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -758,7 +761,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cloud_upload.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -816,7 +819,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetDialogArgs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDialogArgs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -827,7 +830,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 1: IsOfficeWebAppInstalled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOfficeWebAppInstalled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -838,7 +841,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 2: InstallOfficeWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallOfficeWebApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -849,7 +852,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 3: IsODFSMounted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsODFSMounted (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -860,7 +863,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 4: SignInToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignInToOneDrive (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -871,7 +874,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 5: RespondWithUserActionAndClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RespondWithUserActionAndClose (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -882,7 +885,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 6: RespondWithLocalTaskAndClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RespondWithLocalTaskAndClose (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -893,7 +896,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 7: SetOfficeAsDefaultHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOfficeAsDefaultHandler (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -904,7 +907,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 8: GetAlwaysMoveOfficeFilesToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToDrive (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -915,7 +918,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 9: SetAlwaysMoveOfficeFilesToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToDrive (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -926,7 +929,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetAlwaysMoveOfficeFilesToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToOneDrive (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -937,7 +940,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 11: SetAlwaysMoveOfficeFilesToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToOneDrive (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -948,7 +951,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 12: GetOfficeMoveConfirmationShownForDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOfficeMoveConfirmationShownForDrive (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -959,7 +962,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 13: GetOfficeMoveConfirmationShownForOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOfficeMoveConfirmationShownForOneDrive (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -970,7 +973,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
         // Try Method 14: RecordCancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordCancel (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;

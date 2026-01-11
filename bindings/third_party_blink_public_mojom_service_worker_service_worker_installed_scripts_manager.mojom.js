@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,17 +76,19 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost.$interfaceName = 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost';
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager.$interfaceName = 'blink.mojom.ServiceWorkerInstalledScriptsManager';
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec = { $: {} };
 
 // Struct: ServiceWorkerInstalledScriptsInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
-      mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -143,7 +146,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemot
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerInstalledScriptsManagerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerInstalledScriptsManagerHost', [
       { explicit: null },
     ]);
   }
@@ -174,7 +177,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerInstalledScriptsManagerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerInstalledScriptsManagerHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -218,7 +221,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRecei
         // Try Method 0: RequestInstalledScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestInstalledScript (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -294,7 +297,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote = 
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerInstalledScriptsManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerInstalledScriptsManager', [
       { explicit: null },
     ]);
   }
@@ -325,7 +328,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerInstalledScriptsManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerInstalledScriptsManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -369,7 +372,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver 
         // Try Method 0: TransferInstalledScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferInstalledScript (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

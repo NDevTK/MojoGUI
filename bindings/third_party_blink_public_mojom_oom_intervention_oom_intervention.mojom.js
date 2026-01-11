@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.DetectionArgsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OomInterventionHost = {};
+mojo.internal.bindings.blink.mojom.OomInterventionHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.OomInterventionHost.$interfaceName = 'blink.mojom.OomInterventionHost';
 mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OomIntervention = {};
+mojo.internal.bindings.blink.mojom.OomInterventionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.OomIntervention.$interfaceName = 'blink.mojom.OomIntervention';
 mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec = { $: {} };
 
@@ -125,7 +128,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostRemote = class {
 mojo.internal.bindings.blink.mojom.OomInterventionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OomInterventionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OomInterventionHost', [
       { explicit: null },
     ]);
   }
@@ -156,7 +159,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OomInterventionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OomInterventionHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -200,7 +203,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostReceiver = class {
         // Try Method 0: OnHighMemoryUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHighMemoryUsage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,7 +242,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostRequest = mojo.internal.bi
 // Interface: OomIntervention
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.OomInterventionHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_detection_args', 8, 0, mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -280,7 +283,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionRemote = class {
 mojo.internal.bindings.blink.mojom.OomInterventionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OomIntervention', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OomIntervention', [
       { explicit: null },
     ]);
   }
@@ -311,7 +314,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OomIntervention', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.OomIntervention', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -355,7 +358,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionReceiver = class {
         // Try Method 0: StartDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

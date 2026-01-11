@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec = { $ : {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService.$interfaceName = 'tabs_api.mojom.TabStripExperimentService';
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = { $: {} };
@@ -129,7 +131,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRemote = class {
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabStripExperimentService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabStripExperimentService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -170,7 +172,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabStripExperimentService', [
+    const ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabStripExperimentService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -215,7 +217,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceReceiver = class 
         // Try Method 0: UpdateTabGroupVisual
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTabGroupVisual (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -226,7 +228,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceReceiver = class 
         // Try Method 1: ShowTabContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowTabContextMenu (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,11 +73,13 @@
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 
 mojo.internal.bindings.remoting.mojom.AgentProcess = {};
+mojo.internal.bindings.remoting.mojom.AgentProcessSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.AgentProcess.$interfaceName = 'remoting.mojom.AgentProcess';
 mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.AgentProcessBroker = {};
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.AgentProcessBroker.$interfaceName = 'remoting.mojom.AgentProcessBroker';
 mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
 
@@ -136,7 +139,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRemote = class {
 mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AgentProcess', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.AgentProcess', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -187,7 +190,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AgentProcess', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.AgentProcess', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -233,7 +236,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
         // Try Method 0: ResumeProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -244,7 +247,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
         // Try Method 1: SuspendProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendProcess (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -255,7 +258,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
         // Try Method 2: BindRemotingHostControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemotingHostControl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -308,7 +311,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRequest = mojo.internal.bindin
 // Interface: AgentProcessBroker
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
-      mojo.internal.StructField('arg_agent_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.AgentProcessSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.AgentProcessRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -345,7 +348,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemote = class {
 mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AgentProcessBroker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.AgentProcessBroker', [
       { explicit: null },
     ]);
   }
@@ -376,7 +379,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AgentProcessBroker', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.AgentProcessBroker', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -420,7 +423,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = class {
         // Try Method 0: OnAgentProcessLaunched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAgentProcessLaunched (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

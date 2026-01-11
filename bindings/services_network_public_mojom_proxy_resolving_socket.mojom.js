@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocket = {};
+mojo.internal.bindings.network.mojom.ProxyResolvingSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocket.$interfaceName = 'network.mojom.ProxyResolvingSocket';
 mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory = {};
+mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactorySpec = { $ : {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory.$interfaceName = 'network.mojom.ProxyResolvingSocketFactory';
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec = { $: {} };
@@ -140,7 +143,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote = class {
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProxyResolvingSocket', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyResolvingSocket', [
       { explicit: null },
     ]);
   }
@@ -171,7 +174,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProxyResolvingSocket', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyResolvingSocket', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -215,7 +218,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketReceiver = class {
         // Try Method 0: UpgradeToTLS
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeToTLS (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +269,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -314,7 +317,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemote = class {
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProxyResolvingSocketFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyResolvingSocketFactory', [
       { explicit: null },
     ]);
   }
@@ -345,7 +348,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProxyResolvingSocketFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.ProxyResolvingSocketFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -389,7 +392,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = class
         // Try Method 0: CreateProxyResolvingSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProxyResolvingSocket (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

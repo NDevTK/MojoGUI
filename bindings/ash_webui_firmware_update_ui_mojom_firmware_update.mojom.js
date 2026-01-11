@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,15 +82,19 @@ mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateObserver';
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver = {};
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver.$interfaceName = 'ash.firmware_update.mojom.DeviceRequestObserver';
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateProgressObserver';
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider.$interfaceName = 'ash.firmware_update.mojom.UpdateProvider';
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = { $: {} };
@@ -97,11 +102,13 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController = {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController.$interfaceName = 'ash.firmware_update.mojom.InstallController';
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils = {};
+mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec = { $ : {} };
 mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils.$interfaceName = 'ash.firmware_update.mojom.SystemUtils';
 mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = { $: {} };
 
@@ -212,7 +219,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRemote = class {
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UpdateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateObserver', [
       { explicit: null },
     ]);
   }
@@ -243,7 +250,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UpdateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -287,7 +294,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverReceiver = class 
         // Try Method 0: OnUpdateListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdateListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +370,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRemote = c
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceRequestObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.DeviceRequestObserver', [
       { explicit: null },
     ]);
   }
@@ -394,7 +401,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceRequestObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.DeviceRequestObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -438,7 +445,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverReceiver =
         // Try Method 0: OnDeviceRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -514,7 +521,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRemote = 
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UpdateProgressObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateProgressObserver', [
       { explicit: null },
     ]);
   }
@@ -545,7 +552,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UpdateProgressObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateProgressObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -589,7 +596,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverReceiver 
         // Try Method 0: OnStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -628,7 +635,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRequest =
 // Interface: UpdateProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -640,7 +647,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -694,7 +701,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemote = class {
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UpdateProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -745,7 +752,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UpdateProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.UpdateProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -791,7 +798,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
         // Try Method 0: ObservePeripheralUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePeripheralUpdates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -802,7 +809,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
         // Try Method 1: PrepareForUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -813,7 +820,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
         // Try Method 2: FetchInProgressUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchInProgressUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -889,13 +896,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -938,7 +945,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemote = class
 mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InstallController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.InstallController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -989,7 +996,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InstallController', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.InstallController', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1035,7 +1042,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerReceiver = cla
         // Try Method 0: BeginUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1046,7 +1053,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerReceiver = cla
         // Try Method 1: AddDeviceRequestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceRequestObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1057,7 +1064,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerReceiver = cla
         // Try Method 2: AddUpdateProgressObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddUpdateProgressObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1146,7 +1153,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsRemote = class {
 mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemUtils', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.SystemUtils', [
       { explicit: null },
     ]);
   }
@@ -1177,7 +1184,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemUtils', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.firmware_update.mojom.SystemUtils', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1221,7 +1228,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsReceiver = class {
         // Try Method 0: Restart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Restart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

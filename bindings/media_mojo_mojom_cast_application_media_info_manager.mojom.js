@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager = {};
+mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager.$interfaceName = 'media.mojom.CastApplicationMediaInfoManager';
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = { $: {} };
@@ -131,7 +133,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRemote = class
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastApplicationMediaInfoManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CastApplicationMediaInfoManager', [
       { explicit: null },
     ]);
   }
@@ -162,7 +164,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastApplicationMediaInfoManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CastApplicationMediaInfoManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -206,7 +208,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerReceiver = cla
         // Try Method 0: GetCastApplicationMediaInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCastApplicationMediaInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.SharedWorkerClient = {};
+mojo.internal.bindings.blink.mojom.SharedWorkerClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerClient.$interfaceName = 'blink.mojom.SharedWorkerClient';
 mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = { $: {} };
@@ -155,7 +157,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemote = class {
 mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharedWorkerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -226,7 +228,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharedWorkerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -274,7 +276,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
         // Try Method 0: OnCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -285,7 +287,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
         // Try Method 1: OnConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -296,7 +298,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
         // Try Method 2: OnScriptLoadFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptLoadFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -307,7 +309,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
         // Try Method 3: OnReportException
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportException (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -318,7 +320,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
         // Try Method 4: OnFeatureUsed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFeatureUsed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

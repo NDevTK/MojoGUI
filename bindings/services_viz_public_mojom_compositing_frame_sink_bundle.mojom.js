@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,11 +79,13 @@ mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle.$interfaceName = 'viz.mojom.FrameSinkBundle';
 mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient.$interfaceName = 'viz.mojom.FrameSinkBundleClient';
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = { $: {} };
@@ -199,7 +202,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemote = class {
 mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameSinkBundle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -250,7 +253,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameSinkBundle', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundle', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -296,7 +299,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
         // Try Method 0: SetNeedsBeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -307,7 +310,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
         // Try Method 1: Submit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Submit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -318,7 +321,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
         // Try Method 2: SetThreads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -430,7 +433,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemote = class {
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameSinkBundleClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -481,7 +484,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameSinkBundleClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -527,7 +530,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientReceiver = class {
         // Try Method 0: FlushNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -538,7 +541,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientReceiver = class {
         // Try Method 1: OnBeginFramePausedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeginFramePausedChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -549,7 +552,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientReceiver = class {
         // Try Method 2: OnCompositorFrameTransitionDirectiveProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

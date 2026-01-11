@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.content.mojom.TestService = {};
+mojo.internal.bindings.content.mojom.TestServiceSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.TestService.$interfaceName = 'content.mojom.TestService';
 mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec = { $: {} };
@@ -311,7 +313,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemote = class {
 mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -462,7 +464,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestService', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -518,7 +520,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 0: DoSomething
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomething (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -529,7 +531,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 1: DoTerminateProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoTerminateProcess (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -540,7 +542,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 2: DoCrashImmediately
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoCrashImmediately (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -551,7 +553,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 3: CreateFolder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFolder (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -562,7 +564,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 4: GetRequestorName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRequestorName (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -573,7 +575,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 5: CreateReadOnlySharedMemoryRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateReadOnlySharedMemoryRegion (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -584,7 +586,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 6: CreateWritableSharedMemoryRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWritableSharedMemoryRegion (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -595,7 +597,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 7: CreateUnsafeSharedMemoryRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUnsafeSharedMemoryRegion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -606,7 +608,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 8: CloneSharedMemoryContents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneSharedMemoryContents (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -617,7 +619,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 9: IsProcessSandboxed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsProcessSandboxed (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -628,7 +630,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 10: PseudonymizeString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PseudonymizeString (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -639,7 +641,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 11: PassWriteableFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassWriteableFile (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -650,7 +652,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         // Try Method 12: WriteToPreloadedPipe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteToPreloadedPipe (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -118,6 +119,7 @@ mojo.internal.bindings.ash.ime.mojom.AssistiveWindowSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.VietnameseTelexSettingsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.VietnameseVniSettingsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputMethod = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodSpec = { $ : {} };
 mojo.internal.bindings.ash.ime.mojom.InputMethod.$interfaceName = 'ash.ime.mojom.InputMethod';
 mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec = { $: {} };
@@ -846,7 +848,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemote = class {
 mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputMethod', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
       { explicit: 0 },
       { explicit: 6 },
       { explicit: 1 },
@@ -967,7 +969,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputMethod', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
       { explicit: 0 },
       { explicit: 6 },
       { explicit: 1 },
@@ -1020,7 +1022,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 0: OnFocusDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1031,7 +1033,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 1: OnFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1042,7 +1044,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 2: OnBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBlur (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1053,7 +1055,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 3: ProcessKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessKeyEvent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1064,7 +1066,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 4: OnSurroundingTextChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurroundingTextChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1075,7 +1077,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 5: OnCompositionCanceledBySystem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositionCanceledBySystem (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1086,7 +1088,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 6: OnCandidateSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCandidateSelected (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1097,7 +1099,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 7: OnQuickSettingsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQuickSettingsUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1108,7 +1110,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 8: IsReadyForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsReadyForTesting (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1119,7 +1121,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 9: OnAssistiveWindowChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAssistiveWindowChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

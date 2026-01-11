@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,9 +78,11 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.intern
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver = {};
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver.$interfaceName = 'chromeos.cfm.mojom.LoggerStateObserver';
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesLogger';
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = { $: {} };
@@ -168,7 +171,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRemote = class {
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LoggerStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.LoggerStateObserver', [
       { explicit: 0 },
     ]);
   }
@@ -199,7 +202,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LoggerStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.LoggerStateObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -243,7 +246,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
         // Try Method 0: OnNotifyState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotifyState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -295,7 +298,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_Params', [
-      mojo.internal.StructField('arg_pending_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -335,7 +338,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemote = class {
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MeetDevicesLogger', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.MeetDevicesLogger', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -376,7 +379,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MeetDevicesLogger', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.MeetDevicesLogger', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -421,7 +424,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
         // Try Method 0: Enqueue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Enqueue (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -432,7 +435,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
         // Try Method 1: AddStateObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddStateObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

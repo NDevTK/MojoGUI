@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,13 +74,16 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom = mojo.internal.binding
 
 mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory';
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec = { $ : {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler';
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec = { $ : {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient';
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = { $: {} };
 
@@ -93,8 +97,8 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeMode = {
 // Interface: CustomizeColorSchemeModeHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_Params', [
-      mojo.internal.StructField('arg_pending_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -131,7 +135,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -162,7 +166,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -206,7 +210,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
         // Try Method 0: CreateCustomizeColorSchemeModeHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomizeColorSchemeModeHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +294,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -331,7 +335,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -376,7 +380,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
         // Try Method 0: SetColorSchemeMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorSchemeMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -387,7 +391,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
         // Try Method 1: InitializeColorSchemeMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeColorSchemeMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -470,7 +474,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient', [
       { explicit: null },
     ]);
   }
@@ -501,7 +505,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeColorSchemeModeClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -545,7 +549,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
         // Try Method 0: SetColorSchemeMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorSchemeMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

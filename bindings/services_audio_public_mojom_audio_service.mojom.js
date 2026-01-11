@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.audio.mojom.AudioService = {};
+mojo.internal.bindings.audio.mojom.AudioServiceSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.AudioService.$interfaceName = 'audio.mojom.AudioService';
 mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec = { $: {} };
@@ -177,7 +179,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemote = class {
 mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.AudioService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -268,7 +270,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioService', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.AudioService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -318,7 +320,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 0: BindSystemInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSystemInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -329,7 +331,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 1: BindDebugRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDebugRecording (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -340,7 +342,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 2: BindStreamFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStreamFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -351,7 +353,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 3: BindDeviceNotifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDeviceNotifier (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -362,7 +364,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 4: BindLogFactoryManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLogFactoryManager (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -373,7 +375,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 5: BindTestingApi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestingApi (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -384,7 +386,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
         // Try Method 6: BindMlModelManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMlModelManager (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

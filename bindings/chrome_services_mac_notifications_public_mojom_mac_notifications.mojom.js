@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -85,6 +86,7 @@ mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec = { $:
 mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.NotificationSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec = { $ : {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService.$interfaceName = 'mac_notifications.mojom.MacNotificationService';
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = { $: {} };
@@ -95,9 +97,11 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNo
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec = { $ : {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler.$interfaceName = 'mac_notifications.mojom.MacNotificationActionHandler';
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec = { $ : {} };
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider.$interfaceName = 'mac_notifications.mojom.MacNotificationProvider';
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = { $: {} };
 
@@ -279,7 +283,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemote = cl
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MacNotificationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -360,7 +364,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MacNotificationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -409,7 +413,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 0: DisplayNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayNotification (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -420,7 +424,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 1: GetDisplayedNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDisplayedNotifications (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -431,7 +435,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 2: CloseNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNotification (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -442,7 +446,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 3: CloseNotificationsForProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNotificationsForProfile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -453,7 +457,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 4: CloseAllNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseAllNotifications (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -464,7 +468,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
         // Try Method 5: OkayToTerminateService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OkayToTerminateService (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -591,7 +595,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemot
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MacNotificationActionHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationActionHandler', [
       { explicit: null },
     ]);
   }
@@ -622,7 +626,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MacNotificationActionHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationActionHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -666,7 +670,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRecei
         // Try Method 0: OnNotificationAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -705,8 +709,8 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerReque
 // Interface: MacNotificationProvider
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec, 'mac_notifications.mojom.MacNotificationProvider_BindNotificationService_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -743,7 +747,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemote = c
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MacNotificationProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationProvider', [
       { explicit: null },
     ]);
   }
@@ -774,7 +778,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MacNotificationProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('mac_notifications.mojom.MacNotificationProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -818,7 +822,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderReceiver =
         // Try Method 0: BindNotificationService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNotificationService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

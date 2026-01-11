@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver.$interfaceName = 'blink.mojom.TextFragmentReceiver';
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = { $: {} };
@@ -218,7 +220,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemote = class {
 mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextFragmentReceiver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TextFragmentReceiver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -299,7 +301,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextFragmentReceiver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.TextFragmentReceiver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -348,7 +350,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 0: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -359,7 +361,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 1: RequestSelector
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSelector (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -370,7 +372,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 2: RemoveFragments
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveFragments (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -381,7 +383,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 3: ExtractTextFragmentsMatches
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractTextFragmentsMatches (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -392,7 +394,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 4: GetExistingSelectors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExistingSelectors (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -403,7 +405,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
         // Try Method 5: ExtractFirstFragmentRect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractFirstFragmentRect (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

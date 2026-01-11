@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,10 +78,12 @@ mojo.internal.bindings.cros.mojom.TorchModeStatusSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.cros.mojom.CameraResourceCostSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraInfoSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks = {};
+mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks.$interfaceName = 'cros.mojom.CameraModuleCallbacks';
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.VendorTagOps = {};
+mojo.internal.bindings.cros.mojom.VendorTagOpsSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.VendorTagOps.$interfaceName = 'cros.mojom.VendorTagOps';
 mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec = { $: {} };
@@ -93,6 +96,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec = {
 mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModule = {};
+mojo.internal.bindings.cros.mojom.CameraModuleSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraModule.$interfaceName = 'cros.mojom.CameraModule';
 mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec = { $: {} };
@@ -219,7 +223,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemote = class {
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraModuleCallbacks', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraModuleCallbacks', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -260,7 +264,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraModuleCallbacks', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraModuleCallbacks', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -305,7 +309,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksReceiver = class {
         // Try Method 0: CameraDeviceStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CameraDeviceStatusChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -316,7 +320,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksReceiver = class {
         // Try Method 1: TorchModeStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TorchModeStatusChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -463,7 +467,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemote = class {
 mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VendorTagOps', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VendorTagOps', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -534,7 +538,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VendorTagOps', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.VendorTagOps', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -582,7 +586,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
         // Try Method 0: GetTagCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTagCount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -593,7 +597,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
         // Try Method 1: GetAllTags
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllTags (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -604,7 +608,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
         // Try Method 2: GetSectionName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSectionName (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -615,7 +619,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
         // Try Method 3: GetTagName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTagName (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -626,7 +630,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
         // Try Method 4: GetTagType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTagType (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -770,7 +774,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec, 'cros.mojom.CameraModule_SetCallbacks_Params', [
-      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -806,7 +810,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec, 'cros.mojom.CameraModule_GetVendorTagOps_Params', [
-      mojo.internal.StructField('arg_vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.VendorTagOpsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.VendorTagOpsRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -817,7 +821,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec, 'cros.mojom.CameraModule_SetCallbacksAssociated_Params', [
-      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -881,7 +885,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemote = class {
 mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CameraModule', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraModule', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -982,7 +986,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CameraModule', [
+    const ordinals = window.mojoScrambler.getOrdinals('cros.mojom.CameraModule', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1033,7 +1037,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 0: OpenDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1044,7 +1048,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 1: GetNumberOfCameras
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNumberOfCameras (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1055,7 +1059,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 2: GetCameraInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1066,7 +1070,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 3: SetCallbacks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCallbacks (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1077,7 +1081,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 4: SetTorchMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTorchMode (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1088,7 +1092,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 5: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1099,7 +1103,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 6: GetVendorTagOps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVendorTagOps (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1110,7 +1114,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
         // Try Method 7: SetCallbacksAssociated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCallbacksAssociated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

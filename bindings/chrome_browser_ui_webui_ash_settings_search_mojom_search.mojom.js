@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,9 +81,11 @@ mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec = { $: mojo.i
 mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver.$interfaceName = 'ash.settings.mojom.SearchResultsObserver';
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchHandler = {};
+mojo.internal.bindings.ash.settings.mojom.SearchHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.SearchHandler.$interfaceName = 'ash.settings.mojom.SearchHandler';
 mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
@@ -183,7 +186,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemote = class {
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchResultsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.SearchResultsObserver', [
       { explicit: null },
     ]);
   }
@@ -214,7 +217,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchResultsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.SearchResultsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -258,7 +261,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverReceiver = class 
         // Try Method 0: OnSearchResultsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchResultsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -311,7 +314,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec, 'ash.settings.mojom.SearchHandler_Observe_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -351,7 +354,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerRemote = class {
 mojo.internal.bindings.ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.SearchHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -392,7 +395,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.SearchHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -437,7 +440,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = class {
         // Try Method 0: Search
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Search (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -448,7 +451,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = class {
         // Try Method 1: Observe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Observe (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

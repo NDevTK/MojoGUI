@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -93,10 +94,12 @@ mojo.internal.bindings.web_package.mojom.BundleMetadataSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleResponseLocationSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleResponseSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactory = {};
+mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec = { $ : {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactory.$interfaceName = 'web_package.mojom.WebBundleParserFactory';
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParser = {};
+mojo.internal.bindings.web_package.mojom.WebBundleParserSpec = { $ : {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParser.$interfaceName = 'web_package.mojom.WebBundleParser';
 mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = { $: {} };
@@ -107,6 +110,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseP
 mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleDataSource = {};
+mojo.internal.bindings.web_package.mojom.BundleDataSourceSpec = { $ : {} };
 mojo.internal.bindings.web_package.mojom.BundleDataSource.$interfaceName = 'web_package.mojom.BundleDataSource';
 mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = { $: {} };
@@ -279,15 +283,15 @@ mojo.internal.Struct(
 // Interface: WebBundleParserFactory
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec, 'web_package.mojom.WebBundleParserFactory_GetParserForDataSource_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_base_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_data_source', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.web_package.mojom.BundleDataSourceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.web_package.mojom.BundleDataSourceRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec, 'web_package.mojom.WebBundleParserFactory_BindFileDataSource_Params', [
-      mojo.internal.StructField('arg_data_source', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.BundleDataSourceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.BundleDataSourceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -328,7 +332,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote = class {
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebBundleParserFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.WebBundleParserFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -369,7 +373,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebBundleParserFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.WebBundleParserFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -414,7 +418,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryReceiver = class 
         // Try Method 0: GetParserForDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetParserForDataSource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -425,7 +429,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryReceiver = class 
         // Try Method 1: BindFileDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindFileDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -561,7 +565,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemote = class {
 mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebBundleParser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.WebBundleParser', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -622,7 +626,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebBundleParser', [
+    const ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.WebBundleParser', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -669,7 +673,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 0: ParseIntegrityBlock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseIntegrityBlock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -680,7 +684,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 1: ParseMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -691,7 +695,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 2: ParseResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseResponse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -702,7 +706,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
         // Try Method 3: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -879,7 +883,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemote = class {
 mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BundleDataSource', [
+    this.ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.BundleDataSource', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -940,7 +944,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BundleDataSource', [
+    const ordinals = window.mojoScrambler.getOrdinals('web_package.mojom.BundleDataSource', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -987,7 +991,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -998,7 +1002,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 1: Length
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Length (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1009,7 +1013,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 2: IsRandomAccessContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRandomAccessContext (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1020,7 +1024,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
         // Try Method 3: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

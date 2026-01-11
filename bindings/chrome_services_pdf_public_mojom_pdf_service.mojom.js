@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
 mojo.internal.bindings.pdf.mojom.Ocr = {};
+mojo.internal.bindings.pdf.mojom.OcrSpec = { $ : {} };
 mojo.internal.bindings.pdf.mojom.Ocr.$interfaceName = 'pdf.mojom.Ocr';
 mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfService = {};
+mojo.internal.bindings.pdf.mojom.PdfServiceSpec = { $ : {} };
 mojo.internal.bindings.pdf.mojom.PdfService.$interfaceName = 'pdf.mojom.PdfService';
 mojo.internal.bindings.pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = { $: {} };
@@ -130,7 +133,7 @@ mojo.internal.bindings.pdf.mojom.OcrRemote = class {
 mojo.internal.bindings.pdf.mojom.OcrRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Ocr', [
+    this.ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.Ocr', [
       { explicit: null },
     ]);
   }
@@ -161,7 +164,7 @@ mojo.internal.bindings.pdf.mojom.OcrReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Ocr', [
+    const ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.Ocr', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -205,7 +208,7 @@ mojo.internal.bindings.pdf.mojom.OcrReceiver = class {
         // Try Method 0: PerformOcr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcr (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -253,14 +256,14 @@ mojo.internal.bindings.pdf.mojom.OcrRequest = mojo.internal.bindings.pdf.mojom.O
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec, 'pdf.mojom.PdfService_BindPdfProgressiveSearchifier_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ocr', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.OcrSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ocr', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.OcrRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec, 'pdf.mojom.PdfService_BindPdfSearchifier_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.pdf.mojom.PdfSearchifierRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ocr', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.OcrSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ocr', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.OcrRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -309,7 +312,7 @@ mojo.internal.bindings.pdf.mojom.PdfServiceRemote = class {
 mojo.internal.bindings.pdf.mojom.PdfServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PdfService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -360,7 +363,7 @@ mojo.internal.bindings.pdf.mojom.PdfServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PdfService', [
+    const ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -406,7 +409,7 @@ mojo.internal.bindings.pdf.mojom.PdfServiceReceiver = class {
         // Try Method 0: BindPdfProgressiveSearchifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfProgressiveSearchifier (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -417,7 +420,7 @@ mojo.internal.bindings.pdf.mojom.PdfServiceReceiver = class {
         // Try Method 1: BindPdfSearchifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfSearchifier (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -428,7 +431,7 @@ mojo.internal.bindings.pdf.mojom.PdfServiceReceiver = class {
         // Try Method 2: BindPdfThumbnailer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfThumbnailer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

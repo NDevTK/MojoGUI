@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
 
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec = { $ : {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerHost';
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixel
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec = { $ : {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerGpu';
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = { $: {} };
@@ -94,7 +97,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Par
 // Interface: WaylandBufferManagerHost
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
-      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -192,7 +195,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemote = class {
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WaylandBufferManagerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.WaylandBufferManagerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -273,7 +276,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WaylandBufferManagerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.WaylandBufferManagerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -322,7 +325,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 0: SetWaylandBufferManagerGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWaylandBufferManagerGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -333,7 +336,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 1: CreateDmabufBasedBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDmabufBasedBuffer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -344,7 +347,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 2: CreateShmBasedBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateShmBasedBuffer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -355,7 +358,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 3: CreateSinglePixelBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSinglePixelBuffer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -366,7 +369,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 4: DestroyBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyBuffer (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -377,7 +380,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         // Try Method 5: CommitOverlays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitOverlays (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -451,7 +454,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRequest = mojo.int
 // Interface: WaylandBufferManagerGpu
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
-      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec.$, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -517,7 +520,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemote = class {
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WaylandBufferManagerGpu', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.WaylandBufferManagerGpu', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -568,7 +571,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WaylandBufferManagerGpu', [
+    const ordinals = window.mojoScrambler.getOrdinals('ui.ozone.mojom.WaylandBufferManagerGpu', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -614,7 +617,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -625,7 +628,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         // Try Method 1: OnSubmission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSubmission (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -636,7 +639,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         // Try Method 2: OnPresentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

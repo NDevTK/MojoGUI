@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PluginInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PluginRegistry = {};
+mojo.internal.bindings.blink.mojom.PluginRegistrySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PluginRegistry.$interfaceName = 'blink.mojom.PluginRegistry';
 mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = { $: {} };
@@ -145,7 +147,7 @@ mojo.internal.bindings.blink.mojom.PluginRegistryRemote = class {
 mojo.internal.bindings.blink.mojom.PluginRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PluginRegistry', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PluginRegistry', [
       { explicit: null },
     ]);
   }
@@ -176,7 +178,7 @@ mojo.internal.bindings.blink.mojom.PluginRegistryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PluginRegistry', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PluginRegistry', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -220,7 +222,7 @@ mojo.internal.bindings.blink.mojom.PluginRegistryReceiver = class {
         // Try Method 0: GetPlugins
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlugins (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

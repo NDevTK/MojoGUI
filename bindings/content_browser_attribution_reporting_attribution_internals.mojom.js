@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -93,6 +94,7 @@ mojo.internal.bindings.attribution_internals.mojom.WebUITriggerSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.WebUISourceRegistrationSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.WebUIOsRegistrationSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Observer = {};
+mojo.internal.bindings.attribution_internals.mojom.ObserverSpec = { $ : {} };
 mojo.internal.bindings.attribution_internals.mojom.Observer.$interfaceName = 'attribution_internals.mojom.Observer';
 mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = { $: {} };
@@ -104,6 +106,7 @@ mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_Par
 mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Handler = {};
+mojo.internal.bindings.attribution_internals.mojom.HandlerSpec = { $ : {} };
 mojo.internal.bindings.attribution_internals.mojom.Handler.$interfaceName = 'attribution_internals.mojom.Handler';
 mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec = { $: {} };
@@ -112,6 +115,7 @@ mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponsePa
 mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.Factory = {};
+mojo.internal.bindings.attribution_internals.mojom.FactorySpec = { $ : {} };
 mojo.internal.bindings.attribution_internals.mojom.Factory.$interfaceName = 'attribution_internals.mojom.Factory';
 mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec = { $: {} };
 
@@ -468,7 +472,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemote = class {
 mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Observer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Observer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -579,7 +583,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Observer', [
+    const ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Observer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -631,7 +635,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 0: OnSourcesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSourcesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -642,7 +646,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 1: OnReportsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportsChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -653,7 +657,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 2: OnSourceHandled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSourceHandled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -664,7 +668,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 3: OnReportHandled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportHandled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -675,7 +679,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 4: OnDebugReportSent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDebugReportSent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -686,7 +690,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 5: OnAggregatableDebugReportSent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAggregatableDebugReportSent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -697,7 +701,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 6: OnTriggerHandled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTriggerHandled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -708,7 +712,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 7: OnOsRegistration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsRegistration (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -719,7 +723,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
         // Try Method 8: OnDebugModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDebugModeChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -884,7 +888,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemote = class {
 mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Handler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Handler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -935,7 +939,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Handler', [
+    const ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Handler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -981,7 +985,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
         // Try Method 0: IsAttributionReportingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAttributionReportingEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -992,7 +996,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
         // Try Method 1: SendReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReport (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1003,7 +1007,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
         // Try Method 2: ClearStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1080,8 +1084,8 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRequest = mojo.interna
 // Interface: Factory
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec, 'attribution_internals.mojom.Factory_Create_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.attribution_internals.mojom.ObserverSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_internals.mojom.HandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.attribution_internals.mojom.ObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_internals.mojom.HandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1118,7 +1122,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryRemote = class {
 mojo.internal.bindings.attribution_internals.mojom.FactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Factory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Factory', [
       { explicit: null },
     ]);
   }
@@ -1149,7 +1153,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Factory', [
+    const ordinals = window.mojoScrambler.getOrdinals('attribution_internals.mojom.Factory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1193,7 +1197,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

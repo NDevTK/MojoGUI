@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,10 +84,12 @@ mojo.internal.bindings.ash.device_sync.mojom.FindEligibleDevicesResponseSpec = {
 mojo.internal.bindings.ash.device_sync.mojom.DeviceActivityStatusSpec = { $: {} };
 mojo.internal.bindings.ash.device_sync.mojom.DebugInfoSpec = { $: {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver = {};
+mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver.$interfaceName = 'ash.device_sync.mojom.DeviceSyncObserver';
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSync = {};
+mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncSpec = { $ : {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSync.$interfaceName = 'ash.device_sync.mojom.DeviceSync';
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec = { $: {} };
@@ -250,7 +253,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemote = class {
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceSyncObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.device_sync.mojom.DeviceSyncObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -291,7 +294,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceSyncObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.device_sync.mojom.DeviceSyncObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -336,7 +339,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverReceiver = class 
         // Try Method 0: OnEnrollmentFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnrollmentFinished (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,7 +350,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverReceiver = class 
         // Try Method 1: OnNewDevicesSynced
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewDevicesSynced (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -393,7 +396,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRequest = mojo.in
 // Interface: DeviceSync
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec, 'ash.device_sync.mojom.DeviceSync_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -616,7 +619,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemote = class {
 mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceSync', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.device_sync.mojom.DeviceSync', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -767,7 +770,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceSync', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.device_sync.mojom.DeviceSync', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -823,7 +826,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -834,7 +837,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 1: ForceEnrollmentNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceEnrollmentNow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -845,7 +848,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 2: ForceSyncNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceSyncNow (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -856,7 +859,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 3: GetGroupPrivateKeyStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGroupPrivateKeyStatus (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -867,7 +870,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 4: GetBetterTogetherMetadataStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBetterTogetherMetadataStatus (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -878,7 +881,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 5: GetSyncedDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSyncedDevices (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -889,7 +892,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 6: GetLocalDeviceMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalDeviceMetadata (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -900,7 +903,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 7: SetSoftwareFeatureState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSoftwareFeatureState (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -911,7 +914,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 8: SetFeatureStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFeatureStatus (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -922,7 +925,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 9: FindEligibleDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindEligibleDevices (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -933,7 +936,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 10: NotifyDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDevices (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -944,7 +947,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 11: GetDevicesActivityStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesActivityStatus (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -955,7 +958,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
         // Try Method 12: GetDebugInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugInfo (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

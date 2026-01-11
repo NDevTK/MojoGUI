@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage.$interfaceName = 'chromeos.cdm.mojom.CdmStorage';
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = { $: {} };
@@ -194,7 +196,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote = class {
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmStorage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmStorage', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -265,7 +267,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmStorage', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmStorage', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -313,7 +315,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -324,7 +326,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
         // Try Method 1: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -335,7 +337,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
         // Try Method 2: Exists
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Exists (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -346,7 +348,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
         // Try Method 3: GetSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -357,7 +359,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
         // Try Method 4: Remove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

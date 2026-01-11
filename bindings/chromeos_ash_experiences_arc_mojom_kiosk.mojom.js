@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,10 +73,12 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.KioskHost = {};
+mojo.internal.bindings.arc.mojom.KioskHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.KioskHost.$interfaceName = 'arc.mojom.KioskHost';
 mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KioskInstance = {};
+mojo.internal.bindings.arc.mojom.KioskInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.KioskInstance.$interfaceName = 'arc.mojom.KioskInstance';
 mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec = { $: {} };
@@ -130,7 +133,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRemote = class {
 mojo.internal.bindings.arc.mojom.KioskHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KioskHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.KioskHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -171,7 +174,7 @@ mojo.internal.bindings.arc.mojom.KioskHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KioskHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.KioskHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -216,7 +219,7 @@ mojo.internal.bindings.arc.mojom.KioskHostReceiver = class {
         // Try Method 0: OnMaintenanceSessionCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMaintenanceSessionCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -227,7 +230,7 @@ mojo.internal.bindings.arc.mojom.KioskHostReceiver = class {
         // Try Method 1: OnMaintenanceSessionFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMaintenanceSessionFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -273,7 +276,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRequest = mojo.internal.bindings.arc.m
 // Interface: KioskInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec, 'arc.mojom.KioskInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.KioskHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.KioskHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -315,7 +318,7 @@ mojo.internal.bindings.arc.mojom.KioskInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.KioskInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KioskInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.KioskInstance', [
       { explicit: 0 },
     ]);
   }
@@ -346,7 +349,7 @@ mojo.internal.bindings.arc.mojom.KioskInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KioskInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.KioskInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -390,7 +393,7 @@ mojo.internal.bindings.arc.mojom.KioskInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

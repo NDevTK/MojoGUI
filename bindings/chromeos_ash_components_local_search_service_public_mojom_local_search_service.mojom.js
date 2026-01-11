@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,10 +77,12 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter = {};
+mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec = { $ : {} };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter.$interfaceName = 'ash.local_search_service.mojom.SearchMetricsReporter';
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService = {};
+mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService.$interfaceName = 'ash.local_search_service.mojom.LocalSearchService';
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = { $: {} };
@@ -144,7 +147,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemot
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchMetricsReporter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.SearchMetricsReporter', [
       { explicit: null },
     ]);
   }
@@ -175,7 +178,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchMetricsReporter', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.SearchMetricsReporter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -219,7 +222,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
         // Try Method 0: OnSearchPerformed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchPerformed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +272,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_backend', 8, 0, mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_index_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporter_remote', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_reporter_remote', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -312,7 +315,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRemote =
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalSearchService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.LocalSearchService', [
       { explicit: null },
     ]);
   }
@@ -343,7 +346,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalSearchService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.local_search_service.mojom.LocalSearchService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -387,7 +390,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
         // Try Method 0: BindIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndex (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

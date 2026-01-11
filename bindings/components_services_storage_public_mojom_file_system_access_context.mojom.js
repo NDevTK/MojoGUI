@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.storage.mojom.FileSystemAccessContext = {};
+mojo.internal.bindings.storage.mojom.FileSystemAccessContextSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.FileSystemAccessContext.$interfaceName = 'storage.mojom.FileSystemAccessContext';
 mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = { $: {} };
@@ -102,7 +104,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
-      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,7 +147,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote = class {
 mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.FileSystemAccessContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -196,7 +198,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileSystemAccessContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.FileSystemAccessContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -242,7 +244,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
         // Try Method 0: SerializeHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SerializeHandle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -253,7 +255,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
         // Try Method 1: DeserializeHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeserializeHandle (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -264,7 +266,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
         // Try Method 2: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

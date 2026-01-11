@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,14 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 
 mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmFactorySpec = { $ : {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory.$interfaceName = 'chromeos.cdm.mojom.CdmFactory';
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon.$interfaceName = 'chromeos.cdm.mojom.CdmFactoryDaemon';
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec = { $: {} };
@@ -181,7 +184,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemote = class {
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmFactory', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -232,7 +235,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmFactory', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -278,7 +281,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
         // Try Method 0: DEPRECATED_1
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_1 (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +292,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
         // Try Method 1: CreateCdmDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdmDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -300,7 +303,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
         // Try Method 2: CreateCdm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -367,7 +370,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParams', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactorySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -518,7 +521,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemote = class {
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmFactoryDaemon', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmFactoryDaemon', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -639,7 +642,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmFactoryDaemon', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cdm.mojom.CdmFactoryDaemon', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -692,7 +695,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 0: CreateFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -703,7 +706,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 1: RemovedMethod1
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovedMethod1 (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -714,7 +717,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 2: ConnectOemCrypto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectOemCrypto (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -725,7 +728,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 3: RemovedMethod3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovedMethod3 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -736,7 +739,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 4: GetHwConfigData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHwConfigData (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -747,7 +750,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 5: RemovedMethod5
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovedMethod5 (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -758,7 +761,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 6: GetHdcp14Key
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHdcp14Key (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -769,7 +772,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 7: GetAndroidHwKeyData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAndroidHwKeyData (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -780,7 +783,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 8: AllocateSecureBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllocateSecureBuffer (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -791,7 +794,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         // Try Method 9: ParseEncryptedSliceHeader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseEncryptedSliceHeader (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

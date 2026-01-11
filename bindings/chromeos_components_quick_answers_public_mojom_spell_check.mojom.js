@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.quick_answers.mojom.SpellCheckService = {};
+mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceSpec = { $ : {} };
 mojo.internal.bindings.quick_answers.mojom.SpellCheckService.$interfaceName = 'quick_answers.mojom.SpellCheckService';
 mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = { $: {} };
 mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary = {};
+mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionarySpec = { $ : {} };
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary.$interfaceName = 'quick_answers.mojom.SpellCheckDictionary';
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = { $: {} };
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = { $: {} };
@@ -91,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParams', [
-      mojo.internal.StructField('arg_dictionary', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionarySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dictionary', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -128,7 +131,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceRemote = class {
 mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('quick_answers.mojom.SpellCheckService', [
       { explicit: null },
     ]);
   }
@@ -159,7 +162,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckService', [
+    const ordinals = window.mojoScrambler.getOrdinals('quick_answers.mojom.SpellCheckService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +206,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceReceiver = class {
         // Try Method 0: CreateDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDictionary (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +296,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemote = class {
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckDictionary', [
+    this.ordinals = window.mojoScrambler.getOrdinals('quick_answers.mojom.SpellCheckDictionary', [
       { explicit: null },
     ]);
   }
@@ -324,7 +327,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckDictionary', [
+    const ordinals = window.mojoScrambler.getOrdinals('quick_answers.mojom.SpellCheckDictionary', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -368,7 +371,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = class 
         // Try Method 0: CheckSpelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

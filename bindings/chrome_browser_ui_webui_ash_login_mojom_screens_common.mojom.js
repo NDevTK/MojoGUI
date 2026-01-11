@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,37 +77,47 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.AiIntroPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage = {};
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage.$interfaceName = 'ash.screens_common.mojom.AiIntroPage';
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler.$interfaceName = 'ash.screens_common.mojom.AppDownloadingPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler.$interfaceName = 'ash.screens_common.mojom.DrivePinningPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage = {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage.$interfaceName = 'ash.screens_common.mojom.DrivePinningPage';
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler.$interfaceName = 'ash.screens_common.mojom.FjordStationSetupPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage = {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPage';
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler.$interfaceName = 'ash.screens_common.mojom.GestureNavigationPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler = {};
+mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.GeminiIntroPageHandler';
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
@@ -164,7 +175,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerRemote = class
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AiIntroPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AiIntroPageHandler', [
       { explicit: null },
     ]);
   }
@@ -195,7 +206,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AiIntroPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AiIntroPageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -239,7 +250,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerReceiver = cla
         // Try Method 0: OnNextClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNextClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +326,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageRemote = class {
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AiIntroPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AiIntroPage', [
       { explicit: null },
     ]);
   }
@@ -346,7 +357,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AiIntroPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AiIntroPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -390,7 +401,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageReceiver = class {
         // Try Method 0: SetAutoTransition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoTransition (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -465,7 +476,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerRemote 
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppDownloadingPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AppDownloadingPageHandler', [
       { explicit: null },
     ]);
   }
@@ -496,7 +507,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppDownloadingPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.AppDownloadingPageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -540,7 +551,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerReceive
         // Try Method 0: OnContinueClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContinueClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -625,7 +636,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemote = 
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DrivePinningPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.DrivePinningPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -666,7 +677,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DrivePinningPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.DrivePinningPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -711,7 +722,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerReceiver 
         // Try Method 0: OnReturnClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReturnClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -722,7 +733,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerReceiver 
         // Try Method 1: OnNextClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNextClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -806,7 +817,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageRemote = class {
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DrivePinningPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.DrivePinningPage', [
       { explicit: null },
     ]);
   }
@@ -837,7 +848,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DrivePinningPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.DrivePinningPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -881,7 +892,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageReceiver = class
         // Try Method 0: SetRequiredSpaceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRequiredSpaceInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -956,7 +967,7 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRemo
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FjordStationSetupPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.FjordStationSetupPageHandler', [
       { explicit: null },
     ]);
   }
@@ -987,7 +998,7 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FjordStationSetupPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.FjordStationSetupPageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1031,7 +1042,7 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRece
         // Try Method 0: OnSetupComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSetupComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1115,7 +1126,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemote = clas
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GaiaInfoPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GaiaInfoPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1156,7 +1167,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GaiaInfoPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GaiaInfoPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1201,7 +1212,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = cl
         // Try Method 0: OnBackClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1212,7 +1223,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = cl
         // Try Method 1: OnNextClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNextClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1294,7 +1305,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRemote = class {
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GaiaInfoPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GaiaInfoPage', [
       { explicit: null },
     ]);
   }
@@ -1325,7 +1336,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GaiaInfoPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GaiaInfoPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1369,7 +1380,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageReceiver = class {
         // Try Method 0: SetQuickStartVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetQuickStartVisible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1461,7 +1472,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GestureNavigationPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GestureNavigationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1512,7 +1523,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GestureNavigationPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GestureNavigationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1558,7 +1569,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
         // Try Method 0: OnPageChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1569,7 +1580,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
         // Try Method 1: OnSkipClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSkipClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1580,7 +1591,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
         // Try Method 2: OnExitClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExitClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1677,7 +1688,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemote = c
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GeminiIntroPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GeminiIntroPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1718,7 +1729,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GeminiIntroPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_common.mojom.GeminiIntroPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1763,7 +1774,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerReceiver =
         // Try Method 0: OnBackClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1774,7 +1785,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerReceiver =
         // Try Method 1: OnNextClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNextClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

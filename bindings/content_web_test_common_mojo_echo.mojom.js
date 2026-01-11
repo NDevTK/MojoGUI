@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.content.mojom.TestUnionSpec = { $: {} };
 mojo.internal.bindings.content.mojom.NestedUnionSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MojoEcho = {};
+mojo.internal.bindings.content.mojom.MojoEchoSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.MojoEcho.$interfaceName = 'content.mojom.MojoEcho';
 mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = { $: {} };
@@ -631,7 +633,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemote = class {
 mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MojoEcho', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.MojoEcho', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -942,7 +944,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MojoEcho', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.MojoEcho', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1014,7 +1016,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 0: EchoBoolFromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromUnion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1025,7 +1027,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 1: EchoInt32FromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32FromUnion (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1036,7 +1038,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 2: EchoStringFromUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromUnion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1047,7 +1049,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 3: EchoBoolAsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsUnion (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1058,7 +1060,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 4: EchoInt32AsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32AsUnion (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1069,7 +1071,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 5: EchoStringAsUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsUnion (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1080,7 +1082,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 6: EchoNullFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullFromOptionalUnion (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1091,7 +1093,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 7: EchoBoolFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromOptionalUnion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1102,7 +1104,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 8: EchoInt32FromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32FromOptionalUnion (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1113,7 +1115,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 9: EchoStringFromOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromOptionalUnion (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1124,7 +1126,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 10: EchoNullAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullAsOptionalUnion (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1135,7 +1137,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 11: EchoBoolAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsOptionalUnion (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1146,7 +1148,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 12: EchoInt32AsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt32AsOptionalUnion (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1157,7 +1159,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 13: EchoStringAsOptionalUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsOptionalUnion (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1168,7 +1170,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 14: EchoInt8FromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8FromNestedUnion (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1179,7 +1181,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 15: EchoBoolFromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromNestedUnion (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1190,7 +1192,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 16: EchoStringFromNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromNestedUnion (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1201,7 +1203,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 17: EchoInt8AsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8AsNestedUnion (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1212,7 +1214,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 18: EchoBoolAsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsNestedUnion (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1223,7 +1225,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 19: EchoStringAsNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsNestedUnion (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1234,7 +1236,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 20: EchoNullFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullFromOptionalNestedUnion (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1245,7 +1247,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 21: EchoInt8FromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8FromOptionalNestedUnion (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1256,7 +1258,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 22: EchoBoolFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolFromOptionalNestedUnion (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1267,7 +1269,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 23: EchoStringFromOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringFromOptionalNestedUnion (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1278,7 +1280,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 24: EchoNullAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoNullAsOptionalNestedUnion (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1289,7 +1291,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 25: EchoInt8AsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoInt8AsOptionalNestedUnion (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1300,7 +1302,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 26: EchoBoolAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolAsOptionalNestedUnion (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1311,7 +1313,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 27: EchoStringAsOptionalNestedUnion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringAsOptionalNestedUnion (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1322,7 +1324,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
         // Try Method 28: EchoBoolArray
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoBoolArray (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;

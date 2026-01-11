@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,18 +80,21 @@ mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec = { $ : {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester.$interfaceName = 'cast_streaming.mojom.AudioBufferRequester';
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec = { $ : {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester.$interfaceName = 'cast_streaming.mojom.VideoBufferRequester';
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector = {};
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec = { $ : {} };
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector.$interfaceName = 'cast_streaming.mojom.DemuxerConnector';
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec = { $: {} };
@@ -145,7 +149,7 @@ mojo.internal.Struct(
 // Struct: AudioStreamInitializationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec, 'cast_streaming.mojom.AudioStreamInitializationInfo', [
-      mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -153,7 +157,7 @@ mojo.internal.Struct(
 // Struct: VideoStreamInitializationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec, 'cast_streaming.mojom.VideoStreamInitializationInfo', [
-      mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -217,7 +221,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemote = class {
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioBufferRequester', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.AudioBufferRequester', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -258,7 +262,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioBufferRequester', [
+    const ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.AudioBufferRequester', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -303,7 +307,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
         // Try Method 0: GetBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBuffer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -314,7 +318,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
         // Try Method 1: EnableBitstreamConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableBitstreamConverter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,7 +436,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemote = class {
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoBufferRequester', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.VideoBufferRequester', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -473,7 +477,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoBufferRequester', [
+    const ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.VideoBufferRequester', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -518,7 +522,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
         // Try Method 0: GetBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBuffer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -529,7 +533,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
         // Try Method 1: EnableBitstreamConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableBitstreamConverter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -642,7 +646,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemote = class {
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DemuxerConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.DemuxerConnector', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -683,7 +687,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DemuxerConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.DemuxerConnector', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -728,7 +732,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
         // Try Method 0: EnableReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableReceiver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -739,7 +743,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
         // Try Method 1: OnStreamsInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreamsInitialized (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

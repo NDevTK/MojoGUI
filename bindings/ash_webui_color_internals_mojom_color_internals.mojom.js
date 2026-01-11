@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec = { $: {} };
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver = {};
+mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver.$interfaceName = 'ash.color_internals.mojom.WallpaperColorsObserver';
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler = {};
+mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler.$interfaceName = 'ash.color_internals.mojom.WallpaperColorsHandler';
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = { $: {} };
 
@@ -129,7 +132,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemote =
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperColorsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.color_internals.mojom.WallpaperColorsObserver', [
       { explicit: null },
     ]);
   }
@@ -160,7 +163,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperColorsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.color_internals.mojom.WallpaperColorsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -204,7 +207,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverReceiver
         // Try Method 0: OnWallpaperColorsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperColorsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -243,7 +246,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRequest 
 // Interface: WallpaperColorsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,7 +283,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRemote = 
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WallpaperColorsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.color_internals.mojom.WallpaperColorsHandler', [
       { explicit: null },
     ]);
   }
@@ -311,7 +314,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WallpaperColorsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.color_internals.mojom.WallpaperColorsHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -355,7 +358,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerReceiver 
         // Try Method 0: SetWallpaperColorsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWallpaperColorsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler.$interfaceName = 'webxr.mojom.WebXrInternalsHandler';
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = { $: {} };
@@ -87,6 +89,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_Param
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec = { $ : {} };
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener.$interfaceName = 'webxr.mojom.XRInternalsSessionListener';
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = { $: {} };
@@ -177,7 +180,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec, 'webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -220,7 +223,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemote = class {
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebXrInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('webxr.mojom.WebXrInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -271,7 +274,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebXrInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('webxr.mojom.WebXrInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -317,7 +320,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
         // Try Method 0: GetDeviceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -328,7 +331,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
         // Try Method 1: GetActiveRuntimes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActiveRuntimes (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -339,7 +342,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
         // Try Method 2: SubscribeToEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToEvents (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -508,7 +511,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemote = class {
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRInternalsSessionListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('webxr.mojom.XRInternalsSessionListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -609,7 +612,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRInternalsSessionListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('webxr.mojom.XRInternalsSessionListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -660,7 +663,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 0: LogXrSessionRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionRequested (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -671,7 +674,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 1: LogXrSessionRejected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionRejected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -682,7 +685,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 2: LogXrSessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionStarted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -693,7 +696,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 3: LogXrSessionStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrSessionStopped (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -704,7 +707,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 4: LogXrRuntimeAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrRuntimeAdded (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -715,7 +718,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 5: LogXrRuntimeRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogXrRuntimeRemoved (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -726,7 +729,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 6: LogFrameData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogFrameData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -737,7 +740,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
         // Try Method 7: LogConsoleMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogConsoleMessages (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

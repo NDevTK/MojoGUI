@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -86,10 +87,12 @@ mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec = { $: 
 mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec = { $ : {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer.$interfaceName = 'handwriting.mojom.HandwritingRecognizer';
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec = { $ : {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService.$interfaceName = 'handwriting.mojom.HandwritingRecognitionService';
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = { $: {} };
@@ -240,7 +243,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerRemote = class {
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HandwritingRecognizer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('handwriting.mojom.HandwritingRecognizer', [
       { explicit: null },
     ]);
   }
@@ -271,7 +274,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HandwritingRecognizer', [
+    const ordinals = window.mojoScrambler.getOrdinals('handwriting.mojom.HandwritingRecognizer', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -315,7 +318,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerReceiver = class {
         // Try Method 0: GetPrediction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrediction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -369,7 +372,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handwriting_recognizer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_handwriting_recognizer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -421,7 +424,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemote = c
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HandwritingRecognitionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('handwriting.mojom.HandwritingRecognitionService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -462,7 +465,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HandwritingRecognitionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('handwriting.mojom.HandwritingRecognitionService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -507,7 +510,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
         // Try Method 0: CreateHandwritingRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHandwritingRecognizer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -518,7 +521,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
         // Try Method 1: QueryHandwritingRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryHandwritingRecognizer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

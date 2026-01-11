@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chrome.mojom.SingleFileExtractor = {};
+mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.SingleFileExtractor.$interfaceName = 'chrome.mojom.SingleFileExtractor';
 mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener = {};
+mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener.$interfaceName = 'chrome.mojom.SingleFileExtractorListener';
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = { $: {} };
 
@@ -85,7 +88,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
       mojo.internal.StructField('arg_src_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_dst_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -128,7 +131,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote = class {
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SingleFileExtractor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.SingleFileExtractor', [
       { explicit: null },
     ]);
   }
@@ -159,7 +162,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SingleFileExtractor', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.SingleFileExtractor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +206,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorReceiver = class {
         // Try Method 0: Extract
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Extract (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -288,7 +291,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote = class {
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SingleFileExtractorListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.SingleFileExtractorListener', [
       { explicit: null },
     ]);
   }
@@ -319,7 +322,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SingleFileExtractorListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.SingleFileExtractorListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -363,7 +366,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerReceiver = class 
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

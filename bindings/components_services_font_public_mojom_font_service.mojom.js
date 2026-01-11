@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontIdentitySpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontService = {};
+mojo.internal.bindings.font_service.mojom.FontServiceSpec = { $ : {} };
 mojo.internal.bindings.font_service.mojom.FontService.$interfaceName = 'font_service.mojom.FontService';
 mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = { $: {} };
@@ -289,7 +291,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemote = class {
 mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FontService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('font_service.mojom.FontService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -380,7 +382,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FontService', [
+    const ordinals = window.mojoScrambler.getOrdinals('font_service.mojom.FontService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -430,7 +432,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 0: MatchFamilyName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -441,7 +443,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 1: OpenStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStream (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -452,7 +454,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 2: FallbackFontForCharacter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FallbackFontForCharacter (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -463,7 +465,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 3: FontRenderStyleForStrike
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FontRenderStyleForStrike (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -474,7 +476,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 4: MatchFontByPostscriptNameOrFullFontName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontByPostscriptNameOrFullFontName (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -485,7 +487,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 5: ListFamilies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListFamilies (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -496,7 +498,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
         // Try Method 6: MatchFontWithFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontWithFallback (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

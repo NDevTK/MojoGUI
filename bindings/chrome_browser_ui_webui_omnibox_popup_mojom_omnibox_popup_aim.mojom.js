@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,13 +76,16 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory.$interfaceName = 'omnibox_popup_aim.mojom.PageHandlerFactory';
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler.$interfaceName = 'omnibox_popup_aim.mojom.PageHandler';
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = { $: {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = { $: {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page.$interfaceName = 'omnibox_popup_aim.mojom.Page';
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = { $: {} };
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = { $: {} };
@@ -92,8 +96,8 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_Pa
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -130,7 +134,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryRemote = class 
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -161,7 +165,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -205,7 +209,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = clas
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +293,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -330,7 +334,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -375,7 +379,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
         // Try Method 0: RequestClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -386,7 +390,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
         // Try Method 1: NavigateCurrentTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NavigateCurrentTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -501,7 +505,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemote = class {
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -562,7 +566,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -609,7 +613,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
         // Try Method 0: OnPopupShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPopupShown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -620,7 +624,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
         // Try Method 1: AddContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -631,7 +635,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
         // Try Method 2: OnPopupHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPopupHidden (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -642,7 +646,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
         // Try Method 3: SetPreserveContextOnClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreserveContextOnClose (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

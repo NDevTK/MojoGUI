@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,15 +79,18 @@ mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec = { $
 mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution.$interfaceName = 'optimization_guide.mojom.ModelSolution';
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber.$interfaceName = 'optimization_guide.mojom.ModelSubscriber';
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker.$interfaceName = 'optimization_guide.mojom.ModelBroker';
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = { $: {} };
 
@@ -189,7 +193,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemote = class {
 mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ModelSolution', [
+    this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSolution', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -240,7 +244,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ModelSolution', [
+    const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSolution', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -286,7 +290,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
         // Try Method 0: CreateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +301,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
         // Try Method 1: CreateTextSafetySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTextSafetySession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +312,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
         // Try Method 2: ReportHealthyCompletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportHealthyCompletion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -368,7 +372,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Available_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_solution', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_solution', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -408,7 +412,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemote = class {
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ModelSubscriber', [
+    this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSubscriber', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -449,7 +453,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ModelSubscriber', [
+    const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSubscriber', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -494,7 +498,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberReceiver = class 
         // Try Method 0: Unavailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Unavailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -505,7 +509,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberReceiver = class 
         // Try Method 1: Available
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Available (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -552,7 +556,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRequest = mojo.in
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec, 'optimization_guide.mojom.ModelBroker_Subscribe_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subcriber', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subcriber', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -589,7 +593,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerRemote = class {
 mojo.internal.bindings.optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ModelBroker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelBroker', [
       { explicit: null },
     ]);
   }
@@ -620,7 +624,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ModelBroker', [
+    const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelBroker', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -664,7 +668,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerReceiver = class {
         // Try Method 0: Subscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Subscribe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

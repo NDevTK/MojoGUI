@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.chromecast.shell.mojom = mojo.internal.bindings.chromecas
 
 mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec = { $: {} };
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver = {};
+mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.$interfaceName = 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver';
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities = {};
+mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesSpec = { $ : {} };
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities.$interfaceName = 'chromecast.shell.mojom.ApplicationMediaCapabilities';
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = { $: {} };
 
@@ -128,7 +131,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ApplicationMediaCapabilitiesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver', [
       { explicit: null },
     ]);
   }
@@ -159,7 +162,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ApplicationMediaCapabilitiesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +206,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
         // Try Method 0: OnSupportedBitstreamAudioCodecsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSupportedBitstreamAudioCodecsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -242,7 +245,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
 // Interface: ApplicationMediaCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -279,7 +282,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ApplicationMediaCapabilities', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.ApplicationMediaCapabilities', [
       { explicit: null },
     ]);
   }
@@ -310,7 +313,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ApplicationMediaCapabilities', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.shell.mojom.ApplicationMediaCapabilities', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -354,7 +357,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiv
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

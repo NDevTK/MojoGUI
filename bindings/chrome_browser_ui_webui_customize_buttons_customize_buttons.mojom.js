@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,14 +75,17 @@ mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
 
 mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandlerFactory';
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec = { $ : {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandler';
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec = { $ : {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsDocument';
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = { $: {} };
 
@@ -94,8 +98,8 @@ mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTrigger = {
 // Interface: CustomizeButtonsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,7 +136,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRem
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -163,7 +167,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -207,7 +211,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRec
         // Try Method 0: CreateCustomizeButtonsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomizeButtonsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -301,7 +305,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemote = c
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -352,7 +356,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -398,7 +402,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerReceiver =
         // Try Method 0: IncrementCustomizeChromeButtonOpenCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementCustomizeChromeButtonOpenCount (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -409,7 +413,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerReceiver =
         // Try Method 1: IncrementWallpaperSearchButtonShownCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementWallpaperSearchButtonShownCount (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -420,7 +424,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerReceiver =
         // Try Method 2: SetCustomizeChromeSidePanelVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCustomizeChromeSidePanelVisible (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -510,7 +514,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote = 
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsDocument', [
+    this.ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsDocument', [
       { explicit: null },
     ]);
   }
@@ -541,7 +545,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomizeButtonsDocument', [
+    const ordinals = window.mojoScrambler.getOrdinals('customize_buttons.mojom.CustomizeButtonsDocument', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -585,7 +589,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentReceiver 
         // Try Method 0: SetCustomizeChromeSidePanelVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCustomizeChromeSidePanelVisibility (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

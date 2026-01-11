@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.blink.mojom.SerialPortInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SerialPortFilterSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SerialService = {};
+mojo.internal.bindings.blink.mojom.SerialServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SerialService.$interfaceName = 'blink.mojom.SerialService';
 mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec = { $: {} };
@@ -88,6 +90,7 @@ mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
 mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SerialServiceClient = {};
+mojo.internal.bindings.blink.mojom.SerialServiceClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SerialServiceClient.$interfaceName = 'blink.mojom.SerialServiceClient';
 mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = { $: {} };
 
@@ -118,7 +121,7 @@ mojo.internal.Struct(
 // Interface: SerialService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec, 'blink.mojom.SerialService_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SerialServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SerialServiceClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,7 +219,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemote = class {
 mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SerialService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -287,7 +290,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SerialService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -335,7 +338,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -346,7 +349,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
         // Try Method 1: GetPorts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPorts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -357,7 +360,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
         // Try Method 2: RequestPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -368,7 +371,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
         // Try Method 3: OpenPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPort (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -379,7 +382,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
         // Try Method 4: ForgetPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForgetPort (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -515,7 +518,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientRemote = class {
 mojo.internal.bindings.blink.mojom.SerialServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialServiceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SerialServiceClient', [
       { explicit: null },
     ]);
   }
@@ -546,7 +549,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialServiceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SerialServiceClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -590,7 +593,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientReceiver = class {
         // Try Method 0: OnPortConnectedStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortConnectedStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

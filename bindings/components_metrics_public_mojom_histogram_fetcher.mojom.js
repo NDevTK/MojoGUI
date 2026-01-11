@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec = { $ : {} };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory.$interfaceName = 'metrics.mojom.ChildHistogramFetcherFactory';
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec = { $ : {} };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher.$interfaceName = 'metrics.mojom.ChildHistogramFetcher';
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = { $: {} };
@@ -101,7 +104,7 @@ mojo.internal.bindings.metrics.mojom.UmaPingCallSource = {
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
       mojo.internal.StructField('arg_shared_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -138,7 +141,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemote = class 
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildHistogramFetcherFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.ChildHistogramFetcherFactory', [
       { explicit: null },
     ]);
   }
@@ -169,7 +172,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildHistogramFetcherFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.ChildHistogramFetcherFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -213,7 +216,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryReceiver = clas
         // Try Method 0: CreateFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFetcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -308,7 +311,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote = class {
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChildHistogramFetcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.ChildHistogramFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -349,7 +352,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChildHistogramFetcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics.mojom.ChildHistogramFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -394,7 +397,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
         // Try Method 0: GetChildNonPersistentHistogramData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChildNonPersistentHistogramData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,7 +408,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
         // Try Method 1: Ping
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

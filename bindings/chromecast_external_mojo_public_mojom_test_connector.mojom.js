@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chromecast.external_mojo = mojo.internal.bindings.chromec
 mojo.internal.bindings.chromecast.external_mojo.mojom = mojo.internal.bindings.chromecast.external_mojo.mojom || {};
 
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorSpec = { $ : {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector.$interfaceName = 'chromecast.external_mojo.mojom.TestExternalConnector';
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = { $: {} };
 
@@ -118,7 +120,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRemot
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TestExternalConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.TestExternalConnector', [
       { explicit: null },
     ]);
   }
@@ -149,7 +151,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TestExternalConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.TestExternalConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +195,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRecei
         // Try Method 0: BindInterfaceInternal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInterfaceInternal (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

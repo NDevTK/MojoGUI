@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,15 +74,19 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.ColorSuggestionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorChooserFactory = {};
+mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ColorChooserFactory.$interfaceName = 'blink.mojom.ColorChooserFactory';
 mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorChooser = {};
+mojo.internal.bindings.blink.mojom.ColorChooserSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ColorChooser.$interfaceName = 'blink.mojom.ColorChooser';
 mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorChooserClient = {};
+mojo.internal.bindings.blink.mojom.ColorChooserClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ColorChooserClient.$interfaceName = 'blink.mojom.ColorChooserClient';
 mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EyeDropperChooser = {};
+mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EyeDropperChooser.$interfaceName = 'blink.mojom.EyeDropperChooser';
 mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = { $: {} };
@@ -97,8 +102,8 @@ mojo.internal.Struct(
 // Interface: ColorChooserFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec, 'blink.mojom.ColorChooserFactory_OpenColorChooser_Params', [
-      mojo.internal.StructField('arg_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ColorChooserSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ColorChooserClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ColorChooserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ColorChooserClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_suggestions', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ColorSuggestionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -137,7 +142,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryRemote = class {
 mojo.internal.bindings.blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ColorChooserFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserFactory', [
       { explicit: null },
     ]);
   }
@@ -168,7 +173,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ColorChooserFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -212,7 +217,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryReceiver = class {
         // Try Method 0: OpenColorChooser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenColorChooser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -288,7 +293,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserRemote = class {
 mojo.internal.bindings.blink.mojom.ColorChooserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ColorChooser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooser', [
       { explicit: null },
     ]);
   }
@@ -319,7 +324,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ColorChooser', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooser', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -363,7 +368,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserReceiver = class {
         // Try Method 0: SetSelectedColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectedColor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -439,7 +444,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientRemote = class {
 mojo.internal.bindings.blink.mojom.ColorChooserClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ColorChooserClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserClient', [
       { explicit: null },
     ]);
   }
@@ -470,7 +475,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ColorChooserClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -514,7 +519,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientReceiver = class {
         // Try Method 0: DidChooseColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidChooseColor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -596,7 +601,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserRemote = class {
 mojo.internal.bindings.blink.mojom.EyeDropperChooserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EyeDropperChooser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EyeDropperChooser', [
       { explicit: null },
     ]);
   }
@@ -627,7 +632,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EyeDropperChooser', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EyeDropperChooser', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -671,7 +676,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserReceiver = class {
         // Try Method 0: Choose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Choose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

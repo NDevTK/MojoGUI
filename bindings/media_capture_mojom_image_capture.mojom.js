@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,6 +83,7 @@ mojo.internal.bindings.media.mojom.Point2DSpec = { $: {} };
 mojo.internal.bindings.media.mojom.PhotoSettingsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.BlobSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ImageCapture = {};
+mojo.internal.bindings.media.mojom.ImageCaptureSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.ImageCapture.$interfaceName = 'media.mojom.ImageCapture';
 mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = { $: {} };
@@ -321,7 +323,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemote = class {
 mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ImageCapture', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.ImageCapture', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -372,7 +374,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ImageCapture', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.ImageCapture', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -418,7 +420,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
         // Try Method 0: GetPhotoState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPhotoState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +431,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
         // Try Method 1: SetPhotoOptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhotoOptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -440,7 +442,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
         // Try Method 2: TakePhoto
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakePhoto (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

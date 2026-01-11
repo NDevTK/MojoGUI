@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient = {};
+mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient.$interfaceName = 'network.mojom.NetworkQualityEstimatorManagerClient';
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager = {};
+mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager.$interfaceName = 'network.mojom.NetworkQualityEstimatorManager';
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = { $: {} };
 
@@ -122,7 +125,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemote 
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkQualityEstimatorManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkQualityEstimatorManagerClient', [
       { explicit: null },
     ]);
   }
@@ -153,7 +156,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkQualityEstimatorManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkQualityEstimatorManagerClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -197,7 +200,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientReceive
         // Try Method 0: OnNetworkQualityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkQualityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +239,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRequest
 // Interface: NetworkQualityEstimatorManager
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -273,7 +276,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemote = clas
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkQualityEstimatorManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkQualityEstimatorManager', [
       { explicit: null },
     ]);
   }
@@ -304,7 +307,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkQualityEstimatorManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkQualityEstimatorManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -348,7 +351,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerReceiver = cl
         // Try Method 0: RequestNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

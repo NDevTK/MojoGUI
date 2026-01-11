@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,14 +77,17 @@ mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = { $: mojo.int
 mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.AnnotationSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor = {};
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec = { $ : {} };
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor.$interfaceName = 'image_annotation.mojom.ImageProcessor';
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.Annotator = {};
+mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec = { $ : {} };
 mojo.internal.bindings.image_annotation.mojom.Annotator.$interfaceName = 'image_annotation.mojom.Annotator';
 mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService = {};
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec = { $ : {} };
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService.$interfaceName = 'image_annotation.mojom.ImageAnnotationService';
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = { $: {} };
 
@@ -173,7 +177,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemote = class {
 mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ImageProcessor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.ImageProcessor', [
       { explicit: null },
     ]);
   }
@@ -204,7 +208,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ImageProcessor', [
+    const ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.ImageProcessor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -248,7 +252,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = class {
         // Try Method 0: GetJpgImageData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetJpgImageData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +301,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_Params', [
       mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description_language_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_processor', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_processor', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -340,7 +344,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorRemote = class {
 mojo.internal.bindings.image_annotation.mojom.AnnotatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Annotator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.Annotator', [
       { explicit: null },
     ]);
   }
@@ -371,7 +375,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Annotator', [
+    const ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.Annotator', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -415,7 +419,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = class {
         // Try Method 0: AnnotateImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateImage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -462,7 +466,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorRequest = mojo.internal.b
 // Interface: ImageAnnotationService
 mojo.internal.Struct(
     mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec, 'image_annotation.mojom.ImageAnnotationService_BindAnnotator_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.image_annotation.mojom.AnnotatorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -499,7 +503,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemote = cla
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ImageAnnotationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.ImageAnnotationService', [
       { explicit: null },
     ]);
   }
@@ -530,7 +534,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ImageAnnotationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('image_annotation.mojom.ImageAnnotationService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -574,7 +578,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver = c
         // Try Method 0: BindAnnotator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAnnotator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

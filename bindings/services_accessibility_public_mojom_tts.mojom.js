@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.ax.mojom.TtsOptionsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.TtsEventSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.TtsUtteranceClient = {};
+mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.TtsUtteranceClient.$interfaceName = 'ax.mojom.TtsUtteranceClient';
 mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.Tts = {};
+mojo.internal.bindings.ax.mojom.TtsSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.Tts.$interfaceName = 'ax.mojom.Tts';
 mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec = { $: {} };
@@ -159,7 +162,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.ax.mojom.TtsErrorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_utterance_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_utterance_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -203,7 +206,7 @@ mojo.internal.bindings.ax.mojom.TtsUtteranceClientRemote = class {
 mojo.internal.bindings.ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TtsUtteranceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.TtsUtteranceClient', [
       { explicit: null },
     ]);
   }
@@ -234,7 +237,7 @@ mojo.internal.bindings.ax.mojom.TtsUtteranceClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TtsUtteranceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.TtsUtteranceClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -278,7 +281,7 @@ mojo.internal.bindings.ax.mojom.TtsUtteranceClientReceiver = class {
         // Try Method 0: OnEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -413,7 +416,7 @@ mojo.internal.bindings.ax.mojom.TtsRemote = class {
 mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Tts', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Tts', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -494,7 +497,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Tts', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Tts', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -543,7 +546,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 0: Speak
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Speak (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -554,7 +557,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -565,7 +568,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 2: Pause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -576,7 +579,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 3: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -587,7 +590,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 4: IsSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSpeaking (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -598,7 +601,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
         // Try Method 5: GetVoices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVoices (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

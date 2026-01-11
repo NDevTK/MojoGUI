@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,15 @@ mojo.internal.bindings.blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.LockInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LockHandle = {};
+mojo.internal.bindings.blink.mojom.LockHandleSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.LockHandle.$interfaceName = 'blink.mojom.LockHandle';
 mojo.internal.bindings.blink.mojom.LockRequest = {};
+mojo.internal.bindings.blink.mojom.LockRequestSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.LockRequest.$interfaceName = 'blink.mojom.LockRequest';
 mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LockManager = {};
+mojo.internal.bindings.blink.mojom.LockManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.LockManager.$interfaceName = 'blink.mojom.LockManager';
 mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec = { $: {} };
@@ -139,7 +143,7 @@ mojo.internal.bindings.blink.mojom.LockHandleRemote = class {
 mojo.internal.bindings.blink.mojom.LockHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LockHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockHandle', [
     ]);
   }
 
@@ -160,7 +164,7 @@ mojo.internal.bindings.blink.mojom.LockHandleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LockHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockHandle', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -224,7 +228,7 @@ mojo.internal.bindings.blink.mojom.LockHandleRequest = mojo.internal.bindings.bl
 // Interface: LockRequest
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
-      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockHandleSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockHandleRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -269,7 +273,7 @@ mojo.internal.bindings.blink.mojom.LockRequestRemote = class {
 mojo.internal.bindings.blink.mojom.LockRequestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LockRequest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockRequest', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -310,7 +314,7 @@ mojo.internal.bindings.blink.mojom.LockRequestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LockRequest', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockRequest', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -355,7 +359,7 @@ mojo.internal.bindings.blink.mojom.LockRequestReceiver = class {
         // Try Method 0: Granted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Granted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,7 +370,7 @@ mojo.internal.bindings.blink.mojom.LockRequestReceiver = class {
         // Try Method 1: Failed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Failed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -415,7 +419,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_wait', 16, 0, mojo.internal.bindings.blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -467,7 +471,7 @@ mojo.internal.bindings.blink.mojom.LockManagerRemote = class {
 mojo.internal.bindings.blink.mojom.LockManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LockManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -508,7 +512,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LockManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LockManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -553,7 +557,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
         // Try Method 0: RequestLock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLock (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -564,7 +568,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
         // Try Method 1: QueryState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.device.mojom.ReportingModeSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.device.mojom.SensorReadingRawSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorConfigurationSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Sensor = {};
+mojo.internal.bindings.device.mojom.SensorSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.Sensor.$interfaceName = 'device.mojom.Sensor';
 mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorClient = {};
+mojo.internal.bindings.device.mojom.SensorClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SensorClient.$interfaceName = 'device.mojom.SensorClient';
 mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = { $: {} };
@@ -219,7 +222,7 @@ mojo.internal.bindings.device.mojom.SensorRemote = class {
 mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Sensor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.Sensor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -300,7 +303,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Sensor', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.Sensor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -349,7 +352,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 0: GetDefaultConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -360,7 +363,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 1: AddConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -371,7 +374,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 2: RemoveConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveConfiguration (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -382,7 +385,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 3: Suspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -393,7 +396,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 4: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -404,7 +407,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
         // Try Method 5: ConfigureReadingChangeNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureReadingChangeNotifications (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -538,7 +541,7 @@ mojo.internal.bindings.device.mojom.SensorClientRemote = class {
 mojo.internal.bindings.device.mojom.SensorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SensorClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -579,7 +582,7 @@ mojo.internal.bindings.device.mojom.SensorClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SensorClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -624,7 +627,7 @@ mojo.internal.bindings.device.mojom.SensorClientReceiver = class {
         // Try Method 0: RaiseError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RaiseError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -635,7 +638,7 @@ mojo.internal.bindings.device.mojom.SensorClientReceiver = class {
         // Try Method 1: SensorReadingChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SensorReadingChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

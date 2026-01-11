@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.cast_streaming.mojom = mojo.internal.bindings.cast_stream
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
 mojo.internal.bindings.cast_streaming.mojom.RendererController = {};
+mojo.internal.bindings.cast_streaming.mojom.RendererControllerSpec = { $ : {} };
 mojo.internal.bindings.cast_streaming.mojom.RendererController.$interfaceName = 'cast_streaming.mojom.RendererController';
 mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec = { $: {} };
@@ -122,7 +124,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerRemote = class {
 mojo.internal.bindings.cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.RendererController', [
       { explicit: null },
     ]);
   }
@@ -153,7 +155,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererController', [
+    const ordinals = window.mojoScrambler.getOrdinals('cast_streaming.mojom.RendererController', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -197,7 +199,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerReceiver = class {
         // Try Method 0: SetPlaybackController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPlaybackController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

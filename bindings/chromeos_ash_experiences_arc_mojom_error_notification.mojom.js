@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,17 +75,21 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.ErrorDetailsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost.$interfaceName = 'arc.mojom.ErrorNotificationHost';
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstance = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstance.$interfaceName = 'arc.mojom.ErrorNotificationInstance';
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationItem = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationItem.$interfaceName = 'arc.mojom.ErrorNotificationItem';
 mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler.$interfaceName = 'arc.mojom.ErrorNotificationActionHandler';
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = { $: {} };
@@ -109,13 +114,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
       mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParams', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,7 +157,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemote = class {
 mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationHost', [
       { explicit: 0 },
     ]);
   }
@@ -183,7 +188,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -227,7 +232,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostReceiver = class {
         // Try Method 0: SendErrorDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendErrorDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +279,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostRequest = mojo.internal.bi
 // Interface: ErrorNotificationInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -316,7 +321,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationInstance', [
       { explicit: 0 },
     ]);
   }
@@ -347,7 +352,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -391,7 +396,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -474,7 +479,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemote = class {
 mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationItem', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationItem', [
       { explicit: 0 },
     ]);
   }
@@ -505,7 +510,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationItem', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationItem', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -549,7 +554,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemReceiver = class {
         // Try Method 0: CloseErrorNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseErrorNotification (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -633,7 +638,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemote = class {
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationActionHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationActionHandler', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -674,7 +679,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ErrorNotificationActionHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ErrorNotificationActionHandler', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -719,7 +724,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = class 
         // Try Method 0: OnNotificationButtonClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationButtonClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -730,7 +735,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = class 
         // Try Method 1: OnNotificationClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

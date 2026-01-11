@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 
 mojo.internal.bindings.media_session.mojom.MediaSessionService = {};
+mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec = { $ : {} };
 mojo.internal.bindings.media_session.mojom.MediaSessionService.$interfaceName = 'media_session.mojom.MediaSessionService';
 mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = { $: {} };
@@ -99,7 +101,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec, 'media_session.mojom.MediaSessionService_Bind_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,7 +147,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemote = class {
 mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaSessionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_session.mojom.MediaSessionService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -206,7 +208,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaSessionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_session.mojom.MediaSessionService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -253,7 +255,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
         // Try Method 0: BindAudioFocusManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAudioFocusManager (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -264,7 +266,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
         // Try Method 1: BindAudioFocusManagerDebug
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAudioFocusManagerDebug (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -275,7 +277,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
         // Try Method 2: BindMediaControllerManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMediaControllerManager (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -286,7 +288,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
         // Try Method 3: Bind
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Bind (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

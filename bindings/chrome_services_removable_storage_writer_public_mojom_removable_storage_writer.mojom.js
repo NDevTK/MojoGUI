@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriter = {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriter.$interfaceName = 'chrome.mojom.RemovableStorageWriter';
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient = {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient.$interfaceName = 'chrome.mojom.RemovableStorageWriterClient';
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = { $: {} };
@@ -99,7 +102,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Write_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -107,7 +110,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Verify_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -147,7 +150,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemote = class {
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RemovableStorageWriter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RemovableStorageWriter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -188,7 +191,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RemovableStorageWriter', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RemovableStorageWriter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -233,7 +236,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterReceiver = class {
         // Try Method 0: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -244,7 +247,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterReceiver = class {
         // Try Method 1: Verify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -336,7 +339,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemote = class {
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RemovableStorageWriterClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RemovableStorageWriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -377,7 +380,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RemovableStorageWriterClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RemovableStorageWriterClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -422,7 +425,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientReceiver = class
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -433,7 +436,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientReceiver = class
         // Try Method 1: Complete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

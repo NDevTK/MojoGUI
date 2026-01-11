@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService.$interfaceName = 'chromeos.machine_learning.mojom.MachineLearningService';
 mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec = { $: {} };
@@ -113,7 +115,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResult = {
 // Interface: MachineLearningService
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -341,7 +343,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
 mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MachineLearningService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.MachineLearningService', [
       { explicit: 5 },
       { explicit: 0 },
       { explicit: 1 },
@@ -492,7 +494,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MachineLearningService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.MachineLearningService', [
       { explicit: 5 },
       { explicit: 0 },
       { explicit: 1 },
@@ -548,7 +550,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -559,7 +561,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 1: LoadBuiltinModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBuiltinModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -570,7 +572,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 2: LoadFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadFlatBufferModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -581,7 +583,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 3: LoadTextClassifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextClassifier (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -592,7 +594,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 4: LoadHandwritingModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHandwritingModel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -603,7 +605,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 5: LoadSpeechRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSpeechRecognizer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -614,7 +616,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 6: LoadGrammarChecker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadGrammarChecker (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -625,7 +627,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 7: LoadTextSuggester
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextSuggester (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -636,7 +638,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 8: LoadWebPlatformHandwritingModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadWebPlatformHandwritingModel (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -647,7 +649,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 9: LoadDocumentScanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDocumentScanner (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -658,7 +660,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 10: LoadImageAnnotator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadImageAnnotator (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -669,7 +671,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 11: LoadHeatmapPalmRejection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHeatmapPalmRejection (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -680,7 +682,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
         // Try Method 12: REMOVED_4
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_4 (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

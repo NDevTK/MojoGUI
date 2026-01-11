@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,6 +84,7 @@ mojo.internal.bindings.media.mojom.CdmPromiseResultSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmKeyInformationSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmContextSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModule = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModule.$interfaceName = 'media.mojom.ContentDecryptionModule';
 mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = { $: {} };
@@ -100,12 +102,14 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_Response
 mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient.$interfaceName = 'media.mojom.ContentDecryptionModuleClient';
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmFactory = {};
+mojo.internal.bindings.media.mojom.CdmFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmFactory.$interfaceName = 'media.mojom.CdmFactory';
 mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
@@ -184,7 +188,7 @@ mojo.internal.Struct(
 // Interface: ContentDecryptionModule
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec, 'media.mojom.ContentDecryptionModule_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -333,7 +337,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemote = class {
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentDecryptionModule', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.ContentDecryptionModule', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -434,7 +438,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentDecryptionModule', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.ContentDecryptionModule', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -485,7 +489,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +500,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 1: SetServerCertificate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetServerCertificate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -507,7 +511,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 2: GetStatusForPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatusForPolicy (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -518,7 +522,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 3: CreateSessionAndGenerateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSessionAndGenerateRequest (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -529,7 +533,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 4: LoadSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSession (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -540,7 +544,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 5: UpdateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSession (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -551,7 +555,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 6: CloseSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSession (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -562,7 +566,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
         // Try Method 7: RemoveSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -776,7 +780,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemote = class {
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentDecryptionModuleClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.ContentDecryptionModuleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -837,7 +841,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentDecryptionModuleClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.ContentDecryptionModuleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -884,7 +888,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientReceiver = class
         // Try Method 0: OnSessionMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -895,7 +899,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientReceiver = class
         // Try Method 1: OnSessionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -906,7 +910,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientReceiver = class
         // Try Method 2: OnSessionKeysChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionKeysChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -917,7 +921,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientReceiver = class
         // Try Method 3: OnSessionExpirationUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionExpirationUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -983,7 +987,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.CdmFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
     ],
@@ -1022,7 +1026,7 @@ mojo.internal.bindings.media.mojom.CdmFactoryRemote = class {
 mojo.internal.bindings.media.mojom.CdmFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmFactory', [
       { explicit: null },
     ]);
   }
@@ -1053,7 +1057,7 @@ mojo.internal.bindings.media.mojom.CdmFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1097,7 +1101,7 @@ mojo.internal.bindings.media.mojom.CdmFactoryReceiver = class {
         // Try Method 0: CreateCdm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

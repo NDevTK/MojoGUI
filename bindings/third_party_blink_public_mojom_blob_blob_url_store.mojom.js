@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.BlobURLStore = {};
+mojo.internal.bindings.blink.mojom.BlobURLStoreSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BlobURLStore.$interfaceName = 'blink.mojom.BlobURLStore';
 mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec = { $: {} };
@@ -82,6 +84,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobURLToken = {};
+mojo.internal.bindings.blink.mojom.BlobURLTokenSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BlobURLToken.$interfaceName = 'blink.mojom.BlobURLToken';
 mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec = { $: {} };
@@ -116,7 +119,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_top_level_navigation', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -163,7 +166,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemote = class {
 mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BlobURLStore', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobURLStore', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -224,7 +227,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BlobURLStore', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobURLStore', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -271,7 +274,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -282,7 +285,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 1: Revoke
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Revoke (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -293,7 +296,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 2: ResolveAsURLLoaderFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveAsURLLoaderFactory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -304,7 +307,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
         // Try Method 3: ResolveAsBlobURLToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveAsBlobURLToken (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -372,7 +375,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRequest = mojo.internal.bindings.
 // Interface: BlobURLToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec, 'blink.mojom.BlobURLToken_Clone_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -423,7 +426,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenRemote = class {
 mojo.internal.bindings.blink.mojom.BlobURLTokenRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BlobURLToken', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobURLToken', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -464,7 +467,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BlobURLToken', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BlobURLToken', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -509,7 +512,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenReceiver = class {
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -520,7 +523,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenReceiver = class {
         // Try Method 1: GetToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetToken (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.midi.mojom.ResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.midi.mojom.PortStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.midi.mojom.PortInfoSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSessionClient = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClientSpec = { $ : {} };
 mojo.internal.bindings.midi.mojom.MidiSessionClient.$interfaceName = 'midi.mojom.MidiSessionClient';
 mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = { $: {} };
@@ -85,9 +87,11 @@ mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = 
 mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSessionProvider = {};
+mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec = { $ : {} };
 mojo.internal.bindings.midi.mojom.MidiSessionProvider.$interfaceName = 'midi.mojom.MidiSessionProvider';
 mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSession = {};
+mojo.internal.bindings.midi.mojom.MidiSessionSpec = { $ : {} };
 mojo.internal.bindings.midi.mojom.MidiSession.$interfaceName = 'midi.mojom.MidiSession';
 mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec = { $: {} };
 
@@ -215,7 +219,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemote = class {
 mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidiSessionClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSessionClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -306,7 +310,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidiSessionClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSessionClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -356,7 +360,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 0: AddInputPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddInputPort (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -367,7 +371,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 1: AddOutputPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOutputPort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -378,7 +382,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 2: SetInputPortState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputPortState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -389,7 +393,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 3: SetOutputPortState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputPortState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -400,7 +404,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 4: SessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SessionStarted (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -411,7 +415,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 5: AcknowledgeSentData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcknowledgeSentData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -422,7 +426,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
         // Try Method 6: DataReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DataReceived (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -503,8 +507,8 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRequest = mojo.internal.bindi
 // Interface: MidiSessionProvider
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec, 'midi.mojom.MidiSessionProvider_StartSession_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.midi.mojom.MidiSessionSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.midi.mojom.MidiSessionClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.midi.mojom.MidiSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.midi.mojom.MidiSessionClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -541,7 +545,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderRemote = class {
 mojo.internal.bindings.midi.mojom.MidiSessionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidiSessionProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSessionProvider', [
       { explicit: null },
     ]);
   }
@@ -572,7 +576,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidiSessionProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSessionProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -616,7 +620,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderReceiver = class {
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -694,7 +698,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionRemote = class {
 mojo.internal.bindings.midi.mojom.MidiSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidiSession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSession', [
       { explicit: null },
     ]);
   }
@@ -725,7 +729,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidiSession', [
+    const ordinals = window.mojoScrambler.getOrdinals('midi.mojom.MidiSession', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -769,7 +773,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionReceiver = class {
         // Try Method 0: SendData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

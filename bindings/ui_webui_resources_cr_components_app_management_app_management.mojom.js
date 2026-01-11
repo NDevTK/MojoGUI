@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,9 +88,11 @@ mojo.internal.bindings.app_management.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.ExtensionAppPermissionMessageSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.FileHandlingStateSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.app_management.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.app_management.mojom.PageHandlerFactory.$interfaceName = 'app_management.mojom.PageHandlerFactory';
 mojo.internal.bindings.app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandler = {};
+mojo.internal.bindings.app_management.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.app_management.mojom.PageHandler.$interfaceName = 'app_management.mojom.PageHandler';
 mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = { $: {} };
@@ -116,6 +119,7 @@ mojo.internal.bindings.app_management.mojom.PageHandler_OpenStorePage_ParamsSpec
 mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.Page = {};
+mojo.internal.bindings.app_management.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.app_management.mojom.Page.$interfaceName = 'app_management.mojom.Page';
 mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec = { $: {} };
@@ -298,8 +302,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'app_management.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.app_management.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.app_management.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.app_management.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.app_management.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -336,7 +340,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -367,7 +371,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -411,7 +415,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -684,7 +688,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -895,7 +899,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -957,7 +961,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -968,7 +972,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -979,7 +983,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetSubAppToParentMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSubAppToParentMap (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -990,7 +994,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 3: GetExtensionAppPermissionMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetExtensionAppPermissionMessages (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1001,7 +1005,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 4: SetPinned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPinned_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPinned_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinned (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1012,7 +1016,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 5: SetPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPermission (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1023,7 +1027,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 6: SetResizeLocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetResizeLocked (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1034,7 +1038,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 7: Uninstall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_Uninstall_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_Uninstall_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Uninstall (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1045,7 +1049,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 8: OpenNativeSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNativeSettings (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1056,7 +1060,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 9: SetPreferredApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredApp (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1067,7 +1071,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetOverlappingPreferredApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOverlappingPreferredApps (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1078,7 +1082,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 11: UpdateAppSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAppSize (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1089,7 +1093,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 12: SetWindowMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetWindowMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetWindowMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowMode (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1100,7 +1104,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 13: SetRunOnOsLoginMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRunOnOsLoginMode (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1111,7 +1115,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 14: SetFileHandlingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFileHandlingEnabled (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1122,7 +1126,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 15: ShowDefaultAppAssociationsUi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowDefaultAppAssociationsUi (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1133,7 +1137,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 16: OpenStorePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenStorePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenStorePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStorePage (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1144,7 +1148,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 17: SetAppLocale
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAppLocale (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1155,7 +1159,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
         // Try Method 18: OpenSystemNotificationSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSystemNotificationSettings (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1415,7 +1419,7 @@ mojo.internal.bindings.app_management.mojom.PageRemote = class {
 mojo.internal.bindings.app_management.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1466,7 +1470,7 @@ mojo.internal.bindings.app_management.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1512,7 +1516,7 @@ mojo.internal.bindings.app_management.mojom.PageReceiver = class {
         // Try Method 0: OnAppAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1523,7 +1527,7 @@ mojo.internal.bindings.app_management.mojom.PageReceiver = class {
         // Try Method 1: OnAppChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1534,7 +1538,7 @@ mojo.internal.bindings.app_management.mojom.PageReceiver = class {
         // Try Method 2: OnAppRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.Page_OnAppRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppRemoved (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

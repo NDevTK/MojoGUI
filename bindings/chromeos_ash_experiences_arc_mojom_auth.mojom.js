@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -91,6 +92,7 @@ mojo.internal.bindings.arc.mojom.ArcSignInAccountSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AccountInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcAccountInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthHost = {};
+mojo.internal.bindings.arc.mojom.AuthHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AuthHost.$interfaceName = 'arc.mojom.AuthHost';
 mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec = { $: {} };
@@ -109,6 +111,7 @@ mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec 
 mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthInstance = {};
+mojo.internal.bindings.arc.mojom.AuthInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AuthInstance.$interfaceName = 'arc.mojom.AuthInstance';
 mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec = { $: {} };
@@ -505,7 +508,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemote = class {
 mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AuthHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AuthHost', [
       { explicit: 19 },
       { explicit: 8 },
       { explicit: 9 },
@@ -646,7 +649,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AuthHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AuthHost', [
       { explicit: 19 },
       { explicit: 8 },
       { explicit: 9 },
@@ -701,7 +704,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 0: OnAuthorizationResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthorizationResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -712,7 +715,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 1: ReportMetrics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMetrics (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -723,7 +726,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 2: ReportAccountCheckStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAccountCheckStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -734,7 +737,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 3: ReportManagementChangeStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportManagementChangeStatus (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -745,7 +748,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 4: RequestPrimaryAccount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrimaryAccount (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -756,7 +759,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 5: RequestPrimaryAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrimaryAccountInfo (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -767,7 +770,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 6: RequestAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAccountInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -778,7 +781,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 7: IsAccountManagerAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAccountManagerAvailable (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -789,7 +792,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 8: HandleAddAccountRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAddAccountRequest (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -800,7 +803,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 9: HandleRemoveAccountRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleRemoveAccountRequest (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -811,7 +814,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 10: HandleUpdateCredentialsRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleUpdateCredentialsRequest (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -822,7 +825,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
         // Try Method 11: ReportAccountReauthReason
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAccountReauthReason (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -970,7 +973,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRequest = mojo.internal.bindings.arc.mo
 // Interface: AuthInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec, 'arc.mojom.AuthInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AuthHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AuthHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1059,7 +1062,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AuthInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AuthInstance', [
       { explicit: 2 },
       { explicit: 3 },
       { explicit: 4 },
@@ -1130,7 +1133,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AuthInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AuthInstance', [
       { explicit: 2 },
       { explicit: 3 },
       { explicit: 4 },
@@ -1178,7 +1181,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1189,7 +1192,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
         // Try Method 1: OnAccountUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccountUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1200,7 +1203,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
         // Try Method 2: GetGoogleAccounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGoogleAccounts (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1211,7 +1214,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
         // Try Method 3: GetMainAccountResolutionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMainAccountResolutionStatus (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1222,7 +1225,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
         // Try Method 4: SetAccounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccounts (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

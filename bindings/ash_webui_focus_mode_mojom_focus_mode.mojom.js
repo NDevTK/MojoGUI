@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.intern
 mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClient = {};
+mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec = { $ : {} };
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClient.$interfaceName = 'ash.focus_mode.mojom.MediaClient';
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider.$interfaceName = 'ash.focus_mode.mojom.TrackProvider';
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = { $: {} };
@@ -164,7 +167,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientRemote = class {
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.focus_mode.mojom.MediaClient', [
       { explicit: null },
     ]);
   }
@@ -195,7 +198,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.focus_mode.mojom.MediaClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -239,7 +242,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientReceiver = class {
         // Try Method 0: StartPlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPlay (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +292,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_SetMediaClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.focus_mode.mojom.MediaClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -346,7 +349,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemote = class {
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TrackProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.focus_mode.mojom.TrackProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -407,7 +410,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TrackProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.focus_mode.mojom.TrackProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -454,7 +457,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 0: GetTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -465,7 +468,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 1: SetMediaClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMediaClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -476,7 +479,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 2: ReportPlayback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPlayback (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -487,7 +490,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
         // Try Method 3: ReportPlayerError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPlayerError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

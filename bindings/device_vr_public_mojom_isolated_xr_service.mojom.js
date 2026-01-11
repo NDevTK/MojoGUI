@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,13 +81,16 @@ mojo.internal.bindings.device.mojom.XRRuntimeSessionOptionsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntimeSessionResultSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRDeviceDataSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRSessionController = {};
+mojo.internal.bindings.device.mojom.XRSessionControllerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.XRSessionController.$interfaceName = 'device.mojom.XRSessionController';
 mojo.internal.bindings.device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntimeEventListener = {};
+mojo.internal.bindings.device.mojom.XRRuntimeEventListenerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.XRRuntimeEventListener.$interfaceName = 'device.mojom.XRRuntimeEventListener';
 mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntime = {};
+mojo.internal.bindings.device.mojom.XRRuntimeSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.XRRuntime.$interfaceName = 'device.mojom.XRRuntime';
 mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = { $: {} };
@@ -94,6 +98,7 @@ mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ParamsSpec = { $: 
 mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ImmersiveOverlay = {};
+mojo.internal.bindings.device.mojom.ImmersiveOverlaySpec = { $ : {} };
 mojo.internal.bindings.device.mojom.ImmersiveOverlay.$interfaceName = 'device.mojom.ImmersiveOverlay';
 mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = { $: {} };
@@ -103,18 +108,22 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibilit
 mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient = {};
+mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient.$interfaceName = 'device.mojom.IsolatedXRRuntimeProviderClient';
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider = {};
+mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider.$interfaceName = 'device.mojom.IsolatedXRRuntimeProvider';
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRDeviceService = {};
+mojo.internal.bindings.device.mojom.XRDeviceServiceSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.XRDeviceService.$interfaceName = 'device.mojom.XRDeviceService';
 mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRDeviceService_BindTestHook_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost = {};
+mojo.internal.bindings.device.mojom.XRDeviceServiceHostSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost.$interfaceName = 'device.mojom.XRDeviceServiceHost';
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = { $: {} };
 
@@ -139,10 +148,10 @@ mojo.internal.Struct(
 // Struct: XRRuntimeSessionResult
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRuntimeSessionResultSpec, 'device.mojom.XRRuntimeSessionResult', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRSessionControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRSessionControllerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_session', 8, 0, mojo.internal.bindings.device.mojom.XRSessionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_id', 16, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_overlay', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.ImmersiveOverlaySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_overlay', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.ImmersiveOverlayRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -195,7 +204,7 @@ mojo.internal.bindings.device.mojom.XRSessionControllerRemote = class {
 mojo.internal.bindings.device.mojom.XRSessionControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRSessionController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionController', [
       { explicit: null },
     ]);
   }
@@ -226,7 +235,7 @@ mojo.internal.bindings.device.mojom.XRSessionControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRSessionController', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionController', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -270,7 +279,7 @@ mojo.internal.bindings.device.mojom.XRSessionControllerReceiver = class {
         // Try Method 0: SetFrameDataRestricted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameDataRestricted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -354,7 +363,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerRemote = class {
 mojo.internal.bindings.device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRRuntimeEventListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRRuntimeEventListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -395,7 +404,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRRuntimeEventListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRRuntimeEventListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -440,7 +449,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerReceiver = class {
         // Try Method 0: OnVisibilityStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -451,7 +460,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerReceiver = class {
         // Try Method 1: OnExitPresent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExitPresent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -519,7 +528,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec, 'device.mojom.XRRuntime_ListenToDeviceChanges_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.XRRuntimeEventListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.XRRuntimeEventListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -562,7 +571,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeRemote = class {
 mojo.internal.bindings.device.mojom.XRRuntimeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRRuntime', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRRuntime', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -613,7 +622,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRRuntime', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRRuntime', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -659,7 +668,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
         // Try Method 0: RequestSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -670,7 +679,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
         // Try Method 1: ShutdownSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutdownSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -681,7 +690,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
         // Try Method 2: ListenToDeviceChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenToDeviceChanges (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -834,7 +843,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayRemote = class {
 mojo.internal.bindings.device.mojom.ImmersiveOverlayRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ImmersiveOverlay', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.ImmersiveOverlay', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -895,7 +904,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ImmersiveOverlay', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.ImmersiveOverlay', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -942,7 +951,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
         // Try Method 0: RequestNextOverlayPose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNextOverlayPose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -953,7 +962,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
         // Try Method 1: SubmitOverlayTexture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitOverlayTexture (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -964,7 +973,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
         // Try Method 2: SetOverlayAndWebXRVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOverlayAndWebXRVisibility (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -975,7 +984,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
         // Try Method 3: RequestNotificationOnWebXrSubmitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotificationOnWebXrSubmitted (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1059,7 +1068,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayRequest = mojo.internal.bind
 // Interface: IsolatedXRRuntimeProviderClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_runtime', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRRuntimeSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_runtime', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRRuntimeRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_data', 8, 0, mojo.internal.bindings.device.mojom.XRDeviceDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
     ],
@@ -1115,7 +1124,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientRemote = clas
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IsolatedXRRuntimeProviderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.IsolatedXRRuntimeProviderClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1166,7 +1175,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IsolatedXRRuntimeProviderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.IsolatedXRRuntimeProviderClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1212,7 +1221,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
         // Try Method 0: OnDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1223,7 +1232,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
         // Try Method 1: OnDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1234,7 +1243,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
         // Try Method 2: OnDevicesEnumerated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicesEnumerated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1287,7 +1296,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientRequest = moj
 // Interface: IsolatedXRRuntimeProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProvider_RequestDevices_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1324,7 +1333,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRemote = class {
 mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IsolatedXRRuntimeProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.IsolatedXRRuntimeProvider', [
       { explicit: null },
     ]);
   }
@@ -1355,7 +1364,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IsolatedXRRuntimeProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.IsolatedXRRuntimeProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1399,7 +1408,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderReceiver = class {
         // Try Method 0: RequestDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1438,8 +1447,8 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRequest = mojo.inte
 // Interface: XRDeviceService
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec, 'device.mojom.XRDeviceService_BindRuntimeProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRDeviceServiceHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1485,7 +1494,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceRemote = class {
 mojo.internal.bindings.device.mojom.XRDeviceServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRDeviceService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRDeviceService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1526,7 +1535,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRDeviceService', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRDeviceService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1571,7 +1580,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceReceiver = class {
         // Try Method 0: BindRuntimeProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRuntimeProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1582,7 +1591,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceReceiver = class {
         // Try Method 1: BindTestHook
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceService_BindTestHook_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceService_BindTestHook_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestHook (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1665,7 +1674,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemote = class {
 mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRDeviceServiceHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRDeviceServiceHost', [
       { explicit: null },
     ]);
   }
@@ -1696,7 +1705,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRDeviceServiceHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRDeviceServiceHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1740,7 +1749,7 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHostReceiver = class {
         // Try Method 0: BindGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

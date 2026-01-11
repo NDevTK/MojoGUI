@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler';
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = { $: {} };
@@ -83,6 +85,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnF
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPage';
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = { $: {} };
@@ -91,6 +94,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBattery
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPageHandler';
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = { $: {} };
@@ -98,6 +102,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_On
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPage';
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
@@ -196,7 +201,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ArcVmDataMigrationPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.ArcVmDataMigrationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -267,7 +272,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ArcVmDataMigrationPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.ArcVmDataMigrationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -315,7 +320,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
         // Try Method 0: OnResumeClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResumeClicked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +331,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
         // Try Method 1: OnUpdateClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdateClicked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -337,7 +342,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
         // Try Method 2: OnFinishClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinishClicked (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -348,7 +353,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
         // Try Method 3: OnSkipClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSkipClicked (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -359,7 +364,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRece
         // Try Method 4: OnReportClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportClicked (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -509,7 +514,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemote = cl
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ArcVmDataMigrationPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.ArcVmDataMigrationPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -590,7 +595,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ArcVmDataMigrationPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.ArcVmDataMigrationPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -639,7 +644,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 0: SetUIState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUIState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -650,7 +655,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 1: SetRequiredFreeDiskSpace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRequiredFreeDiskSpace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -661,7 +666,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 2: SetMinimumBatteryPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMinimumBatteryPercent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -672,7 +677,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 3: SetBatteryState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -683,7 +688,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 4: SetMigrationProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMigrationProgress (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -694,7 +699,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
         // Try Method 5: SetEstimatedRemainingTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEstimatedRemainingTime (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -836,7 +841,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EncryptionMigrationPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.EncryptionMigrationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -907,7 +912,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EncryptionMigrationPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.EncryptionMigrationPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -955,7 +960,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
         // Try Method 0: OnStartMigration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartMigration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -966,7 +971,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
         // Try Method 1: OnSkipMigration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSkipMigration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -977,7 +982,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
         // Try Method 2: OnRequestRestartOnLowStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestRestartOnLowStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -988,7 +993,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
         // Try Method 3: OnRequestRestartOnFailure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestRestartOnFailure (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -999,7 +1004,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRec
         // Try Method 4: OnOpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOpenFeedbackDialog (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1151,7 +1156,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemote = c
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EncryptionMigrationPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.EncryptionMigrationPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1232,7 +1237,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EncryptionMigrationPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.screens_login.mojom.EncryptionMigrationPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1281,7 +1286,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 0: SetUIState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUIState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1292,7 +1297,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 1: SetMigrationProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMigrationProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1303,7 +1308,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 2: SetIsResuming
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsResuming (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1314,7 +1319,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 3: SetBatteryState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatteryState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1325,7 +1330,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 4: SetNecessaryBatteryPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNecessaryBatteryPercent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1336,7 +1341,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
         // Try Method 5: SetSpaceInfoInString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSpaceInfoInString (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,6 +88,7 @@ mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimInfoSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.FeatureStateSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShim = {};
+mojo.internal.bindings.chrome.mojom.AppShimSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.AppShim.$interfaceName = 'chrome.mojom.AppShim';
 mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = { $: {} };
@@ -99,6 +101,7 @@ mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_Params
 mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimHost = {};
+mojo.internal.bindings.chrome.mojom.AppShimHostSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.AppShimHost.$interfaceName = 'chrome.mojom.AppShimHost';
 mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = { $: {} };
@@ -111,6 +114,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_Param
 mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap = {};
+mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap.$interfaceName = 'chrome.mojom.AppShimHostBootstrap';
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = { $: {} };
@@ -312,7 +316,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemote = class {
 mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppShim', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShim', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -423,7 +427,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppShim', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShim', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -475,7 +479,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 0: CreateRemoteCocoaApplication
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRemoteCocoaApplication (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -486,7 +490,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 1: CreateCommandDispatcherForWidget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCommandDispatcherForWidget (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -497,7 +501,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 2: SetUserAttention
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserAttention (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -508,7 +512,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 3: SetBadgeLabel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBadgeLabel (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -519,7 +523,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 4: UpdateProfileMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateProfileMenu (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -530,7 +534,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 5: UpdateApplicationDockMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateApplicationDockMenu (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -541,7 +545,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 6: BindNotificationProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNotificationProvider (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -552,7 +556,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 7: RequestNotificationPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotificationPermission (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -563,7 +567,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
         // Try Method 8: BindChildHistogramFetcherFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindChildHistogramFetcherFactory (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -780,7 +784,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemote = class {
 mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppShimHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShimHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -901,7 +905,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppShimHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShimHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -954,7 +958,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 0: FocusApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -965,7 +969,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 1: ReopenApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReopenApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -976,7 +980,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 2: FilesOpened
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FilesOpened (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -987,7 +991,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 3: ProfileSelectedFromMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProfileSelectedFromMenu (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -998,7 +1002,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 4: OpenAppSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAppSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1009,7 +1013,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 5: UrlsOpened
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UrlsOpened (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1020,7 +1024,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 6: OpenAppWithOverrideUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAppWithOverrideUrl (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1031,7 +1035,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 7: EnableAccessibilitySupport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAccessibilitySupport (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1042,7 +1046,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 8: ApplicationWillTerminate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplicationWillTerminate (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1053,7 +1057,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
         // Try Method 9: NotificationPermissionStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotificationPermissionStatusChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1155,7 +1159,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRequest = mojo.internal.bindings.
 // Interface: AppShimHostBootstrap
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_Params', [
-      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_app_shim_info', 8, 0, mojo.internal.bindings.chrome.mojom.AppShimInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1164,7 +1168,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParams', [
       mojo.internal.StructField('arg_launch_result', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_feature_state', 8, 0, mojo.internal.bindings.chrome.mojom.FeatureStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_shim_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_shim_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1201,7 +1205,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapRemote = class {
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppShimHostBootstrap', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShimHostBootstrap', [
       { explicit: null },
     ]);
   }
@@ -1232,7 +1236,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppShimHostBootstrap', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShimHostBootstrap', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1276,7 +1280,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = class {
         // Try Method 0: OnShimConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShimConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

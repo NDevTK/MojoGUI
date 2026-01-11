@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-11T04:36:31.896771Z",
+  "generated_at": "2026-01-11T05:14:51.194376Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -24834,6 +24834,12 @@
       "imports": []
     },
     {
+      "filename": "cc_mojom_overscroll_behavior.mojom.js",
+      "source": "cc/mojom/overscroll_behavior.mojom",
+      "module": "cc.mojom",
+      "imports": []
+    },
+    {
       "filename": "cc_mojom_paint_flags.mojom.js",
       "source": "cc/mojom/paint_flags.mojom",
       "module": "cc.mojom",
@@ -30735,6 +30741,12 @@
       ]
     },
     {
+      "filename": "content_public_common_drop_data.mojom.js",
+      "source": "content/public/common/drop_data.mojom",
+      "module": "content.mojom",
+      "imports": []
+    },
+    {
       "filename": "content_public_common_extra_mojo_js_features.mojom.js",
       "source": "content/public/common/extra_mojo_js_features.mojom",
       "module": "content.mojom",
@@ -30757,6 +30769,12 @@
     {
       "filename": "content_public_common_resource_usage_reporter.mojom.js",
       "source": "content/public/common/resource_usage_reporter.mojom",
+      "module": "content.mojom",
+      "imports": []
+    },
+    {
+      "filename": "content_public_common_webplugininfo.mojom.js",
+      "source": "content/public/common/webplugininfo.mojom",
       "module": "content.mojom",
       "imports": []
     },
@@ -31403,6 +31421,12 @@
       "imports": []
     },
     {
+      "filename": "gpu_ipc_common_capabilities.mojom.js",
+      "source": "gpu/ipc/common/capabilities.mojom",
+      "module": "gpu.mojom",
+      "imports": []
+    },
+    {
       "filename": "gpu_ipc_common_context_result.mojom.js",
       "source": "gpu/ipc/common/context_result.mojom",
       "module": "gpu.mojom",
@@ -31863,6 +31887,12 @@
         "media/mojo/mojom/audio_parameters.mojom",
         "media/mojo/mojom/media_types.mojom"
       ]
+    },
+    {
+      "filename": "media_mojo_mojom_audio_parameters.mojom.js",
+      "source": "media/mojo/mojom/audio_parameters.mojom",
+      "module": "media.mojom",
+      "imports": []
     },
     {
       "filename": "media_mojo_mojom_audio_processing.mojom.js",
@@ -38591,6 +38621,12 @@
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_runtime_feature_state_runtime_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_safe_url_pattern.mojom.js",

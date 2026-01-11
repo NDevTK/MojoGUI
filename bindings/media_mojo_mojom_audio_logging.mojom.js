@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
 mojo.internal.bindings.media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.AudioLog = {};
+mojo.internal.bindings.media.mojom.AudioLogSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioLog.$interfaceName = 'media.mojom.AudioLog';
 mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec = { $: {} };
@@ -83,6 +85,7 @@ mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioLogFactory = {};
+mojo.internal.bindings.media.mojom.AudioLogFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioLogFactory.$interfaceName = 'media.mojom.AudioLogFactory';
 mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = { $: {} };
 
@@ -193,7 +196,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemote = class {
 mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioLog', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioLog', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -294,7 +297,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioLog', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioLog', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -345,7 +348,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 0: OnCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -356,7 +359,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 1: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -367,7 +370,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 2: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -378,7 +381,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 3: OnClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -389,7 +392,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 4: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -400,7 +403,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 5: OnSetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSetVolume (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -411,7 +414,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 6: OnProcessingStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProcessingStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -422,7 +425,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
         // Try Method 7: OnLogMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLogMessage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -511,7 +514,7 @@ mojo.internal.bindings.media.mojom.AudioLogRequest = mojo.internal.bindings.medi
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
       mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_component_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -549,7 +552,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryRemote = class {
 mojo.internal.bindings.media.mojom.AudioLogFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioLogFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioLogFactory', [
       { explicit: null },
     ]);
   }
@@ -580,7 +583,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioLogFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioLogFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -624,7 +627,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryReceiver = class {
         // Try Method 0: CreateAudioLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioLog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.composebox.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.composebox.mojom.PageHandlerFactory.$interfaceName = 'composebox.mojom.PageHandlerFactory';
 mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.composebox.mojom.PageHandler = {};
+mojo.internal.bindings.composebox.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.composebox.mojom.PageHandler.$interfaceName = 'composebox.mojom.PageHandler';
 mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = { $: {} };
@@ -85,13 +88,14 @@ mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_Params
 mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = { $: {} };
 mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.composebox.mojom.Page = {};
+mojo.internal.bindings.composebox.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.composebox.mojom.Page.$interfaceName = 'composebox.mojom.Page';
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'composebox.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.composebox.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.composebox.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.composebox.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.composebox.mojom.PageHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_searchbox_page', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_searchbox_handler', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.searchbox.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
@@ -130,7 +134,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -161,7 +165,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -205,7 +209,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +330,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -407,7 +411,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -456,7 +460,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 0: FocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -467,7 +471,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 1: SetDeepSearchMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeepSearchMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -478,7 +482,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 2: SetCreateImageMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCreateImageMode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -489,7 +493,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 3: HandleLensButtonClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleLensButtonClick (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -500,7 +504,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 4: HandleFileUpload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleFileUpload (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -511,7 +515,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         // Try Method 5: NavigateUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NavigateUrl (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -613,7 +617,7 @@ mojo.internal.bindings.composebox.mojom.PageRemote = class {
 mojo.internal.bindings.composebox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.Page', [
     ]);
   }
 
@@ -634,7 +638,7 @@ mojo.internal.bindings.composebox.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.Page', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

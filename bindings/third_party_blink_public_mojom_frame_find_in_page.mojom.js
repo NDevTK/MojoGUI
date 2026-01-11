@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.FindOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage = {};
+mojo.internal.bindings.blink.mojom.FindInPageSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FindInPage.$interfaceName = 'blink.mojom.FindInPage';
 mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec = { $: {} };
@@ -87,6 +89,7 @@ mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSp
 mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPageClient = {};
+mojo.internal.bindings.blink.mojom.FindInPageClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FindInPageClient.$interfaceName = 'blink.mojom.FindInPageClient';
 mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = { $: {} };
@@ -138,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec, 'blink.mojom.FindInPage_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FindInPageClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FindInPageClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -226,7 +229,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRemote = class {
 mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FindInPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -317,7 +320,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FindInPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -367,7 +370,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 0: Find
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Find (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -378,7 +381,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 1: StopFinding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFinding (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -389,7 +392,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 2: ClearActiveFindMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearActiveFindMatch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -400,7 +403,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 3: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -411,7 +414,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 4: GetNearestFindResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNearestFindResult (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -422,7 +425,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 5: ActivateNearestFindResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateNearestFindResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -433,7 +436,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
         // Try Method 6: FindMatchRects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindMatchRects (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -581,7 +584,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientRemote = class {
 mojo.internal.bindings.blink.mojom.FindInPageClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FindInPageClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPageClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -622,7 +625,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FindInPageClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPageClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -667,7 +670,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = class {
         // Try Method 0: SetNumberOfMatches
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNumberOfMatches (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -678,7 +681,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = class {
         // Try Method 1: SetActiveMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActiveMatch (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

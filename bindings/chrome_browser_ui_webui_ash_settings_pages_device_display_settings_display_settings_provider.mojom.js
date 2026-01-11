@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,18 +78,23 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptio
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserver = {};
+mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserver.$interfaceName = 'ash.settings.mojom.TabletModeObserver';
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver = {};
+mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver.$interfaceName = 'ash.settings.mojom.DisplayConfigurationObserver';
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver = {};
+mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver.$interfaceName = 'ash.settings.mojom.DisplayBrightnessSettingsObserver';
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver = {};
+mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver.$interfaceName = 'ash.settings.mojom.AmbientLightSensorObserver';
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider.$interfaceName = 'ash.settings.mojom.DisplaySettingsProvider';
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = { $: {} };
@@ -194,7 +200,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemote = class {
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabletModeObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.TabletModeObserver', [
       { explicit: null },
     ]);
   }
@@ -225,7 +231,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabletModeObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.TabletModeObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -269,7 +275,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverReceiver = class {
         // Try Method 0: OnTabletModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabletModeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -344,7 +350,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemote = c
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplayConfigurationObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplayConfigurationObserver', [
       { explicit: null },
     ]);
   }
@@ -375,7 +381,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplayConfigurationObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplayConfigurationObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -419,7 +425,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverReceiver =
         // Try Method 0: OnDisplayConfigurationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayConfigurationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +502,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemot
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplayBrightnessSettingsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplayBrightnessSettingsObserver', [
       { explicit: null },
     ]);
   }
@@ -527,7 +533,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplayBrightnessSettingsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplayBrightnessSettingsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -571,7 +577,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRecei
         // Try Method 0: OnDisplayBrightnessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayBrightnessChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -647,7 +653,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemote = cla
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AmbientLightSensorObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.AmbientLightSensorObserver', [
       { explicit: null },
     ]);
   }
@@ -678,7 +684,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AmbientLightSensorObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.AmbientLightSensorObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -722,7 +728,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverReceiver = c
         // Try Method 0: OnAmbientLightSensorEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientLightSensorEnabledChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -761,7 +767,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRequest = mo
 // Interface: DisplaySettingsProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -773,13 +779,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -791,7 +797,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -902,7 +908,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemote = class 
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DisplaySettingsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplaySettingsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1023,7 +1029,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DisplaySettingsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.DisplaySettingsProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1076,7 +1082,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 0: ObserveTabletMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveTabletMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1087,7 +1093,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 1: ObserveDisplayConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDisplayConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1098,7 +1104,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 2: ObserveDisplayBrightnessSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDisplayBrightnessSettings (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1109,7 +1115,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 3: ObserveAmbientLightSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAmbientLightSensor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1120,7 +1126,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 4: RecordChangingDisplaySettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordChangingDisplaySettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1131,7 +1137,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 5: SetShinyPerformance
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShinyPerformance (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1142,7 +1148,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 6: SetInternalDisplayScreenBrightness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalDisplayScreenBrightness (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1153,7 +1159,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 7: SetInternalDisplayAmbientLightSensorEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalDisplayAmbientLightSensorEnabled (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1164,7 +1170,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 8: StartNativeTouchscreenMappingExperience
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartNativeTouchscreenMappingExperience (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1175,7 +1181,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
         // Try Method 9: HasAmbientLightSensor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasAmbientLightSensor (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

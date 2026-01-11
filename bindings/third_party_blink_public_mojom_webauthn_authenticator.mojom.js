@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -116,6 +117,7 @@ mojo.internal.bindings.blink.mojom.CurrentUserDetailsOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebAuthnClientCapabilitySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.GetAssertionResponseSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Authenticator = {};
+mojo.internal.bindings.blink.mojom.AuthenticatorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.Authenticator.$interfaceName = 'blink.mojom.Authenticator';
 mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = { $: {} };
@@ -709,7 +711,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemote = class {
 mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Authenticator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -800,7 +802,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Authenticator', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -850,7 +852,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 0: MakeCredential
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeCredential (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -861,7 +863,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 1: GetCredential
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCredential (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -872,7 +874,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 2: IsUserVerifyingPlatformAuthenticatorAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsUserVerifyingPlatformAuthenticatorAvailable (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -883,7 +885,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 3: IsConditionalMediationAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsConditionalMediationAvailable (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -894,7 +896,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 4: Report
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Report (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -905,7 +907,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 5: GetClientCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClientCapabilities (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -916,7 +918,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
         // Try Method 6: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

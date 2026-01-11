@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -71,6 +72,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 
 mojo.internal.bindings.extensions.KeepAlive = {};
+mojo.internal.bindings.extensions.KeepAliveSpec = { $ : {} };
 mojo.internal.bindings.extensions.KeepAlive.$interfaceName = 'extensions.KeepAlive';
 
 // Interface: KeepAlive
@@ -104,7 +106,7 @@ mojo.internal.bindings.extensions.KeepAliveRemote = class {
 mojo.internal.bindings.extensions.KeepAliveRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeepAlive', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.KeepAlive', [
     ]);
   }
 
@@ -125,7 +127,7 @@ mojo.internal.bindings.extensions.KeepAliveReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeepAlive', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.KeepAlive', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

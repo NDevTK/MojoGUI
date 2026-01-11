@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -91,6 +92,7 @@ mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec = { $:
 mojo.internal.bindings.media_router.mojom.CastSessionStateSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.CastProviderStateSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider = {};
+mojo.internal.bindings.media_router.mojom.MediaRouteProviderSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider.$interfaceName = 'media_router.mojom.MediaRouteProvider';
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = { $: {} };
@@ -110,6 +112,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouter = {};
+mojo.internal.bindings.media_router.mojom.MediaRouterSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.MediaRouter.$interfaceName = 'media_router.mojom.MediaRouter';
 mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = { $: {} };
@@ -452,7 +455,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemote = class {
 mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaRouteProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaRouteProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -593,7 +596,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaRouteProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaRouteProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -648,7 +651,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 0: CreateRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRoute (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -659,7 +662,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 1: JoinRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinRoute (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -670,7 +673,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 2: TerminateRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TerminateRoute (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -681,7 +684,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 3: SendRouteMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRouteMessage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -692,7 +695,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 4: SendRouteBinaryMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendRouteBinaryMessage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -703,7 +706,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 5: StartObservingMediaSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingMediaSinks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -714,7 +717,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 6: StopObservingMediaSinks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopObservingMediaSinks (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -725,7 +728,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 7: StartObservingMediaRoutes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartObservingMediaRoutes (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -736,7 +739,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 8: DetachRoute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetachRoute (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -747,7 +750,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 9: DiscoverSinksNow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DiscoverSinksNow (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -758,7 +761,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 10: BindMediaController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMediaController (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -769,7 +772,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
         // Try Method 11: GetState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -926,7 +929,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRequest = mojo.inter
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec, 'media_router.mojom.MediaRouter_RegisterMediaRouteProvider_Params', [
       mojo.internal.StructField('arg_provider_id', 0, 0, mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_router_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_router.mojom.MediaRouteProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_router_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1080,7 +1083,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemote = class {
 mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaRouter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaRouter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1221,7 +1224,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaRouter', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.MediaRouter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1276,7 +1279,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 0: RegisterMediaRouteProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMediaRouteProvider (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1287,7 +1290,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 1: OnSinksReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSinksReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1298,7 +1301,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 2: OnIssue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIssue (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1309,7 +1312,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 3: ClearTopIssueForSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTopIssueForSink (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1320,7 +1323,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 4: OnRoutesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutesUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1331,7 +1334,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 5: OnPresentationConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentationConnectionStateChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1342,7 +1345,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 6: OnPresentationConnectionClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentationConnectionClosed (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1353,7 +1356,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 7: OnRouteMessagesReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRouteMessagesReceived (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1364,7 +1367,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 8: GetMediaSinkServiceStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaSinkServiceStatus (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1375,7 +1378,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 9: GetLogger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLogger (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1386,7 +1389,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 10: GetDebugger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugger (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1397,7 +1400,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
         // Try Method 11: GetLogsAsString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLogsAsString (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

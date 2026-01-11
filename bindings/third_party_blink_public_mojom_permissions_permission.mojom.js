@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -85,12 +86,15 @@ mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PermissionObserver = {};
+mojo.internal.bindings.blink.mojom.PermissionObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PermissionObserver.$interfaceName = 'blink.mojom.PermissionObserver';
 mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient = {};
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient.$interfaceName = 'blink.mojom.EmbeddedPermissionControlClient';
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PermissionService = {};
+mojo.internal.bindings.blink.mojom.PermissionServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.PermissionService.$interfaceName = 'blink.mojom.PermissionService';
 mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = { $: {} };
@@ -287,7 +291,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverRemote = class {
 mojo.internal.bindings.blink.mojom.PermissionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PermissionObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PermissionObserver', [
       { explicit: null },
     ]);
   }
@@ -318,7 +322,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PermissionObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PermissionObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -362,7 +366,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverReceiver = class {
         // Try Method 0: OnPermissionStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPermissionStatusChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -439,7 +443,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRemote = class
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedPermissionControlClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedPermissionControlClient', [
       { explicit: null },
     ]);
   }
@@ -470,7 +474,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedPermissionControlClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedPermissionControlClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -514,7 +518,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientReceiver = cla
         // Try Method 0: OnEmbeddedPermissionControlRegistered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEmbeddedPermissionControlRegistered (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -567,7 +571,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec, 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params', [
       mojo.internal.StructField('arg_permissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -626,7 +630,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
       mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -634,7 +638,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params', [
       mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -703,7 +707,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemote = class {
 mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PermissionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PermissionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -814,7 +818,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PermissionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.PermissionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -866,7 +870,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 0: HasPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasPermission (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -877,7 +881,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 1: RegisterPageEmbeddedPermissionControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPageEmbeddedPermissionControl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -888,7 +892,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 2: RequestPageEmbeddedPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPageEmbeddedPermission (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -899,7 +903,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 3: RequestPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermission (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -910,7 +914,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 4: RequestPermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPermissions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -921,7 +925,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 5: RevokePermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokePermission (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -932,7 +936,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 6: AddPermissionObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPermissionObserver (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -943,7 +947,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 7: AddPageEmbeddedPermissionObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPageEmbeddedPermissionObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -954,7 +958,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
         // Try Method 8: NotifyEventListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyEventListener (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

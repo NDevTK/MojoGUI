@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService.$interfaceName = 'chromeos.sensors.mojom.SensorService';
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = { $: {} };
@@ -84,6 +86,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_Para
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice.$interfaceName = 'chromeos.sensors.mojom.SensorDevice';
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = { $: {} };
@@ -99,10 +102,12 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_Re
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorDeviceSamplesObserver';
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver';
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = { $: {} };
 
@@ -210,7 +215,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
-      mojo.internal.StructField('arg_device_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -254,7 +259,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote = class {
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -305,7 +310,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -351,7 +356,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
         // Try Method 0: GetDeviceIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceIds (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -362,7 +367,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
         // Try Method 1: GetAllDeviceIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllDeviceIds (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -373,7 +378,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
         // Try Method 2: GetDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -472,7 +477,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_StartReadingSamples_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -571,7 +576,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemote = class {
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorDevice', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorDevice', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -672,7 +677,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorDevice', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorDevice', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -723,7 +728,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 0: SetTimeout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTimeout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -734,7 +739,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 1: GetAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAttributes (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -745,7 +750,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 2: SetFrequency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrequency (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -756,7 +761,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 3: StartReadingSamples
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReadingSamples (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -767,7 +772,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 4: StopReadingSamples
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReadingSamples (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -778,7 +783,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 5: GetAllChannelIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllChannelIds (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -789,7 +794,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 6: GetChannelsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChannelsEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -800,7 +805,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
         // Try Method 7: GetChannelsAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChannelsAttributes (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -974,7 +979,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote 
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorDeviceSamplesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorDeviceSamplesObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1015,7 +1020,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorDeviceSamplesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorDeviceSamplesObserver', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1060,7 +1065,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverReceive
         // Try Method 0: OnSampleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSampleUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1071,7 +1076,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverReceive
         // Try Method 1: OnErrorOccurred
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnErrorOccurred (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1155,7 +1160,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRem
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SensorServiceNewDevicesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorServiceNewDevicesObserver', [
       { explicit: 0 },
     ]);
   }
@@ -1186,7 +1191,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SensorServiceNewDevicesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.sensors.mojom.SensorServiceNewDevicesObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1230,7 +1235,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRec
         // Try Method 0: OnNewDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewDeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

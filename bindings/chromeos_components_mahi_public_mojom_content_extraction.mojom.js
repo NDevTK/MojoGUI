@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,12 +82,14 @@ mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionService = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec = { $ : {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionService.$interfaceName = 'mahi.mojom.ContentExtractionService';
 mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec = { $ : {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory.$interfaceName = 'mahi.mojom.ContentExtractionServiceFactory';
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = { $: {} };
@@ -194,7 +197,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote = class {
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentExtractionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mahi.mojom.ContentExtractionService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -235,7 +238,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentExtractionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('mahi.mojom.ContentExtractionService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -280,7 +283,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
         // Try Method 0: ExtractContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -291,7 +294,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
         // Try Method 1: GetContentSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -353,7 +356,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRequest = mojo.interna
 // Interface: ContentExtractionServiceFactory
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
-      mojo.internal.StructField('arg_content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -399,7 +402,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemote = class 
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentExtractionServiceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mahi.mojom.ContentExtractionServiceFactory', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -440,7 +443,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentExtractionServiceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('mahi.mojom.ContentExtractionServiceFactory', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -485,7 +488,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = clas
         // Try Method 0: BindContentExtractionService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindContentExtractionService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +499,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = clas
         // Try Method 1: OnScreen2xReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreen2xReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

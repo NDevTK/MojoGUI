@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost.$interfaceName = 'payments.mojom.PaymentHandlerHost';
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = { $: {} };
@@ -187,7 +189,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote = class {
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaymentHandlerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentHandlerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -238,7 +240,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaymentHandlerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentHandlerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -284,7 +286,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
         // Try Method 0: ChangePaymentMethod
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangePaymentMethod (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -295,7 +297,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
         // Try Method 1: ChangeShippingOption
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeShippingOption (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -306,7 +308,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
         // Try Method 2: ChangeShippingAddress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeShippingAddress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

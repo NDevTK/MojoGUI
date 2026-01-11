@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.files_internals = mojo.internal.bindings.ash.mojom.files_internals || {};
 
 mojo.internal.bindings.ash.mojom.files_internals.PageHandler = {};
+mojo.internal.bindings.ash.mojom.files_internals.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.files_internals.PageHandler.$interfaceName = 'ash.mojom.files_internals.PageHandler';
 mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec = { $: {} };
@@ -305,7 +307,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemote = class {
 mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.files_internals.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -466,7 +468,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.files_internals.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -523,7 +525,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 0: GetSmbfsEnableVerboseLogging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSmbfsEnableVerboseLogging (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -534,7 +536,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 1: SetSmbfsEnableVerboseLogging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSmbfsEnableVerboseLogging (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -545,7 +547,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 2: GetOfficeFileHandlers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOfficeFileHandlers (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -556,7 +558,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 3: ClearOfficeFileHandlers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOfficeFileHandlers (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -567,7 +569,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 4: GetMoveConfirmationShownForDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForDrive (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -578,7 +580,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 5: GetMoveConfirmationShownForOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForOneDrive (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -589,7 +591,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 6: GetMoveConfirmationShownForLocalToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForLocalToDrive (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -600,7 +602,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 7: GetMoveConfirmationShownForLocalToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForLocalToOneDrive (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -611,7 +613,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 8: GetMoveConfirmationShownForCloudToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForCloudToDrive (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -622,7 +624,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 9: GetMoveConfirmationShownForCloudToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForCloudToOneDrive (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -633,7 +635,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 10: GetAlwaysMoveOfficeFilesToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToDrive (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -644,7 +646,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 11: SetAlwaysMoveOfficeFilesToDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToDrive (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -655,7 +657,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 12: GetAlwaysMoveOfficeFilesToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToOneDrive (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -666,7 +668,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerReceiver = class {
         // Try Method 13: SetAlwaysMoveOfficeFilesToOneDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToOneDrive (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

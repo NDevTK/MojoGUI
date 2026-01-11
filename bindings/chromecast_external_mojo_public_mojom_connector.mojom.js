@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec = { $: {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = { $: {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec = { $ : {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService.$interfaceName = 'chromecast.external_mojo.mojom.ExternalService';
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec = { $ : {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector.$interfaceName = 'chromecast.external_mojo.mojom.ExternalConnector';
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = { $: {} };
@@ -100,7 +103,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, 'chromecast.external_mojo.mojom.ServiceInstanceInfo', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -145,7 +148,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRemote = cl
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExternalService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.ExternalService', [
       { explicit: null },
     ]);
   }
@@ -176,7 +179,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExternalService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.ExternalService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -220,7 +223,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceReceiver = 
         // Try Method 0: OnBindInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBindInterface (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +276,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -339,7 +342,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemote = 
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExternalConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.ExternalConnector', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -410,7 +413,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExternalConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.external_mojo.mojom.ExternalConnector', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,7 +461,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
         // Try Method 0: RegisterServiceInstances
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterServiceInstances (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -469,7 +472,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
         // Try Method 1: BindInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInterface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -480,7 +483,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
         // Try Method 2: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -491,7 +494,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
         // Try Method 3: BindChromiumConnector
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindChromiumConnector (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -502,7 +505,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
         // Try Method 4: QueryServiceList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryServiceList (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

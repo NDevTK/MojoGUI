@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.LcpElementSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost.$interfaceName = 'blink.mojom.LCPCriticalPathPredictorHost';
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = { $: {} };
@@ -206,7 +208,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemote = class {
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LCPCriticalPathPredictorHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LCPCriticalPathPredictorHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -297,7 +299,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LCPCriticalPathPredictorHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LCPCriticalPathPredictorHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -347,7 +349,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 0: OnLcpUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLcpUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -358,7 +360,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 1: OnLcpTimingPredictedForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLcpTimingPredictedForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -369,7 +371,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 2: SetLcpInfluencerScriptUrls
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLcpInfluencerScriptUrls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -380,7 +382,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 3: AddPreconnectOrigin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPreconnectOrigin (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -391,7 +393,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 4: NotifyFetchedFont
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyFetchedFont (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -402,7 +404,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 5: NotifyFetchedSubresource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyFetchedSubresource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -413,7 +415,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostReceiver = class 
         // Try Method 6: SetUnusedPreloads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUnusedPreloads (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

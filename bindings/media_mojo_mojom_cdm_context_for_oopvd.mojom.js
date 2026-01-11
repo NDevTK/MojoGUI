@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.media.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmContextEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmContextEventCallback = {};
+mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmContextEventCallback.$interfaceName = 'media.mojom.CdmContextEventCallback';
 mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmContextForOOPVD = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmContextForOOPVD.$interfaceName = 'media.mojom.CdmContextForOOPVD';
 mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = { $: {} };
@@ -146,7 +149,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackRemote = class {
 mojo.internal.bindings.media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmContextEventCallback', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmContextEventCallback', [
       { explicit: null },
     ]);
   }
@@ -177,7 +180,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmContextEventCallback', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmContextEventCallback', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -221,7 +224,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackReceiver = class {
         // Try Method 0: EventCallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EventCallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +277,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec, 'media.mojom.CdmContextForOOPVD_RegisterEventCallback_Params', [
-      mojo.internal.StructField('arg_callback', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_callback', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.CdmContextEventCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -394,7 +397,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemote = class {
 mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CdmContextForOOPVD', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmContextForOOPVD', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -485,7 +488,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CdmContextForOOPVD', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmContextForOOPVD', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -535,7 +538,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 0: GetHwKeyData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHwKeyData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -546,7 +549,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 1: RegisterEventCallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterEventCallback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -557,7 +560,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 2: GetHwConfigData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHwConfigData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -568,7 +571,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 3: GetScreenResolutions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScreenResolutions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -579,7 +582,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 4: AllocateSecureBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllocateSecureBuffer (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -590,7 +593,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 5: ParseEncryptedSliceHeader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseEncryptedSliceHeader (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -601,7 +604,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
         // Try Method 6: DecryptVideoBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptVideoBuffer (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

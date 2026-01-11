@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.ash.common = mojo.internal.bindings.ash.common || {};
 mojo.internal.bindings.ash.common.mojom = mojo.internal.bindings.ash.common.mojom || {};
 
 mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver = {};
+mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver.$interfaceName = 'ash.common.mojom.ForceHiddenElementsVisibleObserver';
 mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures = {};
+mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures.$interfaceName = 'ash.common.mojom.AccessibilityFeatures';
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = { $: {} };
@@ -120,7 +123,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemote
 mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ForceHiddenElementsVisibleObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ForceHiddenElementsVisibleObserver', [
       { explicit: null },
     ]);
   }
@@ -151,7 +154,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ForceHiddenElementsVisibleObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.ForceHiddenElementsVisibleObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -195,7 +198,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverReceiv
         // Try Method 0: OnForceHiddenElementsVisibleChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnForceHiddenElementsVisibleChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -234,7 +237,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverReques
 // Interface: AccessibilityFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -277,7 +280,7 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesRemote = class {
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessibilityFeatures', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AccessibilityFeatures', [
       { explicit: null },
     ]);
   }
@@ -308,7 +311,7 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessibilityFeatures', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AccessibilityFeatures', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -352,7 +355,7 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesReceiver = class {
         // Try Method 0: ObserveForceHiddenElementsVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveForceHiddenElementsVisible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

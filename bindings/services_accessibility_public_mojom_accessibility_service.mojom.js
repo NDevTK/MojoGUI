@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,14 +75,17 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyController = {};
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyController.$interfaceName = 'ax.mojom.AssistiveTechnologyController';
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AccessibilityService = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.AccessibilityService.$interfaceName = 'ax.mojom.AccessibilityService';
 mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClient = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClient.$interfaceName = 'ax.mojom.AccessibilityServiceClient';
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = { $: {} };
@@ -132,7 +136,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemote = class {
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AssistiveTechnologyController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AssistiveTechnologyController', [
       { explicit: null },
     ]);
   }
@@ -163,7 +167,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AssistiveTechnologyController', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AssistiveTechnologyController', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -207,7 +211,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerReceiver = class {
         // Try Method 0: EnableAssistiveTechnology
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAssistiveTechnology (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -246,13 +250,13 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRequest = mojo.inte
 // Interface: AccessibilityService
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec, 'ax.mojom.AccessibilityService_BindAccessibilityServiceClient_Params', [
-      mojo.internal.StructField('arg_accessibility_service_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_service_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec, 'ax.mojom.AccessibilityService_BindAssistiveTechnologyController_Params', [
-      mojo.internal.StructField('arg_at_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_at_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_features', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -303,7 +307,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemote = class {
 mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessibilityService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AccessibilityService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -354,7 +358,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessibilityService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AccessibilityService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -400,7 +404,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceReceiver = class {
         // Try Method 0: BindAccessibilityServiceClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAccessibilityServiceClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -411,7 +415,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceReceiver = class {
         // Try Method 1: BindAssistiveTechnologyController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAssistiveTechnologyController (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -422,7 +426,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceReceiver = class {
         // Try Method 2: ConnectDevToolsAgent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDevToolsAgent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -575,7 +579,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemote = class {
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessibilityServiceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AccessibilityServiceClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -676,7 +680,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessibilityServiceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AccessibilityServiceClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -727,7 +731,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 0: BindAutomation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutomation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -738,7 +742,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 1: BindAutomationClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutomationClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -749,7 +753,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 2: BindAutoclickClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutoclickClient (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -760,7 +764,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 3: BindSpeechRecognition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSpeechRecognition (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -771,7 +775,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 4: BindTts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTts (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -782,7 +786,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 5: BindUserInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUserInput (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -793,7 +797,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 6: BindUserInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUserInterface (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -804,7 +808,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
         // Try Method 7: BindAccessibilityFileLoader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAccessibilityFileLoader (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chrome.mojom.ZipListener = {};
+mojo.internal.bindings.chrome.mojom.ZipListenerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ZipListener.$interfaceName = 'chrome.mojom.ZipListener';
 mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ZipFileCreator = {};
+mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ZipFileCreator.$interfaceName = 'chrome.mojom.ZipFileCreator';
 mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = { $: {} };
 
@@ -132,7 +135,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerRemote = class {
 mojo.internal.bindings.chrome.mojom.ZipListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ZipListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ZipListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -173,7 +176,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ZipListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ZipListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -218,7 +221,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerReceiver = class {
         // Try Method 0: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +232,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerReceiver = class {
         // Try Method 1: OnFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -278,7 +281,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_src_dir', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_relative_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_zip_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ZipListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -315,7 +318,7 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorRemote = class {
 mojo.internal.bindings.chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ZipFileCreator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ZipFileCreator', [
       { explicit: null },
     ]);
   }
@@ -346,7 +349,7 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ZipFileCreator', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ZipFileCreator', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -390,7 +393,7 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorReceiver = class {
         // Try Method 0: CreateZipFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateZipFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -93,6 +94,7 @@ mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentDetailsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentOptionsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestClient = {};
+mojo.internal.bindings.payments.mojom.PaymentRequestClientSpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestClient.$interfaceName = 'payments.mojom.PaymentRequestClient';
 mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = { $: {} };
@@ -108,6 +110,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsS
 mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequest = {};
+mojo.internal.bindings.payments.mojom.PaymentRequestSpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.PaymentRequest.$interfaceName = 'payments.mojom.PaymentRequest';
 mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequest_Show_ParamsSpec = { $: {} };
@@ -446,7 +449,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemote = class {
 mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaymentRequestClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentRequestClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -587,7 +590,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaymentRequestClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentRequestClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -642,7 +645,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 0: OnPaymentMethodChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentMethodChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -653,7 +656,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 1: OnShippingAddressChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShippingAddressChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -664,7 +667,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 2: OnShippingOptionChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShippingOptionChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -675,7 +678,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 3: OnPayerDetailChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayerDetailChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -686,7 +689,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 4: OnPaymentResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentResponse (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -697,7 +700,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 5: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -708,7 +711,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 6: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -719,7 +722,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 7: OnAbort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAbort (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -730,7 +733,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 8: OnCanMakePayment
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanMakePayment (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -741,7 +744,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 9: OnHasEnrolledInstrument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHasEnrolledInstrument (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -752,7 +755,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 10: WarnNoFavicon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WarnNoFavicon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -763,7 +766,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
         // Try Method 11: AllowConnectToSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowConnectToSource (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -887,7 +890,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRequest = mojo.interna
 // Interface: PaymentRequest
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec, 'payments.mojom.PaymentRequest_Init_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.PaymentRequestClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.PaymentRequestClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_details', 16, 0, mojo.internal.bindings.payments.mojom.PaymentDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.payments.mojom.PaymentOptionsSpec.$, null, false, 0, undefined),
@@ -996,7 +999,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemote = class {
 mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaymentRequest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentRequest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1107,7 +1110,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaymentRequest', [
+    const ordinals = window.mojoScrambler.getOrdinals('payments.mojom.PaymentRequest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1159,7 +1162,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1170,7 +1173,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 1: Show
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Show_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Show_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1181,7 +1184,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 2: UpdateWith
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_UpdateWith_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWith (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1192,7 +1195,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 3: OnPaymentDetailsNotUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentDetailsNotUpdated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1203,7 +1206,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 4: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Abort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Abort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1214,7 +1217,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 5: Complete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Complete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Complete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1225,7 +1228,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 6: Retry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Retry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Retry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Retry (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1236,7 +1239,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 7: CanMakePayment
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanMakePayment (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1247,7 +1250,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
         // Try Method 8: HasEnrolledInstrument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasEnrolledInstrument (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

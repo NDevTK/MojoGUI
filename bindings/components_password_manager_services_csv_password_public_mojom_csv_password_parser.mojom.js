@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.password_manager.mojom.StatusSpec = { $: mojo.internal.En
 mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec = { $: {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec = { $: {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParser = {};
+mojo.internal.bindings.password_manager.mojom.CSVPasswordParserSpec = { $ : {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParser.$interfaceName = 'password_manager.mojom.CSVPasswordParser';
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = { $: {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = { $: {} };
@@ -150,7 +152,7 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRemote = class {
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CSVPasswordParser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('password_manager.mojom.CSVPasswordParser', [
       { explicit: null },
     ]);
   }
@@ -181,7 +183,7 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CSVPasswordParser', [
+    const ordinals = window.mojoScrambler.getOrdinals('password_manager.mojom.CSVPasswordParser', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -225,7 +227,7 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = class 
         // Try Method 0: ParseCSV
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseCSV (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

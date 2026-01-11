@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec = { $:
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec = { $ : {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService.$interfaceName = 'unexportable_keys.mojom.UnexportableKeyService';
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = { $: {} };
@@ -229,7 +231,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemote = cl
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UnexportableKeyService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('unexportable_keys.mojom.UnexportableKeyService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -310,7 +312,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UnexportableKeyService', [
+    const ordinals = window.mojoScrambler.getOrdinals('unexportable_keys.mojom.UnexportableKeyService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -359,7 +361,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 0: GenerateSigningKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSigningKey (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -370,7 +372,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 1: FromWrappedSigningKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FromWrappedSigningKey (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -381,7 +383,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 2: Sign
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Sign (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -392,7 +394,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 3: GetAllSigningKeysForGarbageCollection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllSigningKeysForGarbageCollection (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -403,7 +405,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 4: DeleteKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteKey (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -414,7 +416,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         // Try Method 5: DeleteAllKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllKeys (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -106,6 +107,7 @@ mojo.internal.bindings.blink.mojom.IDBErrorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBCursorValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseOpenCursorValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBFactoryClient = {};
+mojo.internal.bindings.blink.mojom.IDBFactoryClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBFactoryClient.$interfaceName = 'blink.mojom.IDBFactoryClient';
 mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec = { $: {} };
@@ -113,12 +115,14 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec = {
 mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks = {};
+mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks.$interfaceName = 'blink.mojom.IDBDatabaseCallbacks';
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBCursor = {};
+mojo.internal.bindings.blink.mojom.IDBCursorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBCursor.$interfaceName = 'blink.mojom.IDBCursor';
 mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec = { $: {} };
@@ -128,6 +132,7 @@ mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBTransaction = {};
+mojo.internal.bindings.blink.mojom.IDBTransactionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBTransaction.$interfaceName = 'blink.mojom.IDBTransaction';
 mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec = { $: {} };
@@ -137,10 +142,12 @@ mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec = { $:
 mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink = {};
+mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink.$interfaceName = 'blink.mojom.IDBDatabaseGetAllResultSink';
 mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabase = {};
+mojo.internal.bindings.blink.mojom.IDBDatabaseSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBDatabase.$interfaceName = 'blink.mojom.IDBDatabase';
 mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec = { $: {} };
@@ -166,6 +173,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBFactory = {};
+mojo.internal.bindings.blink.mojom.IDBFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.IDBFactory.$interfaceName = 'blink.mojom.IDBFactory';
 mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec = { $: {} };
@@ -545,7 +553,7 @@ mojo.internal.Struct(
 // Struct: IDBDatabaseOpenCursorValue
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabaseOpenCursorValueSpec, 'blink.mojom.IDBDatabaseOpenCursorValue', [
-      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBCursorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBCursorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_primary_key', 16, 0, mojo.internal.bindings.blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 24, 0, mojo.internal.bindings.blink.mojom.IDBValueSpec.$, null, true, 0, undefined),
@@ -568,7 +576,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec, 'blink.mojom.IDBFactoryClient_UpgradeNeeded_Params', [
-      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_old_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_data_loss', 16, 0, mojo.internal.bindings.blink.mojom.IDBDataLossSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_loss_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -578,7 +586,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec, 'blink.mojom.IDBFactoryClient_OpenSuccess_Params', [
-      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.blink.mojom.IDBDatabaseMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -634,7 +642,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemote = class {
 mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBFactoryClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBFactoryClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -705,7 +713,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBFactoryClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBFactoryClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -753,7 +761,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
         // Try Method 0: Error
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Error (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -764,7 +772,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
         // Try Method 1: Blocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Blocked (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -775,7 +783,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
         // Try Method 2: UpgradeNeeded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeNeeded (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -786,7 +794,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
         // Try Method 3: OpenSuccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSuccess (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -797,7 +805,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
         // Try Method 4: DeleteSuccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSuccess (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -930,7 +938,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemote = class {
 mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBDatabaseCallbacks', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabaseCallbacks', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -991,7 +999,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBDatabaseCallbacks', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabaseCallbacks', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1038,7 +1046,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
         // Try Method 0: ForcedClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForcedClose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1049,7 +1057,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
         // Try Method 1: VersionChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VersionChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1060,7 +1068,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
         // Try Method 2: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1071,7 +1079,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
         // Try Method 3: Complete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1214,7 +1222,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemote = class {
 mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBCursor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBCursor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1275,7 +1283,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBCursor', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBCursor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1322,7 +1330,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
         // Try Method 0: Advance
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Advance (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1333,7 +1341,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
         // Try Method 1: Continue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Continue (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1344,7 +1352,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
         // Try Method 2: Prefetch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Prefetch (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1355,7 +1363,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
         // Try Method 3: PrefetchReset
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrefetchReset (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1535,7 +1543,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemote = class {
 mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBTransaction', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBTransaction', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1616,7 +1624,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBTransaction', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBTransaction', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1665,7 +1673,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 0: CreateObjectStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateObjectStore (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1676,7 +1684,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 1: DeleteObjectStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteObjectStore (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1687,7 +1695,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 2: Put
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Put (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1698,7 +1706,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 3: SetIndexKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIndexKeys (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1709,7 +1717,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 4: SetIndexKeysDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIndexKeysDone (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1720,7 +1728,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
         // Try Method 5: Commit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Commit (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1849,7 +1857,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemote = class {
 mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBDatabaseGetAllResultSink', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabaseGetAllResultSink', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1890,7 +1898,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBDatabaseGetAllResultSink', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabaseGetAllResultSink', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1935,7 +1943,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
         // Try Method 0: ReceiveResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveResults (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1946,7 +1954,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2000,7 +2008,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec, 'blink.mojom.IDBDatabase_CreateTransaction_Params', [
-      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_object_store_ids', 16, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.blink.mojom.IDBTransactionModeSpec.$, null, false, 0, undefined),
@@ -2043,7 +2051,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, 'blink.mojom.IDBDatabase_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2242,7 +2250,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemote = class {
 mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBDatabase', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabase', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2423,7 +2431,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBDatabase', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBDatabase', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2482,7 +2490,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 0: RenameObjectStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameObjectStore (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2493,7 +2501,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 1: CreateTransaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTransaction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2504,7 +2512,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 2: VersionChangeIgnored
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VersionChangeIgnored (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2515,7 +2523,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 3: Get
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2526,7 +2534,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 4: GetAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAll (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2537,7 +2545,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 5: OpenCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenCursor (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2548,7 +2556,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 6: Count
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Count (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2559,7 +2567,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 7: DeleteRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2570,7 +2578,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 8: GetKeyGeneratorCurrentNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyGeneratorCurrentNumber (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2581,7 +2589,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 9: Clear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clear (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2592,7 +2600,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 10: CreateIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateIndex (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2603,7 +2611,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 11: DeleteIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteIndex (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2614,7 +2622,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 12: RenameIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameIndex (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2625,7 +2633,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 13: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2636,7 +2644,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 14: DidBecomeInactive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidBecomeInactive (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2647,7 +2655,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
         // Try Method 15: UpdatePriority
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePriority (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2859,11 +2867,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec, 'blink.mojom.IDBFactory_Open_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_database_callbacks', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_database_callbacks', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -2871,7 +2879,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec, 'blink.mojom.IDBFactory_DeleteDatabase_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_force_close', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -2916,7 +2924,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemote = class {
 mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IDBFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2967,7 +2975,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IDBFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.IDBFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3013,7 +3021,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
         // Try Method 0: GetDatabaseInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDatabaseInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3024,7 +3032,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
         // Try Method 1: Open
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3035,7 +3043,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
         // Try Method 2: DeleteDatabase
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteDatabase (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

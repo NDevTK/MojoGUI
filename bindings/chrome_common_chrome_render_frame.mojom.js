@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame.$interfaceName = 'chrome.mojom.ChromeRenderFrame';
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = { $: {} };
@@ -320,7 +322,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemote = class {
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromeRenderFrame', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeRenderFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -491,7 +493,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromeRenderFrame', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeRenderFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -549,7 +551,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 0: SetWindowFeatures
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowFeatures (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -560,7 +562,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 1: RequestReloadImageForContextNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestReloadImageForContextNode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -571,7 +573,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 2: RequestBitmapForContextNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBitmapForContextNode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -582,7 +584,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 3: RequestBitmapForContextNodeWithBoundsHint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBitmapForContextNodeWithBoundsHint (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -593,7 +595,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 4: RequestBoundsHintForAllImages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBoundsHintForAllImages (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -604,7 +606,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 5: RequestImageForContextNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestImageForContextNode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -615,7 +617,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 6: ExecuteWebUIJavaScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteWebUIJavaScript (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -626,7 +628,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 7: SetCCTClientHeader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCCTClientHeader (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -637,7 +639,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 8: GetMediaFeedURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFeedURL (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -648,7 +650,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 9: LoadBlockedPlugins
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBlockedPlugins (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -659,7 +661,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 10: SetShouldDeferMediaLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShouldDeferMediaLoad (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -670,7 +672,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 11: InvokeTool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokeTool (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -681,7 +683,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 12: CancelTool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelTool (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -692,7 +694,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 13: StartActorJournal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActorJournal (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -703,7 +705,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         // Try Method 14: CreatePageStabilityMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageStabilityMonitor (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;

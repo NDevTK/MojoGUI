@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSp
 mojo.internal.bindings.mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler = {};
+mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler.$interfaceName = 'mojom.user_education_internals.UserEducationInternalsPageHandler';
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec = { $: {} };
@@ -457,7 +459,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UserEducationInternalsPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.user_education_internals.UserEducationInternalsPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -668,7 +670,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UserEducationInternalsPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.user_education_internals.UserEducationInternalsPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -730,7 +732,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 0: GetTutorials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTutorials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -741,7 +743,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 1: StartTutorial
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTutorial (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -752,7 +754,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 2: GetSessionData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSessionData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -763,7 +765,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 3: GetFeaturePromos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeaturePromos (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -774,7 +776,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 4: ShowFeaturePromo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFeaturePromo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -785,7 +787,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 5: ClearFeaturePromoData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFeaturePromoData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -796,7 +798,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 6: ClearSessionData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSessionData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -807,7 +809,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 7: ForceNewSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceNewSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -818,7 +820,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 8: RemoveGracePeriods
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveGracePeriods (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -829,7 +831,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 9: GetNewBadges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewBadges (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -840,7 +842,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 10: GetWhatsNewModules
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewModules (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -851,7 +853,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 11: GetWhatsNewEditions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewEditions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -862,7 +864,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 12: GetNtpPromos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromos (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -873,7 +875,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 13: GetNtpPromoPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromoPreferences (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -884,7 +886,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 14: ClearNewBadgeData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNewBadgeData (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -895,7 +897,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 15: ClearWhatsNewData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearWhatsNewData (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -906,7 +908,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 16: ClearNtpPromoData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoData (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -917,7 +919,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 17: ClearNtpPromoPreferences
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoPreferences (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -928,7 +930,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         // Try Method 18: LaunchWhatsNewStaging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchWhatsNewStaging (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;

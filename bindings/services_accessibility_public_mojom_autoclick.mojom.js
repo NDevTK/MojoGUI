@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.ax.mojom.Autoclick = {};
+mojo.internal.bindings.ax.mojom.AutoclickSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.Autoclick.$interfaceName = 'ax.mojom.Autoclick';
 mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AutoclickClient = {};
+mojo.internal.bindings.ax.mojom.AutoclickClientSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.AutoclickClient.$interfaceName = 'ax.mojom.AutoclickClient';
 mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = { $: {} };
@@ -121,7 +124,7 @@ mojo.internal.bindings.ax.mojom.AutoclickRemote = class {
 mojo.internal.bindings.ax.mojom.AutoclickRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Autoclick', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Autoclick', [
       { explicit: null },
     ]);
   }
@@ -152,7 +155,7 @@ mojo.internal.bindings.ax.mojom.AutoclickReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Autoclick', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Autoclick', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -196,7 +199,7 @@ mojo.internal.bindings.ax.mojom.AutoclickReceiver = class {
         // Try Method 0: RequestScrollableBoundsForPoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestScrollableBoundsForPoint (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -246,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec, 'ax.mojom.AutoclickClient_BindAutoclick_ResponseParams', [
-      mojo.internal.StructField('arg_autoclick_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_autoclick_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -286,7 +289,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientRemote = class {
 mojo.internal.bindings.ax.mojom.AutoclickClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AutoclickClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AutoclickClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -327,7 +330,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AutoclickClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AutoclickClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -372,7 +375,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientReceiver = class {
         // Try Method 0: HandleScrollableBoundsForPointFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleScrollableBoundsForPointFound (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -383,7 +386,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientReceiver = class {
         // Try Method 1: BindAutoclick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutoclick (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

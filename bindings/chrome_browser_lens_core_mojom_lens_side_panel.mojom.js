@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory.$interfaceName = 'lens.mojom.LensSidePanelPageHandlerFactory';
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler.$interfaceName = 'lens.mojom.LensSidePanelPageHandler';
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = { $: {} };
@@ -86,6 +89,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_P
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPage = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPage.$interfaceName = 'lens.mojom.LensSidePanelPage';
 mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = { $: {} };
@@ -114,8 +118,8 @@ mojo.internal.bindings.lens.mojom.SidePanelResultStatus = {
 // Interface: LensSidePanelPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -152,7 +156,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemote = class 
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -183,7 +187,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -227,7 +231,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryReceiver = clas
         // Try Method 0: CreateSidePanelPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSidePanelPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -351,7 +355,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote = class {
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -432,7 +436,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -481,7 +485,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 0: PopAndLoadQueryFromHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PopAndLoadQueryFromHistory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -492,7 +496,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 1: GetIsContextualSearchbox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsContextualSearchbox (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -503,7 +507,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 2: OnScrollToMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScrollToMessage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -514,7 +518,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 3: RequestSendFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSendFeedback (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -525,7 +529,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 4: OnAimMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAimMessage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -536,7 +540,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 5: OnImageQueryWithEmptyText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageQueryWithEmptyText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -769,7 +773,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote = class {
 mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -930,7 +934,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensSidePanelPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -987,7 +991,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 0: LoadResultsInFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadResultsInFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -998,7 +1002,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 1: SetIsLoadingResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsLoadingResults (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1009,7 +1013,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 2: SetPageContentUploadProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageContentUploadProgress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1020,7 +1024,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 3: SetBackArrowVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackArrowVisible (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1031,7 +1035,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 4: SetShowErrorPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShowErrorPage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1042,7 +1046,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 5: SuppressGhostLoader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuppressGhostLoader (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1053,7 +1057,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 6: PageContentTypeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentTypeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1064,7 +1068,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 7: ShowToast
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowToast (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1075,7 +1079,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 8: SendClientMessageToAim
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendClientMessageToAim (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1086,7 +1090,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 9: AimHandshakeReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimHandshakeReceived (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1097,7 +1101,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 10: AimResultsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimResultsChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1108,7 +1112,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 11: FocusResultsFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusResultsFrame (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1119,7 +1123,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 12: SetIsOverlayShowing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsOverlayShowing (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1130,7 +1134,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 13: FocusSearchbox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusSearchbox (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

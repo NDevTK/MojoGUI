@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,6 +83,7 @@ mojo.internal.bindings.mojom.VersionEntrySpec = { $: {} };
 mojo.internal.bindings.mojom.UpdateManifestSpec = { $: {} };
 mojo.internal.bindings.mojom.InstallFromBundleUrlParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.WebAppInternalsHandler = {};
+mojo.internal.bindings.mojom.WebAppInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.WebAppInternalsHandler.$interfaceName = 'mojom.WebAppInternalsHandler';
 mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec = { $: {} };
@@ -463,7 +465,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemote = class {
 mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebAppInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.WebAppInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -644,7 +646,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebAppInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.WebAppInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -703,7 +705,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 0: GetDebugInfoAsJsonString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugInfoAsJsonString (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -714,7 +716,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 1: InstallIsolatedWebAppFromDevProxy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallIsolatedWebAppFromDevProxy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -725,7 +727,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 2: SelectFileAndInstallIsolatedWebAppFromDevBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectFileAndInstallIsolatedWebAppFromDevBundle (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -736,7 +738,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 3: ParseUpdateManifestFromUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseUpdateManifestFromUrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -747,7 +749,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 4: InstallIsolatedWebAppFromBundleUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallIsolatedWebAppFromBundleUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -758,7 +760,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 5: UpdateDevProxyIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDevProxyIsolatedWebApp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -769,7 +771,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 6: SelectFileAndUpdateIsolatedWebAppFromDevBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectFileAndUpdateIsolatedWebAppFromDevBundle (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -780,7 +782,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 7: UpdateManifestInstalledIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateManifestInstalledIsolatedWebApp (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -791,7 +793,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 8: DeleteIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteIsolatedWebApp (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -802,7 +804,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 9: SetUpdateChannelForIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpdateChannelForIsolatedWebApp (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -813,7 +815,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 10: SetPinnedVersionForIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinnedVersionForIsolatedWebApp (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -824,7 +826,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 11: ResetPinnedVersionForIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetPinnedVersionForIsolatedWebApp (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -835,7 +837,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 12: SetAllowDowngradesForIsolatedWebApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowDowngradesForIsolatedWebApp (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -846,7 +848,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 13: SearchForIsolatedWebAppUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchForIsolatedWebAppUpdates (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -857,7 +859,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 14: GetIsolatedWebAppDevModeAppInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsolatedWebAppDevModeAppInfo (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -868,7 +870,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
         // Try Method 15: RotateKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_RotateKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_RotateKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RotateKey (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;

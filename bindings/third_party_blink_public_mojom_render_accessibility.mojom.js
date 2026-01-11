@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,11 +76,13 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.blink.mojom.HitTestResponseSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost.$interfaceName = 'blink.mojom.RenderAccessibilityHost';
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibility = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibility.$interfaceName = 'blink.mojom.RenderAccessibility';
 mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec = { $: {} };
@@ -155,7 +158,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRemote = class {
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderAccessibilityHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderAccessibilityHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -196,7 +199,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderAccessibilityHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderAccessibilityHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -241,7 +244,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
         // Try Method 0: HandleAXEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXEvents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -252,7 +255,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
         // Try Method 1: HandleAXLocationChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXLocationChanges (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -387,7 +390,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemote = class {
 mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderAccessibility', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderAccessibility', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,7 +461,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderAccessibility', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderAccessibility', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -506,7 +509,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 0: SetMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMode (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +520,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 1: FatalError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FatalError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -528,7 +531,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 2: HitTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HitTest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -539,7 +542,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 3: PerformAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -550,7 +553,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
         // Try Method 4: Reset
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reset (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

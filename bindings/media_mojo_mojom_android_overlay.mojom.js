@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,15 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AndroidOverlayProvider = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AndroidOverlayProvider.$interfaceName = 'media.mojom.AndroidOverlayProvider';
 mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AndroidOverlay = {};
+mojo.internal.bindings.media.mojom.AndroidOverlaySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AndroidOverlay.$interfaceName = 'media.mojom.AndroidOverlay';
 mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AndroidOverlayClient = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AndroidOverlayClient.$interfaceName = 'media.mojom.AndroidOverlayClient';
 mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = { $: {} };
@@ -101,8 +105,8 @@ mojo.internal.Struct(
 // Interface: AndroidOverlayProvider
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
-      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlaySpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -140,7 +144,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderRemote = class {
 mojo.internal.bindings.media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AndroidOverlayProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlayProvider', [
       { explicit: null },
     ]);
   }
@@ -171,7 +175,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AndroidOverlayProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlayProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -215,7 +219,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderReceiver = class {
         // Try Method 0: CreateOverlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOverlay (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -291,7 +295,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayRemote = class {
 mojo.internal.bindings.media.mojom.AndroidOverlayRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AndroidOverlay', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlay', [
       { explicit: null },
     ]);
   }
@@ -322,7 +326,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AndroidOverlay', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlay', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -366,7 +370,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayReceiver = class {
         // Try Method 0: ScheduleLayout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScheduleLayout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -472,7 +476,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote = class {
 mojo.internal.bindings.media.mojom.AndroidOverlayClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AndroidOverlayClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlayClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -533,7 +537,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AndroidOverlayClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AndroidOverlayClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -580,7 +584,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 0: OnSurfaceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurfaceReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -591,7 +595,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 1: OnDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDestroyed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -602,7 +606,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 2: OnSynchronouslyDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSynchronouslyDestroyed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -613,7 +617,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
         // Try Method 3: OnPowerEfficientState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerEfficientState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

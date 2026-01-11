@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -88,6 +89,7 @@ mojo.internal.bindings.ash.orca.mojom.ContextSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClient = {};
+mojo.internal.bindings.ash.orca.mojom.EditorClientSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClient.$interfaceName = 'ash.orca.mojom.EditorClient';
 mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = { $: {} };
@@ -111,12 +113,15 @@ mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
 mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClientConnector = {};
+mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.EditorClientConnector.$interfaceName = 'ash.orca.mojom.EditorClientConnector';
 mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.EditorEventSink = {};
+mojo.internal.bindings.ash.orca.mojom.EditorEventSinkSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.EditorEventSink.$interfaceName = 'ash.orca.mojom.EditorEventSink';
 mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.SystemActuator = {};
+mojo.internal.bindings.ash.orca.mojom.SystemActuatorSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.SystemActuator.$interfaceName = 'ash.orca.mojom.SystemActuator';
 mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = { $: {} };
@@ -128,10 +133,12 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec =
 mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.TextQueryProvider = {};
+mojo.internal.bindings.ash.orca.mojom.TextQueryProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.TextQueryProvider.$interfaceName = 'ash.orca.mojom.TextQueryProvider';
 mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.OrcaService = {};
+mojo.internal.bindings.ash.orca.mojom.OrcaServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.orca.mojom.OrcaService.$interfaceName = 'ash.orca.mojom.OrcaService';
 mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec = { $: {} };
 
@@ -451,7 +458,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemote = class {
 mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EditorClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -632,7 +639,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EditorClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -691,7 +698,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 0: GetPresetTextQueries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPresetTextQueries (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -702,7 +709,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 1: RequestPresetRewrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPresetRewrite (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -713,7 +720,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 2: RequestFreeformRewrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestFreeformRewrite (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -724,7 +731,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 3: RequestFreeformWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestFreeformWrite (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -735,7 +742,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 4: InsertText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -746,7 +753,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 5: ApproveConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApproveConsent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -757,7 +764,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 6: DeclineConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeclineConsent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -768,7 +775,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 7: DismissConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissConsent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -779,7 +786,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 8: OpenUrlInNewWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInNewWindow (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -790,7 +797,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 9: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -801,7 +808,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 10: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -812,7 +819,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 11: AppendText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AppendText (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -823,7 +830,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 12: PreviewFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewFeedback (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -834,7 +841,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 13: SubmitFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFeedback (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -845,7 +852,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 14: OnTrigger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrigger (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -856,7 +863,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
         // Try Method 15: EmitMetricEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EmitMetricEvent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1040,7 +1047,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRequest = mojo.internal.bindin
 // Interface: EditorClientConnector
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec, 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params', [
-      mojo.internal.StructField('arg_editor_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_editor_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1077,7 +1084,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemote = class {
 mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EditorClientConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorClientConnector', [
       { explicit: 0 },
     ]);
   }
@@ -1108,7 +1115,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EditorClientConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorClientConnector', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1152,7 +1159,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorReceiver = class {
         // Try Method 0: BindEditorClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindEditorClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1228,7 +1235,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote = class {
 mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EditorEventSink', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorEventSink', [
       { explicit: 0 },
     ]);
   }
@@ -1259,7 +1266,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EditorEventSink', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.EditorEventSink', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1303,7 +1310,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkReceiver = class {
         // Try Method 0: OnContextUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1447,7 +1454,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemote = class {
 mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemActuator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.SystemActuator', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1558,7 +1565,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemActuator', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.SystemActuator', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1610,7 +1617,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 0: InsertText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1621,7 +1628,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 1: ApproveConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApproveConsent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1632,7 +1639,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 2: DeclineConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeclineConsent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1643,7 +1650,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 3: OpenUrlInNewWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInNewWindow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1654,7 +1661,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 4: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1665,7 +1672,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 5: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1676,7 +1683,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 6: SubmitFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFeedback (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1687,7 +1694,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 7: OnTrigger
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrigger (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1698,7 +1705,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
         // Try Method 8: EmitMetricEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EmitMetricEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1836,7 +1843,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemote = class {
 mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextQueryProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.TextQueryProvider', [
       { explicit: 0 },
     ]);
   }
@@ -1867,7 +1874,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextQueryProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.TextQueryProvider', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1911,7 +1918,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
         // Try Method 0: Process
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Process (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1958,10 +1965,10 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRequest = mojo.internal.b
 // Interface: OrcaService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
-      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_editor_config', 32, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
     ],
     [[0, 40], [9, 48]]);
@@ -1999,7 +2006,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceRemote = class {
 mojo.internal.bindings.ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OrcaService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.OrcaService', [
       { explicit: 0 },
     ]);
   }
@@ -2030,7 +2037,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OrcaService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.orca.mojom.OrcaService', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2074,7 +2081,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceReceiver = class {
         // Try Method 0: BindEditor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindEditor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

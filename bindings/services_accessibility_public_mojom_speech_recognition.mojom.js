@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,11 +80,13 @@ mojo.internal.bindings.ax.mojom.StartOptionsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.StopOptionsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver.$interfaceName = 'ax.mojom.SpeechRecognitionEventObserver';
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognition = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognition.$interfaceName = 'ax.mojom.SpeechRecognition';
 mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = { $: {} };
@@ -101,7 +104,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec, 'ax.mojom.ObserverOrError', {
       'arg_observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec),
+        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemote),
         'nullable': false,
       },
       'arg_error': {
@@ -208,7 +211,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemote = class {
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechRecognitionEventObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.SpeechRecognitionEventObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -259,7 +262,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechRecognitionEventObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.SpeechRecognitionEventObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -305,7 +308,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         // Try Method 0: OnStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStop (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -316,7 +319,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         // Try Method 1: OnResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -327,7 +330,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -438,7 +441,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionRemote = class {
 mojo.internal.bindings.ax.mojom.SpeechRecognitionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechRecognition', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.SpeechRecognition', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -479,7 +482,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechRecognition', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.SpeechRecognition', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -524,7 +527,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -535,7 +538,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

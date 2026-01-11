@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,9 +81,11 @@ mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.ScenarioSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory = {};
+mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory.$interfaceName = 'traces_internals.mojom.TracesInternalsHandlerFactory';
 mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.PageHandler = {};
+mojo.internal.bindings.traces_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.traces_internals.mojom.PageHandler.$interfaceName = 'traces_internals.mojom.PageHandler';
 mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = { $: {} };
@@ -124,6 +127,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_Re
 mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.Page = {};
+mojo.internal.bindings.traces_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.traces_internals.mojom.Page.$interfaceName = 'traces_internals.mojom.Page';
 mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = { $: {} };
 
@@ -198,8 +202,8 @@ mojo.internal.Struct(
 // Interface: TracesInternalsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec, 'traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.traces_internals.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.traces_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.traces_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.traces_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -236,7 +240,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRemot
 mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TracesInternalsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.TracesInternalsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -267,7 +271,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TracesInternalsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.TracesInternalsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -311,7 +315,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRecei
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -665,7 +669,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -886,7 +890,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -949,7 +953,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: StartTraceSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTraceSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -960,7 +964,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 1: CloneTraceSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneTraceSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -971,7 +975,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 2: StopTraceSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopTraceSession (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -982,7 +986,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 3: GetTrackEventCategories
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrackEventCategories (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -993,7 +997,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 4: GetBufferUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBufferUsage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1004,7 +1008,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 5: GetAllTraceReports
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllTraceReports (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1015,7 +1019,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 6: DeleteSingleTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSingleTrace (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1026,7 +1030,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 7: DeleteAllTraces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllTraces (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1037,7 +1041,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 8: UserUploadSingleTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UserUploadSingleTrace (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1048,7 +1052,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 9: DownloadTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadTrace (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1059,7 +1063,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetAllScenarios
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllScenarios (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1070,7 +1074,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 11: SetEnabledScenarios
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnabledScenarios (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1081,7 +1085,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 12: SetScenariosConfigFromString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScenariosConfigFromString (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1092,7 +1096,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 13: SetScenariosConfigFromBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScenariosConfigFromBuffer (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1103,7 +1107,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 14: GetPrivacyFilterEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivacyFilterEnabled (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1114,7 +1118,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 15: SetPrivacyFilterEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivacyFilterEnabled (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1125,7 +1129,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 16: GetSystemTracingState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemTracingState (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1136,7 +1140,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 17: GetSecurityShieldIconUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSecurityShieldIconUrl (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1147,7 +1151,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 18: EnableSystemTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableSystemTracing (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1158,7 +1162,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
         // Try Method 19: DisableSystemTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableSystemTracing (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1520,7 +1524,7 @@ mojo.internal.bindings.traces_internals.mojom.PageRemote = class {
 mojo.internal.bindings.traces_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -1551,7 +1555,7 @@ mojo.internal.bindings.traces_internals.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('traces_internals.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1595,7 +1599,7 @@ mojo.internal.bindings.traces_internals.mojom.PageReceiver = class {
         // Try Method 0: OnTraceComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTraceComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

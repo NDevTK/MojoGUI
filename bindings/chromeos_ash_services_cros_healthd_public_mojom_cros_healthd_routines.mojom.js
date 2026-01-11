@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -151,17 +152,20 @@ mojo.internal.bindings.ash.cros_healthd.mojom.SensitiveSensorReportSpec = { $: {
 mojo.internal.bindings.ash.cros_healthd.mojom.SensitiveSensorRoutineDetailSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdRoutinesService';
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl.$interfaceName = 'ash.cros_healthd.mojom.RoutineControl';
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver.$interfaceName = 'ash.cros_healthd.mojom.RoutineObserver';
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec = { $: {} };
 
@@ -1042,8 +1046,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routine_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1095,7 +1099,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote =
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdRoutinesService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1136,7 +1140,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdRoutinesService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1181,7 +1185,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver
         // Try Method 0: CreateRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRoutine (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1192,7 +1196,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver
         // Try Method 1: IsRoutineArgumentSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRoutineArgumentSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1305,7 +1309,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote = class {
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RoutineControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1356,7 +1360,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RoutineControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1402,7 +1406,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
         // Try Method 0: GetState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1413,7 +1417,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
         // Try Method 1: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1424,7 +1428,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
         // Try Method 2: ReplyInquiry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplyInquiry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1522,7 +1526,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote = class {
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RoutineObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
       { explicit: 0 },
     ]);
   }
@@ -1553,7 +1557,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RoutineObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1597,7 +1601,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = class {
         // Try Method 0: OnRoutineStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutineStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

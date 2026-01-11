@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enu
 mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient = {};
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient.$interfaceName = 'network.mojom.NetworkChangeManagerClient';
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManager = {};
+mojo.internal.bindings.network.mojom.NetworkChangeManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManager.$interfaceName = 'network.mojom.NetworkChangeManager';
 mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = { $: {} };
@@ -193,7 +196,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemote = class {
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkChangeManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -234,7 +237,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkChangeManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -279,7 +282,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = class 
         // Try Method 0: OnInitialConnectionType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialConnectionType (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +293,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = class 
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -336,7 +339,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRequest = mojo.in
 // Interface: NetworkChangeManager
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('arg_client_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkChangeManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -396,7 +399,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemote = class {
 mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkChangeManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -447,7 +450,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkChangeManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,7 +496,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 0: RequestNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -504,7 +507,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -515,7 +518,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 2: BindNetworkInterfaceChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNetworkInterfaceChangeListener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

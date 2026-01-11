@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distiller.mojom || {};
 
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService = {};
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec = { $ : {} };
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService.$interfaceName = 'dom_distiller.mojom.DistillerJavaScriptService';
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = { $: {} };
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = { $: {} };
@@ -144,7 +146,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemote = cl
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DistillerJavaScriptService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('dom_distiller.mojom.DistillerJavaScriptService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -205,7 +207,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DistillerJavaScriptService', [
+    const ordinals = window.mojoScrambler.getOrdinals('dom_distiller.mojom.DistillerJavaScriptService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -252,7 +254,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
         // Try Method 0: HandleDistillerOpenSettingsCall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleDistillerOpenSettingsCall (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -263,7 +265,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
         // Try Method 1: HandleStoreThemePref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreThemePref (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -274,7 +276,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
         // Try Method 2: HandleStoreFontFamilyPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreFontFamilyPref (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -285,7 +287,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
         // Try Method 3: HandleStoreFontScalingPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleStoreFontScalingPref (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

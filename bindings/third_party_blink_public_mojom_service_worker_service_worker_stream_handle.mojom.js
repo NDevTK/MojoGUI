@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback.$interfaceName = 'blink.mojom.ServiceWorkerStreamCallback';
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = { $: {} };
@@ -81,7 +83,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsS
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_callback_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_callback_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,7 +134,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemote = class {
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerStreamCallback', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerStreamCallback', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -173,7 +175,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerStreamCallback', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerStreamCallback', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -218,7 +220,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackReceiver = class {
         // Try Method 0: OnCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompleted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +231,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackReceiver = class {
         // Try Method 1: OnAborted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAborted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

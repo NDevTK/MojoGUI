@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory = {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory.$interfaceName = 'crosapi.mojom.GuestOsSkForwarderFactory';
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder = {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder.$interfaceName = 'crosapi.mojom.GuestOsSkForwarder';
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = { $: {} };
@@ -82,7 +85,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseP
 // Interface: GuestOsSkForwarderFactory
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -119,7 +122,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryRemote = class {
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GuestOsSkForwarderFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.GuestOsSkForwarderFactory', [
       { explicit: 0 },
     ]);
   }
@@ -150,7 +153,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GuestOsSkForwarderFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.GuestOsSkForwarderFactory', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -194,7 +197,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
         // Try Method 0: BindGuestOsSkForwarder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGuestOsSkForwarder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -276,7 +279,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemote = class {
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GuestOsSkForwarder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.GuestOsSkForwarder', [
       { explicit: 0 },
     ]);
   }
@@ -307,7 +310,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GuestOsSkForwarder', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.GuestOsSkForwarder', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -351,7 +354,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderReceiver = class {
         // Try Method 0: ForwardRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

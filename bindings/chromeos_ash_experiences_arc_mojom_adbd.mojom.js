@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,10 +73,12 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.AdbdMonitorHost = {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AdbdMonitorHost.$interfaceName = 'arc.mojom.AdbdMonitorHost';
 mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstance = {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstance.$interfaceName = 'arc.mojom.AdbdMonitorInstance';
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec = { $: {} };
@@ -127,7 +130,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostRemote = class {
 mojo.internal.bindings.arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AdbdMonitorHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AdbdMonitorHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -168,7 +171,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AdbdMonitorHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AdbdMonitorHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -213,7 +216,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostReceiver = class {
         // Try Method 0: AdbdStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdbdStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -224,7 +227,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostReceiver = class {
         // Try Method 1: AdbdStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AdbdStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -270,7 +273,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostRequest = mojo.internal.bindings
 // Interface: AdbdMonitorInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec, 'arc.mojom.AdbdMonitorInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AdbdMonitorHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -312,7 +315,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AdbdMonitorInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AdbdMonitorInstance', [
       { explicit: 0 },
     ]);
   }
@@ -343,7 +346,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AdbdMonitorInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AdbdMonitorInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -387,7 +390,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.CompositingModeWatcher = {};
+mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.CompositingModeWatcher.$interfaceName = 'viz.mojom.CompositingModeWatcher';
 mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositingModeReporter = {};
+mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.CompositingModeReporter.$interfaceName = 'viz.mojom.CompositingModeReporter';
 mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = { $: {} };
 
@@ -117,7 +120,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemote = class {
 mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CompositingModeWatcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositingModeWatcher', [
       { explicit: null },
     ]);
   }
@@ -148,7 +151,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CompositingModeWatcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositingModeWatcher', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -192,7 +195,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherReceiver = class {
         // Try Method 0: CompositingModeFallbackToSoftware
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompositingModeFallbackToSoftware (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -231,7 +234,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherRequest = mojo.internal.b
 // Interface: CompositingModeReporter
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec, 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params', [
-      mojo.internal.StructField('arg_watcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,7 +271,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterRemote = class {
 mojo.internal.bindings.viz.mojom.CompositingModeReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CompositingModeReporter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositingModeReporter', [
       { explicit: null },
     ]);
   }
@@ -299,7 +302,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CompositingModeReporter', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositingModeReporter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -343,7 +346,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterReceiver = class {
         // Try Method 0: AddCompositingModeWatcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCompositingModeWatcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

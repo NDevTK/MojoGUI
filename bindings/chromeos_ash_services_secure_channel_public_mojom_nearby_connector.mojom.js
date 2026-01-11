@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,20 +76,25 @@ mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.sec
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener.$interfaceName = 'ash.secure_channel.mojom.NearbyConnectionStateListener';
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageSender';
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageReceiver';
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler.$interfaceName = 'ash.secure_channel.mojom.NearbyFilePayloadHandler';
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector.$interfaceName = 'ash.secure_channel.mojom.NearbyConnector';
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = { $: {} };
@@ -176,7 +182,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRem
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyConnectionStateListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyConnectionStateListener', [
       { explicit: null },
     ]);
   }
@@ -207,7 +213,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyConnectionStateListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyConnectionStateListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -251,7 +257,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRec
         // Try Method 0: OnNearbyConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyConnectionStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -333,7 +339,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemote = clas
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyMessageSender', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyMessageSender', [
       { explicit: null },
     ]);
   }
@@ -364,7 +370,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyMessageSender', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyMessageSender', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -408,7 +414,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderReceiver = cl
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -492,7 +498,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemote = cl
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyMessageReceiver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyMessageReceiver', [
       { explicit: null },
     ]);
   }
@@ -523,7 +529,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyMessageReceiver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyMessageReceiver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -567,7 +573,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverReceiver = 
         // Try Method 0: OnMessageReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessageReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -651,7 +657,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote =
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyFilePayloadHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyFilePayloadHandler', [
       { explicit: null },
     ]);
   }
@@ -682,7 +688,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyFilePayloadHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyFilePayloadHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -726,7 +732,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver
         // Try Method 0: RegisterPayloadFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPayloadFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -775,15 +781,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
       mojo.internal.StructField('arg_bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_receiver', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_receiver', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParams', [
-      mojo.internal.StructField('arg_message_sender', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_message_sender', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -820,7 +826,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote = class {
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyConnector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyConnector', [
       { explicit: null },
     ]);
   }
@@ -851,7 +857,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyConnector', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.secure_channel.mojom.NearbyConnector', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -895,7 +901,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorReceiver = class 
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

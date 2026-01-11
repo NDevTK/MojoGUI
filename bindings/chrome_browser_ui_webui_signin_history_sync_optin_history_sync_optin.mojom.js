@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,15 +77,18 @@ mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec = { $: mojo.in
 mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory.$interfaceName = 'history_sync_optin.mojom.PageHandlerFactory';
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler.$interfaceName = 'history_sync_optin.mojom.PageHandler';
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.Page = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.history_sync_optin.mojom.Page.$interfaceName = 'history_sync_optin.mojom.Page';
 mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = { $: {} };
@@ -113,8 +117,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec, 'history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_sync_optin.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_sync_optin.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -151,7 +155,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryRemote = class
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -182,7 +186,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -226,7 +230,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryReceiver = cla
         // Try Method 0: CreateHistorySyncOptinHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHistorySyncOptinHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +330,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -387,7 +391,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -434,7 +438,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 0: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -445,7 +449,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 1: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +460,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 2: RequestAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAccountInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -467,7 +471,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
         // Try Method 3: UpdateDialogHeight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDialogHeight (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -573,7 +577,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageRemote = class {
 mojo.internal.bindings.history_sync_optin.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -614,7 +618,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('history_sync_optin.mojom.Page', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -659,7 +663,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = class {
         // Try Method 0: SendAccountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendAccountInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -670,7 +674,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = class {
         // Try Method 1: SendScreenMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendScreenMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

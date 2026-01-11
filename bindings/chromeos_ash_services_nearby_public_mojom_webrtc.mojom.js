@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,10 +77,12 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.sharing.mojom.IceServerSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.IceConfigFetcher = {};
+mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec = { $ : {} };
 mojo.internal.bindings.sharing.mojom.IceConfigFetcher.$interfaceName = 'sharing.mojom.IceConfigFetcher';
 mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactory = {};
+mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec = { $ : {} };
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactory.$interfaceName = 'sharing.mojom.MdnsResponderFactory';
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = { $: {} };
 
@@ -96,8 +99,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec, 'sharing.mojom.WebRtcDependencies', [
       mojo.internal.StructField('arg_socket_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_messenger', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -147,7 +150,7 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemote = class {
 mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IceConfigFetcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.IceConfigFetcher', [
       { explicit: null },
     ]);
   }
@@ -178,7 +181,7 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IceConfigFetcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.IceConfigFetcher', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -222,7 +225,7 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherReceiver = class {
         // Try Method 0: GetIceServers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIceServers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -306,7 +309,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemote = class {
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MdnsResponderFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.MdnsResponderFactory', [
       { explicit: null },
     ]);
   }
@@ -337,7 +340,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MdnsResponderFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.MdnsResponderFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -381,7 +384,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryReceiver = class {
         // Try Method 0: CreateMdnsResponder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMdnsResponder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

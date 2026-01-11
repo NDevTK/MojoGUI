@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.mojom.AutocompleteMatchSpec = { $: {} };
 mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxResponseSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxPageHandler = {};
+mojo.internal.bindings.mojom.OmniboxPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.OmniboxPageHandler.$interfaceName = 'mojom.OmniboxPageHandler';
 mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = { $: {} };
@@ -86,6 +88,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParams
 mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxPage = {};
+mojo.internal.bindings.mojom.OmniboxPageSpec = { $ : {} };
 mojo.internal.bindings.mojom.OmniboxPage.$interfaceName = 'mojom.OmniboxPage';
 mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = { $: {} };
@@ -237,7 +240,7 @@ mojo.internal.Struct(
 // Interface: OmniboxPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec, 'mojom.OmniboxPageHandler_SetClientPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.OmniboxPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.OmniboxPageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,7 +322,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemote = class {
 mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OmniboxPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.OmniboxPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -380,7 +383,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OmniboxPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.OmniboxPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -427,7 +430,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
         // Try Method 0: SetClientPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -438,7 +441,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
         // Try Method 1: StartOmniboxQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartOmniboxQuery (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -449,7 +452,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
         // Try Method 2: GetMlModelVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMlModelVersion (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -460,7 +463,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
         // Try Method 3: StartMl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -606,7 +609,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemote = class {
 mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OmniboxPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.OmniboxPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -667,7 +670,7 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OmniboxPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.OmniboxPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -714,7 +717,7 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
         // Try Method 0: HandleNewAutocompleteQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewAutocompleteQuery (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -725,7 +728,7 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
         // Try Method 1: HandleNewAutocompleteResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewAutocompleteResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -736,7 +739,7 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
         // Try Method 2: HandleNewMlResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewMlResponse (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -747,7 +750,7 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
         // Try Method 3: HandleAnswerIconImageData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAnswerIconImageData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

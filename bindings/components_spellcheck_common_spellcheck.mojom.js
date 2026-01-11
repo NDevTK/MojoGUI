@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,13 +78,16 @@ mojo.internal.bindings.spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum
 mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellChecker = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellChecker.$interfaceName = 'spellcheck.mojom.SpellChecker';
 mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost.$interfaceName = 'spellcheck.mojom.SpellCheckInitializationHost';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost.$interfaceName = 'spellcheck.mojom.SpellCheckHost';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = { $: {} };
@@ -175,7 +179,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemote = class {
 mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellChecker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellChecker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -216,7 +220,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellChecker', [
+    const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellChecker', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -261,7 +265,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -272,7 +276,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerReceiver = class {
         // Try Method 1: CustomDictionaryChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CustomDictionaryChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -354,7 +358,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostRemote = cla
 mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckInitializationHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckInitializationHost', [
       { explicit: null },
     ]);
   }
@@ -385,7 +389,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckInitializationHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckInitializationHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -429,7 +433,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostReceiver = c
         // Try Method 0: RequestDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDictionary (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -592,7 +596,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemote = class {
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpellCheckHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -683,7 +687,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpellCheckHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -733,7 +737,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 0: NotifyChecked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyChecked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -744,7 +748,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 1: CallSpellingService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallSpellingService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -755,7 +759,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 2: RequestTextCheck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextCheck (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -766,7 +770,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 3: DisconnectSessionBridge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectSessionBridge (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -777,7 +781,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 4: CheckSpelling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -788,7 +792,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 5: FillSuggestionList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillSuggestionList (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -799,7 +803,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         // Try Method 6: InitializeDictionaries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDictionaries (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

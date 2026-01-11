@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistrySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry.$interfaceName = 'blink.mojom.ServiceWorkerWorkerClientRegistry';
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = { $: {} };
@@ -85,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistrySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -125,7 +127,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote = cla
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerWorkerClientRegistry', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerWorkerClientRegistry', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -166,7 +168,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ServiceWorkerWorkerClientRegistry', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ServiceWorkerWorkerClientRegistry', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -211,7 +213,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = c
         // Try Method 0: RegisterWorkerClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterWorkerClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -222,7 +224,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = c
         // Try Method 1: CloneWorkerClientRegistry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneWorkerClientRegistry (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

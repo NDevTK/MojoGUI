@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisClient = {};
+mojo.internal.bindings.arc.mojom.MidisClientSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MidisClient.$interfaceName = 'arc.mojom.MidisClient';
 mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisServer = {};
+mojo.internal.bindings.arc.mojom.MidisServerSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MidisServer.$interfaceName = 'arc.mojom.MidisServer';
 mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = { $: {} };
@@ -85,9 +88,11 @@ mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisHost = {};
+mojo.internal.bindings.arc.mojom.MidisHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MidisHost.$interfaceName = 'arc.mojom.MidisHost';
 mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisInstance = {};
+mojo.internal.bindings.arc.mojom.MidisInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.MidisInstance.$interfaceName = 'arc.mojom.MidisInstance';
 mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec = { $: {} };
@@ -162,7 +167,7 @@ mojo.internal.bindings.arc.mojom.MidisClientRemote = class {
 mojo.internal.bindings.arc.mojom.MidisClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidisClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisClient', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -203,7 +208,7 @@ mojo.internal.bindings.arc.mojom.MidisClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidisClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisClient', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -248,7 +253,7 @@ mojo.internal.bindings.arc.mojom.MidisClientReceiver = class {
         // Try Method 0: OnDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -259,7 +264,7 @@ mojo.internal.bindings.arc.mojom.MidisClientReceiver = class {
         // Try Method 1: OnDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -371,7 +376,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemote = class {
 mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidisServer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisServer', [
       { explicit: 0 },
       { explicit: 3 },
       { explicit: 2 },
@@ -422,7 +427,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidisServer', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisServer', [
       { explicit: 0 },
       { explicit: 3 },
       { explicit: 2 },
@@ -468,7 +473,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
         // Try Method 0: ListDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -479,7 +484,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
         // Try Method 1: RequestPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -490,7 +495,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
         // Try Method 2: CloseDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -559,8 +564,8 @@ mojo.internal.bindings.arc.mojom.MidisServerRequest = mojo.internal.bindings.arc
 // Interface: MidisHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
-      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -597,7 +602,7 @@ mojo.internal.bindings.arc.mojom.MidisHostRemote = class {
 mojo.internal.bindings.arc.mojom.MidisHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidisHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisHost', [
       { explicit: 0 },
     ]);
   }
@@ -628,7 +633,7 @@ mojo.internal.bindings.arc.mojom.MidisHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidisHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -672,7 +677,7 @@ mojo.internal.bindings.arc.mojom.MidisHostReceiver = class {
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -711,7 +716,7 @@ mojo.internal.bindings.arc.mojom.MidisHostRequest = mojo.internal.bindings.arc.m
 // Interface: MidisInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec, 'arc.mojom.MidisInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -753,7 +758,7 @@ mojo.internal.bindings.arc.mojom.MidisInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.MidisInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MidisInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisInstance', [
       { explicit: 1 },
     ]);
   }
@@ -784,7 +789,7 @@ mojo.internal.bindings.arc.mojom.MidisInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MidisInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.MidisInstance', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -828,7 +833,7 @@ mojo.internal.bindings.arc.mojom.MidisInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

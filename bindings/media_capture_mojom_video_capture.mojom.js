@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.VideoCaptureResultSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureObserver = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoCaptureObserver.$interfaceName = 'media.mojom.VideoCaptureObserver';
 mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = { $: {} };
@@ -83,6 +85,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_Params
 mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureHost = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHostSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoCaptureHost.$interfaceName = 'media.mojom.VideoCaptureHost';
 mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec = { $: {} };
@@ -206,7 +209,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemote = class {
 mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCaptureObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoCaptureObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -287,7 +290,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCaptureObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoCaptureObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -336,7 +339,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 0: OnStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -347,7 +350,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 1: OnNewBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewBuffer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -358,7 +361,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 2: OnBufferReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferReady (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -369,7 +372,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 3: OnBufferDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferDestroyed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -380,7 +383,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 4: OnFrameDropped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameDropped (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -391,7 +394,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
         // Try Method 5: OnNewCaptureVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewCaptureVersion (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -468,7 +471,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoCaptureObserverRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -596,7 +599,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemote = class {
 mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoCaptureHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoCaptureHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -707,7 +710,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoCaptureHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.VideoCaptureHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -759,7 +762,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -770,7 +773,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -781,7 +784,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 2: Pause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -792,7 +795,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 3: Resume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -803,7 +806,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 4: RequestRefreshFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestRefreshFrame (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -814,7 +817,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 5: ReleaseBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseBuffer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -825,7 +828,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 6: GetDeviceSupportedFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceSupportedFormats (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -836,7 +839,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 7: GetDeviceFormatsInUse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceFormatsInUse (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -847,7 +850,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
         // Try Method 8: OnLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLog (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

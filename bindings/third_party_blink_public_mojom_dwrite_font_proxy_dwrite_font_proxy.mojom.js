@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.blink.mojom.DWriteStringPairSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MapCharactersResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DWriteFontProxy = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DWriteFontProxy.$interfaceName = 'blink.mojom.DWriteFontProxy';
 mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = { $: {} };
@@ -243,7 +245,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemote = class {
 mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DWriteFontProxy', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DWriteFontProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -324,7 +326,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DWriteFontProxy', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DWriteFontProxy', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -373,7 +375,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 0: FindFamily
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindFamily (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -384,7 +386,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 1: GetFamilyCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFamilyCount (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -395,7 +397,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 2: GetFamilyNames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFamilyNames (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -406,7 +408,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 3: GetFontFileHandles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFontFileHandles (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -417,7 +419,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 4: MatchUniqueFont
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchUniqueFont (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -428,7 +430,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
         // Try Method 5: MapCharacters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapCharacters (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

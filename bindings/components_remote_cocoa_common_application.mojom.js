@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,8 +75,10 @@ mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_med
 
 mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.remote_cocoa.mojom.StubInterface = {};
+mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.StubInterface.$interfaceName = 'remote_cocoa.mojom.StubInterface';
 mojo.internal.bindings.remote_cocoa.mojom.Application = {};
+mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.Application.$interfaceName = 'remote_cocoa.mojom.Application';
 mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = { $: {} };
@@ -122,7 +125,7 @@ mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StubInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.StubInterface', [
     ]);
   }
 
@@ -143,7 +146,7 @@ mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StubInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.StubInterface', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -223,8 +226,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -238,8 +241,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -297,7 +300,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Application', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.Application', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -378,7 +381,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Application', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.Application', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -427,7 +430,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 0: CreateAlert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAlert (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -438,7 +441,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 1: CreateNativeWidgetNSWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNativeWidgetNSWindow (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -449,7 +452,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 2: CreateRenderWidgetHostNSView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRenderWidgetHostNSView (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -460,7 +463,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 3: CreateSystemMediaControlsBridge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSystemMediaControlsBridge (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -471,7 +474,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 4: CreateWebContentsNSView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebContentsNSView (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -482,7 +485,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
         // Try Method 5: ForwardCutCopyPaste
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardCutCopyPaste (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,26 +79,32 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyEventSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver.$interfaceName = 'ash.diagnostics.mojom.KeyboardObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver.$interfaceName = 'ash.diagnostics.mojom.InternalDisplayPowerStateObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver.$interfaceName = 'ash.diagnostics.mojom.TabletModeObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver.$interfaceName = 'ash.diagnostics.mojom.LidStateObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver.$interfaceName = 'ash.diagnostics.mojom.ConnectedDevicesObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider = {};
+mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider.$interfaceName = 'ash.diagnostics.mojom.InputDataProvider';
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec = { $: {} };
@@ -210,7 +217,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('KeyboardObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.KeyboardObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -261,7 +268,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('KeyboardObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.KeyboardObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -307,7 +314,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverReceiver = class {
         // Try Method 0: OnKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -318,7 +325,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverReceiver = class {
         // Try Method 1: OnKeyEventsPaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEventsPaused (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -329,7 +336,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverReceiver = class {
         // Try Method 2: OnKeyEventsResumed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEventsResumed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -419,7 +426,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRe
 mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InternalDisplayPowerStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.InternalDisplayPowerStateObserver', [
       { explicit: null },
     ]);
   }
@@ -450,7 +457,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InternalDisplayPowerStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.InternalDisplayPowerStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -494,7 +501,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRe
         // Try Method 0: OnInternalDisplayPowerStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInternalDisplayPowerStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -570,7 +577,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabletModeObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.TabletModeObserver', [
       { explicit: null },
     ]);
   }
@@ -601,7 +608,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabletModeObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.TabletModeObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -645,7 +652,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverReceiver = class 
         // Try Method 0: OnTabletModeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabletModeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -721,7 +728,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LidStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.LidStateObserver', [
       { explicit: null },
     ]);
   }
@@ -752,7 +759,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LidStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.LidStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -796,7 +803,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverReceiver = class {
         // Try Method 0: OnLidStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -899,7 +906,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemote = cl
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ConnectedDevicesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.ConnectedDevicesObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -960,7 +967,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ConnectedDevicesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.ConnectedDevicesObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1007,7 +1014,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
         // Try Method 0: OnKeyboardConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1018,7 +1025,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
         // Try Method 1: OnKeyboardDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardDisconnected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1029,7 +1036,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
         // Try Method 2: OnTouchDeviceConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTouchDeviceConnected (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1040,7 +1047,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
         // Try Method 3: OnTouchDeviceDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTouchDeviceDisconnected (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1111,20 +1118,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1136,7 +1143,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveLidState_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1148,7 +1155,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1226,7 +1233,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputDataProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.InputDataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1337,7 +1344,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputDataProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.InputDataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1389,7 +1396,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 0: GetConnectedDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConnectedDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1400,7 +1407,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 1: ObserveConnectedDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveConnectedDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1411,7 +1418,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 2: ObserveKeyEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveKeyEvents (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1422,7 +1429,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 3: ObserveTabletMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveTabletMode (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1433,7 +1440,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 4: ObserveLidState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveLidState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1444,7 +1451,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 5: ObserveInternalDisplayPowerState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveInternalDisplayPowerState (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1455,7 +1462,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 6: MoveAppToTestingScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveAppToTestingScreen (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1466,7 +1473,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 7: MoveAppBackToPreviousScreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveAppBackToPreviousScreen (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1477,7 +1484,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
         // Try Method 8: SetA11yTouchPassthrough
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetA11yTouchPassthrough (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

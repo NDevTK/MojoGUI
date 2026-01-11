@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHost = {};
+mojo.internal.bindings.blink.mojom.WorkletDevToolsHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHost.$interfaceName = 'blink.mojom.WorkletDevToolsHost';
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = { $: {} };
 
@@ -85,7 +87,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_starter_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_trial_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_token', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_host', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkletDevToolsHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_host', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_code_cache_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_wait_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -133,7 +135,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemote = class {
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WorkletDevToolsHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WorkletDevToolsHost', [
       { explicit: null },
     ]);
   }
@@ -164,7 +166,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WorkletDevToolsHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WorkletDevToolsHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -208,7 +210,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostReceiver = class {
         // Try Method 0: OnReadyForInspection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadyForInspection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,14 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider = {};
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider.$interfaceName = 'audio.mojom.DebugRecordingFileProvider';
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.audio.mojom.DebugRecording = {};
+mojo.internal.bindings.audio.mojom.DebugRecordingSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.DebugRecording.$interfaceName = 'audio.mojom.DebugRecording';
 mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec = { $: {} };
 
@@ -153,7 +156,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemote = class {
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DebugRecordingFileProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DebugRecordingFileProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -194,7 +197,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DebugRecordingFileProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DebugRecordingFileProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -239,7 +242,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
         // Try Method 0: CreateWavFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWavFile (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -250,7 +253,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
         // Try Method 1: CreateAecdumpFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAecdumpFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -312,7 +315,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRequest = mojo.inte
 // Interface: DebugRecording
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec, 'audio.mojom.DebugRecording_Enable_Params', [
-      mojo.internal.StructField('arg_file_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -349,7 +352,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingRemote = class {
 mojo.internal.bindings.audio.mojom.DebugRecordingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DebugRecording', [
+    this.ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DebugRecording', [
       { explicit: null },
     ]);
   }
@@ -380,7 +383,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DebugRecording', [
+    const ordinals = window.mojoScrambler.getOrdinals('audio.mojom.DebugRecording', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -424,7 +427,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingReceiver = class {
         // Try Method 0: Enable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Enable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

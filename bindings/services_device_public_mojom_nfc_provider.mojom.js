@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.NFCProvider = {};
+mojo.internal.bindings.device.mojom.NFCProviderSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.NFCProvider.$interfaceName = 'device.mojom.NFCProvider';
 mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = { $: {} };
@@ -134,7 +136,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemote = class {
 mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NFCProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFCProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -185,7 +187,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NFCProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFCProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -231,7 +233,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
         // Try Method 0: GetNFCForHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNFCForHost (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -242,7 +244,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
         // Try Method 1: SuspendNFCOperations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendNFCOperations (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -253,7 +255,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
         // Try Method 2: ResumeNFCOperations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeNFCOperations (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

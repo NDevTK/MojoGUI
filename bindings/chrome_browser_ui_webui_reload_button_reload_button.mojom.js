@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,14 +74,17 @@ mojo.internal.bindings.reload_button.mojom = mojo.internal.bindings.reload_butto
 
 mojo.internal.bindings.reload_button.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.reload_button.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.reload_button.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.reload_button.mojom.PageHandlerFactory.$interfaceName = 'reload_button.mojom.PageHandlerFactory';
 mojo.internal.bindings.reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.reload_button.mojom.PageHandler = {};
+mojo.internal.bindings.reload_button.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.reload_button.mojom.PageHandler.$interfaceName = 'reload_button.mojom.PageHandler';
 mojo.internal.bindings.reload_button.mojom.PageHandler_Reload_ParamsSpec = { $: {} };
 mojo.internal.bindings.reload_button.mojom.PageHandler_StopReload_ParamsSpec = { $: {} };
 mojo.internal.bindings.reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
 mojo.internal.bindings.reload_button.mojom.Page = {};
+mojo.internal.bindings.reload_button.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.reload_button.mojom.Page.$interfaceName = 'reload_button.mojom.Page';
 mojo.internal.bindings.reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = { $: {} };
 
@@ -94,8 +98,8 @@ mojo.internal.bindings.reload_button.mojom.ClickDispositionFlag = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'reload_button.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.reload_button.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.reload_button.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.reload_button.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.reload_button.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,7 +136,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -163,7 +167,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -207,7 +211,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -302,7 +306,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.reload_button.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -353,7 +357,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -399,7 +403,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerReceiver = class {
         // Try Method 0: Reload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_Reload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_Reload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -410,7 +414,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerReceiver = class {
         // Try Method 1: StopReload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_StopReload_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_StopReload_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReload (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -421,7 +425,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerReceiver = class {
         // Try Method 2: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -512,7 +516,7 @@ mojo.internal.bindings.reload_button.mojom.PageRemote = class {
 mojo.internal.bindings.reload_button.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -543,7 +547,7 @@ mojo.internal.bindings.reload_button.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('reload_button.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -587,7 +591,7 @@ mojo.internal.bindings.reload_button.mojom.PageReceiver = class {
         // Try Method 0: SetReloadButtonState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.Page_SetReloadButtonState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReloadButtonState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

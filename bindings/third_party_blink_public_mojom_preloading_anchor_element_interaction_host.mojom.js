@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost = {};
+mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost.$interfaceName = 'blink.mojom.AnchorElementInteractionHost';
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = { $: {} };
@@ -168,7 +170,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemote = class {
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AnchorElementInteractionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AnchorElementInteractionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -239,7 +241,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AnchorElementInteractionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AnchorElementInteractionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -287,7 +289,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
         // Try Method 0: OnPointerDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerDown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -298,7 +300,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
         // Try Method 1: OnPointerHoverEager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerHoverEager (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,7 +311,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
         // Try Method 2: OnPointerHoverModerate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPointerHoverModerate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -320,7 +322,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
         // Try Method 3: OnModerateViewportHeuristicTriggered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModerateViewportHeuristicTriggered (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -331,7 +333,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
         // Try Method 4: OnEagerViewportHeuristicTriggered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEagerViewportHeuristicTriggered (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

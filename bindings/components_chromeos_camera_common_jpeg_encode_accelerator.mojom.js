@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
 mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = { $ : {} };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator.$interfaceName = 'chromeos_camera.mojom.JpegEncodeAccelerator';
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec = { $: {} };
@@ -189,7 +191,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote = class
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JpegEncodeAccelerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos_camera.mojom.JpegEncodeAccelerator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -240,7 +242,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JpegEncodeAccelerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos_camera.mojom.JpegEncodeAccelerator', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -286,7 +288,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +299,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
         // Try Method 1: EncodeWithFD
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EncodeWithFD (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +310,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
         // Try Method 2: EncodeWithDmaBuf
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EncodeWithDmaBuf (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

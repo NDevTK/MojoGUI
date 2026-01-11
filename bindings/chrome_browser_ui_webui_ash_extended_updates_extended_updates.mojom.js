@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.ash.extended_updates.mojom = mojo.internal.bindings.ash.e
 
 mojo.internal.bindings.ash.extended_updates.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory.$interfaceName = 'ash.extended_updates.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler = {};
+mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler.$interfaceName = 'ash.extended_updates.mojom.PageHandler';
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = { $: {} };
@@ -84,6 +87,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_Params
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.extended_updates.mojom.Page = {};
+mojo.internal.bindings.ash.extended_updates.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.extended_updates.mojom.Page.$interfaceName = 'ash.extended_updates.mojom.Page';
 
 // Struct: App
@@ -97,8 +101,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.extended_updates.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.extended_updates.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -135,7 +139,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryRemote = cla
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -166,7 +170,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -210,7 +214,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryReceiver = c
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -313,7 +317,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -364,7 +368,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -410,7 +414,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
         // Try Method 0: OptInToExtendedUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OptInToExtendedUpdates (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -421,7 +425,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
         // Try Method 1: CloseDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDialog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,7 +436,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
         // Try Method 2: GetInstalledAndroidApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInstalledAndroidApps (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -529,7 +533,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageRemote = class {
 mojo.internal.bindings.ash.extended_updates.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.Page', [
     ]);
   }
 
@@ -550,7 +554,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.extended_updates.mojom.Page', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

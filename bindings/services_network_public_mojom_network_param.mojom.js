@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,17 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.CertVerifyResultSpec = { $: {} };
+mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpVersionSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostPortPairSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyServerSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyChainSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.X509CertificateSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetLogSourceSpec = { $: {} };
 
 // Enum: ProxyScheme
@@ -104,6 +110,24 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_proxy', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
+
+// Struct: AuthCredentials
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.AuthCredentialsSpec, 'network.mojom.AuthCredentials', [
+    ],
+    [[0, 8]]);
+
+// Struct: CertVerifyResult
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CertVerifyResultSpec, 'network.mojom.CertVerifyResult', [
+    ],
+    [[0, 8]]);
+
+// Struct: HttpResponseHeaders
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, 'network.mojom.HttpResponseHeaders', [
+    ],
+    [[0, 8]]);
 
 // Struct: HttpVersion
 mojo.internal.Struct(
@@ -154,6 +178,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_proxy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
+
+// Struct: SSLInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SSLInfoSpec, 'network.mojom.SSLInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: X509Certificate
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.X509CertificateSpec, 'network.mojom.X509Certificate', [
+    ],
+    [[0, 8]]);
 
 // Struct: NetLogSource
 mojo.internal.Struct(

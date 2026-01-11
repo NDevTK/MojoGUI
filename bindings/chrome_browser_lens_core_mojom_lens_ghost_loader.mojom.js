@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,16 +73,18 @@
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory = {};
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory.$interfaceName = 'lens.mojom.LensGhostLoaderPageHandlerFactory';
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPage = {};
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPage.$interfaceName = 'lens.mojom.LensGhostLoaderPage';
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = { $: {} };
 
 // Interface: LensGhostLoaderPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec, 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,7 +121,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryRemote = clas
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LensGhostLoaderPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensGhostLoaderPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -149,7 +152,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LensGhostLoaderPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensGhostLoaderPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +196,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = cl
         // Try Method 0: CreateGhostLoaderPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGhostLoaderPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -268,7 +271,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemote = class {
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LensGhostLoaderPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensGhostLoaderPage', [
       { explicit: null },
     ]);
   }
@@ -299,7 +302,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LensGhostLoaderPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('lens.mojom.LensGhostLoaderPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -343,7 +346,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageReceiver = class {
         // Try Method 0: ShowErrorState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowErrorState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

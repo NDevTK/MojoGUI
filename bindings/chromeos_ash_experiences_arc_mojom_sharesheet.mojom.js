@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,8 +73,10 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.SharesheetHost = {};
+mojo.internal.bindings.arc.mojom.SharesheetHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.SharesheetHost.$interfaceName = 'arc.mojom.SharesheetHost';
 mojo.internal.bindings.arc.mojom.SharesheetInstance = {};
+mojo.internal.bindings.arc.mojom.SharesheetInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.SharesheetInstance.$interfaceName = 'arc.mojom.SharesheetInstance';
 mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec = { $: {} };
@@ -109,7 +112,7 @@ mojo.internal.bindings.arc.mojom.SharesheetHostRemote = class {
 mojo.internal.bindings.arc.mojom.SharesheetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharesheetHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SharesheetHost', [
     ]);
   }
 
@@ -130,7 +133,7 @@ mojo.internal.bindings.arc.mojom.SharesheetHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharesheetHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SharesheetHost', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -194,7 +197,7 @@ mojo.internal.bindings.arc.mojom.SharesheetHostRequest = mojo.internal.bindings.
 // Interface: SharesheetInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec, 'arc.mojom.SharesheetInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SharesheetHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SharesheetHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,7 +239,7 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.SharesheetInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SharesheetInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SharesheetInstance', [
       { explicit: 0 },
     ]);
   }
@@ -267,7 +270,7 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SharesheetInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.SharesheetInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -311,7 +314,7 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

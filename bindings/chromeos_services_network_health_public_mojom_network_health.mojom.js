@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,11 +74,13 @@ mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos
 mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
 
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver.$interfaceName = 'chromeos.network_health.mojom.NetworkEventsObserver';
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService.$interfaceName = 'chromeos.network_health.mojom.NetworkHealthService';
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = { $: {} };
@@ -147,7 +150,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkEventsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.network_health.mojom.NetworkEventsObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -198,7 +201,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkEventsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.network_health.mojom.NetworkEventsObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -244,7 +247,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReceiv
         // Try Method 0: OnConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -255,7 +258,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReceiv
         // Try Method 1: OnSignalStrengthChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSignalStrengthChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -266,7 +269,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReceiv
         // Try Method 2: OnNetworkListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkListChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -319,7 +322,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReques
 // Interface: NetworkHealthService
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -398,7 +401,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemote 
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkHealthService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.network_health.mojom.NetworkHealthService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -459,7 +462,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkHealthService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.network_health.mojom.NetworkHealthService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -506,7 +509,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +520,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
         // Try Method 1: GetNetworkList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -528,7 +531,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
         // Try Method 2: GetHealthSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHealthSnapshot (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -539,7 +542,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
         // Try Method 3: GetRecentlyActiveNetworks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentlyActiveNetworks (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

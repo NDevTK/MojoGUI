@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom = mojo.internal.
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler';
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = { $: {} };
@@ -91,6 +93,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver';
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = { $: {} };
@@ -132,7 +135,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -242,7 +245,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppParentalControlsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_parental_controls.mojom.AppParentalControlsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -343,7 +346,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppParentalControlsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_parental_controls.mojom.AppParentalControlsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -394,7 +397,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 0: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,7 +408,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 1: UpdateApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -416,7 +419,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 2: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -427,7 +430,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 3: OnControlsDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnControlsDisabled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -438,7 +441,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 4: ValidatePin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidatePin (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -449,7 +452,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 5: SetUpPin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpPin (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -460,7 +463,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 6: VerifyPin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyPin (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -471,7 +474,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 7: IsSetupCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSetupCompleted (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -645,7 +648,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppParentalControlsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_parental_controls.mojom.AppParentalControlsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -686,7 +689,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppParentalControlsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_parental_controls.mojom.AppParentalControlsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -731,7 +734,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 0: OnAppInstalledOrUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppInstalledOrUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -742,7 +745,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
         // Try Method 1: OnAppUninstalled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppUninstalled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

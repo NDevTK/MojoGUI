@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.WakeLockProvider = {};
+mojo.internal.bindings.device.mojom.WakeLockProviderSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.WakeLockProvider.$interfaceName = 'device.mojom.WakeLockProvider';
 mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = { $: {} };
@@ -79,6 +81,7 @@ mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivatio
 mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.WakeLockObserver = {};
+mojo.internal.bindings.device.mojom.WakeLockObserverSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.WakeLockObserver.$interfaceName = 'device.mojom.WakeLockObserver';
 mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = { $: {} };
 
@@ -102,7 +105,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec, 'device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.WakeLockObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.WakeLockObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -160,7 +163,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRemote = class {
 mojo.internal.bindings.device.mojom.WakeLockProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WakeLockProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.WakeLockProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -221,7 +224,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WakeLockProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.WakeLockProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -268,7 +271,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderReceiver = class {
         // Try Method 0: GetWakeLockContextForID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakeLockContextForID (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +282,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderReceiver = class {
         // Try Method 1: GetWakeLockWithoutContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWakeLockWithoutContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -290,7 +293,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderReceiver = class {
         // Try Method 2: NotifyOnWakeLockDeactivation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnWakeLockDeactivation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -301,7 +304,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderReceiver = class {
         // Try Method 3: GetActiveWakeLocksForTests
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetActiveWakeLocksForTests (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -406,7 +409,7 @@ mojo.internal.bindings.device.mojom.WakeLockObserverRemote = class {
 mojo.internal.bindings.device.mojom.WakeLockObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WakeLockObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.WakeLockObserver', [
       { explicit: null },
     ]);
   }
@@ -437,7 +440,7 @@ mojo.internal.bindings.device.mojom.WakeLockObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WakeLockObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.WakeLockObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -481,7 +484,7 @@ mojo.internal.bindings.device.mojom.WakeLockObserverReceiver = class {
         // Try Method 0: OnWakeLockDeactivated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakeLockDeactivated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

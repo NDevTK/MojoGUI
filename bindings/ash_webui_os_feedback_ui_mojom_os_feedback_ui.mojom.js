@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,10 +88,12 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider.$interfaceName = 'ash.os_feedback_ui.mojom.HelpContentProvider';
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider.$interfaceName = 'ash.os_feedback_ui.mojom.FeedbackServiceProvider';
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = { $: {} };
@@ -275,7 +278,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderRemote = clas
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HelpContentProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.os_feedback_ui.mojom.HelpContentProvider', [
       { explicit: null },
     ]);
   }
@@ -306,7 +309,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HelpContentProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.os_feedback_ui.mojom.HelpContentProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -350,7 +353,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
         // Try Method 0: GetHelpContents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHelpContents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -554,7 +557,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote = 
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FeedbackServiceProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.os_feedback_ui.mojom.FeedbackServiceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -705,7 +708,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FeedbackServiceProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.os_feedback_ui.mojom.FeedbackServiceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -761,7 +764,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 0: GetFeedbackContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeedbackContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -772,7 +775,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 1: GetScreenshotPng
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScreenshotPng (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -783,7 +786,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 2: SendReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -794,7 +797,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 3: OpenDiagnosticsApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnosticsApp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -805,7 +808,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 4: OpenExploreApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenExploreApp (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -816,7 +819,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 5: OpenMetricsDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenMetricsDialog (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -827,7 +830,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 6: OpenSystemInfoDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSystemInfoDialog (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -838,7 +841,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 7: OpenAutofillDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAutofillDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -849,7 +852,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 8: RecordPostSubmitAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPostSubmitAction (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -860,7 +863,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 9: RecordPreSubmitAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPreSubmitAction (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -871,7 +874,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 10: RecordExitPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordExitPath (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -882,7 +885,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 11: RecordHelpContentOutcome
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordHelpContentOutcome (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -893,7 +896,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
         // Try Method 12: RecordHelpContentSearchResultCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordHelpContentSearchResultCount (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

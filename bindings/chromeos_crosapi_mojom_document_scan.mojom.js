@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -99,6 +100,7 @@ mojo.internal.bindings.crosapi.mojom.SetOptionsResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.GetOptionGroupsResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.CancelScanResponseSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DocumentScan = {};
+mojo.internal.bindings.crosapi.mojom.DocumentScanSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.DocumentScan.$interfaceName = 'crosapi.mojom.DocumentScan';
 mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = { $: {} };
@@ -574,7 +576,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemote = class {
 mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DocumentScan', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
       { explicit: 3 },
       { explicit: 4 },
       { explicit: 5 },
@@ -665,7 +667,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DocumentScan', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
       { explicit: 3 },
       { explicit: 4 },
       { explicit: 5 },
@@ -715,7 +717,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 0: OpenScanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenScanner (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -726,7 +728,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 1: CloseScanner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseScanner (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -737,7 +739,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 2: StartPreparedScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPreparedScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -748,7 +750,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 3: ReadScanData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadScanData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -759,7 +761,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 4: SetOptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOptions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -770,7 +772,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 5: GetOptionGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionGroups (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -781,7 +783,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
         // Try Method 6: CancelScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelScan (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,10 +85,12 @@ mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenImageInfoSpec =
 mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.TextQueryHistoryEntrySpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver = {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver.$interfaceName = 'ash.personalization_app.mojom.SeaPenObserver';
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider = {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider.$interfaceName = 'ash.personalization_app.mojom.SeaPenProvider';
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = { $: {} };
@@ -256,7 +259,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemote = clas
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SeaPenObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.SeaPenObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -297,7 +300,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SeaPenObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.SeaPenObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -342,7 +345,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverReceiver = cl
         // Try Method 0: OnSelectedSeaPenImageChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSelectedSeaPenImageChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -353,7 +356,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverReceiver = cl
         // Try Method 1: OnTextQueryHistoryChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextQueryHistoryChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -399,7 +402,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRequest = moj
 // Interface: SeaPenProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -603,7 +606,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemote = clas
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SeaPenProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.SeaPenProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -764,7 +767,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SeaPenProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.personalization_app.mojom.SeaPenProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -821,7 +824,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 0: SetSeaPenObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSeaPenObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -832,7 +835,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 1: GetSeaPenThumbnails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSeaPenThumbnails (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -843,7 +846,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 2: SelectSeaPenThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectSeaPenThumbnail (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -854,7 +857,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 3: GetRecentSeaPenImageIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentSeaPenImageIds (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -865,7 +868,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 4: SelectRecentSeaPenImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectRecentSeaPenImage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -876,7 +879,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 5: GetRecentSeaPenImageThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentSeaPenImageThumbnail (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -887,7 +890,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 6: DeleteRecentSeaPenImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRecentSeaPenImage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -898,7 +901,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 7: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -909,7 +912,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 8: ShouldShowSeaPenIntroductionDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowSeaPenIntroductionDialog (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -920,7 +923,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 9: HandleSeaPenIntroductionDialogClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSeaPenIntroductionDialogClosed (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -931,7 +934,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 10: ShouldShowSeaPenFreeformIntroductionDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowSeaPenFreeformIntroductionDialog (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -942,7 +945,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 11: HandleSeaPenFreeformIntroductionDialogClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSeaPenFreeformIntroductionDialogClosed (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -953,7 +956,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 12: IsInTabletMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInTabletMode (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -964,7 +967,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
         // Try Method 13: MakeTransparent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeTransparent (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

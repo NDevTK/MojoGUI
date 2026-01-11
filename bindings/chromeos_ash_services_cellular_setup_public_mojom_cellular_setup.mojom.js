@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,13 +78,16 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: m
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler = {};
+mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler.$interfaceName = 'ash.cellular_setup.mojom.CarrierPortalHandler';
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate = {};
+mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateSpec = { $ : {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate.$interfaceName = 'ash.cellular_setup.mojom.ActivationDelegate';
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup = {};
+mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupSpec = { $ : {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup.$interfaceName = 'ash.cellular_setup.mojom.CellularSetup';
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = { $: {} };
@@ -155,7 +159,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemote = cla
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CarrierPortalHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.CarrierPortalHandler', [
       { explicit: null },
     ]);
   }
@@ -186,7 +190,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CarrierPortalHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.CarrierPortalHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -230,7 +234,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = c
         // Try Method 0: OnCarrierPortalStatusChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCarrierPortalStatusChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +319,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemote = class
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ActivationDelegate', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.ActivationDelegate', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -356,7 +360,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ActivationDelegate', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.ActivationDelegate', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -401,7 +405,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateReceiver = cla
         // Try Method 0: OnActivationStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActivationStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +416,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateReceiver = cla
         // Try Method 1: OnActivationFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActivationFinished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -458,13 +462,13 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRequest = mojo
 // Interface: CellularSetup
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params', [
-      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -501,7 +505,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRemote = class {
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CellularSetup', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.CellularSetup', [
       { explicit: null },
     ]);
   }
@@ -532,7 +536,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CellularSetup', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cellular_setup.mojom.CellularSetup', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -576,7 +580,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = class {
         // Try Method 0: StartActivation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActivation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

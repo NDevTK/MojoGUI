@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 
 mojo.internal.bindings.mojom.DebugLogsChangeHandler = {};
+mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.DebugLogsChangeHandler.$interfaceName = 'mojom.DebugLogsChangeHandler';
 mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler.$interfaceName = 'mojom.BluetoothInternalsHandler';
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = { $: {} };
@@ -93,6 +96,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponsePara
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothBtsnoop = {};
+mojo.internal.bindings.mojom.BluetoothBtsnoopSpec = { $ : {} };
 mojo.internal.bindings.mojom.BluetoothBtsnoop.$interfaceName = 'mojom.BluetoothBtsnoop';
 mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = { $: {} };
@@ -137,7 +141,7 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemote = class {
 mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DebugLogsChangeHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.DebugLogsChangeHandler', [
       { explicit: null },
     ]);
   }
@@ -168,7 +172,7 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DebugLogsChangeHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.DebugLogsChangeHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -212,7 +216,7 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerReceiver = class {
         // Try Method 0: ChangeDebugLogsState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeDebugLogsState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -267,7 +271,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParams', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_toggle_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -323,7 +327,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParams', [
-      mojo.internal.StructField('arg_btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.BluetoothBtsnoopSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.BluetoothBtsnoopRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -392,7 +396,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemote = class {
 mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,7 +497,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BluetoothInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -544,7 +548,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 0: GetAdapter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAdapter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -555,7 +559,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 1: GetDebugLogsChangeHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugLogsChangeHandler (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -566,7 +570,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 2: CheckSystemPermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSystemPermissions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -577,7 +581,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 3: RequestSystemPermissions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSystemPermissions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -588,7 +592,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 4: RequestLocationServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLocationServices (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -599,7 +603,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 5: RestartSystemBluetooth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartSystemBluetooth (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -610,7 +614,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 6: StartBtsnoop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartBtsnoop (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -621,7 +625,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         // Try Method 7: IsBtsnoopFeatureEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsBtsnoopFeatureEnabled (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -815,7 +819,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopRemote = class {
 mojo.internal.bindings.mojom.BluetoothBtsnoopRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothBtsnoop', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothBtsnoop', [
       { explicit: null },
     ]);
   }
@@ -846,7 +850,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BluetoothBtsnoop', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothBtsnoop', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -890,7 +894,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = class {
         // Try Method 0: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

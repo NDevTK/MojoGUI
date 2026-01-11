@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,11 +77,13 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.translate.mojom.TranslateErrorSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec = { $: {} };
 mojo.internal.bindings.translate.mojom.TranslateAgent = {};
+mojo.internal.bindings.translate.mojom.TranslateAgentSpec = { $ : {} };
 mojo.internal.bindings.translate.mojom.TranslateAgent.$interfaceName = 'translate.mojom.TranslateAgent';
 mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = { $: {} };
 mojo.internal.bindings.translate.mojom.ContentTranslateDriver = {};
+mojo.internal.bindings.translate.mojom.ContentTranslateDriverSpec = { $ : {} };
 mojo.internal.bindings.translate.mojom.ContentTranslateDriver.$interfaceName = 'translate.mojom.ContentTranslateDriver';
 mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = { $: {} };
 
@@ -177,7 +180,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRemote = class {
 mojo.internal.bindings.translate.mojom.TranslateAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TranslateAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('translate.mojom.TranslateAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -218,7 +221,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TranslateAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('translate.mojom.TranslateAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -263,7 +266,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
         // Try Method 0: TranslateFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TranslateFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -274,7 +277,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
         // Try Method 1: RevertTranslation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevertTranslation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -328,7 +331,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRequest = mojo.internal.bin
 // Interface: ContentTranslateDriver
 mojo.internal.Struct(
     mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
-      mojo.internal.StructField('arg_translate_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.translate.mojom.TranslateAgentSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_translate_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -367,7 +370,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverRemote = class {
 mojo.internal.bindings.translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContentTranslateDriver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('translate.mojom.ContentTranslateDriver', [
       { explicit: null },
     ]);
   }
@@ -398,7 +401,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContentTranslateDriver', [
+    const ordinals = window.mojoScrambler.getOrdinals('translate.mojom.ContentTranslateDriver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -442,7 +445,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverReceiver = class {
         // Try Method 0: RegisterPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

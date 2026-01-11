@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.supervised_user.mojom = mojo.internal.bindings.supervised_user.mojom || {};
 
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands = {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec = { $ : {} };
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands.$interfaceName = 'supervised_user.mojom.SupervisedUserCommands';
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = { $: {} };
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = { $: {} };
@@ -161,7 +163,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemote = clas
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SupervisedUserCommands', [
+    this.ordinals = window.mojoScrambler.getOrdinals('supervised_user.mojom.SupervisedUserCommands', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -222,7 +224,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SupervisedUserCommands', [
+    const ordinals = window.mojoScrambler.getOrdinals('supervised_user.mojom.SupervisedUserCommands', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -269,7 +271,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
         // Try Method 0: GoBack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoBack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -280,7 +282,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
         // Try Method 1: RequestUrlAccessRemote
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessRemote (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -291,7 +293,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
         // Try Method 2: RequestUrlAccessLocal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessLocal (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -302,7 +304,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
         // Try Method 3: LearnMore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LearnMore (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

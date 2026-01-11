@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost.$interfaceName = 'arc.mojom.EnterpriseReportingHost';
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance.$interfaceName = 'arc.mojom.EnterpriseReportingInstance';
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec = { $: {} };
@@ -143,7 +146,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemote = class {
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EnterpriseReportingHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.EnterpriseReportingHost', [
       { explicit: 1 },
     ]);
   }
@@ -174,7 +177,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EnterpriseReportingHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.EnterpriseReportingHost', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -218,7 +221,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostReceiver = class {
         // Try Method 0: ReportCloudDpcOperationTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportCloudDpcOperationTime (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +260,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRequest = mojo.internal.
 // Interface: EnterpriseReportingInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -314,7 +317,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EnterpriseReportingInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.EnterpriseReportingInstance', [
       { explicit: 2 },
       { explicit: 1 },
     ]);
@@ -355,7 +358,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EnterpriseReportingInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.EnterpriseReportingInstance', [
       { explicit: 2 },
       { explicit: 1 },
     ]);
@@ -400,7 +403,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -411,7 +414,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
         // Try Method 1: GetStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

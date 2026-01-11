@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {
 
 mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver = {};
+mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver.$interfaceName = 'crosapi.mojom.ExternalLogoutRequestObserver';
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.Login = {};
+mojo.internal.bindings.crosapi.mojom.LoginSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.Login.$interfaceName = 'crosapi.mojom.Login';
 mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = { $: {} };
@@ -143,7 +146,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRemote = class
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ExternalLogoutRequestObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ExternalLogoutRequestObserver', [
       { explicit: 0 },
     ]);
   }
@@ -174,7 +177,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ExternalLogoutRequestObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.ExternalLogoutRequestObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -218,7 +221,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverReceiver = cla
         // Try Method 0: OnRequestExternalLogout
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestExternalLogout (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +260,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRequest = mojo
 // Interface: Login
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec, 'crosapi.mojom.Login_AddExternalLogoutRequestObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -407,7 +410,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemote = class {
 mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Login', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.Login', [
       { explicit: 14 },
       { explicit: 16 },
       { explicit: 0 },
@@ -518,7 +521,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Login', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.Login', [
       { explicit: 14 },
       { explicit: 16 },
       { explicit: 0 },
@@ -570,7 +573,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 0: AddExternalLogoutRequestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddExternalLogoutRequestObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -581,7 +584,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 1: NotifyOnExternalLogoutDone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnExternalLogoutDone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -592,7 +595,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 2: REMOVED_0
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_0 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -603,7 +606,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 3: REMOVED_4
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_4 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -614,7 +617,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 4: REMOVED_5
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_5 (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -625,7 +628,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 5: REMOVED_6
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_6 (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -636,7 +639,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 6: REMOVED_7
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_7 (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -647,7 +650,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 7: REMOVED_10
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_10 (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -658,7 +661,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
         // Try Method 8: REMOVED_12
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_12 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

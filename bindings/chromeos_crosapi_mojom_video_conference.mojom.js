@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} }
 mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient.$interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = { $: {} };
@@ -247,7 +249,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemote = class 
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoConferenceManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.VideoConferenceManagerClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -308,7 +310,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoConferenceManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.VideoConferenceManagerClient', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -355,7 +357,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
         // Try Method 0: GetMediaApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,7 +368,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
         // Try Method 1: ReturnToApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReturnToApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -377,7 +379,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
         // Try Method 2: SetSystemMediaDeviceStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemMediaDeviceStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -388,7 +390,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
         // Try Method 3: StopAllScreenShare
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAllScreenShare (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -114,15 +115,18 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRouti
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl.$interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineControl';
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver.$interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineObserver';
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService.$interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutinesService';
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec = { $: {} };
@@ -651,7 +655,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemote = c
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutineControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutineControl', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -702,7 +706,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutineControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutineControl', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -748,7 +752,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
         // Try Method 0: GetState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -759,7 +763,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
         // Try Method 1: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -770,7 +774,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
         // Try Method 2: ReplyToInquiry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplyToInquiry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -868,7 +872,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote = 
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutineObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutineObserver', [
       { explicit: 0 },
     ]);
   }
@@ -899,7 +903,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutineObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutineObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -943,7 +947,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver 
         // Try Method 0: OnRoutineStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutineStateChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -983,8 +987,8 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest =
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routine_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1036,7 +1040,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote = 
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutinesService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutinesService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1077,7 +1081,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TelemetryDiagnosticRoutinesService', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.TelemetryDiagnosticRoutinesService', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -1122,7 +1126,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
         // Try Method 0: CreateRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRoutine (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1133,7 +1137,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
         // Try Method 1: IsRoutineArgumentSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRoutineArgumentSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

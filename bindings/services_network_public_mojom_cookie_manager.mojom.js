@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -106,9 +107,11 @@ mojo.internal.bindings.network.mojom.CookieWithAccessResultSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieChangeInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieDeletionFilterSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieChangeListener = {};
+mojo.internal.bindings.network.mojom.CookieChangeListenerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.CookieChangeListener.$interfaceName = 'network.mojom.CookieChangeListener';
 mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieManager = {};
+mojo.internal.bindings.network.mojom.CookieManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.CookieManager.$interfaceName = 'network.mojom.CookieManager';
 mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec = { $: {} };
@@ -480,7 +483,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerRemote = class {
 mojo.internal.bindings.network.mojom.CookieChangeListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CookieChangeListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieChangeListener', [
       { explicit: null },
     ]);
   }
@@ -511,7 +514,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CookieChangeListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieChangeListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -555,7 +558,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerReceiver = class {
         // Try Method 0: OnCookieChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCookieChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -694,19 +697,19 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec, 'network.mojom.CookieManager_AddCookieChangeListener_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieChangeListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieChangeListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec, 'network.mojom.CookieManager_AddGlobalChangeListener_Params', [
-      mojo.internal.StructField('arg_notification_pointer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieChangeListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_pointer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieChangeListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec, 'network.mojom.CookieManager_CloneInterface_Params', [
-      mojo.internal.StructField('arg_new_interface', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_interface', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -860,7 +863,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemote = class {
 mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CookieManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1071,7 +1074,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CookieManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1133,7 +1136,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 0: GetAllCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllCookies (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1144,7 +1147,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 1: GetAllCookiesWithAccessSemantics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllCookiesWithAccessSemantics (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1155,7 +1158,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 2: GetCookieList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCookieList (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1166,7 +1169,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 3: SetCanonicalCookie
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanonicalCookie (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1177,7 +1180,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 4: DeleteCanonicalCookie
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteCanonicalCookie (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1188,7 +1191,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 5: DeleteCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteCookies (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1199,7 +1202,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 6: DeleteSessionOnlyCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSessionOnlyCookies (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1210,7 +1213,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 7: DeleteStaleSessionOnlyCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStaleSessionOnlyCookies (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1221,7 +1224,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 8: AddCookieChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCookieChangeListener (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1232,7 +1235,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 9: AddGlobalChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddGlobalChangeListener (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1243,7 +1246,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 10: CloneInterface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneInterface (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1254,7 +1257,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 11: FlushCookieStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushCookieStore (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1265,7 +1268,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 12: AllowFileSchemeCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowFileSchemeCookies (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1276,7 +1279,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 13: SetContentSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetContentSettings (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1287,7 +1290,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 14: SetForceKeepSessionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceKeepSessionState (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1298,7 +1301,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 15: BlockThirdPartyCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BlockThirdPartyCookies (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1309,7 +1312,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 16: SetMitigationsEnabledFor3pcd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMitigationsEnabledFor3pcd (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1320,7 +1323,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 17: SetTrackingProtectionEnabledFor3pcd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrackingProtectionEnabledFor3pcd (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1331,7 +1334,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         // Try Method 18: SetPreCommitCallbackDelayForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreCommitCallbackDelayForTesting (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;

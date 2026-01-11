@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec = { 
 mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportStatsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransport = {};
+mojo.internal.bindings.network.mojom.WebTransportSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebTransport.$interfaceName = 'network.mojom.WebTransport';
 mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = { $: {} };
@@ -94,6 +96,7 @@ mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec = { $: {} 
 mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportClient = {};
+mojo.internal.bindings.network.mojom.WebTransportClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebTransportClient.$interfaceName = 'network.mojom.WebTransportClient';
 mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = { $: {} };
@@ -102,6 +105,7 @@ mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_Pa
 mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClient = {};
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClient.$interfaceName = 'network.mojom.WebTransportHandshakeClient';
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = { $: {} };
@@ -301,7 +305,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemote = class {
 mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebTransport', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -422,7 +426,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebTransport', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -475,7 +479,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 0: SendDatagram
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendDatagram (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -486,7 +490,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 1: CreateStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateStream (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -497,7 +501,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 2: AcceptBidirectionalStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptBidirectionalStream (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -508,7 +512,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 3: AcceptUnidirectionalStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptUnidirectionalStream (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -519,7 +523,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 4: SendFin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFin (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -530,7 +534,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 5: AbortStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortStream (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -541,7 +545,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 6: StopSending
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopSending (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -552,7 +556,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 7: SetOutgoingDatagramExpirationDuration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutgoingDatagramExpirationDuration (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -563,7 +567,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 8: GetStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStats (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -574,7 +578,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         // Try Method 9: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -802,7 +806,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemote = class {
 mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebTransportClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransportClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -883,7 +887,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebTransportClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransportClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -932,7 +936,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 0: OnDatagramReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDatagramReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -943,7 +947,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 1: OnIncomingStreamClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIncomingStreamClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -954,7 +958,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 2: OnOutgoingStreamClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOutgoingStreamClosed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -965,7 +969,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 3: OnReceivedStopSending
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedStopSending (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -976,7 +980,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 4: OnReceivedResetStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedResetStream (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -987,7 +991,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
         // Try Method 5: OnClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosed (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1067,8 +1071,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params', [
-      mojo.internal.StructField('arg_transport', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_response_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_application_protocol', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
@@ -1120,7 +1124,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote = class {
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebTransportHandshakeClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransportHandshakeClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1171,7 +1175,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebTransportHandshakeClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransportHandshakeClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1217,7 +1221,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientReceiver = class
         // Try Method 0: OnBeforeConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeConnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1228,7 +1232,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientReceiver = class
         // Try Method 1: OnConnectionEstablished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionEstablished (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1239,7 +1243,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientReceiver = class
         // Try Method 2: OnHandshakeFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHandshakeFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

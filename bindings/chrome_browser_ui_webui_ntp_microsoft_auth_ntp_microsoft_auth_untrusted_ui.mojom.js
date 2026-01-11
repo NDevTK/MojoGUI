@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec = { $ : {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory';
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler';
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = { $: {} };
@@ -101,7 +104,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_document', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -142,7 +145,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MicrosoftAuthUntrustedDocumentInterfacesFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -183,7 +186,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MicrosoftAuthUntrustedDocumentInterfacesFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -228,7 +231,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
         // Try Method 0: ConnectToParentDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToParentDocument (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,7 +242,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
         // Try Method 1: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -348,7 +351,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MicrosoftAuthUntrustedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -409,7 +412,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MicrosoftAuthUntrustedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -456,7 +459,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
         // Try Method 0: ClearAuthData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearAuthData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -467,7 +470,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
         // Try Method 1: MaybeAcquireTokenSilent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeAcquireTokenSilent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -478,7 +481,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
         // Try Method 2: SetAccessToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccessToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -489,7 +492,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
         // Try Method 3: SetAuthStateError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAuthStateError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

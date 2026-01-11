@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.$interfaceName = 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver';
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler.$interfaceName = 'ash.shortcut_customization.mojom.SearchHandler';
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
@@ -131,7 +134,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchResultsAvailabilityObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver', [
       { explicit: null },
     ]);
   }
@@ -162,7 +165,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchResultsAvailabilityObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -206,7 +209,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
         // Try Method 0: OnSearchResultsAvailabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchResultsAvailabilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -258,7 +261,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -298,7 +301,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRemote = cl
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SearchHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.SearchHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -339,7 +342,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SearchHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.shortcut_customization.mojom.SearchHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -384,7 +387,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
         // Try Method 0: Search
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Search (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -395,7 +398,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
         // Try Method 1: AddSearchResultsAvailabilityObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSearchResultsAvailabilityObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

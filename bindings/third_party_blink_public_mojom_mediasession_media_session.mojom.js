@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,9 +81,11 @@ mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionClient = {};
+mojo.internal.bindings.blink.mojom.MediaSessionClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MediaSessionClient.$interfaceName = 'blink.mojom.MediaSessionClient';
 mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionService = {};
+mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MediaSessionService.$interfaceName = 'blink.mojom.MediaSessionService';
 mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = { $: {} };
@@ -189,7 +192,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientRemote = class {
 mojo.internal.bindings.blink.mojom.MediaSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaSessionClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaSessionClient', [
       { explicit: null },
     ]);
   }
@@ -220,7 +223,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaSessionClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaSessionClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -264,7 +267,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientReceiver = class {
         // Try Method 0: DidReceiveAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidReceiveAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -303,7 +306,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientRequest = mojo.internal.bin
 // Interface: MediaSessionService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec, 'blink.mojom.MediaSessionService_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaSessionClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaSessionClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,7 +406,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceRemote = class {
 mojo.internal.bindings.blink.mojom.MediaSessionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaSessionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaSessionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -504,7 +507,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaSessionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaSessionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -555,7 +558,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -566,7 +569,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 1: SetPlaybackState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPlaybackState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -577,7 +580,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 2: SetPositionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPositionState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -588,7 +591,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 3: SetMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMetadata (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -599,7 +602,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 4: SetMicrophoneState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMicrophoneState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -610,7 +613,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 5: SetCameraState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCameraState (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -621,7 +624,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 6: EnableAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAction (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -632,7 +635,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
         // Try Method 7: DisableAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableAction (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

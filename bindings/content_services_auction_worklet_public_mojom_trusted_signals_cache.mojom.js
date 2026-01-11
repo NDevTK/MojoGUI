@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCacheClient';
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCache';
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = { $: {} };
 
@@ -147,7 +150,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemote = c
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TrustedSignalsCacheClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.TrustedSignalsCacheClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -188,7 +191,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TrustedSignalsCacheClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.TrustedSignalsCacheClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -233,7 +236,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientReceiver =
         // Try Method 0: OnSuccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSuccess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -244,7 +247,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientReceiver =
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -291,7 +294,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRequest = 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
       mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,7 +331,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRemote = class {
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TrustedSignalsCache', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.TrustedSignalsCache', [
       { explicit: null },
     ]);
   }
@@ -359,7 +362,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TrustedSignalsCache', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.TrustedSignalsCache', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -403,7 +406,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheReceiver = class
         // Try Method 0: GetTrustedSignals
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustedSignals (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

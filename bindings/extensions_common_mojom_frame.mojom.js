@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.RequestParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.LocalFrame = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.LocalFrame.$interfaceName = 'extensions.mojom.LocalFrame';
 mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = { $: {} };
@@ -92,6 +94,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsS
 mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.LocalFrameHost = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.LocalFrameHost.$interfaceName = 'extensions.mojom.LocalFrameHost';
 mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = { $: {} };
@@ -286,7 +289,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemote = class {
 mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalFrame', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.LocalFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -407,7 +410,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalFrame', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.LocalFrame', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -460,7 +463,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 0: SetFrameName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -471,7 +474,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 1: SetSpatialNavigationEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSpatialNavigationEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -482,7 +485,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 2: SetTabId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabId (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -493,7 +496,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 3: AppWindowClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AppWindowClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -504,7 +507,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 4: NotifyRenderViewType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyRenderViewType (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -515,7 +518,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 5: MessageInvoke
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MessageInvoke (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -526,7 +529,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 6: ExecuteCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteCode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -537,7 +540,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 7: ExecuteDeclarativeScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteDeclarativeScript (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -548,7 +551,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 8: UpdateBrowserWindowId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBrowserWindowId (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -559,7 +562,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
         // Try Method 9: DispatchOnConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchOnConnect (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -861,7 +864,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemote = class {
 mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LocalFrameHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.LocalFrameHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1012,7 +1015,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LocalFrameHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.LocalFrameHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1068,7 +1071,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 0: RequestScriptInjectionPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestScriptInjectionPermission (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1079,7 +1082,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 1: GetAppInstallState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppInstallState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1090,7 +1093,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 2: Request
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1101,7 +1104,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 3: ResponseAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponseAck (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1112,7 +1115,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 4: WatchedPageChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WatchedPageChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1123,7 +1126,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 5: DetailedConsoleMessageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetailedConsoleMessageAdded (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1134,7 +1137,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 6: ContentScriptsExecuting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContentScriptsExecuting (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1145,7 +1148,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 7: IncrementLazyKeepaliveCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementLazyKeepaliveCount (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1156,7 +1159,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 8: DecrementLazyKeepaliveCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecrementLazyKeepaliveCount (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1167,7 +1170,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 9: AppWindowReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AppWindowReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1178,7 +1181,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 10: OpenChannelToExtension
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToExtension (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1189,7 +1192,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 11: OpenChannelToNativeApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToNativeApp (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1200,7 +1203,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
         // Try Method 12: OpenChannelToTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToTab (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

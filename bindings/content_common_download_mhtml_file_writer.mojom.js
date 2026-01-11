@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.En
 mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MhtmlFileWriter = {};
+mojo.internal.bindings.content.mojom.MhtmlFileWriterSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.MhtmlFileWriter.$interfaceName = 'content.mojom.MhtmlFileWriter';
 mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = { $: {} };
@@ -166,7 +168,7 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterRemote = class {
 mojo.internal.bindings.content.mojom.MhtmlFileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MhtmlFileWriter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.MhtmlFileWriter', [
       { explicit: null },
     ]);
   }
@@ -197,7 +199,7 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MhtmlFileWriter', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.MhtmlFileWriter', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -241,7 +243,7 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterReceiver = class {
         // Try Method 0: SerializeAsMHTML
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SerializeAsMHTML (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

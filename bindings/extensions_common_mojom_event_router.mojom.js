@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.EventListenerSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.EventRouter = {};
+mojo.internal.bindings.extensions.mojom.EventRouterSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.EventRouter.$interfaceName = 'extensions.mojom.EventRouter';
 mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = { $: {} };
@@ -284,7 +286,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemote = class {
 mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EventRouter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.EventRouter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -425,7 +427,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EventRouter', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.EventRouter', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -480,7 +482,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 0: AddListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddListenerForMainThread (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +493,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 1: AddListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddListenerForServiceWorker (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -502,7 +504,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 2: AddLazyListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddLazyListenerForMainThread (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -513,7 +515,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 3: AddLazyListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddLazyListenerForServiceWorker (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -524,7 +526,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 4: AddFilteredListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFilteredListenerForMainThread (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -535,7 +537,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 5: AddFilteredListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFilteredListenerForServiceWorker (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -546,7 +548,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 6: RemoveListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveListenerForMainThread (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -557,7 +559,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 7: RemoveListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveListenerForServiceWorker (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -568,7 +570,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 8: RemoveLazyListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveLazyListenerForMainThread (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -579,7 +581,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 9: RemoveLazyListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveLazyListenerForServiceWorker (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -590,7 +592,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 10: RemoveFilteredListenerForMainThread
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveFilteredListenerForMainThread (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -601,7 +603,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
         // Try Method 11: RemoveFilteredListenerForServiceWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveFilteredListenerForServiceWorker (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;

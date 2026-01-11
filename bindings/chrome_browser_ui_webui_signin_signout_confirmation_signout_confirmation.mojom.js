@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.signout_confirmation.mojom = mojo.internal.bindings.signo
 mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory.$interfaceName = 'signout_confirmation.mojom.PageHandlerFactory';
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler.$interfaceName = 'signout_confirmation.mojom.PageHandler';
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = { $: {} };
@@ -84,6 +87,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec 
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.signout_confirmation.mojom.Page = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.signout_confirmation.mojom.Page.$interfaceName = 'signout_confirmation.mojom.Page';
 mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = { $: {} };
 
@@ -111,8 +115,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec, 'signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.signout_confirmation.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.signout_confirmation.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -149,7 +153,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryRemote = cla
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -180,7 +184,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -224,7 +228,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryReceiver = c
         // Try Method 0: CreateSignoutConfirmationHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSignoutConfirmationHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -334,7 +338,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -405,7 +409,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -453,7 +457,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 0: UpdateViewHeight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateViewHeight (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -464,7 +468,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 1: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -475,7 +479,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 2: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -486,7 +490,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 3: PerformReauth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformReauth (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -497,7 +501,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
         // Try Method 4: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -601,7 +605,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageRemote = class {
 mojo.internal.bindings.signout_confirmation.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -632,7 +636,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('signout_confirmation.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -676,7 +680,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageReceiver = class {
         // Try Method 0: SendSignoutConfirmationData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendSignoutConfirmationData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

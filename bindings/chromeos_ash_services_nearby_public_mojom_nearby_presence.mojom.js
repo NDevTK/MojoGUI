@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,13 +88,16 @@ mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec = { $: {} 
 mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec = { $ : {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession.$interfaceName = 'ash.nearby.presence.mojom.ScanSession';
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver.$interfaceName = 'ash.nearby.presence.mojom.ScanObserver';
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec = { $ : {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence.$interfaceName = 'ash.nearby.presence.mojom.NearbyPresence';
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = { $: {} };
@@ -271,7 +275,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRemote = class {
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScanSession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.ScanSession', [
     ]);
   }
 
@@ -292,7 +296,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScanSession', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.ScanSession', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -411,7 +415,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemote = class {
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScanObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.ScanObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -462,7 +466,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScanObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.ScanObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -508,7 +512,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
         // Try Method 0: OnDeviceFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceFound (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -519,7 +523,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
         // Try Method 1: OnDeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -530,7 +534,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
         // Try Method 2: OnDeviceLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceLost (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -589,14 +593,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParams', [
-      mojo.internal.StructField('arg_scan_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_scan_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params', [
-      mojo.internal.StructField('arg_scan_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -693,7 +697,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote = class {
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyPresence', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.NearbyPresence', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -774,7 +778,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyPresence', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.nearby.presence.mojom.NearbyPresence', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -823,7 +827,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 0: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -834,7 +838,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 1: SetScanObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScanObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -845,7 +849,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 2: UpdateLocalDeviceMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLocalDeviceMetadata (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -856,7 +860,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 3: UpdateLocalDeviceMetadataAndGenerateCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLocalDeviceMetadataAndGenerateCredentials (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -867,7 +871,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 4: UpdateRemoteSharedCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRemoteSharedCredentials (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -878,7 +882,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
         // Try Method 5: GetLocalSharedCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalSharedCredentials (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

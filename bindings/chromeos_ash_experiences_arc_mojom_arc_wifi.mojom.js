@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.WifiScanResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiHost = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ArcWifiHost.$interfaceName = 'arc.mojom.ArcWifiHost';
 mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = { $: {} };
@@ -82,6 +84,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiInstance = {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ArcWifiInstance.$interfaceName = 'arc.mojom.ArcWifiInstance';
 mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec = { $: {} };
@@ -181,7 +184,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemote = class {
 mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ArcWifiHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcWifiHost', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -242,7 +245,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ArcWifiHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcWifiHost', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -289,7 +292,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 0: GetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWifiEnabledState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +303,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 1: SetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWifiEnabledState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -311,7 +314,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 2: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -322,7 +325,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
         // Try Method 3: GetScanResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScanResults (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -406,7 +409,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRequest = mojo.internal.bindings.arc
 // Interface: ArcWifiInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec, 'arc.mojom.ArcWifiInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ArcWifiHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ArcWifiHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -465,7 +468,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ArcWifiInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcWifiInstance', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -516,7 +519,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ArcWifiInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ArcWifiInstance', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -562,7 +565,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -573,7 +576,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
         // Try Method 1: WifiEnabledStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WifiEnabledStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -584,7 +587,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
         // Try Method 2: ScanCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanCompleted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

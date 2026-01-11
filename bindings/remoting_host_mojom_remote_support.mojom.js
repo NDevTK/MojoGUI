@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SupportHostObserver = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.SupportHostObserver.$interfaceName = 'remoting.mojom.SupportHostObserver';
 mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = { $: {} };
@@ -257,7 +259,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemote = class {
 mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SupportHostObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.SupportHostObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -378,7 +380,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SupportHostObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.SupportHostObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -431,7 +433,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 0: OnHostStateStarting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateStarting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -442,7 +444,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 1: OnHostStateRequestedAccessCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateRequestedAccessCode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -453,7 +455,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 2: OnHostStateReceivedAccessCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateReceivedAccessCode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -464,7 +466,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 3: OnHostStateConnecting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateConnecting (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -475,7 +477,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 4: OnHostStateConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateConnected (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -486,7 +488,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 5: OnHostStateDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateDisconnected (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -497,7 +499,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 6: OnNatPolicyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNatPolicyChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -508,7 +510,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 7: OnHostStateError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHostStateError (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -519,7 +521,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 8: OnPolicyError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyError (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -530,7 +532,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
         // Try Method 9: OnInvalidDomainError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInvalidDomainError (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

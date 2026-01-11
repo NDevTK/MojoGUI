@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,19 +80,24 @@ mojo.internal.bindings.js_injection.mojom.JsObjectSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging = {};
+mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec = { $ : {} };
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging.$interfaceName = 'js_injection.mojom.JsToBrowserMessaging';
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsObjectsClient = {};
+mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec = { $ : {} };
 mojo.internal.bindings.js_injection.mojom.JsObjectsClient.$interfaceName = 'js_injection.mojom.JsObjectsClient';
 mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory = {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec = { $ : {} };
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory.$interfaceName = 'js_injection.mojom.BrowserToJsMessagingFactory';
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging = {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec = { $ : {} };
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging.$interfaceName = 'js_injection.mojom.BrowserToJsMessaging';
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsCommunication = {};
+mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec = { $ : {} };
 mojo.internal.bindings.js_injection.mojom.JsCommunication.$interfaceName = 'js_injection.mojom.JsCommunication';
 mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = { $: {} };
 mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = { $: {} };
@@ -116,8 +122,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JsObjectSpec, 'js_injection.mojom.JsObject', [
       mojo.internal.StructField('arg_js_object_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_matcher', 24, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_js_world', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -153,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -193,7 +199,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote = class {
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsToBrowserMessaging', [
+    this.ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsToBrowserMessaging', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -234,7 +240,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsToBrowserMessaging', [
+    const ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsToBrowserMessaging', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -279,7 +285,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingReceiver = class {
         // Try Method 0: PostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +296,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingReceiver = class {
         // Try Method 1: SetBrowserToJsMessaging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBrowserToJsMessaging (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +378,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemote = class {
 mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsObjectsClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsObjectsClient', [
       { explicit: null },
     ]);
   }
@@ -403,7 +409,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsObjectsClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsObjectsClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -447,7 +453,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientReceiver = class {
         // Try Method 0: OnWindowObjectCleared
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowObjectCleared (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -486,7 +492,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientRequest = mojo.internal
 // Interface: BrowserToJsMessagingFactory
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -523,7 +529,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote = cl
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BrowserToJsMessagingFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.BrowserToJsMessagingFactory', [
       { explicit: null },
     ]);
   }
@@ -554,7 +560,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BrowserToJsMessagingFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.BrowserToJsMessagingFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -598,7 +604,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryReceiver = 
         // Try Method 0: SendBrowserToJsMessaging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendBrowserToJsMessaging (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -674,7 +680,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote = class {
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BrowserToJsMessaging', [
+    this.ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.BrowserToJsMessaging', [
       { explicit: null },
     ]);
   }
@@ -705,7 +711,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BrowserToJsMessaging', [
+    const ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.BrowserToJsMessaging', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -749,7 +755,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingReceiver = class {
         // Try Method 0: OnPostMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPostMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -789,7 +795,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRequest = mojo.int
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec, 'js_injection.mojom.JsCommunication_SetJsObjects_Params', [
       mojo.internal.StructField('arg_js_objects', 0, 0, mojo.internal.Array(mojo.internal.bindings.js_injection.mojom.JsObjectSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -844,7 +850,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemote = class {
 mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('JsCommunication', [
+    this.ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsCommunication', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -895,7 +901,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('JsCommunication', [
+    const ordinals = window.mojoScrambler.getOrdinals('js_injection.mojom.JsCommunication', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -941,7 +947,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
         // Try Method 0: SetJsObjects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetJsObjects (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -952,7 +958,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
         // Try Method 1: AddPersistentJavaScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPersistentJavaScript (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -963,7 +969,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
         // Try Method 2: RemovePersistentJavaScript
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePersistentJavaScript (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

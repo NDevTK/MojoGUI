@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -83,6 +84,7 @@ mojo.internal.bindings.blink.mojom.BatchOperationSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EagerResponseSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheEntrySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorageCache = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.CacheStorageCache.$interfaceName = 'blink.mojom.CacheStorageCache';
 mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = { $: {} };
@@ -93,6 +95,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = 
 mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorage = {};
+mojo.internal.bindings.blink.mojom.CacheStorageSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.CacheStorage.$interfaceName = 'blink.mojom.CacheStorage';
 mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec = { $: {} };
@@ -302,7 +305,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemote = class {
 mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CacheStorageCache', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.CacheStorageCache', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -383,7 +386,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CacheStorageCache', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.CacheStorageCache', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -432,7 +435,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 0: Match
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Match (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -443,7 +446,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 1: MatchAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchAll (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -454,7 +457,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 2: GetAllMatchedEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllMatchedEntries (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -465,7 +468,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 3: Keys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Keys (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -476,7 +479,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 4: Batch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Batch (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -487,7 +490,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
         // Try Method 5: WriteSideData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSideData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -675,7 +678,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemote = class {
 mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CacheStorage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.CacheStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -746,7 +749,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CacheStorage', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.CacheStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -794,7 +797,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
         // Try Method 0: Has
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Has (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -805,7 +808,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
         // Try Method 1: Delete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -816,7 +819,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
         // Try Method 2: Keys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Keys (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -827,7 +830,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
         // Try Method 3: Match
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Match (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -838,7 +841,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
         // Try Method 4: Open
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient = {};
+mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient.$interfaceName = 'auction_worklet.mojom.LoadSellerWorkletClient';
 mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService.$interfaceName = 'auction_worklet.mojom.AuctionWorkletService';
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = { $: {} };
@@ -151,7 +154,7 @@ mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientRemote = cla
 mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LoadSellerWorkletClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.LoadSellerWorkletClient', [
       { explicit: null },
     ]);
   }
@@ -182,7 +185,7 @@ mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LoadSellerWorkletClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.LoadSellerWorkletClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -226,7 +229,7 @@ mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientReceiver = c
         // Try Method 0: SellerWorkletLoaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SellerWorkletLoaded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -299,7 +302,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_top_window_origin', 48, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_permissions_policy_state', 56, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 64, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_load_seller_worklet_client', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_load_seller_worklet_client', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_experiment_group_id_$value', 80, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_experiment_group_id_$flag', originalFieldName: 'arg_experiment_group_id' }),
       mojo.internal.StructField('arg_pause_for_debugger_on_start', 82, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_experiment_group_id_$flag', 82, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
@@ -347,7 +350,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceRemote = class
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AuctionWorkletService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.AuctionWorkletService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -398,7 +401,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AuctionWorkletService', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.AuctionWorkletService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -444,7 +447,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceReceiver = cla
         // Try Method 0: SetTrustedSignalsCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrustedSignalsCache (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -455,7 +458,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceReceiver = cla
         // Try Method 1: LoadBidderWorklet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBidderWorklet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -466,7 +469,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceReceiver = cla
         // Try Method 2: LoadSellerWorklet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSellerWorklet (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

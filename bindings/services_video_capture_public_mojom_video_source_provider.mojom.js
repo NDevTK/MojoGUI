@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
 mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider.$interfaceName = 'video_capture.mojom.VideoSourceProvider';
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = { $: {} };
@@ -200,7 +202,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote = class {
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoSourceProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoSourceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -291,7 +293,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoSourceProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('video_capture.mojom.VideoSourceProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -341,7 +343,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 0: GetSourceInfos
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSourceInfos (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +354,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 1: GetVideoSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -363,7 +365,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 2: AddSharedMemoryVirtualDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSharedMemoryVirtualDevice (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -374,7 +376,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 3: AddTextureVirtualDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTextureVirtualDevice (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -385,7 +387,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 4: RegisterVirtualDevicesChangedObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterVirtualDevicesChangedObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -396,7 +398,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 5: RegisterDevicesChangedObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDevicesChangedObserver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -407,7 +409,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
         // Try Method 6: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,13 +80,16 @@ mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.DynamicParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.StaticParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler = {};
+mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler.$interfaceName = 'chrome.mojom.BoundSessionRequestThrottledHandler';
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeOSListener = {};
+mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ChromeOSListener.$interfaceName = 'chrome.mojom.ChromeOSListener';
 mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RendererConfiguration = {};
+mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.RendererConfiguration.$interfaceName = 'chrome.mojom.RendererConfiguration';
 mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = { $: {} };
@@ -175,7 +179,7 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemote = 
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BoundSessionRequestThrottledHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.BoundSessionRequestThrottledHandler', [
       { explicit: null },
     ]);
   }
@@ -206,7 +210,7 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BoundSessionRequestThrottledHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.BoundSessionRequestThrottledHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -250,7 +254,7 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerReceiver 
         // Try Method 0: HandleRequestBlockedOnCookie
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleRequestBlockedOnCookie (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -333,7 +337,7 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote = class {
 mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromeOSListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeOSListener', [
       { explicit: null },
     ]);
   }
@@ -364,7 +368,7 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromeOSListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeOSListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -408,7 +412,7 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerReceiver = class {
         // Try Method 0: MergeSessionComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MergeSessionComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -447,9 +451,9 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerRequest = mojo.internal.bind
 // Interface: RendererConfiguration
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
-      mojo.internal.StructField('arg_chromeos_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_chromeos_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_is_incognito_process', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -505,7 +509,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemote = class {
 mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererConfiguration', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RendererConfiguration', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -556,7 +560,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererConfiguration', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.RendererConfiguration', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -602,7 +606,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
         // Try Method 0: SetInitialConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -613,7 +617,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
         // Try Method 1: SetConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -624,7 +628,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
         // Try Method 2: SetConfigurationOnProcessLockUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfigurationOnProcessLockUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

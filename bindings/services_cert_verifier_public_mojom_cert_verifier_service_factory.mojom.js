@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.PlatformCertInfoSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.PlatformRootStoreInfoSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec = { $ : {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory.$interfaceName = 'cert_verifier.mojom.CertVerifierServiceFactory';
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = { $: {} };
@@ -325,7 +327,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemote = cl
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CertVerifierServiceFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -446,7 +448,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CertVerifierServiceFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceFactory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -499,7 +501,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 0: GetNewCertVerifier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewCertVerifier (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -510,7 +512,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 1: UpdateCRLSet
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCRLSet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -521,7 +523,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 2: UpdateCtLogList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtLogList (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -532,7 +534,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 3: DisableCtEnforcement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableCtEnforcement (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -543,7 +545,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 4: UpdateChromeRootStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateChromeRootStore (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -554,7 +556,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 5: UpdateMtcMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMtcMetadata (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -565,7 +567,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 6: SetUseChromeRootStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseChromeRootStore (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -576,7 +578,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 7: GetChromeRootStoreInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChromeRootStoreInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -587,7 +589,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 8: GetPlatformRootStoreInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformRootStoreInfo (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -598,7 +600,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
         // Try Method 9: UpdateNetworkTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNetworkTime (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

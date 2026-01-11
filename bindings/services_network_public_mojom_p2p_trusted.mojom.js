@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,10 +73,12 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient = {};
+mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient.$interfaceName = 'network.mojom.P2PTrustedSocketManagerClient';
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManager = {};
+mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManager.$interfaceName = 'network.mojom.P2PTrustedSocketManager';
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = { $: {} };
@@ -132,7 +135,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemote = class
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PTrustedSocketManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PTrustedSocketManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -173,7 +176,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PTrustedSocketManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PTrustedSocketManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -218,7 +221,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientReceiver = cla
         // Try Method 0: InvalidSocketPortRangeRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidSocketPortRangeRequested (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -229,7 +232,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientReceiver = cla
         // Try Method 1: DumpPacket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpPacket (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -339,7 +342,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemote = class {
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('P2PTrustedSocketManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PTrustedSocketManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -400,7 +403,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('P2PTrustedSocketManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.P2PTrustedSocketManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -447,7 +450,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 0: StartRtpDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartRtpDump (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -458,7 +461,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 1: StopRtpDump
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopRtpDump (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -469,7 +472,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 2: PauseNetworkChangeNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PauseNetworkChangeNotifications (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -480,7 +483,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
         // Try Method 3: ResumeNetworkChangeNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeNetworkChangeNotifications (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

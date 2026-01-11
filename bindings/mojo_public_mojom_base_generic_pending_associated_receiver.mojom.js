@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,13 +74,14 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterface = {};
+mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceSpec = { $ : {} };
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterface.$interfaceName = 'mojo_base.mojom.GenericAssociatedInterface';
 
 // Struct: GenericPendingAssociatedReceiver
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -114,7 +116,7 @@ mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemote = class 
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GenericAssociatedInterface', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojo_base.mojom.GenericAssociatedInterface', [
     ]);
   }
 
@@ -135,7 +137,7 @@ mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GenericAssociatedInterface', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojo_base.mojom.GenericAssociatedInterface', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

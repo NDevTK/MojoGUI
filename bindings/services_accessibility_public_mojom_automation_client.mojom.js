@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AutomationClient = {};
+mojo.internal.bindings.ax.mojom.AutomationClientSpec = { $ : {} };
 mojo.internal.bindings.ax.mojom.AutomationClient.$interfaceName = 'ax.mojom.AutomationClient';
 mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec = { $: {} };
@@ -150,7 +152,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemote = class {
 mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AutomationClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AutomationClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -211,7 +213,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AutomationClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.AutomationClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -258,7 +260,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
         // Try Method 0: Enable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Enable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -269,7 +271,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
         // Try Method 1: Disable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -280,7 +282,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
         // Try Method 2: EnableChildTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableChildTree (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -291,7 +293,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
         // Try Method 3: PerformAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

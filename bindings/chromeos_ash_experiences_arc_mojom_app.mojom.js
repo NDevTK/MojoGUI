@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -91,6 +92,7 @@ mojo.internal.bindings.arc.mojom.WindowInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppDiscoveryResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppShortcutItemSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppHost = {};
+mojo.internal.bindings.arc.mojom.AppHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AppHost.$interfaceName = 'arc.mojom.AppHost';
 mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = { $: {} };
@@ -112,6 +114,7 @@ mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = { $: {
 mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppInstance = {};
+mojo.internal.bindings.arc.mojom.AppInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AppInstance.$interfaceName = 'arc.mojom.AppInstance';
 mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec = { $: {} };
@@ -598,7 +601,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemote = class {
 mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppHost', [
       { explicit: 2 },
       { explicit: 0 },
       { explicit: 8 },
@@ -809,7 +812,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppHost', [
       { explicit: 2 },
       { explicit: 0 },
       { explicit: 8 },
@@ -871,7 +874,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 0: OnAppAddedDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppAddedDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -882,7 +885,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 1: OnAppListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppListRefreshed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -893,7 +896,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 2: OnPackageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageAdded (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -904,7 +907,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 3: OnPackageAppListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageAppListRefreshed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -915,7 +918,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 4: OnPackageListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageListRefreshed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -926,7 +929,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 5: OnPackageModified
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageModified_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageModified_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageModified (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -937,7 +940,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 6: OnPackageRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageRemoved (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -948,7 +951,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 7: OnTaskCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskCreated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -959,7 +962,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 8: OnTaskDescriptionUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDescriptionUpdated (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -970,7 +973,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 9: OnTaskDescriptionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDescriptionChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -981,7 +984,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 10: OnTaskDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDestroyed (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -992,7 +995,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 11: OnTaskSetActive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskSetActive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskSetActive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskSetActive (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1003,7 +1006,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 12: OnNotificationsEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationsEnabledChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1014,7 +1017,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 13: OnInstallShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallShortcut_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallShortcut_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallShortcut (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1025,7 +1028,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 14: OnInstallationStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationStarted (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1036,7 +1039,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 15: OnInstallationFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationFinished (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1047,7 +1050,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 16: OnUninstallShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUninstallShortcut (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1058,7 +1061,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 17: OnInstallationProgressChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationProgressChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1069,7 +1072,7 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
         // Try Method 18: OnInstallationActiveChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationActiveChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1234,7 +1237,7 @@ mojo.internal.bindings.arc.mojom.AppHostRequest = mojo.internal.bindings.arc.moj
 // Interface: AppInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec, 'arc.mojom.AppInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1638,7 +1641,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppInstance', [
       { explicit: 21 },
       { explicit: 8 },
       { explicit: 11 },
@@ -1959,7 +1962,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.AppInstance', [
       { explicit: 21 },
       { explicit: 8 },
       { explicit: 11 },
@@ -2032,7 +2035,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2043,7 +2046,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 1: CloseTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_CloseTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_CloseTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTask (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2054,7 +2057,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 2: InstallPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_InstallPackage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_InstallPackage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallPackage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2065,7 +2068,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 3: LaunchAppWithWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchAppWithWindowInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2076,7 +2079,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 4: LaunchAppShortcutItem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchAppShortcutItem (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2087,7 +2090,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 5: LaunchIntentWithWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchIntentWithWindowInfo (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2098,7 +2101,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 6: UpdateWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWindowInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2109,7 +2112,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 7: RequestAppIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAppIcon (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2120,7 +2123,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 8: GetAppIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppIcon (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2131,7 +2134,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 9: RequestShortcutIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestShortcutIcon (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2142,7 +2145,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 10: GetAppShortcutIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutIcon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2153,7 +2156,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 11: RequestPackageIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPackageIcon (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2164,7 +2167,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 12: GetPackageIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPackageIcon (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2175,7 +2178,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 13: RemoveCachedIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveCachedIcon (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2186,7 +2189,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 14: SetTaskActive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetTaskActive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetTaskActive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTaskActive (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2197,7 +2200,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 15: ShowPackageInfoDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoDeprecated (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2208,7 +2211,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 16: ShowPackageInfoOnPageDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoOnPageDeprecated (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2219,7 +2222,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 17: ShowPackageInfoOnPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoOnPage (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2230,7 +2233,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 18: SetNotificationsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNotificationsEnabled (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2241,7 +2244,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 19: StartPaiFlow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPaiFlow (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2252,7 +2255,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 20: StartFastAppReinstallFlow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartFastAppReinstallFlow (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2263,7 +2266,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 21: UninstallPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UninstallPackage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UninstallPackage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallPackage (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2274,7 +2277,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 22: UpdateAppDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAppDetails (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2285,7 +2288,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 23: GetAndroidId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAndroidId (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2296,7 +2299,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 24: GetAppShortcutGlobalQueryItems
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutGlobalQueryItems (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2307,7 +2310,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 25: GetAppShortcutItems
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutItems (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2318,7 +2321,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 26: GetRecentAndSuggestedAppsFromPlayStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentAndSuggestedAppsFromPlayStore (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2329,7 +2332,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 27: IsInstallable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInstallable (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2340,7 +2343,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 28: GetAppCategory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppCategory (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -2351,7 +2354,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
         // Try Method 29: SetAppLocale
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAppLocale (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;

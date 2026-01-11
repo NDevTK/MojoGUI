@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.remote_cocoa.mojom.PopupMenuSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner = {};
+mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner.$interfaceName = 'remote_cocoa.mojom.PopupMenuRunner';
 mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView = {};
+mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView.$interfaceName = 'remote_cocoa.mojom.RenderWidgetHostNSView';
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec = { $: {} };
@@ -112,6 +115,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_P
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost = {};
+mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost.$interfaceName = 'remote_cocoa.mojom.RenderWidgetHostNSViewHost';
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec = { $: {} };
@@ -165,7 +169,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MenuItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_item_font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_item', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_right_aligned', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -210,7 +214,7 @@ mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PopupMenuRunner', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.PopupMenuRunner', [
       { explicit: null },
     ]);
   }
@@ -241,7 +245,7 @@ mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PopupMenuRunner', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.PopupMenuRunner', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -285,7 +289,7 @@ mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerReceiver = class {
         // Try Method 0: Hide
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Hide (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -602,7 +606,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderWidgetHostNSView', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.RenderWidgetHostNSView', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -883,7 +887,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderWidgetHostNSView', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.RenderWidgetHostNSView', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -952,7 +956,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 0: InitAsPopup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitAsPopup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -963,7 +967,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 1: SetParentWebContentsNSView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParentWebContentsNSView (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -974,7 +978,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 2: DisableDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableDisplay (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -985,7 +989,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 3: MakeFirstResponder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeFirstResponder (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -996,7 +1000,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 4: SetBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBounds (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1007,7 +1011,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 5: SetCALayerParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCALayerParams (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1018,7 +1022,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 6: SetBackgroundColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundColor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1029,7 +1033,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 7: SetVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisible (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1040,7 +1044,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 8: SetTooltipText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTooltipText (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1051,7 +1055,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 9: SetTextInputState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextInputState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1062,7 +1066,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 10: SetTextSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextSelection (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1073,7 +1077,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 11: SetCompositionRangeInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionRangeInfo (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1084,7 +1088,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 12: CancelComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelComposition (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1095,7 +1099,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 13: SetShowingContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShowingContextMenu (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1106,7 +1110,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 14: DisplayCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayCursor (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1117,7 +1121,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 15: SetCursorLocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursorLocked (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1128,7 +1132,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 16: SetCursorLockedUnacceleratedMovement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursorLockedUnacceleratedMovement (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1139,7 +1143,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 17: ShowDictionaryOverlayForSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowDictionaryOverlayForSelection (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1150,7 +1154,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 18: ShowDictionaryOverlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowDictionaryOverlay (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1161,7 +1165,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 19: LockKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockKeyboard (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1172,7 +1176,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 20: UnlockKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnlockKeyboard (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1183,7 +1187,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 21: ShowSharingServicePicker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSharingServicePicker (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1194,7 +1198,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 22: Destroy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Destroy (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1205,7 +1209,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 23: GestureScrollEventAck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GestureScrollEventAck (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1216,7 +1220,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 24: DidOverscroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidOverscroll (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1227,7 +1231,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class
         // Try Method 25: DisplayPopupMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayPopupMenu (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1869,7 +1873,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemote = cla
 mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderWidgetHostNSViewHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.RenderWidgetHostNSViewHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2290,7 +2294,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderWidgetHostNSViewHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.RenderWidgetHostNSViewHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2373,7 +2377,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 0: SyncIsWidgetForMainFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncIsWidgetForMainFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2384,7 +2388,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 1: RequestShutdown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestShutdown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2395,7 +2399,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 2: OnFirstResponderChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFirstResponderChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2406,7 +2410,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 3: OnWindowIsKeyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowIsKeyChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2417,7 +2421,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 4: OnBoundsInWindowChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBoundsInWindowChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2428,7 +2432,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 5: OnWindowFrameInScreenChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowFrameInScreenChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2439,7 +2443,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 6: OnScreenInfosChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenInfosChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2450,7 +2454,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 7: BeginKeyboardEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginKeyboardEvent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2461,7 +2465,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 8: EndKeyboardEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndKeyboardEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2472,7 +2476,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 9: ForwardKeyboardEventWithCommands
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardKeyboardEventWithCommands (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2483,7 +2487,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 10: RouteOrProcessMouseEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RouteOrProcessMouseEvent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2494,7 +2498,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 11: RouteOrProcessTouchEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RouteOrProcessTouchEvent (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2505,7 +2509,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 12: RouteOrProcessWheelEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RouteOrProcessWheelEvent (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2516,7 +2520,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 13: ForwardMouseEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardMouseEvent (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2527,7 +2531,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 14: ForwardWheelEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardWheelEvent (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2538,7 +2542,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 15: PinchEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PinchEvent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2549,7 +2553,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 16: SmartMagnifyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SmartMagnifyEvent (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2560,7 +2564,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 17: ImeSetComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeSetComposition (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2571,7 +2575,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 18: ImeCommitText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeCommitText (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2582,7 +2586,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 19: ImeFinishComposingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeFinishComposingText (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2593,7 +2597,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 20: ImeCancelCompositionFromCocoa
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImeCancelCompositionFromCocoa (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2604,7 +2608,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 21: LookUpDictionaryOverlayAtPoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookUpDictionaryOverlayAtPoint (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2615,7 +2619,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 22: LookUpDictionaryOverlayFromRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookUpDictionaryOverlayFromRange (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2626,7 +2630,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 23: SyncGetCharacterIndexAtPoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncGetCharacterIndexAtPoint (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2637,7 +2641,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 24: SyncGetFirstRectForRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncGetFirstRectForRange (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2648,7 +2652,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 25: ExecuteEditCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteEditCommand (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2659,7 +2663,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 26: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2670,7 +2674,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 27: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2681,7 +2685,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 28: Cut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cut (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -2692,7 +2696,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 29: Copy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Copy (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -2703,7 +2707,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 30: CopyToFindPboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyToFindPboard (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -2714,7 +2718,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 31: CenterSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CenterSelection (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -2725,7 +2729,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 32: Paste
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Paste (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -2736,7 +2740,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 33: PasteAndMatchStyle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PasteAndMatchStyle (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -2747,7 +2751,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 34: SelectAll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectAll (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -2758,7 +2762,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 35: StartSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSpeaking (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -2769,7 +2773,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 36: StopSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopSpeaking (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -2780,7 +2784,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 37: SyncIsSpeaking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncIsSpeaking (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -2791,7 +2795,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 38: GetRenderWidgetAccessibilityToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRenderWidgetAccessibilityToken (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -2802,7 +2806,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = c
         // Try Method 39: SetRemoteAccessibilityWindowToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRemoteAccessibilityWindowToken (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;

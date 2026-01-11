@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,12 +78,15 @@ mojo.internal.bindings.action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum
 mojo.internal.bindings.action_chips.mojom.TabInfoSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec = { $ : {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler.$interfaceName = 'action_chips.mojom.ActionChipsHandler';
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.Page = {};
+mojo.internal.bindings.action_chips.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.action_chips.mojom.Page.$interfaceName = 'action_chips.mojom.Page';
 mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory.$interfaceName = 'action_chips.mojom.ActionChipsHandlerFactory';
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = { $: {} };
 
@@ -153,7 +157,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote = class {
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ActionChipsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandler', [
       { explicit: null },
     ]);
   }
@@ -184,7 +188,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ActionChipsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -228,7 +232,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerReceiver = class {
         // Try Method 0: StartActionChipsRetrieval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActionChipsRetrieval (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -304,7 +308,7 @@ mojo.internal.bindings.action_chips.mojom.PageRemote = class {
 mojo.internal.bindings.action_chips.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -335,7 +339,7 @@ mojo.internal.bindings.action_chips.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -379,7 +383,7 @@ mojo.internal.bindings.action_chips.mojom.PageReceiver = class {
         // Try Method 0: OnActionChipsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActionChipsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -418,8 +422,8 @@ mojo.internal.bindings.action_chips.mojom.PageRequest = mojo.internal.bindings.a
 // Interface: ActionChipsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -456,7 +460,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRemote = clas
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ActionChipsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -487,7 +491,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ActionChipsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -531,7 +535,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryReceiver = cl
         // Try Method 0: CreateActionChipsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateActionChipsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

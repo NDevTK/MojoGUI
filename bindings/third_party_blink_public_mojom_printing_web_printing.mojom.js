@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -97,18 +98,22 @@ mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec = { $: {} }
 mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver.$interfaceName = 'blink.mojom.WebPrintJobStateObserver';
 mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrintJobController = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPrintJobController.$interfaceName = 'blink.mojom.WebPrintJobController';
 mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrinter = {};
+mojo.internal.bindings.blink.mojom.WebPrinterSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPrinter.$interfaceName = 'blink.mojom.WebPrinter';
 mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrintingService = {};
+mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebPrintingService.$interfaceName = 'blink.mojom.WebPrintingService';
 mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = { $: {} };
@@ -284,7 +289,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec, 'blink.mojom.WebPrinterInfo', [
       mojo.internal.StructField('arg_printer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_printer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrinterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrinterRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -375,8 +380,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec, 'blink.mojom.WebPrintJobInfo', [
       mojo.internal.StructField('arg_job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_controller', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_job_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -421,7 +426,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote = class {
 mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPrintJobStateObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
       { explicit: null },
     ]);
   }
@@ -452,7 +457,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPrintJobStateObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -496,7 +501,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = class {
         // Try Method 0: OnWebPrintJobUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebPrintJobUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -571,7 +576,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote = class {
 mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPrintJobController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
       { explicit: null },
     ]);
   }
@@ -602,7 +607,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPrintJobController', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -646,7 +651,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = class {
         // Try Method 0: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -743,7 +748,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterRemote = class {
 mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPrinter', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -784,7 +789,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPrinter', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -829,7 +834,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
         // Try Method 0: FetchAttributes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchAttributes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -840,7 +845,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
         // Try Method 1: Print
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Print (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -944,7 +949,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote = class {
 mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebPrintingService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
       { explicit: null },
     ]);
   }
@@ -975,7 +980,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebPrintingService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1019,7 +1024,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
         // Try Method 0: GetPrinters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrinters (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,17 +82,21 @@ mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListener = {};
+mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListener.$interfaceName = 'nearby_share.mojom.ShareTargetListener';
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener = {};
+mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener.$interfaceName = 'nearby_share.mojom.TransferUpdateListener';
 mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver = {};
+mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver.$interfaceName = 'nearby_share.mojom.DiscoveryObserver';
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager = {};
+mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager.$interfaceName = 'nearby_share.mojom.DiscoveryManager';
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = { $: {} };
@@ -103,6 +108,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_Res
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager = {};
+mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager.$interfaceName = 'nearby_share.mojom.ConfirmationManager';
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = { $: {} };
@@ -111,12 +117,14 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponsePar
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver = {};
+mojo.internal.bindings.nearby_share.mojom.ReceiveObserverSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver.$interfaceName = 'nearby_share.mojom.ReceiveObserver';
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveManager = {};
+mojo.internal.bindings.nearby_share.mojom.ReceiveManagerSpec = { $ : {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveManager.$interfaceName = 'nearby_share.mojom.ReceiveManager';
 mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = { $: {} };
@@ -265,7 +273,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ShareTargetListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ShareTargetListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -306,7 +314,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ShareTargetListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ShareTargetListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -351,7 +359,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerReceiver = class {
         // Try Method 0: OnShareTargetDiscovered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShareTargetDiscovered (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -362,7 +370,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerReceiver = class {
         // Try Method 1: OnShareTargetLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShareTargetLost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -446,7 +454,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TransferUpdateListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.TransferUpdateListener', [
       { explicit: null },
     ]);
   }
@@ -477,7 +485,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TransferUpdateListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.TransferUpdateListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -521,7 +529,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerReceiver = class
         // Try Method 0: OnTransferUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -605,7 +613,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemote = class {
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiscoveryObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DiscoveryObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -646,7 +654,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiscoveryObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DiscoveryObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -691,7 +699,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverReceiver = class {
         // Try Method 0: OnNearbyProcessStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyProcessStopped (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -702,7 +710,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverReceiver = class {
         // Try Method 1: OnStartDiscoveryResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartDiscoveryResult (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -748,13 +756,13 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRequest = mojo.intern
 // Interface: DiscoveryManager
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -783,8 +791,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_update_listener', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_confirmation_manager', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_transfer_update_listener', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_confirmation_manager', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -844,7 +852,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DiscoveryManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DiscoveryManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -915,7 +923,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DiscoveryManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.DiscoveryManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -963,7 +971,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 0: AddDiscoveryObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDiscoveryObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -974,7 +982,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 1: StartDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscovery (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -985,7 +993,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 2: StopDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDiscovery (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -996,7 +1004,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 3: SelectShareTarget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectShareTarget (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1007,7 +1015,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
         // Try Method 4: GetPayloadPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPayloadPreview (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1176,7 +1184,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ConfirmationManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ConfirmationManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1227,7 +1235,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ConfirmationManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ConfirmationManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1273,7 +1281,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
         // Try Method 0: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1284,7 +1292,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
         // Try Method 1: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1295,7 +1303,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
         // Try Method 2: Cancel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1435,7 +1443,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemote = class {
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ReceiveObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ReceiveObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1496,7 +1504,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ReceiveObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ReceiveObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1543,7 +1551,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 0: OnHighVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHighVisibilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1554,7 +1562,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 1: OnTransferUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1565,7 +1573,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 2: OnNearbyProcessStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyProcessStopped (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1576,7 +1584,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
         // Try Method 3: OnStartAdvertisingFailure
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartAdvertisingFailure (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1636,7 +1644,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRequest = mojo.internal
 // Interface: ReceiveManager
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec, 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ReceiveObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1754,7 +1762,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemote = class {
 mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ReceiveManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ReceiveManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1845,7 +1853,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ReceiveManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('nearby_share.mojom.ReceiveManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1895,7 +1903,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 0: AddReceiveObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiveObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1906,7 +1914,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 1: IsInHighVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInHighVisibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1917,7 +1925,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 2: RegisterForegroundReceiveSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterForegroundReceiveSurface (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1928,7 +1936,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 3: UnregisterForegroundReceiveSurface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterForegroundReceiveSurface (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1939,7 +1947,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 4: Accept
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1950,7 +1958,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 5: Reject
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reject (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1961,7 +1969,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
         // Try Method 6: RecordFastInitiationNotificationUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordFastInitiationNotificationUsage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

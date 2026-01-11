@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.browser_command.mojom = mojo.internal.bindings.browser_co
 mojo.internal.bindings.browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.browser_command.mojom.ClickInfoSpec = { $: {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory.$interfaceName = 'browser_command.mojom.CommandHandlerFactory';
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandler = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec = { $ : {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandler.$interfaceName = 'browser_command.mojom.CommandHandler';
 mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = { $: {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = { $: {} };
@@ -121,7 +124,7 @@ mojo.internal.Struct(
 // Interface: CommandHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,7 +161,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRemote = class
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CommandHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('browser_command.mojom.CommandHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -189,7 +192,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CommandHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('browser_command.mojom.CommandHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -233,7 +236,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryReceiver = cla
         // Try Method 0: CreateBrowserCommandHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBrowserCommandHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -331,7 +334,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote = class {
 mojo.internal.bindings.browser_command.mojom.CommandHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CommandHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('browser_command.mojom.CommandHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -372,7 +375,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CommandHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('browser_command.mojom.CommandHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -417,7 +420,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
         // Try Method 0: CanExecuteCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanExecuteCommand (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -428,7 +431,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
         // Try Method 1: ExecuteCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteCommand (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

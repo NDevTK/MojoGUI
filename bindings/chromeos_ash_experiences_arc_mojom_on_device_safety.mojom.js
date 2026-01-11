@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost.$interfaceName = 'arc.mojom.OnDeviceSafetyHost';
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance.$interfaceName = 'arc.mojom.OnDeviceSafetyInstance';
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = { $: {} };
@@ -139,7 +142,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostRemote = class {
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceSafetyHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.OnDeviceSafetyHost', [
       { explicit: 0 },
     ]);
   }
@@ -170,7 +173,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OnDeviceSafetyHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.OnDeviceSafetyHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -214,7 +217,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostReceiver = class {
         // Try Method 0: IsCrosSafetyServiceEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsCrosSafetyServiceEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +276,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -318,7 +321,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceSafetyInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.OnDeviceSafetyInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -359,7 +362,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OnDeviceSafetyInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.OnDeviceSafetyInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -404,7 +407,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceReceiver = class {
         // Try Method 0: GetArcSafetySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetArcSafetySession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +418,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceReceiver = class {
         // Try Method 1: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,12 +74,14 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.arc.mojom.CrashCollectorHost = {};
+mojo.internal.bindings.arc.mojom.CrashCollectorHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorHost.$interfaceName = 'arc.mojom.CrashCollectorHost';
 mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorInstance = {};
+mojo.internal.bindings.arc.mojom.CrashCollectorInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorInstance.$interfaceName = 'arc.mojom.CrashCollectorInstance';
 mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec = { $: {} };
@@ -158,7 +161,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemote = class {
 mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrashCollectorHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CrashCollectorHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -219,7 +222,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrashCollectorHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CrashCollectorHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -266,7 +269,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 0: DumpCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpCrash (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -277,7 +280,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 1: SetBuildProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBuildProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -288,7 +291,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 2: DumpNativeCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpNativeCrash (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -299,7 +302,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
         // Try Method 3: DumpKernelCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpKernelCrash (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -359,7 +362,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRequest = mojo.internal.bindi
 // Interface: CrashCollectorInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CrashCollectorHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CrashCollectorHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -401,7 +404,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrashCollectorInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CrashCollectorInstance', [
       { explicit: 1 },
     ]);
   }
@@ -432,7 +435,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrashCollectorInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.CrashCollectorInstance', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -476,7 +479,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

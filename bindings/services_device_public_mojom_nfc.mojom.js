@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.device.mojom.NDEFRawRecordSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NDEFRawMessageSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFC = {};
+mojo.internal.bindings.device.mojom.NFCSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.NFC.$interfaceName = 'device.mojom.NFC';
 mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec = { $: {} };
@@ -93,10 +95,12 @@ mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFCClient = {};
+mojo.internal.bindings.device.mojom.NFCClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.NFCClient.$interfaceName = 'device.mojom.NFCClient';
 mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.RawNFCClient = {};
+mojo.internal.bindings.device.mojom.RawNFCClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.RawNFCClient.$interfaceName = 'device.mojom.RawNFCClient';
 mojo.internal.bindings.device.mojom.RawNFCClient_OnWatch_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.RawNFCClient_OnError_ParamsSpec = { $: {} };
@@ -185,7 +189,7 @@ mojo.internal.Struct(
 // Interface: NFC
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec, 'device.mojom.NFC_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.NFCClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.NFCClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -292,7 +296,7 @@ mojo.internal.bindings.device.mojom.NFCRemote = class {
 mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NFC', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFC', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -383,7 +387,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NFC', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFC', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -433,7 +437,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -444,7 +448,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 1: Push
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Push (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -455,7 +459,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 2: CancelPush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -466,7 +470,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 3: MakeReadOnly
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeReadOnly (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -477,7 +481,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 4: CancelMakeReadOnly
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelMakeReadOnly (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -488,7 +492,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 5: Watch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Watch (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -499,7 +503,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
         // Try Method 6: CancelWatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelWatch (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -652,7 +656,7 @@ mojo.internal.bindings.device.mojom.NFCClientRemote = class {
 mojo.internal.bindings.device.mojom.NFCClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NFCClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFCClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -693,7 +697,7 @@ mojo.internal.bindings.device.mojom.NFCClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NFCClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.NFCClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -738,7 +742,7 @@ mojo.internal.bindings.device.mojom.NFCClientReceiver = class {
         // Try Method 0: OnWatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWatch (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -749,7 +753,7 @@ mojo.internal.bindings.device.mojom.NFCClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -842,7 +846,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientRemote = class {
 mojo.internal.bindings.device.mojom.RawNFCClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RawNFCClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.RawNFCClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -883,7 +887,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RawNFCClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.RawNFCClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -928,7 +932,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientReceiver = class {
         // Try Method 0: OnWatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.RawNFCClient_OnWatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.RawNFCClient_OnWatch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWatch (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -939,7 +943,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientReceiver = class {
         // Try Method 1: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.RawNFCClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.RawNFCClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

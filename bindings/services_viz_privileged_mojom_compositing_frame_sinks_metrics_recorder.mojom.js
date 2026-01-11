@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameCountingDataSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.OverdrawDataSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder.$interfaceName = 'viz.mojom.FrameSinksMetricsRecorder';
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = { $: {} };
@@ -188,7 +190,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemote = class {
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameSinksMetricsRecorder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinksMetricsRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -249,7 +251,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameSinksMetricsRecorder', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinksMetricsRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -296,7 +298,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 0: StartFrameCounting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartFrameCounting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -307,7 +309,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 1: StopFrameCounting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFrameCounting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -318,7 +320,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 2: StartOverdrawTracking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartOverdrawTracking (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -329,7 +331,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 3: StopOverdrawTracking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopOverdrawTracking (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

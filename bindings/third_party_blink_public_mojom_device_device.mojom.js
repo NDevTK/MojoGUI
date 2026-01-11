@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver.$interfaceName = 'blink.mojom.ManagedConfigurationObserver';
 mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DeviceAPIService = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DeviceAPIService.$interfaceName = 'blink.mojom.DeviceAPIService';
 mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = { $: {} };
@@ -88,6 +91,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Response
 mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ManagedConfigurationService = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ManagedConfigurationService.$interfaceName = 'blink.mojom.ManagedConfigurationService';
 mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = { $: {} };
@@ -147,7 +151,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverRemote = class {
 mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ManagedConfigurationObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ManagedConfigurationObserver', [
       { explicit: null },
     ]);
   }
@@ -178,7 +182,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ManagedConfigurationObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ManagedConfigurationObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -222,7 +226,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverReceiver = class 
         // Try Method 0: OnConfigurationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConfigurationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -359,7 +363,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemote = class {
 mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceAPIService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DeviceAPIService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -430,7 +434,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceAPIService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DeviceAPIService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -478,7 +482,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 0: GetDirectoryId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectoryId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -489,7 +493,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 1: GetHostname
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostname (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -500,7 +504,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 2: GetSerialNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSerialNumber (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -511,7 +515,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 3: GetAnnotatedAssetId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedAssetId (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -522,7 +526,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
         // Try Method 4: GetAnnotatedLocation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedLocation (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -641,7 +645,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec, 'blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -681,7 +685,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemote = class {
 mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ManagedConfigurationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ManagedConfigurationService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -722,7 +726,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ManagedConfigurationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ManagedConfigurationService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -767,7 +771,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
         // Try Method 0: GetManagedConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagedConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -778,7 +782,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
         // Try Method 1: SubscribeToManagedConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToManagedConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

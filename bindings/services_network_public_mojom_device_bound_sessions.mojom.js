@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -99,6 +100,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionTerminationDetailsSpec = 
 mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager = {};
+mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager.$interfaceName = 'network.mojom.DeviceBoundSessionManager';
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = { $: {} };
@@ -110,10 +112,12 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver = {};
+mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver.$interfaceName = 'network.mojom.DeviceBoundSessionAccessObserver';
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver = {};
+mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver.$interfaceName = 'network.mojom.DeviceBoundSessionEventObserver';
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec = { $: {} };
@@ -451,13 +455,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -525,7 +529,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemote = class {
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -606,7 +610,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -655,7 +659,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 0: GetAllSessions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllSessions (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -666,7 +670,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 1: DeleteSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -677,7 +681,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 2: DeleteAllSessions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllSessions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -688,7 +692,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 3: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -699,7 +703,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 4: AddEventObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEventObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -710,7 +714,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
         // Try Method 5: CreateBoundSessions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBoundSessions (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -814,7 +818,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_Clone_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -854,7 +858,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote = cl
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionAccessObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionAccessObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -895,7 +899,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionAccessObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionAccessObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -940,7 +944,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverReceiver = 
         // Try Method 0: OnDeviceBoundSessionAccessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceBoundSessionAccessed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -951,7 +955,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverReceiver = 
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1043,7 +1047,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemote = cla
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionEventObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionEventObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1084,7 +1088,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DeviceBoundSessionEventObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.DeviceBoundSessionEventObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1129,7 +1133,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = c
         // Try Method 0: OnDeviceBoundSessionEventReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceBoundSessionEventReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1140,7 +1144,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = c
         // Try Method 1: AddDeviceBoundSessionDisplays
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDeviceBoundSessionDisplays (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.SessionStorageControl = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.SessionStorageControl.$interfaceName = 'storage.mojom.SessionStorageControl';
 mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = { $: {} };
@@ -253,7 +255,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemote = class {
 mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SessionStorageControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.SessionStorageControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -384,7 +386,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SessionStorageControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.SessionStorageControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -438,7 +440,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 0: BindNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNamespace (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -449,7 +451,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 1: BindStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStorageArea (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -460,7 +462,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 2: GetUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -471,7 +473,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 3: DeleteStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -482,7 +484,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 4: CleanUpStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanUpStorage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -493,7 +495,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 5: ScavengeUnusedNamespaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScavengeUnusedNamespaces (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -504,7 +506,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 6: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -515,7 +517,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 7: PurgeMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeMemory (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -526,7 +528,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 8: CreateNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNamespace (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -537,7 +539,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 9: CloneNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneNamespace (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -548,7 +550,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 10: DeleteNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteNamespace (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,17 +73,21 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.PrintSessionHost = {};
+mojo.internal.bindings.arc.mojom.PrintSessionHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrintSessionHost.$interfaceName = 'arc.mojom.PrintSessionHost';
 mojo.internal.bindings.arc.mojom.PrintSessionInstance = {};
+mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrintSessionInstance.$interfaceName = 'arc.mojom.PrintSessionInstance';
 mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerHost = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerHost.$interfaceName = 'arc.mojom.PrintSpoolerHost';
 mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance.$interfaceName = 'arc.mojom.PrintSpoolerInstance';
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec = { $: {} };
@@ -118,7 +123,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionHostRemote = class {
 mojo.internal.bindings.arc.mojom.PrintSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintSessionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSessionHost', [
     ]);
   }
 
@@ -139,7 +144,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintSessionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSessionHost', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -255,7 +260,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintSessionInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSessionInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -296,7 +301,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintSessionInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSessionInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -341,7 +346,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceReceiver = class {
         // Try Method 0: OnPrintPreviewClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintPreviewClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -352,7 +357,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceReceiver = class {
         // Try Method 1: CreatePreviewDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePreviewDocument (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -406,7 +411,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRequest = mojo.internal.bin
 // Interface: PrintSpoolerHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params', [
-      mojo.internal.StructField('arg_instance', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_scoped_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -414,7 +419,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParams', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionHostSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionHostRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -451,7 +456,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemote = class {
 mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintSpoolerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSpoolerHost', [
       { explicit: 1 },
     ]);
   }
@@ -482,7 +487,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintSpoolerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSpoolerHost', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -526,7 +531,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostReceiver = class {
         // Try Method 0: StartPrintInCustomTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPrintInCustomTab (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -573,7 +578,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostRequest = mojo.internal.binding
 // Interface: PrintSpoolerInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -615,7 +620,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrintSpoolerInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSpoolerInstance', [
       { explicit: 0 },
     ]);
   }
@@ -646,7 +651,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrintSpoolerInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrintSpoolerInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -690,7 +695,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

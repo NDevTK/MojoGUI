@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,10 +80,12 @@ mojo.internal.bindings.storage.mojom.FileWriteAccessSpec = { $: mojo.internal.En
 mojo.internal.bindings.storage.mojom.StrictRelativePathSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.PathAccessInfoSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.FileLock = {};
+mojo.internal.bindings.storage.mojom.FileLockSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.FileLock.$interfaceName = 'storage.mojom.FileLock';
 mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.Directory = {};
+mojo.internal.bindings.storage.mojom.DirectorySpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.Directory.$interfaceName = 'storage.mojom.Directory';
 mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec = { $: {} };
@@ -192,7 +195,7 @@ mojo.internal.bindings.storage.mojom.FileLockRemote = class {
 mojo.internal.bindings.storage.mojom.FileLockRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileLock', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.FileLock', [
       { explicit: null },
     ]);
   }
@@ -223,7 +226,7 @@ mojo.internal.bindings.storage.mojom.FileLockReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileLock', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.FileLock', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -267,7 +270,7 @@ mojo.internal.bindings.storage.mojom.FileLockReceiver = class {
         // Try Method 0: Release
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Release (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -314,7 +317,7 @@ mojo.internal.bindings.storage.mojom.FileLockRequest = mojo.internal.bindings.st
 // Interface: Directory
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec, 'storage.mojom.Directory_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.DirectorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -430,7 +433,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec, 'storage.mojom.Directory_LockFile_ResponseParams', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lock', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.FileLockSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_lock', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.FileLockRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -494,7 +497,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemote = class {
 mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Directory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.Directory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -615,7 +618,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Directory', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.Directory', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -668,7 +671,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 0: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -679,7 +682,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 1: PathExists
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PathExists (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -690,7 +693,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 2: GetEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEntries (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -701,7 +704,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 3: OpenFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -712,7 +715,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 4: CreateDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDirectory (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -723,7 +726,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 5: DeleteFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteFile (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -734,7 +737,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 6: GetFileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -745,7 +748,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 7: GetPathAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPathAccess (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -756,7 +759,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 8: RenameFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameFile (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -767,7 +770,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
         // Try Method 9: LockFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockFile (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

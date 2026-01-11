@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = { $: mojo.i
 mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.Renderer = {};
+mojo.internal.bindings.content.mojom.RendererSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.Renderer.$interfaceName = 'content.mojom.Renderer';
 mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = { $: {} };
@@ -349,7 +351,7 @@ mojo.internal.bindings.content.mojom.RendererRemote = class {
 mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Renderer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.Renderer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -560,7 +562,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Renderer', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.Renderer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -622,7 +624,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 0: CreateAgentSchedulingGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAgentSchedulingGroup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -633,7 +635,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 1: CreateAssociatedAgentSchedulingGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAssociatedAgentSchedulingGroup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -644,7 +646,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 2: TransferSharedLastForegroundTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferSharedLastForegroundTime (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -655,7 +657,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 3: OnNetworkConnectionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkConnectionChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -666,7 +668,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 4: OnNetworkQualityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkQualityChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -677,7 +679,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 5: SetWebKitSharedTimersSuspended
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebKitSharedTimersSuspended (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -688,7 +690,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 6: UpdateScrollbarTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScrollbarTheme (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -699,7 +701,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 7: OnSystemColorsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemColorsChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -710,7 +712,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 8: UpdateSystemColorInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSystemColorInfo (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -721,7 +723,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 9: PurgePluginListCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgePluginListCache (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -732,7 +734,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 10: PurgeResourceCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeResourceCache (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -743,7 +745,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 11: SetProcessState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProcessState (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -754,7 +756,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 12: SetIsLockedToSite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsLockedToSite (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -765,7 +767,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 13: WriteClangProfilingProfile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -776,7 +778,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 14: SetIsCrossOriginIsolated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsCrossOriginIsolated (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -787,7 +789,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 15: SetIsWebSecurityDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsWebSecurityDisabled (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -798,7 +800,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 16: SetIsIsolatedContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsIsolatedContext (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -809,7 +811,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 17: SetWebUIResourceUrlToCodeCacheMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebUIResourceUrlToCodeCacheMap (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -820,7 +822,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         // Try Method 18: InitializeRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeRenderer (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;

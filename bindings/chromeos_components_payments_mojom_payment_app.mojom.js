@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payme
 mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
 
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance.$interfaceName = 'chromeos.payments.mojom.PaymentAppInstance';
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = { $: {} };
@@ -174,7 +176,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemote = class 
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PaymentAppInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.payments.mojom.PaymentAppInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -235,7 +237,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PaymentAppInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.payments.mojom.PaymentAppInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -282,7 +284,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
         // Try Method 0: IsPaymentImplemented
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsPaymentImplemented (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +295,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
         // Try Method 1: IsReadyToPay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsReadyToPay (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +306,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
         // Try Method 2: InvokePaymentApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokePaymentApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -315,7 +317,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
         // Try Method 3: AbortPaymentApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortPaymentApp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

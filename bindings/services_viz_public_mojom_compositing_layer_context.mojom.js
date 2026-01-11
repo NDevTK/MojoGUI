@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,11 +80,13 @@ mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.PendingLayerContextSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerContext = {};
+mojo.internal.bindings.viz.mojom.LayerContextSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.LayerContext.$interfaceName = 'viz.mojom.LayerContext';
 mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerContextClient = {};
+mojo.internal.bindings.viz.mojom.LayerContextClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.LayerContextClient.$interfaceName = 'viz.mojom.LayerContextClient';
 mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = { $: {} };
@@ -168,8 +171,8 @@ mojo.internal.Struct(
 // Struct: PendingLayerContext
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.PendingLayerContextSpec, 'viz.mojom.PendingLayerContext', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.LayerContextClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.LayerContextClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -231,7 +234,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemote = class {
 mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LayerContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.LayerContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -282,7 +285,7 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LayerContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.LayerContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -328,7 +331,7 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
         // Try Method 0: SetVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -339,7 +342,7 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
         // Try Method 1: UpdateDisplayTree
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDisplayTree (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -350,7 +353,7 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
         // Try Method 2: UpdateDisplayTiling
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDisplayTiling (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -450,7 +453,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientRemote = class {
 mojo.internal.bindings.viz.mojom.LayerContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LayerContextClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.LayerContextClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -491,7 +494,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LayerContextClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.LayerContextClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -536,7 +539,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = class {
         // Try Method 0: OnRequestCommitForFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestCommitForFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -547,7 +550,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = class {
         // Try Method 1: OnTilingsReadyForCleanup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTilingsReadyForCleanup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

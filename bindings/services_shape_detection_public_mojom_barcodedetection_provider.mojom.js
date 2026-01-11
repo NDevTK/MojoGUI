@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_dete
 
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider = {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec = { $ : {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider.$interfaceName = 'shape_detection.mojom.BarcodeDetectionProvider';
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = { $: {} };
@@ -140,7 +142,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemote = cl
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BarcodeDetectionProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.BarcodeDetectionProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -181,7 +183,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BarcodeDetectionProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.BarcodeDetectionProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -226,7 +228,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
         // Try Method 0: CreateBarcodeDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBarcodeDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -237,7 +239,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
         // Try Method 1: EnumerateSupportedFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateSupportedFormats (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

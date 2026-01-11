@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,22 +79,26 @@ mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.
 mojo.internal.bindings.blink.mojom.DevToolsMessageSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent.$interfaceName = 'blink.mojom.DevToolsAgent';
 mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost.$interfaceName = 'blink.mojom.DevToolsAgentHost';
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSession = {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DevToolsSession.$interfaceName = 'blink.mojom.DevToolsSession';
 mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSessionHost = {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DevToolsSessionHost.$interfaceName = 'blink.mojom.DevToolsSessionHost';
 mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = { $: {} };
@@ -121,9 +126,9 @@ mojo.internal.Struct(
 // Interface: DevToolsAgent
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec, 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_io_session', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_io_session', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_reattach_session_state', 24, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
@@ -190,7 +195,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentRemote = class {
 mojo.internal.bindings.blink.mojom.DevToolsAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -241,7 +246,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevToolsAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -287,7 +292,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 0: AttachDevToolsSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachDevToolsSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -298,7 +303,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 1: InspectElement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectElement (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,7 +314,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 2: ReportChildTargets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportChildTargets (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -370,8 +375,8 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentRequest = mojo.internal.bindings
 // Interface: DevToolsAgentHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec, 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params', [
-      mojo.internal.StructField('arg_worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_worker_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
@@ -437,7 +442,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote = class {
 mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsAgentHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsAgentHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -498,7 +503,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevToolsAgentHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsAgentHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -545,7 +550,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 0: ChildTargetCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChildTargetCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -556,7 +561,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 1: MainThreadDebuggerPaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MainThreadDebuggerPaused (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -567,7 +572,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 2: MainThreadDebuggerResumed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MainThreadDebuggerResumed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -578,7 +583,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 3: BringToForeground
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BringToForeground (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -685,7 +690,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionRemote = class {
 mojo.internal.bindings.blink.mojom.DevToolsSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsSession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsSession', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -726,7 +731,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevToolsSession', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsSession', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -771,7 +776,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionReceiver = class {
         // Try Method 0: DispatchProtocolCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolCommand (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -782,7 +787,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionReceiver = class {
         // Try Method 1: UnpauseAndTerminate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpauseAndTerminate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -877,7 +882,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemote = class {
 mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsSessionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsSessionHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -918,7 +923,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DevToolsSessionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevToolsSessionHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -963,7 +968,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostReceiver = class {
         // Try Method 0: DispatchProtocolResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -974,7 +979,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostReceiver = class {
         // Try Method 1: DispatchProtocolNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolNotification (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

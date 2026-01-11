@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.StreamTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.Decryptor = {};
+mojo.internal.bindings.media.mojom.DecryptorSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.Decryptor.$interfaceName = 'media.mojom.Decryptor';
 mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec = { $: {} };
@@ -90,6 +92,7 @@ mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParam
 mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FrameResourceReleaser = {};
+mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FrameResourceReleaser.$interfaceName = 'media.mojom.FrameResourceReleaser';
 
 // Enum: Status
@@ -177,7 +180,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_releaser', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_releaser', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -250,7 +253,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemote = class {
 mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Decryptor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.Decryptor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -361,7 +364,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Decryptor', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.Decryptor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -413,7 +416,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -424,7 +427,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 1: Decrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Decrypt (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -435,7 +438,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 2: CancelDecrypt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelDecrypt (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -446,7 +449,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 3: InitializeAudioDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeAudioDecoder (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -457,7 +460,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 4: InitializeVideoDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeVideoDecoder (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -468,7 +471,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 5: DecryptAndDecodeAudio
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptAndDecodeAudio (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -479,7 +482,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 6: DecryptAndDecodeVideo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptAndDecodeVideo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -490,7 +493,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 7: ResetDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetDecoder (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -501,7 +504,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
         // Try Method 8: DeinitializeDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeinitializeDecoder (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -664,7 +667,7 @@ mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote = class {
 mojo.internal.bindings.media.mojom.FrameResourceReleaserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FrameResourceReleaser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.FrameResourceReleaser', [
     ]);
   }
 
@@ -685,7 +688,7 @@ mojo.internal.bindings.media.mojom.FrameResourceReleaserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FrameResourceReleaser', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.FrameResourceReleaser', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

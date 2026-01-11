@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,6 +85,7 @@ mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.EventDataSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRTestHook = {};
+mojo.internal.bindings.device_test.mojom.XRTestHookSpec = { $ : {} };
 mojo.internal.bindings.device_test.mojom.XRTestHook.$interfaceName = 'device_test.mojom.XRTestHook';
 mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec = { $: {} };
@@ -104,6 +106,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_Resp
 mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRServiceTestHook = {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec = { $ : {} };
 mojo.internal.bindings.device_test.mojom.XRServiceTestHook.$interfaceName = 'device_test.mojom.XRServiceTestHook';
 mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec = { $: {} };
@@ -360,7 +363,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemote = class {
 mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRTestHook', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device_test.mojom.XRTestHook', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -471,7 +474,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRTestHook', [
+    const ordinals = window.mojoScrambler.getOrdinals('device_test.mojom.XRTestHook', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -523,7 +526,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 0: OnFrameSubmitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameSubmitted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -534,7 +537,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 1: WaitGetDeviceConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetDeviceConfig (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -545,7 +548,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 2: WaitGetPresentingPose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetPresentingPose (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -556,7 +559,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 3: WaitGetMagicWindowPose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetMagicWindowPose (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -567,7 +570,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 4: WaitGetControllerRoleForTrackedDeviceIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetControllerRoleForTrackedDeviceIndex (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -578,7 +581,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 5: WaitGetControllerData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetControllerData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -589,7 +592,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 6: WaitGetEventData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetEventData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -600,7 +603,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 7: WaitGetCanCreateSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetCanCreateSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -611,7 +614,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
         // Try Method 8: WaitGetVisibilityMask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitGetVisibilityMask (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -778,7 +781,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRequest = mojo.internal.bindi
 // Interface: XRServiceTestHook
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec, 'device_test.mojom.XRServiceTestHook_SetTestHook_Params', [
-      mojo.internal.StructField('arg_hook', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device_test.mojom.XRTestHookSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_hook', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device_test.mojom.XRTestHookRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -833,7 +836,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemote = class {
 mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XRServiceTestHook', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device_test.mojom.XRServiceTestHook', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -874,7 +877,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XRServiceTestHook', [
+    const ordinals = window.mojoScrambler.getOrdinals('device_test.mojom.XRServiceTestHook', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -919,7 +922,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
         // Try Method 0: SetTestHook
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestHook (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -930,7 +933,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
         // Try Method 1: TerminateDeviceServiceProcessForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TerminateDeviceServiceProcessForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

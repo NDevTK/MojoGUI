@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog = {};
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog.$interfaceName = 'remote_cocoa.mojom.SelectFileDialog';
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = { $: {} };
@@ -153,7 +155,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SelectFileDialog', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.SelectFileDialog', [
       { explicit: null },
     ]);
   }
@@ -184,7 +186,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SelectFileDialog', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.SelectFileDialog', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -228,7 +230,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogReceiver = class {
         // Try Method 0: Show
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

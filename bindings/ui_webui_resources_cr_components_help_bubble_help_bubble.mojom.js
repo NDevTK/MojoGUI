@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,17 +80,21 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.ProgressSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory.$interfaceName = 'help_bubble.mojom.HelpBubbleHandlerFactory';
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory = {};
+mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory.$interfaceName = 'help_bubble.mojom.PdfHelpBubbleHandlerFactory';
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec = { $ : {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler.$interfaceName = 'help_bubble.mojom.HelpBubbleHandler';
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec = { $ : {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient.$interfaceName = 'help_bubble.mojom.HelpBubbleClient';
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = { $: {} };
@@ -156,8 +161,8 @@ mojo.internal.Struct(
 // Interface: HelpBubbleHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -194,7 +199,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryRemote = class 
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HelpBubbleHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -225,7 +230,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HelpBubbleHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -269,7 +274,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = clas
         // Try Method 0: CreateHelpBubbleHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -346,7 +351,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote = cla
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PdfHelpBubbleHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.PdfHelpBubbleHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -377,7 +382,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PdfHelpBubbleHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.PdfHelpBubbleHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -421,7 +426,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = c
         // Try Method 0: CreateHelpBubbleHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHelpBubbleHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +522,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote = class {
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HelpBubbleHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -568,7 +573,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HelpBubbleHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -614,7 +619,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         // Try Method 0: BindTrackedElementHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTrackedElementHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -625,7 +630,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         // Try Method 1: HelpBubbleButtonPressed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleButtonPressed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -636,7 +641,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
         // Try Method 2: HelpBubbleClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HelpBubbleClosed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -754,7 +759,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote = class {
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('HelpBubbleClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -815,7 +820,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('HelpBubbleClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -862,7 +867,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 0: ShowHelpBubble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowHelpBubble (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -873,7 +878,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 1: ToggleFocusForAccessibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleFocusForAccessibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -884,7 +889,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 2: HideHelpBubble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideHelpBubble (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -895,7 +900,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
         // Try Method 3: ExternalHelpBubbleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExternalHelpBubbleUpdated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

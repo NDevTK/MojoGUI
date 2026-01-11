@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.tabs_api.mojom.TabsEventSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripService = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec = { $ : {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripService.$interfaceName = 'tabs_api.mojom.TabStripService';
 mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec = { $: {} };
@@ -85,6 +87,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
 mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabsObserver = {};
+mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec = { $ : {} };
 mojo.internal.bindings.tabs_api.mojom.TabsObserver.$interfaceName = 'tabs_api.mojom.TabsObserver';
 mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = { $: {} };
 
@@ -122,7 +125,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
       mojo.internal.StructField('arg_tab_strip', 0, 0, mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.tabs_api.mojom.TabsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -222,7 +225,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemote = class {
 mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabStripService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabStripService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -313,7 +316,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabStripService', [
+    const ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabStripService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -363,7 +366,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 0: GetTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -374,7 +377,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 1: GetTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -385,7 +388,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 2: CreateTabAt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTabAt (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -396,7 +399,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 3: CloseTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTabs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -407,7 +410,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 4: ActivateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -418,7 +421,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 5: SetSelectedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectedTabs (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -429,7 +432,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 6: MoveNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveNode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -547,7 +550,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverRemote = class {
 mojo.internal.bindings.tabs_api.mojom.TabsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabsObserver', [
       { explicit: null },
     ]);
   }
@@ -578,7 +581,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('tabs_api.mojom.TabsObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -622,7 +625,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver = class {
         // Try Method 0: OnTabEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabEvents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 
 mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder = {};
+mojo.internal.bindings.ash.settings.mojom.UserActionRecorderSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder.$interfaceName = 'ash.settings.mojom.UserActionRecorder';
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = { $: {} };
@@ -193,7 +195,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemote = class {
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UserActionRecorder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.UserActionRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -284,7 +286,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UserActionRecorder', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.mojom.UserActionRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -334,7 +336,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 0: RecordPageFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageFocus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +347,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 1: RecordPageBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageBlur (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -356,7 +358,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 2: RecordClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordClick (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -367,7 +369,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 3: RecordNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordNavigation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -378,7 +380,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 4: RecordSearch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSearch (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -389,7 +391,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 5: RecordSettingChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChange (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -400,7 +402,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 6: RecordSettingChangeWithDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChangeWithDetails (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

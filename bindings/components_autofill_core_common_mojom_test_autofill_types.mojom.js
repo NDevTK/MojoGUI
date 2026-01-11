@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec = { $ : {} };
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest.$interfaceName = 'autofill.mojom.TypeTraitsTest';
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = { $: {} };
@@ -241,7 +243,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemote = class {
 mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TypeTraitsTest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.TypeTraitsTest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -342,7 +344,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TypeTraitsTest', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.TypeTraitsTest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -393,7 +395,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 0: PassFormData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -404,7 +406,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 1: PassFormFieldData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormFieldData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -415,7 +417,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 2: PassFormDataPredictions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormDataPredictions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -426,7 +428,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 3: PassFormFieldDataPredictions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassFormFieldDataPredictions (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -437,7 +439,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 4: PassPasswordFormFillData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordFormFillData (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -448,7 +450,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 5: PassPasswordFormGenerationData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordFormGenerationData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -459,7 +461,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 6: PassPasswordGenerationUIData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordGenerationUIData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -470,7 +472,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
         // Try Method 7: PassPasswordSuggestionRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassPasswordSuggestionRequest (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;

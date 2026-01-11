@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.media.mojom.MediaPlayer = {};
+mojo.internal.bindings.media.mojom.MediaPlayerSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaPlayer.$interfaceName = 'media.mojom.MediaPlayer';
 mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayer_RequestPause_ParamsSpec = { $: {} };
@@ -93,10 +95,12 @@ mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = { 
 mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClient = {};
+mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClient.$interfaceName = 'media.mojom.MediaPlayerObserverClient';
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserver = {};
+mojo.internal.bindings.media.mojom.MediaPlayerObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserver.$interfaceName = 'media.mojom.MediaPlayerObserver';
 mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = { $: {} };
@@ -112,6 +116,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanging
 mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaPlayerHost = {};
+mojo.internal.bindings.media.mojom.MediaPlayerHostSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaPlayerHost.$interfaceName = 'media.mojom.MediaPlayerHost';
 mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = { $: {} };
 
@@ -282,7 +287,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemote = class {
 mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPlayer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -453,7 +458,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPlayer', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -511,7 +516,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 0: RequestPlay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPlay (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -522,7 +527,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 1: RequestPause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestPause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestPause_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPause (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -533,7 +538,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 2: RequestSeekForward
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSeekForward (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -544,7 +549,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 3: RequestSeekBackward
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSeekBackward (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -555,7 +560,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 4: RequestSeekTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSeekTo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -566,7 +571,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 5: RequestEnterPictureInPicture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestEnterPictureInPicture (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -577,7 +582,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 6: RequestMute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestMute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestMute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestMute (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -588,7 +593,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 7: SetVolumeMultiplier
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVolumeMultiplier (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -599,7 +604,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 8: SetPersistentState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetPersistentState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetPersistentState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPersistentState (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -610,7 +615,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 9: SetPowerExperimentState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPowerExperimentState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -621,7 +626,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 10: SetAudioSinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioSinkId (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -632,7 +637,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 11: SuspendForFrameClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendForFrameClosed (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -643,7 +648,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 12: RequestMediaRemoting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestMediaRemoting (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -654,7 +659,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 13: RequestVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestVisibility (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -665,7 +670,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
         // Try Method 14: RecordAutoPictureInPictureInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordAutoPictureInPictureInfo (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -852,7 +857,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverClientRemote = class {
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPlayerObserverClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserverClient', [
       { explicit: null },
     ]);
   }
@@ -883,7 +888,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPlayerObserverClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserverClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -927,7 +932,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverClientReceiver = class {
         // Try Method 0: GetHasPlayedBefore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHasPlayedBefore (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1119,7 +1124,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemote = class {
 mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPlayerObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1270,7 +1275,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPlayerObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1326,7 +1331,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 0: OnMediaPlaying
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaPlaying (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1337,7 +1342,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 1: OnMediaPaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaPaused (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1348,7 +1353,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 2: OnMutedStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMutedStatusChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1359,7 +1364,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 3: OnMediaMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaMetadataChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1370,7 +1375,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 4: OnMediaPositionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaPositionStateChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1381,7 +1386,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 5: OnMediaEffectivelyFullscreenChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaEffectivelyFullscreenChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1392,7 +1397,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 6: OnMediaSizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaSizeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1403,7 +1408,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 7: OnPictureInPictureAvailabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPictureInPictureAvailabilityChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1414,7 +1419,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 8: OnAudioOutputSinkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioOutputSinkChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1425,7 +1430,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 9: OnUseAudioServiceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUseAudioServiceChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1436,7 +1441,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 10: OnAudioOutputSinkChangingDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioOutputSinkChangingDisabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1447,7 +1452,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 11: OnRemotePlaybackMetadataChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemotePlaybackMetadataChange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1458,7 +1463,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
         // Try Method 12: OnVideoVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoVisibilityChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1581,8 +1586,8 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRequest = mojo.internal.bi
 // Interface: MediaPlayerHost
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec, 'media.mojom.MediaPlayerHost_OnMediaPlayerAdded_Params', [
-      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.MediaPlayerObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.MediaPlayerObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_player_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -1620,7 +1625,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerHostRemote = class {
 mojo.internal.bindings.media.mojom.MediaPlayerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPlayerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerHost', [
       { explicit: null },
     ]);
   }
@@ -1651,7 +1656,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPlayerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1695,7 +1700,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerHostReceiver = class {
         // Try Method 0: OnMediaPlayerAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaPlayerAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

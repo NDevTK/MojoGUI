@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.gcpw_hid.mojom = mojo.internal.bindings.gcpw_hid.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker = {};
+mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec = { $ : {} };
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker.$interfaceName = 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker';
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = { $: {} };
@@ -123,7 +125,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote = cl
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GaiaCredentialProviderHidBroker', [
+    this.ordinals = window.mojoScrambler.getOrdinals('gcpw_hid.mojom.GaiaCredentialProviderHidBroker', [
       { explicit: null },
     ]);
   }
@@ -154,7 +156,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GaiaCredentialProviderHidBroker', [
+    const ordinals = window.mojoScrambler.getOrdinals('gcpw_hid.mojom.GaiaCredentialProviderHidBroker', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -198,7 +200,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = 
         // Try Method 0: OpenDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDevice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

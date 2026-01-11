@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,9 +80,11 @@ mojo.internal.bindings.blink.mojom.ClipboardBufferSpec = { $: mojo.internal.Enum
 mojo.internal.bindings.blink.mojom.PlatformClipboardPermissionStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.ClipboardFilesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardListener = {};
+mojo.internal.bindings.blink.mojom.ClipboardListenerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ClipboardListener.$interfaceName = 'blink.mojom.ClipboardListener';
 mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost = {};
+mojo.internal.bindings.blink.mojom.ClipboardHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost.$interfaceName = 'blink.mojom.ClipboardHost';
 mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = { $: {} };
@@ -195,7 +198,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerRemote = class {
 mojo.internal.bindings.blink.mojom.ClipboardListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ClipboardListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardListener', [
       { explicit: null },
     ]);
   }
@@ -226,7 +229,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ClipboardListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -270,7 +273,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerReceiver = class {
         // Try Method 0: OnClipboardDataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClipboardDataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -529,7 +532,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec, 'blink.mojom.ClipboardHost_RegisterClipboardListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ClipboardListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ClipboardListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -635,7 +638,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemote = class {
 mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ClipboardHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -896,7 +899,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ClipboardHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -963,7 +966,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 0: GetSequenceNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSequenceNumber (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -974,7 +977,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 1: IsFormatAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsFormatAvailable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -985,7 +988,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 2: ReadAvailableTypes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAvailableTypes (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -996,7 +999,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 3: ReadText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadText (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1007,7 +1010,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 4: ReadHtml
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadHtml (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1018,7 +1021,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 5: ReadSvg
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSvg (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1029,7 +1032,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 6: ReadRtf
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadRtf (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1040,7 +1043,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 7: ReadPng
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadPng (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1051,7 +1054,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 8: ReadFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadFiles (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1062,7 +1065,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 9: ReadDataTransferCustomData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadDataTransferCustomData (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1073,7 +1076,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 10: ReadAvailableCustomAndStandardFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAvailableCustomAndStandardFormats (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1084,7 +1087,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 11: ReadUnsanitizedCustomFormat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadUnsanitizedCustomFormat (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1095,7 +1098,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 12: WriteText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteText (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1106,7 +1109,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 13: WriteHtml
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteHtml (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1117,7 +1120,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 14: WriteSvg
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSvg (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1128,7 +1131,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 15: WriteSmartPasteMarker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSmartPasteMarker (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1139,7 +1142,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 16: WriteDataTransferCustomData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteDataTransferCustomData (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1150,7 +1153,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 17: WriteBookmark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteBookmark (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1161,7 +1164,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 18: WriteImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteImage (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1172,7 +1175,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 19: WriteUnsanitizedCustomFormat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteUnsanitizedCustomFormat (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1183,7 +1186,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 20: CommitWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitWrite (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1194,7 +1197,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 21: WriteStringToFindPboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteStringToFindPboard (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1205,7 +1208,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 22: GetPlatformPermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformPermissionState (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1216,7 +1219,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
         // Try Method 23: RegisterClipboardListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterClipboardListener (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;

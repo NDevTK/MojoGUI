@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec = { $: {
 mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositor = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositor.$interfaceName = 'blink.mojom.SynchronousCompositor';
 mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = { $: {} };
@@ -97,12 +99,14 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = 
 mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost.$interfaceName = 'blink.mojom.SynchronousCompositorHost';
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost.$interfaceName = 'blink.mojom.SynchronousCompositorControlHost';
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = { $: {} };
@@ -324,7 +328,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote = class {
 mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -475,7 +479,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositor', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositor', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -531,7 +535,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 0: DemandDrawHwAsync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHwAsync (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -542,7 +546,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 1: DemandDrawHw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHw (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -553,7 +557,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 2: SetSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedMemory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -564,7 +568,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 3: DemandDrawSw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawSw (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -575,7 +579,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 4: WillSkipDraw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WillSkipDraw (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -586,7 +590,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 5: ZeroSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZeroSharedMemory (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -597,7 +601,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 6: ZoomBy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZoomBy (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -608,7 +612,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 7: SetMemoryPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMemoryPolicy (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -619,7 +623,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 8: ReclaimResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReclaimResources (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -630,7 +634,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 9: OnCompositorFrameTransitionDirectiveProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -641,7 +645,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 10: SetScroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScroll (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -652,7 +656,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 11: BeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrame (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -663,7 +667,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 12: SetBeginFrameSourcePaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBeginFrameSourcePaused (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -881,7 +885,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote = class {
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositorHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -942,7 +946,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositorHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -989,7 +993,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 0: LayerTreeFrameSinkCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LayerTreeFrameSinkCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1000,7 +1004,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 1: UpdateState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1011,7 +1015,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 2: SetNeedsBeginFrames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrames (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1022,7 +1026,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 3: SetThreads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1132,7 +1136,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote = clas
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorControlHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositorControlHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1173,7 +1177,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver = cl
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorControlHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SynchronousCompositorControlHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1218,7 +1222,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver = cl
         // Try Method 0: ReturnFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReturnFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1229,7 +1233,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver = cl
         // Try Method 1: BeginFrameResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrameResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

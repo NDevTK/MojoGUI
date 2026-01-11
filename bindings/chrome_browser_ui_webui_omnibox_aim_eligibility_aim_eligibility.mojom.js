@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec = { $: {} };
 mojo.internal.bindings.aim_eligibility.mojom.Page = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.aim_eligibility.mojom.Page.$interfaceName = 'aim_eligibility.mojom.Page';
 mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler.$interfaceName = 'aim_eligibility.mojom.PageHandler';
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = { $: {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = { $: {} };
@@ -84,6 +87,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilit
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = { $: {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory.$interfaceName = 'aim_eligibility.mojom.PageHandlerFactory';
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 
@@ -142,7 +146,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageRemote = class {
 mojo.internal.bindings.aim_eligibility.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -173,7 +177,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -217,7 +221,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageReceiver = class {
         // Try Method 0: OnEligibilityStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEligibilityStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -321,7 +325,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -372,7 +376,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -418,7 +422,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetEligibilityState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEligibilityState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -429,7 +433,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
         // Try Method 1: RequestServerEligibilityForDebugging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestServerEligibilityForDebugging (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -440,7 +444,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
         // Try Method 2: SetEligibilityResponseForDebugging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEligibilityResponseForDebugging (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -509,8 +513,8 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRequest = mojo.internal.
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.aim_eligibility.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.aim_eligibility.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -547,7 +551,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -578,7 +582,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('aim_eligibility.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -622,7 +626,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryReceiver = class 
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

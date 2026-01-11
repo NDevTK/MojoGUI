@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.app_management = mojo.internal.bindings.app_management ||
 
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsHandler';
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = { $: {} };
@@ -88,6 +90,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_O
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsObserver';
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = { $: {} };
@@ -105,7 +108,7 @@ mojo.internal.Struct(
 // Interface: AppPermissionsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -212,7 +215,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppPermissionsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_permission.mojom.AppPermissionsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -303,7 +306,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppPermissionsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_permission.mojom.AppPermissionsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -353,7 +356,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -364,7 +367,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 1: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -375,7 +378,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 2: GetSystemAppsThatUseCamera
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemAppsThatUseCamera (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -386,7 +389,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 3: GetSystemAppsThatUseMicrophone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemAppsThatUseMicrophone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -397,7 +400,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 4: OpenBrowserPermissionSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBrowserPermissionSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -408,7 +411,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 5: OpenNativeSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNativeSettings (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -419,7 +422,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
         // Try Method 6: SetPermission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPermission (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -570,7 +573,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AppPermissionsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_permission.mojom.AppPermissionsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -611,7 +614,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AppPermissionsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.app_permission.mojom.AppPermissionsObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -656,7 +659,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
         // Try Method 0: OnAppRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppRemoved (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -667,7 +670,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
         // Try Method 1: OnAppUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

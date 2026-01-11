@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler.$interfaceName = 'ntp.most_relevant_tab_resumption.mojom.PageHandler';
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = { $: {} };
@@ -184,7 +186,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote 
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ntp.most_relevant_tab_resumption.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -265,7 +267,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ntp.most_relevant_tab_resumption.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -314,7 +316,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 0: GetURLVisits
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetURLVisits (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -325,7 +327,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 1: DismissModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissModule (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -336,7 +338,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 2: DismissURLVisit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissURLVisit (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -347,7 +349,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 3: RestoreModule
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreModule (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -358,7 +360,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 4: RestoreURLVisit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreURLVisit (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -369,7 +371,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
         // Try Method 5: RecordAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordAction (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

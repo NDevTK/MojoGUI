@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $:
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector.$interfaceName = 'ash.cros_healthd.internal.mojom.ChromiumDataCollector';
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = { $: {} };
@@ -207,7 +209,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ChromiumDataCollector', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.internal.mojom.ChromiumDataCollector', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -268,7 +270,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ChromiumDataCollector', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.internal.mojom.ChromiumDataCollector', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -315,7 +317,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
         // Try Method 0: GetTouchscreenDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTouchscreenDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -326,7 +328,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
         // Try Method 1: GetTouchpadLibraryName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTouchpadLibraryName (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -337,7 +339,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
         // Try Method 2: SetPrivacyScreenState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivacyScreenState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -348,7 +350,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
         // Try Method 3: DEPRECATED_SetAudioOutputMute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_SetAudioOutputMute (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.content_settings = mojo.internal.bindings.content_setting
 
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = { $: {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler = {};
+mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler.$interfaceName = 'privacy_sandbox_internals.mojom.PageHandler';
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec = { $: {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec = { $: {} };
@@ -87,6 +89,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettin
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec = { $: {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.Page = {};
+mojo.internal.bindings.privacy_sandbox_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.privacy_sandbox_internals.mojom.Page.$interfaceName = 'privacy_sandbox_internals.mojom.Page';
 
 // Struct: PrivacySandboxInternalsPref
@@ -202,7 +205,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemote = class
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('privacy_sandbox_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -273,7 +276,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('privacy_sandbox_internals.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -321,7 +324,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
         // Try Method 0: ReadPrefsWithPrefixes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadPrefsWithPrefixes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +335,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
         // Try Method 1: ReadContentSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadContentSettings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -343,7 +346,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
         // Try Method 2: GetTpcdMetadataGrants
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTpcdMetadataGrants (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -354,7 +357,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
         // Try Method 3: ContentSettingsPatternToString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContentSettingsPatternToString (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -365,7 +368,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
         // Try Method 4: StringToContentSettingsPattern
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StringToContentSettingsPattern (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -500,7 +503,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageRemote = class {
 mojo.internal.bindings.privacy_sandbox_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('privacy_sandbox_internals.mojom.Page', [
     ]);
   }
 
@@ -521,7 +524,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('privacy_sandbox_internals.mojom.Page', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

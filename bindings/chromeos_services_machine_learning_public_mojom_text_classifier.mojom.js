@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -82,6 +83,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.CodepointSpanSpec = { $: 
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextLanguageSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec = { $ : {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier.$interfaceName = 'chromeos.machine_learning.mojom.TextClassifier';
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec = { $: {} };
@@ -246,7 +248,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote = cl
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextClassifier', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.TextClassifier', [
       { explicit: 0 },
       { explicit: 2 },
       { explicit: 1 },
@@ -297,7 +299,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextClassifier', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.machine_learning.mojom.TextClassifier', [
       { explicit: 0 },
       { explicit: 2 },
       { explicit: 1 },
@@ -343,7 +345,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
         // Try Method 0: Annotate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Annotate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -354,7 +356,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
         // Try Method 1: FindLanguages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindLanguages (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -365,7 +367,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
         // Try Method 2: REMOVED_1
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_1 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

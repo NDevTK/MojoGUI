@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,9 +76,11 @@ mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.
 mojo.internal.bindings.media.mojom.CdmRequestSpec = { $: {} };
 mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider.$interfaceName = 'media.mojom.FuchsiaMediaCdmProvider';
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider.$interfaceName = 'media.mojom.FuchsiaMediaCodecProvider';
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = { $: {} };
@@ -145,7 +148,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRemote = class {
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FuchsiaMediaCdmProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.FuchsiaMediaCdmProvider', [
       { explicit: null },
     ]);
   }
@@ -176,7 +179,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FuchsiaMediaCdmProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.FuchsiaMediaCdmProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -220,7 +223,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderReceiver = class {
         // Try Method 0: CreateCdm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -312,7 +315,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemote = class {
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FuchsiaMediaCodecProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.FuchsiaMediaCodecProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -353,7 +356,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FuchsiaMediaCodecProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.FuchsiaMediaCodecProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -398,7 +401,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
         // Try Method 0: CreateVideoDecoder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -409,7 +412,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
         // Try Method 1: GetSupportedVideoDecoderConfigs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSupportedVideoDecoderConfigs (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,17 +74,21 @@ mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chromecast.mojom.MessageCallback = {};
+mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.MessageCallback.$interfaceName = 'chromecast.mojom.MessageCallback';
 mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.WebUi = {};
+mojo.internal.bindings.chromecast.mojom.WebUiSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.WebUi.$interfaceName = 'chromecast.mojom.WebUi';
 mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.Resources = {};
+mojo.internal.bindings.chromecast.mojom.ResourcesSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.Resources.$interfaceName = 'chromecast.mojom.Resources';
 mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.WebUiClient = {};
+mojo.internal.bindings.chromecast.mojom.WebUiClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.WebUiClient.$interfaceName = 'chromecast.mojom.WebUiClient';
 mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = { $: {} };
@@ -128,7 +133,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackRemote = class {
 mojo.internal.bindings.chromecast.mojom.MessageCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MessageCallback', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.MessageCallback', [
       { explicit: null },
     ]);
   }
@@ -159,7 +164,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MessageCallback', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.MessageCallback', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -203,7 +208,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -243,7 +248,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackRequest = mojo.internal.b
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec, 'chromecast.mojom.WebUi_RegisterMessageCallback_Params', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cb', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cb', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.MessageCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -290,7 +295,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiRemote = class {
 mojo.internal.bindings.chromecast.mojom.WebUiRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebUi', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.WebUi', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -331,7 +336,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebUi', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.WebUi', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -376,7 +381,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiReceiver = class {
         // Try Method 0: RegisterMessageCallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterMessageCallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -387,7 +392,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiReceiver = class {
         // Try Method 1: CallJavascriptFunction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallJavascriptFunction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -476,7 +481,7 @@ mojo.internal.bindings.chromecast.mojom.ResourcesRemote = class {
 mojo.internal.bindings.chromecast.mojom.ResourcesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Resources', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.Resources', [
       { explicit: null },
     ]);
   }
@@ -507,7 +512,7 @@ mojo.internal.bindings.chromecast.mojom.ResourcesReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Resources', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.Resources', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -551,7 +556,7 @@ mojo.internal.bindings.chromecast.mojom.ResourcesReceiver = class {
         // Try Method 0: RequestResourceBytes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestResourceBytes (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -599,15 +604,15 @@ mojo.internal.bindings.chromecast.mojom.ResourcesRequest = mojo.internal.binding
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_ui', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_ui', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -647,7 +652,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientRemote = class {
 mojo.internal.bindings.chromecast.mojom.WebUiClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebUiClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.WebUiClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -688,7 +693,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebUiClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.WebUiClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -733,7 +738,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = class {
         // Try Method 0: CreateController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -744,7 +749,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = class {
         // Try Method 1: CreateResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResources (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,16 +75,18 @@ mojo.internal.bindings.ash.settings.magic_boost_handler = mojo.internal.bindings
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom = mojo.internal.bindings.ash.settings.magic_boost_handler.mojom || {};
 
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory';
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler = {};
+mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler.$interfaceName = 'ash.settings.magic_boost_handler.mojom.PageHandler';
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +123,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.magic_boost_handler.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -151,7 +154,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.magic_boost_handler.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -195,7 +198,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -270,7 +273,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerRemote 
 mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.magic_boost_handler.mojom.PageHandler', [
       { explicit: null },
     ]);
   }
@@ -301,7 +304,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.magic_boost_handler.mojom.PageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -345,7 +348,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerReceive
         // Try Method 0: ShowNotice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowNotice (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

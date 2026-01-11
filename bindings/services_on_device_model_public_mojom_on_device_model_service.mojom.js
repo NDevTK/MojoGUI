@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -87,9 +88,11 @@ mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec = { $: {}
 mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver = {};
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver.$interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
 mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService.$interfaceName = 'on_device_model.mojom.OnDeviceModelService';
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = { $: {} };
@@ -99,6 +102,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafety
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService.$interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = { $: {} };
@@ -279,7 +283,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote
 mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PlatformModelProgressObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.PlatformModelProgressObserver', [
       { explicit: 0 },
     ]);
   }
@@ -310,7 +314,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PlatformModelProgressObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.PlatformModelProgressObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -354,7 +358,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiv
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -477,7 +481,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemote = class 
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModelService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -538,7 +542,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelService', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModelService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -585,7 +589,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
         // Try Method 0: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -596,7 +600,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
         // Try Method 1: GetCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -607,7 +611,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
         // Try Method 2: LoadTextSafetyModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextSafetyModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -618,7 +622,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
         // Try Method 3: GetDeviceAndPerformanceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceAndPerformanceInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -704,7 +708,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
       mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_progress_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -810,7 +814,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemote 
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelPlatformService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModelPlatformService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -881,7 +885,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelPlatformService', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModelPlatformService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -929,7 +933,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
         // Try Method 0: LoadPlatformModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPlatformModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -940,7 +944,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
         // Try Method 1: GetPlatformModelState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformModelState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -951,7 +955,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
         // Try Method 2: GetEstimatedPerformanceClass
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEstimatedPerformanceClass (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -962,7 +966,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
         // Try Method 3: FormatInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FormatInput (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -973,7 +977,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
         // Try Method 4: ValidateSafetyResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateSafetyResult (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

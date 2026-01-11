@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.autofill.mojom.AutofillAgent = {};
+mojo.internal.bindings.autofill.mojom.AutofillAgentSpec = { $ : {} };
 mojo.internal.bindings.autofill.mojom.AutofillAgent.$interfaceName = 'autofill.mojom.AutofillAgent';
 mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec = { $: {} };
@@ -95,6 +97,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinat
 mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent = {};
+mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec = { $ : {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent.$interfaceName = 'autofill.mojom.PasswordAutofillAgent';
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = { $: {} };
@@ -114,6 +117,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithPa
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent = {};
+mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentSpec = { $ : {} };
 mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent.$interfaceName = 'autofill.mojom.PasswordGenerationAgent';
 mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec = { $: {} };
@@ -330,7 +334,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemote = class {
 mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AutofillAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -511,7 +515,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AutofillAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -570,7 +574,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 0: TriggerFormExtraction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormExtraction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -581,7 +585,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 1: TriggerFormExtractionWithResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormExtractionWithResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -592,7 +596,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 2: ApplyFieldsAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFieldsAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -603,7 +607,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 3: ApplyFieldAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFieldAction (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -614,7 +618,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 4: ExtractFormWithField
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractFormWithField (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -625,7 +629,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 5: ExtractLabeledTextNodeValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractLabeledTextNodeValue (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -636,7 +640,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 6: FieldTypePredictionsAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FieldTypePredictionsAvailable (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -647,7 +651,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 7: ExposeDomNodeIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExposeDomNodeIds (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -658,7 +662,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 8: ClearPreviewedForm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPreviewedForm (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -669,7 +673,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 9: TriggerSuggestions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerSuggestions (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -680,7 +684,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 10: SetSuggestionAvailability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSuggestionAvailability (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -691,7 +695,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 11: AcceptDataListSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptDataListSuggestion (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -702,7 +706,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 12: PreviewPasswordSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordSuggestion (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -713,7 +717,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 13: PreviewPasswordGenerationSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordGenerationSuggestion (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -724,7 +728,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 14: GetPotentialLastFourCombinationsForStandaloneCvc
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPotentialLastFourCombinationsForStandaloneCvc (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -735,7 +739,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         // Try Method 15: DispatchEmailVerifiedEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchEmailVerifiedEvent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1095,7 +1099,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemote = class {
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasswordAutofillAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordAutofillAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1246,7 +1250,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasswordAutofillAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordAutofillAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1302,7 +1306,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 0: ApplyFillDataOnParsingCompletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFillDataOnParsingCompletion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1313,7 +1317,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 1: FillPasswordSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillPasswordSuggestion (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1324,7 +1328,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 2: FillPasswordSuggestionById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillPasswordSuggestionById (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1335,7 +1339,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 3: PreviewPasswordSuggestionById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordSuggestionById (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1346,7 +1350,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 4: InformNoSavedCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InformNoSavedCredentials (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1357,7 +1361,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 5: FillIntoFocusedField
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillIntoFocusedField (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1368,7 +1372,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 6: PreviewField
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewField (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1379,7 +1383,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 7: FillField
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillField (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1390,7 +1394,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 8: FillChangePasswordForm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillChangePasswordForm (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1401,7 +1405,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 9: SetLoggingState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLoggingState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1412,7 +1416,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 10: TriggerFormSubmission
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormSubmission (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1423,7 +1427,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 11: AnnotateFieldsWithParsingResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateFieldsWithParsingResult (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1434,7 +1438,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         // Try Method 12: CheckViewAreaVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckViewAreaVisible (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1665,7 +1669,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemote = class {
 mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PasswordGenerationAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordGenerationAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1736,7 +1740,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PasswordGenerationAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordGenerationAgent', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1784,7 +1788,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
         // Try Method 0: GeneratedPasswordAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GeneratedPasswordAccepted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1795,7 +1799,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
         // Try Method 1: GeneratedPasswordRejected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GeneratedPasswordRejected (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1806,7 +1810,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
         // Try Method 2: TriggeredGeneratePassword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggeredGeneratePassword (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1817,7 +1821,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
         // Try Method 3: FoundFormEligibleForGeneration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FoundFormEligibleForGeneration (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1828,7 +1832,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
         // Try Method 4: FocusNextFieldAfterPasswords
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusNextFieldAfterPasswords (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,9 +75,11 @@ mojo.internal.bindings.ash.common.mojom = mojo.internal.bindings.ash.common.mojo
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver = {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver.$interfaceName = 'ash.common.mojom.AcceleratorFetcherObserver';
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher = {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec = { $ : {} };
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher.$interfaceName = 'ash.common.mojom.AcceleratorFetcher';
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = { $: {} };
@@ -123,7 +126,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemote = class
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AcceleratorFetcherObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AcceleratorFetcherObserver', [
       { explicit: null },
     ]);
   }
@@ -154,7 +157,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AcceleratorFetcherObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AcceleratorFetcherObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -198,7 +201,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverReceiver = cla
         // Try Method 0: OnAcceleratorsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcceleratorsUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -238,7 +241,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRequest = mojo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec, 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params', [
       mojo.internal.StructField('arg_actionIds', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorActionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -289,7 +292,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemote = class {
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AcceleratorFetcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AcceleratorFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -330,7 +333,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AcceleratorFetcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.common.mojom.AcceleratorFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -375,7 +378,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
         // Try Method 0: ObserveAcceleratorChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAcceleratorChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -386,7 +389,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
         // Try Method 1: GetMetaKeyToDisplay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetaKeyToDisplay (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

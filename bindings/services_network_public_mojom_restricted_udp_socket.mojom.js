@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket.$interfaceName = 'network.mojom.RestrictedUDPSocket';
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = { $: {} };
@@ -202,7 +204,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote = class {
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RestrictedUDPSocket', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.RestrictedUDPSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -273,7 +275,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RestrictedUDPSocket', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.RestrictedUDPSocket', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -321,7 +323,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
         // Try Method 0: JoinGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinGroup (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -332,7 +334,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
         // Try Method 1: LeaveGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveGroup (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -343,7 +345,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
         // Try Method 2: ReceiveMore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveMore (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -354,7 +356,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
         // Try Method 3: Send
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -365,7 +367,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
         // Try Method 4: SendTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendTo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

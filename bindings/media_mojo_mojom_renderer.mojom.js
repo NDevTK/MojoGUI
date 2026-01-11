@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.media.mojom.Renderer = {};
+mojo.internal.bindings.media.mojom.RendererSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.Renderer.$interfaceName = 'media.mojom.Renderer';
 mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec = { $: {} };
@@ -88,6 +90,7 @@ mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.RendererClient = {};
+mojo.internal.bindings.media.mojom.RendererClientSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.RendererClient.$interfaceName = 'media.mojom.RendererClient';
 mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = { $: {} };
@@ -103,7 +106,7 @@ mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec = { $: {}
 // Interface: Renderer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec, 'media.mojom.Renderer_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.RendererClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.RendererClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_streams', 8, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.DemuxerStreamRemote), false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -211,7 +214,7 @@ mojo.internal.bindings.media.mojom.RendererRemote = class {
 mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Renderer', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.Renderer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -302,7 +305,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Renderer', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.Renderer', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -352,7 +355,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 0: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +366,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 1: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -374,7 +377,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 2: StartPlayingFrom
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPlayingFrom (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -385,7 +388,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 3: SetPlaybackRate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPlaybackRate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -396,7 +399,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 4: SetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVolume (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -407,7 +410,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 5: SetCdm
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdm (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -418,7 +421,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
         // Try Method 6: SetLatencyHint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLatencyHint (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -643,7 +646,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemote = class {
 mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.RendererClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -764,7 +767,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.RendererClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -817,7 +820,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 0: OnTimeUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTimeUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -828,7 +831,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 1: OnBufferingStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferingStateChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -839,7 +842,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 2: OnEnded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnded (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -850,7 +853,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 3: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -861,7 +864,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 4: OnAudioConfigChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioConfigChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -872,7 +875,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 5: OnVideoConfigChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoConfigChange (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -883,7 +886,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 6: OnVideoNaturalSizeChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoNaturalSizeChange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -894,7 +897,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 7: OnVideoOpacityChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoOpacityChange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -905,7 +908,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 8: OnStatisticsUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStatisticsUpdate (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -916,7 +919,7 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
         // Try Method 9: OnWaiting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWaiting (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

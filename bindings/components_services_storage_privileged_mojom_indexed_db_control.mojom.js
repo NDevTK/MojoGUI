@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver = {};
+mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver.$interfaceName = 'storage.mojom.IndexedDBObserver';
 mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IndexedDBControl = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.IndexedDBControl.$interfaceName = 'storage.mojom.IndexedDBControl';
 mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = { $: {} };
@@ -154,7 +157,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverRemote = class {
 mojo.internal.bindings.storage.mojom.IndexedDBObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IndexedDBObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IndexedDBObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -195,7 +198,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IndexedDBObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IndexedDBObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -240,7 +243,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverReceiver = class {
         // Try Method 0: OnIndexedDBListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBListChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -251,7 +254,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverReceiver = class {
         // Try Method 1: OnIndexedDBContentChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBContentChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +375,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec, 'storage.mojom.IndexedDBControl_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.IndexedDBObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -448,7 +451,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemote = class {
 mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IndexedDBControl', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IndexedDBControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -569,7 +572,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IndexedDBControl', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.IndexedDBControl', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -622,7 +625,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 0: BindIndexedDB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndexedDB (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -633,7 +636,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 1: ForceClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceClose (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -644,7 +647,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 2: DownloadBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadBucketData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -655,7 +658,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 3: GetAllBucketsDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBucketsDetails (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -666,7 +669,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 4: StartMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMetadataRecording (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -677,7 +680,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 5: StopMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMetadataRecording (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -688,7 +691,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 6: SetForceKeepSessionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceKeepSessionState (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -699,7 +702,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 7: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -710,7 +713,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 8: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -721,7 +724,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 9: BindTestInterfaceForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

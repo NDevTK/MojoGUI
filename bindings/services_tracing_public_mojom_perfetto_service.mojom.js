@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -90,6 +91,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TraceConfigSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerHost = {};
+mojo.internal.bindings.tracing.mojom.ProducerHostSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.ProducerHost.$interfaceName = 'tracing.mojom.ProducerHost';
 mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec = { $: {} };
@@ -98,6 +100,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = 
 mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerClient = {};
+mojo.internal.bindings.tracing.mojom.ProducerClientSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.ProducerClient.$interfaceName = 'tracing.mojom.ProducerClient';
 mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = { $: {} };
@@ -107,14 +110,17 @@ mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParam
 mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.PerfettoService = {};
+mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.PerfettoService.$interfaceName = 'tracing.mojom.PerfettoService';
 mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ConsumerHost = {};
+mojo.internal.bindings.tracing.mojom.ConsumerHostSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.ConsumerHost.$interfaceName = 'tracing.mojom.ConsumerHost';
 mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionHost = {};
+mojo.internal.bindings.tracing.mojom.TracingSessionHostSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionHost.$interfaceName = 'tracing.mojom.TracingSessionHost';
 mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = { $: {} };
@@ -125,6 +131,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_Respo
 mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionClient = {};
+mojo.internal.bindings.tracing.mojom.TracingSessionClientSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionClient.$interfaceName = 'tracing.mojom.TracingSessionClient';
 mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = { $: {} };
@@ -393,7 +400,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemote = class {
 mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProducerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ProducerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -464,7 +471,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProducerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ProducerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -512,7 +519,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
         // Try Method 0: CommitData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -523,7 +530,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
         // Try Method 1: RegisterDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -534,7 +541,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
         // Try Method 2: UpdateDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDataSource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -545,7 +552,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
         // Try Method 3: RegisterTraceWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterTraceWriter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -556,7 +563,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
         // Try Method 4: UnregisterTraceWriter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnregisterTraceWriter (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -714,7 +721,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemote = class {
 mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProducerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ProducerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -785,7 +792,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProducerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ProducerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -833,7 +840,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         // Try Method 0: OnTracingStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingStart (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -844,7 +851,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         // Try Method 1: StartDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDataSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -855,7 +862,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         // Try Method 2: StopDataSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDataSource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -866,7 +873,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         // Try Method 3: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -877,7 +884,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         // Try Method 4: ClearIncrementalState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearIncrementalState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -960,8 +967,8 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRequest = mojo.internal.bindi
 // Interface: PerfettoService
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec, 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params', [
-      mojo.internal.StructField('arg_producer_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.ProducerClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.ProducerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.ProducerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.ProducerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_memory_buffer_page_size_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -1000,7 +1007,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote = class {
 mojo.internal.bindings.tracing.mojom.PerfettoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PerfettoService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.PerfettoService', [
       { explicit: null },
     ]);
   }
@@ -1031,7 +1038,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PerfettoService', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.PerfettoService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1075,7 +1082,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceReceiver = class {
         // Try Method 0: ConnectToProducerHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToProducerHost (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1114,8 +1121,8 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRequest = mojo.internal.bind
 // Interface: ConsumerHost
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
-      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
@@ -1123,8 +1130,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
-      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_unguessable_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_privacy_filtering_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1174,7 +1181,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemote = class {
 mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ConsumerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ConsumerHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1215,7 +1222,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ConsumerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ConsumerHost', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1260,7 +1267,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
         // Try Method 0: EnableTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableTracing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1271,7 +1278,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
         // Try Method 1: CloneSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1416,7 +1423,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote = class {
 mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TracingSessionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingSessionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1487,7 +1494,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TracingSessionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingSessionHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1535,7 +1542,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 0: ChangeTraceConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChangeTraceConfig (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1546,7 +1553,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 1: DisableTracing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableTracing (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1557,7 +1564,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 2: ReadBuffers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadBuffers (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1568,7 +1575,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 3: RequestBufferUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBufferUsage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1579,7 +1586,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
         // Try Method 4: DisableTracingAndEmitJson
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableTracingAndEmitJson (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1715,7 +1722,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote = class {
 mojo.internal.bindings.tracing.mojom.TracingSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TracingSessionClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingSessionClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1756,7 +1763,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TracingSessionClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingSessionClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1801,7 +1808,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = class {
         // Try Method 0: OnTracingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1812,7 +1819,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = class {
         // Try Method 1: OnTracingDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingDisabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

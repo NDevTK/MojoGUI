@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.storage.mojom.StorageService = {};
+mojo.internal.bindings.storage.mojom.StorageServiceSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.StorageService.$interfaceName = 'storage.mojom.StorageService';
 mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec = { $: {} };
@@ -163,7 +165,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemote = class {
 mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StorageService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.StorageService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -234,7 +236,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StorageService', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.StorageService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -282,7 +284,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
         // Try Method 0: EnableAggressiveDomStorageFlushing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAggressiveDomStorageFlushing (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +295,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
         // Try Method 1: SetDataDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDataDirectory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +306,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
         // Try Method 2: BindSessionStorageControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageControl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -315,7 +317,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
         // Try Method 3: BindLocalStorageControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLocalStorageControl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -326,7 +328,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
         // Try Method 4: BindTestApi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestApi (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

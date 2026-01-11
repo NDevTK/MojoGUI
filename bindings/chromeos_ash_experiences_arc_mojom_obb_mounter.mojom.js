@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,12 +73,14 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.ObbMounterHost = {};
+mojo.internal.bindings.arc.mojom.ObbMounterHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ObbMounterHost.$interfaceName = 'arc.mojom.ObbMounterHost';
 mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterInstance = {};
+mojo.internal.bindings.arc.mojom.ObbMounterInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ObbMounterInstance.$interfaceName = 'arc.mojom.ObbMounterInstance';
 mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec = { $: {} };
@@ -145,7 +148,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostRemote = class {
 mojo.internal.bindings.arc.mojom.ObbMounterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ObbMounterHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ObbMounterHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -186,7 +189,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ObbMounterHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ObbMounterHost', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -231,7 +234,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostReceiver = class {
         // Try Method 0: MountObb
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MountObb (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -242,7 +245,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostReceiver = class {
         // Try Method 1: UnmountObb
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnmountObb (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +307,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostRequest = mojo.internal.bindings.
 // Interface: ObbMounterInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec, 'arc.mojom.ObbMounterInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ObbMounterHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ObbMounterHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -346,7 +349,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ObbMounterInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ObbMounterInstance', [
       { explicit: 1 },
     ]);
   }
@@ -377,7 +380,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ObbMounterInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.ObbMounterInstance', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -421,7 +424,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

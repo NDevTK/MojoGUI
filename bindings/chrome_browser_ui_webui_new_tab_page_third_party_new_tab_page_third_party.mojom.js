@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,12 +76,15 @@ mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};
 
 mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec = { $: {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory.$interfaceName = 'new_tab_page_third_party.mojom.PageHandlerFactory';
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler.$interfaceName = 'new_tab_page_third_party.mojom.PageHandler';
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = { $: {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.Page = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.new_tab_page_third_party.mojom.Page.$interfaceName = 'new_tab_page_third_party.mojom.Page';
 mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = { $: {} };
 
@@ -101,8 +105,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -139,7 +143,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryRemote =
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -170,7 +174,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -214,7 +218,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryReceiver
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -289,7 +293,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemote = class 
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.PageHandler', [
       { explicit: null },
     ]);
   }
@@ -320,7 +324,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.PageHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -364,7 +368,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerReceiver = clas
         // Try Method 0: UpdateTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTheme (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -440,7 +444,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote = class {
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.Page', [
       { explicit: null },
     ]);
   }
@@ -471,7 +475,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('new_tab_page_third_party.mojom.Page', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -515,7 +519,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageReceiver = class {
         // Try Method 0: SetTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTheme (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

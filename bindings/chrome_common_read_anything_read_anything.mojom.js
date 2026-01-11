@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -86,10 +87,12 @@ mojo.internal.bindings.read_anything.mojom.DistillationStatusSpec = { $: mojo.in
 mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory.$interfaceName = 'read_anything.mojom.UntrustedPageHandlerFactory';
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler.$interfaceName = 'read_anything.mojom.UntrustedPageHandler';
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec = { $: {} };
@@ -125,6 +128,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_SendPinStateRequ
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec = { $ : {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage.$interfaceName = 'read_anything.mojom.UntrustedPage';
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec = { $: {} };
@@ -253,8 +257,8 @@ mojo.internal.Struct(
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -299,7 +303,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryRemote = c
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandlerFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -340,7 +344,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandlerFactory', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -385,7 +389,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryReceiver =
         // Try Method 0: CreateUntrustedPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUntrustedPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -396,7 +400,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryReceiver =
         // Try Method 1: ShouldShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowUI (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -763,7 +767,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemote = class {
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1104,7 +1108,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1179,7 +1183,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 0: GetDependencyParserModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDependencyParserModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1190,7 +1194,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 1: GetPresentationState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPresentationState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1201,7 +1205,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 2: GetVoicePackInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVoicePackInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1212,7 +1216,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 3: InstallVoicePack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallVoicePack (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1223,7 +1227,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 4: UninstallVoice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallVoice (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1234,7 +1238,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 5: OnCopy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCopy (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1245,7 +1249,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 6: OnLineSpaceChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLineSpaceChange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1256,7 +1260,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 7: OnLetterSpaceChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLetterSpaceChange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1267,7 +1271,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 8: OnFontChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFontChange (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1278,7 +1282,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 9: OnFontSizeChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFontSizeChange (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1289,7 +1293,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 10: OnLinksEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLinksEnabledChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1300,7 +1304,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 11: OnImagesEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImagesEnabledChanged (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1311,7 +1315,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 12: OnColorChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorChange (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1322,7 +1326,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 13: OnSpeechRateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRateChange (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1333,7 +1337,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 14: OnVoiceChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVoiceChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1344,7 +1348,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 15: OnLanguagePrefChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLanguagePrefChange (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1355,7 +1359,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 16: LogExtensionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogExtensionState (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1366,7 +1370,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 17: OnHighlightGranularityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHighlightGranularityChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1377,7 +1381,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 18: OnLineFocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLineFocusChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1388,7 +1392,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 19: OnReadAloudAudioStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadAloudAudioStateChange (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1399,7 +1403,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 20: OnLinkClicked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLinkClicked (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1410,7 +1414,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 21: OnImageDataRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataRequested (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1421,7 +1425,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 22: OnSelectionChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSelectionChange (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1432,7 +1436,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 23: OnCollapseSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCollapseSelection (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1443,7 +1447,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 24: OnScreenshotRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenshotRequested (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1454,7 +1458,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 25: OnDistillationStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDistillationStatus (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1465,7 +1469,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 26: ScrollToTargetNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollToTargetNode (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1476,7 +1480,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 27: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1487,7 +1491,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 28: TogglePinState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePinState (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1498,7 +1502,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 29: SendPinStateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPinStateRequest (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1509,7 +1513,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 30: TogglePresentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TogglePresentation (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1520,7 +1524,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
         // Try Method 31: AckReadingModeHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AckReadingModeHidden (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1979,7 +1983,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote = class {
 mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2170,7 +2174,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2230,7 +2234,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 0: AccessibilityEventReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AccessibilityEventReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2241,7 +2245,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 1: OnGetPresentationState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetPresentationState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2252,7 +2256,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 2: OnGetVoicePackInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetVoicePackInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2263,7 +2267,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 3: AccessibilityLocationChangesReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AccessibilityLocationChangesReceived (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2274,7 +2278,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 4: OnActiveAXTreeIDChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveAXTreeIDChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2285,7 +2289,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 5: OnAXTreeDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAXTreeDestroyed (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2296,7 +2300,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 6: SetLanguageCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLanguageCode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2307,7 +2311,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 7: OnDeviceLocked
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceLocked (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2318,7 +2322,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 8: OnTtsEngineInstalled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsEngineInstalled (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2329,7 +2333,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 9: SetDefaultLanguageCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultLanguageCode (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2340,7 +2344,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 10: OnSettingsRestoredFromPrefs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSettingsRestoredFromPrefs (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2351,7 +2355,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 11: ScreenAIServiceReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScreenAIServiceReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2362,7 +2366,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 12: OnReadingModeHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadingModeHidden (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2373,7 +2377,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 13: OnTabWillDetach
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabWillDetach (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2384,7 +2388,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 14: OnTabMuteStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabMuteStateChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2395,7 +2399,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 15: OnImageDataDownloaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataDownloaded (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2406,7 +2410,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         // Try Method 16: OnPinStatusReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinStatusReceived (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;

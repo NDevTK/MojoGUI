@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner = {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner.$interfaceName = 'ash.diagnostics.mojom.RoutineRunner';
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController.$interfaceName = 'ash.diagnostics.mojom.SystemRoutineController';
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
@@ -191,7 +194,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RoutineRunner', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.RoutineRunner', [
       { explicit: null },
     ]);
   }
@@ -222,7 +225,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RoutineRunner', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.RoutineRunner', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -266,7 +269,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = class {
         // Try Method 0: OnRoutineResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutineResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -317,7 +320,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_runner', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_runner', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -357,7 +360,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemote = cla
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemRoutineController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.SystemRoutineController', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -398,7 +401,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemRoutineController', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.SystemRoutineController', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -443,7 +446,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
         // Try Method 0: GetSupportedRoutines
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSupportedRoutines (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -454,7 +457,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
         // Try Method 1: RunRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunRoutine (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -85,12 +86,14 @@ mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver = {};
+mojo.internal.bindings.crosapi.mojom.AccountManagerObserverSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver.$interfaceName = 'crosapi.mojom.AccountManagerObserver';
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManager = {};
+mojo.internal.bindings.crosapi.mojom.AccountManagerSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.AccountManager.$interfaceName = 'crosapi.mojom.AccountManager';
 mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec = { $: {} };
@@ -109,6 +112,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_Par
 mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher = {};
+mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherSpec = { $ : {} };
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher.$interfaceName = 'crosapi.mojom.AccessTokenFetcher';
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec = { $: {} };
@@ -304,7 +308,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemote = class {
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccountManagerObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccountManagerObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -365,7 +369,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccountManagerObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccountManagerObserver', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -412,7 +416,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
         // Try Method 0: OnTokenUpserted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTokenUpserted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -423,7 +427,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
         // Try Method 1: OnAccountRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccountRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -434,7 +438,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
         // Try Method 2: OnAuthErrorChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthErrorChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -445,7 +449,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
         // Try Method 3: OnSigninDialogClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSigninDialogClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -521,7 +525,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_ResponseParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.AccountManagerObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -586,7 +590,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParams', [
-      mojo.internal.StructField('arg_access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -654,7 +658,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemote = class {
 mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccountManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccountManager', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -765,7 +769,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccountManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccountManager', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -817,7 +821,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 0: IsInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInitialized (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -828,7 +832,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 1: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -839,7 +843,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 2: GetAccounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccounts (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -850,7 +854,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 3: ShowAddAccountDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowAddAccountDialog (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -861,7 +865,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 4: ShowReauthAccountDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowReauthAccountDialog (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -872,7 +876,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 5: ShowManageAccountsSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowManageAccountsSettings (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -883,7 +887,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 6: GetPersistentErrorForAccount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPersistentErrorForAccount (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -894,7 +898,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 7: CreateAccessTokenFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAccessTokenFetcher (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -905,7 +909,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
         // Try Method 8: ReportAuthError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAuthError (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1099,7 +1103,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemote = class {
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AccessTokenFetcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccessTokenFetcher', [
       { explicit: 0 },
     ]);
   }
@@ -1130,7 +1134,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AccessTokenFetcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.AccessTokenFetcher', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1174,7 +1178,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

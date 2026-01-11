@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.chrome.mojom.FileUtilService = {};
+mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.FileUtilService.$interfaceName = 'chrome.mojom.FileUtilService';
 mojo.internal.bindings.chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = { $: {} };
@@ -146,7 +148,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemote = class {
 mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileUtilService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.FileUtilService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -207,7 +209,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileUtilService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.FileUtilService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -254,7 +256,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 0: BindZipFileCreator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindZipFileCreator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -265,7 +267,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 1: BindSafeArchiveAnalyzer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSafeArchiveAnalyzer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -276,7 +278,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 2: BindSingleFileTarFileExtractor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSingleFileTarFileExtractor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -287,7 +289,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
         // Try Method 3: BindSingleFileTarXzFileExtractor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSingleFileTarXzFileExtractor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.arc.mojom.ConstantBitrateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VariableBitrateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator.$interfaceName = 'arc.mojom.VideoEncodeAccelerator';
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec = { $: {} };
@@ -95,6 +97,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParameter
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeClient = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeClient.$interfaceName = 'arc.mojom.VideoEncodeClient';
 mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec = { $: {} };
@@ -193,7 +196,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Initialize_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoEncodeClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -310,7 +313,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemote = class {
 mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoEncodeAccelerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoEncodeAccelerator', [
       { explicit: 0 },
       { explicit: 9 },
       { explicit: 8 },
@@ -401,7 +404,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoEncodeAccelerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoEncodeAccelerator', [
       { explicit: 0 },
       { explicit: 9 },
       { explicit: 8 },
@@ -451,7 +454,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 0: GetSupportedProfiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSupportedProfiles (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -462,7 +465,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 1: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -473,7 +476,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 2: Encode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Encode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -484,7 +487,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 3: UseBitstreamBuffer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UseBitstreamBuffer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -495,7 +498,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 4: RequestEncodingParametersChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestEncodingParametersChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -506,7 +509,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 5: RequestEncodingParametersChangeDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestEncodingParametersChangeDeprecated (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -517,7 +520,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
         // Try Method 6: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -686,7 +689,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeClientRemote = class {
 mojo.internal.bindings.arc.mojom.VideoEncodeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VideoEncodeClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoEncodeClient', [
       { explicit: 0 },
       { explicit: 2 },
     ]);
@@ -727,7 +730,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VideoEncodeClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VideoEncodeClient', [
       { explicit: 0 },
       { explicit: 2 },
     ]);
@@ -772,7 +775,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeClientReceiver = class {
         // Try Method 0: RequireBitstreamBuffers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequireBitstreamBuffers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -783,7 +786,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeClientReceiver = class {
         // Try Method 1: NotifyError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

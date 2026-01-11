@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -84,18 +85,23 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver.$interfaceName = 'ash.diagnostics.mojom.BatteryChargeStatusObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver.$interfaceName = 'ash.diagnostics.mojom.BatteryHealthObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver.$interfaceName = 'ash.diagnostics.mojom.MemoryUsageObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver = {};
+mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver.$interfaceName = 'ash.diagnostics.mojom.CpuUsageObserver';
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec = { $ : {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider.$interfaceName = 'ash.diagnostics.mojom.SystemDataProvider';
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = { $: {} };
@@ -238,7 +244,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemote =
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BatteryChargeStatusObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.BatteryChargeStatusObserver', [
       { explicit: null },
     ]);
   }
@@ -269,7 +275,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BatteryChargeStatusObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.BatteryChargeStatusObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -313,7 +319,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver
         // Try Method 0: OnBatteryChargeStatusUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryChargeStatusUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -389,7 +395,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemote = class
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BatteryHealthObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.BatteryHealthObserver', [
       { explicit: null },
     ]);
   }
@@ -420,7 +426,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BatteryHealthObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.BatteryHealthObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -464,7 +470,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverReceiver = cla
         // Try Method 0: OnBatteryHealthUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryHealthUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -540,7 +546,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MemoryUsageObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.MemoryUsageObserver', [
       { explicit: null },
     ]);
   }
@@ -571,7 +577,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MemoryUsageObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.MemoryUsageObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -615,7 +621,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverReceiver = class
         // Try Method 0: OnMemoryUsageUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryUsageUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -691,7 +697,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CpuUsageObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.CpuUsageObserver', [
       { explicit: null },
     ]);
   }
@@ -722,7 +728,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CpuUsageObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.CpuUsageObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -766,7 +772,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
         // Try Method 0: OnCpuUsageUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCpuUsageUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -827,25 +833,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -897,7 +903,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemote = class {
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SystemDataProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.SystemDataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -978,7 +984,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SystemDataProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.diagnostics.mojom.SystemDataProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1027,7 +1033,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 0: GetSystemInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1038,7 +1044,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 1: GetBatteryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatteryInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1049,7 +1055,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 2: ObserveBatteryChargeStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryChargeStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1060,7 +1066,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 3: ObserveBatteryHealth
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryHealth (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1071,7 +1077,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 4: ObserveMemoryUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveMemoryUsage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1082,7 +1088,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
         // Try Method 5: ObserveCpuUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveCpuUsage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

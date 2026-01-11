@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain = {};
+mojo.internal.bindings.viz.mojom.VizMainSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.VizMain.$interfaceName = 'viz.mojom.VizMain';
 mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec = { $: {} };
@@ -224,7 +226,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemote = class {
 mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VizMain', [
+    this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.VizMain', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -335,7 +337,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VizMain', [
+    const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.VizMain', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -387,7 +389,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 0: CreateFrameSinkManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrameSinkManager (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -398,7 +400,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 1: CreateGpuService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGpuService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -409,7 +411,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 2: SetRenderParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRenderParams (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -420,7 +422,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 3: CreateInfoCollectionGpuService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateInfoCollectionGpuService (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -431,7 +433,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 4: SetHostProcessId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostProcessId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -442,7 +444,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 5: NotifyWorkloadIncrease
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyWorkloadIncrease (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -453,7 +455,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 6: StartDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDebugStream (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -464,7 +466,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 7: FilterDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FilterDebugStream (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -475,7 +477,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         // Try Method 8: StopDebugStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDebugStream (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

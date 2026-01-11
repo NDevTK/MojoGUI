@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioProcessorControls = {};
+mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioProcessorControls.$interfaceName = 'media.mojom.AudioProcessorControls';
 mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = { $: {} };
@@ -104,7 +106,7 @@ mojo.internal.Struct(
 // Struct: AudioProcessingConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, 'media.mojom.AudioProcessingConfig', [
-      mojo.internal.StructField('arg_controls_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controls_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioProcessorControlsRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -163,7 +165,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRemote = class {
 mojo.internal.bindings.media.mojom.AudioProcessorControlsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioProcessorControls', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioProcessorControls', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -204,7 +206,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioProcessorControls', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioProcessorControls', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -249,7 +251,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
         // Try Method 0: GetStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStats (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -260,7 +262,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
         // Try Method 1: SetPreferredNumCaptureChannels
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredNumCaptureChannels (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

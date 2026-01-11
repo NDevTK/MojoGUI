@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.demo_mode = mojo.internal.bindings.ash.mojom.demo_mode || {};
 
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandlerFactory';
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler = {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandler';
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = { $: {} };
@@ -83,7 +86,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +123,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote = c
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.demo_mode.UntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -151,7 +154,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.demo_mode.UntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -195,7 +198,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver =
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +282,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote = class {
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.mojom.demo_mode.UntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -320,7 +323,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.mojom.demo_mode.UntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -365,7 +368,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class 
         // Try Method 0: ToggleFullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleFullscreen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -376,7 +379,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class 
         // Try Method 1: LaunchApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

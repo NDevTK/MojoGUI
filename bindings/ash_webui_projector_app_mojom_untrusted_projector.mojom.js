@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandler';
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = { $: {} };
@@ -99,6 +101,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAcco
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec = { $ : {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPage';
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = { $: {} };
@@ -106,6 +109,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalle
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
@@ -305,7 +309,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote =
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -436,7 +440,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -490,7 +494,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 0: GetNewScreencastPrecondition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewScreencastPrecondition (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -501,7 +505,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 1: ShouldDownloadSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldDownloadSoda (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -512,7 +516,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 2: InstallSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallSoda (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -523,7 +527,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 3: GetPendingScreencasts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPendingScreencasts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -534,7 +538,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 4: GetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserPref (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -545,7 +549,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 5: SetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserPref (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -556,7 +560,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 6: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -567,7 +571,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 7: StartProjectorSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartProjectorSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -578,7 +582,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 8: SendXhr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendXhr (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -589,7 +593,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 9: GetAccounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccounts (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -600,7 +604,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
         // Try Method 10: GetVideo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideo (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -868,7 +872,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote = class 
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -939,7 +943,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -987,7 +991,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
         // Try Method 0: OnNewScreencastPreconditionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewScreencastPreconditionChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -998,7 +1002,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
         // Try Method 1: OnSodaInstallProgressUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallProgressUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1009,7 +1013,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
         // Try Method 2: OnSodaInstalled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstalled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1020,7 +1024,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
         // Try Method 3: OnSodaInstallError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1031,7 +1035,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = clas
         // Try Method 4: OnScreencastsStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreencastsStateChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1098,8 +1102,8 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRequest = mojo.
 // Interface: UntrustedProjectorPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1136,7 +1140,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryR
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -1167,7 +1171,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryR
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.projector.mojom.UntrustedProjectorPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1211,7 +1215,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryR
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.metrics_reporter.mojom = mojo.internal.bindings.metrics_r
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec = { $ : {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost.$interfaceName = 'metrics_reporter.mojom.PageMetricsHost';
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = { $: {} };
@@ -80,6 +82,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_Response
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetrics = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec = { $ : {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetrics.$interfaceName = 'metrics_reporter.mojom.PageMetrics';
 mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = { $: {} };
@@ -88,7 +91,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec
 // Interface: PageMetricsHost
 mojo.internal.Struct(
     mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,7 +162,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemote = class {
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageMetricsHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics_reporter.mojom.PageMetricsHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -220,7 +223,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageMetricsHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics_reporter.mojom.PageMetricsHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -267,7 +270,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 0: OnPageRemoteCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageRemoteCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -278,7 +281,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 1: OnGetMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetMark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -289,7 +292,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 2: OnClearMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClearMark (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -300,7 +303,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
         // Try Method 3: OnUmaReportTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUmaReportTime (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -420,7 +423,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemote = class {
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageMetrics', [
+    this.ordinals = window.mojoScrambler.getOrdinals('metrics_reporter.mojom.PageMetrics', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -461,7 +464,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageMetrics', [
+    const ordinals = window.mojoScrambler.getOrdinals('metrics_reporter.mojom.PageMetrics', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -506,7 +509,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
         // Try Method 0: OnGetMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetMark (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +520,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
         // Try Method 1: OnClearMark
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClearMark (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

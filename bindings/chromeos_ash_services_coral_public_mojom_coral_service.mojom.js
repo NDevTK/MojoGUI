@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -89,15 +90,18 @@ mojo.internal.bindings.coral.mojom.GroupResponseSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.TitleObserver = {};
+mojo.internal.bindings.coral.mojom.TitleObserverSpec = { $ : {} };
 mojo.internal.bindings.coral.mojom.TitleObserver.$interfaceName = 'coral.mojom.TitleObserver';
 mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralProcessor = {};
+mojo.internal.bindings.coral.mojom.CoralProcessorSpec = { $ : {} };
 mojo.internal.bindings.coral.mojom.CoralProcessor.$interfaceName = 'coral.mojom.CoralProcessor';
 mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralService = {};
+mojo.internal.bindings.coral.mojom.CoralServiceSpec = { $ : {} };
 mojo.internal.bindings.coral.mojom.CoralService.$interfaceName = 'coral.mojom.CoralService';
 mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = { $: {} };
@@ -288,7 +292,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverRemote = class {
 mojo.internal.bindings.coral.mojom.TitleObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TitleObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('coral.mojom.TitleObserver', [
       { explicit: 0 },
     ]);
   }
@@ -319,7 +323,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TitleObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('coral.mojom.TitleObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -363,7 +367,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverReceiver = class {
         // Try Method 0: TitleUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TitleUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -403,7 +407,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverRequest = mojo.internal.bindings
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -461,7 +465,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRemote = class {
 mojo.internal.bindings.coral.mojom.CoralProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CoralProcessor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('coral.mojom.CoralProcessor', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -502,7 +506,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CoralProcessor', [
+    const ordinals = window.mojoScrambler.getOrdinals('coral.mojom.CoralProcessor', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -547,7 +551,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
         // Try Method 0: Group
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Group (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -558,7 +562,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
         // Try Method 1: CacheEmbeddings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -621,7 +625,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRequest = mojo.internal.binding
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -651,7 +655,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
       mojo.internal.StructField('arg_ml_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
     ],
     [[0, 24], [2, 32]]);
@@ -698,7 +702,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemote = class {
 mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CoralService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('coral.mojom.CoralService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -759,7 +763,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CoralService', [
+    const ordinals = window.mojoScrambler.getOrdinals('coral.mojom.CoralService', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -806,7 +810,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
         // Try Method 0: GroupDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GroupDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -817,7 +821,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
         // Try Method 1: CacheEmbeddingsDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddingsDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -828,7 +832,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
         // Try Method 2: PrepareResource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareResource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -839,7 +843,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
         // Try Method 3: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

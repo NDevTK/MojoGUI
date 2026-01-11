@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,12 +82,15 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelInfoSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.MicrophoneInfoSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.LangPackInfoSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor = {};
+mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorSpec = { $ : {} };
 mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor.$interfaceName = 'ash.recorder_app.mojom.ModelStateMonitor';
 mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor = {};
+mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorSpec = { $ : {} };
 mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor.$interfaceName = 'ash.recorder_app.mojom.QuietModeMonitor';
 mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandler = {};
+mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandler.$interfaceName = 'ash.recorder_app.mojom.PageHandler';
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = { $: {} };
@@ -206,7 +210,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemote = class {
 mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ModelStateMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.ModelStateMonitor', [
       { explicit: null },
     ]);
   }
@@ -237,7 +241,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ModelStateMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.ModelStateMonitor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -281,7 +285,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorReceiver = class 
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -357,7 +361,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorRemote = class {
 mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('QuietModeMonitor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.QuietModeMonitor', [
       { explicit: null },
     ]);
   }
@@ -388,7 +392,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('QuietModeMonitor', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.QuietModeMonitor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -432,7 +436,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -525,7 +529,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddModelMonitor_Params', [
       mojo.internal.StructField('arg_model_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_monitor', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -560,7 +564,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddSodaMonitor_Params', [
       mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_monitor', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -615,7 +619,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_Params', [
-      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -742,7 +746,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -933,7 +937,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.recorder_app.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -993,7 +997,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetModelInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetModelInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1004,7 +1008,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 1: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1015,7 +1019,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 2: FormatModelInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FormatModelInput (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1026,7 +1030,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 3: ValidateSafetyResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateSafetyResult (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1037,7 +1041,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 4: AddModelMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddModelMonitor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1048,7 +1052,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 5: GetAvailableLangPacks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableLangPacks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1059,7 +1063,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 6: GetDefaultLanguage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultLanguage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1070,7 +1074,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 7: AddSodaMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSodaMonitor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1081,7 +1085,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 8: InstallSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallSoda (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1092,7 +1096,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 9: LoadSpeechRecognizer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSpeechRecognizer (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1103,7 +1107,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 10: OpenAiFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAiFeedbackDialog (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1114,7 +1118,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 11: GetMicrophoneInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMicrophoneInfo (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1125,7 +1129,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 12: AddQuietModeMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddQuietModeMonitor (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1136,7 +1140,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 13: SetQuietMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetQuietMode (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1147,7 +1151,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 14: CanUseSpeakerLabel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanUseSpeakerLabel (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1158,7 +1162,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 15: RecordSpeakerLabelConsent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSpeakerLabelConsent (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1169,7 +1173,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
         // Try Method 16: CanCaptureSystemAudioWithLoopback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanCaptureSystemAudioWithLoopback (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;

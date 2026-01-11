@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
 mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext = {};
+mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext.$interfaceName = 'media.mojom.AudioSourceSpeechRecognitionContext';
 mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionService = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionServiceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionService.$interfaceName = 'media.mojom.SpeechRecognitionService';
 mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec = { $: {} };
@@ -85,6 +88,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsS
 mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioSourceFetcher = {};
+mojo.internal.bindings.media.mojom.AudioSourceFetcherSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioSourceFetcher.$interfaceName = 'media.mojom.AudioSourceFetcher';
 mojo.internal.bindings.media.mojom.AudioSourceFetcher_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioSourceFetcher_Stop_ParamsSpec = { $: {} };
@@ -92,7 +96,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcher_Stop_ParamsSpec = { $: {} 
 // Interface: AudioSourceSpeechRecognitionContext
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec, 'media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_Params', [
-      mojo.internal.StructField('arg_fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceFetcherSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceFetcherRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec.$, null, false, 0, undefined),
     ],
@@ -137,7 +141,7 @@ mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextRemote = c
 mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioSourceSpeechRecognitionContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioSourceSpeechRecognitionContext', [
       { explicit: null },
     ]);
   }
@@ -168,7 +172,7 @@ mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioSourceSpeechRecognitionContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioSourceSpeechRecognitionContext', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -212,7 +216,7 @@ mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextReceiver =
         // Try Method 0: BindAudioSourceFetcher
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAudioSourceFetcher (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -265,7 +269,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec, 'media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -334,7 +338,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemote = class {
 mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SpeechRecognitionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.SpeechRecognitionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -405,7 +409,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SpeechRecognitionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.SpeechRecognitionService', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -453,7 +457,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
         // Try Method 0: BindSpeechRecognitionContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSpeechRecognitionContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -464,7 +468,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
         // Try Method 1: BindAudioSourceSpeechRecognitionContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAudioSourceSpeechRecognitionContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -475,7 +479,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
         // Try Method 2: SetSodaPaths
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSodaPaths (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -486,7 +490,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
         // Try Method 3: SetSodaParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSodaParams (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -497,7 +501,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceReceiver = class {
         // Try Method 4: SetSodaConfigPaths
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSodaConfigPaths (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -611,7 +615,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherRemote = class {
 mojo.internal.bindings.media.mojom.AudioSourceFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioSourceFetcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioSourceFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -652,7 +656,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioSourceFetcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.AudioSourceFetcher', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -697,7 +701,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceFetcher_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceFetcher_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -708,7 +712,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceFetcher_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceFetcher_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

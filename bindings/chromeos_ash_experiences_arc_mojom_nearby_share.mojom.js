@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,15 +76,19 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.arc.mojom.FileInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NearbyShareSessionHost = {};
+mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NearbyShareSessionHost.$interfaceName = 'arc.mojom.NearbyShareSessionHost';
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance = {};
+mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance.$interfaceName = 'arc.mojom.NearbyShareSessionInstance';
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NearbyShareHost = {};
+mojo.internal.bindings.arc.mojom.NearbyShareHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NearbyShareHost.$interfaceName = 'arc.mojom.NearbyShareHost';
 mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NearbyShareInstance = {};
+mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NearbyShareInstance.$interfaceName = 'arc.mojom.NearbyShareInstance';
 mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec = { $: {} };
@@ -139,7 +144,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRemote = class {
 mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareSessionHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareSessionHost', [
     ]);
   }
 
@@ -160,7 +165,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareSessionHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareSessionHost', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -260,7 +265,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareSessionInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareSessionInstance', [
       { explicit: 0 },
     ]);
   }
@@ -291,7 +296,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareSessionInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareSessionInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -335,7 +340,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceReceiver = class {
         // Try Method 0: OnNearbyShareViewClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyShareViewClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -375,14 +380,14 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRequest = mojo.intern
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
       mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParams', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -419,7 +424,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostRemote = class {
 mojo.internal.bindings.arc.mojom.NearbyShareHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareHost', [
       { explicit: 0 },
     ]);
   }
@@ -450,7 +455,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -494,7 +499,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostReceiver = class {
         // Try Method 0: StartNearbyShare
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartNearbyShare (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -541,7 +546,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostRequest = mojo.internal.bindings
 // Interface: NearbyShareInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec, 'arc.mojom.NearbyShareInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -583,7 +588,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NearbyShareInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareInstance', [
       { explicit: 0 },
     ]);
   }
@@ -614,7 +619,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NearbyShareInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NearbyShareInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -658,7 +663,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

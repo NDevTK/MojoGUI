@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec = { $: {} };
 mojo.internal.bindings.media.mojom.WatchTimeRecorder = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.WatchTimeRecorder.$interfaceName = 'media.mojom.WatchTimeRecorder';
 mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = { $: {} };
@@ -232,7 +234,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemote = class {
 mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WatchTimeRecorder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.WatchTimeRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -343,7 +345,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WatchTimeRecorder', [
+    const ordinals = window.mojoScrambler.getOrdinals('media.mojom.WatchTimeRecorder', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -395,7 +397,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 0: RecordWatchTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordWatchTime (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +408,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 1: FinalizeWatchTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinalizeWatchTime (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -417,7 +419,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 2: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -428,7 +430,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 3: UpdateSecondaryProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSecondaryProperties (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -439,7 +441,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 4: SetAutoplayInitiated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoplayInitiated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -450,7 +452,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 5: OnDurationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDurationChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -461,7 +463,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 6: UpdateVideoDecodeStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVideoDecodeStats (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -472,7 +474,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 7: UpdateUnderflowCount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUnderflowCount (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -483,7 +485,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
         // Try Method 8: UpdateUnderflowDuration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUnderflowDuration (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

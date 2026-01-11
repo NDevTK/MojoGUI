@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,6 +81,7 @@ mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec = { $ : {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera.$interfaceName = 'ash.cfm.mojom.XuCamera';
 mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = { $: {} };
@@ -268,7 +270,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemote = class {
 mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('XuCamera', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.XuCamera', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -329,7 +331,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('XuCamera', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cfm.mojom.XuCamera', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -376,7 +378,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 0: GetUnitId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUnitId (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -387,7 +389,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 1: MapCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapCtrl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -398,7 +400,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 2: GetCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCtrl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -409,7 +411,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
         // Try Method 3: SetCtrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCtrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

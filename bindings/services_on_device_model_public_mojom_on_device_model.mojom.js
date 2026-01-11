@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -96,13 +97,16 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.DeviceInfoSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.StreamingResponder = {};
+mojo.internal.bindings.on_device_model.mojom.StreamingResponderSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.StreamingResponder.$interfaceName = 'on_device_model.mojom.StreamingResponder';
 mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.ContextClient = {};
+mojo.internal.bindings.on_device_model.mojom.ContextClientSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.ContextClient.$interfaceName = 'on_device_model.mojom.ContextClient';
 mojo.internal.bindings.on_device_model.mojom.ContextClient_OnComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.Session = {};
+mojo.internal.bindings.on_device_model.mojom.SessionSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.Session.$interfaceName = 'on_device_model.mojom.Session';
 mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec = { $: {} };
@@ -116,6 +120,7 @@ mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_Re
 mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel.$interfaceName = 'on_device_model.mojom.OnDeviceModel';
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec = { $: {} };
@@ -125,6 +130,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_Respon
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession = {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession.$interfaceName = 'on_device_model.mojom.TextSafetySession';
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec = { $: {} };
@@ -132,12 +138,15 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_Pa
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModel = {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModel.$interfaceName = 'on_device_model.mojom.TextSafetyModel';
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder = {};
+mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder.$interfaceName = 'on_device_model.mojom.AsrStreamResponder';
 mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInput = {};
+mojo.internal.bindings.on_device_model.mojom.AsrStreamInputSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInput.$interfaceName = 'on_device_model.mojom.AsrStreamInput';
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec = { $: {} };
 
@@ -408,7 +417,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemote = class {
 mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('StreamingResponder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.StreamingResponder', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -449,7 +458,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('StreamingResponder', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.StreamingResponder', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -494,7 +503,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderReceiver = class 
         // Try Method 0: OnResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -505,7 +514,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderReceiver = class 
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -588,7 +597,7 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientRemote = class {
 mojo.internal.bindings.on_device_model.mojom.ContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ContextClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.ContextClient', [
       { explicit: 0 },
     ]);
   }
@@ -619,7 +628,7 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ContextClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.ContextClient', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -663,7 +672,7 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientReceiver = class {
         // Try Method 0: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.ContextClient_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -703,14 +712,14 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientRequest = mojo.interna
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec, 'on_device_model.mojom.Session_Append_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.ContextClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.ContextClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec, 'on_device_model.mojom.Session_Generate_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.StreamingResponderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -740,7 +749,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Clone_ParamsSpec, 'on_device_model.mojom.Session_Clone_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -765,8 +774,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec, 'on_device_model.mojom.Session_AsrStream_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -824,7 +833,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemote = class {
 mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Session', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.Session', [
       { explicit: 6 },
       { explicit: 7 },
       { explicit: 5 },
@@ -925,7 +934,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Session', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.Session', [
       { explicit: 6 },
       { explicit: 7 },
       { explicit: 5 },
@@ -976,7 +985,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 0: Append
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Append (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -987,7 +996,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 1: Generate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Generate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -998,7 +1007,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 2: GetSizeInTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSizeInTokens (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1009,7 +1018,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 3: Score
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Score_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Score_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Score (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1020,7 +1029,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 4: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1031,7 +1040,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 5: GetProbabilitiesBlocking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProbabilitiesBlocking (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1042,7 +1051,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 6: SetPriority
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPriority (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1053,7 +1062,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
         // Try Method 7: AsrStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AsrStream (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1165,7 +1174,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRequest = mojo.internal.bind
 // Interface: OnDeviceModel
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec.$, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
@@ -1197,7 +1206,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_LoadAdaptation_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadAdaptationParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1249,7 +1258,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = class {
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceModel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModel', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1310,7 +1319,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('OnDeviceModel', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.OnDeviceModel', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -1357,7 +1366,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1368,7 +1377,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
         // Try Method 1: ClassifyTextSafety
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1379,7 +1388,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
         // Try Method 2: DetectLanguage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectLanguage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1390,7 +1399,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
         // Try Method 3: LoadAdaptation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadAdaptation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1498,7 +1507,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec, 'on_device_model.mojom.TextSafetySession_Clone_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1541,7 +1550,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote = class {
 mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextSafetySession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.TextSafetySession', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -1592,7 +1601,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextSafetySession', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.TextSafetySession', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 3 },
@@ -1638,7 +1647,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
         // Try Method 0: ClassifyTextSafety
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1649,7 +1658,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
         // Try Method 1: DetectLanguage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectLanguage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1660,7 +1669,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
         // Try Method 2: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1729,7 +1738,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRequest = mojo.int
 // Interface: TextSafetyModel
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec, 'on_device_model.mojom.TextSafetyModel_StartSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1766,7 +1775,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemote = class {
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextSafetyModel', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.TextSafetyModel', [
       { explicit: 0 },
     ]);
   }
@@ -1797,7 +1806,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextSafetyModel', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.TextSafetyModel', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1841,7 +1850,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelReceiver = class {
         // Try Method 0: StartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1917,7 +1926,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote = class {
 mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AsrStreamResponder', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.AsrStreamResponder', [
       { explicit: 0 },
     ]);
   }
@@ -1948,7 +1957,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AsrStreamResponder', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.AsrStreamResponder', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1992,7 +2001,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderReceiver = class 
         // Try Method 0: OnResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2068,7 +2077,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemote = class {
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AsrStreamInput', [
+    this.ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.AsrStreamInput', [
       { explicit: 0 },
     ]);
   }
@@ -2099,7 +2108,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInputReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AsrStreamInput', [
+    const ordinals = window.mojoScrambler.getOrdinals('on_device_model.mojom.AsrStreamInput', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2143,7 +2152,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInputReceiver = class {
         // Try Method 0: AddAudioChunk
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAudioChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

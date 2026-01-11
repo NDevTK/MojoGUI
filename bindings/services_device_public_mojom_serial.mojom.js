@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -86,6 +87,7 @@ mojo.internal.bindings.device.mojom.SerialConnectionInfoSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialHostControlSignalsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortControlSignalsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManager = {};
+mojo.internal.bindings.device.mojom.SerialPortManagerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SerialPortManager.$interfaceName = 'device.mojom.SerialPortManager';
 mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec = { $: {} };
@@ -93,11 +95,13 @@ mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsS
 mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManagerClient = {};
+mojo.internal.bindings.device.mojom.SerialPortManagerClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SerialPortManagerClient.$interfaceName = 'device.mojom.SerialPortManagerClient';
 mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPort = {};
+mojo.internal.bindings.device.mojom.SerialPortSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SerialPort.$interfaceName = 'device.mojom.SerialPort';
 mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec = { $: {} };
@@ -116,10 +120,12 @@ mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = 
 mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortClient = {};
+mojo.internal.bindings.device.mojom.SerialPortClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SerialPortClient.$interfaceName = 'device.mojom.SerialPortClient';
 mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SerialPortConnectionWatcher = {};
+mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.SerialPortConnectionWatcher.$interfaceName = 'device.mojom.SerialPortConnectionWatcher';
 
 // Enum: SerialSendError
@@ -245,7 +251,7 @@ mojo.internal.Struct(
 // Interface: SerialPortManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec, 'device.mojom.SerialPortManager_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -264,15 +270,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_use_alternate_path', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, 'device.mojom.SerialPortManager_OpenPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -315,7 +321,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemote = class {
 mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialPortManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -366,7 +372,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialPortManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortManager', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -412,7 +418,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -423,7 +429,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -434,7 +440,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
         // Try Method 2: OpenPort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -558,7 +564,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemote = class {
 mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialPortManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortManagerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -609,7 +615,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialPortManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortManagerClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -655,7 +661,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
         // Try Method 0: OnPortAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -666,7 +672,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
         // Try Method 1: OnPortRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -677,7 +683,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
         // Try Method 2: OnPortConnectedStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortConnectedStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -875,7 +881,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemote = class {
 mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialPort', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPort', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -986,7 +992,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialPort', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPort', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1038,7 +1044,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 0: StartWriting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartWriting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1049,7 +1055,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 1: StartReading
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReading (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1060,7 +1066,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 2: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1071,7 +1077,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 3: Drain
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Drain (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1082,7 +1088,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 4: GetControlSignals
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetControlSignals (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1093,7 +1099,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 5: SetControlSignals
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetControlSignals (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1104,7 +1110,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 6: ConfigurePort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigurePort (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1115,7 +1121,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 7: GetPortInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPortInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1126,7 +1132,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
         // Try Method 8: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1323,7 +1329,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientRemote = class {
 mojo.internal.bindings.device.mojom.SerialPortClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialPortClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1364,7 +1370,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialPortClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1409,7 +1415,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientReceiver = class {
         // Try Method 0: OnReadError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1420,7 +1426,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientReceiver = class {
         // Try Method 1: OnSendError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSendError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1494,7 +1500,7 @@ mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote = class {
 mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SerialPortConnectionWatcher', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortConnectionWatcher', [
     ]);
   }
 
@@ -1515,7 +1521,7 @@ mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SerialPortConnectionWatcher', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.SerialPortConnectionWatcher', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit

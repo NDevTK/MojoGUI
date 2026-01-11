@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,10 +74,12 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.blink.mojom.AecDumpAgent = {};
+mojo.internal.bindings.blink.mojom.AecDumpAgentSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AecDumpAgent.$interfaceName = 'blink.mojom.AecDumpAgent';
 mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AecDumpManager = {};
+mojo.internal.bindings.blink.mojom.AecDumpManagerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AecDumpManager.$interfaceName = 'blink.mojom.AecDumpManager';
 mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec = { $: {} };
 
@@ -128,7 +131,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRemote = class {
 mojo.internal.bindings.blink.mojom.AecDumpAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AecDumpAgent', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AecDumpAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -169,7 +172,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AecDumpAgent', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AecDumpAgent', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -214,7 +217,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -225,7 +228,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentReceiver = class {
         // Try Method 1: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -271,7 +274,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRequest = mojo.internal.bindings.
 // Interface: AecDumpManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec, 'blink.mojom.AecDumpManager_Add_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AecDumpAgentSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AecDumpAgentRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -308,7 +311,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerRemote = class {
 mojo.internal.bindings.blink.mojom.AecDumpManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AecDumpManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AecDumpManager', [
       { explicit: null },
     ]);
   }
@@ -339,7 +342,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AecDumpManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AecDumpManager', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -383,7 +386,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerReceiver = class {
         // Try Method 0: Add
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Add (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

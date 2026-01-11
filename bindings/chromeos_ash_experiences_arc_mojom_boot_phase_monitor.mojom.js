@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,9 +73,11 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost = {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost.$interfaceName = 'arc.mojom.BootPhaseMonitorHost';
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance = {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance.$interfaceName = 'arc.mojom.BootPhaseMonitorInstance';
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec = { $: {} };
@@ -118,7 +121,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRemote = class {
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BootPhaseMonitorHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.BootPhaseMonitorHost', [
       { explicit: 0 },
     ]);
   }
@@ -149,7 +152,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BootPhaseMonitorHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.BootPhaseMonitorHost', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -193,7 +196,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostReceiver = class {
         // Try Method 0: OnBootCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootCompleted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -232,7 +235,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRequest = mojo.internal.bin
 // Interface: BootPhaseMonitorInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec, 'arc.mojom.BootPhaseMonitorInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -274,7 +277,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BootPhaseMonitorInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.BootPhaseMonitorInstance', [
       { explicit: 1 },
     ]);
   }
@@ -305,7 +308,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BootPhaseMonitorInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.BootPhaseMonitorInstance', [
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -349,7 +352,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

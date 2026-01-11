@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() 
 mojo.internal.bindings.arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerHost = {};
+mojo.internal.bindings.arc.mojom.TimerHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.TimerHost.$interfaceName = 'arc.mojom.TimerHost';
 mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = { $: {} };
@@ -84,6 +86,7 @@ mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = { $: 
 mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerInstance = {};
+mojo.internal.bindings.arc.mojom.TimerInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.TimerInstance.$interfaceName = 'arc.mojom.TimerInstance';
 mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec = { $: {} };
@@ -185,7 +188,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemote = class {
 mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TimerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.TimerHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -236,7 +239,7 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TimerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.TimerHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -282,7 +285,7 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
         // Try Method 0: CreateTimers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTimers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +296,7 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
         // Try Method 1: StartTimer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTimer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +307,7 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
         // Try Method 2: SetTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTime (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -381,7 +384,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRequest = mojo.internal.bindings.arc.m
 // Interface: TimerInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec, 'arc.mojom.TimerInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.TimerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.TimerHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -423,7 +426,7 @@ mojo.internal.bindings.arc.mojom.TimerInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.TimerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TimerInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.TimerInstance', [
       { explicit: 0 },
     ]);
   }
@@ -454,7 +457,7 @@ mojo.internal.bindings.arc.mojom.TimerInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TimerInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.TimerInstance', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -498,7 +501,7 @@ mojo.internal.bindings.arc.mojom.TimerInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

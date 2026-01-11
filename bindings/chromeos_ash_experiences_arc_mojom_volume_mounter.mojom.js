@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,12 +77,14 @@ mojo.internal.bindings.arc.mojom.MountEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.arc.mojom.MountPointInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost = {};
+mojo.internal.bindings.arc.mojom.VolumeMounterHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost.$interfaceName = 'arc.mojom.VolumeMounterHost';
 mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterInstance = {};
+mojo.internal.bindings.arc.mojom.VolumeMounterInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterInstance.$interfaceName = 'arc.mojom.VolumeMounterInstance';
 mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec = { $: {} };
@@ -178,7 +181,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRemote = class {
 mojo.internal.bindings.arc.mojom.VolumeMounterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VolumeMounterHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VolumeMounterHost', [
       { explicit: 1 },
       { explicit: 3 },
       { explicit: 4 },
@@ -229,7 +232,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VolumeMounterHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VolumeMounterHost', [
       { explicit: 1 },
       { explicit: 3 },
       { explicit: 4 },
@@ -275,7 +278,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
         // Try Method 0: RequestAllMountPoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAllMountPoints (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -286,7 +289,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
         // Try Method 1: SetUpExternalStorageMountPoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpExternalStorageMountPoints (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -297,7 +300,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
         // Try Method 2: OnReadyToSuspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadyToSuspend (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -358,7 +361,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRequest = mojo.internal.bindin
 // Interface: VolumeMounterInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VolumeMounterHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VolumeMounterHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -424,7 +427,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('VolumeMounterInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VolumeMounterInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -475,7 +478,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('VolumeMounterInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.VolumeMounterInstance', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -521,7 +524,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -532,7 +535,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
         // Try Method 1: OnMountEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMountEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -543,7 +546,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
         // Try Method 2: PrepareForRemovableMediaUnmount
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForRemovableMediaUnmount (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

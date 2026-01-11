@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,11 +75,13 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost.$interfaceName = 'arc.mojom.PrivacyItemsHost';
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance.$interfaceName = 'arc.mojom.PrivacyItemsInstance';
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec = { $: {} };
@@ -158,7 +161,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemote = class {
 mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrivacyItemsHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrivacyItemsHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -209,7 +212,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrivacyItemsHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrivacyItemsHost', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -255,7 +258,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
         // Try Method 0: OnPrivacyItemsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrivacyItemsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +269,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
         // Try Method 1: OnMicCameraIndicatorRequirementChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMicCameraIndicatorRequirementChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -277,7 +280,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
         // Try Method 2: OnLocationIndicatorRequirementChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocationIndicatorRequirementChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -330,7 +333,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRequest = mojo.internal.binding
 // Interface: PrivacyItemsInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -382,7 +385,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PrivacyItemsInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrivacyItemsInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -423,7 +426,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PrivacyItemsInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.PrivacyItemsInstance', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -468,7 +471,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -479,7 +482,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
         // Try Method 1: OnStaticPrivacyIndicatorBoundsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStaticPrivacyIndicatorBoundsChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

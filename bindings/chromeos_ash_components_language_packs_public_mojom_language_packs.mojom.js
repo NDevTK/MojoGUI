@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enu
 mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver.$interfaceName = 'ash.language.mojom.LanguagePacksObserver';
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacks = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec = { $ : {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacks.$interfaceName = 'ash.language.mojom.LanguagePacks';
 mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = { $: {} };
@@ -179,7 +182,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverRemote = class {
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LanguagePacksObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.language.mojom.LanguagePacksObserver', [
       { explicit: 0 },
     ]);
   }
@@ -210,7 +213,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LanguagePacksObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.language.mojom.LanguagePacksObserver', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -254,7 +257,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverReceiver = class 
         // Try Method 0: OnPackStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -343,7 +346,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec, 'ash.language.mojom.LanguagePacks_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -392,7 +395,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemote = class {
 mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('LanguagePacks', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.language.mojom.LanguagePacks', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -463,7 +466,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('LanguagePacks', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.language.mojom.LanguagePacks', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -511,7 +514,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 0: GetPackInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPackInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -522,7 +525,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 1: InstallPack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallPack (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -533,7 +536,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 2: InstallBasePack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallBasePack (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -544,7 +547,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 3: UninstallPack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallPack (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -555,7 +558,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
         // Try Method 4: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

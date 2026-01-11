@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,10 +76,12 @@ mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec = { $: mojo.interna
 mojo.internal.bindings.device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.device.mojom.InputDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.device.mojom.InputDeviceManagerClient = {};
+mojo.internal.bindings.device.mojom.InputDeviceManagerClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.InputDeviceManagerClient.$interfaceName = 'device.mojom.InputDeviceManagerClient';
 mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.InputDeviceManager = {};
+mojo.internal.bindings.device.mojom.InputDeviceManagerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.InputDeviceManager.$interfaceName = 'device.mojom.InputDeviceManager';
 mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = { $: {} };
@@ -167,7 +170,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemote = class {
 mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputDeviceManagerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.InputDeviceManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -208,7 +211,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputDeviceManagerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.InputDeviceManagerClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -253,7 +256,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientReceiver = class {
         // Try Method 0: InputDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InputDeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -264,7 +267,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientReceiver = class {
         // Try Method 1: InputDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InputDeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -310,7 +313,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRequest = mojo.inter
 // Interface: InputDeviceManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.InputDeviceManagerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -367,7 +370,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerRemote = class {
 mojo.internal.bindings.device.mojom.InputDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('InputDeviceManager', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.InputDeviceManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -408,7 +411,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('InputDeviceManager', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.InputDeviceManager', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -453,7 +456,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
         // Try Method 0: GetDevicesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -464,7 +467,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

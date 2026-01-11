@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHost = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHost.$interfaceName = 'remote_cocoa.mojom.TextInputHost';
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = { $: {} };
@@ -326,7 +328,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote = class {
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TextInputHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.TextInputHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -497,7 +499,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TextInputHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('remote_cocoa.mojom.TextInputHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -555,7 +557,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 0: HasClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -566,7 +568,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 1: HasInputContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasInputContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -577,7 +579,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 2: IsRTL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRTL (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -588,7 +590,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 3: GetSelectionRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSelectionRange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -599,7 +601,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 4: GetSelectionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSelectionText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -610,7 +612,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 5: InsertText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -621,7 +623,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 6: DeleteRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -632,7 +634,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 7: SetCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionText (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -643,7 +645,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 8: ConfirmCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmCompositionText (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -654,7 +656,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 9: HasCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasCompositionText (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -665,7 +667,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 10: GetCompositionTextRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCompositionTextRange (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -676,7 +678,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 11: GetAttributedSubstringForRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAttributedSubstringForRange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -687,7 +689,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 12: GetFirstRectForRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFirstRectForRange (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -698,7 +700,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 13: IsTextEditCommandEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsTextEditCommandEnabled (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -709,7 +711,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
         // Try Method 14: SetTextEditCommandForNextKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextEditCommandForNextKeyEvent (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;

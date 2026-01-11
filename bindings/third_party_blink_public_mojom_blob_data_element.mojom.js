@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.blink.mojom.DataElementBytesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DataElementFileSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DataElementBlobSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BytesProvider = {};
+mojo.internal.bindings.blink.mojom.BytesProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BytesProvider.$interfaceName = 'blink.mojom.BytesProvider';
 mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = { $: {} };
@@ -112,7 +114,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_kMaximumEmbeddedDataSize', 0, 0, mojo.internal.Pointer, 256000, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_embedded_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BytesProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BytesProviderRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -207,7 +209,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemote = class {
 mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BytesProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BytesProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -258,7 +260,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BytesProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BytesProvider', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -304,7 +306,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
         // Try Method 0: RequestAsReply
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAsReply (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -315,7 +317,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
         // Try Method 1: RequestAsStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAsStream (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -326,7 +328,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
         // Try Method 2: RequestAsFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAsFile (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

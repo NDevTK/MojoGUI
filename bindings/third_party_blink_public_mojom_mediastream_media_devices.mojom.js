@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost.$interfaceName = 'blink.mojom.MediaDevicesDispatcherHost';
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = { $: {} };
@@ -102,6 +104,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesListener = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MediaDevicesListener.$interfaceName = 'blink.mojom.MediaDevicesListener';
 mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec = { $: {} };
 
@@ -246,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_subscribe_audio_input', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_subscribe_video_input', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_subscribe_audio_output', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -364,7 +367,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemote = class {
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaDevicesDispatcherHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaDevicesDispatcherHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -495,7 +498,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaDevicesDispatcherHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaDevicesDispatcherHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -549,7 +552,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 0: EnumerateDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateDevices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -560,7 +563,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 1: GetVideoInputCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoInputCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -571,7 +574,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 2: GetAllVideoInputDeviceFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllVideoInputDeviceFormats (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -582,7 +585,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 3: GetAvailableVideoInputDeviceFormats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableVideoInputDeviceFormats (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -593,7 +596,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 4: GetAudioInputCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAudioInputCapabilities (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -604,7 +607,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 5: AddMediaDevicesListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMediaDevicesListener (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -615,7 +618,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 6: SetCaptureHandleConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCaptureHandleConfig (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -626,7 +629,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 7: CloseFocusWindowOfOpportunity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseFocusWindowOfOpportunity (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -637,7 +640,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 8: ProduceSubCaptureTargetId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProduceSubCaptureTargetId (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -648,7 +651,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 9: SetPreferredSinkId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPreferredSinkId (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -659,7 +662,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
         // Try Method 10: SelectAudioOutput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectAudioOutput (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -870,7 +873,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemote = class {
 mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaDevicesListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaDevicesListener', [
       { explicit: null },
     ]);
   }
@@ -901,7 +904,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaDevicesListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.MediaDevicesListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -945,7 +948,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesListenerReceiver = class {
         // Try Method 0: OnDevicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

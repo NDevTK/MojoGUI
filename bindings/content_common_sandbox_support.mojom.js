@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.SandboxSupport = {};
+mojo.internal.bindings.content.mojom.SandboxSupportSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.SandboxSupport.$interfaceName = 'content.mojom.SandboxSupport';
 mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = { $: {} };
@@ -225,7 +227,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemote = class {
 mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SandboxSupport', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.SandboxSupport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -296,7 +298,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SandboxSupport', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.SandboxSupport', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -344,7 +346,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
         // Try Method 0: GetSystemColors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemColors (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -355,7 +357,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
         // Try Method 1: LcidAndFirstDayOfWeek
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LcidAndFirstDayOfWeek (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -366,7 +368,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
         // Try Method 2: DigitsAndSigns
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DigitsAndSigns (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -377,7 +379,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
         // Try Method 3: LocaleString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LocaleString (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -388,7 +390,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
         // Try Method 4: LocaleStrings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LocaleStrings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;

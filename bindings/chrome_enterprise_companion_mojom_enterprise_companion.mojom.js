@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.enterprise_companion.mojom = mojo.internal.bindings.enter
 
 mojo.internal.bindings.enterprise_companion.mojom.StatusSpec = { $: {} };
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion = {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec = { $ : {} };
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion.$interfaceName = 'enterprise_companion.mojom.EnterpriseCompanion';
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = { $: {} };
@@ -148,7 +150,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemote = cl
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EnterpriseCompanion', [
+    this.ordinals = window.mojoScrambler.getOrdinals('enterprise_companion.mojom.EnterpriseCompanion', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -189,7 +191,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EnterpriseCompanion', [
+    const ordinals = window.mojoScrambler.getOrdinals('enterprise_companion.mojom.EnterpriseCompanion', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -234,7 +236,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
         // Try Method 0: Shutdown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Shutdown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -245,7 +247,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
         // Try Method 1: FetchPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchPolicies (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

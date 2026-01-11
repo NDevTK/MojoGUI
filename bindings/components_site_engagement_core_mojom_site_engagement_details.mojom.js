@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec = { $: {} };
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider = {};
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec = { $ : {} };
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider.$interfaceName = 'site_engagement.mojom.SiteEngagementDetailsProvider';
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = { $: {} };
@@ -144,7 +146,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SiteEngagementDetailsProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('site_engagement.mojom.SiteEngagementDetailsProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -185,7 +187,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SiteEngagementDetailsProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('site_engagement.mojom.SiteEngagementDetailsProvider', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -230,7 +232,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
         // Try Method 0: GetSiteEngagementDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSiteEngagementDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -241,7 +243,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
         // Try Method 1: SetSiteEngagementBaseScoreForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSiteEngagementBaseScoreForUrl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

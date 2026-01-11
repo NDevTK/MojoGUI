@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.media_router.mojom.Debugger = {};
+mojo.internal.bindings.media_router.mojom.DebuggerSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.Debugger.$interfaceName = 'media_router.mojom.Debugger';
 mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = { $: {} };
@@ -99,7 +101,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,7 +144,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemote = class {
 mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Debugger', [
+    this.ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.Debugger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -193,7 +195,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Debugger', [
+    const ordinals = window.mojoScrambler.getOrdinals('media_router.mojom.Debugger', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -239,7 +241,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
         // Try Method 0: ShouldFetchMirroringStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldFetchMirroringStats (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -250,7 +252,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
         // Try Method 1: OnMirroringStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMirroringStats (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -261,7 +263,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
         // Try Method 2: BindReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

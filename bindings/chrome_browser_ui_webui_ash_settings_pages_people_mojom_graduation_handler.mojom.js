@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,10 +75,12 @@ mojo.internal.bindings.ash.settings.graduation = mojo.internal.bindings.ash.sett
 mojo.internal.bindings.ash.settings.graduation.mojom = mojo.internal.bindings.ash.settings.graduation.mojom || {};
 
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler = {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler.$interfaceName = 'ash.settings.graduation.mojom.GraduationHandler';
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver = {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver.$interfaceName = 'ash.settings.graduation.mojom.GraduationObserver';
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = { $: {} };
 
@@ -89,7 +92,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -129,7 +132,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemote = c
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraduationHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.graduation.mojom.GraduationHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -170,7 +173,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraduationHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.graduation.mojom.GraduationHandler', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -215,7 +218,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerReceiver =
         // Try Method 0: LaunchGraduationApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchGraduationApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -226,7 +229,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerReceiver =
         // Try Method 1: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -309,7 +312,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemote = 
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraduationObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.graduation.mojom.GraduationObserver', [
       { explicit: null },
     ]);
   }
@@ -340,7 +343,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraduationObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.settings.graduation.mojom.GraduationObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -384,7 +387,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverReceiver 
         // Try Method 0: OnGraduationAppUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGraduationAppUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

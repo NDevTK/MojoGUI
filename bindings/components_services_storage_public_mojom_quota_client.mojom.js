@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.storage.mojom.QuotaClient = {};
+mojo.internal.bindings.storage.mojom.QuotaClientSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.QuotaClient.$interfaceName = 'storage.mojom.QuotaClient';
 mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = { $: {} };
@@ -171,7 +173,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemote = class {
 mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('QuotaClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('storage.mojom.QuotaClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -232,7 +234,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('QuotaClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.QuotaClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -279,7 +281,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
         // Try Method 0: GetBucketUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBucketUsage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -290,7 +292,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
         // Try Method 1: GetDefaultStorageKeys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultStorageKeys (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -301,7 +303,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
         // Try Method 2: DeleteBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteBucketData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -312,7 +314,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
         // Try Method 3: PerformStorageCleanup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformStorageCleanup (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

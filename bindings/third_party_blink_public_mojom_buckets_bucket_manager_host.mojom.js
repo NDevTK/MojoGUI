@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink.mojom.BucketErrorSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.blink.mojom.BucketPoliciesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BucketHost = {};
+mojo.internal.bindings.blink.mojom.BucketHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BucketHost.$interfaceName = 'blink.mojom.BucketHost';
 mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec = { $: {} };
@@ -96,6 +98,7 @@ mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = 
 mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BucketManagerHost = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BucketManagerHost.$interfaceName = 'blink.mojom.BucketManagerHost';
 mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = { $: {} };
@@ -305,7 +308,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemote = class {
 mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BucketHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BucketHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -436,7 +439,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BucketHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BucketHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -490,7 +493,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 0: Persist
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Persist (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -501,7 +504,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 1: Persisted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Persisted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -512,7 +515,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 2: Estimate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Estimate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -523,7 +526,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 3: Durability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Durability (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -534,7 +537,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 4: SetExpires
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExpires (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -545,7 +548,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 5: Expires
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Expires (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -556,7 +559,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 6: GetIdbFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIdbFactory (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -567,7 +570,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 7: GetLockManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLockManager (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -578,7 +581,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 8: GetCaches
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCaches (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -589,7 +592,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 9: GetDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectory (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -600,7 +603,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
         // Try Method 10: GetDirectoryForDevtools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectoryForDevtools (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -780,7 +783,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_ResponseParams', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BucketHostSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BucketHostRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BucketErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -788,7 +791,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec, 'blink.mojom.BucketManagerHost_GetBucketForDevtools_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BucketHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BucketHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -858,7 +861,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemote = class {
 mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('BucketManagerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BucketManagerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -919,7 +922,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('BucketManagerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.BucketManagerHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -966,7 +969,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
         // Try Method 0: OpenBucket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBucket (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -977,7 +980,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
         // Try Method 1: GetBucketForDevtools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBucketForDevtools (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -988,7 +991,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
         // Try Method 2: Keys
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Keys (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -999,7 +1002,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
         // Try Method 3: DeleteBucket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteBucket (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

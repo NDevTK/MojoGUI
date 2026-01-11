@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.
 mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec = { $: {} };
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler.$interfaceName = 'ash.graduation_ui.mojom.GraduationUiHandler';
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = { $: {} };
@@ -181,7 +183,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemote = class
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GraduationUiHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.graduation_ui.mojom.GraduationUiHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -242,7 +244,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GraduationUiHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.graduation_ui.mojom.GraduationUiHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -289,7 +291,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
         // Try Method 0: AuthenticateWebview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AuthenticateWebview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +302,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
         // Try Method 1: GetProfileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -311,7 +313,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
         // Try Method 2: OnScreenSwitched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenSwitched (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -322,7 +324,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
         // Try Method 3: OnTransferComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,6 +74,7 @@ mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.ai.mojom.TabOrganizationService = {};
+mojo.internal.bindings.ai.mojom.TabOrganizationServiceSpec = { $ : {} };
 mojo.internal.bindings.ai.mojom.TabOrganizationService.$interfaceName = 'ai.mojom.TabOrganizationService';
 mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = { $: {} };
 mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = { $: {} };
@@ -123,7 +125,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceRemote = class {
 mojo.internal.bindings.ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabOrganizationService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ai.mojom.TabOrganizationService', [
       { explicit: null },
     ]);
   }
@@ -154,7 +156,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabOrganizationService', [
+    const ordinals = window.mojoScrambler.getOrdinals('ai.mojom.TabOrganizationService', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -198,7 +200,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceReceiver = class {
         // Try Method 0: ExecuteGroupTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteGroupTabs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

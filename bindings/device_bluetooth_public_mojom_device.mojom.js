@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,6 +80,7 @@ mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.Device = {};
+mojo.internal.bindings.bluetooth.mojom.DeviceSpec = { $ : {} };
 mojo.internal.bindings.bluetooth.mojom.Device.$interfaceName = 'bluetooth.mojom.Device';
 mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec = { $: {} };
@@ -351,7 +353,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemote = class {
 mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Device', [
+    this.ordinals = window.mojoScrambler.getOrdinals('bluetooth.mojom.Device', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -462,7 +464,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Device', [
+    const ordinals = window.mojoScrambler.getOrdinals('bluetooth.mojom.Device', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -514,7 +516,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 0: Disconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -525,7 +527,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 1: GetInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -536,7 +538,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 2: GetServices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetServices (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -547,7 +549,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 3: GetCharacteristics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCharacteristics (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -558,7 +560,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 4: ReadValueForCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadValueForCharacteristic (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -569,7 +571,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 5: WriteValueForCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteValueForCharacteristic (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -580,7 +582,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 6: GetDescriptors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDescriptors (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -591,7 +593,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 7: ReadValueForDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadValueForDescriptor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -602,7 +604,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
         // Try Method 8: WriteValueForDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteValueForDescriptor (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,10 +78,12 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.blink.mojom.WidgetCompositor = {};
+mojo.internal.bindings.blink.mojom.WidgetCompositorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WidgetCompositor.$interfaceName = 'blink.mojom.WidgetCompositor';
 mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetHost = {};
+mojo.internal.bindings.blink.mojom.WidgetHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WidgetHost.$interfaceName = 'blink.mojom.WidgetHost';
 mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = { $: {} };
@@ -91,6 +94,7 @@ mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec 
 mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Widget = {};
+mojo.internal.bindings.blink.mojom.WidgetSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.Widget.$interfaceName = 'blink.mojom.Widget';
 mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec = { $: {} };
@@ -103,6 +107,7 @@ mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNe
 mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderInputRouterClient = {};
+mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RenderInputRouterClient.$interfaceName = 'blink.mojom.RenderInputRouterClient';
 mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = { $: {} };
@@ -152,7 +157,7 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorRemote = class {
 mojo.internal.bindings.blink.mojom.WidgetCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WidgetCompositor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetCompositor', [
       { explicit: null },
     ]);
   }
@@ -183,7 +188,7 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WidgetCompositor', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetCompositor', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -227,7 +232,7 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorReceiver = class {
         // Try Method 0: VisualStateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VisualStateRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -384,7 +389,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostRemote = class {
 mojo.internal.bindings.blink.mojom.WidgetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WidgetHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -485,7 +490,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WidgetHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -536,7 +541,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 0: SetCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -547,7 +552,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 1: UpdateTooltipUnderCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltipUnderCursor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -558,7 +563,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 2: UpdateTooltipFromKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltipFromKeyboard (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -569,7 +574,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 3: ClearKeyboardTriggeredTooltip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearKeyboardTriggeredTooltip (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -580,7 +585,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 4: TextInputStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TextInputStateChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -591,7 +596,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 5: SelectionBoundsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectionBoundsChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -602,7 +607,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 6: CreateFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrameSink (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -613,7 +618,7 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
         // Try Method 7: RegisterRenderFrameMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterRenderFrameMetadataObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -810,7 +815,7 @@ mojo.internal.bindings.blink.mojom.WidgetRemote = class {
 mojo.internal.bindings.blink.mojom.WidgetRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Widget', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Widget', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -911,7 +916,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Widget', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Widget', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -962,7 +967,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 0: ForceRedraw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceRedraw (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -973,7 +978,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 1: UpdateVisualProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVisualProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -984,7 +989,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 2: UpdateScreenRects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScreenRects (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -995,7 +1000,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 3: WasHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WasHidden (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1006,7 +1011,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 4: WasShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WasShown (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1017,7 +1022,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 5: RequestSuccessfulPresentationTimeForNextFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSuccessfulPresentationTimeForNextFrame (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1028,7 +1033,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 6: CancelSuccessfulPresentationTimeRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelSuccessfulPresentationTimeRequest (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1039,7 +1044,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
         // Try Method 7: SetupBrowserRenderInputRouterConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupBrowserRenderInputRouterConnections (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1201,7 +1206,7 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote = class {
 mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderInputRouterClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1252,7 +1257,7 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.RenderInputRouterClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1298,7 +1303,7 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 0: GetWidgetInputHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWidgetInputHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1309,7 +1314,7 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 1: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1320,7 +1325,7 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 2: BindInputTargetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputTargetClient (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

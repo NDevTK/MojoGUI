@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,6 +76,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler.$interfaceName = 'auction_worklet.mojom.AuctionNetworkEventsHandler';
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec = { $: {} };
@@ -107,7 +109,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec, 'auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,7 +155,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemote =
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AuctionNetworkEventsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.AuctionNetworkEventsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -214,7 +216,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AuctionNetworkEventsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('auction_worklet.mojom.AuctionNetworkEventsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -261,7 +263,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
         // Try Method 0: OnNetworkSendRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkSendRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -272,7 +274,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
         // Try Method 1: OnNetworkResponseReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkResponseReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -283,7 +285,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
         // Try Method 2: OnNetworkRequestComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkRequestComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -294,7 +296,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
         // Try Method 3: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

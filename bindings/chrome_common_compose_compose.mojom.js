@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,9 +82,11 @@ mojo.internal.bindings.compose.mojom.ComposeStateSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ConfigurableParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.OpenMetadataSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory = {};
+mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory.$interfaceName = 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory';
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler = {};
+mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler.$interfaceName = 'compose.mojom.ComposeSessionUntrustedPageHandler';
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = { $: {} };
@@ -109,12 +112,14 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserF
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler = {};
+mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler.$interfaceName = 'compose.mojom.ComposeClientUntrustedPageHandler';
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog = {};
+mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogSpec = { $ : {} };
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog.$interfaceName = 'compose.mojom.ComposeUntrustedDialog';
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = { $: {} };
@@ -206,9 +211,9 @@ mojo.internal.Struct(
 // Interface: ComposeSessionUntrustedPageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_Params', [
-      mojo.internal.StructField('arg_client_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -245,7 +250,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ComposeSessionUntrustedPageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeSessionUntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -276,7 +281,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ComposeSessionUntrustedPageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeSessionUntrustedPageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -320,7 +325,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
         // Try Method 0: CreateComposeSessionUntrustedPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateComposeSessionUntrustedPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -566,7 +571,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemote = 
 mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ComposeSessionUntrustedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeSessionUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -757,7 +762,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ComposeSessionUntrustedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeSessionUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -817,7 +822,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 0: LogCancelEdit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogCancelEdit (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -828,7 +833,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 1: Compose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Compose (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -839,7 +844,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 2: Rewrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Rewrite (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -850,7 +855,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 3: LogEditInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogEditInput (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -861,7 +866,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 4: SaveWebUIState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveWebUIState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -872,7 +877,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 5: AcceptComposeResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptComposeResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -883,7 +888,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 6: RequestInitialState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestInitialState (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -894,7 +899,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 7: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -905,7 +910,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 8: RecoverFromErrorState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecoverFromErrorState (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -916,7 +921,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 9: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -927,7 +932,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 10: OpenBugReportingLink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBugReportingLink (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -938,7 +943,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 11: OpenComposeLearnMorePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenComposeLearnMorePage (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -949,7 +954,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 12: OpenEnterpriseComposeLearnMorePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEnterpriseComposeLearnMorePage (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -960,7 +965,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 13: OpenFeedbackSurveyLink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackSurveyLink (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -971,7 +976,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 14: OpenSignInPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSignInPage (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -982,7 +987,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 15: SetUserFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -993,7 +998,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
         // Try Method 16: EditResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EditResult (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1253,7 +1258,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemote = c
 mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ComposeClientUntrustedPageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeClientUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1314,7 +1319,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ComposeClientUntrustedPageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeClientUntrustedPageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1361,7 +1366,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
         // Try Method 0: ShowUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1372,7 +1377,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
         // Try Method 1: CloseUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1383,7 +1388,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
         // Try Method 2: CompleteFirstRun
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteFirstRun (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1394,7 +1399,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
         // Try Method 3: OpenComposeSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenComposeSettings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1500,7 +1505,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemote = class {
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ComposeUntrustedDialog', [
+    this.ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeUntrustedDialog', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1541,7 +1546,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ComposeUntrustedDialog', [
+    const ordinals = window.mojoScrambler.getOrdinals('compose.mojom.ComposeUntrustedDialog', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1586,7 +1591,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogReceiver = class {
         // Try Method 0: ResponseReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponseReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1597,7 +1602,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogReceiver = class {
         // Try Method 1: PartialResponseReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PartialResponseReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

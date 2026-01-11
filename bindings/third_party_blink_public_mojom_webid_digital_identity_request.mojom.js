@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.
 mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest.$interfaceName = 'blink.mojom.DigitalIdentityRequest';
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = { $: {} };
@@ -183,7 +185,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemote = class {
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DigitalIdentityRequest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DigitalIdentityRequest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -234,7 +236,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DigitalIdentityRequest', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DigitalIdentityRequest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -280,7 +282,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
         // Try Method 0: Get
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -291,7 +293,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
         // Try Method 1: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -302,7 +304,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
         // Try Method 2: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;

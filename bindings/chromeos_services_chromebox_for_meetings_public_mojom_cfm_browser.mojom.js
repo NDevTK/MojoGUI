@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser.$interfaceName = 'chromeos.cfm.mojom.CfmBrowser';
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = { $: {} };
@@ -182,7 +184,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemote = class {
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CfmBrowser', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.CfmBrowser', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -223,7 +225,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CfmBrowser', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.cfm.mojom.CfmBrowser', [
       { explicit: 0 },
       { explicit: 1 },
     ]);
@@ -268,7 +270,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
         // Try Method 0: GetVariationsData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVariationsData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -279,7 +281,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
         // Try Method 1: GetMemoryDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMemoryDetails (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

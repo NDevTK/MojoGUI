@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver.$interfaceName = 'chromecast.mojom.CastWebContentsObserver';
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = { $: {} };
@@ -89,6 +91,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessR
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContents = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContents.$interfaceName = 'chromecast.mojom.CastWebContents';
 mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = { $: {} };
@@ -178,7 +181,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_Params', [
-      mojo.internal.StructField('arg_web_contents', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -245,7 +248,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemote = class {
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastWebContentsObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.CastWebContentsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -376,7 +379,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastWebContentsObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.CastWebContentsObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -430,7 +433,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 0: PageStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -441,7 +444,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 1: PageStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageStopped (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -452,7 +455,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 2: RenderFrameCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenderFrameCreated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -463,7 +466,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 3: MainFrameFinishedNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MainFrameFinishedNavigation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -474,7 +477,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 4: UpdateTitle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTitle (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -485,7 +488,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 5: UpdateFaviconURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateFaviconURL (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -496,7 +499,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 6: DidFirstVisuallyNonEmptyPaint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidFirstVisuallyNonEmptyPaint (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -507,7 +510,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 7: ResourceLoadFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResourceLoadFailed (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -518,7 +521,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 8: OnRenderProcessReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRenderProcessReady (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -529,7 +532,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 9: MediaPlaybackChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaPlaybackChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -540,7 +543,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverReceiver = class 
         // Try Method 10: InnerContentsCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InnerContentsCreated (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -721,7 +724,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec, 'chromecast.mojom.CastWebContents_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -814,7 +817,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote = class {
 mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CastWebContents', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.CastWebContents', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -975,7 +978,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CastWebContents', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromecast.mojom.CastWebContents', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1032,7 +1035,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 0: SetAppProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAppProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1043,7 +1046,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 1: SetGroupInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGroupInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1054,7 +1057,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 2: AddRendererFeatures
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRendererFeatures (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1065,7 +1068,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 3: SetInterfacesForRenderer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInterfacesForRenderer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1076,7 +1079,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 4: LoadUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1087,7 +1090,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 5: ClosePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1098,7 +1101,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 6: SetWebVisibilityAndPaint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebVisibilityAndPaint (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1109,7 +1112,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 7: BlockMediaLoading
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BlockMediaLoading (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1120,7 +1123,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 8: BlockMediaStarting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BlockMediaStarting (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1131,7 +1134,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 9: EnableBackgroundVideoPlayback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableBackgroundVideoPlayback (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1142,7 +1145,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 10: ConnectToBindingsService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToBindingsService (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1153,7 +1156,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 11: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1164,7 +1167,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 12: SetEnabledForRemoteDebugging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnabledForRemoteDebugging (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1175,7 +1178,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsReceiver = class {
         // Try Method 13: GetMainFramePid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMainFramePid (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;

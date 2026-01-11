@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -77,6 +78,7 @@ mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = { $: mojo.internal.En
 mojo.internal.bindings.mantis.mojom.MantisResultSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.TouchPointSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessorSpec = { $ : {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor.$interfaceName = 'mantis.mojom.MantisProcessor';
 mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = { $: {} };
@@ -271,7 +273,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemote = class {
 mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MantisProcessor', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mantis.mojom.MantisProcessor', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -352,7 +354,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MantisProcessor', [
+    const ordinals = window.mojoScrambler.getOrdinals('mantis.mojom.MantisProcessor', [
       { explicit: 0 },
       { explicit: 1 },
       { explicit: 2 },
@@ -401,7 +403,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 0: Inpainting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Inpainting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +414,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 1: GenerativeFill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerativeFill (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -423,7 +425,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 2: Segmentation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Segmentation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -434,7 +436,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 3: ClassifyImageSafety
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -445,7 +447,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 4: Outpainting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Outpainting (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -456,7 +458,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
         // Try Method 5: InferSegmentationMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InferSegmentationMode (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

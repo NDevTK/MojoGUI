@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,6 +77,7 @@ mojo.internal.bindings.network.mojom.ResolverTypeSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.network.mojom.RuleSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntry = {};
+mojo.internal.bindings.network.mojom.SimpleCacheEntrySpec = { $ : {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntry.$interfaceName = 'network.mojom.SimpleCacheEntry';
 mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = { $: {} };
@@ -88,10 +90,12 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ResponsePar
 mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator = {};
+mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator.$interfaceName = 'network.mojom.SimpleCacheEntryEnumerator';
 mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCache = {};
+mojo.internal.bindings.network.mojom.SimpleCacheSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.SimpleCache.$interfaceName = 'network.mojom.SimpleCache';
 mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = { $: {} };
@@ -105,6 +109,7 @@ mojo.internal.bindings.network.mojom.SimpleCache_EnumerateEntries_ParamsSpec = {
 mojo.internal.bindings.network.mojom.SimpleCache_Detach_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCache_Detach_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkServiceTest = {};
+mojo.internal.bindings.network.mojom.NetworkServiceTestSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkServiceTest.$interfaceName = 'network.mojom.NetworkServiceTest';
 mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec = { $: {} };
@@ -185,7 +190,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec, 'network.mojom.SimpleCacheOpenEntryResult', [
       mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntrySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -303,7 +308,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote = class {
 mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SimpleCacheEntry', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCacheEntry', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -374,7 +379,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SimpleCacheEntry', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCacheEntry', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -422,7 +427,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
         // Try Method 0: WriteData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -433,7 +438,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
         // Try Method 1: ReadData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -444,7 +449,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
         // Try Method 2: WriteSparseData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSparseData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -455,7 +460,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
         // Try Method 3: ReadSparseData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSparseData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -466,7 +471,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
         // Try Method 4: Close
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -615,7 +620,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorRemote = class {
 mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SimpleCacheEntryEnumerator', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCacheEntryEnumerator', [
       { explicit: null },
     ]);
   }
@@ -646,7 +651,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SimpleCacheEntryEnumerator', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCacheEntryEnumerator', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -690,7 +695,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorReceiver = class 
         // Try Method 0: GetNext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -743,7 +748,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec, 'network.mojom.SimpleCache_CreateEntry_ResponseParams', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntrySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -756,7 +761,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec, 'network.mojom.SimpleCache_OpenEntry_ResponseParams', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntrySpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -786,7 +791,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCache_EnumerateEntries_ParamsSpec, 'network.mojom.SimpleCache_EnumerateEntries_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -848,7 +853,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemote = class {
 mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SimpleCache', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCache', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -929,7 +934,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SimpleCache', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.SimpleCache', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -978,7 +983,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 0: CreateEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateEntry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -989,7 +994,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 1: OpenEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEntry (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1000,7 +1005,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 2: DoomEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomEntry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1011,7 +1016,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 3: DoomAllEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomAllEntries (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1022,7 +1027,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 4: EnumerateEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_EnumerateEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateEntries (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1033,7 +1038,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
         // Try Method 5: Detach
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_Detach_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SimpleCache_Detach_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Detach (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1370,7 +1375,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec, 'network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParams', [
-      mojo.internal.StructField('arg_backend', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_backend', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheRemote), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1572,7 +1577,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemote = class {
 mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkServiceTest', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkServiceTest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1883,7 +1888,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkServiceTest', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkServiceTest', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1955,7 +1960,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 0: AddRules
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRules (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1966,7 +1971,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 1: SimulateNetworkChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateNetworkChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1977,7 +1982,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 2: SimulateNetworkQualityChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateNetworkQualityChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1988,7 +1993,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 3: ForceNetworkQualityEstimatorReportWifiAsSlow2G
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceNetworkQualityEstimatorReportWifiAsSlow2G (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1999,7 +2004,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 4: SimulateCrash
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateCrash (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2010,7 +2015,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 5: MockCertVerifierSetDefaultResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MockCertVerifierSetDefaultResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2021,7 +2026,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 6: MockCertVerifierAddResultForCertAndHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MockCertVerifierAddResultForCertAndHost (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2032,7 +2037,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 7: SetTransportSecurityStateTestSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTransportSecurityStateTestSource (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2043,7 +2048,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 8: SetAllowNetworkAccessToHostResolutions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowNetworkAccessToHostResolutions (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2054,7 +2059,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 9: ReplaceSystemDnsConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceSystemDnsConfig (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2065,7 +2070,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 10: SetTestDohConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestDohConfig (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2076,7 +2081,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 11: CrashOnResolveHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashOnResolveHost (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2087,7 +2092,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 12: CrashOnGetCookieList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashOnGetCookieList (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2098,7 +2103,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 13: GetLatestMemoryPressureLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLatestMemoryPressureLevel (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2109,7 +2114,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 14: GetPeerToPeerConnectionsCountChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPeerToPeerConnectionsCountChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2120,7 +2125,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 15: GetEnvironmentVariableValue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEnvironmentVariableValue (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2131,7 +2136,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 16: Log
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Log (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2142,7 +2147,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 17: ActivateFieldTrial
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateFieldTrial (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2153,7 +2158,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 18: SetSCTAuditingRetryDelay
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSCTAuditingRetryDelay (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2164,7 +2169,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 19: OpenFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2175,7 +2180,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 20: EnumerateFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateFiles (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2186,7 +2191,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 21: CreateSimpleCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSimpleCache (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2197,7 +2202,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 22: MakeRequestToServer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeRequestToServer (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2208,7 +2213,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 23: ResolveOwnHostnameWithSystemDns
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveOwnHostnameWithSystemDns (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2219,7 +2224,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 24: SetIPv6ProbeResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPv6ProbeResult (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2230,7 +2235,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 25: GetAddressMapCacheLinux
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAddressMapCacheLinux (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2241,7 +2246,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 26: AllowsGSSAPILibraryLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowsGSSAPILibraryLoad (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2252,7 +2257,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 27: DisableExclusiveCookieDatabaseLockingForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableExclusiveCookieDatabaseLockingForTesting (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2263,7 +2268,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
         // Try Method 28: IsHappyEyeballsV3Enabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsHappyEyeballsV3Enabled (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;

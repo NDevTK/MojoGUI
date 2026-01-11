@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -73,9 +74,11 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost.$interfaceName = 'content.mojom.AgentSchedulingGroupHost';
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup.$interfaceName = 'content.mojom.AgentSchedulingGroup';
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = { $: {} };
@@ -122,7 +125,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemote = class {
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AgentSchedulingGroupHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.AgentSchedulingGroupHost', [
       { explicit: null },
     ]);
   }
@@ -153,7 +156,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AgentSchedulingGroupHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.AgentSchedulingGroupHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -197,7 +200,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostReceiver = class {
         // Try Method 0: DidUnloadRenderFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUnloadRenderFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +239,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRequest = mojo.inte
 // Interface: AgentSchedulingGroup
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
-      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -302,7 +305,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemote = class {
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AgentSchedulingGroup', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.AgentSchedulingGroup', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -363,7 +366,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AgentSchedulingGroup', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.AgentSchedulingGroup', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -410,7 +413,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 0: BindAssociatedInterfaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAssociatedInterfaces (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -421,7 +424,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 1: CreateView
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateView (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,7 +435,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 2: CreateFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrame (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -443,7 +446,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
         // Try Method 3: CreateSharedStorageWorkletService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSharedStorageWorkletService (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

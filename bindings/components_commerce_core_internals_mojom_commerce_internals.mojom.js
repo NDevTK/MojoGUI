@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,9 +79,11 @@ mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec = { $: {} }
 mojo.internal.bindings.commerce.mojom.SubscriptionSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory.$interfaceName = 'commerce.mojom.CommerceInternalsHandlerFactory';
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler.$interfaceName = 'commerce.mojom.CommerceInternalsHandler';
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = { $: {} };
@@ -95,6 +98,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpeci
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsPage = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec = { $ : {} };
 mojo.internal.bindings.commerce.mojom.CommerceInternalsPage.$interfaceName = 'commerce.mojom.CommerceInternalsPage';
 mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = { $: {} };
 
@@ -138,8 +142,8 @@ mojo.internal.Struct(
 // Interface: CommerceInternalsHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec, 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -176,7 +180,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryRemote = cl
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -207,7 +211,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryReceiver = 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -251,7 +255,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryReceiver = 
         // Try Method 0: CreateCommerceInternalsHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCommerceInternalsHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -405,7 +409,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemote = class {
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -496,7 +500,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -546,7 +550,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 0: GetIsShoppingListEligible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsShoppingListEligible (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -557,7 +561,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 1: ResetPriceTrackingEmailPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetPriceTrackingEmailPref (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -568,7 +572,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 2: GetProductInfoForUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForUrl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -579,7 +583,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 3: GetSubscriptionDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSubscriptionDetails (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -590,7 +594,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 4: GetProductSpecificationsDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsDetails (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -601,7 +605,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 5: ResetProductSpecifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetProductSpecifications (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -612,7 +616,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
         // Try Method 6: GetShoppingEligibilityDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetShoppingEligibilityDetails (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -770,7 +774,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemote = class {
 mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsPage', [
       { explicit: null },
     ]);
   }
@@ -801,7 +805,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CommerceInternalsPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('commerce.mojom.CommerceInternalsPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -845,7 +849,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageReceiver = class {
         // Try Method 0: OnShoppingListEligibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShoppingListEligibilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

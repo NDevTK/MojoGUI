@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -95,26 +96,32 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryOverrideSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NonceAndAllowlistedPatternsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver = {};
+mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver.$interfaceName = 'network.mojom.CustomProxyConnectionObserver';
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CustomProxyConfigClient = {};
+mojo.internal.bindings.network.mojom.CustomProxyConfigClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.CustomProxyConfigClient.$interfaceName = 'network.mojom.CustomProxyConfigClient';
 mojo.internal.bindings.network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedHeaderClient = {};
+mojo.internal.bindings.network.mojom.TrustedHeaderClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.TrustedHeaderClient.$interfaceName = 'network.mojom.TrustedHeaderClient';
 mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient = {};
+mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient.$interfaceName = 'network.mojom.TrustedURLLoaderHeaderClient';
 mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandle = {};
+mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandle.$interfaceName = 'network.mojom.PreloadedSharedDictionaryInfoHandle';
 mojo.internal.bindings.network.mojom.NetworkContext = {};
+mojo.internal.bindings.network.mojom.NetworkContextSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkContext.$interfaceName = 'network.mojom.NetworkContext';
 mojo.internal.bindings.network.mojom.NetworkContext_SetClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec = { $: {} };
@@ -354,8 +361,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_initial_proxy_config', 72, 0, mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_proxy_config_client_receiver', 80, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyConfigClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_custom_proxy_config', 88, 0, mojo.internal.bindings.network.mojom.CustomProxyConfigSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CustomProxyConfigClientSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_proxy_connection_observer_remote', 104, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CustomProxyConfigClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_proxy_connection_observer_remote', 104, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_proxy_config_poller_client', 112, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_proxy_error_client', 120, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ProxyErrorClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_socket_brokers', 128, 0, mojo.internal.bindings.network.mojom.SocketBrokerRemotesSpec.$, null, true, 0, undefined),
@@ -477,7 +484,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec, 'network.mojom.URLLoaderFactoryParams', [
       mojo.internal.StructField('arg_request_initiator_origin_lock', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_isolation_info', 16, 0, mojo.internal.bindings.network.mojom.IsolationInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_factory_override', 32, 0, mojo.internal.bindings.network.mojom.URLLoaderFactoryOverrideSpec.$, null, true, 0, undefined),
@@ -570,7 +577,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverRemote = class
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomProxyConnectionObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.CustomProxyConnectionObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -611,7 +618,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomProxyConnectionObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.CustomProxyConnectionObserver', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -656,7 +663,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverReceiver = cla
         // Try Method 0: OnFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -667,7 +674,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverReceiver = cla
         // Try Method 1: OnTunnelHeadersReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTunnelHeadersReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -755,7 +762,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConfigClientRemote = class {
 mojo.internal.bindings.network.mojom.CustomProxyConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CustomProxyConfigClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.CustomProxyConfigClient', [
       { explicit: null },
     ]);
   }
@@ -786,7 +793,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConfigClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CustomProxyConfigClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.CustomProxyConfigClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -830,7 +837,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConfigClientReceiver = class {
         // Try Method 0: OnCustomProxyConfigUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCustomProxyConfigUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -940,7 +947,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote = class {
 mojo.internal.bindings.network.mojom.TrustedHeaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TrustedHeaderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.TrustedHeaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -981,7 +988,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TrustedHeaderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.TrustedHeaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1026,7 +1033,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientReceiver = class {
         // Try Method 0: OnBeforeSendHeaders
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeSendHeaders (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1037,7 +1044,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientReceiver = class {
         // Try Method 1: OnHeadersReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHeadersReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1099,7 +1106,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientRequest = mojo.internal.
 // Interface: TrustedURLLoaderHeaderClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_Params', [
-      mojo.internal.StructField('arg_header_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1107,7 +1114,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.network.mojom.URLRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1147,7 +1154,7 @@ mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientRemote = class 
 mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TrustedURLLoaderHeaderClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.TrustedURLLoaderHeaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1188,7 +1195,7 @@ mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientReceiver = clas
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TrustedURLLoaderHeaderClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.TrustedURLLoaderHeaderClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -1233,7 +1240,7 @@ mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientReceiver = clas
         // Try Method 0: OnLoaderCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1244,7 +1251,7 @@ mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientReceiver = clas
         // Try Method 1: OnLoaderForCorsPreflightCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderForCorsPreflightCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1318,7 +1325,7 @@ mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleRemote =
 mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PreloadedSharedDictionaryInfoHandle', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.PreloadedSharedDictionaryInfoHandle', [
     ]);
   }
 
@@ -1339,7 +1346,7 @@ mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleReceiver
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PreloadedSharedDictionaryInfoHandle', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.PreloadedSharedDictionaryInfoHandle', [
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -1889,7 +1896,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_handshake_client', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader_network_observer', 80, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_auth_handler', 88, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_client', 96, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TrustedHeaderClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 96, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_throttling_profile_id', 104, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_process_id', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_options', 116, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -2245,7 +2252,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec, 'network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_Params', [
       mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_preload_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preload_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2649,7 +2656,7 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
 mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetworkContext', [
+    this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3600,7 +3607,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetworkContext', [
+    const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3736,7 +3743,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3747,7 +3754,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 1: CreateURLLoaderFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateURLLoaderFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3758,7 +3765,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 2: ResetURLLoaderFactories
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetURLLoaderFactories (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3769,7 +3776,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 3: GetViaObliviousHttp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetViaObliviousHttp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3780,7 +3787,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 4: GetCookieManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetCookieManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetCookieManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCookieManager (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3791,7 +3798,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 5: GetRestrictedCookieManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRestrictedCookieManager (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3802,7 +3809,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 6: GetTrustTokenQueryAnswerer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustTokenQueryAnswerer (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3813,7 +3820,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 7: ClearTrustTokenData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenData (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3824,7 +3831,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 8: ClearTrustTokenSessionOnlyData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenSessionOnlyData (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3835,7 +3842,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 9: GetStoredTrustTokenCounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStoredTrustTokenCounts (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3846,7 +3853,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 10: GetPrivateStateTokenRedemptionRecords
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivateStateTokenRedemptionRecords (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3857,7 +3864,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 11: DeleteStoredTrustTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStoredTrustTokens (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3868,7 +3875,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 12: SetBlockTrustTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBlockTrustTokens (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3879,7 +3886,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 13: ClearNetworkingHistoryBetween
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkingHistoryBetween (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3890,7 +3897,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 14: ClearHttpCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpCache (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3901,7 +3908,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 15: ComputeHttpCacheSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ComputeHttpCacheSize (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3912,7 +3919,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 16: NotifyBrowserIdle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyBrowserIdle (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3923,7 +3930,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 17: NotifyExternalCacheHit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyExternalCacheHit (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3934,7 +3941,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 18: ClearHostCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHostCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHostCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostCache (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3945,7 +3952,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 19: ClearHttpAuthCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpAuthCache (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -3956,7 +3963,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 20: ClearCorsPreflightCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCorsPreflightCache (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -3967,7 +3974,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 21: ClearReportingCacheReports
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheReports (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -3978,7 +3985,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 22: ClearReportingCacheClients
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheClients (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -3989,7 +3996,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 23: ClearNetworkErrorLogging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkErrorLogging (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -4000,7 +4007,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 24: ClearDomainReliability
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearDomainReliability (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -4011,7 +4018,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 25: ClearSharedDictionaryCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCache (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -4022,7 +4029,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 26: ClearSharedDictionaryCacheForIsolationKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCacheForIsolationKey (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -4033,7 +4040,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 27: SetDocumentReportingEndpoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDocumentReportingEndpoints (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -4044,7 +4051,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 28: SetEnterpriseReportingEndpoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnterpriseReportingEndpoints (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -4055,7 +4062,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 29: SendReportsAndRemoveSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReportsAndRemoveSource (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -4066,7 +4073,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 30: QueueReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueReport (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -4077,7 +4084,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 31: QueueEnterpriseReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueEnterpriseReport (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -4088,7 +4095,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 32: QueueSignedExchangeReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSignedExchangeReport (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -4099,7 +4106,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 33: CloseAllConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CloseAllConnections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CloseAllConnections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseAllConnections (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -4110,7 +4117,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 34: CloseIdleConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseIdleConnections (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -4121,7 +4128,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 35: SetNetworkConditions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkConditions (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -4132,7 +4139,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 36: SetAcceptLanguage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAcceptLanguage (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -4143,7 +4150,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 37: SetEnableReferrers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnableReferrers (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -4154,7 +4161,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 38: SetCTPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCTPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCTPolicy_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCTPolicy (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -4165,7 +4172,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 39: CreateUDPSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUDPSocket (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -4176,7 +4183,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 40: CreateRestrictedUDPSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRestrictedUDPSocket (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -4187,7 +4194,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 41: CreateTCPServerSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPServerSocket (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -4198,7 +4205,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 42: CreateTCPConnectedSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPConnectedSocket (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -4209,7 +4216,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 43: CreateTCPBoundSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPBoundSocket (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -4220,7 +4227,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 44: CreateProxyResolvingSocketFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProxyResolvingSocketFactory (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -4231,7 +4238,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 45: LookUpProxyForURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookUpProxyForURL (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -4242,7 +4249,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 46: ForceReloadProxyConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceReloadProxyConfig (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -4253,7 +4260,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 47: ClearBadProxiesCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearBadProxiesCache (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -4264,7 +4271,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 48: CreateWebSocket
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateWebSocket_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateWebSocket_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebSocket (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -4275,7 +4282,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 49: CreateWebTransport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateWebTransport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebTransport (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -4286,7 +4293,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 50: CreateNetLogExporter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNetLogExporter (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -4297,7 +4304,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 51: PreconnectSockets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_PreconnectSockets_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_PreconnectSockets_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreconnectSockets (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -4308,7 +4315,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 52: CreateP2PSocketManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateP2PSocketManager (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -4319,7 +4326,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 53: CreateMdnsResponder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMdnsResponder (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
@@ -4330,7 +4337,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 54: ResolveHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ResolveHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ResolveHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveHost (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
@@ -4341,7 +4348,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 55: CreateHostResolver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateHostResolver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateHostResolver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHostResolver (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
@@ -4352,7 +4359,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 56: VerifyCert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCert_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCert_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCert (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
@@ -4363,7 +4370,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 57: VerifyCertForSignedExchange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertForSignedExchange (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
@@ -4374,7 +4381,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 58: Verify2QwacCertBinding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify2QwacCertBinding (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
@@ -4385,7 +4392,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 59: AddHSTS
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddHSTS_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddHSTS_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddHSTS (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
@@ -4396,7 +4403,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 60: IsHSTSActiveForHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsHSTSActiveForHost (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
@@ -4407,7 +4414,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 61: GetHSTSState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetHSTSState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetHSTSState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHSTSState (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
@@ -4418,7 +4425,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 62: SetCorsOriginAccessListsForOrigin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsOriginAccessListsForOrigin (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
@@ -4429,7 +4436,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 63: DeleteDynamicDataForHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteDynamicDataForHost (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
@@ -4440,7 +4447,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 64: SetSplitAuthCacheByNetworkAnonymizationKey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSplitAuthCacheByNetworkAnonymizationKey (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
@@ -4451,7 +4458,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 65: SaveHttpAuthCacheProxyEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveHttpAuthCacheProxyEntries (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
@@ -4462,7 +4469,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 66: LoadHttpAuthCacheProxyEntries
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHttpAuthCacheProxyEntries (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
@@ -4473,7 +4480,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 67: AddAuthCacheEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAuthCacheEntry (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
@@ -4484,7 +4491,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 68: SetCorsNonWildcardRequestHeadersSupport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsNonWildcardRequestHeadersSupport (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
@@ -4495,7 +4502,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 69: LookupProxyAuthCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookupProxyAuthCredentials (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
@@ -4506,7 +4513,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 70: EnableStaticKeyPinningForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableStaticKeyPinningForTesting (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
@@ -4517,7 +4524,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 71: VerifyCertificateForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertificateForTesting (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
@@ -4528,7 +4535,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 72: GetTrustAnchorIDsForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustAnchorIDsForTesting (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
@@ -4539,7 +4546,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 73: AddDomainReliabilityContextForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDomainReliabilityContextForTesting (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
@@ -4550,7 +4557,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 74: ForceDomainReliabilityUploadsForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDomainReliabilityUploadsForTesting (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
@@ -4561,7 +4568,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 75: SetSCTAuditingMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSCTAuditingMode (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
@@ -4572,7 +4579,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 76: AddReportingApiObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReportingApiObserver (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
@@ -4583,7 +4590,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 77: GetSharedDictionaryUsageInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryUsageInfo (77)');
              this.mapOrdinal(header.ordinal, 77);
              dispatchId = 77;
@@ -4594,7 +4601,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 78: GetSharedDictionaryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryInfo (78)');
              this.mapOrdinal(header.ordinal, 78);
              dispatchId = 78;
@@ -4605,7 +4612,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 79: GetSharedDictionaryOriginsBetween
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryOriginsBetween (79)');
              this.mapOrdinal(header.ordinal, 79);
              dispatchId = 79;
@@ -4616,7 +4623,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 80: SetSharedDictionaryCacheMaxSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedDictionaryCacheMaxSize (80)');
              this.mapOrdinal(header.ordinal, 80);
              dispatchId = 80;
@@ -4627,7 +4634,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 81: PreloadSharedDictionaryInfoForDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreloadSharedDictionaryInfoForDocument (81)');
              this.mapOrdinal(header.ordinal, 81);
              dispatchId = 81;
@@ -4638,7 +4645,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 82: HasPreloadedSharedDictionaryInfoForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasPreloadedSharedDictionaryInfoForTesting (82)');
              this.mapOrdinal(header.ordinal, 82);
              dispatchId = 82;
@@ -4649,7 +4656,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 83: FlushCachedClientCertIfNeeded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushCachedClientCertIfNeeded (83)');
              this.mapOrdinal(header.ordinal, 83);
              dispatchId = 83;
@@ -4660,7 +4667,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 84: FlushMatchingCachedClientCert
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushMatchingCachedClientCert (84)');
              this.mapOrdinal(header.ordinal, 84);
              dispatchId = 84;
@@ -4671,7 +4678,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 85: FlushClientCertCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushClientCertCache (85)');
              this.mapOrdinal(header.ordinal, 85);
              dispatchId = 85;
@@ -4682,7 +4689,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 86: RevokeNetworkForNonces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokeNetworkForNonces (86)');
              this.mapOrdinal(header.ordinal, 86);
              dispatchId = 86;
@@ -4693,7 +4700,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 87: ClearNonces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNonces_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearNonces_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNonces (87)');
              this.mapOrdinal(header.ordinal, 87);
              dispatchId = 87;
@@ -4704,7 +4711,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 88: ExemptUrlFromNetworkRevocationForNonce
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExemptUrlFromNetworkRevocationForNonce (88)');
              this.mapOrdinal(header.ordinal, 88);
              dispatchId = 88;
@@ -4715,7 +4722,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 89: Prefetch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_Prefetch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_Prefetch_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Prefetch (89)');
              this.mapOrdinal(header.ordinal, 89);
              dispatchId = 89;
@@ -4726,7 +4733,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 90: GetBoundNetworkForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBoundNetworkForTesting (90)');
              this.mapOrdinal(header.ordinal, 90);
              dispatchId = 90;
@@ -4737,7 +4744,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 91: GetDeviceBoundSessionManager
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceBoundSessionManager (91)');
              this.mapOrdinal(header.ordinal, 91);
              dispatchId = 91;
@@ -4748,7 +4755,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         // Try Method 92: AddQuicHints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddQuicHints (92)');
              this.mapOrdinal(header.ordinal, 92);
              dispatchId = 92;

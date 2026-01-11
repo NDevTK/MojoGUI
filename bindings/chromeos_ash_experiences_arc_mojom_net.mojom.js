@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -114,6 +115,7 @@ mojo.internal.bindings.arc.mojom.PasspointApprovalRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PasspointApprovalResponseSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NetHost = {};
+mojo.internal.bindings.arc.mojom.NetHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NetHost.$interfaceName = 'arc.mojom.NetHost';
 mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = { $: {} };
@@ -149,6 +151,7 @@ mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Pa
 mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NetInstance = {};
+mojo.internal.bindings.arc.mojom.NetInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.NetInstance.$interfaceName = 'arc.mojom.NetInstance';
 mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec = { $: {} };
@@ -888,7 +891,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemote = class {
 mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NetHost', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 4 },
@@ -1139,7 +1142,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NetHost', [
       { explicit: 1 },
       { explicit: 2 },
       { explicit: 4 },
@@ -1205,7 +1208,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 0: GetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWifiEnabledState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1216,7 +1219,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 1: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1227,7 +1230,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 2: SetWifiEnabledState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWifiEnabledState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1238,7 +1241,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 3: CreateNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNetwork (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1249,7 +1252,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 4: ForgetNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForgetNetwork (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1260,7 +1263,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 5: UpdateWifiNetwork
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWifiNetwork (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1271,7 +1274,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 6: StartConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartConnect (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1282,7 +1285,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 7: StartDisconnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDisconnect (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1293,7 +1296,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 8: GetNetworks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworks (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1304,7 +1307,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 9: AndroidVpnConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AndroidVpnConnected (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1315,7 +1318,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 10: AndroidVpnUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AndroidVpnUpdated (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1326,7 +1329,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 11: DEPRECATED_AndroidVpnStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AndroidVpnStateChanged (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1337,7 +1340,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 12: AndroidVpnDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AndroidVpnDisconnected (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1348,7 +1351,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 13: SetAlwaysOnVpn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysOnVpn (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1359,7 +1362,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 14: RequestPasspointAppApproval
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPasspointAppApproval (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1370,7 +1373,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 15: AddPasspointCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPasspointCredentials (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1381,7 +1384,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 16: RemovePasspointCredentials
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePasspointCredentials (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1392,7 +1395,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 17: DisconnectHostVpn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectHostVpn (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1403,7 +1406,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 18: StartLohs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartLohs (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1414,7 +1417,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 19: StopLohs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopLohs (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1425,7 +1428,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 20: NotifyAndroidWifiMulticastLockChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyAndroidWifiMulticastLockChange (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1436,7 +1439,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 21: NotifySocketConnectionEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySocketConnectionEvent (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1447,7 +1450,7 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
         // Try Method 22: NotifyARCVPNSocketConnectionEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyARCVPNSocketConnectionEvent (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1720,7 +1723,7 @@ mojo.internal.bindings.arc.mojom.NetHostRequest = mojo.internal.bindings.arc.moj
 // Interface: NetInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec, 'arc.mojom.NetInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NetHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NetHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1862,7 +1865,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemote = class {
 mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('NetInstance', [
+    this.ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NetInstance', [
       { explicit: 6 },
       { explicit: 1 },
       { explicit: 3 },
@@ -1983,7 +1986,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('NetInstance', [
+    const ordinals = window.mojoScrambler.getOrdinals('arc.mojom.NetInstance', [
       { explicit: 6 },
       { explicit: 1 },
       { explicit: 3 },
@@ -2036,7 +2039,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2047,7 +2050,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 1: ScanCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanCompleted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2058,7 +2061,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 2: WifiEnabledStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WifiEnabledStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2069,7 +2072,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 3: DisconnectAndroidVpn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectAndroidVpn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2080,7 +2083,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 4: ConfigureAndroidVpn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureAndroidVpn (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2091,7 +2094,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 5: ActiveNetworksChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActiveNetworksChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2102,7 +2105,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 6: DnsResolutionTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DnsResolutionTest (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2113,7 +2116,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 7: HttpTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HttpTest (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2124,7 +2127,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 8: PingTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PingTest (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2135,7 +2138,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
         // Try Method 9: SetUpFlag
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpFlag (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;

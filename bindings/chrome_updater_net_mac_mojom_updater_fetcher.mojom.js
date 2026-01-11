@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -75,16 +76,19 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.updater.mojom.HttpHeaderSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.PostRequestObserver = {};
+mojo.internal.bindings.updater.mojom.PostRequestObserverSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.PostRequestObserver.$interfaceName = 'updater.mojom.PostRequestObserver';
 mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.FileDownloadObserver = {};
+mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.FileDownloadObserver.$interfaceName = 'updater.mojom.FileDownloadObserver';
 mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.FetchService = {};
+mojo.internal.bindings.updater.mojom.FetchServiceSpec = { $ : {} };
 mojo.internal.bindings.updater.mojom.FetchService.$interfaceName = 'updater.mojom.FetchService';
 mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec = { $: {} };
@@ -165,7 +169,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemote = class {
 mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PostRequestObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.PostRequestObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -216,7 +220,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PostRequestObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.PostRequestObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -262,7 +266,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
         // Try Method 0: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -273,7 +277,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -284,7 +288,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
         // Try Method 2: OnRequestComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -396,7 +400,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemote = class {
 mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FileDownloadObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FileDownloadObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -447,7 +451,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FileDownloadObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FileDownloadObserver', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,7 +497,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
         // Try Method 0: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -504,7 +508,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
         // Try Method 1: OnProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProgress (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -515,7 +519,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
         // Try Method 2: OnDownloadComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDownloadComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -577,7 +581,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, 'updater.mojom.FetchService_PostRequest_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.PostRequestObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.PostRequestObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -590,7 +594,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.FileDownloadObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -630,7 +634,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemote = class {
 mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FetchService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FetchService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -671,7 +675,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FetchService', [
+    const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FetchService', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -716,7 +720,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
         // Try Method 0: PostRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -727,7 +731,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
         // Try Method 1: DownloadToFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadToFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

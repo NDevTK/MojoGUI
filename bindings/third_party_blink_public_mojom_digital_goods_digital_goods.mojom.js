@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 
 mojo.internal.bindings.payments.mojom.DigitalGoods = {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsSpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.DigitalGoods.$interfaceName = 'payments.mojom.DigitalGoods';
 mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = { $: {} };
@@ -82,6 +84,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseP
 mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory = {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory.$interfaceName = 'payments.mojom.DigitalGoodsFactory';
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = { $: {} };
@@ -178,7 +181,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemote = class {
 mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DigitalGoods', [
+    this.ordinals = window.mojoScrambler.getOrdinals('payments.mojom.DigitalGoods', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -239,7 +242,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DigitalGoods', [
+    const ordinals = window.mojoScrambler.getOrdinals('payments.mojom.DigitalGoods', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -286,7 +289,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
         // Try Method 0: GetDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +300,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
         // Try Method 1: ListPurchases
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchases (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +311,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
         // Try Method 2: ListPurchaseHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchaseHistory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -319,7 +322,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
         // Try Method 3: Consume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Consume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -418,7 +421,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec, 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParams', [
       mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.CreateDigitalGoodsResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_digital_goods', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.DigitalGoodsSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_digital_goods', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.DigitalGoodsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -455,7 +458,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryRemote = class {
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DigitalGoodsFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('payments.mojom.DigitalGoodsFactory', [
       { explicit: null },
     ]);
   }
@@ -486,7 +489,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DigitalGoodsFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('payments.mojom.DigitalGoodsFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -530,7 +533,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryReceiver = class {
         // Try Method 0: CreateDigitalGoods
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDigitalGoods (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,10 +79,12 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceClient';
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceHost';
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = { $: {} };
@@ -112,7 +115,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_interface_provider', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_controller_receiver', 104, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_installed_scripts_info', 112, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_instance_host', 120, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_host', 120, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_provider_info', 128, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_settings_proxy', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_preference_watcher_receiver', 144, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
@@ -189,7 +192,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemote = class {
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedWorkerInstanceClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedWorkerInstanceClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -230,7 +233,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientReceiver = class 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedWorkerInstanceClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedWorkerInstanceClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -275,7 +278,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientReceiver = class 
         // Try Method 0: StartWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartWorker (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -286,7 +289,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientReceiver = class 
         // Try Method 1: StopWorker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopWorker (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -456,7 +459,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote = class {
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('EmbeddedWorkerInstanceHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedWorkerInstanceHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -567,7 +570,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('EmbeddedWorkerInstanceHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.EmbeddedWorkerInstanceHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -619,7 +622,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 0: RequestTermination
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTermination (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -630,7 +633,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 1: CountFeature
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CountFeature (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -641,7 +644,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 2: OnReadyForInspection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadyForInspection (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -652,7 +655,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 3: OnScriptLoaded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptLoaded (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -663,7 +666,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 4: OnScriptEvaluationStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptEvaluationStart (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -674,7 +677,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 5: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -685,7 +688,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 6: OnReportException
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportException (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -696,7 +699,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 7: OnReportConsoleMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReportConsoleMessage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -707,7 +710,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
         // Try Method 8: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = { $: {} };
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec = { $: {} };
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver = {};
+mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec = { $ : {} };
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver.$interfaceName = 'prefs.mojom.ResetOnLoadObserver';
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = { $: {} };
 
@@ -110,7 +112,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_registry_seed', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_registry_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_validation_delegate', 56, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverRemote), null, true, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -161,7 +163,7 @@ mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverRemote = class {
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ResetOnLoadObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('prefs.mojom.ResetOnLoadObserver', [
       { explicit: null },
     ]);
   }
@@ -192,7 +194,7 @@ mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ResetOnLoadObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('prefs.mojom.ResetOnLoadObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -236,7 +238,7 @@ mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverReceiver = class {
         // Try Method 0: OnResetOnLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResetOnLoad (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,20 +75,23 @@ mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec = { $ : {} };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec = { $ : {} };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
 
 // Interface: MediaPerceptionService
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -124,7 +128,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRem
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionService', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionService', [
       { explicit: 0 },
     ]);
   }
@@ -155,7 +159,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRec
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionService', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionService', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -199,7 +203,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRec
         // Try Method 0: GetController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -275,7 +279,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionController', [
       { explicit: 0 },
     ]);
   }
@@ -306,7 +310,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionController', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionController', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -350,7 +354,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
         // Try Method 0: ActivateMediaPerception
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateMediaPerception (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -426,7 +430,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionControllerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionControllerClient', [
       { explicit: 0 },
     ]);
   }
@@ -457,7 +461,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionControllerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('chromeos.media_perception.mojom.MediaPerceptionControllerClient', [
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -501,7 +505,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
         // Try Method 0: ConnectToVideoCaptureService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoCaptureService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

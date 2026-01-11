@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -76,9 +77,11 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory';
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec = { $ : {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandler';
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = { $: {} };
@@ -89,6 +92,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedC
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = { $: {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec = { $ : {} };
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerClient';
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = { $: {} };
 
@@ -126,8 +130,8 @@ mojo.internal.Struct(
 // Interface: ThemeColorPickerHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -164,7 +168,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -195,7 +199,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -239,7 +243,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
         // Try Method 0: CreateThemeColorPickerHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateThemeColorPickerHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -372,7 +376,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote = 
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -463,7 +467,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -513,7 +517,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 0: GetChromeColors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChromeColors (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -524,7 +528,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 1: UpdateTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTheme (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -535,7 +539,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 2: SetDefaultColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultColor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -546,7 +550,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 3: SetGreyDefaultColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGreyDefaultColor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -557,7 +561,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 4: SetSeedColor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSeedColor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -568,7 +572,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 5: SetSeedColorFromHue
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSeedColorFromHue (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -579,7 +583,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
         // Try Method 6: RemoveBackgroundImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveBackgroundImage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -705,7 +709,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote = c
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerClient', [
       { explicit: null },
     ]);
   }
@@ -736,7 +740,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientReceiver =
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ThemeColorPickerClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('theme_color_picker.mojom.ThemeColorPickerClient', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -780,7 +784,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientReceiver =
         // Try Method 0: SetTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTheme (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

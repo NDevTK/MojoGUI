@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -78,6 +79,7 @@ mojo.internal.bindings.mojom.FrameInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.WebContentsInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.IsolatedOriginInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.ProcessInternalsHandler = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.ProcessInternalsHandler.$interfaceName = 'mojom.ProcessInternalsHandler';
 mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = { $: {} };
@@ -291,7 +293,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemote = class {
 mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ProcessInternalsHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('mojom.ProcessInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -382,7 +384,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ProcessInternalsHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('mojom.ProcessInternalsHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -432,7 +434,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 0: GetProcessCountInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProcessCountInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -443,7 +445,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 1: GetIsolationMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsolationMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -454,7 +456,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 2: GetProcessPerSiteMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProcessPerSiteMode (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -465,7 +467,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 3: GetUserTriggeredIsolatedOrigins
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserTriggeredIsolatedOrigins (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -476,7 +478,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 4: GetWebTriggeredIsolatedOrigins
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWebTriggeredIsolatedOrigins (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -487,7 +489,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 5: GetGloballyIsolatedOrigins
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGloballyIsolatedOrigins (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -498,7 +500,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
         // Try Method 6: GetAllWebContentsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllWebContentsInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

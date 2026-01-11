@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,14 +73,17 @@
 mojo.internal.bindings.test.mojom = mojo.internal.bindings.test.mojom || {};
 
 mojo.internal.bindings.test.mojom.Foo = {};
+mojo.internal.bindings.test.mojom.FooSpec = { $ : {} };
 mojo.internal.bindings.test.mojom.Foo.$interfaceName = 'test.mojom.Foo';
 mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Bar = {};
+mojo.internal.bindings.test.mojom.BarSpec = { $ : {} };
 mojo.internal.bindings.test.mojom.Bar.$interfaceName = 'test.mojom.Bar';
 mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Baz = {};
+mojo.internal.bindings.test.mojom.BazSpec = { $ : {} };
 mojo.internal.bindings.test.mojom.Baz.$interfaceName = 'test.mojom.Baz';
 mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec = { $: {} };
@@ -129,7 +133,7 @@ mojo.internal.bindings.test.mojom.FooRemote = class {
 mojo.internal.bindings.test.mojom.FooRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Foo', [
+    this.ordinals = window.mojoScrambler.getOrdinals('test.mojom.Foo', [
       { explicit: null },
     ]);
   }
@@ -160,7 +164,7 @@ mojo.internal.bindings.test.mojom.FooReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Foo', [
+    const ordinals = window.mojoScrambler.getOrdinals('test.mojom.Foo', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -204,7 +208,7 @@ mojo.internal.bindings.test.mojom.FooReceiver = class {
         // Try Method 0: GetFoo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFoo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +297,7 @@ mojo.internal.bindings.test.mojom.BarRemote = class {
 mojo.internal.bindings.test.mojom.BarRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Bar', [
+    this.ordinals = window.mojoScrambler.getOrdinals('test.mojom.Bar', [
       { explicit: null },
     ]);
   }
@@ -324,7 +328,7 @@ mojo.internal.bindings.test.mojom.BarReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Bar', [
+    const ordinals = window.mojoScrambler.getOrdinals('test.mojom.Bar', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -368,7 +372,7 @@ mojo.internal.bindings.test.mojom.BarReceiver = class {
         // Try Method 0: GetBar
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBar (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -457,7 +461,7 @@ mojo.internal.bindings.test.mojom.BazRemote = class {
 mojo.internal.bindings.test.mojom.BazRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Baz', [
+    this.ordinals = window.mojoScrambler.getOrdinals('test.mojom.Baz', [
       { explicit: null },
     ]);
   }
@@ -488,7 +492,7 @@ mojo.internal.bindings.test.mojom.BazReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Baz', [
+    const ordinals = window.mojoScrambler.getOrdinals('test.mojom.Baz', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -532,7 +536,7 @@ mojo.internal.bindings.test.mojom.BazReceiver = class {
         // Try Method 0: GetBaz
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBaz (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

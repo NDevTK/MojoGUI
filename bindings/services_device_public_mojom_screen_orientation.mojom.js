@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,11 +73,13 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.ScreenOrientation = {};
+mojo.internal.bindings.device.mojom.ScreenOrientationSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.ScreenOrientation.$interfaceName = 'device.mojom.ScreenOrientation';
 mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ScreenOrientationListener = {};
+mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.ScreenOrientationListener.$interfaceName = 'device.mojom.ScreenOrientationListener';
 mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = { $: {} };
@@ -135,7 +138,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRemote = class {
 mojo.internal.bindings.device.mojom.ScreenOrientationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScreenOrientation', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.ScreenOrientation', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -176,7 +179,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScreenOrientation', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.ScreenOrientation', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -221,7 +224,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
         // Try Method 0: LockOrientation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockOrientation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -232,7 +235,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
         // Try Method 1: UnlockOrientation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnlockOrientation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -328,7 +331,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerRemote = class {
 mojo.internal.bindings.device.mojom.ScreenOrientationListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ScreenOrientationListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.ScreenOrientationListener', [
       { explicit: null },
     ]);
   }
@@ -359,7 +362,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ScreenOrientationListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.ScreenOrientationListener', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -403,7 +406,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
         // Try Method 0: IsAutoRotateEnabledByUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAutoRotateEnabledByUser (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,13 +75,16 @@ mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {
 mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.sharing.mojom.LocationHintSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener = {};
+mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec = { $ : {} };
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener.$interfaceName = 'sharing.mojom.IncomingMessagesListener';
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession = {};
+mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec = { $ : {} };
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession.$interfaceName = 'sharing.mojom.ReceiveMessagesSession';
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger = {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec = { $ : {} };
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger.$interfaceName = 'sharing.mojom.WebRtcSignalingMessenger';
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = { $: {} };
@@ -150,7 +154,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemote = class {
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('IncomingMessagesListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.IncomingMessagesListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -191,7 +195,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('IncomingMessagesListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.IncomingMessagesListener', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -236,7 +240,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerReceiver = class {
         // Try Method 0: OnMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -247,7 +251,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerReceiver = class {
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -329,7 +333,7 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote = class {
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ReceiveMessagesSession', [
+    this.ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.ReceiveMessagesSession', [
       { explicit: null },
     ]);
   }
@@ -360,7 +364,7 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ReceiveMessagesSession', [
+    const ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.ReceiveMessagesSession', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -404,7 +408,7 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionReceiver = class {
         // Try Method 0: StopReceivingMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopReceivingMessages (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -460,13 +464,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
       mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_location_hint', 8, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParams', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -507,7 +511,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote = class {
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebRtcSignalingMessenger', [
+    this.ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.WebRtcSignalingMessenger', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -548,7 +552,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebRtcSignalingMessenger', [
+    const ordinals = window.mojoScrambler.getOrdinals('sharing.mojom.WebRtcSignalingMessenger', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -593,7 +597,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         // Try Method 0: SendMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -604,7 +608,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         // Try Method 1: StartReceivingMessages
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReceivingMessages (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider = {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderSpec = { $ : {} };
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider.$interfaceName = 'shape_detection.mojom.FaceDetectionProvider';
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec = { $: {} };
 
@@ -116,7 +118,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemote = class
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('FaceDetectionProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.FaceDetectionProvider', [
       { explicit: null },
     ]);
   }
@@ -147,7 +149,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderReceiver = cla
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('FaceDetectionProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('shape_detection.mojom.FaceDetectionProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -191,7 +193,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderReceiver = cla
         // Try Method 0: CreateFaceDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFaceDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

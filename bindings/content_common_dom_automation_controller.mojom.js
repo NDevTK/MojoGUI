@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 
 mojo.internal.bindings.content.mojom.DomAutomationControllerHost = {};
+mojo.internal.bindings.content.mojom.DomAutomationControllerHostSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.DomAutomationControllerHost.$interfaceName = 'content.mojom.DomAutomationControllerHost';
 mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = { $: {} };
 
@@ -115,7 +117,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostRemote = class {
 mojo.internal.bindings.content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DomAutomationControllerHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.DomAutomationControllerHost', [
       { explicit: null },
     ]);
   }
@@ -146,7 +148,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostReceiver = class
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DomAutomationControllerHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('content.mojom.DomAutomationControllerHost', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -190,7 +192,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostReceiver = class
         // Try Method 0: DomOperationResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DomOperationResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

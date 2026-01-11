@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -74,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.extensions.mojom.RendererHost = {};
+mojo.internal.bindings.extensions.mojom.RendererHostSpec = { $ : {} };
 mojo.internal.bindings.extensions.mojom.RendererHost.$interfaceName = 'extensions.mojom.RendererHost';
 mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = { $: {} };
@@ -165,7 +167,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemote = class {
 mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('RendererHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.RendererHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -226,7 +228,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('RendererHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.RendererHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -273,7 +275,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
         // Try Method 0: AddAPIActionToActivityLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAPIActionToActivityLog (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -284,7 +286,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
         // Try Method 1: AddEventToActivityLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEventToActivityLog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -295,7 +297,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
         // Try Method 2: AddDOMActionToActivityLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDOMActionToActivityLog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -306,7 +308,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
         // Try Method 3: GetMessageBundle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMessageBundle (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;

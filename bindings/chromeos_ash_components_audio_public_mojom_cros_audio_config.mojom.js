@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -80,9 +81,11 @@ mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = {
 mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
+mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver.$interfaceName = 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec = { $ : {} };
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig.$interfaceName = 'ash.audio_config.mojom.CrosAudioConfig';
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = { $: {} };
@@ -220,7 +223,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemot
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('AudioSystemPropertiesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.audio_config.mojom.AudioSystemPropertiesObserver', [
       { explicit: null },
     ]);
   }
@@ -251,7 +254,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRecei
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('AudioSystemPropertiesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.audio_config.mojom.AudioSystemPropertiesObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -295,7 +298,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRecei
         // Try Method 0: OnPropertiesUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPropertiesUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -334,7 +337,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverReque
 // Interface: CrosAudioConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -478,7 +481,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemote = class {
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CrosAudioConfig', [
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.audio_config.mojom.CrosAudioConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -629,7 +632,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CrosAudioConfig', [
+    const ordinals = window.mojoScrambler.getOrdinals('ash.audio_config.mojom.CrosAudioConfig', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -685,7 +688,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 0: ObserveAudioSystemProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAudioSystemProperties (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -696,7 +699,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 1: SetOutputMuted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputMuted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -707,7 +710,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 2: SetOutputVolumePercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputVolumePercent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -718,7 +721,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 3: SetInputGainPercent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputGainPercent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -729,7 +732,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 4: SetActiveDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActiveDevice (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -740,7 +743,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 5: SetInputMuted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputMuted (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -751,7 +754,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 6: RecordVoiceIsolationEnabledChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordVoiceIsolationEnabledChange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -762,7 +765,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 7: RecordVoiceIsolationPreferredEffectChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordVoiceIsolationPreferredEffectChange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -773,7 +776,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 8: SetNoiseCancellationEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNoiseCancellationEnabled (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -784,7 +787,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 9: SetStyleTransferEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStyleTransferEnabled (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -795,7 +798,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 10: SetForceRespectUiGainsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceRespectUiGainsEnabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -806,7 +809,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 11: SetHfpMicSrEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHfpMicSrEnabled (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -817,7 +820,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         // Try Method 12: SetSpatialAudioEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSpatialAudioEnabled (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;

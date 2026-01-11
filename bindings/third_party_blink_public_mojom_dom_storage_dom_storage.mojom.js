@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,14 +73,17 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.DomStorageProvider = {};
+mojo.internal.bindings.blink.mojom.DomStorageProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DomStorageProvider.$interfaceName = 'blink.mojom.DomStorageProvider';
 mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DomStorage = {};
+mojo.internal.bindings.blink.mojom.DomStorageSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DomStorage.$interfaceName = 'blink.mojom.DomStorage';
 mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DomStorageClient = {};
+mojo.internal.bindings.blink.mojom.DomStorageClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DomStorageClient.$interfaceName = 'blink.mojom.DomStorageClient';
 mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = { $: {} };
@@ -87,8 +91,8 @@ mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections
 // Interface: DomStorageProvider
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec, 'blink.mojom.DomStorageProvider_BindDomStorage_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DomStorageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DomStorageClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DomStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DomStorageClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -125,7 +129,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderRemote = class {
 mojo.internal.bindings.blink.mojom.DomStorageProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DomStorageProvider', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorageProvider', [
       { explicit: null },
     ]);
   }
@@ -156,7 +160,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DomStorageProvider', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorageProvider', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -200,7 +204,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderReceiver = class {
         // Try Method 0: BindDomStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDomStorage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +304,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemote = class {
 mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DomStorage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -351,7 +355,7 @@ mojo.internal.bindings.blink.mojom.DomStorageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DomStorage', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorage', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -397,7 +401,7 @@ mojo.internal.bindings.blink.mojom.DomStorageReceiver = class {
         // Try Method 0: OpenLocalStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLocalStorage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -408,7 +412,7 @@ mojo.internal.bindings.blink.mojom.DomStorageReceiver = class {
         // Try Method 1: BindSessionStorageNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageNamespace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -419,7 +423,7 @@ mojo.internal.bindings.blink.mojom.DomStorageReceiver = class {
         // Try Method 2: BindSessionStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionStorageArea (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -516,7 +520,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRemote = class {
 mojo.internal.bindings.blink.mojom.DomStorageClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('DomStorageClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorageClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -557,7 +561,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('DomStorageClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DomStorageClient', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -602,7 +606,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientReceiver = class {
         // Try Method 0: ResetSessionStorageConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetSessionStorageConnections (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -613,7 +617,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientReceiver = class {
         // Try Method 1: ResetLocalStorageConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetLocalStorageConnections (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;

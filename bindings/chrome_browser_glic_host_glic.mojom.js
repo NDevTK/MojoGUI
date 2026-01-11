@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -158,24 +159,30 @@ mojo.internal.bindings.glic.mojom.ViewChangeRequestConversationSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.ViewChangeRequestSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.ViewChangedNotificationSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PreloadPage = {};
+mojo.internal.bindings.glic.mojom.PreloadPageSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.PreloadPage.$interfaceName = 'glic.mojom.PreloadPage';
 mojo.internal.bindings.glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.Page = {};
+mojo.internal.bindings.glic.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.Page.$interfaceName = 'glic.mojom.Page';
 mojo.internal.bindings.glic.mojom.Page_IntentToShow_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.Page_SetProfileReadyState_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler = {};
+mojo.internal.bindings.glic.mojom.GlicPreloadHandlerSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler.$interfaceName = 'glic.mojom.GlicPreloadHandler';
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory = {};
+mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory.$interfaceName = 'glic.mojom.GlicPreloadHandlerFactory';
 mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.glic.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.PageHandlerFactory.$interfaceName = 'glic.mojom.PageHandlerFactory';
 mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PageHandler = {};
+mojo.internal.bindings.glic.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.PageHandler.$interfaceName = 'glic.mojom.PageHandler';
 mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ParamsSpec = { $: {} };
@@ -193,9 +200,11 @@ mojo.internal.bindings.glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec = { $
 mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.PinCandidatesObserver = {};
+mojo.internal.bindings.glic.mojom.PinCandidatesObserverSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.PinCandidatesObserver.$interfaceName = 'glic.mojom.PinCandidatesObserver';
 mojo.internal.bindings.glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClientHandler = {};
+mojo.internal.bindings.glic.mojom.WebClientHandlerSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.WebClientHandler.$interfaceName = 'glic.mojom.WebClientHandler';
 mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = { $: {} };
@@ -321,9 +330,11 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_Response
 mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.TabDataHandler = {};
+mojo.internal.bindings.glic.mojom.TabDataHandlerSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.TabDataHandler.$interfaceName = 'glic.mojom.TabDataHandler';
 mojo.internal.bindings.glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClient = {};
+mojo.internal.bindings.glic.mojom.WebClientSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.WebClient.$interfaceName = 'glic.mojom.WebClient';
 mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = { $: {} };
@@ -365,6 +376,7 @@ mojo.internal.bindings.glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_P
 mojo.internal.bindings.glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver = {};
+mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver.$interfaceName = 'glic.mojom.CaptureRegionObserver';
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = { $: {} };
 
@@ -1200,7 +1212,7 @@ mojo.internal.bindings.glic.mojom.PreloadPageRemote = class {
 mojo.internal.bindings.glic.mojom.PreloadPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PreloadPage', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PreloadPage', [
       { explicit: null },
     ]);
   }
@@ -1231,7 +1243,7 @@ mojo.internal.bindings.glic.mojom.PreloadPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PreloadPage', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PreloadPage', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1275,7 +1287,7 @@ mojo.internal.bindings.glic.mojom.PreloadPageReceiver = class {
         // Try Method 0: SetProfileReadyState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfileReadyState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1368,7 +1380,7 @@ mojo.internal.bindings.glic.mojom.PageRemote = class {
 mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1419,7 +1431,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1465,7 +1477,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
         // Try Method 0: IntentToShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_IntentToShow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_IntentToShow_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IntentToShow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1476,7 +1488,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
         // Try Method 1: SetProfileReadyState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_SetProfileReadyState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_SetProfileReadyState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfileReadyState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1487,7 +1499,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
         // Try Method 2: UpdatePageState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePageState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1582,7 +1594,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRemote = class {
 mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicPreloadHandler', [
       { explicit: null },
     ]);
   }
@@ -1613,7 +1625,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicPreloadHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1657,7 +1669,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerReceiver = class {
         // Try Method 0: PrepareForClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1704,8 +1716,8 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRequest = mojo.internal.bind
 // Interface: GlicPreloadHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec, 'glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PreloadPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PreloadPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1742,7 +1754,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryRemote = class {
 mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicPreloadHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -1773,7 +1785,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicPreloadHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1817,7 +1829,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
         // Try Method 0: CreatePreloadHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePreloadHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1856,8 +1868,8 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryRequest = mojo.intern
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'glic.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.PageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1894,7 +1906,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerFactoryRemote = class {
 mojo.internal.bindings.glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
   }
@@ -1925,7 +1937,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PageHandlerFactory', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1969,7 +1981,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2008,7 +2020,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerFactoryRequest = mojo.internal.bind
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec, 'glic.mojom.PageHandler_CreateWebClient_Params', [
-      mojo.internal.StructField('arg_web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.WebClientHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.WebClientHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2152,7 +2164,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2283,7 +2295,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2337,7 +2349,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 0: CreateWebClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2348,7 +2360,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 1: PrepareForClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2359,7 +2371,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 2: WebviewCommitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_WebviewCommitted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebviewCommitted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2370,7 +2382,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 3: ClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanel (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2381,7 +2393,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 4: OpenProfilePickerAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenProfilePickerAndClosePanel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2392,7 +2404,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 5: OpenDisabledByAdminLinkAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDisabledByAdminLinkAndClosePanel (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2403,7 +2415,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 6: SignInAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignInAndClosePanel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2414,7 +2426,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 7: ResizeWidget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResizeWidget (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2425,7 +2437,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 8: EnableDragResize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_EnableDragResize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDragResize (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2436,7 +2448,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 9: WebUiStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebUiStateChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2447,7 +2459,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetProfileEnablement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileEnablement (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2625,7 +2637,7 @@ mojo.internal.bindings.glic.mojom.PinCandidatesObserverRemote = class {
 mojo.internal.bindings.glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PinCandidatesObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PinCandidatesObserver', [
       { explicit: null },
     ]);
   }
@@ -2656,7 +2668,7 @@ mojo.internal.bindings.glic.mojom.PinCandidatesObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PinCandidatesObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.PinCandidatesObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -2700,7 +2712,7 @@ mojo.internal.bindings.glic.mojom.PinCandidatesObserverReceiver = class {
         // Try Method 0: OnPinCandidatesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinCandidatesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2739,7 +2751,7 @@ mojo.internal.bindings.glic.mojom.PinCandidatesObserverRequest = mojo.internal.b
 // Interface: WebClientHandler
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec, 'glic.mojom.WebClientHandler_WebClientCreated_Params', [
-      mojo.internal.StructField('arg_web_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.WebClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.WebClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2956,7 +2968,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToPinCandidates_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.GetPinCandidatesOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PinCandidatesObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PinCandidatesObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -3073,7 +3085,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec, 'glic.mojom.WebClientHandler_CaptureRegion_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.CaptureRegionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3472,7 +3484,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToTabData_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.TabDataHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.TabDataHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -3765,7 +3777,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
 mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebClientHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4646,7 +4658,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebClientHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4775,7 +4787,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 0: WebClientCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4786,7 +4798,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 1: WebClientInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientInitialized (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4797,7 +4809,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 2: WebClientInitializeFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientInitializeFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -4808,7 +4820,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 3: CreateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTab (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -4819,7 +4831,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 4: OpenLinkInPopup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLinkInPopup (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -4830,7 +4842,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 5: OpenGlicSettingsPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenGlicSettingsPage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -4841,7 +4853,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 6: OpenPasswordManagerSettingsPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPasswordManagerSettingsPage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -4852,7 +4864,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 7: ClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanel (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -4863,7 +4875,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 8: ClosePanelAndShutdown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanelAndShutdown (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -4874,7 +4886,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 9: AttachPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_AttachPanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachPanel (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -4885,7 +4897,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 10: DetachPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_DetachPanel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetachPanel (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -4896,7 +4908,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 11: OnModeChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnModeChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModeChange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -4907,7 +4919,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 12: ShowProfilePicker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowProfilePicker (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -4918,7 +4930,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 13: GetModelQualityClientId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetModelQualityClientId (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -4929,7 +4941,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 14: GetContextFromFocusedTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextFromFocusedTab (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -4940,7 +4952,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 15: GetContextFromTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextFromTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -4951,7 +4963,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 16: GetContextForActorFromTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextForActorFromTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -4962,7 +4974,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 17: SetMaximumNumberOfPinnedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMaximumNumberOfPinnedTabs (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -4973,7 +4985,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 18: PinTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PinTabs (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -4984,7 +4996,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 19: UnpinTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinTabs (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -4995,7 +5007,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 20: UnpinAllTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinAllTabs (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -5006,7 +5018,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 21: CreateSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSkill (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -5017,7 +5029,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 22: UpdateSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSkill (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -5028,7 +5040,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 23: GetSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkill (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -5039,7 +5051,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 24: SubscribeToPinCandidates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToPinCandidates (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -5050,7 +5062,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 25: CreateTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTask (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -5061,7 +5073,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 26: PerformActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PerformActions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformActions (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -5072,7 +5084,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 27: CancelActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelActions (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -5083,7 +5095,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 28: StopActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_StopActorTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopActorTask (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -5094,7 +5106,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 29: PauseActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PauseActorTask (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -5105,7 +5117,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 30: ResumeActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeActorTask (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -5116,7 +5128,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 31: InterruptActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InterruptActorTask (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -5127,7 +5139,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 32: UninterruptActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninterruptActorTask (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -5138,7 +5150,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 33: CreateActorTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateActorTab (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -5149,7 +5161,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 34: ActivateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ActivateTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateTab (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -5160,7 +5172,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 35: ResizeWidget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResizeWidget (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -5171,7 +5183,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 36: CaptureScreenshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureScreenshot (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -5182,7 +5194,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 37: CaptureRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureRegion (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -5193,7 +5205,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 38: SetAudioDucking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioDucking (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -5204,7 +5216,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 39: SetPanelDraggableAreas
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPanelDraggableAreas (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -5215,7 +5227,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 40: SetMinimumPanelSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMinimumPanelSize (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -5226,7 +5238,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 41: SetMicrophonePermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMicrophonePermissionState (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -5237,7 +5249,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 42: SetLocationPermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocationPermissionState (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -5248,7 +5260,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 43: SetTabContextPermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabContextPermissionState (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -5259,7 +5271,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 44: SetClosedCaptioningSetting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClosedCaptioningSetting (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -5270,7 +5282,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 45: SetActuationOnWebSetting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActuationOnWebSetting (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -5281,7 +5293,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 46: ShouldAllowMediaPermissionRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldAllowMediaPermissionRequest (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -5292,7 +5304,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 47: ShouldAllowGeolocationPermissionRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldAllowGeolocationPermissionRequest (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -5303,7 +5315,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 48: SetContextAccessIndicator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetContextAccessIndicator (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -5314,7 +5326,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 49: GetUserProfileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserProfileInfo (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -5325,7 +5337,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 50: SyncCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncCookies (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -5336,7 +5348,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 51: LogBeginAsyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogBeginAsyncEvent (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -5347,7 +5359,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 52: LogEndAsyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogEndAsyncEvent (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -5358,7 +5370,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 53: LogInstantEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogInstantEvent (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
@@ -5369,7 +5381,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 54: JournalClear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalClear_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalClear (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
@@ -5380,7 +5392,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 55: JournalSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalSnapshot (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
@@ -5391,7 +5403,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 56: JournalStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStart_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalStart (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
@@ -5402,7 +5414,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 57: JournalStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStop_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalStop (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
@@ -5413,7 +5425,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 58: JournalRecordFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalRecordFeedback (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
@@ -5424,7 +5436,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 59: OnUserInputSubmitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserInputSubmitted (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
@@ -5435,7 +5447,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 60: OnContextUploadStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextUploadStarted (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
@@ -5446,7 +5458,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 61: OnContextUploadCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextUploadCompleted (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
@@ -5457,7 +5469,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 62: OnReaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReaction (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
@@ -5468,7 +5480,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 63: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
@@ -5479,7 +5491,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 64: OnResponseStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStopped (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
@@ -5490,7 +5502,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 65: OnSessionTerminated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionTerminated (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
@@ -5501,7 +5513,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 66: OnTurnCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTurnCompleted (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
@@ -5512,7 +5524,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 67: OnModelChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModelChanged (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
@@ -5523,7 +5535,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 68: OnRecordUseCounter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordUseCounter (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
@@ -5534,7 +5546,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 69: OnResponseRated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseRated (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
@@ -5545,7 +5557,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 70: OnClosedCaptionsShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosedCaptionsShown (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
@@ -5556,7 +5568,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 71: ScrollTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollTo (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
@@ -5567,7 +5579,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 72: DropScrollToHighlight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DropScrollToHighlight (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
@@ -5578,7 +5590,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 73: SetSyntheticExperimentState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSyntheticExperimentState (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
@@ -5589,7 +5601,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 74: OpenOsPermissionSettingsMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenOsPermissionSettingsMenu (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
@@ -5600,7 +5612,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 75: GetOsMicrophonePermissionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOsMicrophonePermissionStatus (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
@@ -5611,7 +5623,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 76: GetZeroStateSuggestionsAndSubscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetZeroStateSuggestionsAndSubscribe (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
@@ -5622,7 +5634,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 77: GetZeroStateSuggestionsForFocusedTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetZeroStateSuggestionsForFocusedTab (77)');
              this.mapOrdinal(header.ordinal, 77);
              dispatchId = 77;
@@ -5633,7 +5645,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 78: MaybeRefreshUserStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeRefreshUserStatus (78)');
              this.mapOrdinal(header.ordinal, 78);
              dispatchId = 78;
@@ -5644,7 +5656,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 79: IsDebuggerAttached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDebuggerAttached (79)');
              this.mapOrdinal(header.ordinal, 79);
              dispatchId = 79;
@@ -5655,7 +5667,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 80: OnViewChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnViewChanged (80)');
              this.mapOrdinal(header.ordinal, 80);
              dispatchId = 80;
@@ -5666,7 +5678,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 81: SubscribeToPageMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToPageMetadata (81)');
              this.mapOrdinal(header.ordinal, 81);
              dispatchId = 81;
@@ -5677,7 +5689,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 82: SwitchConversation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchConversation (82)');
              this.mapOrdinal(header.ordinal, 82);
              dispatchId = 82;
@@ -5688,7 +5700,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 83: RegisterConversation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterConversation (83)');
              this.mapOrdinal(header.ordinal, 83);
              dispatchId = 83;
@@ -5699,7 +5711,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 84: SetOnboardingCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOnboardingCompleted (84)');
              this.mapOrdinal(header.ordinal, 84);
              dispatchId = 84;
@@ -5710,7 +5722,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 85: SubscribeToTabData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToTabData (85)');
              this.mapOrdinal(header.ordinal, 85);
              dispatchId = 85;
@@ -6677,7 +6689,7 @@ mojo.internal.bindings.glic.mojom.TabDataHandlerRemote = class {
 mojo.internal.bindings.glic.mojom.TabDataHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('TabDataHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.TabDataHandler', [
       { explicit: null },
     ]);
   }
@@ -6708,7 +6720,7 @@ mojo.internal.bindings.glic.mojom.TabDataHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('TabDataHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.TabDataHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -6752,7 +6764,7 @@ mojo.internal.bindings.glic.mojom.TabDataHandlerReceiver = class {
         // Try Method 0: OnTabDataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabDataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -7153,7 +7165,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemote = class {
 mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('WebClient', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -7504,7 +7516,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('WebClient', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -7580,7 +7592,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 0: NotifyPanelWillOpen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelWillOpen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -7591,7 +7603,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 1: NotifyPanelWasClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelWasClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -7602,7 +7614,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 2: NotifyPanelStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelStateChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -7613,7 +7625,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 3: NotifyPanelActiveChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelActiveChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -7624,7 +7636,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 4: NotifyPanelCanAttachChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelCanAttachChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -7635,7 +7647,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 5: NotifyMicrophonePermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyMicrophonePermissionStateChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -7646,7 +7658,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 6: NotifyLocationPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyLocationPermissionStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -7657,7 +7669,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 7: NotifyTabContextPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyTabContextPermissionStateChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -7668,7 +7680,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 8: NotifyOsLocationPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOsLocationPermissionStateChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -7679,7 +7691,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 9: NotifyFocusedTabChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyFocusedTabChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -7690,7 +7702,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 10: NotifyManualResizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyManualResizeChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -7701,7 +7713,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 11: NotifyOsHotkeyStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOsHotkeyStateChanged (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -7712,7 +7724,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 12: NotifyBrowserIsOpenChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyBrowserIsOpenChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -7723,7 +7735,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 13: NotifyInstanceActivationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyInstanceActivationChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -7734,7 +7746,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 14: NotifyClosedCaptioningSettingChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyClosedCaptioningSettingChanged (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -7745,7 +7757,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 15: NotifyPinnedTabsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPinnedTabsChanged (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -7756,7 +7768,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 16: NotifyPinnedTabDataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPinnedTabDataChanged (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -7767,7 +7779,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 17: NotifySkillPreviewsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillPreviewsChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -7778,7 +7790,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 18: NotifySkillPreviewChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillPreviewChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -7789,7 +7801,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 19: NotifySkillToInvokeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillToInvokeChanged (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -7800,7 +7812,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 20: NotifyZeroStateSuggestionsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyZeroStateSuggestionsChanged (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -7811,7 +7823,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 21: NotifyActorTaskStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActorTaskStateChanged (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -7822,7 +7834,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 22: RequestViewChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestViewChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestViewChange_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestViewChange (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -7833,7 +7845,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 23: NotifyPageMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPageMetadataChanged (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -7844,7 +7856,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 24: NotifyDefaultTabContextPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDefaultTabContextPermissionStateChanged (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -7855,7 +7867,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 25: RequestToShowCredentialSelectionDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowCredentialSelectionDialog (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -7866,7 +7878,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 26: RequestToShowAutofillSuggestionsDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowAutofillSuggestionsDialog (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -7877,7 +7889,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 27: RequestToShowUserConfirmationDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowUserConfirmationDialog (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -7888,7 +7900,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 28: RequestToConfirmNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToConfirmNavigation (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -7899,7 +7911,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 29: NotifyAdditionalContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyAdditionalContext (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -7910,7 +7922,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 30: NotifyActuationOnWebSettingChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActuationOnWebSettingChanged (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -7921,7 +7933,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 31: NotifyActOnWebCapabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActOnWebCapabilityChanged (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -7932,7 +7944,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
         // Try Method 32: NotifyOnboardingCompletedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnboardingCompletedChanged (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -8281,7 +8293,7 @@ mojo.internal.bindings.glic.mojom.CaptureRegionObserverRemote = class {
 mojo.internal.bindings.glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('CaptureRegionObserver', [
+    this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.CaptureRegionObserver', [
       { explicit: null },
     ]);
   }
@@ -8312,7 +8324,7 @@ mojo.internal.bindings.glic.mojom.CaptureRegionObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('CaptureRegionObserver', [
+    const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.CaptureRegionObserver', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -8356,7 +8368,7 @@ mojo.internal.bindings.glic.mojom.CaptureRegionObserverReceiver = class {
         // Try Method 0: OnUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;

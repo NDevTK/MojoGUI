@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -79,10 +80,12 @@ mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum()
 mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler = {};
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec = { $ : {} };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler.$interfaceName = 'pdf.mojom.SaveDataBufferHandler';
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfListener = {};
+mojo.internal.bindings.pdf.mojom.PdfListenerSpec = { $ : {} };
 mojo.internal.bindings.pdf.mojom.PdfListener.$interfaceName = 'pdf.mojom.PdfListener';
 mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = { $: {} };
@@ -96,6 +99,7 @@ mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponsePar
 mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfHost = {};
+mojo.internal.bindings.pdf.mojom.PdfHostSpec = { $ : {} };
 mojo.internal.bindings.pdf.mojom.PdfHost.$interfaceName = 'pdf.mojom.PdfHost';
 mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = { $: {} };
@@ -123,7 +127,7 @@ mojo.internal.bindings.pdf.mojom.GetPdfBytesStatus = {
 // Struct: SaveDataBufferHandlerGetResult
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec, 'pdf.mojom.SaveDataBufferHandlerGetResult', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_total_file_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -175,7 +179,7 @@ mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerRemote = class {
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SaveDataBufferHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.SaveDataBufferHandler', [
       { explicit: null },
     ]);
   }
@@ -206,7 +210,7 @@ mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SaveDataBufferHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.SaveDataBufferHandler', [
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -250,7 +254,7 @@ mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +419,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemote = class {
 mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PdfListener', [
+    this.ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -506,7 +510,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PdfListener', [
+    const ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfListener', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -556,7 +560,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 0: SetCaretPosition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCaretPosition (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -567,7 +571,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 1: MoveRangeSelectionExtent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveRangeSelectionExtent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -578,7 +582,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 2: SetSelectionBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectionBounds (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -589,7 +593,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 3: GetPdfBytes
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPdfBytes (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -600,7 +604,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 4: GetPageText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPageText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -611,7 +615,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 5: GetMostVisiblePageIndex
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMostVisiblePageIndex (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -622,7 +626,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
         // Try Method 6: GetSaveDataBufferHandlerForDrive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSaveDataBufferHandlerForDrive (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -735,7 +739,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRequest = mojo.internal.bindings.pdf
 // Interface: PdfHost
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec, 'pdf.mojom.PdfHost_SetListener_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.PdfListenerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.pdf.mojom.PdfListenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -828,7 +832,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemote = class {
 mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PdfHost', [
+    this.ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -919,7 +923,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PdfHost', [
+    const ordinals = window.mojoScrambler.getOrdinals('pdf.mojom.PdfHost', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -969,7 +973,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 0: SetListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetListener (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -980,7 +984,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 1: OnDocumentLoadComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDocumentLoadComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -991,7 +995,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 2: UpdateContentRestrictions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateContentRestrictions (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1002,7 +1006,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 3: SaveUrlAs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveUrlAs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1013,7 +1017,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 4: SelectionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectionChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1024,7 +1028,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 5: SetPluginCanSave
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPluginCanSave (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1035,7 +1039,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         // Try Method 6: OnSearchifyStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchifyStarted (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;

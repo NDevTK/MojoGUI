@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -81,6 +82,7 @@ mojo.internal.bindings.history_clusters.mojom.VisitActionSpec = { $: mojo.intern
 mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.history_clusters.mojom.QueryResultSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.PageHandler = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.history_clusters.mojom.PageHandler.$interfaceName = 'history_clusters.mojom.PageHandler';
 mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
@@ -103,6 +105,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAct
 mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.Page = {};
+mojo.internal.bindings.history_clusters.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.history_clusters.mojom.Page.$interfaceName = 'history_clusters.mojom.Page';
 mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = { $: {} };
@@ -157,7 +160,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec, 'history_clusters.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -356,7 +359,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemote = class {
 mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    this.ordinals = window.mojoScrambler.getOrdinals('history_clusters.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -537,7 +540,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+    const ordinals = window.mojoScrambler.getOrdinals('history_clusters.mojom.PageHandler', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -596,7 +599,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 0: OpenHistoryUrl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHistoryUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -607,7 +610,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 1: SetPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -618,7 +621,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 2: ShowContextMenuForSearchbox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenuForSearchbox (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -629,7 +632,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 3: ShowContextMenuForURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenuForURL (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -640,7 +643,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 4: ShowSidePanelUI
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSidePanelUI (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -651,7 +654,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 5: ToggleVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleVisibility (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -662,7 +665,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 6: StartQueryClusters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartQueryClusters (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -673,7 +676,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 7: LoadMoreClusters
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadMoreClusters (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -684,7 +687,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 8: HideVisits
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideVisits (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -695,7 +698,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 9: RemoveVisits
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveVisits (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -706,7 +709,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 10: RemoveVisitByUrlAndTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveVisitByUrlAndTime (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -717,7 +720,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 11: OpenVisitUrlsInTabGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenVisitUrlsInTabGroup (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -728,7 +731,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 12: RecordVisitAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordVisitAction (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -739,7 +742,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 13: RecordRelatedSearchAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordRelatedSearchAction (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -750,7 +753,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 14: RecordClusterAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordClusterAction (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -761,7 +764,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
         // Try Method 15: RecordToggledVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordToggledVisibility (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1019,7 +1022,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemote = class {
 mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+    this.ordinals = window.mojoScrambler.getOrdinals('history_clusters.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1100,7 +1103,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+    const ordinals = window.mojoScrambler.getOrdinals('history_clusters.mojom.Page', [
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1149,7 +1152,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 0: OnClustersQueryResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClustersQueryResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1160,7 +1163,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 1: OnClusterImageUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClusterImageUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1171,7 +1174,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 2: OnVisitsHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisitsHidden (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1182,7 +1185,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 3: OnVisitsRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisitsRemoved (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1193,7 +1196,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 4: OnHistoryDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHistoryDeleted (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1204,7 +1207,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
         // Try Method 5: OnQueryChangedByUser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQueryChangedByUser (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;

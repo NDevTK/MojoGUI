@@ -44,13 +44,14 @@
          if (ms.explicit !== null) return ms.explicit;
          if (forceNoScramble) return idx;
 
-         const p = window.mojoVersion.split('.');
+         const versionStr = window.mojoVersion || '120.0.0.0';
+         const p = versionStr.split('.');
          const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
          
+         const shortName = ifaceName.split('.').pop();
          while (true) {
            i++;
-           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const h0 = SHA256(salt + shortName + i);
            const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
            if (!seen.has(ord)) {
              seen.add(ord);
@@ -72,6 +73,7 @@
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController = {};
+mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = { $ : {} };
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController.$interfaceName = 'heap_profiling.mojom.SnapshotController';
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = { $: {} };
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = { $: {} };
@@ -125,7 +127,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote = class {
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('SnapshotController', [
+    this.ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.SnapshotController', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -166,7 +168,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('SnapshotController', [
+    const ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.SnapshotController', [
       { explicit: null },
       { explicit: null },
     ]);
@@ -211,7 +213,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = class {
         // Try Method 0: TakeSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakeSnapshot (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -222,7 +224,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = class {
         // Try Method 1: LogMetricsWithoutSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$.structSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogMetricsWithoutSnapshot (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
