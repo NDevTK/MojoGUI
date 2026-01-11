@@ -80,14 +80,6 @@
                 <div class="sidebar-header">
                     <h2>Interfaces</h2>
                     <div style="display: flex; gap: 8px;">
-                        <button class="btn btn-icon btn-small" id="monitorAllBtn"
-                            title="Monitor All Interfaces (Passive)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                                height="16">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
                         <span class="interface-count" id="interfaceCount">0</span>
                     </div>
                 </div>
@@ -279,6 +271,24 @@
         if (typeof mojo !== 'undefined') {
             mojo.internal = mojo.internal || {};
             mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
+
+            // Lite bindings Union polyfill (missing in bindings_lite.js)
+            mojo.internal.Union = function (objectToBlessAsType, name, fields) {
+                const unionSpec = { name, fields };
+                objectToBlessAsType.$ = {
+                    unionSpec: unionSpec,
+                    encode: function (value, encoder, byteOffset, bitOffset, nullable) {
+                        encoder.encodeUnion(unionSpec, byteOffset, value);
+                    },
+                    decode: function (decoder, byteOffset, bitOffset, nullable) {
+                        return decoder.decodeUnion(unionSpec, byteOffset);
+                    },
+                    computeDimensions: function (value, nullable) {
+                        return mojo.internal.computeUnionDimensions(unionSpec, nullable, value);
+                    },
+                    arrayElementSize: nullable => 16,
+                };
+            };
 
             const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
 

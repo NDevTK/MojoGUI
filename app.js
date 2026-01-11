@@ -112,7 +112,6 @@
         clearActivityBtn: document.getElementById('clearActivityBtn'),
 
         // New UI Elements
-        monitorAllBtn: document.getElementById('monitorAllBtn'),
         closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
         interfacePanel: document.getElementById('interfacePanel'),
         paramsPanel: document.getElementById('paramsPanel')
@@ -317,10 +316,6 @@
             });
         });
 
-        // Monitor All & Traffic View
-        if (elements.monitorAllBtn) {
-            elements.monitorAllBtn.addEventListener('click', toggleMonitorAll);
-        }
         // Traffic View
         if (elements.viewTrafficBtn) {
             elements.viewTrafficBtn.addEventListener('click', () => showInterceptorPanel(!state.panelVisible));
@@ -344,35 +339,25 @@
             return;
         }
 
-        const btn = elements.monitorAllBtn;
-        const isMonitoring = btn.classList.contains('active');
-
-        if (isMonitoring && !quiet) {
-            showInterceptorPanel(!state.panelVisible);
-            return;
-        }
-
-        if (!isMonitoring) {
-            let count = 0;
-            state.interfaces.forEach(iface => {
-                let started = false;
-                if (!InterceptorManager.isActive(iface.name)) {
-                    if (InterceptorManager.start(iface.name, 'LOG')) started = true;
-                }
-                const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
-                if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
-                    if (InterceptorManager.start(fqn, 'LOG')) started = true;
-                }
-                if (started) count++;
-            });
-
-            btn.classList.add('active');
-            if (!quiet) {
-                showToast(`Started monitoring ${count} interfaces`, 'success');
-                showInterceptorPanel(true);
-            } else {
-                console.log(`[AutoMonitor] Background monitoring active for ${count} interfaces.`);
+        // Monitoring is now always background/automatic by default
+        let count = 0;
+        state.interfaces.forEach(iface => {
+            let started = false;
+            if (!InterceptorManager.isActive(iface.name)) {
+                if (InterceptorManager.start(iface.name, 'LOG')) started = true;
             }
+            const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
+            if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
+                if (InterceptorManager.start(fqn, 'LOG')) started = true;
+            }
+            if (started) count++;
+        });
+
+        if (!quiet) {
+            if (count > 0) showToast(`Started monitoring ${count} new interfaces`, 'success');
+            showInterceptorPanel(true);
+        } else {
+            console.log(`[AutoMonitor] Background monitoring active for ${count} interfaces.`);
         }
     }
 
