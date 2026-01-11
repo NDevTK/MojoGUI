@@ -346,64 +346,8 @@
 
                                     // FIX 5.0: GENERIC PIPE BRIDGE
                                     let bridgedHandle = rawHandle;
-                                    try {
-                                        const { handle0, handle1 } = Mojo.createMessagePipe();
-                                        const browserHandle = handle1;
-                                        const localHandle = handle0;
-
-                                        const routerLocal = new mojo.internal.interfaceSupport.Router(localHandle);
-                                        const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
-
-                                        const endpointLocal = new mojo.internal.interfaceSupport.Endpoint(routerLocal, 0);
-
-                                        endpointLocal.start({
-                                            onMessageReceived: (endpoint, header, buffer, handles) => {
-                                                console.log(`[MojoProxy] Bridging message to original handle`, header);
-                                                // Test: Disable forwarding to see if crash stops.
-                                                // const res = routerOriginal.pipe.writeMessage(buffer, handles);
-                                                /*
-                                                if (res !== Mojo.RESULT_OK) {
-                                                    console.warn('[MojoProxy] Bridge write failed:', res);
-                                                }
-                                                */
-                                            },
-                                            onError: () => {
-                                                console.log('[MojoProxy] Bridge source closed');
-                                                routerOriginal.close();
-                                            }
-                                        });
-                                        const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
-                                        endpointOriginal.start({
-                                            onMessageReceived: (endpoint, header, buffer, handles) => {
-                                                // App -> Browser
-                                                routerLocal.pipe.writeMessage(buffer, handles);
-                                            },
-                                            onError: () => {
-                                                routerLocal.close();
-                                                this.activeBridges.delete(routerOriginal);
-                                                this.activeBridges.delete(routerLocal);
-                                            }
-                                        });
-
-                                        // Persist routers to prevent GC
-                                        if (!this.activeBridges) this.activeBridges = new Set();
-                                        this.activeBridges.add(routerLocal);
-                                        this.activeBridges.add(routerOriginal);
-
-                                        // Update local error handler to cleanup
-                                        endpointLocal.onError = () => {
-                                            console.log('[MojoProxy] Bridge source closed');
-                                            routerOriginal.close();
-                                            this.activeBridges.delete(routerLocal);
-                                            this.activeBridges.delete(routerOriginal);
-                                        };
-
-                                        bridgedHandle = browserHandle;
-                                        console.log(`[MojoProxy] Created BIDIRECTIONAL bridge.`);
-
-                                    } catch (err) {
-                                        console.error('[MojoProxy] Failed to create bridge:', err);
-                                    }
+                                    // BRIDGE DISABLED: Pass-Through Test
+                                    // try { ... bridge logic removed ... } catch (err) {}
 
                                     // FIX 4.0: Mock the Endpoint too.
                                     const mockEndpoint = {
@@ -549,73 +493,8 @@
                                     console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
 
                                     let bridgedHandle = rawHandle;
-                                    try {
-                                        // 1. Create fresh pipe pair
-                                        const { handle0, handle1 } = Mojo.createMessagePipe();
-                                        const browserHandle = handle1;
-                                        const localHandle = handle0;
-
-                                        // 2. Wrap handles in Routers
-                                        const routerLocal = new mojo.internal.interfaceSupport.Router(localHandle);
-                                        const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
-
-                                        // 3. Create Endpoints to receive messages
-                                        const endpointLocal = new mojo.internal.interfaceSupport.Endpoint(routerLocal, 0);
-
-                                        // 4. Start forwarding/bridging
-                                        // We assume the Observer is one-way (Browser -> App).
-                                        // TODO: Bidirectional support if needed.
-                                        endpointLocal.start({
-                                            onMessageReceived: (endpoint, header, buffer, handles) => {
-                                                console.log(`[MojoProxy] Bridging message to original handle`, header);
-                                                // Forward raw buffer and handles to original router
-                                                // Note: writeMessage expects buffer and handles
-                                                // We might need to handle 'handles' ownership?
-                                                const res = routerOriginal.pipe.writeMessage(buffer, handles);
-                                                if (res !== Mojo.RESULT_OK) {
-                                                    console.warn('[MojoProxy] Bridge write failed:', res);
-                                                }
-                                            },
-                                            onError: () => {
-                                                console.log('[MojoProxy] Bridge source closed');
-                                                routerOriginal.close();
-                                            }
-                                        });
-
-                                        // Bidirectional bridging for replies?
-                                        const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
-                                        endpointOriginal.start({
-                                            onMessageReceived: (endpoint, header, buffer, handles) => {
-                                                // App -> Browser
-                                                routerLocal.pipe.writeMessage(buffer, handles);
-                                            },
-                                            onError: () => {
-                                                routerLocal.close();
-                                                this.activeBridges.delete(routerOriginal);
-                                                this.activeBridges.delete(routerLocal);
-                                            }
-                                        });
-
-                                        // Persist routers to prevent GC
-                                        if (!this.activeBridges) this.activeBridges = new Set();
-                                        this.activeBridges.add(routerLocal);
-                                        this.activeBridges.add(routerOriginal);
-
-                                        // Update local error handler to cleanup
-                                        endpointLocal.onError = () => {
-                                            console.log('[MojoProxy] Bridge source closed');
-                                            routerOriginal.close();
-                                            this.activeBridges.delete(routerLocal);
-                                            this.activeBridges.delete(routerOriginal);
-                                        };
-
-                                        bridgedHandle = browserHandle;
-                                        console.log(`[MojoProxy] Created BIDIRECTIONAL bridge.`);
-
-                                    } catch (err) {
-                                        console.error('[MojoProxy] Failed to create bridge:', err);
-                                        // Fallback to rawHandle if bridge fails (though it likely crashes)
-                                    }
+                                    // BRIDGE DISABLED: Pass-Through Test
+                                    // try { ... bridge logic removed ... } catch (err) {}
 
                                     // FIX 4.0: Mock the Endpoint too.
                                     const mockEndpoint = {
