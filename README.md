@@ -9,10 +9,12 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 
 - 🔍 **Interface Browser** - Search and browse all available Mojo interfaces
 - 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
-- 🕵️ **Mojo Interceptor** - Intercept and modify in-flight Mojo messages
+- 🕵️ **Mojo Interceptor** - Intercept and modify messages with Adaptive Ordinal Learning
+- 📈 **Version Tracker** - Detect and log interface changes across Chrome versions
 - ⚡ **Live Code Generation** - See valid MojoJS code in real-time
 - 📋 **One-Click Copy** - Copy generated code to clipboard
 - 🚀 **Execute in Browser** - Run code directly when MojoJS is enabled
+- 👋 **Interactive Guide** - Built-in welcome and setup assistance for researchers
 - 🔄 **Auto-Updated Bindings** - GitHub Action keeps bindings up-to-date
 
 ## Quick Start
@@ -90,6 +92,8 @@ MojoGUI/
 ├── index.css           # Styling with glassmorphism theme
 ├── app.js              # Core application logic
 ├── interceptor.js      # Traffic interception & proxy logic
+├── welcome_manager.js  # Interactive welcome & setup UI
+├── version_tracker.js  # LocalStorage snapshot & diff logic
 ├── parser.js           # .mojom.js file parser
 ├── bindings/
 │   ├── index.js        # Bindings loader module
