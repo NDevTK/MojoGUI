@@ -344,23 +344,20 @@
                 try { Mojo.bindInterface(ifaceName, clientHandle); } finally { if (interceptor) interceptor.start(); }
             }
         },
-        start(ifaceName, mode = 'INTERCEPT', scope = 'context') {
+        start(ifaceName, mode = 'INTERCEPT') {
             this.modes.set(ifaceName, mode);
             if (this.interceptors.has(ifaceName)) return true;
             try {
                 let interceptor;
-                try {
-                    // Use explicit scope if provided
-                    interceptor = new MojoInterfaceInterceptor(ifaceName, scope);
-                } catch (e) {
-                    // Fallback primarily for older browsers or if 'process' is restricted
-                    console.warn(`[Interceptor] Failed to start with scope '${scope}', falling back to 'context'`, e);
+                try { interceptor = new MojoInterfaceInterceptor(ifaceName, "process"); }
+                catch (e) {
+                    console.warn(`[InterceptorManager] "process" scope failed for ${ifaceName}, falling back to context: ${e.message}`);
                     interceptor = new MojoInterfaceInterceptor(ifaceName, "context");
                 }
                 interceptor.oninterfacerequest = (e) => this.handleRequest(ifaceName, e.handle);
                 interceptor.start();
                 this.interceptors.set(ifaceName, interceptor);
-                console.log(`[Interceptor] Monitoring ${ifaceName} (Mode: ${mode}, Scope: ${scope})`);
+                console.log(`[Interceptor] Monitoring ${ifaceName} (${mode})`);
                 return true;
             } catch (e) { return false; }
         },

@@ -1,60 +1,92 @@
 /**
  * MojoGUI Sandbox Manager
- * Handles creating isolated contexts (Popups) to verify Process-Scoped interception.
+ * Handles life-cycle and communication with the isolated sandbox window.
  */
-(function (global) {
-    'use strict';
+class SandboxManager {
+    constructor() {
+        this.sandboxWindow = null;
+        this.isReady = false;
+        this.pendingExecution = null;
 
-    const SandboxManager = {
-        launch() {
-            // Open a clean window. 
-            // 'about:blank' ensures it's same-origin initially (usually) or at least safe.
-            // In a real deployment, we might want a specific test page, but about:blank with DOM manipulation is fine.
-            const childWin = window.open('about:blank', 'MojoSandbox_' + Date.now(), 'width=800,height=600');
+        // Listen for messages from the sandbox
+        window.addEventListener('message', this.handleMessage.bind(this));
+    }
 
-            if (!childWin) {
-                alert("Popup blocked! Please allow popups for this tool.");
-                return;
-            }
-
-            // Write some basic content to the child window to confirm it's working
-            childWin.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>MojoGUI Sandbox</title>
-                    <style>
-                        body { font-family: monospace; background: #111; color: #0f0; padding: 20px; }
-                        h1 { border-bottom: 1px solid #333; }
-                        .status { padding: 10px; background: #222; border-radius: 4px; margin-top: 10px; }
-                    </style>
-                </head>
-                <body>
-                    <h1>MojoGUI Sandbox Target</h1>
-                    <p>This window exists to test <strong>Process-Scoped</strong> interception.</p>
-                    <div class="status" id="status">Waiting for interaction...</div>
-                    <script>
-                        // Helper to visualize activity
-                        function log(msg) {
-                            const div = document.createElement('div');
-                            div.textContent = "> " + msg;
-                            document.body.appendChild(div);
-                        }
-                        
-                        log("Sandbox Ready.");
-                        log("Any Mojo pipe creation here should be caught by the Parent Window if 'Process Scope' is active.");
-                        
-                        // Example: Try to create a LocalFrameHost pipe *manually* to verify basic functionality
-                        // (Only works if bindings happen to be injected, which they aren't by default here unless we do it,
-                        // but the *creation* of frame pipes happens natively).
-                    </script>
-                </body>
-                </html>
-            `);
-            childWin.document.close();
+    /**
+     * Launch the sandbox window.
+     */
+    launch() {
+        if (this.sandboxWindow && !this.sandboxWindow.closed) {
+            this.sandboxWindow.focus();
+            return;
         }
-    };
 
-    global.SandboxManager = SandboxManager;
+        this.sandboxWindow = window.open('sandbox.html', 'MojoSandbox', 'width=800,height=600');
+        this.isReady = false;
 
-})(this);
+        // Timeout fallback
+        setTimeout(() => {
+            if (!this.isReady && this.sandboxWindow) {
+                console.warn('[SandboxManager] Sandbox launch timed out (no READY signal).');
+            }
+        }, 5000);
+    }
+
+    /**
+     * Execute code in the sandbox.
+     * @param {string} code - The JS code to execute.
+     */
+    execute(code) {
+        if (!this.sandboxWindow || this.sandboxWindow.closed) {
+            alert('Sandbox is not open. Please launch it first.');
+            return;
+        }
+
+        if (!this.isReady) {
+            // Queue it? For now, just warn.
+            alert('Sandbox is loading. Please wait...');
+            return;
+        }
+
+        const message = {
+            type: 'EXECUTE',
+            code: code
+        };
+
+        // Secure PostMessage
+        this.sandboxWindow.postMessage(message, window.location.origin);
+    }
+
+    handleMessage(event) {
+        // Strict Origin Check
+        if (event.origin !== window.location.origin) return;
+
+        const { type, error } = event.data;
+
+        switch (type) {
+            case 'SANDBOX_READY':
+                console.log('[SandboxManager] Sandbox is ready.');
+                this.isReady = true;
+                this.updateUIStatus(true);
+                break;
+            case 'EXECUTION_SUCCESS':
+                console.log('[SandboxManager] Code executed successfully.');
+                break;
+            case 'EXECUTION_ERROR':
+                console.error('[SandboxManager] Execution error:', error);
+                alert(`Sandbox Error: ${error}`);
+                break;
+        }
+    }
+
+    updateUIStatus(ready) {
+        const btn = document.getElementById('launchSandboxBtn');
+        if (btn) {
+            btn.textContent = ready ? 'Sandbox Active' : 'Launch Sandbox';
+            btn.classList.toggle('active', ready);
+        }
+    }
+}
+
+// Export global instance
+window.SandboxManager = new SandboxManager();

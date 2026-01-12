@@ -16,8 +16,7 @@
         paramValues: {},
         mojoAvailable: false,
         panelVisible: false,
-        trafficCount: 0,
-        interceptorScope: 'context'
+        trafficCount: 0
     };
 
     // ========================================
@@ -177,6 +176,7 @@
         generatedCode: document.getElementById('generatedCode'),
         copyBtn: document.getElementById('copyBtn'),
         executeBtn: document.getElementById('executeBtn'),
+        executeSandboxBtn: document.getElementById('executeSandboxBtn'),
 
         // Toast
         toastContainer: document.getElementById('toastContainer'),
@@ -199,9 +199,6 @@
         closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
         interfacePanel: document.getElementById('interfacePanel'),
         paramsPanel: document.getElementById('paramsPanel'),
-
-        // Scope Controls
-        scopeSelect: document.getElementById('scopeSelect'),
         launchSandboxBtn: document.getElementById('launchSandboxBtn')
     };
 
@@ -349,6 +346,14 @@
 
         // Execute button
         elements.executeBtn.addEventListener('click', executeCode);
+        if (elements.executeSandboxBtn) {
+            elements.executeSandboxBtn.addEventListener('click', executeCodeInSandbox);
+        }
+
+        // Sandbox Launch
+        if (elements.launchSandboxBtn) {
+            elements.launchSandboxBtn.addEventListener('click', () => SandboxManager.launch());
+        }
 
         // Reset button
         elements.resetBtn.addEventListener('click', resetParams);
@@ -358,25 +363,6 @@
         // Interceptor
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
         elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
-
-        // Scope & Sandbox
-        if (elements.scopeSelect) {
-            elements.scopeSelect.addEventListener('change', (e) => {
-                state.interceptorScope = e.target.value;
-                showToast(`Interceptor Scope set to: ${state.interceptorScope}`, 'info');
-            });
-        }
-
-        if (elements.launchSandboxBtn) {
-            elements.launchSandboxBtn.addEventListener('click', () => {
-                if (window.SandboxManager) {
-                    window.SandboxManager.launch();
-                    showToast('Launching Sandbox Window...', 'info');
-                } else {
-                    showToast('Sandbox Manager not loaded', 'error');
-                }
-            });
-        }
 
         // No Scramble Toggle
         if (elements.noScrambleToggle) {
@@ -585,6 +571,7 @@
         updateGeneratedCode();
 
         elements.executeBtn.disabled = !state.mojoAvailable;
+        if (elements.executeSandboxBtn) elements.executeSandboxBtn.disabled = false; // Always enabled, as sandbox might work even if parent doesn't? No, but let's allow it.
         elements.resetBtn.disabled = false;
     }
 
@@ -1332,17 +1319,7 @@
         // Try FQN first if module exists
         const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
 
-        let isActive = false;
-
-        if (InterceptorManager.isActive(nameTypeToUse)) {
-            InterceptorManager.stop(nameTypeToUse);
-            isActive = false;
-        } else {
-            // Start with selected Scope
-            const scope = state.interceptorScope || 'context';
-            InterceptorManager.start(nameTypeToUse, 'INTERCEPT', scope);
-            isActive = true;
-        }
+        const isActive = InterceptorManager.toggle(nameTypeToUse);
 
         updateInterceptButtonState(isActive, nameTypeToUse);
 
@@ -1441,6 +1418,21 @@
 
         updateInterceptButtonState(true, ifaceName);
     };
+
+    function executeCodeInSandbox() {
+        const code = elements.generatedCode.innerText;
+        if (!code || code.trim() === '// Select an interface and method to generate code') {
+            showToast('No code to execute', 'error');
+            return;
+        }
+
+        showToast('Sending to Sandbox...', 'info');
+        if (window.SandboxManager) {
+            SandboxManager.execute(code);
+        } else {
+            showToast('Sandbox Manager not loaded', 'error');
+        }
+    }
 
     function clearActivityLog() {
         elements.interceptorTableBody.innerHTML = '';
