@@ -63,6 +63,94 @@
     }
 
     // ========================================
+    // Mojo Dependency Loader Patch
+    // ========================================
+    // Ensure we take control of dependency loading to prevent race conditions and 404s
+    if (typeof mojo !== 'undefined' && mojo.config) {
+        mojo.config.autoLoadMojomDeps = false;
+        console.log('[MojoGUI] Disabled autoLoadMojomDeps to handle dependencies manually.');
+    }
+
+    // Overwrite MojoBindings.loadBinding to be more robust
+    if (typeof MojoBindings !== 'undefined') {
+        const originalLoadBinding = MojoBindings.loadBinding;
+
+        MojoBindings.loadBinding = async function (filename) {
+            if (this._loadedModules[filename]) {
+                return this._loadedModules[filename];
+            }
+
+            this._loadedModules[filename] = (async () => {
+                // Load index to resolve dependencies
+                const data = await this.loadIndex();
+                const fileEntry = data.files.find(f => f.filename === filename);
+
+                if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+                    console.groupCollapsed(`[MojoGUI] Loading dependencies for ${filename}`);
+                    const loadPromises = fileEntry.imports.map(async (importPath) => {
+                        // Improved matching logic:
+                        // 1. Exact match
+                        // 2. Ends with match (handling relative paths)
+                        // 3. Handle 'skia' vs 'skia.public' discrepancies if needed
+
+                        let importEntry = data.files.find(f => f.source === importPath);
+
+                        if (!importEntry) {
+                            // Try looser matching
+                            importEntry = data.files.find(f => f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
+                        }
+
+                        if (importEntry) {
+                            console.log(`[MojoGUI] Resolving ${importPath} -> ${importEntry.filename}`);
+                            try {
+                                await this.loadBinding(importEntry.filename);
+                            } catch (e) {
+                                console.error(`[MojoGUI] Failed to load dependency ${importEntry.filename}`, e);
+                                throw e;
+                            }
+                        } else {
+                            console.warn(`[MojoGUI] Import not found in index: ${importPath}. This may cause undefined types.`);
+                        }
+                    });
+
+                    try {
+                        await Promise.all(loadPromises);
+                    } catch (e) {
+                        console.error(`[MojoGUI] Dependency loading failed for ${filename}`, e);
+                        // We continue anyway, hoping for the best? Or fail hard?
+                        // Fail hard is safer to avoid confusing TypeErrors.
+                        throw e;
+                    }
+                    console.groupEnd();
+                }
+
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    const scriptUrl = `./bindings/${filename}`;
+
+                    if (trustedPolicy) {
+                        script.src = trustedPolicy.createScriptURL(scriptUrl);
+                    } else {
+                        script.src = scriptUrl;
+                    }
+
+                    script.onload = () => {
+                        console.log(`[MojoGUI] Loaded ${filename}`);
+                        resolve(true);
+                    };
+                    script.onerror = () => {
+                        console.error(`[MojoGUI] Failed to load script: ${filename}`);
+                        reject(new Error(`Failed to load binding: ${filename}`));
+                    };
+                    document.head.appendChild(script);
+                });
+            })();
+
+            return this._loadedModules[filename];
+        };
+    }
+
+    // ========================================
     // DOM Elements
     // ========================================
     const elements = {
