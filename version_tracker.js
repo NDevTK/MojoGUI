@@ -71,15 +71,27 @@ const VersionTracker = (function () {
          * @param {Array} currentInterfaces - The current list of parsed interfaces.
          * @returns {Object|null} update info or null if no significant changes
          */
-        checkUpdates: function (currentInterfaces) {
+        checkUpdates: function (currentInterfaces, currentBrowserVersion) {
             const rawLast = localStorage.getItem(STORAGE_KEY);
             const lastSnapshot = rawLast ? JSON.parse(rawLast) : null;
             const currentSnapshot = createSnapshot(currentInterfaces);
 
+            // Add version meta
+            if (currentBrowserVersion) {
+                currentSnapshot.meta = { browserVersion: currentBrowserVersion };
+            }
+
             // Save the current state as the new baseline
             localStorage.setItem(STORAGE_KEY, JSON.stringify(currentSnapshot));
 
-            return compareSnapshots(lastSnapshot, currentSnapshot);
+            const diff = compareSnapshots(lastSnapshot, currentSnapshot);
+
+            // Enrich diff with version info if available
+            if (diff && lastSnapshot && lastSnapshot.meta && lastSnapshot.meta.browserVersion) {
+                diff.lastVersion = lastSnapshot.meta.browserVersion;
+            }
+
+            return diff;
         },
 
         /**

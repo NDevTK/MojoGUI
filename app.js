@@ -224,7 +224,7 @@
 
         // Initialize Welcome/Update Manager
         if (window.WelcomeManager) {
-            WelcomeManager.init(state.interfaces, safeHTML);
+            WelcomeManager.init(state.interfaces, safeHTML, window.mojoVersion);
         }
 
         setupEventListeners();

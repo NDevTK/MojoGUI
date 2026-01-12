@@ -9,45 +9,60 @@ const WelcomeManager = (function () {
     const ENABLE_GUIDE_HTML = `
         <div class="step-card">
             <h4><span class="step-number">!</span> MojoJS Not Detected</h4>
-            <p>This tool requires the <code>MojoJS</code> bindings to interact with Chromium internals. They are currently not enabled in this context.</p>
+            <p>This tool requires the <strong>MojoJS</strong> bindings to interact with Chromium internals. They are currently not enabled in this context.</p>
         </div>
         
         <h3>How to Enable</h3>
         <ul>
             <li>
-                <strong>Launch Chrome with flags:</strong><br>
-                <code>--enable-blink-features=MojoJS,MojoJSTest</code>
+                <strong>Option 1: Launch Chrome with flags (Recommended)</strong><br>
+                <code>chrome --enable-blink-features=MojoJS,MojoJSTest</code>
             </li>
             <li>
-                <strong>Or use the flag setup:</strong><br>
-                Go to <code>chrome://flags</code> and search for "MojoJS".
+                <strong>Option 2: Use a Setup Script</strong><br>
+                For deeper research, use a target like <code>content_shell</code> or a specialized environment that exposes these bindings by default.
             </li>
         </ul>
-        <p><em>Note: If you are running this in a standard web environment (not inside a compromised renderer), you may need to use a specific target shell (like <code>content_shell</code>) or a specific exploit chain to inject bindings.</em></p>
+        <div class="alert-box">
+             <strong>Why is this needed?</strong> MojoJS is a privileged API usually restricted to WebUI pages. To research standard rendering contexts, you must explicitly enable it via flags.
+        </div>
     `;
 
     const WELCOME_HTML = `
-        <h3>Welcome to MojoGUI</h3>
+        <h3>👋 Welcome to MojoGUI</h3>
         <p>A premium interface for exploring and intercepting MojoJS IPC messages in Chromium.</p>
         
         <div class="step-card">
-            <h4><span class="step-number">1</span> Browse Interfaces</h4>
-            <p>Select an interface from the sidebar to view its available methods.</p>
-        </div>
-        
-        <div class="step-card">
-            <h4><span class="step-number">2</span> Intercept Traffic</h4>
-            <p>Toggle the "Traffic Log" to watch messages in real-time. Click <strong>Blocking</strong> to stop messages before they are sent.</p>
+            <h4><span class="step-number">?</span> What is Mojo?</h4>
+            <p>Mojo is Chromium's IPC (Inter-Process Communication) system. It allows different processes (Browser, Renderer, GPU) to talk to each other using strongly-typed interfaces defined in <code>.mojom</code> files.</p>
         </div>
 
         <div class="step-card">
-            <h4><span class="step-number">3</span> Generate Exploits</h4>
-            <p>Use the "Generate Code" panel to create JS snippets for message injection.</p>
+            <h4><span class="step-number">⚡</span> How this Tool Works</h4>
+            <p><strong>MojoGUI</strong> monkey-patches the global <code>Mojo.bindInterface</code> function. This allows us to:</p>
+            <ul>
+                <li><strong>Log:</strong> See every message sent between the page and the browser.</li>
+                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly.</li>
+                <li><strong>Fuzz:</strong> Send custom messages to test browser security.</li>
+            </ul>
+        </div>
+        
+        <div class="step-card">
+            <h4><span class="step-number">🚀</span> Quick Start</h4>
+            <ol>
+                <li>Select an <strong>Interface</strong> on the left.</li>
+                <li>Check the <strong>"Traffic Log"</strong> to see live messages.</li>
+                <li>Toggle <strong>Status</strong> to "Blocking" to intercept requests.</li>
+            </ol>
         </div>
     `;
 
     function buildWhatsNewHtml(diff) {
         let html = '<h3>Changes detected since your last visit:</h3>';
+
+        if (diff.lastVersion) {
+            html = `<h3>Changes since Chrome ${escapeHtml(diff.lastVersion)}:</h3>`;
+        }
 
         if (diff.added && diff.added.length > 0) {
             html += `<h4>New Interfaces (${diff.added.length})</h4><div class="step-card">`;
@@ -77,7 +92,6 @@ const WelcomeManager = (function () {
 
         if (diff.removed && diff.removed.length > 0) {
             html += `<h4>Removed Interfaces (${diff.removed.length})</h4>`;
-            // Typically less interesting to show list, maybe just count or summary
             html += `<p class="modal-body-text">${diff.removed.length} interfaces were removed.</p>`;
         }
 
@@ -138,41 +152,40 @@ const WelcomeManager = (function () {
 
     // --- Public API ---
 
-    function init(interfaces, safeHTMLImpl) {
+    function init(interfaces, safeHTMLImpl, browserVersion) {
         // Inject security helper if provided
         if (safeHTMLImpl) {
             safeHTML = safeHTMLImpl;
         }
-        // 1. Check if Mojo exists
-        // Note: We check window.Mojo, but sometimes it's under window.chrome.mojo etc.
-        // Assuming global Mojo for this tool per existing codebase.
-        // However, if we are in the GUI tool itself, we might just be viewing a dump.
-        // If interfaces are provided, we assume we want to track them.
 
-        // If no interfaces found/loaded, user might need guide.
-        if (!interfaces || interfaces.length === 0) {
-            // Only show guide if we really expected something but got nothing.
-            // Or if specific check fails.
-            // For now, let's rely on VersionTracker result.
-        }
+        // 1. Precise Mojo Detection (Matching app.js)
+        const isMojoNetEnabled = (typeof Mojo !== 'undefined' && Mojo.bindInterface) ||
+            (typeof mojo !== 'undefined' && mojo.bindInterface);
 
         // 2. Check Version Tracker
         if (window.VersionTracker) {
-            const updates = window.VersionTracker.checkUpdates(interfaces || []);
+            const updates = window.VersionTracker.checkUpdates(interfaces || [], browserVersion);
 
             if (updates) {
                 if (updates.isFirstVisit) {
-                    createModal("👋 Welcome to MojoGUI", WELCOME_HTML);
+                    // First visit logic
+                    if (!isMojoNetEnabled && (!interfaces || interfaces.length === 0)) {
+                        // Priority 1: Missing Mojo
+                        createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
+                    } else {
+                        // Priority 2: Welcome (Mojo exists OR just viewing dumps)
+                        createModal("👋 Welcome to MojoGUI", WELCOME_HTML);
+                    }
                 } else {
-                    // Only show if there are actual changes (added/removed/changed)
+                    // Changes detected logic
                     if (updates.added || updates.changed || updates.removed) {
                         createModal("⚡ What's New", buildWhatsNewHtml(updates));
                     }
                 }
             } else {
-                // No changes, no first visit. Silent.
-                // UNLESS Mojo is completely missing, then maybe Guide?
-                if (typeof Mojo === 'undefined' && (!interfaces || interfaces.length === 0)) {
+                // Not first visit, no changes.
+                // Fallback: If Mojo completely missing on repeat visit?
+                if (!isMojoNetEnabled && (!interfaces || interfaces.length === 0)) {
                     createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
                 }
             }
