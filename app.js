@@ -39,6 +39,7 @@
             createScript: (input) => input,
             createScriptURL: (input) => input
         });
+        window.mojoTrustedPolicy = trustedPolicy;
     }
 
     function safeHTML(html) {

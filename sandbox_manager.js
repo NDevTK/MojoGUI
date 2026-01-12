@@ -25,20 +25,8 @@ export const SandboxManager = {
 
         document.querySelector('.main-content').appendChild(iframe);
 
-        // Use Trusted Types if available
-        let policy = null;
-        if (window.trustedTypes && window.trustedTypes.createPolicy) {
-            try {
-                policy = window.trustedTypes.createPolicy('mojoSandbox', {
-                    createHTML: s => s,
-                    createScript: s => s
-                });
-            } catch (e) {
-                // Policy might already exist, reuse isn't easy without reference or duplicate handling
-                // Try default if failed? or assume we can just use strings if policy creation failed due to duplicate name
-                // Actually, duplicate name throws.
-            }
-        }
+        // Use global Trusted Types policy from app.js
+        const policy = window.mojoTrustedPolicy;
 
         setTimeout(() => {
             try {
