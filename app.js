@@ -16,7 +16,8 @@
         paramValues: {},
         mojoAvailable: false,
         panelVisible: false,
-        trafficCount: 0
+        trafficCount: 0,
+        interceptorScope: 'context'
     };
 
     // ========================================
@@ -197,7 +198,11 @@
         // New UI Elements
         closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
         interfacePanel: document.getElementById('interfacePanel'),
-        paramsPanel: document.getElementById('paramsPanel')
+        paramsPanel: document.getElementById('paramsPanel'),
+
+        // Scope Controls
+        scopeSelect: document.getElementById('scopeSelect'),
+        launchSandboxBtn: document.getElementById('launchSandboxBtn')
     };
 
     // ========================================
@@ -353,6 +358,25 @@
         // Interceptor
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
         elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
+
+        // Scope & Sandbox
+        if (elements.scopeSelect) {
+            elements.scopeSelect.addEventListener('change', (e) => {
+                state.interceptorScope = e.target.value;
+                showToast(`Interceptor Scope set to: ${state.interceptorScope}`, 'info');
+            });
+        }
+
+        if (elements.launchSandboxBtn) {
+            elements.launchSandboxBtn.addEventListener('click', () => {
+                if (window.SandboxManager) {
+                    window.SandboxManager.launch();
+                    showToast('Launching Sandbox Window...', 'info');
+                } else {
+                    showToast('Sandbox Manager not loaded', 'error');
+                }
+            });
+        }
 
         // No Scramble Toggle
         if (elements.noScrambleToggle) {
@@ -1308,7 +1332,17 @@
         // Try FQN first if module exists
         const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
 
-        const isActive = InterceptorManager.toggle(nameTypeToUse);
+        let isActive = false;
+
+        if (InterceptorManager.isActive(nameTypeToUse)) {
+            InterceptorManager.stop(nameTypeToUse);
+            isActive = false;
+        } else {
+            // Start with selected Scope
+            const scope = state.interceptorScope || 'context';
+            InterceptorManager.start(nameTypeToUse, 'INTERCEPT', scope);
+            isActive = true;
+        }
 
         updateInterceptButtonState(isActive, nameTypeToUse);
 

@@ -65,6 +65,29 @@
                         </svg>
                         Docs
                     </a>
+                    <div class="separator"
+                        style="width: 1px; height: 24px; background: var(--border-subtle); margin: 0 8px;"></div>
+
+                    <div class="scope-control" style="display: flex; align-items: center; gap: 8px;">
+                        <span
+                            style="font-size: 11px; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Scope</span>
+                        <select id="scopeSelect" class="select-input"
+                            style="padding: 4px 8px; font-size: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;">
+                            <option value="context">Context (Tab)</option>
+                            <option value="process">Process (All)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-small" id="launchSandboxBtn"
+                        title="Open a clean popup to test Process-Scoped interception">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                            height="14">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Sandbox
+                    </button>
                     <div class="status-badge" id="mojoStatus">
                         <span class="status-dot"></span>
                         <span class="status-text">Checking...</span>
@@ -304,6 +327,7 @@
     <script src="parser.js"></script>
 
     <script src="interceptor.js"></script>
+    <script src="sandbox_manager.js"></script>
     <script src="version_tracker.js"></script>
     <script src="welcome_manager.js"></script>
     <script src="app.js"></script>
