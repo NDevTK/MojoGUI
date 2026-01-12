@@ -329,7 +329,7 @@
                     const badge = document.createElement('span');
                     badge.className = 'sync-badge';
                     badge.title = 'Protocol Synchronized';
-                    badge.innerHTML = 'âœ“';
+                    badge.innerHTML = '✓';
                     item.appendChild(badge);
                 }
             });
@@ -418,7 +418,7 @@
                 <span class="name">${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
-                ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">âœ“</span>' : ''}
+                ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ''}
             </div>
         `;
         }).join(''));
@@ -455,7 +455,7 @@
             try {
                 elements.selectedModule.textContent = iface.module + ' (loading...)';
                 await MojoBindings.loadBinding(iface.file);
-                elements.selectedModule.textContent = iface.module + ' âœ“';
+                elements.selectedModule.textContent = iface.module + ' ✓';
                 showToast(`Loaded binding: ${iface.file}`, 'success');
             } catch (error) {
                 console.warn('Failed to load binding file:', iface.file, error);
@@ -483,7 +483,7 @@
             return `
                 <div class="method-item" data-method="${escapeHtml(methodName)}">
                     <span class="name">${escapeHtml(methodName)}</span>
-                    <span class="returns">â†’</span>
+                    <span class="returns">→</span>
                 </div>
             `;
         }).join(''));
@@ -716,359 +716,360 @@
     }
 
 
-            function renderParamsForm(params) {
-                if (!params || params.length === 0) {
-                    elements.paramsForm.innerHTML = safeHTML(`
+    function renderParamsForm(params) {
+        if (!params || params.length === 0) {
+            elements.paramsForm.innerHTML = safeHTML(`
                     <p>This method has no parameters</p>
                 </div>
             `);
-                    return;
-                }
+            return;
+        }
 
-                elements.paramsForm.innerHTML = safeHTML(params.map(param => {
-                    return renderInput(param, undefined, { isInterceptor: false });
-                }).join(''));
+        elements.paramsForm.innerHTML = safeHTML(params.map(param => {
+            return renderInput(param, undefined, { isInterceptor: false });
+        }).join(''));
 
-                // Add change handlers
-                elements.paramsForm.querySelectorAll('input, textarea, select').forEach(input => {
-                    input.addEventListener('input', () => {
-                        updateParamValue(input.name, getInputValue(input), input.dataset.type);
-                        updateGeneratedCode();
-                    });
-                    input.addEventListener('change', () => {
-                        updateParamValue(input.name, getInputValue(input), input.dataset.type);
-                        updateGeneratedCode();
-                    });
-
-                    // Initialize value
-                    updateParamValue(input.name, getInputValue(input), input.dataset.type);
-                });
-
+        // Add change handlers
+        elements.paramsForm.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('input', () => {
+                updateParamValue(input.name, getInputValue(input), input.dataset.type);
                 updateGeneratedCode();
-            }
+            });
+            input.addEventListener('change', () => {
+                updateParamValue(input.name, getInputValue(input), input.dataset.type);
+                updateGeneratedCode();
+            });
 
-            function getInputValue(input) {
-                if (input.type === 'checkbox') {
-                    return input.checked;
-                }
-                if (input.type === 'number') {
-                    return parseFloat(input.value) || 0;
-                }
-                return input.value;
-            }
+            // Initialize value
+            updateParamValue(input.name, getInputValue(input), input.dataset.type);
+        });
 
-            function updateParamValue(name, value, type) {
-                // Parse JSON for complex types
-                if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
-                    try {
-                        // If empty string, generic default
-                        if (!value.trim()) {
-                            state.paramValues[name] = null;
-                        } else {
-                            state.paramValues[name] = JSON.parse(value);
-                        }
-                    } catch (e) {
-                        // If invalid JSON, store as string but it might fail invocation
-                        // Optionally log error or show valid state
-                        state.paramValues[name] = value;
-                    }
+        updateGeneratedCode();
+    }
+
+    function getInputValue(input) {
+        if (input.type === 'checkbox') {
+            return input.checked;
+        }
+        if (input.type === 'number') {
+            return parseFloat(input.value) || 0;
+        }
+        return input.value;
+    }
+
+    function updateParamValue(name, value, type) {
+        // Parse JSON for complex types
+        if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
+            try {
+                // If empty string, generic default
+                if (!value.trim()) {
+                    state.paramValues[name] = null;
                 } else {
-                    state.paramValues[name] = value;
+                    state.paramValues[name] = JSON.parse(value);
+                }
+            } catch (e) {
+                // If invalid JSON, store as string but it might fail invocation
+                // Optionally log error or show valid state
+                state.paramValues[name] = value;
+            }
+        } else {
+            state.paramValues[name] = value;
+        }
+    }
+
+    function resolveNamespace(moduleName) {
+        const parts = moduleName.split('.');
+
+        // Try safe scope first (Universal Fix)
+        if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.bindings) {
+            let current = mojo.internal.bindings;
+            let found = true;
+            for (const part of parts) {
+                if (current[part]) {
+                    current = current[part];
+                } else {
+                    found = false;
+                    break;
                 }
             }
+            if (found) return current;
+        }
 
-            function resolveNamespace(moduleName) {
-                const parts = moduleName.split('.');
+        return null;
+    }
 
-                // Try safe scope first (Universal Fix)
-                if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.bindings) {
-                    let current = mojo.internal.bindings;
-                    let found = true;
-                    for (const part of parts) {
-                        if (current[part]) {
-                            current = current[part];
-                        } else {
-                            found = false;
-                            break;
-                        }
-                    }
-                    if (found) return current;
+    function inferTypeFromMojomType(mojomType) {
+        // Best effort mapping from runtime Mojo types to strings for UI
+        if (!mojomType) return 'any';
+
+        // Check availability of mojo global to avoid ReferenceError
+        const mojoLib = (typeof mojo !== 'undefined') ? mojo : ((typeof Mojo !== 'undefined') ? Mojo : null);
+
+        if (mojoLib && mojoLib.internal) {
+            // generated bindings use mojo.internal.String etc.
+            if (mojomType === mojoLib.internal.String) return 'string';
+            if (mojomType === mojoLib.internal.Bool) return 'bool';
+
+            // Specific handling for 64-bit types to ensure Text Input (BigInt support)
+            if (mojomType === mojoLib.internal.Int64) return 'int64';
+            if (mojomType === mojoLib.internal.Uint64) return 'uint64';
+
+            if (mojomType === mojoLib.internal.Int8 ||
+                mojomType === mojoLib.internal.Int16 ||
+                mojomType === mojoLib.internal.Int32 ||
+                mojomType === mojoLib.internal.Uint8 ||
+                mojomType === mojoLib.internal.Uint16 ||
+                mojomType === mojoLib.internal.Uint32 ||
+                mojomType === mojoLib.internal.Float ||
+                mojomType === mojoLib.internal.Double) return 'number';
+        }
+
+        // Arrays are tricky because they are constructible functions in bindings_lite
+        // We can check if it has array properties or naming convention
+        if (typeof mojomType === 'string') return mojomType;
+
+        return 'string'; // Default to string input for complex types so user can paste JSON/values
+    }
+
+    function generateDefaultParams(ifaceMetadata, methodName) {
+        // Attempts to resolve parameters from the Loaded Bindings in the page
+        if (ifaceMetadata && ifaceMetadata.module) {
+            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
+            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
+            const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
+            const namespace = resolveNamespace(ifaceMetadata.module);
+
+            if (namespace) {
+                // Try exact match first (e.g. Vibrate)
+                let specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
+                let specWrapper = namespace[specName];
+
+                // If not found, try PascalCase (if method is vibrate -> Vibrate)
+                if (!specWrapper) {
+                    const pascalMethod = methodName.charAt(0).toUpperCase() + methodName.slice(1);
+                    specName = `${simpleInterfaceName}_${pascalMethod}_ParamsSpec`;
+                    specWrapper = namespace[specName];
                 }
 
-                return null;
-            }
+                if (specWrapper) {
+                    // specWrapper is like { $: { structSpec: { ... } } }
+                    // or just { structSpec: ... } depending on generation
+                    const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
 
-            function inferTypeFromMojomType(mojomType) {
-                // Best effort mapping from runtime Mojo types to strings for UI
-                if (!mojomType) return 'any';
+                    if (structSpec && structSpec.fields) {
+                        return structSpec.fields.map(field => {
+                            let type = 'any';
+                            let originalName = field.name;
 
-                // Check availability of mojo global to avoid ReferenceError
-                const mojoLib = (typeof mojo !== 'undefined') ? mojo : ((typeof Mojo !== 'undefined') ? Mojo : null);
-
-                if (mojoLib && mojoLib.internal) {
-                    // generated bindings use mojo.internal.String etc.
-                    if (mojomType === mojoLib.internal.String) return 'string';
-                    if (mojomType === mojoLib.internal.Bool) return 'bool';
-
-                    // Specific handling for 64-bit types to ensure Text Input (BigInt support)
-                    if (mojomType === mojoLib.internal.Int64) return 'int64';
-                    if (mojomType === mojoLib.internal.Uint64) return 'uint64';
-
-                    if (mojomType === mojoLib.internal.Int8 ||
-                        mojomType === mojoLib.internal.Int16 ||
-                        mojomType === mojoLib.internal.Int32 ||
-                        mojomType === mojoLib.internal.Uint8 ||
-                        mojomType === mojoLib.internal.Uint16 ||
-                        mojomType === mojoLib.internal.Uint32 ||
-                        mojomType === mojoLib.internal.Float ||
-                        mojomType === mojoLib.internal.Double) return 'number';
-                }
-
-                // Arrays are tricky because they are constructible functions in bindings_lite
-                // We can check if it has array properties or naming convention
-                if (typeof mojomType === 'string') return mojomType;
-
-                return 'string'; // Default to string input for complex types so user can paste JSON/values
-            }
-
-            function generateDefaultParams(ifaceMetadata, methodName) {
-                // Attempts to resolve parameters from the Loaded Bindings in the page
-                if (ifaceMetadata && ifaceMetadata.module) {
-                    // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
-                    // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
-                    const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
-                    const namespace = resolveNamespace(ifaceMetadata.module);
-
-                    if (namespace) {
-                        // Try exact match first (e.g. Vibrate)
-                        let specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
-                        let specWrapper = namespace[specName];
-
-                        // If not found, try PascalCase (if method is vibrate -> Vibrate)
-                        if (!specWrapper) {
-                            const pascalMethod = methodName.charAt(0).toUpperCase() + methodName.slice(1);
-                            specName = `${simpleInterfaceName}_${pascalMethod}_ParamsSpec`;
-                            specWrapper = namespace[specName];
-                        }
-
-                        if (specWrapper) {
-                            // specWrapper is like { $: { structSpec: { ... } } }
-                            // or just { structSpec: ... } depending on generation
-                            const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
-
-                            if (structSpec && structSpec.fields) {
-                                return structSpec.fields.map(field => {
-                                    let type = 'any';
-                                    let originalName = field.name;
-
-                                    // Check for generated binding artifacts (nullable value structs)
-                                    if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
-                                        originalName = field.nullableValueKindProperties.originalFieldName;
-                                    }
-
-                                    // Use the runtime type inference
-                                    type = inferTypeFromMojomType(field.type);
-
-                                    // Use original name without prefix (safe in function scope)
-                                    // e.g. 'location' -> 'location'
-
-                                    return {
-                                        name: originalName,
-                                        type: type,
-                                        optional: !!field.nullable
-                                    };
-                                }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
+                            // Check for generated binding artifacts (nullable value structs)
+                            if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
+                                originalName = field.nullableValueKindProperties.originalFieldName;
                             }
-                        }
+
+                            // Use the runtime type inference
+                            type = inferTypeFromMojomType(field.type);
+
+                            // Use original name without prefix (safe in function scope)
+                            // e.g. 'location' -> 'location'
+
+                            return {
+                                name: originalName,
+                                type: type,
+                                optional: !!field.nullable
+                            };
+                        }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
                     }
-
-                    // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
-                    return null;
                 }
             }
 
-            // ========================================
-            // Code Generation
-            // ========================================
-            function updateGeneratedCode() {
-                if (!state.selectedInterface) {
-                    elements.generatedCode.textContent = '// Select an interface and method to generate code';
-                    return;
-                }
+            // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
+            return null;
+        }
+    }
 
-                const code = generateCode();
-                // Use textContent for safe display - no HTML injection possible
-                elements.generatedCode.textContent = code;
-            }
+    // ========================================
+    // Code Generation
+    // ========================================
+    function updateGeneratedCode() {
+        if (!state.selectedInterface) {
+            elements.generatedCode.textContent = '// Select an interface and method to generate code';
+            return;
+        }
 
-            function generateCode() {
-                const iface = state.selectedInterface;
-                const method = state.selectedMethod;
+        const code = generateCode();
+        // Use textContent for safe display - no HTML injection possible
+        elements.generatedCode.textContent = code;
+    }
 
-                if (!iface) return '// Select an interface';
+    function generateCode() {
+        const iface = state.selectedInterface;
+        const method = state.selectedMethod;
 
-                const moduleParts = iface.module.split('.');
-                const namespace = moduleParts.join('.');
+        if (!iface) return '// Select an interface';
 
-                let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
-                code += `// Module: ${iface.module}\n`;
-                code += `// File: ${iface.file}\n\n`;
+        const moduleParts = iface.module.split('.');
+        const namespace = moduleParts.join('.');
 
-                if (!method) {
-                    code += `// Step 1: Get the interface remote\n`;
-                    code += `// The binding file defines the interface strictly in 'mojo.internal.bindings'\n`;
-                    code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+        let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
+        code += `// Module: ${iface.module}\n`;
+        code += `// File: ${iface.file}\n\n`;
 
-                    code += `let ${iface.name.toLowerCase()}Remote;\n`;
-                    code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-                    code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
-                    code += `} else {\n`;
-                    code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
-                    code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
-                    code += `    const handle = receiver.handle || receiver;\n`;
-                    code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-                    code += `}\n`;
-                    code += `// Select a method to see the full call...`;
-                    return code;
-                }
+        if (!method) {
+            code += `// Step 1: Get the interface remote\n`;
+            code += `// The binding file defines the interface strictly in 'mojo.internal.bindings'\n`;
+            code += `const root = mojo.internal.bindings.${namespace};\n\n`;
 
-                const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
-                const methodName = method.charAt(0).toLowerCase() + method.slice(1);
+            code += `let ${iface.name.toLowerCase()}Remote;\n`;
+            code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
+            code += `} else {\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
+            code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+            code += `    const handle = receiver.handle || receiver;\n`;
+            code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+            code += `}\n`;
+            code += `// Select a method to see the full call...`;
+            return code;
+        }
 
-                code += `// Define Root Namespace\n`;
-                code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+        const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
+        const methodName = method.charAt(0).toLowerCase() + method.slice(1);
 
-                code += `// Get remote for the interface\n`;
-                code += `let ${remoteName};\n`;
-                code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-                code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
-                code += `} else {\n`;
-                code += `    // Manual binding for Lite bindings without getRemote()\n`;
-                code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
-                code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
-                code += `    const handle = receiver.handle || receiver;\n`;
-                code += `    // Default to 'context' scope for safety, can be 'process'\n`;
-                code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-                code += `}\n\n`;
+        code += `// Define Root Namespace\n`;
+        code += `const root = mojo.internal.bindings.${namespace};\n\n`;
 
-                // Generate method call with params
-                // Generate method call with params
-                const paramsDef = getMethodParams(state.selectedInterface.name, method);
-                const args = [];
+        code += `// Get remote for the interface\n`;
+        code += `let ${remoteName};\n`;
+        code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+        code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
+        code += `} else {\n`;
+        code += `    // Manual binding for Lite bindings without getRemote()\n`;
+        code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
+        code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
+        code += `    const handle = receiver.handle || receiver;\n`;
+        code += `    // Default to 'context' scope for safety, can be 'process'\n`;
+        code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+        code += `}\n\n`;
 
-                if (paramsDef && paramsDef.length > 0) {
-                    code += `// Method parameters\n`;
-                    paramsDef.forEach(p => {
-                        const key = p.name;
-                        const safeVarName = key;
-                        const value = state.paramValues[key];
+        // Generate method call with params
+        // Generate method call with params
+        const paramsDef = getMethodParams(state.selectedInterface.name, method);
+        const args = [];
 
-                        let valueStr;
-                        if (typeof value === 'bigint') {
-                            valueStr = value.toString() + 'n';
-                        } else {
-                            valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
-                        }
+        if (paramsDef && paramsDef.length > 0) {
+            code += `// Method parameters\n`;
+            paramsDef.forEach(p => {
+                const key = p.name;
+                // Strip 'arg_' from variable name if present
+                const safeVarName = key.startsWith('arg_') ? key.substring(4) : key;
+                const value = state.paramValues[key];
 
-                        // If value is undefined (optional/skipped), we might want to pass null or undefined
-                        // But for the generated code, let's show what's in the state or null
-                        const safeValue = valueStr === undefined ? 'null' : valueStr;
-
-                        code += `const ${safeVarName} = ${safeValue};\n`;
-                        args.push(safeVarName);
-                    });
-                    code += `\n`;
-                }
-
-                code += `// Call the method\n`;
-                code += `try {\n`;
-                if (args.length > 0) {
-                    code += `  const result = await ${remoteName}.${methodName}(${args.join(', ')});\n`;
+                let valueStr;
+                if (typeof value === 'bigint') {
+                    valueStr = value.toString() + 'n';
                 } else {
-                    code += `  const result = await ${remoteName}.${methodName}();\n`;
-                }
-                code += `  console.log('Success:', result);\n`;
-                code += `} catch (error) {\n`;
-                code += `  console.error('Error:', error);\n`;
-                code += `}`;
-
-                return code;
-            }
-
-            function highlightSyntax(code) {
-                // First escape HTML entities to prevent XSS and display issues
-                let escaped = code
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;');
-
-                // Apply syntax highlighting
-                return escaped
-                    .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
-                    .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends)\b/g, '<span class="keyword">$1</span>')
-                    .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
-                    .replace(/\b(this|window|document|console)\b/g, '<span class="builtin">$1</span>')
-                    .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
-                    .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
-                    .replace(/\.(\w+)\b/g, '.<span class="property">$1</span>')
-                    .replace(/\b([A-Z][a-zA-Z0-9_]*)\b/g, '<span class="class">$1</span>')
-                    .replace(/([a-zA-Z0-9_]+)\(/g, '<span class="function">$1</span>(');
-            }
-
-            // ========================================
-            // Actions
-            // ========================================
-            async function copyCode() {
-                const code = generateCode();
-
-                try {
-                    await navigator.clipboard.writeText(code);
-                    showToast('Code copied to clipboard!', 'success');
-                } catch (error) {
-                    // Fallback
-                    const textarea = document.createElement('textarea');
-                    textarea.value = code;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    showToast('Code copied to clipboard!', 'success');
-                }
-            }
-
-            async function executeCode() {
-                if (!state.mojoAvailable) {
-                    showToast('MojoJS is not available. Enable with --enable-blink-features=MojoJS', 'error');
-                    return;
+                    valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
                 }
 
-                const code = generateCode();
-                const interfaceName = state.selectedInterface?.name || 'Unknown';
-                const methodName = state.selectedMethod || 'Unknown';
+                // If value is undefined (optional/skipped), we might want to pass null or undefined
+                // But for the generated code, let's show what's in the state or null
+                const safeValue = valueStr === undefined ? 'null' : valueStr;
 
-                const manualId = 'manual_' + Date.now();
-                // Use existing interfaceName/methodName from scope
+                code += `const ${safeVarName} = ${safeValue};\n`;
+                args.push(safeVarName);
+            });
+            code += `\n`;
+        }
 
-                // 1. Create a "Pending" entry in the Activity Table immediately
-                addActivityRow({
-                    id: manualId,
-                    interface: interfaceName,
-                    method: methodName,
-                    params: state.paramValues, // Best effort capture
-                    timestamp: Date.now(),
-                    type: 'MANUAL',
-                    status: 'Executing...'
-                });
+        code += `// Call the method\n`;
+        code += `try {\n`;
+        if (args.length > 0) {
+            code += `  const result = await ${remoteName}.${methodName}(${args.join(', ')});\n`;
+        } else {
+            code += `  const result = await ${remoteName}.${methodName}();\n`;
+        }
+        code += `  console.log('Success:', result);\n`;
+        code += `} catch (error) {\n`;
+        code += `  console.error('Error:', error);\n`;
+        code += `}`;
 
-                // Ensure Activity Panel is visible
-                showInterceptorPanel(true);
+        return code;
+    }
 
-                const startTime = performance.now();
+    function highlightSyntax(code) {
+        // First escape HTML entities to prevent XSS and display issues
+        let escaped = code
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
 
-                try {
-                    // Use script injection approach that works with Trusted Types
-                    // Wrap code in an async IIFE that stores result in window
-                    const wrappedCode = `
+        // Apply syntax highlighting
+        return escaped
+            .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
+            .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends)\b/g, '<span class="keyword">$1</span>')
+            .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
+            .replace(/\b(this|window|document|console)\b/g, '<span class="builtin">$1</span>')
+            .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
+            .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
+            .replace(/\.(\w+)\b/g, '.<span class="property">$1</span>')
+            .replace(/\b([A-Z][a-zA-Z0-9_]*)\b/g, '<span class="class">$1</span>')
+            .replace(/([a-zA-Z0-9_]+)\(/g, '<span class="function">$1</span>(');
+    }
+
+    // ========================================
+    // Actions
+    // ========================================
+    async function copyCode() {
+        const code = generateCode();
+
+        try {
+            await navigator.clipboard.writeText(code);
+            showToast('Code copied to clipboard!', 'success');
+        } catch (error) {
+            // Fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = code;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('Code copied to clipboard!', 'success');
+        }
+    }
+
+    async function executeCode() {
+        if (!state.mojoAvailable) {
+            showToast('MojoJS is not available. Enable with --enable-blink-features=MojoJS', 'error');
+            return;
+        }
+
+        const code = generateCode();
+        const interfaceName = state.selectedInterface?.name || 'Unknown';
+        const methodName = state.selectedMethod || 'Unknown';
+
+        const manualId = 'manual_' + Date.now();
+        // Use existing interfaceName/methodName from scope
+
+        // 1. Create a "Pending" entry in the Activity Table immediately
+        addActivityRow({
+            id: manualId,
+            interface: interfaceName,
+            method: methodName,
+            params: state.paramValues, // Best effort capture
+            timestamp: Date.now(),
+            type: 'MANUAL',
+            status: 'Executing...'
+        });
+
+        // Ensure Activity Panel is visible
+        showInterceptorPanel(true);
+
+        const startTime = performance.now();
+
+        try {
+            // Use script injection approach that works with Trusted Types
+            // Wrap code in an async IIFE that stores result in window
+            const wrappedCode = `
             (async () => {
                 "use strict";
                 try {
@@ -1081,313 +1082,313 @@
             })();
         `;
 
-                    // Create promise to wait for execution
-                    const resultPromise = new Promise((resolve) => {
-                        window.addEventListener(`mojoExecuteComplete_${manualId}`, function handler() {
-                            window.removeEventListener(`mojoExecuteComplete_${manualId}`, handler);
-                            resolve(window.__mojoExecuteResult);
-                            delete window.__mojoExecuteResult;
-                        });
-                    });
+            // Create promise to wait for execution
+            const resultPromise = new Promise((resolve) => {
+                window.addEventListener(`mojoExecuteComplete_${manualId}`, function handler() {
+                    window.removeEventListener(`mojoExecuteComplete_${manualId}`, handler);
+                    resolve(window.__mojoExecuteResult);
+                    delete window.__mojoExecuteResult;
+                });
+            });
 
-                    // Create script element with trusted script
-                    const script = document.createElement('script');
-                    if (trustedPolicy) {
-                        script.textContent = trustedPolicy.createScript(wrappedCode);
-                    } else {
-                        script.textContent = wrappedCode;
-                    }
-                    document.head.appendChild(script);
-                    document.head.removeChild(script);
-
-                    // Wait for result
-                    const result = await resultPromise;
-                    const duration = (performance.now() - startTime).toFixed(2);
-
-                    // 2. Update the Activity Row with the result
-                    updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
-
-                } catch (e) {
-                    updateActivityRow(manualId, 'Error', { error: e.toString() });
-                }
+            // Create script element with trusted script
+            const script = document.createElement('script');
+            if (trustedPolicy) {
+                script.textContent = trustedPolicy.createScript(wrappedCode);
+            } else {
+                script.textContent = wrappedCode;
             }
+            document.head.appendChild(script);
+            document.head.removeChild(script);
+
+            // Wait for result
+            const result = await resultPromise;
+            const duration = (performance.now() - startTime).toFixed(2);
+
+            // 2. Update the Activity Row with the result
+            updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
+
+        } catch (e) {
+            updateActivityRow(manualId, 'Error', { error: e.toString() });
+        }
+    }
 
 
 
-            function resetParams() {
-                state.paramValues = {};
-                if (state.selectedMethod) {
-                    const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
-                    renderParamsForm(params);
-                    updateGeneratedCode();
-                }
-            }
+    function resetParams() {
+        state.paramValues = {};
+        if (state.selectedMethod) {
+            const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
+            renderParamsForm(params);
+            updateGeneratedCode();
+        }
+    }
 
-            function clearResults() {
-                elements.executionResults.innerHTML = safeHTML(`
+    function clearResults() {
+        elements.executionResults.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Results will appear here</p>
             </div>
         `);
-            }
+    }
 
-            // ========================================
-            // Interceptor Logic
-            // ========================================
-            function toggleInterceptor() {
-                if (!state.selectedInterface) {
-                    showToast('Select an interface first', 'warning');
-                    return;
-                }
+    // ========================================
+    // Interceptor Logic
+    // ========================================
+    function toggleInterceptor() {
+        if (!state.selectedInterface) {
+            showToast('Select an interface first', 'warning');
+            return;
+        }
 
-                // Use Fully Qualified Name if available (module + . + name)
-                // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
-                // If module is present, try FQN.
-                const shortName = state.selectedInterface.name;
-                const moduleName = state.selectedInterface.module;
+        // Use Fully Qualified Name if available (module + . + name)
+        // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
+        // If module is present, try FQN.
+        const shortName = state.selectedInterface.name;
+        const moduleName = state.selectedInterface.module;
 
-                // Try FQN first if module exists
-                const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
+        // Try FQN first if module exists
+        const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
 
-                const isActive = InterceptorManager.toggle(nameTypeToUse);
+        const isActive = InterceptorManager.toggle(nameTypeToUse);
 
-                updateInterceptButtonState(isActive);
+        updateInterceptButtonState(isActive);
 
-                if (isActive) {
-                    showToast(`Started intercepting ${nameTypeToUse}`, 'success');
-                    // Show panel
-                    showInterceptorPanel(true);
-                } else {
-                    showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
-                }
-            }
+        if (isActive) {
+            showToast(`Started intercepting ${nameTypeToUse}`, 'success');
+            // Show panel
+            showInterceptorPanel(true);
+        } else {
+            showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
+        }
+    }
 
-            function updateInterceptButtonState(isActive) {
-                elements.interceptStatusDot.classList.toggle('active', isActive);
-                elements.interceptToggleBtn.classList.toggle('active', isActive);
+    function updateInterceptButtonState(isActive) {
+        elements.interceptStatusDot.classList.toggle('active', isActive);
+        elements.interceptToggleBtn.classList.toggle('active', isActive);
 
-                const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
-                if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
-            }
+        const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
+        if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
+    }
 
-            function clearActivityLog() {
-                elements.interceptorTableBody.innerHTML = '';
-                elements.interceptorDetails.innerHTML = safeHTML(`
+    function clearActivityLog() {
+        elements.interceptorTableBody.innerHTML = '';
+        elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Select a request to view details</p>
             </div>
         `);
-            }
+    }
 
-            function showInterceptorPanel(show) {
-                state.panelVisible = show;
+    function showInterceptorPanel(show) {
+        state.panelVisible = show;
 
-                if (show) {
-                    // Update header button to look active
-                    elements.viewTrafficBtn?.classList.add('active');
+        if (show) {
+            // Update header button to look active
+            elements.viewTrafficBtn?.classList.add('active');
 
-                    // Hide standard panels
-                    elements.interfacePanel.style.display = 'none';
-                    elements.paramsPanel.style.display = 'none';
+            // Hide standard panels
+            elements.interfacePanel.style.display = 'none';
+            elements.paramsPanel.style.display = 'none';
 
-                    // Show Interceptor Panel (Full Width)
-                    elements.interceptorPanel.style.display = 'flex';
-                } else {
-                    // Update header button
-                    elements.viewTrafficBtn?.classList.remove('active');
+            // Show Interceptor Panel (Full Width)
+            elements.interceptorPanel.style.display = 'flex';
+        } else {
+            // Update header button
+            elements.viewTrafficBtn?.classList.remove('active');
 
-                    // Show standard panels
-                    elements.interfacePanel.style.display = 'block';
-                    elements.paramsPanel.style.display = 'block';
+            // Show standard panels
+            elements.interfacePanel.style.display = 'block';
+            elements.paramsPanel.style.display = 'block';
 
-                    // Hide Interceptor Panel
-                    elements.interceptorPanel.style.display = 'none';
-                }
-            }
+            // Hide Interceptor Panel
+            elements.interceptorPanel.style.display = 'none';
+        }
+    }
 
-            // Unified function to add rows to the table
-            function addActivityRow(data) {
-                const { id, interface: iface, method, params, timestamp, type, status } = data;
+    // Unified function to add rows to the table
+    function addActivityRow(data) {
+        const { id, interface: iface, method, params, timestamp, type, status } = data;
 
-                const row = document.createElement('tr');
-                row.dataset.id = id;
-                row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
-                if (data.proxyId) row.dataset.proxyId = data.proxyId;
+        const row = document.createElement('tr');
+        row.dataset.id = id;
+        row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
+        if (data.proxyId) row.dataset.proxyId = data.proxyId;
 
-                // Visual indicator for manual vs intercept
-                let typeIcon = 'ðŸ“¡';
-                if (type === 'MANUAL') typeIcon = 'ðŸ› ï¸';
-                if (type === 'SYSTEM') typeIcon = 'âš ï¸';
+        // Visual indicator for manual vs intercept
+        let typeIcon = 'ðŸ“¡';
+        if (type === 'MANUAL') typeIcon = 'ðŸ› ï¸';
+        if (type === 'SYSTEM') typeIcon = 'âš ï¸';
 
-                let displayStatus = status || 'Pending';
-                let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+        let displayStatus = status || 'Pending';
+        let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
 
-                // Check mode
-                let currentMode = 'INTERCEPT';
-                if (data.mode === 'LOG' && type !== 'MANUAL') {
-                    displayStatus = 'Logged';
-                    statusClass = 'logged'; // Make sure to add CSS for this
-                }
+        // Check mode
+        let currentMode = 'INTERCEPT';
+        if (data.mode === 'LOG' && type !== 'MANUAL') {
+            displayStatus = 'Logged';
+            statusClass = 'logged'; // Make sure to add CSS for this
+        }
 
-                row.innerHTML = safeHTML(`
+        row.innerHTML = safeHTML(`
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
             <td>
                 ${(data.mode === 'LOG') ?
-                        `<button class="btn btn-small" onclick="event.stopPropagation(); switchToInterceptMode('${escapeHtml(iface)}')">Intercept</button>` :
-                        ''}
+                `<button class="btn btn-small" onclick="event.stopPropagation(); switchToInterceptMode('${escapeHtml(iface)}')">Intercept</button>` :
+                ''}
             </td>
         `);
 
-                // Attach full details for the details view
-                row.__details = data;
-                row.addEventListener('click', () => showInterceptDetails(row.__details));
+        // Attach full details for the details view
+        row.__details = data;
+        row.addEventListener('click', () => showInterceptDetails(row.__details));
 
-                elements.interceptorTableBody.prepend(row);
-            }
+        elements.interceptorTableBody.prepend(row);
+    }
 
-            function updateActivityRow(id, status, resultData) {
-                const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-                if (row) {
-                    const statusCell = row.cells[2];
-                    const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
-                    let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
+    function updateActivityRow(id, status, resultData) {
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) {
+            const statusCell = row.cells[2];
+            const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
+            let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
 
-                    statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
+            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
 
-                    // Merge result into the stored details so showInterceptDetails can display it
-                    if (row.__details) {
-                        row.__details.result = resultData;
-                        row.__details.status = status;
+            // Merge result into the stored details so showInterceptDetails can display it
+            if (row.__details) {
+                row.__details.result = resultData;
+                row.__details.status = status;
 
-                        // If this is currently selected, refresh the details view
-                        if (row.classList.contains('active')) {
-                            showInterceptDetails(row.__details);
-                        }
-                    }
+                // If this is currently selected, refresh the details view
+                if (row.classList.contains('active')) {
+                    showInterceptDetails(row.__details);
                 }
             }
+        }
+    }
 
-            function handleMojoIntercept(e) {
-                state.trafficCount++;
-                if (elements.trafficBadge) {
-                    elements.trafficBadge.textContent = state.trafficCount;
-                    elements.trafficBadge.style.display = 'inline-block';
-                }
+    function handleMojoIntercept(e) {
+        state.trafficCount++;
+        if (elements.trafficBadge) {
+            elements.trafficBadge.textContent = state.trafficCount;
+            elements.trafficBadge.style.display = 'inline-block';
+        }
 
-                // Forward to unified handler
-                addActivityRow({
-                    ...e.detail,
-                    type: 'INTERCEPT',
-                    status: 'Pending'
-                });
+        // Forward to unified handler
+        addActivityRow({
+            ...e.detail,
+            type: 'INTERCEPT',
+            status: 'Pending'
+        });
 
-                // Ensure panel is visible if not already
-                if (elements.interceptorPanel.style.display === 'none') {
-                    // Optional: highlight tab
-                }
+        // Ensure panel is visible if not already
+        if (elements.interceptorPanel.style.display === 'none') {
+            // Optional: highlight tab
+        }
+    }
+
+    function handleMojoResponse(e) {
+        updateActivityRow(e.detail.id, 'Done', e.detail.result);
+    }
+
+    function handleMojoError(e) {
+        const { id, error } = e.detail;
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+
+        if (!row) {
+            // If row doesn't exist (e.g. system error or protocol mismatch), create one
+            addActivityRow({
+                id: id,
+                interface: 'System',
+                method: 'Error',
+                params: null,
+                timestamp: Date.now(),
+                type: 'SYSTEM',
+                status: 'Error',
+                error: error
+            });
+            return;
+        }
+
+        updateActivityRow(id, 'Error', { error: error });
+    }
+
+    // ========================================
+    // Parameter Sanitization (Strip/Restore arg_ prefix)
+    // ========================================
+    function sanitizeKeys(obj) {
+        if (obj === null || typeof obj !== 'object') return obj;
+        if (Array.isArray(obj)) return obj.map(sanitizeKeys);
+
+        const clean = {};
+        for (const key in obj) {
+            let cleanKey = key;
+            if (cleanKey.startsWith('arg_')) {
+                cleanKey = cleanKey.substring(4);
             }
+            clean[cleanKey] = sanitizeKeys(obj[key]);
+        }
+        return clean;
+    }
 
-            function handleMojoResponse(e) {
-                updateActivityRow(e.detail.id, 'Done', e.detail.result);
+    function reconcileKeys(edited, original) {
+        if (edited === null || typeof edited !== 'object') return edited;
+        if (original === null || typeof original !== 'object') return edited; // Cannot reconcile, accept edited
+
+        if (Array.isArray(edited)) {
+            // Assume array order is preserved or just map
+            return edited.map((v, i) => reconcileKeys(v, Array.isArray(original) ? original[i] : null));
+        }
+
+        const restored = {};
+        for (const key in edited) {
+            let originalKey = key;
+            // Check if 'arg_' + key exists in original
+            if (original && original.hasOwnProperty('arg_' + key)) {
+                originalKey = 'arg_' + key;
+            } else if (original && original.hasOwnProperty(key)) {
+                originalKey = key;
             }
+            // If neither, we keep the new key (user added it, or it was already clean)
 
-            function handleMojoError(e) {
-                const { id, error } = e.detail;
-                const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey]);
+        }
+        return restored;
+    }
 
-                if (!row) {
-                    // If row doesn't exist (e.g. system error or protocol mismatch), create one
-                    addActivityRow({
-                        id: id,
-                        interface: 'System',
-                        method: 'Error',
-                        params: null,
-                        timestamp: Date.now(),
-                        type: 'SYSTEM',
-                        status: 'Error',
-                        error: error
-                    });
-                    return;
-                }
+    function showInterceptDetails(detail) {
+        const { id, interface: iface, method, params } = detail;
 
-                updateActivityRow(id, 'Error', { error: error });
-            }
+        // Highlight row
+        elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) row.classList.add('active');
 
-            // ========================================
-            // Parameter Sanitization (Strip/Restore arg_ prefix)
-            // ========================================
-            function sanitizeKeys(obj) {
-                if (obj === null || typeof obj !== 'object') return obj;
-                if (Array.isArray(obj)) return obj.map(sanitizeKeys);
+        // Show details with action buttons
+        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+        const isManual = detail.type === 'MANUAL';
 
-                const clean = {};
-                for (const key in obj) {
-                    let cleanKey = key;
-                    if (cleanKey.startsWith('arg_')) {
-                        cleanKey = cleanKey.substring(4);
-                    }
-                    clean[cleanKey] = sanitizeKeys(obj[key]);
-                }
-                return clean;
-            }
+        const methodDef = findMethodDefinition(iface, method);
+        let paramsHtml;
 
-            function reconcileKeys(edited, original) {
-                if (edited === null || typeof edited !== 'object') return edited;
-                if (original === null || typeof original !== 'object') return edited; // Cannot reconcile, accept edited
-
-                if (Array.isArray(edited)) {
-                    // Assume array order is preserved or just map
-                    return edited.map((v, i) => reconcileKeys(v, Array.isArray(original) ? original[i] : null));
-                }
-
-                const restored = {};
-                for (const key in edited) {
-                    let originalKey = key;
-                    // Check if 'arg_' + key exists in original
-                    if (original && original.hasOwnProperty('arg_' + key)) {
-                        originalKey = 'arg_' + key;
-                    } else if (original && original.hasOwnProperty(key)) {
-                        originalKey = key;
-                    }
-                    // If neither, we keep the new key (user added it, or it was already clean)
-
-                    restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey]);
-                }
-                return restored;
-            }
-
-            function showInterceptDetails(detail) {
-                const { id, interface: iface, method, params } = detail;
-
-                // Highlight row
-                elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
-                const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-                if (row) row.classList.add('active');
-
-                // Show details with action buttons
-                const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
-                const isManual = detail.type === 'MANUAL';
-
-                const methodDef = findMethodDefinition(iface, method);
-                let paramsHtml;
-
-                if (methodDef && methodDef.parameters) {
-                    paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
+        if (methodDef && methodDef.parameters) {
+            paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
                            ${renderInterceptorForm(methodDef.parameters, params, id)}
                            </div>`;
-                } else {
-                    // Fallback for unknown methods or if no methodDef, sanitize keys for display
-                    const displayParams = sanitizeKeys(params);
-                    paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
-                }
+        } else {
+            // Fallback for unknown methods or if no methodDef, sanitize keys for display
+            const displayParams = sanitizeKeys(params);
+            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
+        }
 
-                let contentHtml = '';
+        let contentHtml = '';
 
-                // If we have a result or error, use split view for compactness
-                if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
-                    contentHtml = `
+        // If we have a result or error, use split view for compactness
+        if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
+            contentHtml = `
                 <div class="details-split-view">
                     <div class="details-column">
                         <h5>Request</h5>
@@ -1396,23 +1397,23 @@
                     <div class="details-column">
                         <h5>Response</h5>
                         ${(detail.error || detail.status === 'Error') ?
-                            `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>` :
-                            `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(detail.result, 2))}</div>`
-                        }
+                    `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>` :
+                    `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(detail.result, 2))}</div>`
+                }
                     </div>
                 </div>
             `;
-                } else {
-                    // Single view for pending
-                    contentHtml = `
+        } else {
+            // Single view for pending
+            contentHtml = `
                 <div class="details-column" style="margin-top:10px;">
                     <h5>Request</h5>
                     ${paramsHtml}
                 </div>
             `;
-                }
+        }
 
-                elements.interceptorDetails.innerHTML = safeHTML(`
+        elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
                 ${(isPending && !isManual) ? `
@@ -1428,168 +1429,168 @@
             </div>
             ${contentHtml}
         `);
-            }
+    }
 
-            // Modify request function (globally accessible for onclick)
-            window.resumeIntercept = function (id, drop) {
-                let params = null;
+    // Modify request function (globally accessible for onclick)
+    window.resumeIntercept = function (id, drop) {
+        let params = null;
 
-                if (!drop) {
-                    const formContainer = document.getElementById(`interceptForm_${id}`);
-                    if (formContainer) {
-                        // New logic: gather from form inputs
-                        try {
-                            params = getInterceptorFormValues(id);
-                        } catch (e) {
-                            alert('Error parsing form values: ' + e.message);
-                            return;
-                        }
-                    } else {
-                        // Fallback: old textarea logic
-                        const textarea = document.getElementById(`interceptParams_${id}`);
-                        if (textarea) {
-                            try {
-                                params = safeParse(textarea.value);
-                            } catch (e) {
-                                alert('Invalid JSON params');
-                                return;
-                            }
-                        }
-                    }
-                }
-
-                const row = document.querySelector(`tr[data-id="${id}"]`);
-                const proxyId = row.dataset.proxyId;
-
-                if (drop) {
-                    // We need to call resumeCall on the proxy
-                    const proxy = MojoProxyRegistry.get(proxyId);
-                    if (proxy) proxy.resumeCall(id, null, true);
-                } else {
-                    const proxy = MojoProxyRegistry.get(proxyId);
-                    if (proxy) {
-                        // Reconcile keys with original source of truth
-                        const originalParams = (row && row.__details) ? row.__details.params : null;
-                        const restoredParams = reconcileKeys(params, originalParams);
-
-                        proxy.resumeCall(id, restoredParams, false);
-                        // Update history with modified params
-                        if (row && row.__details) {
-                            row.__details.params = restoredParams;
-                        }
-                    }
-                }
-            }
-
-            window.replayIntercept = function (id) {
-                let params = null;
+        if (!drop) {
+            const formContainer = document.getElementById(`interceptForm_${id}`);
+            if (formContainer) {
+                // New logic: gather from form inputs
                 try {
-                    // Gather params from the UI (interceptForm or textarea)
-                    const formContainer = document.getElementById(`interceptForm_${id}`);
-                    if (formContainer) {
-                        params = getInterceptorFormValues(id);
-                    } else {
-                        const textarea = document.getElementById(`interceptParams_${id}`);
-                        if (textarea) params = safeParse(textarea.value);
-                    }
+                    params = getInterceptorFormValues(id);
                 } catch (e) {
                     alert('Error parsing form values: ' + e.message);
                     return;
                 }
-
-                const row = document.querySelector(`tr[data-id="${id}"]`);
-                if (!row || !row.__details) return;
-
-                const detail = row.__details;
-                const proxyId = detail.proxyId;
-                const method = detail.method;
-
-                const proxy = MojoProxyRegistry.get(proxyId);
-                if (!proxy) {
-                    alert('Proxy connection lost. Cannot replay.');
-                    return;
-                }
-
-                // Replay using the proxy's remote
-                if (proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
+            } else {
+                // Fallback: old textarea logic
+                const textarea = document.getElementById(`interceptParams_${id}`);
+                if (textarea) {
                     try {
-                        const newId = 'replay_' + Date.now();
-                        // Add new activity row for the replay
-                        addActivityRow({
-                            id: newId,
-                            interface: detail.interface,
-                            method: method,
-                            params: params,
-                            timestamp: Date.now(),
-                            type: 'MANUAL',
-                            status: 'Replaying...',
-                            proxyId: proxyId
-                        });
-
-                        // Show details for the new Replay row
-                        showInterceptDetails({ ...detail, id: newId, params: params, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
-
-                        const resultPromise = proxy.realRemote[method](...params);
-
-                        if (resultPromise && resultPromise.then) {
-                            resultPromise.then(res => {
-                                updateActivityRow(newId, 'Done', res);
-                                const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
-                                if (activeRow && activeRow.classList.contains('active')) {
-                                    showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
-                                }
-                            }).catch(err => {
-                                updateActivityRow(newId, 'Error', { error: err.toString() });
-                                const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
-                                if (activeRow && activeRow.classList.contains('active')) {
-                                    showInterceptDetails({ ...detail, id: newId, params: params, error: err.toString(), status: 'Error', type: 'MANUAL' });
-                                }
-                            });
-                        } else {
-                            updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
-                        }
+                        params = safeParse(textarea.value);
                     } catch (e) {
-                        alert('Execution failed: ' + e.message);
+                        alert('Invalid JSON params');
+                        return;
                     }
-                } else {
-                    alert(`Method ${method} not found on remote.`);
                 }
             }
+        }
 
-            // ========================================
-            // Utilities
-            // ========================================
-            function showToast(message, type = 'info') {
-                const toast = document.createElement('div');
-                toast.className = `toast toast-${type}`;
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const proxyId = row.dataset.proxyId;
 
-                // Icon based on type
-                let icon = 'â„¹ï¸';
-                if (type === 'success') icon = 'âœ…';
-                if (type === 'error') icon = 'âŒ';
-                if (type === 'warning') icon = 'âš ï¸';
+        if (drop) {
+            // We need to call resumeCall on the proxy
+            const proxy = MojoProxyRegistry.get(proxyId);
+            if (proxy) proxy.resumeCall(id, null, true);
+        } else {
+            const proxy = MojoProxyRegistry.get(proxyId);
+            if (proxy) {
+                // Reconcile keys with original source of truth
+                const originalParams = (row && row.__details) ? row.__details.params : null;
+                const restoredParams = reconcileKeys(params, originalParams);
 
-                toast.innerHTML = safeHTML(`
+                proxy.resumeCall(id, restoredParams, false);
+                // Update history with modified params
+                if (row && row.__details) {
+                    row.__details.params = restoredParams;
+                }
+            }
+        }
+    }
+
+    window.replayIntercept = function (id) {
+        let params = null;
+        try {
+            // Gather params from the UI (interceptForm or textarea)
+            const formContainer = document.getElementById(`interceptForm_${id}`);
+            if (formContainer) {
+                params = getInterceptorFormValues(id);
+            } else {
+                const textarea = document.getElementById(`interceptParams_${id}`);
+                if (textarea) params = safeParse(textarea.value);
+            }
+        } catch (e) {
+            alert('Error parsing form values: ' + e.message);
+            return;
+        }
+
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        if (!row || !row.__details) return;
+
+        const detail = row.__details;
+        const proxyId = detail.proxyId;
+        const method = detail.method;
+
+        const proxy = MojoProxyRegistry.get(proxyId);
+        if (!proxy) {
+            alert('Proxy connection lost. Cannot replay.');
+            return;
+        }
+
+        // Replay using the proxy's remote
+        if (proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
+            try {
+                const newId = 'replay_' + Date.now();
+                // Add new activity row for the replay
+                addActivityRow({
+                    id: newId,
+                    interface: detail.interface,
+                    method: method,
+                    params: params,
+                    timestamp: Date.now(),
+                    type: 'MANUAL',
+                    status: 'Replaying...',
+                    proxyId: proxyId
+                });
+
+                // Show details for the new Replay row
+                showInterceptDetails({ ...detail, id: newId, params: params, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
+
+                const resultPromise = proxy.realRemote[method](...params);
+
+                if (resultPromise && resultPromise.then) {
+                    resultPromise.then(res => {
+                        updateActivityRow(newId, 'Done', res);
+                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+                        if (activeRow && activeRow.classList.contains('active')) {
+                            showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
+                        }
+                    }).catch(err => {
+                        updateActivityRow(newId, 'Error', { error: err.toString() });
+                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+                        if (activeRow && activeRow.classList.contains('active')) {
+                            showInterceptDetails({ ...detail, id: newId, params: params, error: err.toString(), status: 'Error', type: 'MANUAL' });
+                        }
+                    });
+                } else {
+                    updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
+                }
+            } catch (e) {
+                alert('Execution failed: ' + e.message);
+            }
+        } else {
+            alert(`Method ${method} not found on remote.`);
+        }
+    }
+
+    // ========================================
+    // Utilities
+    // ========================================
+    function showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+
+        // Icon based on type
+        let icon = 'ℹ️';
+        if (type === 'success') icon = '✅';
+        if (type === 'error') icon = '❌';
+        if (type === 'warning') icon = '⚠️';
+
+        toast.innerHTML = safeHTML(`
             <span class="toast-icon">${icon}</span>
             <span class="toast-message">${escapeHtml(message)}</span>
         `);
 
-                // Create progress bar
-                const progressBar = document.createElement('div');
-                progressBar.className = 'toast-progress';
-                toast.appendChild(progressBar);
+        // Create progress bar
+        const progressBar = document.createElement('div');
+        progressBar.className = 'toast-progress';
+        toast.appendChild(progressBar);
 
-                // Remove inline styles to rely on CSS
-                elements.toastContainer.appendChild(toast);
+        // Remove inline styles to rely on CSS
+        elements.toastContainer.appendChild(toast);
 
-                // Auto-remove
-                setTimeout(() => {
-                    toast.style.animation = 'slideOut 0.3s ease forwards';
-                    setTimeout(() => toast.remove(), 300);
-                }, 3000);
-            }
+        // Auto-remove
+        setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease forwards';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
 
-            // Start
-            init();
+    // Start
+    init();
 
-        })();
+})();
