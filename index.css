@@ -1009,18 +1009,40 @@ body::before {
 }
 
 @media (max-width: 1024px) {
+
+    /* Switch from App-style (100vh) to Document-style layout on mobile */
+    .app-container {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+
     .main-content {
         flex-direction: column;
+        height: auto;
+        overflow: visible;
     }
 
     .sidebar {
         width: 100%;
-        max-height: 200px;
+        max-height: 350px;
+        /* Keep sidebar scrollable internally so it doesn't take over huge space */
+        flex: none;
+    }
+
+    .main-panel {
+        flex: none;
+        height: auto;
+        overflow: visible;
     }
 
     .code-panel {
         width: 100%;
-        max-height: 300px;
+        max-height: none;
+        /* Let it grow naturally */
+        height: auto;
+        flex: none;
+        margin-top: var(--space-md);
     }
 
     /* Header adjustments for mobile */
@@ -1072,11 +1094,7 @@ body::before {
         }
     }
 
-    /* Hide less critical elements on very small screens to save space */
-    .switch-label span.switch-slider {
-        /* Keep slider visible */
-    }
-
+    /* Reduce font size for switch label on mobile */
     .switch-label {
         font-size: 0.75rem;
     }
