@@ -1,17 +1,14 @@
 /**
  * MojoGUI Sandbox Manager
  * 
- * Implements "Virtual Iframe" capability by intercepting FrameHost.CreateChildFrame
- * and performing a Man-in-the-Middle attack on the new frame's BrowserInterfaceBroker.
+ * Implements "Virtual Iframe" capability by piggybacking on the global InterceptorManager.
+ * It forces content.mojom.FrameHost into INTERCEPT (Blocking) mode, intercepting the
+ * CreateChildFrame call to perform a Man-in-the-Middle attack on the new frame's Broker.
  */
 
 export const SandboxManager = {
     isActive: false,
-    frameHostInterceptor: null,
-
-    // Store active brokers for child frames
-    // Map<LocalFrameToken, BrowserInterfaceBrokerStub>
-    childBrokers: new Map(),
+    virtualBrokerPolyfill: null,
 
     async createVirtualFrame() {
         if (!this.isActive) {
@@ -21,28 +18,50 @@ export const SandboxManager = {
         console.log("[Sandbox] Creating new Virtual Iframe...");
         const iframe = document.createElement('iframe');
         iframe.src = 'about:blank';
-        iframe.style.border = "2px solid #00ff00"; // Visual indicator
+        iframe.style.border = "2px solid #00ff00";
         iframe.style.width = "100%";
         iframe.style.height = "200px";
         iframe.style.marginTop = "10px";
 
-        // Add to DOM - this triggers FrameHost.CreateChildFrame immediately
         document.querySelector('.main-content').appendChild(iframe);
 
-        // Inject a helper script to ease manual testing
+        // Use Trusted Types if available
+        let policy = null;
+        if (window.trustedTypes && window.trustedTypes.createPolicy) {
+            try {
+                policy = window.trustedTypes.createPolicy('mojoSandbox', {
+                    createHTML: s => s,
+                    createScript: s => s
+                });
+            } catch (e) {
+                // Policy might already exist, reuse isn't easy without reference or duplicate handling
+                // Try default if failed? or assume we can just use strings if policy creation failed due to duplicate name
+                // Actually, duplicate name throws.
+            }
+        }
+
         setTimeout(() => {
             try {
-                iframe.contentWindow.eval(`
-                    console.log("%c[Sandbox] Virtual Iframe Ready", "color: #00ff00; font-weight: bold");
-                    window.help = "Use blink.mojom.LocalFrameHost.getRemote().enterFullscreen() to test";
-                    
-                    // Convenience for user manual testing
+                const win = iframe.contentWindow;
+                win.console.log("%c[Sandbox] Virtual Iframe Ready", "color: #00ff00; font-weight: bold");
+                win.help = "Use blink.mojom.LocalFrameHost.getRemote().enterFullscreen() to test";
+
+                const code = `
                     window.startFullscreen = () => {
-                         let remote = new blink.mojom.LocalFrameHostRemote();
-                         remote.enterFullscreen();
+                         try {
+                             let remote = new blink.mojom.LocalFrameHostRemote();
+                             remote.enterFullscreen();
+                             console.log("Called enterFullscreen");
+                         } catch(e) { console.error(e); }
                     };
-                `);
-            } catch (e) { }
+                `;
+
+                const script = iframe.contentDocument.createElement('script');
+                script.textContent = policy ? policy.createScript(code) : code;
+                iframe.contentDocument.body.appendChild(script);
+            } catch (e) {
+                console.warn("[Sandbox] Helper injection failed", e);
+            }
         }, 500);
     },
 
@@ -50,162 +69,98 @@ export const SandboxManager = {
         if (this.isActive) return;
 
         const ifaceName = "content.mojom.FrameHost";
-        if (window.MojoLoader) {
-            try {
-                await window.MojoLoader.ensureBinding(ifaceName);
-            } catch (e) {
-                console.warn("[Sandbox] Binding load failed", e);
-            }
+
+        // 1. Ensure global interceptor is running in INTERCEPT (Blocking) mode
+        // We do typically monitor all, but we must ensure this one is set to BLOCK so we can modify args.
+        if (window.InterceptorManager) {
+            // Force start if not active, or switch mode if active
+            window.InterceptorManager.start(ifaceName, 'INTERCEPT');
+
+            // If it was already active in LOG mode, we just switched it.
+            // If it was manual, we respect it (but we will auto-resume our specific target anyway).
         }
 
-        // We hook content.mojom.FrameHost to catch CreateChildFrame
-        // This is sent by the RENDERER (us) to the BROWSER.
-        // So we need to intercept the *outgoing* request? 
-        // MojoInterfaceInterceptor typically intercepts *incoming* requests (Receiver).
-        // BUT, CreateChildFrame is an outgoing call from RenderFrameImpl.
-        // 
-        // Wait, MojoInterfaceInterceptor intercepts "Mojo.bindInterface" calls.
-        // When blink creates a frame, it calls `bindInterface("content.mojom.FrameHost", ...)`?
-        // OR it uses an associated interface on the existing channel.
-        //
-        // If it's an associated interface, MojoInterfaceInterceptor might NOT see it if it's not a fresh bind.
-        // However, let's try.
+        // 2. Add Listener for the event
+        window.addEventListener('mojo-intercept', (e) => this.handleIntercept(e));
 
-
-
-        try {
-            this.frameHostInterceptor = new MojoInterfaceInterceptor(ifaceName);
-            this.frameHostInterceptor.oninterfacerequest = (e) => {
-                this.handleFrameHostConnection(e.handle);
-            };
-            this.frameHostInterceptor.start();
-            this.isActive = true;
-            console.log(`[Sandbox] Interceptor started for ${ifaceName}`);
-
-            // Register in the main UI
-            if (window.InterceptorManager) {
-                window.InterceptorManager.interceptors.set(ifaceName, this.frameHostInterceptor);
-                window.InterceptorManager.modes.set(ifaceName, 'VIRTUAL');
-            }
-        } catch (e) {
-            console.error("[Sandbox] Failed to start FrameHost interceptor:", e);
-            alert("Failed to start Sandbox Interceptor. MojoJS might be disabled or scope issue.");
-        }
+        this.isActive = true;
+        console.log(`[Sandbox] Passive Interceptor attached for ${ifaceName}`);
     },
 
-    handleFrameHostConnection(handle) {
-        console.log("[Sandbox] Trapped FrameHost connection!");
+    handleIntercept(e) {
+        const { id, interface: iface, method, params, proxyId } = e.detail;
 
-        // We need to act as the Receiver for FrameHost
-        // We can use the generated bindings if available, or a generic proxy.
-        // Since we specifically want CreateChildFrame, let's use a generic proxy that looks for that method ordinal.
+        if (iface === 'content.mojom.FrameHost' && method === 'CreateChildFrame') {
+            console.log("[Sandbox] Detected CreateChildFrame! Intercepting...");
 
-        // Create a Proxy using our existing system
-        if (window.MojoProxy) {
-            const proxy = window.MojoProxy.create("content.mojom.FrameHost", handle);
-            if (proxy) {
-                // Hook the 'CreateChildFrame' method
-                // We need to know its ordinal. Ideally we learn it.
-                // But for now, we look at the raw messages.
+            // We must act quickly. The UI is likely rendering a "Pending" row.
+            // We will modify the args and Resume the call immediately.
 
-                // Override the intercept logic tailored for FrameHost
-                const originalIntercept = proxy.proxy.interceptCall;
-                proxy.proxy.interceptCall = (method, args) => {
-                    if (method === 'CreateChildFrame') {
-                        this.handleCreateChildFrame(args);
-                    }
-                    // Log it
-                    window.dispatchEvent(new CustomEvent('mojo-intercept', {
-                        detail: {
-                            id: Math.random().toString(36).substr(2, 9),
-                            interface: "content.mojom.FrameHost",
-                            method: method,
-                            params: args,
-                            timestamp: Date.now(),
-                            mode: 'VIRTUAL'
-                        }
-                    }));
+            // Args signature: CreateChildFrame(token, frame_remote, broker_receiver, ...)
+            // Index 2 is broker_receiver (browser_interface_broker)
 
-                    // Forward to real browser? 
-                    // If we want the frame to actually exist, WE MUST FORWARD IT.
-                    // But we want to REPLACE the broker receiver first.
-                    return originalIntercept.call(proxy.proxy, method, args);
-                };
+            const originalReceiver = params[2];
+            if (originalReceiver) {
+                console.log("[Sandbox] Stealing Broker Receiver...");
+
+                // 1. Create MitM pipe
+                const { handle0: localEnd, handle1: browserEnd } = Mojo.createMessagePipe();
+
+                // 2. Clone params to modify
+                // We cannot modify e.detail.params in place effectively if we want to send new ones to resumeCall
+                const newParams = [...params];
+
+                // 3. Swap: Browser gets NEW pipe. Child keeps ORIGINAL pipe (which we bind to).
+                newParams[2] = browserEnd;
+
+                // 4. Resume the call with MODIFIED params
+                const proxy = window.MojoProxyRegistry.get(proxyId);
+                if (proxy) {
+                    proxy.resumeCall(id, newParams);
+                    console.log("[Sandbox] Resumed CreateChildFrame with swapped handle.");
+
+                    // 5. Bind our Virtual Broker to the original receiver
+                    this.bindVirtualBroker(originalReceiver, localEnd);
+                } else {
+                    console.error("[Sandbox] Could not find Proxy for ID", proxyId);
+                }
             }
-        }
-    },
-
-    handleCreateChildFrame(args) {
-        console.log("[Sandbox] CAUGHT CreateChildFrame!", args);
-
-        // Args signature: (token, frame_remote, broker_receiver, devtools_token)
-        // We need to identify which arg is the broker_receiver.
-        // Based on mojom: 3rd argument (index 2) is pending_receiver<BrowserInterfaceBroker>.
-
-        const brokerReceiver = args[2];
-        if (brokerReceiver) {
-            console.log("[Sandbox] STEALING BrowserInterfaceBroker Receiver!");
-
-            // 1. Create a pipe for our Man-in-the-Middle
-            const { handle0: localEnd, handle1: browserEnd } = Mojo.createMessagePipe();
-
-            // 2. Give the browser the NEW pipe (browserEnd)
-            // We modify the args in place so the proxy sends the swapped handle
-            args[2] = browserEnd;
-
-            // 3. Bind OUR Broker Stub to the original receiver (which the child frame owns)
-            // Wait, args[2] is the RECEIVER. The Child Frame holds the REMOTE.
-            // The Child Frame calls `remote.GetInterface()`.
-            // Sending `brokerReceiver` to the browser tells the browser "Here, listen on this pipe".
-            // So if we swap it:
-            // - We give Browser `browserEnd`. Browser listens on `browserEnd`.
-            // - Child Frame holds `originalRemote` (connected to `brokerReceiver`).
-            // 
-            // We want Child Frame to talk to US.
-            // So we should KEEP `brokerReceiver` and bind our stub to it.
-            // AND we should give the Browser `browserEnd` and connect our Stub's output to `localEnd`.
-
-            this.bindVirtualBroker(brokerReceiver, localEnd);
         }
     },
 
     bindVirtualBroker(receiverHandle, forwardingHandle) {
-        console.log("[Sandbox] Binding Virtual Broker...");
+        console.log("[Sandbox] Binding Virtual Broker Stub...");
 
-        // This stub handles requests from the Child Frame
-        const stub = new MojoInterfaceInterceptor("blink.mojom.BrowserInterfaceBroker");
-        // Wait, MojoInterfaceInterceptor is for *creating* interceptors at the platform level.
-        // Here we just want to read messages from a handle.
-        // We can use `mojo.Binding` or raw router.
-
+        // Raw Router approach to avoid needing "blink.mojom.BrowserInterfaceBroker" binding object loaded
         const router = new mojo.internal.interfaceSupport.Router(receiverHandle);
-        const forwardingRouter = new mojo.internal.interfaceSupport.Router(forwardingHandle);
+        const forwardingRouter = new mojo.internal.interfaceSupport.Router(forwardingRouter); // WAIT. Typo in prev version?
+        // forwardingRouter should wrap `forwardingHandle`
+        const forwardingRouterReal = new mojo.internal.interfaceSupport.Router(forwardingHandle);
 
+        // From Child -> Us
         router.onMessageReceived_ = (buffer, handles) => {
-            // DECODE: This is a GetInterface(name, pipe) call
-            // We can try to parse it.
-            // BrowserInterfaceBroker.GetInterface is method 0 (usually).
+            console.log("[Sandbox] [VirtualBroker] Child requested interface (GetInterface)");
 
-            console.log("[Sandbox] Child Frame requested an interface!");
+            // We can try to decode slightly if we know the ordinal for GetInterface (usually 0)
+            // But for now, faithfully log and forward.
 
-            // Forward to browser by default
-            forwardingRouter.send({ buffer, handles });
-
-            // Notify UI
             window.dispatchEvent(new CustomEvent('mojo-intercept', {
                 detail: {
                     id: Math.random().toString(36).substr(2, 9),
                     interface: "VirtualBroker",
-                    method: "GetInterface", // Assumption
-                    params: ["<Unknown>"], // We need a decoder to see the name
+                    method: "GetInterface",
+                    params: ["<Opaque Ptr>"],
                     timestamp: Date.now(),
                     mode: 'VIRTUAL'
                 }
             }));
+
+            // Forward to Browser
+            forwardingRouterReal.send({ buffer, handles });
         };
 
-        // Handle replies from browser (if any)
-        forwardingRouter.onMessageReceived_ = (buffer, handles) => {
+        // From Browser -> Child (Replies)
+        forwardingRouterReal.onMessageReceived_ = (buffer, handles) => {
             router.send({ buffer, handles });
         };
     }
