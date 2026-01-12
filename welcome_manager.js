@@ -163,9 +163,24 @@ const WelcomeManager = (function () {
         const hasMojoSupport = (typeof MojoInterfaceInterceptor !== 'undefined') ||
             (typeof Mojo !== 'undefined' && Mojo.bindInterface);
 
-        // Priority Check: Detection Failed & No Data
-        if (!hasMojoSupport && (!interfaces || interfaces.length === 0)) {
+        // Priority Check: Detection Failed
+        // We warn if Mojo is missing, regardless of whether bindings provided interface definitions.
+        // Users can dismiss this for the session to view traffic logs/dumps in read-only mode.
+        if (!hasMojoSupport && !sessionStorage.getItem('mojo_warning_dismissed')) {
             createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
+
+            // Hook up dismissal
+            const activeModal = document.querySelector('.modal-overlay.active');
+            if (activeModal) {
+                const dismiss = () => sessionStorage.setItem('mojo_warning_dismissed', 'true');
+                const closeBtn = activeModal.querySelector('#modalCloseBtn');
+                const actionBtn = activeModal.querySelector('#modalActionBtn');
+                if (closeBtn) closeBtn.addEventListener('click', dismiss);
+                if (actionBtn) {
+                    actionBtn.textContent = "Continue Read-Only";
+                    actionBtn.addEventListener('click', dismiss);
+                }
+            }
             return; // Blocking modal, stop here
         }
 
