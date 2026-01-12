@@ -576,28 +576,40 @@
     }
 
     function findMethodDefinition(interfaceName, methodName) {
-        // Use the existing robust lookup from getMethodParams
-        // It handles:
-        // 1. Runtime loaded bindings (real schema)
-        // 2. Fallback paramDefs (hardcoded schema)
-        // 3. Default inference
-
-        // However, findMethodDefinition is expected to return a method object { name, parameters: [] }
-        // getMethodParams returns just the array of parameters.
-
+        // 1. Try reusing getMethodParams to see if we can get params directly
         const params = getMethodParams(interfaceName, methodName);
-        if (params && params.length > 0) {
+        if (params) {
             return {
                 name: methodName,
                 parameters: params
             };
         }
 
-        // If we really need the interface object for some reason, we can look it up,
-        // but for rendering the form, we just need the parameters.
-        const iface = state.interfaces.find(i => i.name === interfaceName);
+        // 2. Manual lookup with Fuzzy Matching (Collisions Handling)
+        // interfaceName is often FQN (blink.mojom.ClipboardHost)
+        // state.interfaces has { name: 'ClipboardHost', module: 'blink.mojom' }
+
+        let iface = state.interfaces.find(i => {
+            const fqn = i.module ? `${i.module}.${i.name}` : i.name;
+            return fqn === interfaceName;
+        });
+
+        if (!iface) {
+            // Fallback: Check if interfaceName is just the suffix (Short Name)
+            // Warning: This might return the wrong interface if collisions exist, but it's a fallback.
+            iface = state.interfaces.find(i => i.name === interfaceName);
+        }
+
+        if (!iface) {
+            // Fallback: Check for partial match/suffix just in case
+            iface = state.interfaces.find(i =>
+                i.name.endsWith('.' + interfaceName) || interfaceName.endsWith('.' + i.name)
+            );
+        }
+
         if (iface) {
-            const m = iface.methods.find(m => m.name === methodName);
+            // Case-insensitive method match
+            const m = iface.methods.find(m => m.name === methodName || m.name.toLowerCase() === methodName.toLowerCase());
             if (m) return m;
         }
 
@@ -1191,7 +1203,7 @@
 
         const isActive = InterceptorManager.toggle(nameTypeToUse);
 
-        updateInterceptButtonState(isActive);
+        updateInterceptButtonState(isActive, nameTypeToUse);
 
         if (isActive) {
             showToast(`Started intercepting ${nameTypeToUse}`, 'success');
@@ -1202,13 +1214,78 @@
         }
     }
 
-    function updateInterceptButtonState(isActive) {
-        elements.interceptStatusDot.classList.toggle('active', isActive);
-        elements.interceptToggleBtn.classList.toggle('active', isActive);
+    // State for Selective Interception (Auto-Forwarding)
+    // Key: "InterfaceName.MethodName" -> true (Auto Forward / Ignored)
+    state.autoForwardMethods = new Set();
 
-        const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
-        if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
+    function updateInterceptButtonState(isActive, interfaceName = null) {
+        // 1. Update Main Detail Panel Button
+        if (state.selectedInterface) {
+            const currentFQN = state.selectedInterface.module ? `${state.selectedInterface.module}.${state.selectedInterface.name}` : state.selectedInterface.name;
+            const currentShort = state.selectedInterface.name;
+
+            if (!interfaceName || interfaceName === currentFQN || interfaceName === currentShort) {
+                const realState = interfaceName ? InterceptorManager.isActive(interfaceName) : isActive;
+                elements.interceptStatusDot.classList.toggle('active', realState);
+                elements.interceptToggleBtn.classList.toggle('active', realState);
+                const text = elements.interceptToggleBtn.childNodes[2];
+                if (text) text.textContent = realState ? ' Stop Intercepting' : ' Intercept';
+            }
+        }
+
+        // 2. Update Traffic Log Buttons (Granular Sync)
+        const logButtons = document.querySelectorAll(`button[data-action="toggle-intercept"]`);
+        logButtons.forEach(btn => {
+            const btnIface = btn.dataset.interface;
+            const btnMethod = btn.dataset.method;
+
+            if (btnIface) {
+                const isIfaceActive = InterceptorManager.isActive(btnIface);
+                let isMethodActive = isIfaceActive;
+
+                // If interface is active, check if this specific method is Auto-Forwarded (Ignored)
+                if (isIfaceActive && btnMethod) {
+                    const key = `${btnIface}.${btnMethod}`;
+                    if (state.autoForwardMethods.has(key)) {
+                        isMethodActive = false;
+                    }
+                }
+
+                btn.classList.toggle('active', isMethodActive);
+                btn.textContent = isMethodActive ? 'Stop' : 'Intercept';
+            }
+        });
     }
+
+    // Helper for Traffic Log Buttons
+    window.toggleInterceptFromLog = function (ifaceName, methodName) {
+        const isIfaceActive = InterceptorManager.isActive(ifaceName);
+        const key = `${ifaceName}.${methodName}`;
+
+        if (!isIfaceActive) {
+            // Turning ON Interface. By default, Block everything 
+            // "Intercept" on a method means "Make sure Interface is ON and this method is NOT ignored"
+            InterceptorManager.toggle(ifaceName);
+            state.autoForwardMethods.delete(key);
+            showToast(`Started intercepting ${ifaceName}`, 'success');
+        } else {
+            // Interface is ALREADY ON.
+            // If button says "Stop" (Active) -> We want to Ignore this method (Auto-Forward)
+            // If button says "Intercept" (Inactive) -> We want to Stop Ignoring (Block)
+
+            if (state.autoForwardMethods.has(key)) {
+                // Was Ignored -> Enable Blocking
+                state.autoForwardMethods.delete(key);
+                showToast(`Resumed intercepting ${methodName}`, 'success');
+            } else {
+                // Was Blocking -> Set to Ignore
+                state.autoForwardMethods.add(key);
+                showToast(`Auto-forwarding ${methodName}`, 'info');
+            }
+        }
+
+        updateInterceptButtonState(true, ifaceName);
+    };
 
     function clearActivityLog() {
         elements.interceptorTableBody.innerHTML = '';
@@ -1275,7 +1352,14 @@
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
             <td>
                 ${(data.mode === 'LOG') ?
-                `<button class="btn btn-small" onclick="event.stopPropagation(); switchToInterceptMode('${escapeHtml(iface)}')">Intercept</button>` :
+                (() => {
+                    const isIfaceActive = typeof InterceptorManager !== 'undefined' && InterceptorManager.isActive(iface);
+                    let isBtnActive = isIfaceActive;
+                    if (isIfaceActive && state.autoForwardMethods.has(`${iface}.${method}`)) {
+                        isBtnActive = false;
+                    }
+                    return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Stop' : 'Intercept'}</button>`;
+                })() :
                 ''}
             </td>
         `);
@@ -1314,6 +1398,24 @@
         if (elements.trafficBadge) {
             elements.trafficBadge.textContent = state.trafficCount;
             elements.trafficBadge.style.display = 'inline-block';
+        }
+
+        // Check if we should Auto-Forward
+        const autoForwardKey = `${e.detail.interface}.${e.detail.method}`;
+        if (state.autoForwardMethods.has(autoForwardKey)) {
+            // Auto-Forward: Resume immediately
+            const proxy = MojoProxyRegistry.get(e.detail.proxyId);
+            if (proxy) {
+                proxy.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
+            }
+
+            // Log as 'Auto-Forwarded' (Pending -> Done instantly)
+            addActivityRow({
+                ...e.detail,
+                type: 'INTERCEPT',
+                status: 'Forwarded' // Special status
+            });
+            return;
         }
 
         // Forward to unified handler
@@ -1419,14 +1521,32 @@
                            </div>`;
         } else {
             // Fallback for unknown methods or if no methodDef, sanitize keys for display
+            // ALWAYS enable editing to allow Replay modification
             const displayParams = sanitizeKeys(params);
-            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
+            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
         }
 
         let contentHtml = '';
 
         // If we have a result or error, use split view for compactness
         if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
+            let responseHtml = '';
+
+            if (detail.error || detail.status === 'Error') {
+                responseHtml = `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>`;
+            } else {
+                // Try to use Nice GUI for Response if definition exists
+                // Mojo definitions often store response params in 'responseParams' or similar
+                // We will check methodDef.responseParams
+                if (methodDef && methodDef.responseParams) {
+                    responseHtml = `<div class="params-form-container" style="opacity: 0.9;">
+                                        ${renderInterceptorForm(methodDef.responseParams, detail.result, id + '_res')}
+                                      </div>`;
+                } else {
+                    responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(detail.result, 2))}</div>`;
+                }
+            }
+
             contentHtml = `
                 <div class="details-split-view">
                     <div class="details-column">
@@ -1435,10 +1555,7 @@
                     </div>
                     <div class="details-column">
                         <h5>Response</h5>
-                        ${(detail.error || detail.status === 'Error') ?
-                    `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>` :
-                    `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(detail.result, 2))}</div>`
-                }
+                        ${responseHtml}
                     </div>
                 </div>
             `;

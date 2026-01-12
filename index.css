@@ -1257,6 +1257,8 @@ body::before {
 .details-column {
     flex: 1;
     min-width: 0;
+    max-height: 60vh;
+    overflow-y: auto;
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
