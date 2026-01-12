@@ -1027,25 +1027,49 @@ body::before {
     .header {
         height: auto;
         min-height: var(--header-height);
-        padding: var(--space-sm) 0;
+        padding: var(--space-xs) 0;
     }
 
     .header-content {
         flex-wrap: wrap;
         gap: var(--space-sm);
         padding: 0 var(--space-md);
-        justify-content: center;
+        justify-content: space-between;
+        /* Allow side-by-side if fits */
     }
 
     .header-nav {
-        width: 100%;
-        justify-content: center;
+        width: auto;
+        flex: 1;
+        justify-content: flex-end;
         gap: var(--space-xs);
         flex-wrap: wrap;
     }
 
     .logo {
-        margin-bottom: 4px;
+        margin-bottom: 0;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    /* Very small screens */
+    @media (max-width: 480px) {
+        .header-content {
+            justify-content: center;
+        }
+
+        .header-nav {
+            justify-content: center;
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        .settings-group {
+            padding: 0 var(--space-xs);
+            border-right: none;
+        }
     }
 
     /* Hide less critical elements on very small screens to save space */
@@ -1055,6 +1079,33 @@ body::before {
 
     .switch-label {
         font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-panel {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .panel-header {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .params-form {
+        padding: var(--space-md);
+    }
+
+    /* Force tables to scroll or stack if needed */
+    .interceptor-list-container {
+        overflow-x: auto;
+    }
+
+    /* Ensure forms don't overflow */
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        min-width: 0;
     }
 }
 
