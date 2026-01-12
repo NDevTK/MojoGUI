@@ -527,6 +527,8 @@ body::before {
 /* Interface Panel */
 .interface-panel {
     min-height: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .methods-list {
@@ -534,9 +536,18 @@ body::before {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
-    max-height: 250px;
+    flex: 1;
+    /* Fill remaining space */
     overflow-y: auto;
     align-content: flex-start;
+    /* Keep items at top when populated */
+}
+
+/* Specific override for empty state centering */
+.methods-list:has(.empty-state),
+.methods-list:empty {
+    align-content: center;
+    justify-content: center;
 }
 
 .method-item {
@@ -1011,6 +1022,40 @@ body::before {
         width: 100%;
         max-height: 300px;
     }
+
+    /* Header adjustments for mobile */
+    .header {
+        height: auto;
+        min-height: var(--header-height);
+        padding: var(--space-sm) 0;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        padding: 0 var(--space-md);
+        justify-content: center;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: center;
+        gap: var(--space-xs);
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-bottom: 4px;
+    }
+
+    /* Hide less critical elements on very small screens to save space */
+    .switch-label span.switch-slider {
+        /* Keep slider visible */
+    }
+
+    .switch-label {
+        font-size: 0.75rem;
+    }
 }
 
 /* ========================================
@@ -1252,17 +1297,24 @@ body::before {
     display: flex;
     gap: var(--space-md);
     margin-top: 10px;
+    /* Ensure it takes available height or fits content nicely */
+    flex: 1;
+    min-height: 0;
 }
 
 .details-column {
     flex: 1;
     min-width: 0;
-    max-height: 60vh;
+    /* Remove fixed max-height, let flexbox handle it if parent is constrained */
+    /* Or use a reasonable max-height */
+    max-height: 50vh;
     overflow-y: auto;
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
     padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
 }
 
 .details-column h5 {
