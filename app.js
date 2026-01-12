@@ -511,6 +511,11 @@
         renderMethods(iface);
         renderParamsForm(null);
         updateGeneratedCode();
+
+        // Auto-hide traffic log when switching interfaces
+        if (state.panelVisible) {
+            showInterceptorPanel(false);
+        }
     }
 
     function renderMethods(iface) {
