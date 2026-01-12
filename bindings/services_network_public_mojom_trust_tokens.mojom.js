@@ -175,58 +175,58 @@ mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatus = {
 // Struct: TrustTokenParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
-      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_refresh_policy', 8, 0, mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_key_commitment', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_issuer', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_sign_request_data', 32, 0, mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_issuers', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_signed_headers', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_possibly_unsafe_additional_signing_data', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_include_timestamp_header', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_key_commitment', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_issuer', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_issuers', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_signed_headers', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_possibly_unsafe_additional_signing_data', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_operation', 40, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_policy', 44, 0, mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sign_request_data', 48, 0, mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_include_timestamp_header', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 64]]);
 
 // Struct: HasTrustTokensResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec, 'network.mojom.HasTrustTokensResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_trust_tokens', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_trust_tokens', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: HasRedemptionRecordResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec, 'network.mojom.HasRedemptionRecordResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_redemption_record', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_redemption_record', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: TrustTokenVerificationKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec, 'network.mojom.TrustTokenVerificationKey', [
       mojo.internal.StructField('arg_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiry', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiry', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TrustTokenKeyCommitmentResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec, 'network.mojom.TrustTokenKeyCommitmentResult', [
-      mojo.internal.StructField('arg_protocol_version', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keys', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_issuance_locally_on', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.OsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_unavailable_local_operation_fallback', 24, 0, mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_batch_size', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_issuance_locally_on', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.OsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_version', 16, 0, mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_size', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_unavailable_local_operation_fallback', 28, 0, mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: FulfillTrustTokenIssuanceRequest
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec, 'network.mojom.FulfillTrustTokenIssuanceRequest', [
-      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -234,26 +234,26 @@ mojo.internal.Struct(
 // Struct: FulfillTrustTokenIssuanceAnswer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec, 'network.mojom.FulfillTrustTokenIssuanceAnswer', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TrustTokenOperationResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec, 'network.mojom.TrustTokenOperationResult', [
-      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issuer', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_top_level_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_issued_token_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_level_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_operation', 16, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 20, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issued_token_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: StoredTrustTokensForIssuer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec, 'network.mojom.StoredTrustTokensForIssuer', [
-      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -261,33 +261,33 @@ mojo.internal.Struct(
 // Struct: ToplevelRedemptionRecord
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec, 'network.mojom.ToplevelRedemptionRecord', [
-      mojo.internal.StructField('arg_toplevel_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_redemption', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_toplevel_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_redemption', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: TrustTokenQueryAnswerer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_Params', [
-      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_Params', [
-      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

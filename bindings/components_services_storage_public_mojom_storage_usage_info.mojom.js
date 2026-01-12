@@ -79,8 +79,8 @@ mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec = { $: {} };
 // Struct: StorageUsageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec, 'storage.mojom.StorageUsageInfo', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_last_modified', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_modified', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

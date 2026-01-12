@@ -112,21 +112,21 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = { $
 // Interface: DrmDevice
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec, 'ui.ozone.mojom.DrmDevice_CreateWindow_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initial_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec, 'ui.ozone.mojom.DrmDevice_DestroyWindow_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetWindowBounds_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -159,20 +159,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParams', [
-      mojo.internal.StructField('arg_display_snapshots', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplaySnapshotSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_snapshots', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplaySnapshotSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_AddGraphicsDevice_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_fd_mojo_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -190,14 +190,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec, 'ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_Params', [
-      mojo.internal.StructField('arg_config_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modeset_flags', 8, 0, mojo.internal.bindings.display.mojom.ModesetFlagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modeset_flags', 8, 0, mojo.internal.bindings.display.mojom.ModesetFlagsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParams', [
-      mojo.internal.StructField('arg_request_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_config_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -225,19 +225,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParams', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protection_method', 16, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protection_method', 12, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetHDCPState_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protection_method', 16, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protection_method', 12, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParams', [
@@ -249,21 +249,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cta', 8, 0, mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cta', 8, 0, mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetColorCalibration_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_calibration', 8, 0, mojo.internal.bindings.display.mojom.ColorCalibrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_calibration', 8, 0, mojo.internal.bindings.display.mojom.ColorCalibrationSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetGammaAdjustment_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_adjustment', 8, 0, mojo.internal.bindings.display.mojom.GammaAdjustmentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_adjustment', 8, 0, mojo.internal.bindings.display.mojom.GammaAdjustmentSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -82,7 +82,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Respo
 // Interface: SafeBrowsingUrlChecker
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

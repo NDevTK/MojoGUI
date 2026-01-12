@@ -104,13 +104,13 @@ mojo.internal.bindings.prefs.mojom.ValueType = {
 // Struct: TrackedPersistentPrefStoreConfiguration
 mojo.internal.Struct(
     mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec, 'prefs.mojom.TrackedPersistentPrefStoreConfiguration', [
-      mojo.internal.StructField('arg_unprotected_pref_filename', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_pref_filename', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracking_configuration', 16, 0, mojo.internal.Array(mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_unprotected_pref_filename', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_pref_filename', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracking_configuration', 16, 0, mojo.internal.Array(mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_ids_count', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_seed', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_registry_seed', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registry_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registry_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_validation_delegate', 56, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverRemote), null, true, 0, undefined),
     ],
@@ -121,11 +121,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec, 'prefs.mojom.TrackedPreferenceMetadata', [
       mojo.internal.StructField('arg_reporting_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enforcement_level', 16, 0, mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_strategy', 24, 0, mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value_type', 32, 0, mojo.internal.bindings.prefs.mojom.ValueTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enforcement_level', 16, 0, mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strategy', 20, 0, mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value_type', 24, 0, mojo.internal.bindings.prefs.mojom.ValueTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: ResetOnLoadObserver
 mojo.internal.Struct(

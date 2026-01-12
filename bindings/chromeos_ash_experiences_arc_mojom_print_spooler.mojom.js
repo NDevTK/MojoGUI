@@ -217,7 +217,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

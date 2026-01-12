@@ -78,8 +78,8 @@ mojo.internal.bindings.viz.mojom.FrameDeadlineSpec = { $: {} };
 // Struct: FrameDeadline
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameDeadlineSpec, 'viz.mojom.FrameDeadline', [
-      mojo.internal.StructField('arg_frame_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_deadline_in_frames', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_use_default_lower_bound_deadline', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

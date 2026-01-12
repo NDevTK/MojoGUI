@@ -160,12 +160,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec, 'ash.settings.mojom.ActionType', {
       'arg_accelerator_action': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ash.mojom.AcceleratorActionSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.AcceleratorActionSpec,
         'nullable': false,
       },
       'arg_static_shortcut_action': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec,
         'nullable': false,
       },
     });
@@ -181,13 +181,13 @@ mojo.internal.Struct(
 // Interface: KeyboardSettingsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_Params', [
-      mojo.internal.StructField('arg_keyboards', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.KeyboardSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyboards', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.KeyboardSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_Params', [
-      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.ash.mojom.KeyboardPoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.ash.mojom.KeyboardPoliciesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRequest = mojo
 // Interface: TouchpadSettingsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec, 'ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_Params', [
-      mojo.internal.StructField('arg_touchpads', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.TouchpadSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touchpads', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.TouchpadSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverRequest = mojo
 // Interface: PointingStickSettingsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec, 'ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Params', [
-      mojo.internal.StructField('arg_pointSticks', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.PointingStickSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointSticks', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.PointingStickSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -732,13 +732,13 @@ mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverRequest =
 // Interface: MouseSettingsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_Params', [
-      mojo.internal.StructField('arg_mice', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.MouseSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mice', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.MouseSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_Params', [
-      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.ash.mojom.MousePoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.ash.mojom.MousePoliciesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -949,9 +949,9 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRequest = mojo.in
 // Interface: ButtonPressObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec, 'ash.settings.mojom.ButtonPressObserver_OnButtonPressed_Params', [
-      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.ash.mojom.ButtonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.ash.mojom.ButtonSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverPendingReceiver = class {
   constructor(handle) {
@@ -1116,7 +1116,7 @@ mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverRequest = mojo.inte
 // Interface: GraphicsTabletSettingsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec, 'ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Params', [
-      mojo.internal.StructField('arg_graphics_tablets', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.GraphicsTabletSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_graphics_tablets', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.GraphicsTabletSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1850,35 +1850,35 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.MouseSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.MouseSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1913,7 +1913,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1924,7 +1924,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1935,7 +1935,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParams', [
-      mojo.internal.StructField('arg_meta_key', 0, 0, mojo.internal.bindings.ui.mojom.MetaKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 0, 0, mojo.internal.bindings.ui.mojom.MetaKeySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

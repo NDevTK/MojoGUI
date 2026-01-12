@@ -88,11 +88,11 @@ mojo.internal.bindings.gfx.mojom.SelectionBoundType = {
 // Struct: SelectionBound
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, 'gfx.mojom.SelectionBound', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edge_start', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edge_end', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_edge_start', 24, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_edge_end', 32, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_edge_start', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_edge_end', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_edge_start', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_edge_end', 24, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);

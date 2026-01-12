@@ -84,7 +84,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSp
 // Interface: PdfProgressiveSearchifier
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -80,7 +80,7 @@ mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec = { $: {} };
 // Interface: MediaLog
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.MediaLogRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.MediaLogRecordSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

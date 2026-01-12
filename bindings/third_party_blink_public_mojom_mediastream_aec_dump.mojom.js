@@ -86,7 +86,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec = { $: {} };
 // Interface: AecDumpAgent
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec, 'blink.mojom.AecDumpAgent_Start_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

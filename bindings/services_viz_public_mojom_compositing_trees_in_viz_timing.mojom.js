@@ -78,9 +78,9 @@ mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec = { $: {} };
 // Struct: TreesInVizTiming
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec, 'viz.mojom.TreesInVizTiming', [
-      mojo.internal.StructField('arg_start_update_display_tree', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_prepare_to_draw', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_draw_layers', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_submit_compositor_frame', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_update_display_tree', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_prepare_to_draw', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_draw_layers', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_submit_compositor_frame', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

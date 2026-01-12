@@ -82,7 +82,7 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec = { 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec, 'chromecast.mojom.ServiceConnector_Connect_Params', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

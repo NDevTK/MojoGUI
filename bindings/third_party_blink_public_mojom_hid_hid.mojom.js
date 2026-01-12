@@ -100,7 +100,7 @@ mojo.internal.Union(
       },
       'arg_vendor_and_product': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.VendorAndProductSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.VendorAndProductSpec,
         'nullable': false,
       },
     });
@@ -115,7 +115,7 @@ mojo.internal.Union(
       },
       'arg_usage_and_page': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.HidUsageAndPageSpec.$,
+        'type': mojo.internal.bindings.device.mojom.HidUsageAndPageSpec,
         'nullable': false,
       },
     });
@@ -150,20 +150,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec, 'blink.mojom.HidService_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec, 'blink.mojom.HidService_RequestDevice_Params', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_exclusion_filters', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_exclusion_filters', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec, 'blink.mojom.HidService_RequestDevice_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,7 +182,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec, 'blink.mojom.HidService_Forget_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

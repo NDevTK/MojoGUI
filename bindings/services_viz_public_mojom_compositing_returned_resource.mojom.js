@@ -79,9 +79,9 @@ mojo.internal.bindings.viz.mojom.ReturnedResourceSpec = { $: {} };
 // Struct: ReturnedResource
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, 'viz.mojom.ReturnedResource', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_export_result', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_fence', 16, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_export_result', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_fence', 16, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_lost', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

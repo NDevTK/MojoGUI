@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.WindowFeaturesSpec = { $: {} };
 // Struct: WindowFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WindowFeaturesSpec, 'blink.mojom.WindowFeatures', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_has_x', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_y', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_width', 8, 2, mojo.internal.Bool, false, false, 0, undefined),

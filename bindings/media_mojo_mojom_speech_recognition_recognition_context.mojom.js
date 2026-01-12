@@ -86,6 +86,6 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionRecognitionContext
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec, 'media.mojom.SpeechRecognitionRecognitionContext', [
-      mojo.internal.StructField('arg_phrases', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionPhraseSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_phrases', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionPhraseSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -82,14 +82,14 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeed
 // Struct: UnhandledTapInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, 'blink.mojom.UnhandledTapInfo', [
-      mojo.internal.StructField('arg_tapped_position_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tapped_position_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: UnhandledTapNotifier
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec, 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params', [
-      mojo.internal.StructField('arg_unhandled_tap_info', 0, 0, mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unhandled_tap_info', 0, 0, mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

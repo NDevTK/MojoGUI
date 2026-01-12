@@ -79,7 +79,7 @@ mojo.internal.bindings.blink.mojom.ReferrerSpec = { $: {} };
 // Struct: Referrer
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReferrerSpec, 'blink.mojom.Referrer', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -150,7 +150,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterServic
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec, 'nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListenerRequest
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -381,7 +381,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -394,7 +394,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_medium', 8, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_medium', 8, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -738,14 +738,14 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerReque
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec, 'nearby.connections.mojom.PayloadListener_OnPayloadReceived_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec, 'nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -957,14 +957,14 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadListenerRequest = mojo.in
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution', 8, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution', 8, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -977,7 +977,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bandwidth_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bandwidth_info', 8, 0, mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1277,14 +1277,14 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3Request = mo
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec, 'nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec, 'nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_Params', [
       mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1497,14 +1497,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartAdvertising_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1516,21 +1516,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartDiscovery_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1542,7 +1542,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1557,7 +1557,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1566,14 +1566,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1587,7 +1587,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1600,7 +1600,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1613,7 +1613,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1621,13 +1621,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_SendPayload_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload', 16, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload', 16, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1640,7 +1640,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1652,7 +1652,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1665,7 +1665,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1673,69 +1673,69 @@ mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnectionV3_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_options', 16, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_options', 16, 0, mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3Remote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3Remote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnectionV3_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_Params', [
       mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_device', 8, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -78,6 +78,6 @@ mojo.internal.bindings.lens.mojom.OverlayObjectSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.OverlayObjectSpec, 'lens.mojom.OverlayObject', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_geometry', 8, 0, mojo.internal.bindings.lens.mojom.GeometrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_geometry', 8, 0, mojo.internal.bindings.lens.mojom.GeometrySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

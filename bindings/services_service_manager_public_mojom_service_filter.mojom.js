@@ -79,8 +79,8 @@ mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, 'service_manager.mojom.ServiceFilter', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_group', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_instance_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_globally_unique_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_instance_group', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_instance_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_globally_unique_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);

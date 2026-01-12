@@ -78,8 +78,8 @@ mojo.internal.bindings.blink.mojom.DataTransferFileSpec = { $: {} };
 // Struct: DataTransferFile
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DataTransferFileSpec, 'blink.mojom.DataTransferFile', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_access_token', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);

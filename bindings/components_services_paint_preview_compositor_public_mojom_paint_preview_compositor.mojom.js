@@ -123,95 +123,95 @@ mojo.internal.bindings.paint_preview.mojom.BitmapStatus = {
 // Struct: PaintPreviewBeginCompositeRequest
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, 'paint_preview.mojom.PaintPreviewBeginCompositeRequest', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_recording_map', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_recording_map', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubframeClipRect
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec, 'paint_preview.mojom.SubframeClipRect', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clip_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clip_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FrameData
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.FrameDataSpec, 'paint_preview.mojom.FrameData', [
-      mojo.internal.StructField('arg_scroll_extents', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_offsets', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_extents', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_offsets', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: PaintPreviewBeginCompositeResponse
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, 'paint_preview.mojom.PaintPreviewBeginCompositeResponse', [
-      mojo.internal.StructField('arg_root_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, mojo.internal.bindings.paint_preview.mojom.FrameDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, mojo.internal.bindings.paint_preview.mojom.FrameDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PaintPreviewCompositor
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_Params', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clip_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clip_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_Params', [
-      mojo.internal.StructField('arg_clip_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clip_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -590,7 +590,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParams', [
-      mojo.internal.StructField('arg_compositor_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -601,7 +601,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParams', [
-      mojo.internal.StructField('arg_compositor_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

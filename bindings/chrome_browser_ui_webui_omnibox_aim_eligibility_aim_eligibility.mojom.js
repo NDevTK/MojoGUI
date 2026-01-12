@@ -97,7 +97,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_server_response_base64_encoded', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_server_response_base64_url_encoded', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_server_response_source', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_updated', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_updated', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_eligible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_eligible_by_policy', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_eligible_by_dse', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec, 'aim_eligibility.mojom.Page_OnEligibilityStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -281,7 +281,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

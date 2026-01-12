@@ -113,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_GetDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -125,8 +125,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_Estimate_ResponseParams', [
-      mojo.internal.StructField('arg_current_usage', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_quota', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_usage', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_quota', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

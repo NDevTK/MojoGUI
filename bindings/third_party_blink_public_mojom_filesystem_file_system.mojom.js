@@ -140,8 +140,8 @@ mojo.internal.bindings.blink.mojom.FileSystemType = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemInfoSpec, 'blink.mojom.FileSystemInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_type', 16, 0, mojo.internal.bindings.blink.mojom.FileSystemTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_type', 16, 0, mojo.internal.bindings.blink.mojom.FileSystemTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec, 'blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationRequest = mojo.
 // Interface: FileSystemOperationListener
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec, 'blink.mojom.FileSystemOperationListener_ResultsRetrieved_Params', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_has_more', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -340,7 +340,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec, 'blink.mojom.FileSystemOperationListener_ErrorOccurred_Params', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -761,89 +761,89 @@ mojo.internal.bindings.blink.mojom.ReceivedSnapshotListenerRequest = mojo.intern
 // Interface: FileSystemManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ParamsSpec, 'blink.mojom.FileSystemManager_Open_Params', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_system_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_system_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Open_ResponseParams', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ParamsSpec, 'blink.mojom.FileSystemManager_ResolveURL_Params', [
-      mojo.internal.StructField('arg_filesystem_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filesystem_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec, 'blink.mojom.FileSystemManager_ResolveURL_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_directory', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_directory', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ParamsSpec, 'blink.mojom.FileSystemManager_Move_Params', [
-      mojo.internal.StructField('arg_src_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_path', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_path', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Move_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ParamsSpec, 'blink.mojom.FileSystemManager_Copy_Params', [
-      mojo.internal.StructField('arg_src_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_path', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_path', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Copy_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ParamsSpec, 'blink.mojom.FileSystemManager_Remove_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_recursive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Remove_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec, 'blink.mojom.FileSystemManager_ReadMetadata_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec, 'blink.mojom.FileSystemManager_ReadMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ParamsSpec, 'blink.mojom.FileSystemManager_Create_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_exclusive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_directory', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_recursive', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -852,46 +852,46 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Create_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ParamsSpec, 'blink.mojom.FileSystemManager_Exists_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_directory', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Exists_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec, 'blink.mojom.FileSystemManager_ReadDirectory_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemOperationListenerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec, 'blink.mojom.FileSystemManager_ReadDirectorySync_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec, 'blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParams', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Write_ParamsSpec, 'blink.mojom.FileSystemManager_Write_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_position', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_op_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationRemote), null, false, 0, undefined),
@@ -901,7 +901,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ParamsSpec, 'blink.mojom.FileSystemManager_WriteSync_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_position', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
@@ -910,13 +910,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec, 'blink.mojom.FileSystemManager_WriteSync_ResponseParams', [
       mojo.internal.StructField('arg_byte_count', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ParamsSpec, 'blink.mojom.FileSystemManager_Truncate_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_op_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationRemote), null, false, 0, undefined),
     ],
@@ -924,62 +924,62 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec, 'blink.mojom.FileSystemManager_Truncate_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ParamsSpec, 'blink.mojom.FileSystemManager_TruncateSync_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec, 'blink.mojom.FileSystemManager_TruncateSync_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec, 'blink.mojom.FileSystemManager_CreateSnapshotFile_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec, 'blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParams', [
-      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_platform_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_snapshot_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ReceivedSnapshotListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_platform_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_snapshot_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ReceivedSnapshotListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec, 'blink.mojom.FileSystemManager_GetPlatformPath_Params', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec, 'blink.mojom.FileSystemManager_GetPlatformPath_ResponseParams', [
-      mojo.internal.StructField('arg_platform_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_platform_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec, 'blink.mojom.FileSystemManager_RegisterBlob_Params', [
       mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_modification_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_modification_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec, 'blink.mojom.FileSystemManager_RegisterBlob_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

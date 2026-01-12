@@ -79,8 +79,8 @@ mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec = { $: {} };
 // Struct: BitmapInSharedMemory
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec, 'viz.mojom.BitmapInSharedMemory', [
-      mojo.internal.StructField('arg_image_info', 0, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 0, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_row_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pixels', 16, 0, mojo.internal.bindings.mojo_base.mojom.WritableSharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pixels', 16, 0, mojo.internal.bindings.mojo_base.mojom.WritableSharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

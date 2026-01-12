@@ -87,14 +87,14 @@ mojo.internal.bindings.mirroring.mojom.SessionType = {
 // Struct: SessionParameters
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.SessionParametersSpec, 'mirroring.mojom.SessionParameters', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver_address', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver_friendly_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_playout_delay', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_remote_playback', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_letterboxing', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_rtcp_reporting', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver_friendly_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_playout_delay', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.mirroring.mojom.SessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_remote_playback', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_letterboxing', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_rtcp_reporting', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);

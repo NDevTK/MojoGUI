@@ -104,12 +104,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.GeopositionResultSpec, 'device.mojom.GeopositionResult', {
       'arg_position': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.GeopositionSpec.$,
+        'type': mojo.internal.bindings.device.mojom.GeopositionSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.GeopositionErrorSpec,
         'nullable': false,
       },
     });
@@ -124,7 +124,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_altitude_accuracy', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_heading', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_speed', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_precise', 64, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -132,8 +132,8 @@ mojo.internal.Struct(
 // Struct: GeopositionError
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeopositionErrorSpec, 'device.mojom.GeopositionError', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_technical', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_technical', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

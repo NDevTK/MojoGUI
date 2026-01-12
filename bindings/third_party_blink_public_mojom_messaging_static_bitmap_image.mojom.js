@@ -87,12 +87,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.SerializedStaticBitmapImageSpec, 'blink.mojom.SerializedStaticBitmapImage', {
       'arg_bitmap': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.skia.mojom.BitmapN32Spec.$,
+        'type': mojo.internal.bindings.skia.mojom.BitmapN32Spec,
         'nullable': false,
       },
       'arg_accelerated_image': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec,
         'nullable': false,
       },
     });
@@ -100,17 +100,17 @@ mojo.internal.Union(
 // Struct: AcceleratedStaticBitmapImage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec, 'blink.mojom.AcceleratedStaticBitmapImage', [
-      mojo.internal.StructField('arg_shared_image', 0, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alpha_type', 16, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_callback', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image', 0, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_callback', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_alpha_type', 24, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: ImageReleaseCallback
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageReleaseCallback_Release_ParamsSpec, 'blink.mojom.ImageReleaseCallback_Release_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

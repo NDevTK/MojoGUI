@@ -91,21 +91,21 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValue = {
 // Struct: CrossOriginEmbedderPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only_value', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only_reporting_endpoint', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only_value', 20, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: CrossOriginEmbedderPolicyReporter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params', [
-      mojo.internal.StructField('arg_blocked_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params', [

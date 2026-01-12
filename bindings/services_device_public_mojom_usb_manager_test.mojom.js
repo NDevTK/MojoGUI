@@ -90,7 +90,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_serial_number', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_landing_page', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_landing_page', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -128,7 +128,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.TestDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.TestDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

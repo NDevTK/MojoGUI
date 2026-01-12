@@ -395,15 +395,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec, 'blink.mojom.NotificationService_GetPermissionStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayNonPersistentNotification_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_data', 8, 0, mojo.internal.bindings.blink.mojom.NotificationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_resources', 16, 0, mojo.internal.bindings.blink.mojom.NotificationResourcesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_data', 8, 0, mojo.internal.bindings.blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_resources', 16, 0, mojo.internal.bindings.blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -417,14 +417,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_data', 8, 0, mojo.internal.bindings.blink.mojom.NotificationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_resources', 16, 0, mojo.internal.bindings.blink.mojom.NotificationResourcesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_data', 8, 0, mojo.internal.bindings.blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_resources', 16, 0, mojo.internal.bindings.blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -445,7 +445,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec, 'blink.mojom.NotificationService_GetNotifications_ResponseParams', [
       mojo.internal.StructField('arg_notification_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_datas', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NotificationDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_datas', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NotificationDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -84,7 +84,7 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image
 // Struct: DetectCornersResult
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, 'cros.mojom.DetectCornersResult', [
-      mojo.internal.StructField('arg_corners', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_corners', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -92,13 +92,13 @@ mojo.internal.Struct(
 // Interface: CrosDocumentScanner
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_Params', [
-      mojo.internal.StructField('arg_nv12_image', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nv12_image', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.cros.mojom.DetectCornersResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

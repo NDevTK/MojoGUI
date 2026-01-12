@@ -90,22 +90,22 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.DragItemSpec, 'blink.mojom.DragItem', {
       'arg_string': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.DragItemStringSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemStringSpec,
         'nullable': false,
       },
       'arg_file': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.DataTransferFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataTransferFileSpec,
         'nullable': false,
       },
       'arg_binary': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemBinarySpec,
         'nullable': false,
       },
       'arg_file_system_file': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec,
         'nullable': false,
       },
     });
@@ -123,47 +123,47 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragItemStringSpec, 'blink.mojom.DragItemString', [
       mojo.internal.StructField('arg_string_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_string_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_base_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_string_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_base_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: DragItemBinary
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragItemBinarySpec, 'blink.mojom.DragItemBinary', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filename_extension', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_image_accessible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filename_extension', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_disposition', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_image_accessible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: DragItemFileSystemFile
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec, 'blink.mojom.DragItemFileSystemFile', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serialized_blob', 24, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serialized_blob', 24, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: DragData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragDataSpec, 'blink.mojom.DragData', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DragItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DragItemSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 16, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_force_default_action', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 16, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_force_default_action', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: DragEventSourceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec, 'blink.mojom.DragEventSourceInfo', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.ui.mojom.DragEventSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.ui.mojom.DragEventSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

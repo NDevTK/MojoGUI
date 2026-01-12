@@ -101,12 +101,12 @@ mojo.internal.Union(
     mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec, 'sensor.mojom.SensorUpdateInfo', {
       'arg_lid_angle_update_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec.$,
+        'type': mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec,
         'nullable': false,
       },
       'arg_update_info': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec.$,
+        'type': mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec,
         'nullable': false,
       },
     });
@@ -114,20 +114,20 @@ mojo.internal.Union(
 // Struct: NonLidAngleUpdateInfo
 mojo.internal.Struct(
     mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec, 'sensor.mojom.NonLidAngleUpdateInfo', [
-      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_z', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_z', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: LidAngleUpdateInfo
 mojo.internal.Struct(
     mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec, 'sensor.mojom.LidAngleUpdateInfo', [
-      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(

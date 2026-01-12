@@ -91,38 +91,38 @@ mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsite = {
 // Interface: DataHost
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec, 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

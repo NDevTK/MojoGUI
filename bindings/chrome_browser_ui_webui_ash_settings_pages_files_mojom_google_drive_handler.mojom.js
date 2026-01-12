@@ -100,11 +100,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
       mojo.internal.StructField('arg_required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stage', 16, 0, mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listed_files', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_error', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_listed_files', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stage', 24, 0, mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_error', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
@@ -618,7 +618,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnProgress_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

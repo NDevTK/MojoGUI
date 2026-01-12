@@ -88,7 +88,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_ResponseParams', [
-      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

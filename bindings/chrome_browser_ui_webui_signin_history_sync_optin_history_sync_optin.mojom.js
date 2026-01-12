@@ -110,7 +110,7 @@ mojo.internal.bindings.history_sync_optin.mojom.ScreenMode = {
 // Struct: AccountInfo
 mojo.internal.Struct(
     mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, 'history_sync_optin.mojom.AccountInfo', [
-      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -599,13 +599,13 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRequest = mojo.intern
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec, 'history_sync_optin.mojom.Page_SendAccountInfo_Params', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec, 'history_sync_optin.mojom.Page_SendScreenMode_Params', [
-      mojo.internal.StructField('arg_screen_mode', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_mode', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

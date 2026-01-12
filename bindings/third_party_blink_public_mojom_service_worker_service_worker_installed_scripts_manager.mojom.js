@@ -89,14 +89,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
       mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ServiceWorkerScriptInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, 'blink.mojom.ServiceWorkerScriptInfo', [
-      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoding', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_body', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 // Interface: ServiceWorkerInstalledScriptsManagerHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params', [
-      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostReque
 // Interface: ServiceWorkerInstalledScriptsManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params', [
-      mojo.internal.StructField('arg_script_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

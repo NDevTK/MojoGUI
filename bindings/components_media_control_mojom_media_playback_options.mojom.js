@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.RendererTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.RendererTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

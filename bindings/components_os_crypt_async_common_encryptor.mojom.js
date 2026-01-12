@@ -79,8 +79,8 @@ mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec = { $: {} };
 // Struct: Key
 mojo.internal.Struct(
     mojo.internal.bindings.os_crypt_async.mojom.KeySpec, 'os_crypt_async.mojom.Key', [
-      mojo.internal.StructField('arg_algorithm', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm', 8, 0, mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -88,6 +88,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, 'os_crypt_async.mojom.Encryptor', [
       mojo.internal.StructField('arg_provider_for_encryption', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_entries', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_entries', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.os_crypt_async.mojom.KeySpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -185,27 +185,27 @@ mojo.internal.Struct(
 // Struct: ThreatDOMDetailsNode
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tag_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 24, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_node_ids', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 40, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_frame_token', 48, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_inner_html', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_node_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_node_ids', 48, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 56, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_inner_html', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_node_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Interface: SafeBrowsing
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_load_flags', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_user_gesture', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_originated_from_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -443,7 +443,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
-      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -616,15 +616,15 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRequest = mojo.internal
 // Interface: PhishingDetector
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_type', 8, 0, mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 8, 0, mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -797,22 +797,22 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRequest = mojo.intern
 // Interface: PhishingModelSetter
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image_embedding_model', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_model', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
-      mojo.internal.StructField('arg_image_embedding_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1343,14 +1343,14 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReques
 // Interface: PhishingImageEmbedderDetector
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_embedding_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1524,11 +1524,11 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRequest 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_Params', [
       mojo.internal.StructField('arg_origin_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_telemetry_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_type', 16, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contact_initiator_type', 24, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_telemetry_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_type', 16, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contact_initiator_type', 20, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [

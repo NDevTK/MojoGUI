@@ -92,17 +92,17 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_Params', [
       mojo.internal.StructField('arg_browser_interface_broker', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_Params', [
-      mojo.internal.StructField('arg_service_worker_container_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_main_script_load_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_factories', 16, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_container_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_main_script_load_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 16, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_controller_info', 32, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_controller_info', 32, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_back_forward_cache_controller_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_coep_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_dip_reporting_observer_receiver', 56, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
@@ -365,15 +365,15 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRequest = moj
 // Interface: DedicatedWorkerHostFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credentials_mode', 16, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 24, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blob_url_token', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_access_api_status', 48, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 16, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob_url_token', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_credentials_mode', 40, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 44, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
   constructor(handle) {

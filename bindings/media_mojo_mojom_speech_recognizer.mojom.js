@@ -117,8 +117,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_session_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_grammars', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_recognition_context', 32, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_grammars', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_recognition_context', 32, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_audio_forwarder', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_max_hypotheses', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_channel_count', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 // Interface: SpeechRecognizer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec, 'media.mojom.SpeechRecognizer_Start_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -306,7 +306,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec, 'media.mojom.OnDeviceSpeechRecognition_Available_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.AvailabilityStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.AvailabilityStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -551,7 +551,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec, 'media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_Params', [
-      mojo.internal.StructField('arg_recognition_context', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_recognition_context', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -806,13 +806,13 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRequest = mojo.intern
 // Interface: SpeechRecognitionSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec, 'media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_Params', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec, 'media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

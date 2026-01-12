@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_perf_info', 0, 0, mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_perf_info', 0, 0, mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_d3d12_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_highest_shader_model_version', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_directml_feature_level', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),

@@ -103,31 +103,31 @@ mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValue = {
 // Struct: CrossOriginOpenerPolicyReporterParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec, 'network.mojom.CrossOriginOpenerPolicyReporterParams', [
-      mojo.internal.StructField('arg_report_type', 0, 0, mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reported_window_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoint_defined', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reporter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reported_window_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_type', 16, 0, mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoint_defined', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: CrossOriginOpenerPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec, 'network.mojom.CrossOriginOpenerPolicy', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only_value', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only_reporting_endpoint', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_soap_by_default_value', 32, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only_value', 20, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_soap_by_default_value', 24, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: CrossOriginOpenerPolicyReporter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec, 'network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_Params', [
-      mojo.internal.StructField('arg_report_type', 0, 0, mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_property', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_location', 16, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reported_window_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_property', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_location', 8, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reported_window_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_type', 24, 0, mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

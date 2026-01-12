@@ -89,8 +89,8 @@ mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec = { $: {} 
 // Struct: WebUsbRequestDeviceOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec, 'blink.mojom.WebUsbRequestDeviceOptions', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_exclusion_filters', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_exclusion_filters', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -102,7 +102,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -115,13 +115,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec, 'blink.mojom.WebUsbService_GetPermission_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetPermission_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

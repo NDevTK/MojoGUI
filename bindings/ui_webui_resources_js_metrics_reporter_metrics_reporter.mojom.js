@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -427,7 +427,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

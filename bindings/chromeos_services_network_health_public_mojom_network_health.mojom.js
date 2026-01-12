@@ -94,20 +94,20 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRec
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 8, 0, mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 8, 0, mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_Params', [
-      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -373,7 +373,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParams', [
-      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -384,7 +384,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

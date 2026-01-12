@@ -92,56 +92,56 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_Par
 // Struct: PlaybackProperties
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec, 'media.mojom.PlaybackProperties', [
-      mojo.internal.StructField('arg_media_stream_type', 0, 0, mojo.internal.bindings.media.mojom.MediaStreamTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_type', 8, 0, mojo.internal.bindings.media.mojom.RendererTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_demuxer_type', 16, 0, mojo.internal.bindings.media.mojom.DemuxerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_audio', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_video', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_background', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_muted', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_eme', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_embedded_media_experience', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_media_stream_type', 0, 0, mojo.internal.bindings.media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 4, 0, mojo.internal.bindings.media.mojom.RendererTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_demuxer_type', 8, 0, mojo.internal.bindings.media.mojom.DemuxerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_audio', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_video', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_background', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_muted', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eme', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_embedded_media_experience', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 // Struct: SecondaryPlaybackProperties
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec, 'media.mojom.SecondaryPlaybackProperties', [
-      mojo.internal.StructField('arg_audio_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_codec', 8, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_codec_profile', 16, 0, mojo.internal.bindings.media.mojom.AudioCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_codec_profile', 24, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_decoder', 32, 0, mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_decoder', 40, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_encryption_scheme', 48, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_encryption_scheme', 56, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_natural_size', 64, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_natural_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_codec', 8, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_codec', 12, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_codec_profile', 16, 0, mojo.internal.bindings.media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_codec_profile', 20, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_decoder', 24, 0, mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_decoder', 28, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_encryption_scheme', 32, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_encryption_scheme', 36, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 48]]);
 
 // Interface: WatchTimeRecorder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec, 'media.mojom.WatchTimeRecorder_RecordWatchTime_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.media.mojom.WatchTimeKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_watch_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.media.mojom.WatchTimeKeySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec, 'media.mojom.WatchTimeRecorder_FinalizeWatchTime_Params', [
-      mojo.internal.StructField('arg_watch_time_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.WatchTimeKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_time_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.WatchTimeKeySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec, 'media.mojom.WatchTimeRecorder_OnError_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_Params', [
-      mojo.internal.StructField('arg_secondary_properties', 0, 0, mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_properties', 0, 0, mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec, 'media.mojom.WatchTimeRecorder_OnDurationChanged_Params', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -172,7 +172,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_Params', [
-      mojo.internal.StructField('arg_total_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_completed_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

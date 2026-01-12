@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -148,7 +148,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_device_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_device_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -183,7 +183,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_input_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_associated_output_device_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);

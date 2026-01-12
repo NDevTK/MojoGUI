@@ -95,97 +95,97 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionReque
 // Interface: TypeTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -78,7 +78,7 @@ mojo.internal.bindings.viz.mojom.SelectionSpec = { $: {} };
 // Struct: Selection
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SelectionSpec, 'viz.mojom.Selection', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

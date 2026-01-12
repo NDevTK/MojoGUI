@@ -144,19 +144,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, 'help_bubble.mojom.HelpBubbleParams', [
       mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_close_button_alt_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body_icon_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body_icon_alt_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress', 56, 0, mojo.internal.bindings.help_bubble.mojom.ProgressSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_buttons', 64, 0, mojo.internal.Array(mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_focus_on_show_hint_$flag', 80, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_focus_on_show_hint_$value', originalFieldName: 'arg_focus_on_show_hint' }),
-      mojo.internal.StructField('arg_focus_on_show_hint_$value', 80, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_focus_on_show_hint_$flag', originalFieldName: 'arg_focus_on_show_hint' }),
+      mojo.internal.StructField('arg_title_text', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_close_button_alt_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body_icon_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body_icon_alt_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress', 48, 0, mojo.internal.bindings.help_bubble.mojom.ProgressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 56, 0, mojo.internal.Array(mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_position', 72, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_on_show_hint_$flag', 76, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_focus_on_show_hint_$value', originalFieldName: 'arg_focus_on_show_hint' }),
+      mojo.internal.StructField('arg_focus_on_show_hint_$value', 76, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_focus_on_show_hint_$flag', originalFieldName: 'arg_focus_on_show_hint' }),
     ],
-    [[0, 96]]);
+    [[0, 88]]);
 
 // Interface: HelpBubbleHandlerFactory
 mojo.internal.Struct(
@@ -511,7 +511,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_Params', [
       mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRequest = mojo.interna
 // Interface: HelpBubbleClient
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

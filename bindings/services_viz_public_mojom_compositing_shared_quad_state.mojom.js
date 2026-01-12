@@ -79,12 +79,12 @@ mojo.internal.bindings.viz.mojom.SharedQuadStateSpec = { $: {} };
 // Struct: SharedQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SharedQuadStateSpec, 'viz.mojom.SharedQuadState', [
-      mojo.internal.StructField('arg_quad_to_target_transform', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quad_layer_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_quad_layer_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask_filter_info', 24, 0, mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_clip_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_offset_tag', 40, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quad_to_target_transform', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quad_layer_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_quad_layer_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask_filter_info', 24, 0, mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_clip_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_offset_tag', 40, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_opacity', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_blend_mode', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sorting_context_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),

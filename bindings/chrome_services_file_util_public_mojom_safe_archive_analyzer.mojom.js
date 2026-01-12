@@ -113,7 +113,7 @@ mojo.internal.Struct(
 // Interface: SafeArchiveAnalyzer
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
@@ -121,26 +121,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_Params', [
-      mojo.internal.StructField('arg_dmg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dmg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_Params', [
-      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
@@ -148,50 +148,50 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_Params', [
-      mojo.internal.StructField('arg_seven_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seven_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params', [
-      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -619,7 +619,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParams', [
-      mojo.internal.StructField('arg_temp_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_temp_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

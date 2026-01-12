@@ -146,7 +146,7 @@ mojo.internal.Union(
       },
       'arg_template_query': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateQuerySpec.$,
+        'type': mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateQuerySpec,
         'nullable': false,
       },
     });
@@ -154,7 +154,7 @@ mojo.internal.Union(
 // Struct: SeaPenThumbnail
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec, 'ash.personalization_app.mojom.SeaPenThumbnail', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -170,9 +170,9 @@ mojo.internal.Struct(
 // Struct: SeaPenTemplateQuery
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateQuerySpec, 'ash.personalization_app.mojom.SeaPenTemplateQuery', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.Map(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec.$, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_visible_query', 16, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Map(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_visible_query', 8, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -188,16 +188,16 @@ mojo.internal.Struct(
 // Struct: RecentSeaPenImageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, 'ash.personalization_app.mojom.RecentSeaPenImageInfo', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: RecentSeaPenThumbnailData
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, 'ash.personalization_app.mojom.RecentSeaPenThumbnailData', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_info', 8, 0, mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenImageInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 8, 0, mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -205,7 +205,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.TextQueryHistoryEntrySpec, 'ash.personalization_app.mojom.TextQueryHistoryEntry', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_thumbnails', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_thumbnails', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -219,7 +219,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec, 'ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_Params', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.TextQueryHistoryEntrySpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.TextQueryHistoryEntrySpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -436,14 +436,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParams', [
-      mojo.internal.StructField('arg_thumbnails', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_statusCode', 8, 0, mojo.internal.bindings.ash.personalization_app.mojom.MantaStatusCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thumbnails', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_statusCode', 8, 0, mojo.internal.bindings.ash.personalization_app.mojom.MantaStatusCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -492,7 +492,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParams', [
-      mojo.internal.StructField('arg_thumbnail_data', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail_data', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -510,7 +510,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

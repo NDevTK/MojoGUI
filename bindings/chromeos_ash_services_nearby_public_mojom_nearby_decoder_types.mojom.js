@@ -152,32 +152,32 @@ mojo.internal.Union(
     mojo.internal.bindings.sharing.mojom.V1FrameSpec, 'sharing.mojom.V1Frame', {
       'arg_introduction': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec,
         'nullable': false,
       },
       'arg_connection_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec,
         'nullable': false,
       },
       'arg_paired_key_encryption': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec,
         'nullable': false,
       },
       'arg_paired_key_result': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec,
         'nullable': false,
       },
       'arg_certificate_info': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec,
         'nullable': false,
       },
       'arg_cancel_frame': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.CancelFrameSpec,
         'nullable': false,
       },
     });
@@ -187,18 +187,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.AdvertisementSpec, 'sharing.mojom.Advertisement', [
       mojo.internal.StructField('arg_salt', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_encrypted_metadata_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 16, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 24, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: IntroductionFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec, 'sharing.mojom.IntroductionFrame', [
-      mojo.internal.StructField('arg_file_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_metadata', 8, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.FileMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_metadata', 8, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.TextMetadataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_required_package', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wifi_credentials_metadata', 24, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_credentials_metadata', 24, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -206,11 +206,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.FileMetadataSpec, 'sharing.mojom.FileMetadata', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 32, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 24, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -218,10 +218,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.TextMetadataSpec, 'sharing.mojom.TextMetadata', [
       mojo.internal.StructField('arg_text_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -229,16 +229,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec, 'sharing.mojom.WifiCredentialsMetadata', [
       mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security_type', 8, 0, mojo.internal.bindings.sharing.mojom.SecurityTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_security_type', 24, 0, mojo.internal.bindings.sharing.mojom.SecurityTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ConnectionResponseFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec, 'sharing.mojom.ConnectionResponseFrame', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,14 +254,14 @@ mojo.internal.Struct(
 // Struct: PairedKeyResultFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec, 'sharing.mojom.PairedKeyResultFrame', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CertificateInfoFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec, 'sharing.mojom.CertificateInfoFrame', [
-      mojo.internal.StructField('arg_public_certificate', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_certificate', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.PublicCertificateSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -271,8 +271,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_secret_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_authenticity_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_encrypted_metadata_bytes', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_metadata_encryption_key_tag', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],

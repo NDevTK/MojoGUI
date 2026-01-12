@@ -87,7 +87,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParams', [
       mojo.internal.StructField('arg_javascript_call_stack', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

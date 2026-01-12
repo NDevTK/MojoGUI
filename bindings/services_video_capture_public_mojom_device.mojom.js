@@ -91,7 +91,7 @@ mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec
 // Interface: Device
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec, 'video_capture.mojom.Device_Start_Params', [
-      mojo.internal.StructField('arg_requested_settings', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requested_settings', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -113,13 +113,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec, 'video_capture.mojom.Device_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec, 'video_capture.mojom.Device_SetPhotoOptions_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -136,13 +136,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec, 'video_capture.mojom.Device_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec, 'video_capture.mojom.Device_ProcessFeedback_Params', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

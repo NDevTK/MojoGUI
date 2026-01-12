@@ -95,10 +95,10 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.Page.$interfaceName = 'pr
 // Struct: PrivacySandboxInternalsPref
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec, 'privacy_sandbox_internals.mojom.PrivacySandboxInternalsPref', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(
@@ -109,19 +109,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParams', [
-      mojo.internal.StructField('arg_prefs', 0, 0, mojo.internal.Array(mojo.internal.bindings.privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_prefs', 0, 0, mojo.internal.Array(mojo.internal.bindings.privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParams', [
-      mojo.internal.StructField('arg_content_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -132,13 +132,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParams', [
-      mojo.internal.StructField('arg_content_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Params', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec, 'privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParams', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

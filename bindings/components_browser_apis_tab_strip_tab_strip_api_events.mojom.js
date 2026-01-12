@@ -81,37 +81,37 @@ mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec = { $: {} };
 // Struct: OnTabsCreatedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec, 'tabs_api.mojom.OnTabsCreatedEvent', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OnTabsClosedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec, 'tabs_api.mojom.OnTabsClosedEvent', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OnDataChangedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec, 'tabs_api.mojom.OnDataChangedEvent', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.DataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.DataSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: OnCollectionCreatedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec, 'tabs_api.mojom.OnCollectionCreatedEvent', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_collection', 8, 0, mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_collection', 8, 0, mojo.internal.bindings.tabs_api.mojom.ContainerSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: OnNodeMovedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec, 'tabs_api.mojom.OnNodeMovedEvent', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_from', 8, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_to', 16, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_from', 8, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_to', 16, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

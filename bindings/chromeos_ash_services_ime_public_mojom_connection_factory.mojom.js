@@ -87,9 +87,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_input_method_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 24, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 2, undefined),
+      mojo.internal.StructField('arg_settings', 24, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, null, true, 2, undefined),
     ],
-    [[0, 32], [2, 40]]);
+    [[0, 32], [2, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParams', [

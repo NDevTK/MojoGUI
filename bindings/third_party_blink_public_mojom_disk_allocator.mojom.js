@@ -81,7 +81,7 @@ mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec
 // Interface: DiskAllocator
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec, 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

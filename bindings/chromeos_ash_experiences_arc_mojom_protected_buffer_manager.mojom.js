@@ -108,7 +108,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParams', [
-      mojo.internal.StructField('arg_unsafe_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unsafe_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParams', [
-      mojo.internal.StructField('arg_native_pixmap_handle', 0, 0, mojo.internal.bindings.media.stable.mojom.NativePixmapHandleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_native_pixmap_handle', 0, 0, mojo.internal.bindings.media.stable.mojom.NativePixmapHandleSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

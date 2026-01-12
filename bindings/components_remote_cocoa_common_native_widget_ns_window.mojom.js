@@ -175,30 +175,30 @@ mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyle = {
 // Struct: CreateWindowParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec, 'remote_cocoa.mojom.CreateWindowParams', [
-      mojo.internal.StructField('arg_window_class', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style_mask', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_titlebar_appears_transparent', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_window_title_hidden', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_animation_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_style_mask', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_window_class', 8, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_titlebar_appears_transparent', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_window_title_hidden', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_animation_enabled', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: NativeWidgetNSWindowInitParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowInitParams', [
-      mojo.internal.StructField('arg_modal_type', 0, 0, mojo.internal.bindings.ui.mojom.ModalTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state_restoration_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_translucent', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_window_server_shadow', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_into_collection_cycle', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_tooltip', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_state_restoration_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modal_type', 8, 0, mojo.internal.bindings.ui.mojom.ModalTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_translucent', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_window_server_shadow', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_into_collection_cycle', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_tooltip', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: NativeWidgetNSWindow
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,7 +216,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_Params', [
-      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -256,7 +256,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_Params', [
       mojo.internal.StructField('arg_ns_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_corner_radius_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_corner_radius_$flag', originalFieldName: 'arg_corner_radius' }),
       mojo.internal.StructField('arg_corner_radius_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_corner_radius_$value', originalFieldName: 'arg_corner_radius' }),
     ],
@@ -279,36 +279,36 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_Params', [
-      mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_Params', [
-      mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum_content_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum_content_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_Params', [
-      mojo.internal.StructField('arg_new_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_Params', [
-      mojo.internal.StructField('arg_content_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -320,7 +320,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_Params', [
-      mojo.internal.StructField('arg_transitions', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transitions', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -361,8 +361,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_Params', [
-      mojo.internal.StructField('arg_min_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_resizable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_maximizable', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -388,20 +388,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_Params', [
-      mojo.internal.StructField('arg_aspect_ratio', 0, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_excluded_margin', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aspect_ratio', 0, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_excluded_margin', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_Params', [
-      mojo.internal.StructField('arg_ca_layer_params', 0, 0, mojo.internal.bindings.gfx.mojom.CALayerParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ca_layer_params', 0, 0, mojo.internal.bindings.gfx.mojom.CALayerParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -456,7 +456,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_Params', [
-      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.bindings.ui.mojom.CursorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.bindings.ui.mojom.CursorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -474,13 +474,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_Params', [
-      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_Params', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -508,7 +508,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_Params', [
-      mojo.internal.StructField('arg_menu', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_menu', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.MenuRemote), null, false, 0, undefined),
     ],
@@ -522,7 +522,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_Params', [
-      mojo.internal.StructField('arg_color_mode', 0, 0, mojo.internal.bindings.ui.mojom.ColorModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_mode', 0, 0, mojo.internal.bindings.ui.mojom.ColorModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

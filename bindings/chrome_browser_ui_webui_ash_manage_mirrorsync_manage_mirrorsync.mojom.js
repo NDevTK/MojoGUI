@@ -264,13 +264,13 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactoryRequest = m
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParams', [
-      mojo.internal.StructField('arg_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -281,8 +281,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_syncing_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_syncing_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

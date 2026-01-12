@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParams', [
-      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

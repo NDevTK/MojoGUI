@@ -85,17 +85,17 @@ mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.TileContentsSpec, 'viz.mojom.TileContents', {
       'arg_missing_reason': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.cc.mojom.MissingTileReasonSpec.$,
+        'type': mojo.internal.bindings.cc.mojom.MissingTileReasonSpec,
         'nullable': false,
       },
       'arg_resource': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.viz.mojom.TileResourceSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TileResourceSpec,
         'nullable': false,
       },
       'arg_solid_color': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.skia.mojom.SkColor4fSpec.$,
+        'type': mojo.internal.bindings.skia.mojom.SkColor4fSpec,
         'nullable': false,
       },
     });
@@ -103,7 +103,7 @@ mojo.internal.Union(
 // Struct: TileResource
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TileResourceSpec, 'viz.mojom.TileResource', [
-      mojo.internal.StructField('arg_resource', 0, 0, mojo.internal.bindings.viz.mojom.TransferableResourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource', 0, 0, mojo.internal.bindings.viz.mojom.TransferableResourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_checkered', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -111,22 +111,22 @@ mojo.internal.Struct(
 // Struct: Tile
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TileSpec, 'viz.mojom.Tile', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.viz.mojom.TileContentsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_column_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_row_index', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_update_damage', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.viz.mojom.TileContentsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_column_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_row_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_update_damage', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: Tiling
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TilingSpec, 'viz.mojom.Tiling', [
       mojo.internal.StructField('arg_layer_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_raster_translation', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_raster_scale', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tile_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tiling_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tiles', 40, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_raster_translation', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_raster_scale', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tile_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tiling_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tiles', 40, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TileSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_key', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_deleted', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

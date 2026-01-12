@@ -80,12 +80,12 @@ mojo.internal.bindings.network.mojom.TLSClientSocket.$interfaceName = 'network.m
 // Struct: TLSClientSocketOptions
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
-      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_max', 8, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_send_ssl_info', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unsafely_skip_cert_verification', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_max', 4, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: TLSClientSocket
 mojo.internal.bindings.network.mojom.TLSClientSocketPendingReceiver = class {

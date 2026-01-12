@@ -91,7 +91,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_P
 // Interface: LocalStorageControl
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.LocalStorageControl_BindStorageArea_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -103,13 +103,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

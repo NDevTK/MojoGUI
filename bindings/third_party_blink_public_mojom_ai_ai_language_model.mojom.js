@@ -126,12 +126,12 @@ mojo.internal.Union(
       },
       'arg_bitmap': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.skia.mojom.BitmapN32Spec.$,
+        'type': mojo.internal.bindings.skia.mojom.BitmapN32Spec,
         'nullable': false,
       },
       'arg_audio': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.on_device_model.mojom.AudioDataSpec.$,
+        'type': mojo.internal.bindings.on_device_model.mojom.AudioDataSpec,
         'nullable': false,
       },
     });
@@ -147,8 +147,8 @@ mojo.internal.Struct(
 // Struct: AILanguageModelParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec, 'blink.mojom.AILanguageModelParams', [
-      mojo.internal.StructField('arg_default_sampling_params', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_sampling_params', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_sampling_params', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_sampling_params', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -157,35 +157,35 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec, 'blink.mojom.AILanguageModelInstanceInfo', [
       mojo.internal.StructField('arg_input_quota', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_input_usage', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sampling_params', 16, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_sampling_params', 16, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: AILanguageModelExpected
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec, 'blink.mojom.AILanguageModelExpected', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_languages', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AILanguageModelPrompt
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec, 'blink.mojom.AILanguageModelPrompt', [
-      mojo.internal.StructField('arg_role', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_prefix', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_prefix', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: AILanguageModelCreateOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec, 'blink.mojom.AILanguageModelCreateOptions', [
-      mojo.internal.StructField('arg_sampling_params', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initial_prompts', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_inputs', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_expected_outputs', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_sampling_params', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initial_prompts', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_inputs', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_outputs', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -193,14 +193,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec, 'blink.mojom.AIManagerCreateLanguageModelClient_OnResult_Params', [
       mojo.internal.StructField('arg_language_model_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AILanguageModelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateLanguageModelClient_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -411,15 +411,15 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientRequest = m
 // Interface: AILanguageModel
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec, 'blink.mojom.AILanguageModel_Prompt_Params', [
-      mojo.internal.StructField('arg_prompts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_constraint', 0, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_prompts', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec, 'blink.mojom.AILanguageModel_Append_Params', [
-      mojo.internal.StructField('arg_prompts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_prompts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -437,7 +437,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec, 'blink.mojom.AILanguageModel_MeasureInputUsage_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

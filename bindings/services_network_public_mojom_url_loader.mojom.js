@@ -120,18 +120,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
       mojo.internal.StructField('arg_removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_intra_priority_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_intra_priority_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
@@ -340,22 +340,22 @@ mojo.internal.bindings.network.mojom.URLLoaderRequest = mojo.internal.bindings.n
 // Interface: URLLoaderClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params', [
-      mojo.internal.StructField('arg_early_hints', 0, 0, mojo.internal.bindings.network.mojom.EarlyHintsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_early_hints', 0, 0, mojo.internal.bindings.network.mojom.EarlyHintsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
-      mojo.internal.StructField('arg_head', 0, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cached_metadata', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cached_metadata', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params', [
-      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -379,7 +379,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec, 'network.mojom.URLLoaderClient_OnComplete_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

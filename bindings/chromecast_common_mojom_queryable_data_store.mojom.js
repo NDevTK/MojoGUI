@@ -82,10 +82,10 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec 
 // Interface: QueryableDataStore
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {

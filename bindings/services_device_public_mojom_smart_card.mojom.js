@@ -215,12 +215,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardResultSpec, 'device.mojom.SmartCardResult', {
       'arg_success': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardSuccessSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardSuccessSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -230,12 +230,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec, 'device.mojom.SmartCardStatusChangeResult', {
       'arg_reader_states': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -250,7 +250,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -265,7 +265,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -275,12 +275,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardConnectResultSpec, 'device.mojom.SmartCardConnectResult', {
       'arg_success': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -295,7 +295,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -305,12 +305,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardStatusResultSpec, 'device.mojom.SmartCardStatusResult', {
       'arg_status': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardStatusSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardStatusSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -325,7 +325,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
         'nullable': false,
       },
     });
@@ -351,7 +351,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, 'device.mojom.SmartCardReaderStateIn', [
       mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_current_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -360,7 +360,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, 'device.mojom.SmartCardReaderStateOut', [
       mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_answer_to_reset', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_event_count', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
@@ -379,24 +379,24 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardStatusSpec, 'device.mojom.SmartCardStatus', [
       mojo.internal.StructField('arg_reader_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol', 16, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_to_reset', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_to_reset', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 20, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: SmartCardConnectSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec, 'device.mojom.SmartCardConnectSuccess', [
       mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: SmartCardTransaction
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec, 'device.mojom.SmartCardTransaction_EndTransaction_Params', [
-      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionRequest = mojo.internal.
 // Interface: SmartCardConnection
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec, 'device.mojom.SmartCardConnection_Disconnect_Params', [
-      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -587,8 +587,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec, 'device.mojom.SmartCardConnection_Transmit_Params', [
-      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1304,8 +1304,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec, 'device.mojom.SmartCardContext_GetStatusChange_Params', [
-      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reader_states', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reader_states', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1329,9 +1329,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec, 'device.mojom.SmartCardContext_Connect_Params', [
       mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_mode', 8, 0, mojo.internal.bindings.device.mojom.SmartCardShareModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_protocols', 16, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_preferred_protocols', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_watcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_share_mode', 24, 0, mojo.internal.bindings.device.mojom.SmartCardShareModeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

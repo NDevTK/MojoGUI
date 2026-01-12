@@ -144,7 +144,7 @@ mojo.internal.bindings.history_clusters.mojom.VisitType = {
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, 'history_clusters.mojom.QueryResult', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clusters', 8, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.ClusterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clusters', 8, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.ClusterSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_can_load_more', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_continuation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -153,8 +153,8 @@ mojo.internal.Struct(
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenHistoryUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -167,14 +167,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForURL_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -198,7 +198,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec, 'history_clusters.mojom.PageHandler_StartQueryClusters_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_begin_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_recluster', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -211,7 +211,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_HideVisits_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -223,7 +223,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisits_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -235,7 +235,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -248,32 +248,32 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_group_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordVisitAction_Params', [
-      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.VisitActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.VisitActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordRelatedSearchAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordClusterAction_Params', [
-      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cluster_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cluster_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordToggledVisibility_Params', [
@@ -1128,26 +1128,26 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRequest = mojo.internal
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec, 'history_clusters.mojom.Page_OnClustersQueryResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec, 'history_clusters.mojom.Page_OnClusterImageUpdated_Params', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cluster_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsHidden_Params', [
-      mojo.internal.StructField('arg_hidden_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hidden_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsRemoved_Params', [
-      mojo.internal.StructField('arg_removed_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_removed_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

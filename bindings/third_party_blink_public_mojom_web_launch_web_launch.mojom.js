@@ -83,14 +83,14 @@ mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSp
 // Interface: WebLaunchService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec, 'blink.mojom.WebLaunchService_SetLaunchFiles_Params', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec, 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params', [
-      mojo.internal.StructField('arg_launch_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_navigation_started_in_browser', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_launch_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_navigation_started_in_browser', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_started', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

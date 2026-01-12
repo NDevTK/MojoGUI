@@ -89,7 +89,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Pa
 // Struct: IceServer
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.IceServerSpec, 'sharing.mojom.IceServer', [
-      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_credential', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -113,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
-      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.IceServerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.IceServerSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

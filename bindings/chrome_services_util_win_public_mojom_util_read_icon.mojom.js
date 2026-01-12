@@ -92,15 +92,15 @@ mojo.internal.bindings.chrome.mojom.IconSize = {
 // Interface: UtilReadIcon
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.chrome.mojom.IconSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.chrome.mojom.IconSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_ResponseParams', [
-      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

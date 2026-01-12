@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

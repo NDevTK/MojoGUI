@@ -89,7 +89,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_Para
 // Interface: ReportingServiceProxy
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueInterventionReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_file', 24, 0, mojo.internal.String, null, true, 0, undefined),
@@ -100,9 +100,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueDeprecationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_anticipatedRemoval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_anticipatedRemoval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_file', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_line_number', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueCspViolationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_group', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_document_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_referrer', 24, 0, mojo.internal.String, null, true, 0, undefined),
@@ -130,7 +130,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_document_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_blocked_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_policy_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_policy_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_group', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_policy_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -182,7 +182,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec, 'blink.mojom.ReportingServiceProxy_QueueCSPHashReport_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_subresource_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_integrity_hash', 24, 0, mojo.internal.String, null, false, 0, undefined),

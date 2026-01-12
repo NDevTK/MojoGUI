@@ -82,7 +82,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePayme
 // Interface: PaymentLinkHandler
 mojo.internal.Struct(
     mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec, 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

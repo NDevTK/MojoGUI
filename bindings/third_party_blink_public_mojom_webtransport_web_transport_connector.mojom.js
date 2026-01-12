@@ -82,8 +82,8 @@ mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec = { 
 // Interface: WebTransportConnector
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec, 'blink.mojom.WebTransportConnector_Connect_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fingerprints', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fingerprints', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_application_protocols', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
     ],

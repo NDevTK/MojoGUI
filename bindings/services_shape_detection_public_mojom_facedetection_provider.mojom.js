@@ -81,7 +81,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDet
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec, 'shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

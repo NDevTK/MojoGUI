@@ -243,7 +243,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
-      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -266,15 +266,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
-      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_ResponseParams', [
       mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

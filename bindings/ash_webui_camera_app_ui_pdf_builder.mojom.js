@@ -88,10 +88,10 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParams
 // Interface: PdfBuilder
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPage_Params', [
-      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPageInline_Params', [
@@ -113,9 +113,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_ResponseParams', [
-      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_Params', [

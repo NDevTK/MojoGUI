@@ -102,39 +102,39 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParams', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_Params', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_Params', [
-      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_Params', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_Params', [
-      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_request_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_request_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 16, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

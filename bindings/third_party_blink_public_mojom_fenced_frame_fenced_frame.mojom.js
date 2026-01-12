@@ -83,15 +83,15 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Par
 // Interface: FencedFrameOwnerHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_Navigate_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedder_shared_storage_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedder_shared_storage_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Params', [
-      mojo.internal.StructField('arg_frame_policy', 0, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_policy', 0, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -99,23 +99,23 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundati
 // Struct: FrameTextureInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, 'media.mojom.FrameTextureInfo', [
-      mojo.internal.StructField('arg_texture_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FramePoolInitializationParameters
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec, 'media.mojom.FramePoolInitializationParameters', [
-      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: FlingingRendererClientExtension
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec, 'media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.MediaStatusStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.MediaStatusStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -287,7 +287,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -300,7 +300,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_Params', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

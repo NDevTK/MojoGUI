@@ -78,7 +78,7 @@ mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec = { $: {} };
 // Struct: LocalSurfaceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, 'viz.mojom.LocalSurfaceId', [
-      mojo.internal.StructField('arg_embed_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embed_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_parent_sequence_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_child_sequence_number', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

@@ -346,7 +346,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec, 'blink.mojom.Blob_Load_Params', [
       mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_request_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -358,9 +358,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec, 'blink.mojom.Blob_ReadSideData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec, 'blink.mojom.Blob_CaptureSnapshot_Params', [
@@ -370,7 +370,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec, 'blink.mojom.Blob_CaptureSnapshot_ResponseParams', [
       mojo.internal.StructField('arg_length', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_modification_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_modification_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

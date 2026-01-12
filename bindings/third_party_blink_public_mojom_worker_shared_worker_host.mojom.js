@@ -109,13 +109,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnReportException_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnFeatureUsed_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

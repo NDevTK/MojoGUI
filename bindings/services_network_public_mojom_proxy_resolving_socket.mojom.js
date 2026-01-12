@@ -95,8 +95,8 @@ mojo.internal.Struct(
 // Interface: ProxyResolvingSocket
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_Params', [
-      mojo.internal.StructField('arg_host_port_pair', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_port_pair', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TLSClientSocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
@@ -279,19 +279,19 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketRequest = mojo.internal
 // Interface: ProxyResolvingSocketFactory
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 0, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParams', [
-      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peer_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peer_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('arg_result', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),

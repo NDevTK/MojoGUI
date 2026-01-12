@@ -123,27 +123,27 @@ mojo.internal.bindings.media.mojom.MediaURLScheme = {
 // Interface: MediaMetricsProvider
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec, 'media.mojom.MediaMetricsProvider_Initialize_Params', [
-      mojo.internal.StructField('arg_url_scheme', 0, 0, mojo.internal.bindings.media.mojom.MediaURLSchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_type', 8, 0, mojo.internal.bindings.media.mojom.MediaStreamTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mse', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url_scheme', 0, 0, mojo.internal.bindings.media.mojom.MediaURLSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 4, 0, mojo.internal.bindings.media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mse', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec, 'media.mojom.MediaMetricsProvider_OnStarted_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec, 'media.mojom.MediaMetricsProvider_OnError_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec, 'media.mojom.MediaMetricsProvider_OnFallback_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.PipelineStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,31 +164,31 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetTimeToMetadata_Params', [
-      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_Params', [
-      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetTimeToPlayReady_Params', [
-      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetRendererType_Params', [
-      mojo.internal.StructField('arg_renderer_type', 0, 0, mojo.internal.bindings.media.mojom.RendererTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 0, 0, mojo.internal.bindings.media.mojom.RendererTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetDemuxerType_Params', [
-      mojo.internal.StructField('arg_demuxer_type', 0, 0, mojo.internal.bindings.media.mojom.DemuxerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_demuxer_type', 0, 0, mojo.internal.bindings.media.mojom.DemuxerTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -215,13 +215,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetContainerName_Params', [
-      mojo.internal.StructField('arg_container_name', 0, 0, mojo.internal.bindings.media.mojom.MediaContainerNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_container_name', 0, 0, mojo.internal.bindings.media.mojom.MediaContainerNameSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec, 'media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_recorder', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.WatchTimeRecorderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -240,25 +240,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetHasAudio_Params', [
-      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetHasVideo_Params', [
-      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.VideoPipelineInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.VideoPipelineInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.AudioPipelineInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.AudioPipelineInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

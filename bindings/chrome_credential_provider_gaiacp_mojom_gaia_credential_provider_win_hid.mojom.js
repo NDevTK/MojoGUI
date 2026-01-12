@@ -82,7 +82,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice
 // Interface: GaiaCredentialProviderHidBroker
 mojo.internal.Struct(
     mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_Params', [
-      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

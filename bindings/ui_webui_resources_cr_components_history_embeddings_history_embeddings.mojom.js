@@ -125,13 +125,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec, 'history_embeddings.mojom.SearchResultItem', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_for_display', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_relative_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_short_date_time', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_url_visit_timestamp', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_source_passage', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_data', 56, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_answer_data', 56, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_url_known_to_sync', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec, 'history_embeddings.mojom.SearchQuery', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_range_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_time_range_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -148,9 +148,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec, 'history_embeddings.mojom.SearchResult', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_status', 8, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_items', 24, 0, mojo.internal.Array(mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 16, 0, mojo.internal.Array(mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_status', 24, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -163,7 +163,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec, 'history_embeddings.mojom.PageHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec, 'history_embeddings.mojom.PageHandler_SetUserFeedback_Params', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRequest = mojo.intern
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec, 'history_embeddings.mojom.Page_SearchResultChanged_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

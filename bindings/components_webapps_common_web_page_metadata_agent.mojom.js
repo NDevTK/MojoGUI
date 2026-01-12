@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_web_page_metadata', 0, 0, mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_page_metadata', 0, 0, mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

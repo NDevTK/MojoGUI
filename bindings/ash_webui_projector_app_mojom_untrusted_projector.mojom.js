@@ -121,7 +121,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParams', [
-      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,28 +154,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParams', [
-      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_Params', [
-      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pref', 16, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParams', [
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Params', [
-      mojo.internal.StructField('arg_storage_dir_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_dir_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -206,19 +206,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_account_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_use_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_api_key', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_account_email', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_method', 32, 0, mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_credentials', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_api_key', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -229,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParams', [
-      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.AccountSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.AccountSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -242,9 +242,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -915,7 +915,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRequest 
 // Interface: UntrustedProjectorPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Params', [
-      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -937,7 +937,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_Params', [
-      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

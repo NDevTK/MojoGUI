@@ -140,10 +140,10 @@ mojo.internal.Struct(
 // Struct: WebTransportStats
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportStatsSpec, 'network.mojom.WebTransportStats', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_smoothed_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rtt_variation', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_smoothed_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rtt_variation', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_estimated_send_rate_bps', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_datagrams_expired_outgoing', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_datagrams_lost_outgoing', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 // Interface: WebTransport
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec, 'network.mojom.WebTransport_SendDatagram_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -224,7 +224,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec, 'network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_Params', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -235,13 +235,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec, 'network.mojom.WebTransport_GetStats_ResponseParams', [
-      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec, 'network.mojom.WebTransport_Close_Params', [
-      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.network.mojom.WebTransportRequest = mojo.internal.binding
 // Interface: WebTransportClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec, 'network.mojom.WebTransportClient_OnDatagramReceived_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -867,8 +867,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnClosed_Params', [
-      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_final_stats', 8, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_final_stats', 8, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRequest = mojo.internal.b
 // Interface: WebTransportHandshakeClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnBeforeConnect_Params', [
-      mojo.internal.StructField('arg_server_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_server_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1263,15 +1263,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params', [
       mojo.internal.StructField('arg_transport', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_application_protocol', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.network.mojom.WebTransportErrorSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

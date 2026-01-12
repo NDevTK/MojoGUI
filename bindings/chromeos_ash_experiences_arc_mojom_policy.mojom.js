@@ -147,7 +147,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec, 'arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_Params', [
-      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_package_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -481,7 +481,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec, 'arc.mojom.PolicyInstance_OnCommandReceived_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.CommandResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.CommandResultTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

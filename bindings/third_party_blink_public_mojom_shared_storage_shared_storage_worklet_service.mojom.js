@@ -124,7 +124,7 @@ mojo.internal.Union(
       },
       'arg_groups': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec, false),
         'nullable': false,
       },
     });
@@ -141,8 +141,8 @@ mojo.internal.Struct(
 // Struct: SharedStorageKeyAndOrValue
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageKeyAndOrValueSpec, 'blink.mojom.SharedStorageKeyAndOrValue', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -158,7 +158,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec, 'blink.mojom.SharedStorageEntriesListener_DidReadEntries_Params', [
       mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SharedStorageKeyAndOrValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SharedStorageKeyAndOrValueSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_total_queued_to_send', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_success', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_more_entries', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -328,7 +328,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRequest = mojo.in
 // Interface: SharedStorageWorkletServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_Params', [
-      mojo.internal.StructField('arg_method_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -340,8 +340,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_Params', [
-      mojo.internal.StructField('arg_methods_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_methods_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -353,15 +353,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -411,20 +411,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_Params', [
-      mojo.internal.StructField('arg_log_level', 0, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_level', 8, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1024,21 +1024,21 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRequest = mo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions_policy_state', 8, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedder_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_permissions_policy_state', 8, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedder_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_AddModule_Params', [
       mojo.internal.StructField('arg_url_loader_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_source_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_source_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1052,9 +1052,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_urls', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_serialized_data', 16, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pa_operation_details', 24, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationOperationDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_urls', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_serialized_data', 16, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pa_operation_details', 24, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationOperationDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1069,8 +1069,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_RunOperation_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serialized_data', 8, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pa_operation_details', 16, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationOperationDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serialized_data', 8, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pa_operation_details', 16, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationOperationDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

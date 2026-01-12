@@ -98,17 +98,17 @@ mojo.internal.Union(
       },
       'arg_exception': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec,
         'nullable': false,
       },
       'arg_supported': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec,
         'nullable': false,
       },
       'arg_unsupported': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec,
         'nullable': false,
       },
     });
@@ -126,8 +126,8 @@ mojo.internal.Union(
 // Struct: TelemetryExtensionException
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec, 'crosapi.mojom.TelemetryExtensionException', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

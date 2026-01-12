@@ -83,7 +83,7 @@ mojo.internal.bindings.content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec 
 // Interface: FontCacheWin
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_Params', [
-      mojo.internal.StructField('arg_log_font', 0, 0, mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_font', 0, 0, mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

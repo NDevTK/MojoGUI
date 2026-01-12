@@ -154,23 +154,23 @@ mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKey = {
 // Struct: TelemetryKeyboardInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec, 'crosapi.mojom.TelemetryKeyboardInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection_type', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_physical_layout', 24, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mechanical_layout', 32, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_region_code', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_number_pad_present', 48, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_row_keys', 56, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_top_right_key', 64, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_assistant_key', 72, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_region_code', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_row_keys', 24, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_assistant_key', 32, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 40, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_layout', 44, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mechanical_layout', 48, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_number_pad_present', 52, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_right_key', 56, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 72]]);
 
 // Struct: TelemetryKeyboardDiagnosticEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec, 'crosapi.mojom.TelemetryKeyboardDiagnosticEventInfo', [
-      mojo.internal.StructField('arg_keyboard_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyboard_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tested_keys', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_tested_top_row_keys', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
     ],

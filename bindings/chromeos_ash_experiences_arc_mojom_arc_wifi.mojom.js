@@ -96,9 +96,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WifiScanResultSpec, 'arc.mojom.WifiScanResult', [
       mojo.internal.StructField('arg_hex_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security', 16, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rssi', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 20, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rssi', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.WifiScanResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.WifiScanResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

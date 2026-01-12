@@ -259,8 +259,8 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderRequest = mojo.internal.bin
 // Interface: DomStorage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec, 'blink.mojom.DomStorage_OpenLocalStorage_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_area', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -274,8 +274,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec, 'blink.mojom.DomStorage_BindSessionStorageArea_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_namespace', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],

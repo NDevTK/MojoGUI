@@ -152,7 +152,7 @@ mojo.internal.bindings.blink.mojom.PlatformClipboardPermissionState = {
 // Struct: ClipboardFiles
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardFilesSpec, 'blink.mojom.ClipboardFiles', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataTransferFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataTransferFileSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -160,8 +160,8 @@ mojo.internal.Struct(
 // Interface: ClipboardListener
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec, 'blink.mojom.ClipboardListener_OnClipboardDataChanged_Params', [
-      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_change_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_change_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,22 +328,22 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerRequest = mojo.internal.bind
 // Interface: ClipboardHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec, 'blink.mojom.ClipboardHost_GetSequenceNumber_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec, 'blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec, 'blink.mojom.ClipboardHost_IsFormatAvailable_Params', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 4, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec, 'blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParams', [
@@ -353,38 +353,38 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec, 'blink.mojom.ClipboardHost_ReadAvailableTypes_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParams', [
-      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec, 'blink.mojom.ClipboardHost_ReadText_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadText_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec, 'blink.mojom.ClipboardHost_ReadHtml_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadHtml_ResponseParams', [
-      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_fragment_start', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fragment_end', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -392,62 +392,62 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec, 'blink.mojom.ClipboardHost_ReadSvg_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadSvg_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec, 'blink.mojom.ClipboardHost_ReadRtf_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadRtf_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec, 'blink.mojom.ClipboardHost_ReadPng_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadPng_ResponseParams', [
-      mojo.internal.StructField('arg_png', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_png', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec, 'blink.mojom.ClipboardHost_ReadFiles_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadFiles_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardFilesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardFilesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec, 'blink.mojom.ClipboardHost_ReadDataTransferCustomData_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -458,38 +458,38 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParams', [
-      mojo.internal.StructField('arg_format_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_format_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec, 'blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_Params', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec, 'blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec, 'blink.mojom.ClipboardHost_WriteText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec, 'blink.mojom.ClipboardHost_WriteHtml_Params', [
-      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec, 'blink.mojom.ClipboardHost_WriteSvg_Params', [
-      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_markup', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -500,29 +500,29 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec, 'blink.mojom.ClipboardHost_WriteDataTransferCustomData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, mojo.internal.bindings.mojo_base.mojom.BigString16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.String16Spec, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec, 'blink.mojom.ClipboardHost_WriteBookmark_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec, 'blink.mojom.ClipboardHost_WriteImage_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec, 'blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_Params', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec, 'blink.mojom.ClipboardHost_CommitWrite_Params', [
@@ -531,7 +531,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec, 'blink.mojom.ClipboardHost_WriteStringToFindPboard_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -542,7 +542,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec, 'blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PlatformClipboardPermissionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PlatformClipboardPermissionStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

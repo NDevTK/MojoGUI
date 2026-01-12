@@ -108,27 +108,27 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, 'blink.mojom.ServiceWorkerRegistrationObjectInfo', [
       mojo.internal.StructField('arg_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_via_cache', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_installing', 40, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_waiting', 48, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active', 56, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_installing', 32, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_waiting', 40, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active', 48, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_update_via_cache', 56, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Interface: ServiceWorkerRegistrationObjectHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_Params', [
-      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 0, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 0, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -139,8 +139,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -152,8 +152,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -164,9 +164,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -178,8 +178,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -552,16 +552,16 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRequest = 
 // Interface: ServiceWorkerRegistrationObject
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_Params', [
-      mojo.internal.StructField('arg_changed_mask', 0, 0, mojo.internal.bindings.blink.mojom.ChangedServiceWorkerObjectsMaskSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_installing', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_waiting', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_changed_mask', 0, 0, mojo.internal.bindings.blink.mojom.ChangedServiceWorkerObjectsMaskSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_installing', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_waiting', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_Params', [
-      mojo.internal.StructField('arg_update_via_cache', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_via_cache', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

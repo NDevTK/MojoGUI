@@ -96,17 +96,17 @@ mojo.internal.bindings.quarantine.mojom.QuarantineFileResult = {
 // Interface: Quarantine
 mojo.internal.Struct(
     mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_Params', [
-      mojo.internal.StructField('arg_full_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_initiator', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_full_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_initiator', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_client_guid', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.quarantine.mojom.QuarantineFileResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.quarantine.mojom.QuarantineFileResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -269,7 +269,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -480,13 +480,13 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRequest = mojo.interna
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupShown_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.searchbox.mojom.SearchContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec, 'omnibox_popup_aim.mojom.Page_AddContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.searchbox.mojom.SearchContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

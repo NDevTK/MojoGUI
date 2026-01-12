@@ -183,7 +183,7 @@ mojo.internal.Union(
     mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec, 'bluetooth.mojom.LocalCharacteristicReadResult', {
       'arg_error_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec.$,
+        'type': mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec,
         'nullable': false,
       },
       'arg_data': {
@@ -205,7 +205,7 @@ mojo.internal.Struct(
 // Struct: AcceptConnectionResult
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec, 'bluetooth.mojom.AcceptConnectionResult', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_socket', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.SocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -829,7 +829,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec, 'bluetooth.mojom.ServerSocket_Accept_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1062,9 +1062,9 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketRequest = mojo.internal.bindi
 // Interface: GattService
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec, 'bluetooth.mojom.GattService_CreateCharacteristic_Params', [
-      mojo.internal.StructField('arg_characteristic_uuid', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions', 8, 0, mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 16, 0, mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_characteristic_uuid', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 8, 0, mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 16, 0, mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1081,7 +1081,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec, 'bluetooth.mojom.GattService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1304,18 +1304,18 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceRequest = mojo.internal.bindin
 // Interface: GattServiceObserver
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec, 'bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_Params', [
-      mojo.internal.StructField('arg_remote_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_characteristic_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_characteristic_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec, 'bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParams', [
-      mojo.internal.StructField('arg_read_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_read_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.bluetooth.mojom.GattServiceObserverPendingReceiver = class {
   constructor(handle) {
@@ -1492,8 +1492,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToDevice_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1504,7 +1504,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec, 'bluetooth.mojom.Adapter_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1515,7 +1515,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec, 'bluetooth.mojom.Adapter_GetInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.bluetooth.mojom.AdapterInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.bluetooth.mojom.AdapterInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1532,7 +1532,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec, 'bluetooth.mojom.Adapter_RegisterAdvertisement_Params', [
-      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_use_scan_response', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_connectable', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -1584,21 +1584,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_Params', [
       mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_should_unbond_on_error', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec, 'bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_Params', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1610,7 +1610,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec, 'bluetooth.mojom.Adapter_CreateLocalGattService_Params', [
-      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.GattServiceObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2375,19 +2375,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceAdded_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceChanged_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

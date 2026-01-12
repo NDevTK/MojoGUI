@@ -93,17 +93,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.DataElementSpec, 'blink.mojom.DataElement', {
       'arg_bytes': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.DataElementBytesSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementBytesSpec,
         'nullable': false,
       },
       'arg_file': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.DataElementFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementFileSpec,
         'nullable': false,
       },
       'arg_blob': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.DataElementBlobSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementBlobSpec,
         'nullable': false,
       },
     });
@@ -121,10 +121,10 @@ mojo.internal.Struct(
 // Struct: DataElementFile
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DataElementFileSpec, 'blink.mojom.DataElementFile', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_modification_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_modification_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -159,14 +159,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec, 'blink.mojom.BytesProvider_RequestAsFile_Params', [
       mojo.internal.StructField('arg_source_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_source_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec, 'blink.mojom.BytesProvider_RequestAsFile_ResponseParams', [
-      mojo.internal.StructField('arg_time_file_modified', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_time_file_modified', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

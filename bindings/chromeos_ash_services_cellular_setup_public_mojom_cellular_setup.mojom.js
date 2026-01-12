@@ -110,7 +110,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResult = {
 // Struct: CellularMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, 'ash.cellular_setup.mojom.CellularMetadata', [
-      mojo.internal.StructField('arg_payment_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_payment_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_carrier', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_meid', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -122,7 +122,7 @@ mojo.internal.Struct(
 // Interface: CarrierPortalHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec, 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -289,13 +289,13 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRequest = mo
 // Interface: ActivationDelegate
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

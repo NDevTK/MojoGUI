@@ -82,13 +82,13 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_Params
 // Interface: NetworkHintsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_PrefetchDNS_Params', [
-      mojo.internal.StructField('arg_url_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.SchemeHostPortSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.SchemeHostPortSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_Preconnect_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_allow_credentials', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

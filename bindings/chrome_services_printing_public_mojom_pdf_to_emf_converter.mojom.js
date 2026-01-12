@@ -96,14 +96,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParams', [
-      mojo.internal.StructField('arg_emf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_emf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -370,8 +370,8 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRequest = mojo.internal.b
 // Interface: PdfToEmfConverterFactory
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params', [
-      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

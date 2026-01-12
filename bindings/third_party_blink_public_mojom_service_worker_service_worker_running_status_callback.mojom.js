@@ -80,7 +80,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusCh
 // Interface: ServiceWorkerRunningStatusCallback
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

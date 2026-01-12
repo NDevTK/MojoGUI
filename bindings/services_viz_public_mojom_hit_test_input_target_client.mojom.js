@@ -82,15 +82,15 @@ mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsS
 // Interface: InputTargetClient
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec, 'viz.mojom.InputTargetClient_FrameSinkIdAt_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec, 'viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParams', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

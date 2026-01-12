@@ -129,12 +129,12 @@ mojo.internal.Union(
       },
       'arg_tab': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.TabSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.TabSpec,
         'nullable': false,
       },
       'arg_app': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.coral.mojom.AppSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.AppSpec,
         'nullable': false,
       },
     });
@@ -144,12 +144,12 @@ mojo.internal.Union(
     mojo.internal.bindings.coral.mojom.GroupResultSpec, 'coral.mojom.GroupResult', {
       'arg_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
         'nullable': false,
       },
       'arg_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.GroupResponseSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.GroupResponseSpec,
         'nullable': false,
       },
     });
@@ -159,12 +159,12 @@ mojo.internal.Union(
     mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, 'coral.mojom.CacheEmbeddingsResult', {
       'arg_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
         'nullable': false,
       },
       'arg_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec.$,
+        'type': mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec,
         'nullable': false,
       },
     });
@@ -173,7 +173,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.TabSpec, 'coral.mojom.Tab', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -213,7 +213,7 @@ mojo.internal.Struct(
 // Struct: Group
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.GroupSpec, 'coral.mojom.Group', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
     ],
@@ -223,9 +223,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.GroupRequestSpec, 'coral.mojom.GroupRequest', [
       mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clustering_options', 16, 0, mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_generation_options', 24, 0, mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clustering_options', 16, 0, mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_generation_options', 24, 0, mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_suppression_context', 32, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec.$, false), null, true, 1, undefined),
     ],
     [[0, 40], [1, 48]]);
@@ -233,7 +233,7 @@ mojo.internal.Struct(
 // Struct: GroupResponse
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.GroupResponseSpec, 'coral.mojom.GroupResponse', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.GroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.GroupSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,7 +241,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, 'coral.mojom.CacheEmbeddingsRequest', [
       mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -254,7 +254,7 @@ mojo.internal.Struct(
 // Interface: TitleObserver
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec, 'coral.mojom.TitleObserver_TitleUpdated_Params', [
-      mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -422,7 +422,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverRequest = mojo.internal.bindings
 // Interface: CoralProcessor
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -435,7 +435,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRequest = mojo.internal.binding
 // Interface: CoralService
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -677,7 +677,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

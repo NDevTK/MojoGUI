@@ -86,6 +86,6 @@ mojo.internal.bindings.blink.mojom.ClientMode = {
 // Struct: ManifestLaunchHandler
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestLaunchHandlerSpec, 'blink.mojom.ManifestLaunchHandler', [
-      mojo.internal.StructField('arg_client_mode', 0, 0, mojo.internal.bindings.blink.mojom.ClientModeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_mode', 0, 0, mojo.internal.bindings.blink.mojom.ClientModeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);

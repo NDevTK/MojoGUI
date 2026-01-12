@@ -77,8 +77,8 @@ mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec = { $: {} };
 // Struct: AXUpdatesAndEvents
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec, 'ax.mojom.AXUpdatesAndEvents', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_events', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);

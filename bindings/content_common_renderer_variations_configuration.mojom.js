@@ -82,7 +82,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTri
 // Interface: RendererVariationsConfiguration
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params', [
-      mojo.internal.StructField('arg_variations_headers', 0, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_variations_headers', 0, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

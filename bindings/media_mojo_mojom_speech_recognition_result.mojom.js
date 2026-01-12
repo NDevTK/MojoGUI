@@ -79,7 +79,7 @@ mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec = { $: {} };
 // Struct: SpeechRecognitionHypothesis
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionHypothesisSpec, 'media.mojom.SpeechRecognitionHypothesis', [
-      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_confidence', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -87,7 +87,7 @@ mojo.internal.Struct(
 // Struct: WebSpeechRecognitionResult
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec, 'media.mojom.WebSpeechRecognitionResult', [
-      mojo.internal.StructField('arg_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionHypothesisSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SpeechRecognitionHypothesisSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_provisional', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -85,7 +85,7 @@ mojo.internal.Union(
       },
       'arg_path': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FilePathSpec,
         'nullable': false,
       },
     });

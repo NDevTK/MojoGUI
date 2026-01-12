@@ -79,7 +79,7 @@ mojo.internal.bindings.device.mojom.UsbEnumerationOptionsSpec = { $: {} };
 // Struct: UsbDeviceFilter
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec, 'device.mojom.UsbDeviceFilter', [
-      mojo.internal.StructField('arg_serial_number', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_product_id', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_vendor_id', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -96,6 +96,6 @@ mojo.internal.Struct(
 // Struct: UsbEnumerationOptions
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbEnumerationOptionsSpec, 'device.mojom.UsbEnumerationOptions', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -78,7 +78,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryUsageInfoSpec = { $: {} };
 // Struct: SharedDictionaryUsageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryUsageInfoSpec, 'network.mojom.SharedDictionaryUsageInfo', [
-      mojo.internal.StructField('arg_isolation_key', 0, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_isolation_key', 0, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -122,7 +122,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaCon
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec, 'media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -424,28 +424,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_Seek_ParamsSpec, 'media_session.mojom.MediaController_Seek_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_ObserveImages_ParamsSpec, 'media_session.mojom.MediaController_ObserveImages_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_size_px', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_desired_size_px', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desired_size_px', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_SeekTo_ParamsSpec, 'media_session.mojom.MediaController_SeekTo_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_ScrubTo_ParamsSpec, 'media_session.mojom.MediaController_ScrubTo_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1593,31 +1593,31 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRequest = mojo.interna
 // Interface: MediaControllerObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionChanged_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1960,14 +1960,14 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRequest = mojo
 // Interface: MediaControllerImageObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_Params', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

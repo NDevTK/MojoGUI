@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -81,7 +81,7 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec 
 // Interface: NewWindowProxy
 mojo.internal.Struct(
     mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec, 'new_window_proxy.mojom.NewWindowProxy_OpenUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

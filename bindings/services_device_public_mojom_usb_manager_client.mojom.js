@@ -81,13 +81,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Param
 // Interface: UsbDeviceManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -97,19 +97,19 @@ mojo.internal.Struct(
 // Struct: BeginFrameArgs
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, 'viz.mojom.BeginFrameArgs', [
-      mojo.internal.StructField('arg_frame_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_deadline', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.bindings.viz.mojom.BeginFrameIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deadline', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.bindings.viz.mojom.BeginFrameIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_frames_throttled_since_last', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dispatch_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_arrival_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 64, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_on_critical_path', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_animate_only', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_dispatch_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_arrival_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 64, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_on_critical_path', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_animate_only', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Struct: BeginFrameAck
 mojo.internal.Struct(
@@ -125,8 +125,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec, 'viz.mojom.CADisplayLinkParams', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interval', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interval', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

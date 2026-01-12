@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec =
 // Struct: AggregatableReportHistogramContribution
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec, 'blink.mojom.AggregatableReportHistogramContribution', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_filtering_id_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_filtering_id_$flag', originalFieldName: 'arg_filtering_id' }),
       mojo.internal.StructField('arg_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_filtering_id_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_filtering_id_$value', originalFieldName: 'arg_filtering_id' }),

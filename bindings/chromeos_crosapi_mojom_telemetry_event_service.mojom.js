@@ -214,77 +214,77 @@ mojo.internal.Union(
       },
       'arg_audio_jack_event_info': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec,
         'nullable': false,
       },
       'arg_lid_event_info': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec,
         'nullable': false,
       },
       'arg_usb_event_info': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec,
         'nullable': false,
       },
       'arg_sd_card_event_info': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec,
         'nullable': false,
       },
       'arg_power_event_info': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec,
         'nullable': false,
       },
       'arg_keyboard_diagnostic_event_info': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec,
         'nullable': false,
       },
       'arg_stylus_garage_event_info': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec,
         'nullable': false,
       },
       'arg_touchpad_button_event_info': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec,
         'nullable': false,
       },
       'arg_touchpad_touch_event_info': {
         'ordinal': 9,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec,
         'nullable': false,
       },
       'arg_touchpad_connected_event_info': {
         'ordinal': 10,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec,
         'nullable': false,
       },
       'arg_external_display_event_info': {
         'ordinal': 11,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec,
         'nullable': false,
       },
       'arg_stylus_touch_event_info': {
         'ordinal': 12,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec,
         'nullable': false,
       },
       'arg_stylus_connected_event_info': {
         'ordinal': 13,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec,
         'nullable': false,
       },
       'arg_touchscreen_touch_event_info': {
         'ordinal': 14,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec,
         'nullable': false,
       },
       'arg_touchscreen_connected_event_info': {
         'ordinal': 15,
-        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec,
         'nullable': false,
       },
     });
@@ -292,15 +292,15 @@ mojo.internal.Union(
 // Struct: TelemetryAudioJackEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec, 'crosapi.mojom.TelemetryAudioJackEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 8, 0, mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec.$, null, false, 1, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec, null, false, 1, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 16], [1, 16]]);
 
 // Struct: TelemetryLidEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec, 'crosapi.mojom.TelemetryLidEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -310,55 +310,55 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vid', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 34, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vid', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 30, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: TelemetryExternalDisplayEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec, 'crosapi.mojom.TelemetryExternalDisplayEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
 // Struct: TelemetrySdCardEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec, 'crosapi.mojom.TelemetrySdCardEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryPowerEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec, 'crosapi.mojom.TelemetryPowerEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryStylusGarageEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec, 'crosapi.mojom.TelemetryStylusGarageEventInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryTouchpadButtonEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadButtonEventInfo', [
-      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: TelemetryTouchPointInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec, 'crosapi.mojom.TelemetryTouchPointInfo', [
-      mojo.internal.StructField('arg_pressure', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_major', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_minor', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pressure', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_major', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_minor', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_tracking_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_x', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_y', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -368,14 +368,14 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchpadTouchEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadTouchEventInfo', [
-      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryTouchpadConnectedEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadConnectedEventInfo', [
-      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -385,7 +385,7 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchscreenTouchEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec, 'crosapi.mojom.TelemetryTouchscreenTouchEventInfo', [
-      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -416,7 +416,7 @@ mojo.internal.Struct(
 // Struct: TelemetryStylusTouchEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec, 'crosapi.mojom.TelemetryStylusTouchEventInfo', [
-      mojo.internal.StructField('arg_touch_point', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_point', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -435,9 +435,9 @@ mojo.internal.Struct(
 // Interface: TelemetryEventObserver
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec, 'crosapi.mojom.TelemetryEventObserver_OnEvent_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverPendingReceiver = class {
   constructor(handle) {
@@ -602,22 +602,22 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRequest = mojo.intern
 // Interface: TelemetryEventService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec, 'crosapi.mojom.TelemetryEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec, 'crosapi.mojom.TelemetryEventService_IsEventSupported_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec, 'crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.crosapi.mojom.TelemetryEventServicePendingReceiver = class {
   constructor(handle) {

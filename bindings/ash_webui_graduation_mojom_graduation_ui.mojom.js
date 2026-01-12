@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -126,13 +126,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params', [
-      mojo.internal.StructField('arg_screen', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

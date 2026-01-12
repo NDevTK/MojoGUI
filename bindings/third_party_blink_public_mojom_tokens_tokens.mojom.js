@@ -103,12 +103,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FrameTokenSpec, 'blink.mojom.FrameToken', {
       'arg_local_frame_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec,
         'nullable': false,
       },
       'arg_remote_frame_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec,
         'nullable': false,
       },
     });
@@ -118,17 +118,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WorkerTokenSpec, 'blink.mojom.WorkerToken', {
       'arg_dedicated_worker_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec,
         'nullable': false,
       },
     });
@@ -138,27 +138,27 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WorkletTokenSpec, 'blink.mojom.WorkletToken', {
       'arg_animation_worklet_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec,
         'nullable': false,
       },
       'arg_audio_worklet_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec,
         'nullable': false,
       },
       'arg_layout_worklet_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec,
         'nullable': false,
       },
       'arg_paint_worklet_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec,
         'nullable': false,
       },
       'arg_shared_storage_worklet_token': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec,
         'nullable': false,
       },
     });
@@ -168,52 +168,52 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, 'blink.mojom.ExecutionContextToken', {
       'arg_local_frame_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec,
         'nullable': false,
       },
       'arg_dedicated_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec,
         'nullable': false,
       },
       'arg_animation_worklet_token': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec,
         'nullable': false,
       },
       'arg_audio_worklet_token': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec,
         'nullable': false,
       },
       'arg_layout_worklet_token': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec,
         'nullable': false,
       },
       'arg_paint_worklet_token': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec,
         'nullable': false,
       },
       'arg_shared_storage_worklet_token': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec,
         'nullable': false,
       },
       'arg_shadow_realm_token': {
         'ordinal': 9,
-        'type': mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec,
         'nullable': false,
       },
     });
@@ -223,22 +223,22 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, 'blink.mojom.WebGPUExecutionContextToken', {
       'arg_document_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DocumentTokenSpec,
         'nullable': false,
       },
       'arg_dedicated_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec,
         'nullable': false,
       },
     });
@@ -246,132 +246,132 @@ mojo.internal.Union(
 // Struct: DocumentToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DocumentTokenSpec, 'blink.mojom.DocumentToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LocalFrameToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, 'blink.mojom.LocalFrameToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: RemoteFrameToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, 'blink.mojom.RemoteFrameToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DedicatedWorkerToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec, 'blink.mojom.DedicatedWorkerToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ServiceWorkerToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec, 'blink.mojom.ServiceWorkerToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SharedWorkerToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec, 'blink.mojom.SharedWorkerToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AnimationWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec, 'blink.mojom.AnimationWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AudioWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec, 'blink.mojom.AudioWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LayoutWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec, 'blink.mojom.LayoutWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PaintWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec, 'blink.mojom.PaintWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SharedStorageWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec, 'blink.mojom.SharedStorageWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ShadowRealmToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec, 'blink.mojom.ShadowRealmToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AttributionSrcToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, 'blink.mojom.AttributionSrcToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SameDocNavigationScreenshotDestinationToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, 'blink.mojom.SameDocNavigationScreenshotDestinationToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: V8ContextToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.V8ContextTokenSpec, 'blink.mojom.V8ContextToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ViewTransitionToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec, 'blink.mojom.ViewTransitionToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WebNNContextToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec, 'blink.mojom.WebNNContextToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WebNNPendingConstantToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec, 'blink.mojom.WebNNPendingConstantToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WebNNTensorToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, 'blink.mojom.WebNNTensorToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

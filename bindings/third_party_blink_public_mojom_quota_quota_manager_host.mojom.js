@@ -86,10 +86,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_usage', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current_quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_breakdown', 24, 0, mojo.internal.bindings.blink.mojom.UsageBreakdownSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current_quota', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_breakdown', 16, 0, mojo.internal.bindings.blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 24, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

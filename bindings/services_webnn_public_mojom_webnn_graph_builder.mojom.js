@@ -87,29 +87,29 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_Resp
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec, 'webnn.mojom.CreateGraphSuccess', [
       mojo.internal.StructField('arg_graph_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNGraphRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.DeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.DeviceSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: WebNNGraphBuilder
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_Params', [
-      mojo.internal.StructField('arg_constant_handle', 0, 0, mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_type', 8, 0, mojo.internal.bindings.webnn.mojom.DataTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_constant_handle', 16, 0, mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_type', 24, 0, mojo.internal.bindings.webnn.mojom.DataTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_CreateGraph_Params', [
-      mojo.internal.StructField('arg_graph_info', 0, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_graph_info', 0, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_Params', [
-      mojo.internal.StructField('arg_context_properties', 0, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_graph_info', 8, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_properties', 0, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_graph_info', 8, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

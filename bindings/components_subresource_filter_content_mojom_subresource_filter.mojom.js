@@ -90,8 +90,8 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViola
 // Interface: SubresourceFilterAgent
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Params', [
-      mojo.internal.StructField('arg_activation_state', 0, 0, mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ad_evidence', 8, 0, mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_activation_state', 0, 0, mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ad_evidence', 8, 0, mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -273,19 +273,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Params', [
-      mojo.internal.StructField('arg_fenced_frame_root_placeholder_token', 0, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fenced_frame_root_placeholder_token', 0, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_Params', [
-      mojo.internal.StructField('arg_statistics', 0, 0, mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_statistics', 0, 0, mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_Params', [
-      mojo.internal.StructField('arg_violation', 0, 0, mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_violation', 0, 0, mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

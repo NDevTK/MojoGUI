@@ -86,47 +86,47 @@ mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsS
 // Interface: Automation
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec, 'ax.mojom.Automation_DispatchTreeDestroyedEvent_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec, 'ax.mojom.Automation_DispatchActionResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityEvents_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_location', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_events', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_location', 24, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityScrollChange_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_x', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_y', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_x', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_y', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec, 'ax.mojom.Automation_DispatchGetTextLocationResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

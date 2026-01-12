@@ -91,7 +91,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 6, undefined),
+      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
     ],
     [[0, 24], [6, 32]]);
 

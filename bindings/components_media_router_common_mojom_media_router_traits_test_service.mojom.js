@@ -81,13 +81,13 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMedia
 // Interface: MediaRouterTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParams', [
-      mojo.internal.StructField('arg_sink', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sink', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

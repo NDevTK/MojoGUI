@@ -123,16 +123,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encoded_buffer_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encoded_buffer_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_Params', [
-      mojo.internal.StructField('arg_input_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_input_format', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_exif_handle', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
@@ -147,10 +147,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encoded_buffer_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encoded_buffer_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver = class {
   constructor(handle) {

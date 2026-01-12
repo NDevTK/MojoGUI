@@ -82,14 +82,14 @@ mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpe
 // Interface: WebSensorProvider
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_init_params', 0, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

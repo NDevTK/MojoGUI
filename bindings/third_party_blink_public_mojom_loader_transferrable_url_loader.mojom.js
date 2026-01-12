@@ -79,10 +79,10 @@ mojo.internal.bindings.blink.mojom.TransferrableURLLoaderSpec = { $: {} };
 // Struct: TransferrableURLLoader
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TransferrableURLLoaderSpec, 'blink.mojom.TransferrableURLLoader', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader_client', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 24, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 24, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_body', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
     [[0, 48]]);

@@ -78,6 +78,6 @@ mojo.internal.bindings.cc.mojom.SyncedScrollOffsetSpec = { $: {} };
 // Struct: SyncedScrollOffset
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.SyncedScrollOffsetSpec, 'cc.mojom.SyncedScrollOffset', [
-      mojo.internal.StructField('arg_scroll_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

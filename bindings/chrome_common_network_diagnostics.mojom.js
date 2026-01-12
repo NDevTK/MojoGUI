@@ -86,7 +86,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_Para
 // Interface: NetworkDiagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec, 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params', [
-      mojo.internal.StructField('arg_failed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

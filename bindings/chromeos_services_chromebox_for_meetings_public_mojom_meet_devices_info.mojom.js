@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,7 +161,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRequest = mojo.internal
 // Interface: PolicyInfoObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec, 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

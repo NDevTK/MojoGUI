@@ -88,7 +88,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_Re
 // Interface: SpellCheckService
 mojo.internal.Struct(
     mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params', [
-      mojo.internal.StructField('arg_dictionary_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dictionary_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

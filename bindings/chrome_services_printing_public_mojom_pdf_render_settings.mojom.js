@@ -89,11 +89,11 @@ mojo.internal.bindings.printing.mojom.Mode = {
 // Struct: PdfRenderSettings
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, 'printing.mojom.PdfRenderSettings', [
-      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offsets', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.printing.mojom.ModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_autorotate', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_color', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offsets', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.printing.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autorotate', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_color', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);

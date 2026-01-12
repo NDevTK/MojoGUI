@@ -100,13 +100,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRequest = mojo.internal.
 // Interface: DevicePostureClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

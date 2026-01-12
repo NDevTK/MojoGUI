@@ -192,7 +192,7 @@ mojo.internal.Union(
     mojo.internal.bindings.on_device_model.mojom.InputPieceSpec, 'on_device_model.mojom.InputPiece', {
       'arg_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.on_device_model.mojom.TokenSpec.$,
+        'type': mojo.internal.bindings.on_device_model.mojom.TokenSpec,
         'nullable': false,
       },
       'arg_text': {
@@ -202,7 +202,7 @@ mojo.internal.Union(
       },
       'arg_bitmap': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$,
+        'type': mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec,
         'nullable': false,
       },
       'arg_unknown_type': {
@@ -212,7 +212,7 @@ mojo.internal.Union(
       },
       'arg_audio': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.on_device_model.mojom.AudioDataSpec.$,
+        'type': mojo.internal.bindings.on_device_model.mojom.AudioDataSpec,
         'nullable': false,
       },
     });
@@ -240,8 +240,8 @@ mojo.internal.Union(
 // Struct: AdaptationAssets
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AdaptationAssetsSpec, 'on_device_model.mojom.AdaptationAssets', [
-      mojo.internal.StructField('arg_weights', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_weights_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_weights', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_weights_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -257,7 +257,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, 'on_device_model.mojom.SafetyInfo', [
       mojo.internal.StructField('arg_class_scores', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -265,14 +265,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.ResponseChunkSpec, 'on_device_model.mojom.ResponseChunk', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safety_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ResponseSummary
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.ResponseSummarySpec, 'on_device_model.mojom.ResponseSummary', [
-      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_output_token_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -280,7 +280,7 @@ mojo.internal.Struct(
 // Struct: LoadAdaptationParams
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.LoadAdaptationParamsSpec, 'on_device_model.mojom.LoadAdaptationParams', [
-      mojo.internal.StructField('arg_assets', 0, 0, mojo.internal.bindings.on_device_model.mojom.AdaptationAssetsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_assets', 0, 0, mojo.internal.bindings.on_device_model.mojom.AdaptationAssetsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,7 +295,7 @@ mojo.internal.Struct(
 // Struct: SessionParams
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, 'on_device_model.mojom.SessionParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_tokens', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_top_k', 12, 0, mojo.internal.Uint32, 0, false, 1, undefined),
       mojo.internal.StructField('arg_temperature', 16, 0, mojo.internal.Float, 0, false, 1, undefined),
@@ -312,7 +312,7 @@ mojo.internal.Struct(
 // Struct: AppendOptions
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec, 'on_device_model.mojom.AppendOptions', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.on_device_model.mojom.InputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.on_device_model.mojom.InputSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_tokens', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -353,8 +353,8 @@ mojo.internal.Struct(
 // Struct: DevicePerformanceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec, 'on_device_model.mojom.DevicePerformanceInfo', [
-      mojo.internal.StructField('arg_performance_class', 0, 0, mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vram_mb', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vram_mb', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_performance_class', 8, 0, mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -371,13 +371,13 @@ mojo.internal.Struct(
 // Interface: StreamingResponder
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec, 'on_device_model.mojom.StreamingResponder_OnResponse_Params', [
-      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.on_device_model.mojom.ResponseChunkSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.on_device_model.mojom.ResponseChunkSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec, 'on_device_model.mojom.StreamingResponder_OnComplete_Params', [
-      mojo.internal.StructField('arg_summary', 0, 0, mojo.internal.bindings.on_device_model.mojom.ResponseSummarySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_summary', 0, 0, mojo.internal.bindings.on_device_model.mojom.ResponseSummarySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -755,21 +755,21 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientRequest = mojo.interna
 // Interface: Session
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec, 'on_device_model.mojom.Session_Append_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.ContextClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec, 'on_device_model.mojom.Session_Generate_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec, 'on_device_model.mojom.Session_GetSizeInTokens_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.on_device_model.mojom.InputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.on_device_model.mojom.InputSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -811,13 +811,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec, 'on_device_model.mojom.Session_SetPriority_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.on_device_model.mojom.PrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.on_device_model.mojom.PrioritySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec, 'on_device_model.mojom.Session_AsrStream_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
     ],
@@ -1313,7 +1313,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRequest = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [
       mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
@@ -1325,7 +1325,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1337,20 +1337,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_LoadAdaptation_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadAdaptationParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadAdaptationParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1673,7 +1673,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1685,7 +1685,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec, 'on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LanguageDetectionResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2125,7 +2125,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRequest = mojo.inter
 // Interface: AsrStreamResponder
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec, 'on_device_model.mojom.AsrStreamResponder_OnResponse_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.SpeechRecognitionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.SpeechRecognitionResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2292,7 +2292,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRequest = mojo.in
 // Interface: AsrStreamInput
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec, 'on_device_model.mojom.AsrStreamInput_AddAudioChunk_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.on_device_model.mojom.AudioDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.on_device_model.mojom.AudioDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

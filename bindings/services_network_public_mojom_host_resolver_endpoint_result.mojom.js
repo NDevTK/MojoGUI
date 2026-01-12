@@ -77,7 +77,7 @@ mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec = { $: {} };
 // Struct: HostResolverEndpointResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec, 'network.mojom.HostResolverEndpointResult', [
-      mojo.internal.StructField('arg_ip_endpoints', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_endpoints', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

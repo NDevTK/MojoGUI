@@ -82,15 +82,15 @@ mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_Resp
 // Interface: InstalledAppProvider
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params', [
-      mojo.internal.StructField('arg_related_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_related_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_add_saved_related_applications', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParams', [
-      mojo.internal.StructField('arg_installed_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_installed_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

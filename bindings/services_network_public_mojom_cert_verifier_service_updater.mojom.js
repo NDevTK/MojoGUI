@@ -87,8 +87,8 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolic
 // Struct: CIDR
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, 'cert_verifier.mojom.CIDR', [
-      mojo.internal.StructField('arg_ip', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -97,7 +97,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, 'cert_verifier.mojom.CertWithConstraints', [
       mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_permitted_dns_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_permitted_cidrs', 16, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CIDRSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permitted_cidrs', 16, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -107,9 +107,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_all_certificates', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_trust_anchors', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_trust_anchors_with_enforced_constraints', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors_with_additional_constraints', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors_and_leafs', 32, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_leafs', 40, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors_with_additional_constraints', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors_and_leafs', 32, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_leafs', 40, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_distrusted_spkis', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_include_system_trust_store', 56, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 // Interface: CertVerifierServiceUpdater
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params', [
-      mojo.internal.StructField('arg_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params', [
-      mojo.internal.StructField('arg_ct_policy', 0, 0, mojo.internal.bindings.network.mojom.CTPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ct_policy', 0, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

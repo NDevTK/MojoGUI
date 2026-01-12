@@ -156,18 +156,18 @@ mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyle = {
 // Struct: ImeTextSpan
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ImeTextSpanSpec, 'ui.mojom.ImeTextSpan', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_thickness', 8, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_underline_style', 16, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end_offset', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_underline_color', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_color', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_highlight_color', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_remove_on_finish_composing', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_interim_char_selection', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_hide_suggestion_menu', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_underline_color', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_thickness', 24, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_underline_style', 28, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_color', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_highlight_color', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_remove_on_finish_composing', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_interim_char_selection', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_hide_suggestion_menu', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 56]]);

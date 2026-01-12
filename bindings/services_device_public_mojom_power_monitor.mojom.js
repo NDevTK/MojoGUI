@@ -254,7 +254,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorRequest = mojo.internal.bindings
 // Interface: PowerMonitorClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec, 'device.mojom.PowerMonitorClient_PowerStateChange_Params', [
-      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

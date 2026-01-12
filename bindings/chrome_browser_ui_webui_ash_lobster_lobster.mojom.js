@@ -135,12 +135,12 @@ mojo.internal.Union(
     mojo.internal.bindings.lobster.mojom.ResponseSpec, 'lobster.mojom.Response', {
       'arg_candidates': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.lobster.mojom.CandidateSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.lobster.mojom.CandidateSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.lobster.mojom.ErrorSpec.$,
+        'type': mojo.internal.bindings.lobster.mojom.ErrorSpec,
         'nullable': false,
       },
     });
@@ -148,7 +148,7 @@ mojo.internal.Union(
 // Struct: Candidate
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.CandidateSpec, 'lobster.mojom.Candidate', [
-      mojo.internal.StructField('arg_data_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -156,8 +156,8 @@ mojo.internal.Struct(
 // Struct: Error
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.ErrorSpec, 'lobster.mojom.Error', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.lobster.mojom.StatusCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.lobster.mojom.StatusCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -165,7 +165,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec, 'lobster.mojom.FeedbackPreview', [
       mojo.internal.StructField('arg_fields', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_preview_data_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preview_data_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -227,7 +227,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParams', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -256,13 +256,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_Params', [
-      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

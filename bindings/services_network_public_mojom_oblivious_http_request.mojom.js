@@ -99,7 +99,7 @@ mojo.internal.Union(
       },
       'arg_inner_response': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec.$,
+        'type': mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec,
         'nullable': false,
       },
     });
@@ -107,7 +107,7 @@ mojo.internal.Union(
 // Struct: ObliviousHttpRequestBody
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpRequestBodySpec, 'network.mojom.ObliviousHttpRequestBody', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -115,8 +115,8 @@ mojo.internal.Struct(
 // Struct: ObliviousHttpResponse
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec, 'network.mojom.ObliviousHttpResponse', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_body', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_response_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -133,24 +133,24 @@ mojo.internal.Struct(
 // Struct: ObliviousHttpRequest
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpRequestSpec, 'network.mojom.ObliviousHttpRequest', [
-      mojo.internal.StructField('arg_relay_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_relay_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_key_config', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 48, 0, mojo.internal.bindings.network.mojom.ObliviousHttpRequestBodySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trust_token_params', 56, 0, mojo.internal.bindings.network.mojom.TrustTokenParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_padding_params', 64, 0, mojo.internal.bindings.network.mojom.ObliviousHttpPaddingParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 48, 0, mojo.internal.bindings.network.mojom.ObliviousHttpRequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_params', 56, 0, mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_padding_params', 64, 0, mojo.internal.bindings.network.mojom.ObliviousHttpPaddingParametersSpec, null, true, 0, undefined),
     ],
     [[0, 80]]);
 
 // Interface: ObliviousHttpClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec, 'network.mojom.ObliviousHttpClient_OnCompleted_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.network.mojom.ObliviousHttpCompletionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.network.mojom.ObliviousHttpCompletionResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.network.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {

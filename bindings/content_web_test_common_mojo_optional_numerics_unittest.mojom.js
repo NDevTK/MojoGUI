@@ -282,26 +282,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_optional_uint64_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
       mojo.internal.StructField('arg_optional_int64_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
       mojo.internal.StructField('arg_optional_double_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
-      mojo.internal.StructField('arg_optional_enum', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_optional_uint32_$value', 32, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_int32_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_float_$value', 40, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_uint16_$value', 44, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_int16_$value', 46, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_bool_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_bool_$value', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_uint8_$flag', 48, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_uint8_$value', 49, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_int8_$flag', 50, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_int8_$value', 51, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_uint16_$flag', 52, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_int16_$flag', 52, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_uint32_$flag', 52, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_int32_$flag', 52, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_uint64_$flag', 52, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
-      mojo.internal.StructField('arg_optional_int64_$flag', 52, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
-      mojo.internal.StructField('arg_optional_float_$flag', 52, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_double_$flag', 52, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
+      mojo.internal.StructField('arg_optional_uint32_$value', 24, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_int32_$value', 28, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_float_$value', 32, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_enum', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_uint16_$value', 40, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_int16_$value', 42, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_bool_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_bool_$value', 44, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_uint8_$flag', 44, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_uint8_$value', 45, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_int8_$flag', 46, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_int8_$value', 47, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_uint16_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_int16_$flag', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_uint32_$flag', 48, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_int32_$flag', 48, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_uint64_$flag', 48, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
+      mojo.internal.StructField('arg_optional_int64_$flag', 48, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
+      mojo.internal.StructField('arg_optional_float_$flag', 48, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_double_$flag', 48, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
     ],
     [[0, 64]]);
 
@@ -317,26 +317,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uint64_value_$value', 0, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
       mojo.internal.StructField('arg_int64_value_$value', 8, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
       mojo.internal.StructField('arg_double_value_$value', 16, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_enum_value', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
-      mojo.internal.StructField('arg_uint32_value_$value', 32, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 36, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 40, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 44, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 46, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_bool_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 49, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 50, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 51, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 52, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 52, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 52, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 52, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 52, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 52, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 52, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 52, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 24, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 28, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_uint16_value_$value', 40, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 42, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_bool_value_$flag', 44, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 44, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 44, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 45, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 46, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 47, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 48, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 48, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 48, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 48, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 48, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
     ],
     [[0, 8], [2, 64]]);
 
@@ -475,7 +475,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_Params', [
-      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -530,7 +530,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_Params', [
-      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -563,7 +563,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -717,13 +717,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_Params', [
-      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -777,13 +777,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_Params', [
-      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -813,19 +813,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -836,7 +836,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -847,7 +847,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -856,17 +856,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uint64_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_int64_value', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_double_value', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enum_value', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uint32_value', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int32_value', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_float_value', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint16_value', 44, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int16_value', 46, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bool_value', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uint8_value', 49, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int8_value', 50, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint32_value', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int32_value', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uint16_value', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int16_value', 42, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bool_value', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uint8_value', 45, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int8_value', 46, 0, mojo.internal.Int8, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsPendingReceiver = class {
   constructor(handle) {
@@ -3274,7 +3274,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3329,7 +3329,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3362,7 +3362,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3511,13 +3511,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3571,13 +3571,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3609,14 +3609,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 4, 0, mojo.internal.Int16, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3627,7 +3627,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3638,7 +3638,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3647,21 +3647,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uint64_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_int64_value', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_double_value', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enum_value', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uint32_value', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int32_value', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_float_value', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint16_value', 44, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int16_value', 46, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bool_value', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uint8_value', 49, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int8_value', 50, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint32_value', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int32_value', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uint16_value', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int16_value', 42, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bool_value', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uint8_value', 45, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int8_value', 46, 0, mojo.internal.Int8, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -5944,13 +5944,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -6176,26 +6176,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uint64_value_$value', 0, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
       mojo.internal.StructField('arg_int64_value_$value', 8, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
       mojo.internal.StructField('arg_double_value_$value', 16, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_enum_value', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
-      mojo.internal.StructField('arg_uint32_value_$value', 32, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 36, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 40, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 44, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 46, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_bool_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 49, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 50, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 51, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 52, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 52, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 52, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 52, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 52, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 52, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 52, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 52, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 24, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 28, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_uint16_value_$value', 40, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 42, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_bool_value_$flag', 44, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 44, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 44, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 45, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 46, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 47, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 48, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 48, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 48, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 48, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 48, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
     ],
     [[0, 8], [2, 64]]);
 
@@ -6204,38 +6204,38 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uint64_value_$value', 0, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
       mojo.internal.StructField('arg_int64_value_$value', 8, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
       mojo.internal.StructField('arg_double_value_$value', 16, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_enum_value', 24, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
-      mojo.internal.StructField('arg_uint32_value_$value', 32, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 36, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 40, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 44, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 46, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_bool_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 49, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 50, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 51, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 52, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 52, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 52, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 52, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 52, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 52, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 52, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 52, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 24, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 28, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_uint16_value_$value', 40, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 42, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_bool_value_$flag', 44, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 44, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 44, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 45, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 46, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 47, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 48, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 48, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 48, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 48, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 48, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
     ],
     [[0, 8], [2, 64]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -87,9 +87,9 @@ mojo.internal.bindings.gfx.mojom.ContentColorUsage = {
 // Struct: DisplayColorSpaces
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec, 'gfx.mojom.DisplayColorSpaces', [
-      mojo.internal.StructField('arg_color_spaces', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.ColorSpaceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_primaries', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_spaces', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_primaries', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sdr_max_luminance_nits', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_hdr_max_luminance_relative', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],

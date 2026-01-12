@@ -77,8 +77,8 @@ mojo.internal.bindings.network.mojom.EarlyHintsSpec = { $: {} };
 // Struct: EarlyHints
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.EarlyHintsSpec, 'network.mojom.EarlyHints', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.ParsedHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 8, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address_space', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.ParsedHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 8, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_space', 12, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

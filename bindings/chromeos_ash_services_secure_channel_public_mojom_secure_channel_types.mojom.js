@@ -93,8 +93,8 @@ mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatus = {
 // Struct: PayloadFiles
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, 'ash.secure_channel.mojom.PayloadFiles', [
-      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -102,16 +102,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec, 'ash.secure_channel.mojom.FileTransferUpdate', [
       mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_bytes', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_transferred', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_transferred', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: FilePayloadListener
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec, 'ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

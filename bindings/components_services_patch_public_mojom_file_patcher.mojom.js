@@ -101,9 +101,9 @@ mojo.internal.bindings.patch.mojom.ZucchiniStatus = {
 // Interface: FilePatcher
 mojo.internal.Struct(
     mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params', [
-      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -115,15 +115,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_Params', [
-      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

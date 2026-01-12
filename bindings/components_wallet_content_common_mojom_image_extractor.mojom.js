@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

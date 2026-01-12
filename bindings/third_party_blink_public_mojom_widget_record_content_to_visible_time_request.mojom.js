@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec = { $: 
 // Struct: RecordContentToVisibleTimeRequest
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, 'blink.mojom.RecordContentToVisibleTimeRequest', [
-      mojo.internal.StructField('arg_event_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_destination_is_loaded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_reason_tab_switching', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_reason_bfcache_restore', 8, 2, mojo.internal.Bool, false, false, 0, undefined),

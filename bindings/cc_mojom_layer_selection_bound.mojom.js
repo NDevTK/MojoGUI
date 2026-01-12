@@ -79,18 +79,18 @@ mojo.internal.bindings.cc.mojom.LayerSelectionSpec = { $: {} };
 // Struct: LayerSelectionBound
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec, 'cc.mojom.LayerSelectionBound', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edge_start', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edge_end', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_layer_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hidden', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_edge_start', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_edge_end', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hidden', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: LayerSelection
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.LayerSelectionSpec, 'cc.mojom.LayerSelection', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

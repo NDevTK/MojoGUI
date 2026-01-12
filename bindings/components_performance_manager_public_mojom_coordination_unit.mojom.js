@@ -122,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,19 +165,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params', [
-      mojo.internal.StructField('arg_time_since_navigation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_since_navigation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.WebMemoryMeasurement.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.WebMemoryMeasurement.ModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParams', [
-      mojo.internal.StructField('arg_measurement', 0, 0, mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_measurement', 0, 0, mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -845,35 +845,35 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_Params', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iframe_attribution_data', 8, 0, mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iframe_attribution_data', 8, 0, mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_Params', [
-      mojo.internal.StructField('arg_v8_context_token', 0, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_context_token', 0, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_Params', [
-      mojo.internal.StructField('arg_v8_context_token', 0, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_context_token', 0, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_Params', [
-      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iframe_attribution_data', 16, 0, mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iframe_attribution_data', 16, 0, mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_Params', [
-      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1265,8 +1265,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec, 'performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParams', [
-      mojo.internal.StructField('arg_global_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_process_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_global_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_process_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

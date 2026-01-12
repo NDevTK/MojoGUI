@@ -83,15 +83,15 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMe
 // Interface: TabStripExperimentService
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visual_data', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_data', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

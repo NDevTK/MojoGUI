@@ -334,7 +334,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_header', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

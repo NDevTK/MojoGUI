@@ -187,7 +187,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordComplexity = {
 // Interface: FactorObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec, 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params', [
-      mojo.internal.StructField('arg_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -361,7 +361,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params', [
       mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -374,7 +374,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params', [
       mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -387,20 +387,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params', [
       mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParams', [
-      mojo.internal.StructField('arg_management', 0, 0, mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_management', 0, 0, mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params', [
       mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -830,7 +830,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1010,7 +1010,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1023,7 +1023,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1035,7 +1035,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1047,7 +1047,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParams', [
-      mojo.internal.StructField('arg_pin_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pin_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1060,7 +1060,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParams', [
-      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1440,7 +1440,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1453,7 +1453,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1466,7 +1466,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1479,7 +1479,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1491,7 +1491,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParams', [
-      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1503,7 +1503,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

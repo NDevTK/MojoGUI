@@ -81,13 +81,13 @@ mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponsePa
 // Interface: IMEStructTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

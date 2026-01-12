@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec = { $: {} };
 // Struct: ScriptSourceLocation
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, 'blink.mojom.ScriptSourceLocation', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_function_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_line_number', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_column_number', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),

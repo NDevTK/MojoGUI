@@ -334,7 +334,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec, 'ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_Params', [
-      mojo.internal.StructField('arg_action_type_id', 0, 0, mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type_id', 0, 0, mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -366,19 +366,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec, 'ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenSettings_Params', [
-      mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -182,12 +182,12 @@ mojo.internal.Union(
     mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec, 'nearby.connections.mojom.PayloadContent', {
       'arg_bytes': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec.$,
+        'type': mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec,
         'nullable': false,
       },
       'arg_file': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec.$,
+        'type': mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec,
         'nullable': false,
       },
     });
@@ -224,33 +224,33 @@ mojo.internal.Struct(
 // Struct: AdvertisingOptions
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec, 'nearby.connections.mojom.AdvertisingOptions', [
-      mojo.internal.StructField('arg_strategy', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StrategySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_mediums', 8, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fast_advertisement_service_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_auto_upgrade_bandwidth', 24, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_enforce_topology_constraints', 24, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_bluetooth_listening', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_webrtc_listening', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_mediums', 0, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fast_advertisement_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_strategy', 16, 0, mojo.internal.bindings.nearby.connections.mojom.StrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auto_upgrade_bandwidth', 20, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_enforce_topology_constraints', 20, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_bluetooth_listening', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_webrtc_listening', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: DiscoveryOptions
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec, 'nearby.connections.mojom.DiscoveryOptions', [
-      mojo.internal.StructField('arg_strategy', 0, 0, mojo.internal.bindings.nearby.connections.mojom.StrategySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_mediums', 8, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fast_advertisement_service_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_out_of_band_connection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_mediums', 0, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fast_advertisement_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_strategy', 16, 0, mojo.internal.bindings.nearby.connections.mojom.StrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_out_of_band_connection', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: ConnectionOptions
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec, 'nearby.connections.mojom.ConnectionOptions', [
-      mojo.internal.StructField('arg_allowed_mediums', 0, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_mediums', 0, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_remote_bluetooth_mac_address', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_interval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_timeout', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_interval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_timeout', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -264,7 +264,7 @@ mojo.internal.Struct(
 // Struct: FilePayload
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec, 'nearby.connections.mojom.FilePayload', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,9 +280,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec, 'nearby.connections.mojom.PayloadTransferUpdate', [
       mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_bytes', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_transferred', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_transferred', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadStatusSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -291,15 +291,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec, 'nearby.connections.mojom.InitialConnectionInfoV3', [
       mojo.internal.StructField('arg_authentication_digits', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_raw_authentication_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_authentication_status', 16, 0, mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_incoming_connection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_authentication_status', 16, 0, mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_incoming_connection', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: BandwidthInfo
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec, 'nearby.connections.mojom.BandwidthInfo', [
-      mojo.internal.StructField('arg_quality', 0, 0, mojo.internal.bindings.nearby.connections.mojom.BandwidthQualitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_medium', 8, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quality', 0, 0, mojo.internal.bindings.nearby.connections.mojom.BandwidthQualitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_medium', 4, 0, mojo.internal.bindings.nearby.connections.mojom.MediumSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParams', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -86,14 +86,14 @@ mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpe
 // Interface: WebPressureManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, 'blink.mojom.WebPressureManager_AddClient_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerRequest = mojo.internal.bin
 // Interface: WebPressureClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec, 'blink.mojom.WebPressureClient_OnPressureUpdated_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

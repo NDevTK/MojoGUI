@@ -77,8 +77,8 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSpec = { $: {} };
 // Struct: CompositorFrame
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSpec, 'viz.mojom.CompositorFrame', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransferableResourceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_passes', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.CompositorRenderPassSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransferableResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_passes', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.CompositorRenderPassSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

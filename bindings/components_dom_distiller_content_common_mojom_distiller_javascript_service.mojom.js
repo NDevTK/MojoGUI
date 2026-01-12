@@ -88,13 +88,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.dom_distiller.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.dom_distiller.mojom.ThemeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params', [
-      mojo.internal.StructField('arg_font_family', 0, 0, mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_family', 0, 0, mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

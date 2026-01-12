@@ -85,7 +85,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, 'ai.mojom.ZeroStateSuggestionsResponseResult', {
       'arg_response': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
         'nullable': false,
       },
       'arg_error': {

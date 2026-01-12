@@ -85,7 +85,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpda
 // Interface: FeatureUpdateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec, 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

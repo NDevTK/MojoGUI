@@ -92,29 +92,29 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertDisposition = {
 // Struct: AlertBridgeInitParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec, 'remote_cocoa.mojom.AlertBridgeInitParams', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_button_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary_button_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_text_field_text', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_check_box_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_button_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_button_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_text_field_text', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_check_box_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: AlertBridge
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Show_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec, 'remote_cocoa.mojom.AlertBridge_Show_ResponseParams', [
-      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_field_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_check_box_value', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_text_field_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_check_box_value', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Dismiss_Params', [

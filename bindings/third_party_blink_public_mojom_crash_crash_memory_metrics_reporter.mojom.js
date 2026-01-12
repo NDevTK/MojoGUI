@@ -81,7 +81,7 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Pa
 // Interface: CrashMemoryMetricsReporter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec, 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params', [
-      mojo.internal.StructField('arg_shared_metrics_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_metrics_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

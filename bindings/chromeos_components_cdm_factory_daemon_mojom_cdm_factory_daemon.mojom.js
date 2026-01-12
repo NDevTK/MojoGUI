@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -467,8 +467,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

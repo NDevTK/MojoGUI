@@ -107,8 +107,8 @@ mojo.internal.Struct(
 // Struct: PassageEmbeddingsLoadModelsParams
 mojo.internal.Struct(
     mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams', [
-      mojo.internal.StructField('arg_embeddings_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sp_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embeddings_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sp_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_window_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -128,13 +128,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec, 'passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_Params', [
       mojo.internal.StructField('arg_passages', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec, 'passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -307,8 +307,8 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRequest = mojo.in
 // Interface: PassageEmbeddingsService
 mojo.internal.Struct(
     mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_Params', [
-      mojo.internal.StructField('arg_model_params', 0, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_params', 0, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_model', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

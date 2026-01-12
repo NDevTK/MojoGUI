@@ -79,7 +79,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderInfoSpec = { $: {} };
 // Struct: ResolutionRateLimit
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ResolutionRateLimitSpec, 'media.mojom.ResolutionRateLimit', [
-      mojo.internal.StructField('arg_frame_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_min_start_bitrate_bps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_min_bitrate_bps', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_bitrate_bps', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -94,8 +94,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_implementation_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_manual_reference_buffers', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fps_allocation', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_rate_limits', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.ResolutionRateLimitSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_supported_pixel_formats', 32, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoPixelFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_rate_limits', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.ResolutionRateLimitSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_supported_pixel_formats', 32, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoPixelFormatSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_delay', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_input_capacity', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_requested_resolution_alignment', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),

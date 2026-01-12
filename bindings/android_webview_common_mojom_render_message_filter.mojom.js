@@ -81,8 +81,8 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated
 // Interface: RenderMessageFilter
 mojo.internal.Struct(
     mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec, 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params', [
-      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

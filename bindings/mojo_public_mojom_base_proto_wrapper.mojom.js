@@ -77,7 +77,7 @@ mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = { $: {} };
 // Struct: ProtoWrapper
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, 'mojo_base.mojom.ProtoWrapper', [
-      mojo.internal.StructField('arg_proto_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_smuggled', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_smuggled', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proto_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

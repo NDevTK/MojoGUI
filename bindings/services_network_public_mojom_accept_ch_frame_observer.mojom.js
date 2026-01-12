@@ -83,8 +83,8 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = { 
 // Interface: AcceptCHFrameObserver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accept_ch_frame', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_ch_frame', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

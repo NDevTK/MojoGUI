@@ -97,7 +97,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketMode = {
 // Struct: RestrictedUDPSocketParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec, 'network.mojom.RestrictedUDPSocketParams', [
-      mojo.internal.StructField('arg_socket_options', 0, 0, mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_socket_options', 0, 0, mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_connection_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -105,7 +105,7 @@ mojo.internal.Struct(
 // Interface: RestrictedUDPSocket
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_JoinGroup_Params', [
-      mojo.internal.StructField('arg_group_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_LeaveGroup_Params', [
-      mojo.internal.StructField('arg_group_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec, 'network.mojom.RestrictedUDPSocket_Send_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -147,9 +147,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec, 'network.mojom.RestrictedUDPSocket_SendTo_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_addr', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dns_query_type', 16, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_addr', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_query_type', 16, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

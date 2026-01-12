@@ -104,12 +104,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
       mojo.internal.StructField('arg_item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_state', 16, 0, mojo.internal.bindings.arc.mojom.PurchaseStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_acknowledged', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_will_auto_renew', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_state', 24, 0, mojo.internal.bindings.arc.mojom.PurchaseStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_acknowledged', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_will_auto_renew', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: DigitalGoodsInstance
 mojo.internal.Struct(
@@ -122,8 +122,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_item_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.ItemDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_item_details_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,8 +151,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_details_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -165,8 +165,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_reference_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -179,8 +179,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_reference_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

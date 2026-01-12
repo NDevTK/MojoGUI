@@ -140,7 +140,7 @@ mojo.internal.Union(
       },
       'arg_success': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec.$,
+        'type': mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec,
         'nullable': false,
       },
     });
@@ -337,13 +337,13 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
 // Interface: CertificateManagerPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParams', [
-      mojo.internal.StructField('arg_certs', 0, 0, mojo.internal.Array(mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_certs', 0, 0, mojo.internal.Array(mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -354,26 +354,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sha256_hash_hex', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sha256_hash_hex', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -385,7 +385,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -397,9 +397,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sha256_hash_hex', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sha256_hash_hex', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -989,7 +989,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPage_TriggerReload_Params', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

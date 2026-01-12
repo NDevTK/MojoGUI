@@ -78,7 +78,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec = { $: {} };
 // Struct: SpeechRecognitionGrammar
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec, 'media.mojom.SpeechRecognitionGrammar', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_weight', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);

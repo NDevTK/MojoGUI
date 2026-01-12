@@ -95,7 +95,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionScheme = {
 // Struct: TrustedSignalsCacheKey
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec, 'auction_worklet.mojom.TrustedSignalsCacheKey', [
-      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_partition_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -103,10 +103,10 @@ mojo.internal.Struct(
 // Interface: TrustedSignalsCacheClient
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
-      mojo.internal.StructField('arg_compression_scheme', 0, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compression_group_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compression_group_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compression_scheme', 16, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params', [
@@ -321,7 +321,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRequest = 
 // Interface: TrustedSignalsCache
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
-      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

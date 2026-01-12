@@ -79,7 +79,7 @@ mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, 'blink.mojom.MessagePortDescriptor', [
       mojo.internal.StructField('arg_pipe_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sequence_number', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);

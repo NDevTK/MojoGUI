@@ -92,15 +92,15 @@ mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingR
 // Struct: HandwritingPoint
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingPoint', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_t', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_t', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HandwritingStroke
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingStrokeSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingStroke', [
-      mojo.internal.StructField('arg_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingSegmentSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingSegment', [
       mojo.internal.StructField('arg_grapheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_drawing_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_drawing_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_begin_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_end_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPredictionSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingPrediction', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segmentation_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_segmentation_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingSegmentSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -152,14 +152,14 @@ mojo.internal.Struct(
 // Interface: HandwritingRecognizer
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_Params', [
-      mojo.internal.StructField('arg_strokes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingStrokeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hints', 8, 0, mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingHintsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strokes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingStrokeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hints', 8, 0, mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingHintsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParams', [
-      mojo.internal.StructField('arg_prediction', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPredictionSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_prediction', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingPredictionSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

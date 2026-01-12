@@ -82,12 +82,12 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, 'network.mojom.NetworkAnonymizationKey', {
       'arg_empty': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.network.mojom.EmptyNetworkAnonymizationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.EmptyNetworkAnonymizationKeySpec,
         'nullable': false,
       },
       'arg_non_empty': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec,
         'nullable': false,
       },
     });
@@ -101,9 +101,9 @@ mojo.internal.Struct(
 // Struct: NonEmptyNetworkAnonymizationKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec, 'network.mojom.NonEmptyNetworkAnonymizationKey', [
-      mojo.internal.StructField('arg_top_frame_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network_isolation_partition', 16, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_cross_site', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_isolation_partition', 16, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_cross_site', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);

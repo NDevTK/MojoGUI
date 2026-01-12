@@ -79,15 +79,15 @@ mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec = { $: {} };
 // Struct: FrameTimingDetails
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec, 'viz.mojom.FrameTimingDetails', [
-      mojo.internal.StructField('arg_received_compositor_frame_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedded_frame_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_draw_start_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_timings', 24, 0, mojo.internal.bindings.gfx.mojom.SwapTimingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presentation_feedback', 32, 0, mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 40, 0, mojo.internal.bindings.viz.mojom.BeginFrameIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_update_display_tree', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_prepare_to_draw', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_draw_layers', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_submit_compositor_frame', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_received_compositor_frame_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded_frame_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_start_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_timings', 24, 0, mojo.internal.bindings.gfx.mojom.SwapTimingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_feedback', 32, 0, mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 40, 0, mojo.internal.bindings.viz.mojom.BeginFrameIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_update_display_tree', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_prepare_to_draw', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_draw_layers', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_submit_compositor_frame', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);

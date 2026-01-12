@@ -111,7 +111,7 @@ mojo.internal.bindings.password_manager.mojom.Page.$interfaceName = 'password_ma
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.DomainInfoSpec, 'password_manager.mojom.DomainInfo', [
       mojo.internal.StructField('arg_human_readable_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_signon_realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -119,8 +119,8 @@ mojo.internal.Struct(
 // Struct: ActorLoginPermission
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec, 'password_manager.mojom.ActorLoginPermission', [
-      mojo.internal.StructField('arg_domain_info', 0, 0, mojo.internal.bindings.password_manager.mojom.DomainInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain_info', 0, 0, mojo.internal.bindings.password_manager.mojom.DomainInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_username', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -335,13 +335,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec, 'password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParams', [
-      mojo.internal.StructField('arg_sites', 0, 0, mojo.internal.Array(mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sites', 0, 0, mojo.internal.Array(mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec, 'password_manager.mojom.PageHandler_RevokeActorLoginPermission_Params', [
-      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

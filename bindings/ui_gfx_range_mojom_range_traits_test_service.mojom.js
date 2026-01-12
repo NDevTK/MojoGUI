@@ -83,25 +83,25 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParam
 // Interface: RangeTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [
-      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params', [
-      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

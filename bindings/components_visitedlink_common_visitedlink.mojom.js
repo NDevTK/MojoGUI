@@ -85,7 +85,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOrigi
 // Interface: VisitedLinkNotificationSink
 mojo.internal.Struct(
     mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params', [
-      mojo.internal.StructField('arg_table_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_table_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params', [
-      mojo.internal.StructField('arg_origin_salts', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_salts', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

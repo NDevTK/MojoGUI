@@ -99,8 +99,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_usage', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_use_count', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_last_accessed', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_modified', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_accessed', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_modified', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -131,7 +131,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec, 'storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_Params', [
-      mojo.internal.StructField('arg_origin_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec, 'storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParams', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.BucketTableEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.BucketTableEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

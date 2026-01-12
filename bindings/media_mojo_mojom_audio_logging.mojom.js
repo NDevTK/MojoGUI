@@ -99,7 +99,7 @@ mojo.internal.bindings.media.mojom.AudioLogComponent = {
 // Interface: AudioLog
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec, 'media.mojom.AudioLog_OnCreated_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -613,11 +613,11 @@ mojo.internal.bindings.media.mojom.AudioLogRequest = mojo.internal.bindings.medi
 // Interface: AudioLogFactory
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
-      mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_component_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_log_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.media.mojom.AudioLogFactoryPendingReceiver = class {
   constructor(handle) {

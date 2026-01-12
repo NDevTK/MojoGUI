@@ -84,20 +84,20 @@ mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_Respon
 // Interface: AIPrototypingService
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParams', [
       mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_logging_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_logging_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

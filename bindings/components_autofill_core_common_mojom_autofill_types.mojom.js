@@ -333,7 +333,7 @@ mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSource = {
 // Struct: FrameToken
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FrameTokenSpec, 'autofill.mojom.FrameToken', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_local', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -341,7 +341,7 @@ mojo.internal.Struct(
 // Struct: FrameTokenWithPredecessor
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec, 'autofill.mojom.FrameTokenWithPredecessor', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.autofill.mojom.FrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_predecessor', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -363,15 +363,15 @@ mojo.internal.Struct(
 // Struct: FillId
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FillIdSpec, 'autofill.mojom.FillId', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SelectOption
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.SelectOptionSpec, 'autofill.mojom.SelectOption', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -379,62 +379,62 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec, 'autofill.mojom.AutocompleteParsingResult', [
       mojo.internal.StructField('arg_section', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.autofill.mojom.HtmlFieldModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_type', 16, 0, mojo.internal.bindings.autofill.mojom.HtmlFieldTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_webauthn', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webidentity', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.autofill.mojom.HtmlFieldModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_type', 12, 0, mojo.internal.bindings.autofill.mojom.HtmlFieldTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_webauthn', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webidentity', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: FormFieldData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, 'autofill.mojom.FormFieldData', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id_attribute', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name_attribute', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_type', 48, 0, mojo.internal.bindings.autofill.mojom.FormControlTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_autocomplete_attribute', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parsed_autocomplete', 64, 0, mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pattern', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_placeholder', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_css_classes', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aria_label', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aria_description', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_id', 120, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_form_id', 128, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_length', 136, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_check_status', 144, 0, mojo.internal.bindings.autofill.mojom.CheckStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_role', 152, 0, mojo.internal.bindings.autofill.mojom.RoleAttributeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction', 160, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_input', 168, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 176, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_label_source', 184, 0, mojo.internal.bindings.autofill.mojom.LabelSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 192, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_datalist_options', 200, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties_mask', 208, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_ax_id', 212, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_user_edited', 216, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_autofilled', 216, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_focusable', 216, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_visible', 216, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_autocomplete', 216, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 216, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_readonly', 216, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allows_writing_suggestions', 216, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_override', 217, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id_attribute', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name_attribute', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_attribute', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parsed_autocomplete', 56, 0, mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_placeholder', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_classes', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aria_label', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aria_description', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_id', 112, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_form_id', 120, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_length', 128, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_user_input', 136, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 144, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 152, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_datalist_options', 160, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_type', 168, 0, mojo.internal.bindings.autofill.mojom.FormControlTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties_mask', 172, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_ax_id', 176, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_check_status', 180, 0, mojo.internal.bindings.autofill.mojom.CheckStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 184, 0, mojo.internal.bindings.autofill.mojom.RoleAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 188, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label_source', 192, 0, mojo.internal.bindings.autofill.mojom.LabelSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_user_edited', 196, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_autofilled', 196, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_focusable', 196, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_visible', 196, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_autocomplete', 196, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 196, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_readonly', 196, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allows_writing_suggestions', 196, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_override', 197, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 232]]);
+    [[0, 208]]);
 
 // Struct: FormFieldData_FillData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec, 'autofill.mojom.FormFieldData_FillData', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_form_id', 16, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_form_id', 16, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_autofilled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_force_override', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -443,29 +443,29 @@ mojo.internal.Struct(
 // Struct: ButtonTitleInfo
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec, 'autofill.mojom.ButtonTitleInfo', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.autofill.mojom.ButtonTitleTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.autofill.mojom.ButtonTitleTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FormData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormDataSpec, 'autofill.mojom.FormData', [
-      mojo.internal.StructField('arg_id_attribute', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name_attribute', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button_titles', 24, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_id', 40, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_frames', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_submission_event', 56, 0, mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fields', 64, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_username_predictions', 72, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_action_empty', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_gaia_with_skip_save_password_form', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_likely_contains_captcha', 80, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id_attribute', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name_attribute', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button_titles', 24, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_id', 40, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frames', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 56, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_predictions', 64, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_submission_event', 72, 0, mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_action_empty', 76, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_gaia_with_skip_save_password_form', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_likely_contains_captcha', 76, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 88]]);
 
 // Struct: FormFieldDataPredictions
 mojo.internal.Struct(
@@ -492,19 +492,19 @@ mojo.internal.Struct(
 // Struct: FormDataPredictions
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, 'autofill.mojom.FormDataPredictions', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_alternative_signature', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_structural_form_signature', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fields', 32, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 32, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PasswordAndMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec, 'autofill.mojom.PasswordAndMetadata', [
-      mojo.internal.StructField('arg_username_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_uses_account_store', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_grouped_affiliation', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -514,13 +514,13 @@ mojo.internal.Struct(
 // Struct: PasswordFormFillData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, 'autofill.mojom.PasswordFormFillData', [
-      mojo.internal.StructField('arg_form_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_username_element_renderer_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password_element_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_login', 32, 0, mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_logins', 40, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_banned_fields', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_element_renderer_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_element_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_login', 32, 0, mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_logins', 40, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_banned_fields', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_wait_for_username', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_notify_browser_of_successful_filling', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -529,43 +529,43 @@ mojo.internal.Struct(
 // Struct: PasswordFormGenerationData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, 'autofill.mojom.PasswordFormGenerationData', [
-      mojo.internal.StructField('arg_new_password_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_confirmation_password_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_confirmation_password_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PasswordGenerationUIData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, 'autofill.mojom.PasswordGenerationUIData', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_generation_element', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_generation_element_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction', 24, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_data', 32, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_length', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_generation_element_password_type', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_generation_rejected', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_generation_element', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_generation_element_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_data', 24, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_length', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 36, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_generation_element_password_type', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_generation_rejected', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: TriggeringField
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec, 'autofill.mojom.TriggeringField', [
-      mojo.internal.StructField('arg_element_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger_source', 8, 0, mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction', 16, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_typed_username', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_webauthn_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_identity_credentials', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_element_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_typed_username', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_source', 24, 0, mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 28, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_webauthn_credentials', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_identity_credentials', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: PasswordSuggestionRequest
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, 'autofill.mojom.PasswordSuggestionRequest', [
-      mojo.internal.StructField('arg_field', 0, 0, mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_data', 8, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 0, 0, mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_data', 8, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_username_field_index', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_password_field_index', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -574,9 +574,9 @@ mojo.internal.Struct(
 // Struct: ParsingResult
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.ParsingResultSpec, 'autofill.mojom.ParsingResult', [
-      mojo.internal.StructField('arg_username_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_password_renderer_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_confirm_password_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_renderer_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password_renderer_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_confirm_password_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

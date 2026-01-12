@@ -82,12 +82,12 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.NetworkIsolationKeySpec, 'network.mojom.NetworkIsolationKey', {
       'arg_empty': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.network.mojom.EmptyNetworkIsolationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.EmptyNetworkIsolationKeySpec,
         'nullable': false,
       },
       'arg_non_empty': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec,
         'nullable': false,
       },
     });
@@ -101,9 +101,9 @@ mojo.internal.Struct(
 // Struct: NonEmptyNetworkIsolationKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec, 'network.mojom.NonEmptyNetworkIsolationKey', [
-      mojo.internal.StructField('arg_top_frame_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network_isolation_partition', 24, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_isolation_partition', 24, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

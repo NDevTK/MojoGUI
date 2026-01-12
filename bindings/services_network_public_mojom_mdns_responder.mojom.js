@@ -83,7 +83,7 @@ mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_Response
 // Interface: MdnsResponder
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

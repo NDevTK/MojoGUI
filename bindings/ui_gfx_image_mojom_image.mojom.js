@@ -79,7 +79,7 @@ mojo.internal.bindings.gfx.mojom.ImageSkiaSpec = { $: {} };
 // Struct: ImageSkiaRep
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec, 'gfx.mojom.ImageSkiaRep', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -87,6 +87,6 @@ mojo.internal.Struct(
 // Struct: ImageSkia
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, 'gfx.mojom.ImageSkia', [
-      mojo.internal.StructField('arg_image_reps', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_reps', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

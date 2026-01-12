@@ -77,7 +77,7 @@ mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = { $: {} };
 // Struct: SurfaceRange
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, 'viz.mojom.SurfaceRange', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

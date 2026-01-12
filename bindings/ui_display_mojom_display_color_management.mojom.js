@@ -81,29 +81,29 @@ mojo.internal.bindings.display.mojom.GammaAdjustmentSpec = { $: {} };
 // Struct: GammaCurve
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.GammaCurveSpec, 'display.mojom.GammaCurve', [
-      mojo.internal.StructField('arg_lut', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lut', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ColorCalibration
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.ColorCalibrationSpec, 'display.mojom.ColorCalibration', [
-      mojo.internal.StructField('arg_srgb_to_linear', 0, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_srgb_to_device_matrix', 8, 0, mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_linear_to_device', 16, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_srgb_to_linear', 0, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_srgb_to_device_matrix', 8, 0, mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_linear_to_device', 16, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ColorTemperatureAdjustment
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec, 'display.mojom.ColorTemperatureAdjustment', [
-      mojo.internal.StructField('arg_srgb_matrix', 0, 0, mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_srgb_matrix', 0, 0, mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: GammaAdjustment
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.GammaAdjustmentSpec, 'display.mojom.GammaAdjustment', [
-      mojo.internal.StructField('arg_curve', 0, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_curve', 0, 0, mojo.internal.bindings.display.mojom.GammaCurveSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

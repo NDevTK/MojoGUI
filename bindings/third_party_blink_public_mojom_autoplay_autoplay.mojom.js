@@ -89,7 +89,7 @@ mojo.internal.bindings.blink.mojom.kAutoplayFlagUserException = 0x00004;
 // Interface: AutoplayConfigurationClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec, 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

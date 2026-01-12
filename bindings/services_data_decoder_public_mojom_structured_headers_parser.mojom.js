@@ -92,7 +92,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

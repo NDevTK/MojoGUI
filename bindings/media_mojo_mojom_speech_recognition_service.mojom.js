@@ -98,7 +98,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec, 'media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_Params', [
       mojo.internal.StructField('arg_fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceFetcherRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -289,8 +289,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec, 'media.mojom.SpeechRecognitionService_SetSodaPaths_Params', [
-      mojo.internal.StructField('arg_binary_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config_paths', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_binary_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config_paths', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_primary_language_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -303,7 +303,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec, 'media.mojom.SpeechRecognitionService_SetSodaConfigPaths_Params', [
-      mojo.internal.StructField('arg_config_paths', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config_paths', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -648,7 +648,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioSourceFetcher_Start_ParamsSpec, 'media.mojom.AudioSourceFetcher_Start_Params', [
       mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_parameters', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_parameters', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

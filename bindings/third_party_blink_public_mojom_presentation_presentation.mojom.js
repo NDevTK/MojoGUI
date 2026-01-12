@@ -164,7 +164,7 @@ mojo.internal.Union(
 // Struct: PresentationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationInfoSpec, 'blink.mojom.PresentationInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -172,15 +172,15 @@ mojo.internal.Struct(
 // Struct: PresentationError
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationErrorSpec, 'blink.mojom.PresentationError', [
-      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 8, 0, mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PresentationConnectionResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, 'blink.mojom.PresentationConnectionResult', [
-      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_connection_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_connection_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
     ],
@@ -195,13 +195,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec, 'blink.mojom.PresentationConnection_DidChangeState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec, 'blink.mojom.PresentationConnection_DidClose_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -468,59 +468,59 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec, 'blink.mojom.PresentationService_SetDefaultPresentationUrls_Params', [
-      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec, 'blink.mojom.PresentationService_ListenForScreenAvailability_Params', [
-      mojo.internal.StructField('arg_availability_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec, 'blink.mojom.PresentationService_StopListeningForScreenAvailability_Params', [
-      mojo.internal.StructField('arg_availability_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec, 'blink.mojom.PresentationService_StartPresentation_Params', [
-      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec, 'blink.mojom.PresentationService_StartPresentation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.PresentationErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.PresentationErrorSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec, 'blink.mojom.PresentationService_ReconnectPresentation_Params', [
-      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec, 'blink.mojom.PresentationService_ReconnectPresentation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.PresentationErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.PresentationErrorSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec, 'blink.mojom.PresentationService_CloseConnection_Params', [
-      mojo.internal.StructField('arg_presentation_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec, 'blink.mojom.PresentationService_Terminate_Params', [
-      mojo.internal.StructField('arg_presentation_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1052,29 +1052,29 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRequest = mojo.internal.bi
 // Interface: PresentationController
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec, 'blink.mojom.PresentationController_OnScreenAvailabilityUpdated_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_availability', 8, 0, mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability', 8, 0, mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec, 'blink.mojom.PresentationController_OnDefaultPresentationStarted_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec, 'blink.mojom.PresentationController_OnConnectionStateChanged_Params', [
-      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_newState', 8, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_newState', 8, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec, 'blink.mojom.PresentationController_OnConnectionClosed_Params', [
-      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 16, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1373,7 +1373,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRequest = mojo.internal
 // Interface: PresentationReceiver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec, 'blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

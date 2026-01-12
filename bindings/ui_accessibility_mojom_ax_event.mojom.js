@@ -77,11 +77,11 @@ mojo.internal.bindings.ax.mojom.AXEventSpec = { $: {} };
 // Struct: AXEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXEventSpec, 'ax.mojom.AXEvent', [
-      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.ax.mojom.EventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_from', 8, 0, mojo.internal.bindings.ax.mojom.EventFromSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_from_action', 16, 0, mojo.internal.bindings.ax.mojom.ActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_intents', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.EventIntentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action_request_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_intents', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.EventIntentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 8, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_from', 16, 0, mojo.internal.bindings.ax.mojom.EventFromSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_from_action', 20, 0, mojo.internal.bindings.ax.mojom.ActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);

@@ -203,7 +203,7 @@ mojo.internal.bindings.guest_view.mojom.ViewHandleRequest = mojo.internal.bindin
 // Interface: GuestViewHost
 mojo.internal.Struct(
     mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_element_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_guest_instance_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

@@ -144,10 +144,10 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResult = {
 // Interface: NearbyConnectionStateListener
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params', [
-      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = class {
   constructor(handle) {
@@ -659,7 +659,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRequest = m
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_Params', [
       mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -86,7 +86,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ai.mojom.EnhancedCalendarResponseResultSpec, 'ai.mojom.EnhancedCalendarResponseResult', {
       'arg_response': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -108,7 +108,7 @@ mojo.internal.Struct(
 // Interface: EnhancedCalendarService
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
-      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

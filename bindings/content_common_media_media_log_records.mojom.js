@@ -81,7 +81,7 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec = { 
 // Interface: MediaInternalLogRecords
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec, 'content.mojom.MediaInternalLogRecords_Log_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaLogRecordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaLogRecordSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

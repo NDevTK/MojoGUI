@@ -153,36 +153,36 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKind = {
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 32, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filepath', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_checksum', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_reboot', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_device_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filepath', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_checksum', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 48, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_reboot', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: InstallationProgress
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec, 'ash.firmware_update.mojom.InstallationProgress', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_percentage', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: DeviceRequest
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec, 'ash.firmware_update.mojom.DeviceRequest', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kind', 8, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 4, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Interface: UpdateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_Params', [
-      mojo.internal.StructField('arg_firmware_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_firmware_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRequest = mojo.in
 // Interface: DeviceRequestObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec, 'ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRequest = 
 // Interface: UpdateProgressObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -706,7 +706,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -974,7 +974,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRequest = mojo.in
 mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec, 'ash.firmware_update.mojom.InstallController_BeginUpdate_Params', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filepath', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filepath', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

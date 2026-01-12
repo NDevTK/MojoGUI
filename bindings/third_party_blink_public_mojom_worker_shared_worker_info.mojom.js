@@ -86,11 +86,11 @@ mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookies = {
 // Struct: SharedWorkerInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec, 'blink.mojom.SharedWorkerInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.WorkerOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_security_policies', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 24, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_same_site_cookies', 32, 0, mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookiesSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extended_lifetime', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.WorkerOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_security_policies', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 24, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_same_site_cookies', 32, 0, mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookiesSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extended_lifetime', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);

@@ -98,7 +98,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpe
 // Struct: ReadyFrameInBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec, 'video_capture.mojom.ReadyFrameInBuffer', [
-      mojo.internal.StructField('arg_frame_info', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_info', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_frame_feedback_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -279,10 +279,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_Params', [
@@ -292,7 +292,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -304,19 +304,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameDropped_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_Params', [
-      mojo.internal.StructField('arg_capture_version', 0, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_version', 0, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -91,12 +91,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec, 'ui.mojom.GestureDataDetails', {
       'arg_pinch': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ui.mojom.GesturePinchDataSpec.$,
+        'type': mojo.internal.bindings.ui.mojom.GesturePinchDataSpec,
         'nullable': false,
       },
       'arg_swipe': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec.$,
+        'type': mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec,
         'nullable': false,
       },
     });
@@ -114,8 +114,8 @@ mojo.internal.Struct(
 // Struct: LocationData
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.LocationDataSpec, 'ui.mojom.LocationData', [
-      mojo.internal.StructField('arg_relative_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -139,50 +139,50 @@ mojo.internal.Struct(
 // Struct: GestureData
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.GestureDataSpec, 'ui.mojom.GestureData', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 8, 0, mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_location', 16, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 24, 0, mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ScrollData
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ScrollDataSpec, 'ui.mojom.ScrollData', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_momentum_phase', 8, 0, mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_event_phase', 16, 0, mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x_offset', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y_offset', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_x_offset_ordinal', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y_offset_ordinal', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_finger_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x_offset', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y_offset', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_x_offset_ordinal', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y_offset_ordinal', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_finger_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_momentum_phase', 28, 0, mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_event_phase', 32, 0, mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: PointerDetails
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.PointerDetailsSpec, 'ui.mojom.PointerDetails', [
-      mojo.internal.StructField('arg_pointer_type', 0, 0, mojo.internal.bindings.ui.mojom.EventPointerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_radius_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_radius_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_force', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt_x', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt_y', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tangential_pressure', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_twist', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_x', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_y', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_type', 0, 0, mojo.internal.bindings.ui.mojom.EventPointerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_radius_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_radius_y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_force', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt_x', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt_y', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tangential_pressure', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_twist', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset_x', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset_y', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: MouseData
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.MouseDataSpec, 'ui.mojom.MouseData', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pointer_details', 8, 0, mojo.internal.bindings.ui.mojom.PointerDetailsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wheel_offset', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tick_120ths', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_details', 8, 0, mojo.internal.bindings.ui.mojom.PointerDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wheel_offset', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tick_120ths', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_changed_button_flags', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -190,8 +190,8 @@ mojo.internal.Struct(
 // Struct: TouchData
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.TouchDataSpec, 'ui.mojom.TouchData', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pointer_details', 8, 0, mojo.internal.bindings.ui.mojom.PointerDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.ui.mojom.LocationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_details', 8, 0, mojo.internal.bindings.ui.mojom.PointerDetailsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_may_cause_scrolling', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_hovering', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -200,15 +200,15 @@ mojo.internal.Struct(
 // Struct: Event
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.EventSpec, 'ui.mojom.Event', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_stamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency', 16, 0, mojo.internal.bindings.ui.mojom.LatencyInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 24, 0, mojo.internal.bindings.ui.mojom.KeyDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gesture_data', 32, 0, mojo.internal.bindings.ui.mojom.GestureDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scroll_data', 40, 0, mojo.internal.bindings.ui.mojom.ScrollDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_data', 48, 0, mojo.internal.bindings.ui.mojom.TouchDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mouse_data', 56, 0, mojo.internal.bindings.ui.mojom.MouseDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_properties', 64, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.Uint8, false), false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_flags', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_stamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_latency', 8, 0, mojo.internal.bindings.ui.mojom.LatencyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 16, 0, mojo.internal.bindings.ui.mojom.KeyDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gesture_data', 24, 0, mojo.internal.bindings.ui.mojom.GestureDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scroll_data', 32, 0, mojo.internal.bindings.ui.mojom.ScrollDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_data', 40, 0, mojo.internal.bindings.ui.mojom.TouchDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mouse_data', 48, 0, mojo.internal.bindings.ui.mojom.MouseDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_properties', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.Uint8, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_action', 64, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);

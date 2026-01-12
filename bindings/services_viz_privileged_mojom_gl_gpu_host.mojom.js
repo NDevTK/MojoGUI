@@ -105,11 +105,11 @@ mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSp
 // Interface: GpuHost
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidInitialize_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info_for_hardware_gpu', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info_for_hardware_gpu', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_extra_info', 32, 0, mojo.internal.bindings.gfx.mojom.GpuExtraInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info_for_hardware_gpu', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info_for_hardware_gpu', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_extra_info', 32, 0, mojo.internal.bindings.gfx.mojom.GpuExtraInfoSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -125,13 +125,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidCreateOffscreenContext_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyOffscreenContext_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -148,26 +148,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateGPUInfo_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateOverlayInfo_Params', [
-      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateDXGIInfo_Params', [
-      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -178,10 +178,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
-      mojo.internal.StructField('arg_wgpu_context_token', 0, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_wgpu_context_token', 0, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_ResponseParams', [
@@ -191,11 +191,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec, 'viz.mojom.GpuHost_StoreBlobToDisk_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blob', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec, 'viz.mojom.GpuHost_ClearGrShaderDiskCache_Params', [
@@ -209,7 +209,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParams', [
-      mojo.internal.StructField('arg_ep_package_info', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ep_package_info', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -220,7 +220,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParams', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

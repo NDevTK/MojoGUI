@@ -134,37 +134,37 @@ mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceType = {
 // Struct: KeyEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.KeyEventSpec, 'ash.diagnostics.mojom.KeyEvent', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_key_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scan_code', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_row_position', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_row_position', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TouchDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec, 'ash.diagnostics.mojom.TouchDeviceInfo', [
-      mojo.internal.StructField('arg_connection_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_testable', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 12, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_testable', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: ConnectedDevices
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesSpec, 'ash.diagnostics.mojom.ConnectedDevices', [
-      mojo.internal.StructField('arg_keyboards', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyboards', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: KeyboardObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec, 'ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -930,7 +930,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverRequest = mojo.inte
 // Interface: ConnectedDevicesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec, 'ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_Params', [
-      mojo.internal.StructField('arg_new_keyboard', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_keyboard', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -942,7 +942,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec, 'ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_Params', [
-      mojo.internal.StructField('arg_new_touch_device', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_touch_device', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1252,7 +1252,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

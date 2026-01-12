@@ -168,12 +168,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec, 'ash.mojom.LayoutStyleProperties', {
       'arg_standard_accelerator': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec,
         'nullable': false,
       },
       'arg_text_accelerator': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec,
         'nullable': false,
       },
     });
@@ -181,46 +181,46 @@ mojo.internal.Union(
 // Struct: TextAcceleratorPart
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec, 'ash.mojom.TextAcceleratorPart', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.mojom.TextAcceleratorPartTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.mojom.TextAcceleratorPartTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TextAcceleratorProperties
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec, 'ash.mojom.TextAcceleratorProperties', [
-      mojo.internal.StructField('arg_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: StandardAcceleratorProperties
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec, 'ash.mojom.StandardAcceleratorProperties', [
-      mojo.internal.StructField('arg_accelerator', 0, 0, mojo.internal.bindings.ui.mojom.AcceleratorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_display', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_accelerator', 16, 0, mojo.internal.bindings.ui.mojom.AcceleratorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_accelerator', 0, 0, mojo.internal.bindings.ui.mojom.AcceleratorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_display', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_accelerator', 16, 0, mojo.internal.bindings.ui.mojom.AcceleratorSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AcceleratorInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec, 'ash.mojom.AcceleratorInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_layout_properties', 16, 0, mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locked', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerator_locked', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_properties', 0, 0, mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.ash.mojom.AcceleratorStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_locked', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: AcceleratorLayoutInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec, 'ash.mojom.AcceleratorLayoutInfo', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorCategorySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sub_category', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorSubcategorySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 24, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutStyleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 32, 0, mojo.internal.bindings.ash.mojom.AcceleratorSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_category', 12, 0, mojo.internal.bindings.ash.mojom.AcceleratorSubcategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 16, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 20, 0, mojo.internal.bindings.ash.mojom.AcceleratorSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);

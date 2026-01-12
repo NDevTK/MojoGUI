@@ -148,12 +148,12 @@ mojo.internal.Union(
       },
       'arg_string_value': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec,
         'nullable': false,
       },
       'arg_singleton_value': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec,
         'nullable': false,
       },
       'arg_array_value': {
@@ -163,7 +163,7 @@ mojo.internal.Union(
       },
       'arg_typed_array_value': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec.$,
+        'type': mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec,
         'nullable': false,
       },
       'arg_object_id_value': {
@@ -188,12 +188,12 @@ mojo.internal.Union(
       },
       'arg_string_value': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec,
         'nullable': false,
       },
       'arg_singleton_value': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec,
         'nullable': false,
       },
       'arg_object_id': {
@@ -206,16 +206,16 @@ mojo.internal.Union(
 // Struct: RemoteTypedArray
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec, 'blink.mojom.RemoteTypedArray', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: RemoteInvocationResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec, 'blink.mojom.RemoteInvocationResult', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -520,7 +520,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec, 'blink.mojom.RemoteObject_InvokeMethod_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -89,7 +89,7 @@ mojo.internal.bindings.guest_os.mojom.Status = {
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec, 'guest_os.mojom.DiagnosticMessage', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_learn_more_link', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_learn_more_link', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -97,15 +97,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec, 'guest_os.mojom.DiagnosticEntry', [
       mojo.internal.StructField('arg_requirement', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.guest_os.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_explanation', 16, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_explanation', 8, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.guest_os.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Diagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec, 'guest_os.mojom.Diagnostics', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_error', 8, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_error', 8, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);

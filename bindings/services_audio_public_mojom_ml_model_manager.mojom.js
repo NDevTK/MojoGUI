@@ -83,7 +83,7 @@ mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimat
 // Interface: MlModelManager
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params', [
-      mojo.internal.StructField('arg_tflite_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tflite_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

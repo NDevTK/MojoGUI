@@ -110,7 +110,7 @@ mojo.internal.Union(
       },
       'arg_byte_sequence_value': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ByteStringSpec,
         'nullable': false,
       },
       'arg_boolean_value': {
@@ -132,15 +132,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, 'network.mojom.StructuredHeadersParameterizedItem', [
       mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StructuredHeadersParameterizedMember
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec, 'network.mojom.StructuredHeadersParameterizedMember', [
-      mojo.internal.StructField('arg_member', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_member', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_member_is_inner_list', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -149,13 +149,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec, 'network.mojom.StructuredHeadersDictionaryMember', [
       mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StructuredHeadersDictionary
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec, 'network.mojom.StructuredHeadersDictionary', [
-      mojo.internal.StructField('arg_members', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_members', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

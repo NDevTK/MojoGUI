@@ -144,7 +144,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mantis.mojom.InitializeResultSpec.$,
+        'type': mojo.internal.bindings.mantis.mojom.InitializeResultSpec,
         'nullable': false,
       },
     });
@@ -153,7 +153,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec, 'ash.media_app_ui.mojom.PageMetadata', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dlc_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dlc_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRequest = m
 // Interface: OcrUntrustedService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_Params', [
-      mojo.internal.StructField('arg_page_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -516,7 +516,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_Params', [
-      mojo.internal.StructField('arg_viewport_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -778,13 +778,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParams', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_Params', [
-      mojo.internal.StructField('arg_viewport_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1062,7 +1062,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec, 'ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_Params', [
-      mojo.internal.StructField('arg_anchor', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1602,9 +1602,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_Params', [
@@ -1617,9 +1617,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_Params', [
@@ -1631,9 +1631,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_Params', [
@@ -1645,9 +1645,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_Params', [
@@ -1657,19 +1657,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_Params', [
-      mojo.internal.StructField('arg_gesture', 0, 0, mojo.internal.Array(mojo.internal.bindings.mantis.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture', 0, 0, mojo.internal.Array(mojo.internal.bindings.mantis.mojom.TouchPointSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mantis.mojom.SegmentationModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mantis.mojom.SegmentationModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

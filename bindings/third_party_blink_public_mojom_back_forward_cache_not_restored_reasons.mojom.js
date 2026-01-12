@@ -80,8 +80,8 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheNotRestoredReasonsSpec = { $:
 // Struct: SameOriginBfcacheNotRestoredDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, 'blink.mojom.SameOriginBfcacheNotRestoredDetails', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BackForwardCacheNotRestoredReasonsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BackForwardCacheNotRestoredReasonsSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BFCacheBlockingDetailedReasonSpec, 'blink.mojom.BFCacheBlockingDetailedReason', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -99,7 +99,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_src', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_reasons', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BFCacheBlockingDetailedReasonSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_same_origin_details', 32, 0, mojo.internal.bindings.blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reasons', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BFCacheBlockingDetailedReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_same_origin_details', 32, 0, mojo.internal.bindings.blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);

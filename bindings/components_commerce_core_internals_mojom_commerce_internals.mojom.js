@@ -116,7 +116,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec, 'commerce.mojom.ShoppingEligibilityDetails', [
       mojo.internal.StructField('arg_country', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.SubscriptionSpec, 'commerce.mojom.Subscription', [
       mojo.internal.StructField('arg_cluster_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.commerce.shared.mojom.BookmarkProductInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.commerce.shared.mojom.BookmarkProductInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -135,7 +135,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_infos', 32, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_infos', 32, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -326,13 +326,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParams', [
-      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.SubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.SubscriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -354,7 +354,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParams', [
-      mojo.internal.StructField('arg_product_specifications_set', 0, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_specifications_set', 0, 0, mojo.internal.Array(mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -370,7 +370,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParams', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

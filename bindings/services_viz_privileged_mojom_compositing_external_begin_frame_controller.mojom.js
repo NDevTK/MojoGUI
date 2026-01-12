@@ -91,26 +91,26 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferred
 // Interface: ExternalBeginFrameController
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_force', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParams', [
-      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalVSync_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -435,7 +435,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params', [
-      mojo.internal.StructField('arg_interval', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interval', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

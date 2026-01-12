@@ -80,7 +80,7 @@ mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec = { $: {} };
 // Interface: Binder
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec, 'mojo_base.mojom.Binder_Bind_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -113,12 +113,12 @@ mojo.internal.Union(
     mojo.internal.bindings.media.mojom.VideoCaptureResultSpec, 'media.mojom.VideoCaptureResult', {
       'arg_state': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.media.mojom.VideoCaptureStateSpec.$,
+        'type': mojo.internal.bindings.media.mojom.VideoCaptureStateSpec,
         'nullable': false,
       },
       'arg_error_code': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec.$,
+        'type': mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec,
         'nullable': false,
       },
     });
@@ -126,20 +126,20 @@ mojo.internal.Union(
 // Interface: VideoCaptureObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnStateChanged_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureResultSpec.$, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnNewBuffer_Params', [
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnBufferReady_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.ReadyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.ReadyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,13 +151,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnFrameDropped_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnNewCaptureVersion_Params', [
-      mojo.internal.StructField('arg_capture_version', 0, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_version', 0, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -544,76 +544,76 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRequest = mojo.internal.b
 // Interface: VideoCaptureHost
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec, 'media.mojom.VideoCaptureHost_Start_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoCaptureObserverRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec, 'media.mojom.VideoCaptureHost_Stop_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec, 'media.mojom.VideoCaptureHost_Pause_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec, 'media.mojom.VideoCaptureHost_Resume_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec, 'media.mojom.VideoCaptureHost_RequestRefreshFrame_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec, 'media.mojom.VideoCaptureHost_ReleaseBuffer_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feedback', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec, 'media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec, 'media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParams', [
-      mojo.internal.StructField('arg_formats_supported', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats_supported', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec, 'media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec, 'media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParams', [
-      mojo.internal.StructField('arg_formats_in_use', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats_in_use', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec, 'media.mojom.VideoCaptureHost_OnLog_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

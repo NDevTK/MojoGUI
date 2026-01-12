@@ -107,14 +107,14 @@ mojo.internal.bindings.blink.mojom.AIWriterLength = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec, 'blink.mojom.AIWriterCreateOptions', [
       mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tone', 8, 0, mojo.internal.bindings.blink.mojom.AIWriterToneSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.blink.mojom.AIWriterFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 24, 0, mojo.internal.bindings.blink.mojom.AIWriterLengthSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_context_languages', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_language', 48, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_context_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_language', 24, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tone', 32, 0, mojo.internal.bindings.blink.mojom.AIWriterToneSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 36, 0, mojo.internal.bindings.blink.mojom.AIWriterFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 40, 0, mojo.internal.bindings.blink.mojom.AIWriterLengthSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Interface: AIWriter
 mojo.internal.Struct(

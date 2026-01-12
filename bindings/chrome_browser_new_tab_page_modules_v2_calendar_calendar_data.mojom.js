@@ -82,8 +82,8 @@ mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec, 'ntp.calendar.mojom.Attachment', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -91,12 +91,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec, 'ntp.calendar.mojom.CalendarEvent', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_location', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attachments', 40, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_conference_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_attachments', 40, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_conference_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_accepted', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_other_attendee', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],

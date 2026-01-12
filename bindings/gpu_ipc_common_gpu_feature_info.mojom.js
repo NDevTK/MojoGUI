@@ -89,12 +89,12 @@ mojo.internal.bindings.gpu.mojom.GpuFeatureStatus = {
 // Struct: GpuFeatureInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, 'gpu.mojom.GpuFeatureInfo', [
-      mojo.internal.StructField('arg_status_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuFeatureStatusSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuFeatureStatusSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_gpu_driver_bug_workarounds', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_disabled_extensions', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_disabled_webgl_extensions', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_applied_gpu_blocklist_entries', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_applied_gpu_driver_bug_list_entries', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_buffer_formats_for_allocation_and_texturing', 48, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.BufferFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_buffer_formats_for_allocation_and_texturing', 48, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.BufferFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 64]]);

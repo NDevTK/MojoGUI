@@ -81,9 +81,9 @@ mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = { $: {} };
 // Interface: VizDebugOutput
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec, 'viz.mojom.VizDebugOutput_LogFrame_Params', [
-      mojo.internal.StructField('arg_frameData', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frameData', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.viz.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {

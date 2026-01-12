@@ -86,7 +86,7 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec, 'chromeos.payments.mojom.IsPaymentImplementedResult', {
       'arg_valid': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -116,7 +116,7 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec, 'chromeos.payments.mojom.InvokePaymentAppResult', {
       'arg_valid': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -144,7 +144,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_payment_request_origin', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_payment_request_id', 40, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('arg_request_token', 48, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_twa_instance_identifier', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 4, undefined),
+      mojo.internal.StructField('arg_twa_instance_identifier', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 4, undefined),
     ],
     [[0, 48], [2, 56], [3, 64], [4, 72]]);
 

@@ -96,23 +96,23 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, 'contextual_tasks_internals.mojom.GetRelevantContextRequest', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_selection_mode', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_model_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_selection_mode', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_model_score', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Tab
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, 'contextual_tasks_internals.mojom.Tab', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: GetRelevantContextResponse
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, 'contextual_tasks_internals.mojom.GetRelevantContextResponse', [
-      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -287,13 +287,13 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 // Interface: ContextualTasksInternalsPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 // Interface: ContextualTasksInternalsPage
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),

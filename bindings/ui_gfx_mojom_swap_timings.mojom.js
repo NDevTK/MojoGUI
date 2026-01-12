@@ -78,7 +78,7 @@ mojo.internal.bindings.gfx.mojom.SwapTimingsSpec = { $: {} };
 // Struct: SwapTimings
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.SwapTimingsSpec, 'gfx.mojom.SwapTimings', [
-      mojo.internal.StructField('arg_swap_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_end', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_end', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

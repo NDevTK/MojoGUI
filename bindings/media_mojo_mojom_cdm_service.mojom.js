@@ -265,7 +265,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
-      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRequest = mojo.
 // Interface: CdmServiceBroker
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
-      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceRemote), null, false, 0, undefined),
     ],

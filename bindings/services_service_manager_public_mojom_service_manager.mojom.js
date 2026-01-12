@@ -98,48 +98,48 @@ mojo.internal.bindings.service_manager.mojom.InstanceState = {
 // Struct: RunningServiceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec, 'service_manager.mojom.RunningServiceInfo', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.service_manager.mojom.InstanceStateSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: ServiceManagerListener
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnInit_Params', [
-      mojo.internal.StructField('arg_running_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_running_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceCreated_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStarted_Params', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pid_deprecated', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_Params', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_Params', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStopped_Params', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

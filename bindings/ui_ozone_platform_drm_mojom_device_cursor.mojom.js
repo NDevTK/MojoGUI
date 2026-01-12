@@ -85,17 +85,17 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: 
 // Interface: DeviceCursor
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
-      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmaps', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmaps', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
-      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

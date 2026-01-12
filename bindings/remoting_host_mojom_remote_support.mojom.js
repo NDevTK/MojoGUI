@@ -108,7 +108,7 @@ mojo.internal.Union(
       },
       'arg_support_session_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec.$,
+        'type': mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec,
         'nullable': false,
       },
     });
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_Params', [
       mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lifetime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lifetime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -179,7 +179,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnNatPolicyChanged_Params', [
-      mojo.internal.StructField('arg_nat_policy_state', 0, 0, mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nat_policy_state', 0, 0, mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

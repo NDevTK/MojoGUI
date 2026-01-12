@@ -96,39 +96,39 @@ mojo.internal.bindings.printing.mojom.Status = {
 // Interface: PdfNupConverter
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec, 'printing.mojom.PdfNupConverter_NupPageConvert_Params', [
-      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printable_area', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_page_regions', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printable_area', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_page_regions', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pages_per_sheet', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec, 'printing.mojom.PdfNupConverter_NupPageConvert_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec, 'printing.mojom.PdfNupConverter_NupDocumentConvert_Params', [
-      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printable_area', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_src_pdf_region', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printable_area', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_pdf_region', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pages_per_sheet', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec, 'printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfNupConverter_SetWebContentsURL_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

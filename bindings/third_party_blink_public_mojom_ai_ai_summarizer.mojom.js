@@ -108,14 +108,14 @@ mojo.internal.bindings.blink.mojom.AISummarizerLength = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec, 'blink.mojom.AISummarizerCreateOptions', [
       mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 24, 0, mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_context_languages', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_language', 48, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_context_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_language', 24, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 36, 0, mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 40, 0, mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Interface: AISummarizer
 mojo.internal.Struct(

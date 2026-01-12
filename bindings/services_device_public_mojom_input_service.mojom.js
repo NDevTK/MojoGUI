@@ -108,23 +108,23 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, 'device.mojom.InputDeviceInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsystem', 16, 0, mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.device.mojom.InputDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_accelerometer', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_joystick', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_key', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_keyboard', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mouse', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_tablet', 32, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_touchpad', 32, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_touchscreen', 32, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subsystem', 16, 0, mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 20, 0, mojo.internal.bindings.device.mojom.InputDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_accelerometer', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_joystick', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_key', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_keyboard', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_tablet', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_touchpad', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_touchscreen', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: InputDeviceManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.InputDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -347,7 +347,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -358,7 +358,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

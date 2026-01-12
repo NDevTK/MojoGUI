@@ -131,12 +131,12 @@ mojo.internal.Union(
     mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec, 'auction_worklet.mojom.ForEventSignalBucket', {
       'arg_id_bucket': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.Uint128Spec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.Uint128Spec,
         'nullable': false,
       },
       'arg_signal_bucket': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec,
         'nullable': false,
       },
     });
@@ -151,7 +151,7 @@ mojo.internal.Union(
       },
       'arg_signal_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec,
         'nullable': false,
       },
     });
@@ -161,12 +161,12 @@ mojo.internal.Union(
     mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec, 'auction_worklet.mojom.EventType', {
       'arg_reserved_non_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec,
         'nullable': false,
       },
       'arg_reserved_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec,
         'nullable': false,
       },
       'arg_non_reserved': {
@@ -181,12 +181,12 @@ mojo.internal.Union(
     mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec, 'auction_worklet.mojom.AggregatableReportContribution', {
       'arg_histogram_contribution': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec,
         'nullable': false,
       },
       'arg_for_event_contribution': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec,
         'nullable': false,
       },
     });
@@ -194,7 +194,7 @@ mojo.internal.Union(
 // Struct: BucketOffset
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec, 'auction_worklet.mojom.BucketOffset', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_negative', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -202,20 +202,20 @@ mojo.internal.Struct(
 // Struct: SignalBucket
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec, 'auction_worklet.mojom.SignalBucket', [
-      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scale', 0, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_base_value', 16, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SignalValue
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec, 'auction_worklet.mojom.SignalValue', [
-      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scale', 0, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('arg_base_value', 8, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: AggregatableReportForEventContribution
 mojo.internal.Struct(
@@ -223,24 +223,24 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_filtering_id_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_filtering_id_$flag', originalFieldName: 'arg_filtering_id' }),
-      mojo.internal.StructField('arg_event_type', 24, 0, mojo.internal.bindings.blink.mojom.EventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filtering_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_filtering_id_$value', originalFieldName: 'arg_filtering_id' }),
+      mojo.internal.StructField('arg_event_type', 24, 0, mojo.internal.bindings.blink.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filtering_id_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_filtering_id_$value', originalFieldName: 'arg_filtering_id' }),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: PrivateAggregationRequest
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec, 'auction_worklet.mojom.PrivateAggregationRequest', [
       mojo.internal.StructField('arg_contribution', 0, 0, mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_mode_details', 8, 0, mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_mode_details', 8, 0, mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FinalizedPrivateAggregationRequest
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec, 'auction_worklet.mojom.FinalizedPrivateAggregationRequest', [
-      mojo.internal.StructField('arg_contribution', 0, 0, mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_mode_details', 8, 0, mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_event', 16, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_contribution', 0, 0, mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_mode_details', 8, 0, mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_event', 16, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

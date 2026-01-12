@@ -95,7 +95,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_Param
 // Interface: GpuInfoObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec, 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,7 +268,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('arg_key_system_capability', 0, 0, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_system_capability', 0, 0, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_supported', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -493,7 +493,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceRequest = mojo.internal
 // Interface: MediaFoundationServiceBroker
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -505,7 +505,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
-      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

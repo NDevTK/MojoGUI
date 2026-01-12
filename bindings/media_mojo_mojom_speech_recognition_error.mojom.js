@@ -84,7 +84,7 @@ mojo.internal.bindings.media.mojom.SpeechAudioErrorDetails = {
 // Struct: SpeechRecognitionError
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec, 'media.mojom.SpeechRecognitionError', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.media.mojom.SpeechAudioErrorDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 4, 0, mojo.internal.bindings.media.mojom.SpeechAudioErrorDetailsSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

@@ -292,9 +292,9 @@ mojo.internal.bindings.media.mojom.RemoterFactoryRequest = mojo.internal.binding
 // Interface: RemotingDataStreamSender
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_ResponseParams', [
@@ -538,7 +538,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec, 'media.mojom.Remoter_Stop_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStopReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -948,7 +948,7 @@ mojo.internal.bindings.media.mojom.RemoterRequest = mojo.internal.bindings.media
 // Interface: RemotingSource
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec, 'media.mojom.RemotingSource_OnSinkAvailable_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -964,7 +964,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingSource_OnStartFailed_ParamsSpec, 'media.mojom.RemotingSource_OnStartFailed_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -976,7 +976,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingSource_OnStopped_ParamsSpec, 'media.mojom.RemotingSource_OnStopped_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStopReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1389,7 +1389,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec, 'media.mojom.Remotee_OnVideoNaturalSizeChange_Params', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1905,10 +1905,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_FlushUntil_Params', [

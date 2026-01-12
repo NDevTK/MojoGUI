@@ -652,10 +652,10 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRequest = mojo.internal
 // Interface: FetchService
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec, 'updater.mojom.FetchService_PostRequest_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.updater.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -667,8 +667,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

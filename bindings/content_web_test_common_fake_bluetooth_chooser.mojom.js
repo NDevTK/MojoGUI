@@ -108,9 +108,9 @@ mojo.internal.bindings.content.mojom.ChooserEventType = {
 // Struct: FakeBluetoothChooserEvent
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, 'content.mojom.FakeBluetoothChooserEvent', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.ChooserEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peripheral_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peripheral_address', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactoryRequest = mojo.i
 // Interface: FakeBluetoothChooserClient
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec, 'content.mojom.FakeBluetoothChooserClient_OnEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

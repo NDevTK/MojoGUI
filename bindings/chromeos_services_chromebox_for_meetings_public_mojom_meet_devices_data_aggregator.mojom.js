@@ -106,8 +106,8 @@ mojo.internal.bindings.ash.cfm.mojom.FilterType = {
 // Struct: DataFilter
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, 'ash.cfm.mojom.DataFilter', [
-      mojo.internal.StructField('arg_filter_type', 0, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pattern', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_filter_type', 8, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -292,7 +292,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_watch_dog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -596,7 +596,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
       mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 8, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 8, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_watch_dog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

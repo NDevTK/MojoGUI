@@ -206,33 +206,33 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParams', [
-      mojo.internal.StructField('arg_available_routines', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_available_routines', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_Params', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_include_output', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_command', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_output', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_routine_update', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_routine_update', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -243,7 +243,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,68 +254,68 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_Params', [
-      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 6, undefined),
+      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 6, undefined),
     ],
     [[0, 8], [6, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_Params', [
-      mojo.internal.StructField('arg_expected_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_power_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_power_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_status', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -327,57 +327,57 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Params', [
-      mojo.internal.StructField('arg_wear_level_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wear_level_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_Params', [
-      mojo.internal.StructField('arg_nvme_self_test_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nvme_self_test_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file_size_mb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file_size_mb', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -390,7 +390,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,7 +403,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -416,7 +416,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -427,7 +427,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -438,7 +438,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -449,7 +449,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -460,7 +460,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -471,7 +471,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -482,7 +482,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -493,7 +493,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -504,7 +504,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -515,7 +515,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -526,7 +526,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,7 +537,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -549,7 +549,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -560,7 +560,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -571,7 +571,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -582,7 +582,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -593,7 +593,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -604,7 +604,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -615,7 +615,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -627,21 +627,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_replier', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_replier', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 12, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -652,7 +652,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -666,7 +666,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -680,7 +680,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -691,7 +691,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -702,19 +702,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_Params', [
-      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_length_seconds', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -726,7 +726,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -738,7 +738,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -749,7 +749,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -760,7 +760,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -771,7 +771,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3386,22 +3386,22 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.SupportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.SupportStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServicePendingReceiver = class {
   constructor(handle) {
@@ -3930,19 +3930,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParams', [
-      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_Params', [
-      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.ProbeCategoryEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.ProbeCategoryEnumSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParams', [
-      mojo.internal.StructField('arg_telemetry_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_telemetry_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3955,7 +3955,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParams', [
-      mojo.internal.StructField('arg_multiple_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.MultipleProcessResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_multiple_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.MultipleProcessResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

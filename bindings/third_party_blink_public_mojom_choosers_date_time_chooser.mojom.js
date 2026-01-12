@@ -87,27 +87,27 @@ mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpe
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec, 'blink.mojom.DateTimeSuggestion', [
       mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_localized_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_localized_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: DateTimeDialogValue
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec, 'blink.mojom.DateTimeDialogValue', [
-      mojo.internal.StructField('arg_dialog_type', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_step', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_type', 40, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: DateTimeChooser
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

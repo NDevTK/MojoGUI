@@ -77,7 +77,7 @@ mojo.internal.bindings.viz.mojom.SurfaceIdSpec = { $: {} };
 // Struct: SurfaceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceIdSpec, 'viz.mojom.SurfaceId', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

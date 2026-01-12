@@ -77,7 +77,7 @@ mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec = { $:
 // Struct: BrowserControlsOffsetTagModifications
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec, 'cc.mojom.BrowserControlsOffsetTagModifications', [
-      mojo.internal.StructField('arg_tags', 0, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 0, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_controls_additional_height', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bottom_controls_additional_height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

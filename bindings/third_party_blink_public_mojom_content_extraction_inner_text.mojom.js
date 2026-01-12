@@ -92,7 +92,7 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, 'blink.mojom.InnerTextSegment', {
       'arg_node_location': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.NodeLocationTypeSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.NodeLocationTypeSpec,
         'nullable': false,
       },
       'arg_text': {
@@ -102,7 +102,7 @@ mojo.internal.Union(
       },
       'arg_frame': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.InnerTextFrameSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.InnerTextFrameSpec,
         'nullable': false,
       },
     });
@@ -110,8 +110,8 @@ mojo.internal.Union(
 // Struct: InnerTextFrame
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, 'blink.mojom.InnerTextFrame', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -133,13 +133,13 @@ mojo.internal.Struct(
 // Interface: InnerTextAgent
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_ResponseParams', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextFrameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

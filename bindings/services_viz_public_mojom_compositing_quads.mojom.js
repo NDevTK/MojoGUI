@@ -109,42 +109,42 @@ mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.DrawQuadStateSpec, 'viz.mojom.DrawQuadState', {
       'arg_debug_border_quad_state': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec,
         'nullable': false,
       },
       'arg_render_pass_quad_state': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec,
         'nullable': false,
       },
       'arg_solid_color_quad_state': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec,
         'nullable': false,
       },
       'arg_surface_quad_state': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec,
         'nullable': false,
       },
       'arg_texture_quad_state': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.viz.mojom.TextureQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TextureQuadStateSpec,
         'nullable': false,
       },
       'arg_tile_quad_state': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.viz.mojom.TileQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TileQuadStateSpec,
         'nullable': false,
       },
       'arg_video_hole_quad_state': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec,
         'nullable': false,
       },
       'arg_shared_element_quad_state': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec,
         'nullable': false,
       },
     });
@@ -160,7 +160,7 @@ mojo.internal.Struct(
 // Struct: DebugBorderQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec, 'viz.mojom.DebugBorderQuadState', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -168,13 +168,13 @@ mojo.internal.Struct(
 // Struct: CompositorRenderPassQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec, 'viz.mojom.CompositorRenderPassQuadState', [
-      mojo.internal.StructField('arg_render_pass_id', 0, 0, mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask_resource_id', 8, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask_uv_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask_texture_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filters_scale', 32, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filters_origin', 40, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tex_coord_rect', 48, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_pass_id', 0, 0, mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask_resource_id', 8, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask_uv_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask_texture_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters_scale', 32, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters_origin', 40, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tex_coord_rect', 48, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_backdrop_filter_quality', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_force_anti_aliasing_off', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_intersects_damage_under', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 // Struct: SolidColorQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec, 'viz.mojom.SolidColorQuadState', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_force_anti_aliasing_off', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -192,40 +192,40 @@ mojo.internal.Struct(
 // Struct: SurfaceQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec, 'viz.mojom.SurfaceQuadState', [
-      mojo.internal.StructField('arg_surface_range', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceRangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_background_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_override_child_filter_quality', 16, 0, mojo.internal.bindings.cc.mojom.FilterQualitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_override_child_dynamic_range_limit', 24, 0, mojo.internal.bindings.cc.mojom.DynamicRangeLimitSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stretch_content_to_fill_bounds', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_reflection', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_merge', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_range', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_background_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_override_child_dynamic_range_limit', 16, 0, mojo.internal.bindings.cc.mojom.DynamicRangeLimitSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_override_child_filter_quality', 24, 0, mojo.internal.bindings.cc.mojom.FilterQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stretch_content_to_fill_bounds', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_reflection', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_merge', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: TextureQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TextureQuadStateSpec, 'viz.mojom.TextureQuadState', [
-      mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tex_coord_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dynamic_range_limit', 24, 0, mojo.internal.bindings.cc.mojom.DynamicRangeLimitSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_video_type', 32, 0, mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_damage_rect', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_overlay_priority_hint', 48, 0, mojo.internal.bindings.viz.mojom.OverlayPrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rounded_display_masks_info', 56, 0, mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearest_neighbor', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_output_only', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_video_frame', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_rgbx', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_normalized_coords', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tex_coord_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dynamic_range_limit', 24, 0, mojo.internal.bindings.cc.mojom.DynamicRangeLimitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_damage_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rounded_display_masks_info', 40, 0, mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_video_type', 48, 0, mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_priority_hint', 52, 0, mojo.internal.bindings.viz.mojom.OverlayPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearest_neighbor', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_output_only', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_video_frame', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_rgbx', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_normalized_coords', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: TileQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TileQuadStateSpec, 'viz.mojom.TileQuadState', [
-      mojo.internal.StructField('arg_tex_coord_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_id', 8, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tex_coord_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_id', 8, 0, mojo.internal.bindings.viz.mojom.ResourceIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_nearest_neighbor', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_force_anti_aliasing_off', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -234,24 +234,24 @@ mojo.internal.Struct(
 // Struct: VideoHoleQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec, 'viz.mojom.VideoHoleQuadState', [
-      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SharedElementQuadState
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec, 'viz.mojom.SharedElementQuadState', [
-      mojo.internal.StructField('arg_element_resource_id', 0, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_element_resource_id', 0, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DrawQuad
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.DrawQuadSpec, 'viz.mojom.DrawQuad', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sqs', 16, 0, mojo.internal.bindings.viz.mojom.SharedQuadStateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_draw_quad_state', 24, 0, mojo.internal.bindings.viz.mojom.DrawQuadStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_blending', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_quad_state', 0, 0, mojo.internal.bindings.viz.mojom.DrawQuadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sqs', 32, 0, mojo.internal.bindings.viz.mojom.SharedQuadStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_needs_blending', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);

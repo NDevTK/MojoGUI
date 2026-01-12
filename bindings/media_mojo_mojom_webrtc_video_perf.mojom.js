@@ -87,10 +87,10 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponsePa
 // Struct: WebrtcPredictionFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_decode_stats', 12, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_hardware_accelerated', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_pixels', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_decode_stats', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_hardware_accelerated', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -106,8 +106,8 @@ mojo.internal.Struct(
 // Interface: WebrtcVideoPerfRecorder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec, 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_stats', 8, 0, mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_stats', 8, 0, mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderRequest = mojo.interna
 // Interface: WebrtcVideoPerfHistory
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_frames_per_second', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

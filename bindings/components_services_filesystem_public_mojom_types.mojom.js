@@ -126,19 +126,19 @@ mojo.internal.Struct(
 // Struct: FileInformation
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.FileInformationSpec, 'filesystem.mojom.FileInformation', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_atime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mtime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ctime', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_atime', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mtime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ctime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: DirectoryEntry
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec, 'filesystem.mojom.DirectoryEntry', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

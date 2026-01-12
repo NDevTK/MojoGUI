@@ -90,7 +90,7 @@ mojo.internal.Union(
       },
       'arg_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
         'nullable': false,
       },
     });

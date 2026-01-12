@@ -120,7 +120,7 @@ mojo.internal.Union(
     mojo.internal.bindings.mojom.InstallIsolatedWebAppResultSpec, 'mojom.InstallIsolatedWebAppResult', {
       'arg_success': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojom.InstallIsolatedWebAppSuccessSpec.$,
+        'type': mojo.internal.bindings.mojom.InstallIsolatedWebAppSuccessSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -135,12 +135,12 @@ mojo.internal.Union(
     mojo.internal.bindings.mojom.IwaDevModeLocationSpec, 'mojom.IwaDevModeLocation', {
       'arg_proxy_origin': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.url.mojom.OriginSpec.$,
+        'type': mojo.internal.bindings.url.mojom.OriginSpec,
         'nullable': false,
       },
       'arg_bundle_path': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FilePathSpec,
         'nullable': false,
       },
     });
@@ -150,7 +150,7 @@ mojo.internal.Union(
     mojo.internal.bindings.mojom.ParseUpdateManifestFromUrlResultSpec, 'mojom.ParseUpdateManifestFromUrlResult', {
       'arg_update_manifest': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojom.UpdateManifestSpec.$,
+        'type': mojo.internal.bindings.mojom.UpdateManifestSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 // Struct: UpdateInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.UpdateInfoSpec, 'mojom.UpdateInfo', [
-      mojo.internal.StructField('arg_update_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_channel', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_pinned_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_allow_downgrades', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -185,7 +185,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_location', 24, 0, mojo.internal.bindings.mojom.IwaDevModeLocationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_installed_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_info', 40, 0, mojo.internal.bindings.mojom.UpdateInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_update_info', 40, 0, mojo.internal.bindings.mojom.UpdateInfoSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -193,22 +193,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.VersionEntrySpec, 'mojom.VersionEntry', [
       mojo.internal.StructField('arg_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_bundle_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_bundle_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: UpdateManifest
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.UpdateManifestSpec, 'mojom.UpdateManifest', [
-      mojo.internal.StructField('arg_versions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.VersionEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_versions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.VersionEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: InstallFromBundleUrlParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.InstallFromBundleUrlParamsSpec, 'mojom.InstallFromBundleUrlParams', [
-      mojo.internal.StructField('arg_web_bundle_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_info', 8, 0, mojo.internal.bindings.mojom.UpdateInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_bundle_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_info', 8, 0, mojo.internal.bindings.mojom.UpdateInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -226,7 +226,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec, 'mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec, 'mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_Params', [
-      mojo.internal.StructField('arg_update_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,7 +261,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec, 'mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojom.InstallFromBundleUrlParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojom.InstallFromBundleUrlParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -376,7 +376,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec, 'mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.IwaDevModeAppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.IwaDevModeAppInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

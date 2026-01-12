@@ -81,9 +81,9 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeo
 // Interface: PublicIpAddressGeolocationProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec, 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

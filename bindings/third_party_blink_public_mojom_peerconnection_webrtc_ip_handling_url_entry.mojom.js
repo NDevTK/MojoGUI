@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec = { $: {} };
 // Struct: WebRtcIpHandlingUrlEntry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec, 'blink.mojom.WebRtcIpHandlingUrlEntry', [
-      mojo.internal.StructField('arg_url_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handling', 8, 0, mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handling', 8, 0, mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

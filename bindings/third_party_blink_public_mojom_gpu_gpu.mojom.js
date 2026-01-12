@@ -82,7 +82,7 @@ mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_Respons
 // Interface: GpuDataManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec, 'blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

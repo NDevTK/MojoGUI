@@ -90,7 +90,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams', [
-      mojo.internal.StructField('arg_telemetry', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_telemetry', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -102,9 +102,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParams', [
-      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {

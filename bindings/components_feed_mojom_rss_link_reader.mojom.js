@@ -83,8 +83,8 @@ mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec =
 // Struct: RssLinks
 mojo.internal.Struct(
     mojo.internal.bindings.feed.mojom.RssLinksSpec, 'feed.mojom.RssLinks', [
-      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_links', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_links', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec, 'feed.mojom.RssLinkReader_GetRssLinks_ResponseParams', [
-      mojo.internal.StructField('arg_rss_links', 0, 0, mojo.internal.bindings.feed.mojom.RssLinksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rss_links', 0, 0, mojo.internal.bindings.feed.mojom.RssLinksSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

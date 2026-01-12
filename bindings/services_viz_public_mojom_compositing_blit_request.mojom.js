@@ -86,10 +86,10 @@ mojo.internal.bindings.viz.mojom.LetterboxingBehavior = {
 // Struct: BlitRequest
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BlitRequestSpec, 'viz.mojom.BlitRequest', [
-      mojo.internal.StructField('arg_destination_region_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_letterboxing_behavior', 8, 0, mojo.internal.bindings.viz.mojom.LetterboxingBehaviorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image', 16, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 24, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_populates_gpu_memory_buffer', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_region_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image', 8, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_letterboxing_behavior', 24, 0, mojo.internal.bindings.viz.mojom.LetterboxingBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_populates_gpu_memory_buffer', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);

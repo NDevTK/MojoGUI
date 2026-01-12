@@ -80,7 +80,7 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params
 // Interface: RendererPreferenceWatcher
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [
-      mojo.internal.StructField('arg_new_prefs', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_prefs', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

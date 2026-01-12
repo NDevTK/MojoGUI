@@ -79,17 +79,17 @@ mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec = { $: {} };
 // Struct: FrameReplicationState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec, 'blink.mojom.FrameReplicationState', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_unique_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions_policy_header', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_sandbox_flags', 32, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_policy', 40, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_request_policy', 48, 0, mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_navigations_set', 56, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_potentially_trustworthy_unique_origin', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_active_user_gesture', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_received_user_gesture_before_nav', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_frame', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions_policy_header', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_policy', 32, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_navigations_set', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_sandbox_flags', 48, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_request_policy', 52, 0, mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_potentially_trustworthy_unique_origin', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_active_user_gesture', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_received_user_gesture_before_nav', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_frame', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);

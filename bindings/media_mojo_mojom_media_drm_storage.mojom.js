@@ -99,7 +99,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_KeyType', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_set_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_type', 24, 0, mojo.internal.bindings.media.mojom.KeyTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_type', 24, 0, mojo.internal.bindings.media.mojom.KeyTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -111,7 +111,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec, 'media.mojom.MediaDrmStorage_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_origin_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_origin_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -130,7 +130,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec, 'media.mojom.MediaDrmStorage_SavePersistentSession_Params', [
       mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_data', 8, 0, mojo.internal.bindings.media.mojom.SessionDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_data', 8, 0, mojo.internal.bindings.media.mojom.SessionDataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -148,7 +148,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec, 'media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParams', [
-      mojo.internal.StructField('arg_session_data', 0, 0, mojo.internal.bindings.media.mojom.SessionDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_session_data', 0, 0, mojo.internal.bindings.media.mojom.SessionDataSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

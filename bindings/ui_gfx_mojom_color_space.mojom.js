@@ -154,11 +154,11 @@ mojo.internal.bindings.gfx.mojom.ColorSpaceRangeID = {
 // Struct: ColorSpace
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, 'gfx.mojom.ColorSpace', [
-      mojo.internal.StructField('arg_primaries', 0, 0, mojo.internal.bindings.gfx.mojom.ColorSpacePrimaryIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer', 8, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceTransferIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matrix', 16, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceMatrixIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_range', 24, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceRangeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_primary_matrix', 32, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_params', 40, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_primary_matrix', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer_params', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_primaries', 16, 0, mojo.internal.bindings.gfx.mojom.ColorSpacePrimaryIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer', 20, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceTransferIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matrix', 24, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceMatrixIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_range', 28, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceRangeIDSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);

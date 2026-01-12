@@ -93,10 +93,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color', 32, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon_urls', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_tab_count', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_shared_tab_group', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon_urls', 32, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_tab_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 44, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_shared_tab_group', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -113,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec, 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParams', [
-      mojo.internal.StructField('arg_tab_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_showZeroState', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

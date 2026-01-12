@@ -84,7 +84,7 @@ mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_Response
 // Struct: MediaDrmSupportResult
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
-      mojo.internal.StructField('arg_key_system_version', 0, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_system_version', 0, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_key_system_supports_video_mp4', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_key_system_supports_video_webm', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('arg_key_system_supports', 0, 0, mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_system_supports', 0, 0, mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

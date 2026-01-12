@@ -81,8 +81,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, 'blink.mojom.URLLoaderFactoryBundle', [
       mojo.internal.StructField('arg_default_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_scheme_specific_factories', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_isolated_world_factories', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_resource_loader_config', 24, 0, mojo.internal.bindings.blink.mojom.LocalResourceLoaderConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_isolated_world_factories', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_resource_loader_config', 24, 0, mojo.internal.bindings.blink.mojom.LocalResourceLoaderConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_bypass_redirect_checks', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);

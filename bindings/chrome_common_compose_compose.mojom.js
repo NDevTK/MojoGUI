@@ -160,15 +160,15 @@ mojo.internal.bindings.compose.mojom.UserFeedback = {
 // Struct: ComposeResponse
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeResponseSpec, 'compose.mojom.ComposeResponse', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_undo_available', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_redo_available', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_provided_by_user', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_on_device_evaluation_used', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_triggered_from_modifier', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.compose.mojom.ComposeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_undo_available', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_redo_available', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_provided_by_user', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_on_device_evaluation_used', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_triggered_from_modifier', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: PartialComposeResponse
 mojo.internal.Struct(
@@ -181,11 +181,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeStateSpec, 'compose.mojom.ComposeState', [
       mojo.internal.StructField('arg_webui_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.compose.mojom.ComposeResponseSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_feedback', 16, 0, mojo.internal.bindings.compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_pending_request', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.compose.mojom.ComposeResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 16, 0, mojo.internal.bindings.compose.mojom.UserFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_pending_request', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: ConfigurableParams
 mojo.internal.Struct(
@@ -200,8 +200,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.OpenMetadataSpec, 'compose.mojom.OpenMetadata', [
       mojo.internal.StructField('arg_initial_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compose_state', 8, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_configurable_params', 16, 0, mojo.internal.bindings.compose.mojom.ConfigurableParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compose_state', 8, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configurable_params', 16, 0, mojo.internal.bindings.compose.mojom.ConfigurableParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_fre_complete', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_msbb_state', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_text_selected', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -386,14 +386,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Compose_Params', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.compose.mojom.InputModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edited', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.compose.mojom.InputModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_edited', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_Params', [
-      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.compose.mojom.StyleModifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.compose.mojom.StyleModifierSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -426,7 +426,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParams', [
-      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.compose.mojom.OpenMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.compose.mojom.OpenMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -437,7 +437,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParams', [
-      mojo.internal.StructField('arg_last_state', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_last_state', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -448,7 +448,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParams', [
-      mojo.internal.StructField('arg_state_before_error', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state_before_error', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -459,7 +459,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParams', [
-      mojo.internal.StructField('arg_next_state', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_next_state', 0, 0, mojo.internal.bindings.compose.mojom.ComposeStateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -490,7 +490,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_Params', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.compose.mojom.UserFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1414,7 +1414,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec, 'compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.compose.mojom.CloseReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.compose.mojom.CloseReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1723,13 +1723,13 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRequest = 
 // Interface: ComposeUntrustedDialog
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec, 'compose.mojom.ComposeUntrustedDialog_ResponseReceived_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.compose.mojom.ComposeResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.compose.mojom.ComposeResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec, 'compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_Params', [
-      mojo.internal.StructField('arg_partial_response', 0, 0, mojo.internal.bindings.compose.mojom.PartialComposeResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_partial_response', 0, 0, mojo.internal.bindings.compose.mojom.PartialComposeResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -94,49 +94,49 @@ mojo.internal.bindings.blink.mojom.Mode = {
 // Struct: PerContextV8MemoryUsage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec, 'blink.mojom.PerContextV8MemoryUsage', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_memory_used', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_used', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: PerContextCanvasMemoryUsage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec, 'blink.mojom.PerContextCanvasMemoryUsage', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_memory_used', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_used', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: PerIsolateV8MemoryUsage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec, 'blink.mojom.PerIsolateV8MemoryUsage', [
       mojo.internal.StructField('arg_num_detached_contexts', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_detached_memory_used', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_used', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blink_memory_used', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contexts', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_canvas_contexts', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_detached_memory_used', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_used', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blink_memory_used', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contexts', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_canvas_contexts', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: PerProcessV8MemoryUsage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec, 'blink.mojom.PerProcessV8MemoryUsage', [
-      mojo.internal.StructField('arg_isolates', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_isolates', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: V8DetailedMemoryReporter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParams', [
-      mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

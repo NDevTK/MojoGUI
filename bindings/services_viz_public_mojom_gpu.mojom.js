@@ -94,9 +94,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
       mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);

@@ -118,15 +118,15 @@ mojo.internal.bindings.blink.mojom.BucketError = {
 // Struct: BucketPolicies
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketPoliciesSpec, 'blink.mojom.BucketPolicies', [
-      mojo.internal.StructField('arg_durability', 0, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quota', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expires', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_persisted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_persisted', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_durability', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_quota', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_quota', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_expires', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_durability', 16, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_persisted', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_persisted', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_durability', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_quota', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: BucketHost
 mojo.internal.Struct(
@@ -173,14 +173,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec, 'blink.mojom.BucketHost_Durability_ResponseParams', [
-      mojo.internal.StructField('arg_durability', 0, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_durability', 0, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec, 'blink.mojom.BucketHost_SetExpires_Params', [
-      mojo.internal.StructField('arg_expires', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expires', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,7 +197,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec, 'blink.mojom.BucketHost_Expires_ResponseParams', [
-      mojo.internal.StructField('arg_expires', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expires', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -227,7 +227,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec, 'blink.mojom.BucketHost_GetDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -240,7 +240,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec, 'blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -897,14 +897,14 @@ mojo.internal.bindings.blink.mojom.BucketHostRequest = mojo.internal.bindings.bl
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.blink.mojom.BucketPoliciesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_ResponseParams', [
       mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BucketHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BucketErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BucketErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

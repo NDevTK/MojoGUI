@@ -427,30 +427,30 @@ mojo.internal.Struct(
 // Struct: VideoCaptureFormat
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, 'media.mojom.VideoCaptureFormat', [
-      mojo.internal.StructField('arg_frame_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pixel_format', 8, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_rate', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_format', 12, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: VideoCaptureParams
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, 'media.mojom.VideoCaptureParams', [
-      mojo.internal.StructField('arg_requested_format', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_type', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_change_policy', 16, 0, mojo.internal.bindings.media.mojom.ResolutionChangePolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_power_line_frequency', 24, 0, mojo.internal.bindings.media.mojom.PowerLineFrequencySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_version_source', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_face_detection', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_high_dpi_enabled', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_requested_format', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_type', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_change_policy', 12, 0, mojo.internal.bindings.media.mojom.ResolutionChangePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_power_line_frequency', 16, 0, mojo.internal.bindings.media.mojom.PowerLineFrequencySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_version_source', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_face_detection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_high_dpi_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: VideoCaptureFeedback
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, 'media.mojom.VideoCaptureFeedback', [
       mojo.internal.StructField('arg_resource_utilization', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_DEPRECATED_mapped_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_DEPRECATED_mapped_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_max_framerate_fps', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_pixels', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -472,18 +472,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_model_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing_mode', 24, 0, mojo.internal.bindings.media.mojom.VideoFacingModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_api', 32, 0, mojo.internal.bindings.media.mojom.VideoCaptureApiSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_control_support', 40, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transport_type', 48, 0, mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_availability', 56, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_control_support', 24, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing_mode', 32, 0, mojo.internal.bindings.media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_api', 36, 0, mojo.internal.bindings.media.mojom.VideoCaptureApiSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport_type', 40, 0, mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability', 44, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 56]]);
 
 // Struct: VideoCaptureDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, 'media.mojom.VideoCaptureDeviceInfo', [
-      mojo.internal.StructField('arg_descriptor', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

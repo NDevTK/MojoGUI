@@ -171,16 +171,16 @@ mojo.internal.bindings.lens.mojom.SemanticEvent = {
 // Struct: OverlayTheme
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.OverlayThemeSpec, 'lens.mojom.OverlayTheme', [
-      mojo.internal.StructField('arg_primary', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shader_layer_1', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shader_layer_2', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shader_layer_3', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shader_layer_4', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shader_layer_5', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrim', 48, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_container_highest_light', 56, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_container_highest_dark', 64, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_element', 72, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_primary', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_layer_1', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_layer_2', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_layer_3', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_layer_4', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_layer_5', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrim', 48, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_container_highest_light', 56, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_container_highest_dark', 64, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_element', 72, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.lens.mojom.LensPageHandlerFactoryRequest = mojo.internal.
 // Interface: LensPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_ActivityRequestedByOverlay_Params', [
-      mojo.internal.StructField('arg_click_modifiers', 0, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 0, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,20 +403,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec, 'lens.mojom.LensPageHandler_InfoRequestedByOverlay_Params', [
-      mojo.internal.StructField('arg_click_modifiers', 0, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 0, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueLensRegionRequest_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_click', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec, 'lens.mojom.LensPageHandler_IssueLensObjectRequest_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_mask_click', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -468,13 +468,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_CopyImage_ParamsSpec, 'lens.mojom.LensPageHandler_CopyImage_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec, 'lens.mojom.LensPageHandler_SaveAsImage_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -485,13 +485,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec, 'lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_Params', [
-      mojo.internal.StructField('arg_user_action', 0, 0, mojo.internal.bindings.lens.mojom.UserActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_action', 0, 0, mojo.internal.bindings.lens.mojom.UserActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec, 'lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.lens.mojom.SemanticEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.lens.mojom.SemanticEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -514,8 +514,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec, 'lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParams', [
       mojo.internal.StructField('arg_browser_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.LanguageSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.LanguageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.LanguageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.LanguageSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1897,7 +1897,7 @@ mojo.internal.bindings.lens.mojom.LensPageHandlerRequest = mojo.internal.binding
 // Interface: LensPage
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec, 'lens.mojom.LensPage_ScreenshotDataReceived_Params', [
-      mojo.internal.StructField('arg_screenshot_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_side_panel_open', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1919,26 +1919,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_ObjectsReceived_ParamsSpec, 'lens.mojom.LensPage_ObjectsReceived_Params', [
-      mojo.internal.StructField('arg_objects', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.OverlayObjectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_objects', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.OverlayObjectSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_TextReceived_ParamsSpec, 'lens.mojom.LensPage_TextReceived_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.lens.mojom.TextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.lens.mojom.TextSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_RegionTextReceived_ParamsSpec, 'lens.mojom.LensPage_RegionTextReceived_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.lens.mojom.TextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.lens.mojom.TextSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_injected_image', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_ThemeReceived_ParamsSpec, 'lens.mojom.LensPage_ThemeReceived_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.lens.mojom.OverlayThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.lens.mojom.OverlayThemeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1950,13 +1950,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensPage_PageContentTypeChanged_Params', [
-      mojo.internal.StructField('arg_new_page_content_type', 0, 0, mojo.internal.bindings.lens.mojom.PageContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_page_content_type', 0, 0, mojo.internal.bindings.lens.mojom.PageContentTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec, 'lens.mojom.LensPage_SetPostRegionSelection_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2001,7 +2001,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_OnOverlayReshown_ParamsSpec, 'lens.mojom.LensPage_OnOverlayReshown_Params', [
-      mojo.internal.StructField('arg_screenshot_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

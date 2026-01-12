@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequ
 // Interface: ArcVmDataMigrationPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -526,7 +526,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_Params', [
-      mojo.internal.StructField('arg_remaining_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remaining_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1275,7 +1275,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerReq
 // Interface: EncryptionMigrationPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1307,8 +1307,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_Params', [
-      mojo.internal.StructField('arg_available_space', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_required_space', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_available_space', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_required_space', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

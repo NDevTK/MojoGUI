@@ -77,6 +77,6 @@ mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec = { $: {} };
 // Struct: RefCountedMemory
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec, 'mojo_base.mojom.RefCountedMemory', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

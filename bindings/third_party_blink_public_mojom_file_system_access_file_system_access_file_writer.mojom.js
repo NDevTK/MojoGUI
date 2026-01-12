@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Write_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_bytes_written', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -107,7 +107,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Close_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

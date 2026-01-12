@@ -96,13 +96,13 @@ mojo.internal.bindings.storage.mojom.CacheStorageOwner = {
 // Interface: CacheStorageObserver
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cache_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -314,13 +314,13 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRequest = mojo.internal
 // Interface: CacheStorageControl
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddReceiver_Params', [
-      mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_coep_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_isolation_policy', 16, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_isolation_policy', 16, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_dip_reporter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_bucket_locator', 32, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 40, 0, mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_locator', 32, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 48, 0, mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -332,7 +332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

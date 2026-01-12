@@ -81,7 +81,7 @@ mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec = { $: {} };
 // Interface: TextureReleaser
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec, 'viz.mojom.TextureReleaser_Release_Params', [
-      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_lost', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

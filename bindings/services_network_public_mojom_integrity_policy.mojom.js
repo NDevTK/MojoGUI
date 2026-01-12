@@ -89,8 +89,8 @@ mojo.internal.bindings.network.mojom.Source = {
 // Struct: IntegrityPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IntegrityPolicySpec, 'network.mojom.IntegrityPolicy', [
-      mojo.internal.StructField('arg_blocked_destinations', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DestinationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sources', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_destinations', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DestinationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SourceSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_endpoints', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_parsing_errors', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],

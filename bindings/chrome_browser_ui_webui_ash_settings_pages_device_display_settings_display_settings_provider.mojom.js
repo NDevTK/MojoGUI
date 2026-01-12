@@ -146,19 +146,19 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOption = {
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, 'ash.settings.mojom.DisplaySettingsValue', [
       mojo.internal.StructField('arg_display_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_id_$flag', originalFieldName: 'arg_display_id' }),
-      mojo.internal.StructField('arg_orientation', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_night_light_schedule', 16, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_internal_display_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_internal_display_$value', originalFieldName: 'arg_is_internal_display' }),
-      mojo.internal.StructField('arg_is_internal_display_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_internal_display_$flag', originalFieldName: 'arg_is_internal_display' }),
-      mojo.internal.StructField('arg_display_id_$flag', 24, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_id_$value', originalFieldName: 'arg_display_id' }),
-      mojo.internal.StructField('arg_night_light_status_$flag', 24, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_night_light_status_$value', originalFieldName: 'arg_night_light_status' }),
-      mojo.internal.StructField('arg_night_light_status_$value', 24, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_night_light_status_$flag', originalFieldName: 'arg_night_light_status' }),
-      mojo.internal.StructField('arg_mirror_mode_status_$flag', 24, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_mirror_mode_status_$value', originalFieldName: 'arg_mirror_mode_status' }),
-      mojo.internal.StructField('arg_mirror_mode_status_$value', 24, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_mirror_mode_status_$flag', originalFieldName: 'arg_mirror_mode_status' }),
-      mojo.internal.StructField('arg_unified_mode_status_$flag', 24, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_unified_mode_status_$value', originalFieldName: 'arg_unified_mode_status' }),
-      mojo.internal.StructField('arg_unified_mode_status_$value', 25, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_unified_mode_status_$flag', originalFieldName: 'arg_unified_mode_status' }),
+      mojo.internal.StructField('arg_orientation', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_night_light_schedule', 12, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_internal_display_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_internal_display_$value', originalFieldName: 'arg_is_internal_display' }),
+      mojo.internal.StructField('arg_is_internal_display_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_internal_display_$flag', originalFieldName: 'arg_is_internal_display' }),
+      mojo.internal.StructField('arg_display_id_$flag', 16, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_id_$value', originalFieldName: 'arg_display_id' }),
+      mojo.internal.StructField('arg_night_light_status_$flag', 16, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_night_light_status_$value', originalFieldName: 'arg_night_light_status' }),
+      mojo.internal.StructField('arg_night_light_status_$value', 16, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_night_light_status_$flag', originalFieldName: 'arg_night_light_status' }),
+      mojo.internal.StructField('arg_mirror_mode_status_$flag', 16, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_mirror_mode_status_$value', originalFieldName: 'arg_mirror_mode_status' }),
+      mojo.internal.StructField('arg_mirror_mode_status_$value', 16, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_mirror_mode_status_$flag', originalFieldName: 'arg_mirror_mode_status' }),
+      mojo.internal.StructField('arg_unified_mode_status_$flag', 16, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_unified_mode_status_$value', originalFieldName: 'arg_unified_mode_status' }),
+      mojo.internal.StructField('arg_unified_mode_status_$value', 17, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_unified_mode_status_$flag', originalFieldName: 'arg_unified_mode_status' }),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: TabletModeObserver
 mojo.internal.Struct(
@@ -873,8 +873,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

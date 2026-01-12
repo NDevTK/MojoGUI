@@ -81,15 +81,15 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponsePa
 // Interface: ConfigTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [
-      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {

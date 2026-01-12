@@ -86,15 +86,15 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_Param
 // Interface: SingleFileExtractor
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
-      mojo.internal.StructField('arg_src_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

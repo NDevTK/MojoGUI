@@ -93,14 +93,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -79,20 +79,20 @@ mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntryArraysSpec = { $: {}
 // Struct: NavigationApiHistoryEntry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec, 'blink.mojom.NavigationApiHistoryEntry', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_item_sequence_number', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_document_sequence_number', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: NavigationApiHistoryEntryArrays
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntryArraysSpec, 'blink.mojom.NavigationApiHistoryEntryArrays', [
-      mojo.internal.StructField('arg_back_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_forward_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_entry', 16, 0, mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_back_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_forward_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_entry', 16, 0, mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

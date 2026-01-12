@@ -78,6 +78,6 @@ mojo.internal.bindings.network.mojom.SchemefulSiteSpec = { $: {} };
 // Struct: SchemefulSite
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SchemefulSiteSpec, 'network.mojom.SchemefulSite', [
-      mojo.internal.StructField('arg_site_as_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_as_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

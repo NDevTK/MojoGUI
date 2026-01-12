@@ -80,22 +80,22 @@ mojo.internal.Union(
     mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, 'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
       'arg_source_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec.$,
+        'type': mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec,
         'nullable': false,
       },
       'arg_trigger_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec.$,
+        'type': mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec,
         'nullable': false,
       },
       'arg_os_source_error': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec.$,
+        'type': mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec,
         'nullable': false,
       },
       'arg_os_trigger_error': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec.$,
+        'type': mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec,
         'nullable': false,
       },
     });
@@ -103,7 +103,7 @@ mojo.internal.Union(
 // Struct: RegistrationHeaderError
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec, 'attribution_reporting.mojom.RegistrationHeaderError', [
-      mojo.internal.StructField('arg_header_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_details', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_details', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_value', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

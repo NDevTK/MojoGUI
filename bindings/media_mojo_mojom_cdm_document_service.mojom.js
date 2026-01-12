@@ -91,9 +91,9 @@ mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { 
 // Struct: MediaFoundationCdmData
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec, 'media.mojom.MediaFoundationCdmData', [
-      mojo.internal.StructField('arg_origin_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cdm_store_path_root', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_store_path_root', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
-      mojo.internal.StructField('arg_cdm_data', 0, 0, mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_data', 0, 0, mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -157,10 +157,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec, 'media.mojom.CdmDocumentService_OnCdmEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.CdmEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hresult', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.CdmEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hresult', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.media.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {

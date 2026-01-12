@@ -109,26 +109,26 @@ mojo.internal.bindings.feed_internals.mojom.FeedOrder = {
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PropertiesSpec, 'feed_internals.mojom.Properties', [
       mojo.internal.StructField('arg_load_stream_status', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feed_fetch_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feed_actions_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_following_feed_order', 24, 0, mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_feed_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_feed_visible', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_feed_allowed', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_prefetching_enabled', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_web_feed_follow_intro_debug_enabled', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_feed_query_requests', 32, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feed_fetch_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feed_actions_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_following_feed_order', 24, 0, mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_feed_enabled', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_feed_visible', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_feed_allowed', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_prefetching_enabled', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_web_feed_follow_intro_debug_enabled', 28, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_feed_query_requests', 28, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: LastFetchProperties
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec, 'feed_internals.mojom.LastFetchProperties', [
       mojo.internal.StructField('arg_last_fetch_trigger', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_fetch_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_refresh_suppress_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_fetch_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_suppress_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_bless_nonce', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_action_upload_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_action_upload_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_fetch_status', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_last_action_upload_status', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParams', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.feed_internals.mojom.PropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.feed_internals.mojom.PropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParams', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -196,13 +196,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec, 'feed_internals.mojom.PageHandler_OverrideFeedHost_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec, 'feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_Params', [
-      mojo.internal.StructField('arg_endpoint_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoint_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -226,7 +226,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec, 'feed_internals.mojom.PageHandler_SetFollowingFeedOrder_Params', [
-      mojo.internal.StructField('arg_order', 0, 0, mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_order', 0, 0, mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

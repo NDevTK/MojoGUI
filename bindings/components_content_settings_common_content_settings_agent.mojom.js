@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [
-      mojo.internal.StructField('arg_renderer_settings', 0, 0, mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_settings', 0, 0, mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

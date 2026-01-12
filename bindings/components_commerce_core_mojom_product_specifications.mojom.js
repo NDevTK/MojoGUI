@@ -119,13 +119,13 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDisposition 
 // Interface: ProductSpecificationsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_Params', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_Params', [
-      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_set_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -149,7 +149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,15 +161,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_in_new_tab', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_Params', [
-      mojo.internal.StructField('arg_uuids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -181,13 +181,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -724,19 +724,19 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Params', [
-      mojo.internal.StructField('arg_set', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductSpecificationsSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_set', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductSpecificationsSetSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Params', [
-      mojo.internal.StructField('arg_set', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductSpecificationsSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_set', 0, 0, mojo.internal.bindings.commerce.shared.mojom.ProductSpecificationsSetSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

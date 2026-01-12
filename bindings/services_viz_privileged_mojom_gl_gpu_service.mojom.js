@@ -139,39 +139,39 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.GpuService_EstablishGpuChannel_ResponseParams', [
       mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_SetChannelClientPid_ParamsSpec, 'viz.mojom.GpuService_SetChannelClientPid_Params', [
-      mojo.internal.StructField('arg_client_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec, 'viz.mojom.GpuService_SetChannelDiskCacheHandle_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec, 'viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_backend', 8, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec, 'viz.mojom.GpuService_OnDiskCacheHandleDestoyed_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec, 'viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_Params', [
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_backend', 16, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec, 'viz.mojom.GpuService_OnDiskCacheHandleDestoyed_Params', [
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_CloseChannel_ParamsSpec, 'viz.mojom.GpuService_CloseChannel_Params', [
@@ -199,13 +199,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec, 'viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec, 'viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -229,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec, 'viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParams', [
-      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -248,7 +248,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec, 'viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParams', [
       mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_memory_per_allocation_source', 8, 0, mojo.internal.Map(mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSourceSpec.$, mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_per_allocation_source', 8, 0, mojo.internal.Map(mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSourceSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -259,17 +259,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec, 'viz.mojom.GpuService_RequestDXGIInfo_ResponseParams', [
-      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_LoadedBlob_ParamsSpec, 'viz.mojom.GpuService_LoadedBlob_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_WakeUpGpu_ParamsSpec, 'viz.mojom.GpuService_WakeUpGpu_Params', [

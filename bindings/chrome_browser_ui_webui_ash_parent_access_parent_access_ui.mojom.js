@@ -134,12 +134,12 @@ mojo.internal.Union(
     mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, 'parent_access_ui.mojom.FlowTypeParams', {
       'arg_web_approvals_params': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec.$,
+        'type': mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec,
         'nullable': false,
       },
       'arg_extension_approvals_params': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec.$,
+        'type': mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec,
         'nullable': false,
       },
     });
@@ -147,24 +147,24 @@ mojo.internal.Union(
 // Struct: ParentAccessServerMessage
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, 'parent_access_ui.mojom.ParentAccessServerMessage', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ParentAccessParams
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, 'parent_access_ui.mojom.ParentAccessParams', [
-      mojo.internal.StructField('arg_flow_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flow_type_params', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_flow_type', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_disabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: WebApprovalsParams
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec, 'parent_access_ui.mojom.WebApprovalsParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_favicon_png_bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -172,18 +172,18 @@ mojo.internal.Struct(
 // Struct: ExtensionApprovalsParams
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec, 'parent_access_ui.mojom.ExtensionApprovalsParams', [
-      mojo.internal.StructField('arg_extension_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_png_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_display_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions', 24, 0, mojo.internal.Array(mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_display_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 24, 0, mojo.internal.Array(mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ExtensionPermission
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, 'parent_access_ui.mojom.ExtensionPermission', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -195,8 +195,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -208,7 +208,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParams', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,7 +219,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,7 +236,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

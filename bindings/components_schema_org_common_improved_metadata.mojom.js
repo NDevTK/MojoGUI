@@ -86,10 +86,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_long_values', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_string_values', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_double_values', 24, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_date_time_values', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_values', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_values', 48, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_entity_values', 56, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.improved.mojom.EntitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_date_time_values', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_values', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_values', 48, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entity_values', 56, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.improved.mojom.EntitySpec, false), null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -97,7 +97,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.schema_org.improved.mojom.PropertySpec, 'schema_org.improved.mojom.Property', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -106,6 +106,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.schema_org.improved.mojom.EntitySpec, 'schema_org.improved.mojom.Entity', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.improved.mojom.PropertySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.improved.mojom.PropertySpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -101,14 +101,14 @@ mojo.internal.bindings.viz.mojom.FilterType = {
 // Struct: FilterOperation
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationSpec, 'viz.mojom.FilterOperation', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.FilterTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_drop_shadow_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_filter', 24, 0, mojo.internal.bindings.viz.mojom.PaintFilterSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matrix', 32, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_blur_tile_mode', 40, 0, mojo.internal.bindings.skia.mojom.TileModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shape', 48, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_amount', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_zoom_inset', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_drop_shadow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_filter', 16, 0, mojo.internal.bindings.viz.mojom.PaintFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matrix', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_shape', 32, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.viz.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_amount', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_zoom_inset', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_blur_tile_mode', 52, 0, mojo.internal.bindings.skia.mojom.TileModeSpec, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);

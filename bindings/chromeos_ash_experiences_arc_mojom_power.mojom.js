@@ -145,19 +145,19 @@ mojo.internal.Struct(
 // Interface: PowerHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec, 'arc.mojom.PowerHost_OnAcquireDisplayWakeLock_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec, 'arc.mojom.PowerHost_OnReleaseDisplayWakeLock_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec, 'arc.mojom.PowerHost_OnWakefulnessChanged_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.arc.mojom.WakefulnessModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.arc.mojom.WakefulnessModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -180,13 +180,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec, 'arc.mojom.PowerHost_OnPreAnr_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AnrTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AnrTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec, 'arc.mojom.PowerHost_OnAnrRecoveryFailed_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AnrTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AnrTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,7 +197,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec, 'arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -732,25 +732,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec, 'arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.arc.mojom.WakefulnessModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.arc.mojom.WakefulnessModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec, 'arc.mojom.PowerInstance_OnCpuRestrictionChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec, 'arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec, 'arc.mojom.PowerInstance_SetIdleState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.IdleStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.IdleStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

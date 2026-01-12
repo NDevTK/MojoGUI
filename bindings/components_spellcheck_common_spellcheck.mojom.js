@@ -111,7 +111,7 @@ mojo.internal.bindings.spellcheck.mojom.Decoration = {
 // Struct: SpellCheckBDictLanguage
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec, 'spellcheck.mojom.SpellCheckBDictLanguage', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -119,18 +119,18 @@ mojo.internal.Struct(
 // Struct: SpellCheckResult
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
-      mojo.internal.StructField('arg_decoration', 0, 0, mojo.internal.bindings.spellcheck.mojom.DecorationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_replacements', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_should_hide_suggestion_menu', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_replacements', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoration', 8, 0, mojo.internal.bindings.spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_should_hide_suggestion_menu', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: SpellChecker
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec, 'spellcheck.mojom.SpellChecker_Initialize_Params', [
-      mojo.internal.StructField('arg_dictionaries', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dictionaries', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_custom_words', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -516,34 +516,34 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostRequest = mo
 // Interface: SpellCheckHost
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_NotifyChecked_Params', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_misspelled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spelling_markers', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RangeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spelling_markers', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RangeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -554,7 +554,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CheckSpelling_Params', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -566,13 +566,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_FillSuggestionList_Params', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParams', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -583,7 +583,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParams', [
-      mojo.internal.StructField('arg_dictionaries', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dictionaries', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_custom_words', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

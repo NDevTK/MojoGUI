@@ -82,7 +82,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_Response
 // Interface: TabOrganizationService
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

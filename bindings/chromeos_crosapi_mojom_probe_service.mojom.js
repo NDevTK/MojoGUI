@@ -243,12 +243,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeBatteryResultSpec, 'crosapi.mojom.ProbeBatteryResult', {
       'arg_battery_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeBatteryInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeBatteryInfoSpec,
         'nullable': true,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -263,7 +263,7 @@ mojo.internal.Union(
       },
       'arg_usb_bus_info': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInfoSpec,
         'nullable': false,
       },
     });
@@ -273,12 +273,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec, 'crosapi.mojom.ProbeBusResult', {
       'arg_bus_devices_info': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBusInfoSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBusInfoSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -288,12 +288,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec, 'crosapi.mojom.ProbeNonRemovableBlockDeviceResult', {
       'arg_block_device_info': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -303,12 +303,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeCachedVpdResultSpec, 'crosapi.mojom.ProbeCachedVpdResult', {
       'arg_vpd_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeCachedVpdInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeCachedVpdInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -318,12 +318,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeCpuResultSpec, 'crosapi.mojom.ProbeCpuResult', {
       'arg_cpu_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeCpuInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeCpuInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -333,12 +333,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeTimezoneResultSpec, 'crosapi.mojom.ProbeTimezoneResult', {
       'arg_timezone_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeTimezoneInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeTimezoneInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -348,12 +348,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeMemoryResultSpec, 'crosapi.mojom.ProbeMemoryResult', {
       'arg_memory_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeMemoryInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeMemoryInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -363,12 +363,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeBacklightResultSpec, 'crosapi.mojom.ProbeBacklightResult', {
       'arg_backlight_info': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBacklightInfoSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBacklightInfoSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -378,12 +378,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeFanResultSpec, 'crosapi.mojom.ProbeFanResult', {
       'arg_fan_info': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeFanInfoSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeFanInfoSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -393,12 +393,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionResultSpec, 'crosapi.mojom.ProbeStatefulPartitionResult', {
       'arg_partition_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -408,12 +408,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeTpmResultSpec, 'crosapi.mojom.ProbeTpmResult', {
       'arg_tpm_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeTpmInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeTpmInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -423,12 +423,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeBluetoothResultSpec, 'crosapi.mojom.ProbeBluetoothResult', {
       'arg_bluetooth_adapter_info': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBluetoothAdapterInfoSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeBluetoothAdapterInfoSpec, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -438,12 +438,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeSystemResultSpec, 'crosapi.mojom.ProbeSystemResult', {
       'arg_system_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeSystemInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeSystemInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -453,12 +453,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeNetworkResultSpec, 'crosapi.mojom.ProbeNetworkResult', {
       'arg_network_health': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec.$,
+        'type': mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -468,12 +468,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeAudioResultSpec, 'crosapi.mojom.ProbeAudioResult', {
       'arg_audio_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeAudioInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeAudioInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -483,12 +483,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeDisplayResultSpec, 'crosapi.mojom.ProbeDisplayResult', {
       'arg_display_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeDisplayInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeDisplayInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -498,12 +498,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.ProbeThermalResultSpec, 'crosapi.mojom.ProbeThermalResult', {
       'arg_thermal_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeThermalInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeThermalInfoSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec,
         'nullable': false,
       },
     });
@@ -511,38 +511,38 @@ mojo.internal.Union(
 // Struct: ProbeError
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeErrorSpec, 'crosapi.mojom.ProbeError', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeErrorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_msg', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeErrorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProbeBatteryInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeBatteryInfoSpec, 'crosapi.mojom.ProbeBatteryInfo', [
-      mojo.internal.StructField('arg_cycle_count', 0, 0, mojo.internal.bindings.crosapi.mojom.Int64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_voltage_now', 8, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cycle_count', 0, 0, mojo.internal.bindings.crosapi.mojom.Int64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_voltage_now', 8, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_vendor', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_serial_number', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_charge_full_design', 32, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_charge_full', 40, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_voltage_min_design', 48, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_charge_full_design', 32, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_charge_full', 40, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_voltage_min_design', 48, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_model_name', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_charge_now', 64, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_current_now', 72, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_charge_now', 64, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_current_now', 72, 0, mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_technology', 80, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_status', 88, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_manufacture_date', 96, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_temperature', 104, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_temperature', 104, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
     ],
     [[0, 120]]);
 
 // Struct: ProbeUsbBusInterfaceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInterfaceInfoSpec, 'crosapi.mojom.ProbeUsbBusInterfaceInfo', [
-      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_class_id', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subclass_id', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_protocol_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_class_id', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subclass_id', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_protocol_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_driver', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -551,22 +551,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec, 'crosapi.mojom.ProbeFwupdFirmwareVersionInfo', [
       mojo.internal.StructField('arg_version', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_version_format', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeFwupdVersionFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version_format', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeFwupdVersionFormatSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProbeUsbBusInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInfoSpec, 'crosapi.mojom.ProbeUsbBusInfo', [
-      mojo.internal.StructField('arg_class_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subclass_id', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_protocol_id', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interfaces', 40, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInterfaceInfoSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_fwupd_firmware_version_info', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_version', 56, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbVersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spec_speed', 64, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_class_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subclass_id', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_protocol_id', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interfaces', 40, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInterfaceInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_fwupd_firmware_version_info', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_spec_speed', 56, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 64, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbVersionSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -574,17 +574,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec, 'crosapi.mojom.ProbeNonRemovableBlockDeviceInfo', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_id', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_serial', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_bytes_read_since_last_boot', 48, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_bytes_written_since_last_boot', 56, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_read_time_seconds_since_last_boot', 64, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_write_time_seconds_since_last_boot', 72, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_io_time_seconds_since_last_boot', 80, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_discard_time_seconds_since_last_boot', 88, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bytes_read_since_last_boot', 48, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bytes_written_since_last_boot', 56, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_read_time_seconds_since_last_boot', 64, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_write_time_seconds_since_last_boot', 72, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_io_time_seconds_since_last_boot', 80, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_discard_time_seconds_since_last_boot', 88, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -602,19 +602,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeCpuCStateInfoSpec, 'crosapi.mojom.ProbeCpuCStateInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_time_in_state_since_last_boot_us', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_time_in_state_since_last_boot_us', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProbeLogicalCpuInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeLogicalCpuInfoSpec, 'crosapi.mojom.ProbeLogicalCpuInfo', [
-      mojo.internal.StructField('arg_max_clock_speed_khz', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scaling_max_frequency_khz', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scaling_current_frequency_khz', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_idle_time_ms', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_c_states', 32, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeCpuCStateInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_core_id', 40, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_max_clock_speed_khz', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scaling_max_frequency_khz', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scaling_current_frequency_khz', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_idle_time_ms', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_c_states', 32, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeCpuCStateInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_core_id', 40, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 1, undefined),
     ],
     [[0, 48], [1, 56]]);
 
@@ -622,16 +622,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbePhysicalCpuInfoSpec, 'crosapi.mojom.ProbePhysicalCpuInfo', [
       mojo.internal.StructField('arg_model_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_logical_cpus', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeLogicalCpuInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_logical_cpus', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeLogicalCpuInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProbeCpuInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeCpuInfoSpec, 'crosapi.mojom.ProbeCpuInfo', [
-      mojo.internal.StructField('arg_num_total_threads', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_architecture', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeCpuArchitectureEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_cpus', 16, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbePhysicalCpuInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_total_threads', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_physical_cpus', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbePhysicalCpuInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_architecture', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeCpuArchitectureEnumSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -646,10 +646,10 @@ mojo.internal.Struct(
 // Struct: ProbeMemoryInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeMemoryInfoSpec, 'crosapi.mojom.ProbeMemoryInfo', [
-      mojo.internal.StructField('arg_total_memory_kib', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_free_memory_kib', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_available_memory_kib', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_faults_since_last_boot', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_total_memory_kib', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_free_memory_kib', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_available_memory_kib', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_faults_since_last_boot', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -657,64 +657,64 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeBacklightInfoSpec, 'crosapi.mojom.ProbeBacklightInfo', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_max_brightness', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_brightness', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_max_brightness', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_brightness', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ProbeFanInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeFanInfoSpec, 'crosapi.mojom.ProbeFanInfo', [
-      mojo.internal.StructField('arg_speed_rpm', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_speed_rpm', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ProbeStatefulPartitionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionInfoSpec, 'crosapi.mojom.ProbeStatefulPartitionInfo', [
-      mojo.internal.StructField('arg_available_space', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_total_space', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_available_space', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_total_space', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProbeTpmVersion
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeTpmVersionSpec, 'crosapi.mojom.ProbeTpmVersion', [
-      mojo.internal.StructField('arg_gsc_version', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmGSCVersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_family', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_spec_level', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tpm_model', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_firmware_version', 40, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_vendor_specific', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_family', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_spec_level', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tpm_model', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_firmware_version', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_vendor_specific', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gsc_version', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmGSCVersionSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: ProbeTpmStatus
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeTpmStatusSpec, 'crosapi.mojom.ProbeTpmStatus', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_owned', 8, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_owner_password_is_present', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_owned', 8, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_owner_password_is_present', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ProbeTpmDictionaryAttack
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeTpmDictionaryAttackSpec, 'crosapi.mojom.ProbeTpmDictionaryAttack', [
-      mojo.internal.StructField('arg_counter', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_threshold', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_lockout_in_effect', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_lockout_seconds_remaining', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_counter', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_threshold', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lockout_in_effect', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lockout_seconds_remaining', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ProbeTpmInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeTpmInfoSpec, 'crosapi.mojom.ProbeTpmInfo', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmVersionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmStatusSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_dictionary_attack', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmDictionaryAttackSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmVersionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dictionary_attack', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmDictionaryAttackSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -723,8 +723,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeBluetoothAdapterInfoSpec, 'crosapi.mojom.ProbeBluetoothAdapterInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_address', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_powered', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_num_connected_devices', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_powered', 16, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_num_connected_devices', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -742,7 +742,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeOsInfoSpec, 'crosapi.mojom.ProbeOsInfo', [
       mojo.internal.StructField('arg_oem_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_os_version', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsVersionSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_os_version', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsVersionSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_marketing_name', 16, 0, mojo.internal.String, null, true, 2, undefined),
     ],
     [[0, 16], [1, 24], [2, 32]]);
@@ -750,41 +750,41 @@ mojo.internal.Struct(
 // Struct: ProbeSystemInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeSystemInfoSpec, 'crosapi.mojom.ProbeSystemInfo', [
-      mojo.internal.StructField('arg_os_info', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_os_info', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ProbeAudioInputNodeInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeAudioInputNodeInfoSpec, 'crosapi.mojom.ProbeAudioInputNodeInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_device_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_node_gain', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_node_gain', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ProbeAudioOutputNodeInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeAudioOutputNodeInfoSpec, 'crosapi.mojom.ProbeAudioOutputNodeInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_device_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_node_volume', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_node_volume', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ProbeAudioInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeAudioInfoSpec, 'crosapi.mojom.ProbeAudioInfo', [
-      mojo.internal.StructField('arg_output_mute', 0, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_mute', 8, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_underruns', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_severe_underruns', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_output_nodes', 32, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeAudioOutputNodeInfoSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_nodes', 40, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeAudioInputNodeInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_output_mute', 0, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_mute', 8, 0, mojo.internal.bindings.crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_underruns', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_severe_underruns', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_output_nodes', 32, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeAudioOutputNodeInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_nodes', 40, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeAudioInputNodeInfoSpec, false), null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -794,31 +794,31 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_refresh_rate_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_refresh_rate_$flag', originalFieldName: 'arg_refresh_rate' }),
       mojo.internal.StructField('arg_manufacturer', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_edid_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_type', 24, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_width_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_width_$flag', originalFieldName: 'arg_display_width' }),
-      mojo.internal.StructField('arg_display_height_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_height_$flag', originalFieldName: 'arg_display_height' }),
-      mojo.internal.StructField('arg_resolution_horizontal_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_horizontal_$flag', originalFieldName: 'arg_resolution_horizontal' }),
-      mojo.internal.StructField('arg_resolution_vertical_$value', 52, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_vertical_$flag', originalFieldName: 'arg_resolution_vertical' }),
-      mojo.internal.StructField('arg_serial_number_$value', 56, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_serial_number_$flag', originalFieldName: 'arg_serial_number' }),
-      mojo.internal.StructField('arg_model_id_$value', 60, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_model_id_$flag', originalFieldName: 'arg_model_id' }),
-      mojo.internal.StructField('arg_manufacture_year_$value', 62, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_year_$flag', originalFieldName: 'arg_manufacture_year' }),
-      mojo.internal.StructField('arg_privacy_screen_supported_$flag', 64, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_privacy_screen_supported_$value', originalFieldName: 'arg_privacy_screen_supported' }),
-      mojo.internal.StructField('arg_privacy_screen_supported_$value', 64, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_privacy_screen_supported_$flag', originalFieldName: 'arg_privacy_screen_supported' }),
-      mojo.internal.StructField('arg_privacy_screen_enabled_$flag', 64, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_privacy_screen_enabled_$value', originalFieldName: 'arg_privacy_screen_enabled' }),
-      mojo.internal.StructField('arg_privacy_screen_enabled_$value', 64, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_privacy_screen_enabled_$flag', originalFieldName: 'arg_privacy_screen_enabled' }),
-      mojo.internal.StructField('arg_display_width_$flag', 64, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_width_$value', originalFieldName: 'arg_display_width' }),
-      mojo.internal.StructField('arg_display_height_$flag', 64, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_height_$value', originalFieldName: 'arg_display_height' }),
-      mojo.internal.StructField('arg_resolution_horizontal_$flag', 64, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_horizontal_$value', originalFieldName: 'arg_resolution_horizontal' }),
-      mojo.internal.StructField('arg_resolution_vertical_$flag', 64, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_vertical_$value', originalFieldName: 'arg_resolution_vertical' }),
-      mojo.internal.StructField('arg_refresh_rate_$flag', 65, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_refresh_rate_$value', originalFieldName: 'arg_refresh_rate' }),
-      mojo.internal.StructField('arg_model_id_$flag', 65, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_model_id_$value', originalFieldName: 'arg_model_id' }),
-      mojo.internal.StructField('arg_serial_number_$flag', 65, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_serial_number_$value', originalFieldName: 'arg_serial_number' }),
-      mojo.internal.StructField('arg_manufacture_week_$flag', 65, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_week_$value', originalFieldName: 'arg_manufacture_week' }),
-      mojo.internal.StructField('arg_manufacture_week_$value', 66, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_week_$flag', originalFieldName: 'arg_manufacture_week' }),
-      mojo.internal.StructField('arg_manufacture_year_$flag', 67, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_year_$value', originalFieldName: 'arg_manufacture_year' }),
+      mojo.internal.StructField('arg_display_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_width_$value', 32, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_width_$flag', originalFieldName: 'arg_display_width' }),
+      mojo.internal.StructField('arg_display_height_$value', 36, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_height_$flag', originalFieldName: 'arg_display_height' }),
+      mojo.internal.StructField('arg_resolution_horizontal_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_horizontal_$flag', originalFieldName: 'arg_resolution_horizontal' }),
+      mojo.internal.StructField('arg_resolution_vertical_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_vertical_$flag', originalFieldName: 'arg_resolution_vertical' }),
+      mojo.internal.StructField('arg_serial_number_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_serial_number_$flag', originalFieldName: 'arg_serial_number' }),
+      mojo.internal.StructField('arg_input_type', 52, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_id_$value', 56, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_model_id_$flag', originalFieldName: 'arg_model_id' }),
+      mojo.internal.StructField('arg_manufacture_year_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_year_$flag', originalFieldName: 'arg_manufacture_year' }),
+      mojo.internal.StructField('arg_privacy_screen_supported_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_privacy_screen_supported_$value', originalFieldName: 'arg_privacy_screen_supported' }),
+      mojo.internal.StructField('arg_privacy_screen_supported_$value', 60, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_privacy_screen_supported_$flag', originalFieldName: 'arg_privacy_screen_supported' }),
+      mojo.internal.StructField('arg_privacy_screen_enabled_$flag', 60, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_privacy_screen_enabled_$value', originalFieldName: 'arg_privacy_screen_enabled' }),
+      mojo.internal.StructField('arg_privacy_screen_enabled_$value', 60, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_privacy_screen_enabled_$flag', originalFieldName: 'arg_privacy_screen_enabled' }),
+      mojo.internal.StructField('arg_display_width_$flag', 60, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_width_$value', originalFieldName: 'arg_display_width' }),
+      mojo.internal.StructField('arg_display_height_$flag', 60, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_height_$value', originalFieldName: 'arg_display_height' }),
+      mojo.internal.StructField('arg_resolution_horizontal_$flag', 60, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_horizontal_$value', originalFieldName: 'arg_resolution_horizontal' }),
+      mojo.internal.StructField('arg_resolution_vertical_$flag', 60, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_vertical_$value', originalFieldName: 'arg_resolution_vertical' }),
+      mojo.internal.StructField('arg_refresh_rate_$flag', 61, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_refresh_rate_$value', originalFieldName: 'arg_refresh_rate' }),
+      mojo.internal.StructField('arg_model_id_$flag', 61, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_model_id_$value', originalFieldName: 'arg_model_id' }),
+      mojo.internal.StructField('arg_serial_number_$flag', 61, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_serial_number_$value', originalFieldName: 'arg_serial_number' }),
+      mojo.internal.StructField('arg_manufacture_week_$flag', 61, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_week_$value', originalFieldName: 'arg_manufacture_week' }),
+      mojo.internal.StructField('arg_manufacture_week_$value', 62, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_week_$flag', originalFieldName: 'arg_manufacture_week' }),
+      mojo.internal.StructField('arg_manufacture_year_$flag', 63, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_year_$value', originalFieldName: 'arg_manufacture_year' }),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: ProbeExternalDisplayInfo
 mojo.internal.Struct(
@@ -826,33 +826,33 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_refresh_rate_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_refresh_rate_$flag', originalFieldName: 'arg_refresh_rate' }),
       mojo.internal.StructField('arg_manufacturer', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_edid_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_type', 24, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_width_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_width_$flag', originalFieldName: 'arg_display_width' }),
-      mojo.internal.StructField('arg_display_height_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_height_$flag', originalFieldName: 'arg_display_height' }),
-      mojo.internal.StructField('arg_resolution_horizontal_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_horizontal_$flag', originalFieldName: 'arg_resolution_horizontal' }),
-      mojo.internal.StructField('arg_resolution_vertical_$value', 52, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_vertical_$flag', originalFieldName: 'arg_resolution_vertical' }),
-      mojo.internal.StructField('arg_serial_number_$value', 56, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_serial_number_$flag', originalFieldName: 'arg_serial_number' }),
-      mojo.internal.StructField('arg_model_id_$value', 60, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_model_id_$flag', originalFieldName: 'arg_model_id' }),
-      mojo.internal.StructField('arg_manufacture_year_$value', 62, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_year_$flag', originalFieldName: 'arg_manufacture_year' }),
-      mojo.internal.StructField('arg_display_width_$flag', 64, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_width_$value', originalFieldName: 'arg_display_width' }),
-      mojo.internal.StructField('arg_display_height_$flag', 64, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_height_$value', originalFieldName: 'arg_display_height' }),
-      mojo.internal.StructField('arg_resolution_horizontal_$flag', 64, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_horizontal_$value', originalFieldName: 'arg_resolution_horizontal' }),
-      mojo.internal.StructField('arg_resolution_vertical_$flag', 64, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_vertical_$value', originalFieldName: 'arg_resolution_vertical' }),
-      mojo.internal.StructField('arg_refresh_rate_$flag', 64, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_refresh_rate_$value', originalFieldName: 'arg_refresh_rate' }),
-      mojo.internal.StructField('arg_model_id_$flag', 64, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_model_id_$value', originalFieldName: 'arg_model_id' }),
-      mojo.internal.StructField('arg_serial_number_$flag', 64, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_serial_number_$value', originalFieldName: 'arg_serial_number' }),
-      mojo.internal.StructField('arg_manufacture_week_$flag', 64, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_week_$value', originalFieldName: 'arg_manufacture_week' }),
-      mojo.internal.StructField('arg_manufacture_week_$value', 65, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_week_$flag', originalFieldName: 'arg_manufacture_week' }),
-      mojo.internal.StructField('arg_manufacture_year_$flag', 66, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_year_$value', originalFieldName: 'arg_manufacture_year' }),
+      mojo.internal.StructField('arg_display_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_width_$value', 32, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_width_$flag', originalFieldName: 'arg_display_width' }),
+      mojo.internal.StructField('arg_display_height_$value', 36, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_height_$flag', originalFieldName: 'arg_display_height' }),
+      mojo.internal.StructField('arg_resolution_horizontal_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_horizontal_$flag', originalFieldName: 'arg_resolution_horizontal' }),
+      mojo.internal.StructField('arg_resolution_vertical_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_resolution_vertical_$flag', originalFieldName: 'arg_resolution_vertical' }),
+      mojo.internal.StructField('arg_serial_number_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_serial_number_$flag', originalFieldName: 'arg_serial_number' }),
+      mojo.internal.StructField('arg_input_type', 52, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_id_$value', 56, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_model_id_$flag', originalFieldName: 'arg_model_id' }),
+      mojo.internal.StructField('arg_manufacture_year_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_year_$flag', originalFieldName: 'arg_manufacture_year' }),
+      mojo.internal.StructField('arg_display_width_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_width_$value', originalFieldName: 'arg_display_width' }),
+      mojo.internal.StructField('arg_display_height_$flag', 60, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_height_$value', originalFieldName: 'arg_display_height' }),
+      mojo.internal.StructField('arg_resolution_horizontal_$flag', 60, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_horizontal_$value', originalFieldName: 'arg_resolution_horizontal' }),
+      mojo.internal.StructField('arg_resolution_vertical_$flag', 60, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_resolution_vertical_$value', originalFieldName: 'arg_resolution_vertical' }),
+      mojo.internal.StructField('arg_refresh_rate_$flag', 60, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_refresh_rate_$value', originalFieldName: 'arg_refresh_rate' }),
+      mojo.internal.StructField('arg_model_id_$flag', 60, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_model_id_$value', originalFieldName: 'arg_model_id' }),
+      mojo.internal.StructField('arg_serial_number_$flag', 60, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_serial_number_$value', originalFieldName: 'arg_serial_number' }),
+      mojo.internal.StructField('arg_manufacture_week_$flag', 60, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_week_$value', originalFieldName: 'arg_manufacture_week' }),
+      mojo.internal.StructField('arg_manufacture_week_$value', 61, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_manufacture_week_$flag', originalFieldName: 'arg_manufacture_week' }),
+      mojo.internal.StructField('arg_manufacture_year_$flag', 62, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_manufacture_year_$value', originalFieldName: 'arg_manufacture_year' }),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: ProbeDisplayInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeDisplayInfoSpec, 'crosapi.mojom.ProbeDisplayInfo', [
-      mojo.internal.StructField('arg_embedded_display', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeEmbeddedDisplayInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_external_displays', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_embedded_display', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeEmbeddedDisplayInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_external_displays', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -861,39 +861,39 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorInfoSpec, 'crosapi.mojom.ProbeThermalSensorInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_temperature_celsius', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorSourceSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ProbeThermalInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeThermalInfoSpec, 'crosapi.mojom.ProbeThermalInfo', [
-      mojo.internal.StructField('arg_thermal_sensors', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_thermal_sensors', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ProbeTelemetryInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeTelemetryInfoSpec, 'crosapi.mojom.ProbeTelemetryInfo', [
-      mojo.internal.StructField('arg_battery_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeBatteryResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_block_device_result', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_vpd_result', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeCachedVpdResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cpu_result', 24, 0, mojo.internal.bindings.crosapi.mojom.ProbeCpuResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timezone_result', 32, 0, mojo.internal.bindings.crosapi.mojom.ProbeTimezoneResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_memory_result', 40, 0, mojo.internal.bindings.crosapi.mojom.ProbeMemoryResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_backlight_result', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeBacklightResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_fan_result', 56, 0, mojo.internal.bindings.crosapi.mojom.ProbeFanResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stateful_partition_result', 64, 0, mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_result', 72, 0, mojo.internal.bindings.crosapi.mojom.ProbeBluetoothResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_system_result', 80, 0, mojo.internal.bindings.crosapi.mojom.ProbeSystemResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network_result', 88, 0, mojo.internal.bindings.crosapi.mojom.ProbeNetworkResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tpm_result', 96, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_audio_result', 104, 0, mojo.internal.bindings.crosapi.mojom.ProbeAudioResultSpec.$, null, true, 1, undefined),
-      mojo.internal.StructField('arg_bus_result', 112, 0, mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec.$, null, true, 2, undefined),
-      mojo.internal.StructField('arg_display_result', 120, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayResultSpec.$, null, true, 3, undefined),
-      mojo.internal.StructField('arg_thermal_result', 128, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalResultSpec.$, null, true, 4, undefined),
+      mojo.internal.StructField('arg_battery_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeBatteryResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_block_device_result', 16, 0, mojo.internal.bindings.crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_vpd_result', 32, 0, mojo.internal.bindings.crosapi.mojom.ProbeCachedVpdResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cpu_result', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeCpuResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timezone_result', 64, 0, mojo.internal.bindings.crosapi.mojom.ProbeTimezoneResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_memory_result', 80, 0, mojo.internal.bindings.crosapi.mojom.ProbeMemoryResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_backlight_result', 96, 0, mojo.internal.bindings.crosapi.mojom.ProbeBacklightResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fan_result', 112, 0, mojo.internal.bindings.crosapi.mojom.ProbeFanResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stateful_partition_result', 128, 0, mojo.internal.bindings.crosapi.mojom.ProbeStatefulPartitionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_result', 144, 0, mojo.internal.bindings.crosapi.mojom.ProbeBluetoothResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_system_result', 160, 0, mojo.internal.bindings.crosapi.mojom.ProbeSystemResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_result', 176, 0, mojo.internal.bindings.crosapi.mojom.ProbeNetworkResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tpm_result', 192, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_result', 208, 0, mojo.internal.bindings.crosapi.mojom.ProbeAudioResultSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_bus_result', 224, 0, mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_display_result', 240, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayResultSpec, null, true, 3, undefined),
+      mojo.internal.StructField('arg_thermal_result', 256, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalResultSpec, null, true, 4, undefined),
     ],
-    [[0, 112], [1, 120], [2, 128], [3, 136], [4, 144]]);
+    [[0, 216], [1, 232], [2, 248], [3, 264], [4, 280]]);
 
 // Struct: ProbeOemData
 mojo.internal.Struct(
@@ -905,13 +905,13 @@ mojo.internal.Struct(
 // Interface: TelemetryProbeService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec, 'crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_Params', [
-      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeCategoryEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeCategoryEnumSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec, 'crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParams', [
-      mojo.internal.StructField('arg_telemetry_info', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeTelemetryInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_telemetry_info', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeTelemetryInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -922,7 +922,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec, 'crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParams', [
-      mojo.internal.StructField('arg_oem_data', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeOemDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_data', 0, 0, mojo.internal.bindings.crosapi.mojom.ProbeOemDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

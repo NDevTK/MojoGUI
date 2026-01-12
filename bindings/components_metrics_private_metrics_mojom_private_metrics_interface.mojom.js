@@ -90,8 +90,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_source_id_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_source_id_$flag', originalFieldName: 'arg_source_id' }),
       mojo.internal.StructField('arg_studies_of_interest', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_metrics', 32, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.metrics.private_metrics.mojom.TypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_hash_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_hash_$value', originalFieldName: 'arg_content_hash' }),
-      mojo.internal.StructField('arg_source_id_$flag', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_source_id_$value', originalFieldName: 'arg_source_id' }),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.metrics.private_metrics.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_hash_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_hash_$value', originalFieldName: 'arg_content_hash' }),
+      mojo.internal.StructField('arg_source_id_$flag', 44, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_source_id_$value', originalFieldName: 'arg_source_id' }),
     ],
-    [[0, 64]]);
+    [[0, 56]]);

@@ -79,11 +79,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkInterfaceSpec, 'network.mojom.NetworkInterface', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_friendly_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_address', 24, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mac_address', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_interface_index', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_prefix_length', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address_attributes', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mac_address', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_interface_index', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 36, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prefix_length', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_attributes', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);

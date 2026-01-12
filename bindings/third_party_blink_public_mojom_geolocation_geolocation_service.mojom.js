@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

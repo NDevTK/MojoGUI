@@ -107,9 +107,9 @@ mojo.internal.Struct(
 // Interface: PressureManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec, 'device.mojom.PressureManager_AddVirtualPressureSource_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 16, 0, mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -120,8 +120,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec, 'device.mojom.PressureManager_RemoveVirtualPressureSource_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,12 +132,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.device.mojom.PressureStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_own_contribution_estimate', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_own_contribution_estimate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 20, 0, mojo.internal.bindings.device.mojom.PressureStateSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParams', [
@@ -146,15 +146,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec, 'device.mojom.PressureManager_AddClient_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.PressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.PressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec, 'device.mojom.PressureManager_AddClient_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRequest = mojo.internal.bindi
 // Interface: PressureClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec, 'device.mojom.PressureClient_OnPressureUpdated_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.device.mojom.PressureUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.device.mojom.PressureUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

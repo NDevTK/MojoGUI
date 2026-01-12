@@ -78,7 +78,7 @@ mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = { $: {} }
 // Struct: ViewTransitionElementResourceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, 'viz.mojom.ViewTransitionElementResourceId', [
-      mojo.internal.StructField('arg_transition_token', 0, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_transition_token', 0, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_local_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_for_scope_snapshot', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

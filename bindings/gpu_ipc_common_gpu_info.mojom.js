@@ -186,30 +186,30 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_string', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_driver_vendor', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_driver_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_luid', 32, 0, mojo.internal.bindings.gpu.mojom.LuidSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_preference', 40, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sub_sys_id', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_revision', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_luid', 32, 0, mojo.internal.bindings.gpu.mojom.LuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_sys_id', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_revision', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_preference', 56, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: VideoDecodeAcceleratorSupportedProfile
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec, 'gpu.mojom.VideoDecodeAcceleratorSupportedProfile', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_resolution', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted_only', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_resolution', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted_only', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: VideoDecodeAcceleratorCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec, 'gpu.mojom.VideoDecodeAcceleratorCapabilities', [
-      mojo.internal.StructField('arg_supported_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -217,78 +217,78 @@ mojo.internal.Struct(
 // Struct: VideoEncodeAcceleratorSupportedProfile
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec, 'gpu.mojom.VideoEncodeAcceleratorSupportedProfile', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_resolution', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_framerate_numerator', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_framerate_denominator', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_resolution', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_framerate_numerator', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_framerate_denominator', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ImageDecodeAcceleratorSupportedProfile
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec, 'gpu.mojom.ImageDecodeAcceleratorSupportedProfile', [
-      mojo.internal.StructField('arg_image_type', 0, 0, mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_encoded_dimensions', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_encoded_dimensions', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsamplings', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_encoded_dimensions', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_encoded_dimensions', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsamplings', 16, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_type', 24, 0, mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: OverlayInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.OverlayInfoSpec, 'gpu.mojom.OverlayInfo', [
-      mojo.internal.StructField('arg_yuy2_overlay_support', 0, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nv12_overlay_support', 8, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bgra8_overlay_support', 16, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rgb10a2_overlay_support', 24, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_p010_overlay_support', 32, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direct_composition', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_overlays', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_yuy2_overlay_support', 0, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nv12_overlay_support', 4, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bgra8_overlay_support', 8, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rgb10a2_overlay_support', 12, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_p010_overlay_support', 16, 0, mojo.internal.bindings.gpu.mojom.OverlaySupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direct_composition', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_overlays', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 32]]);
 
 // Struct: GpuInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuInfoSpec, 'gpu.mojom.GpuInfo', [
-      mojo.internal.StructField('arg_initialization_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu', 8, 0, mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary_gpus', 16, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_npus', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_initialization_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu', 8, 0, mojo.internal.bindings.gpu.mojom.GpuDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_gpus', 16, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_npus', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.GpuDeviceSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pixel_shader_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_vertex_shader_version', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_msaa_samples', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_machine_model_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_machine_model_version', 64, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_type', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_skia_backend_type', 80, 0, mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_version', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_vendor', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_renderer', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_extensions', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_ws_vendor', 120, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_ws_version', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_ws_extensions', 136, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gl_implementation_parts', 144, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direct_rendering_version', 152, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlay_info', 160, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_decode_accelerator_supported_profiles', 168, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_encode_accelerator_supported_profiles', 176, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_vulkan_info', 184, 0, mojo.internal.bindings.gpu.mojom.VulkanInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gl_reset_notification_strategy', 192, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_directml_feature_level', 196, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_d3d12_feature_level', 200, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vulkan_version', 204, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_visibility_callback_call_count', 208, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_optimus', 212, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_amd_switchable', 212, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_sandboxed', 212, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_in_process_gpu', 212, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_passthrough_cmd_decoder', 212, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_support_threaded_texture_mailbox', 212, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_d3d', 212, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_jpeg_decode_accelerator_supported', 212, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_subpixel_font_rendering', 213, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_hardware_supports_vulkan', 213, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_version', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_vendor', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_renderer', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_extensions', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_ws_vendor', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_ws_version', 120, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_ws_extensions', 128, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_implementation_parts', 136, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direct_rendering_version', 144, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_info', 152, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_decode_accelerator_supported_profiles', 160, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_encode_accelerator_supported_profiles', 168, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vulkan_info', 176, 0, mojo.internal.bindings.gpu.mojom.VulkanInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_skia_backend_type', 184, 0, mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl_reset_notification_strategy', 188, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_directml_feature_level', 192, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_d3d12_feature_level', 196, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vulkan_version', 200, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility_callback_call_count', 204, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_optimus', 208, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_amd_switchable', 208, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sandboxed', 208, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_process_gpu', 208, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_passthrough_cmd_decoder', 208, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_support_threaded_texture_mailbox', 208, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_d3d', 208, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_jpeg_decode_accelerator_supported', 208, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subpixel_font_rendering', 209, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_hardware_supports_vulkan', 209, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 224]]);

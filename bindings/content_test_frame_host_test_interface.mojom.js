@@ -81,7 +81,7 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec = { 
 // Interface: FrameHostTestInterface
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec, 'content.mojom.FrameHostTestInterface_Ping_Params', [
-      mojo.internal.StructField('arg_source_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -89,22 +89,22 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec, 'network.mojom.SharedStorageModifierMethod', {
       'arg_set_method': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec.$,
+        'type': mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec,
         'nullable': false,
       },
       'arg_append_method': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec.$,
+        'type': mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec,
         'nullable': false,
       },
       'arg_delete_method': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec.$,
+        'type': mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec,
         'nullable': false,
       },
       'arg_clear_method': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec.$,
+        'type': mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec,
         'nullable': false,
       },
     });
@@ -112,14 +112,14 @@ mojo.internal.Union(
 // Struct: SharedStorageKeyArgument
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, 'network.mojom.SharedStorageKeyArgument', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SharedStorageValueArgument
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec, 'network.mojom.SharedStorageValueArgument', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -133,8 +133,8 @@ mojo.internal.Struct(
 // Struct: SharedStorageSetMethod
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec, 'network.mojom.SharedStorageSetMethod', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_ignore_if_present', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -142,15 +142,15 @@ mojo.internal.Struct(
 // Struct: SharedStorageAppendMethod
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec, 'network.mojom.SharedStorageAppendMethod', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SharedStorageDeleteMethod
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec, 'network.mojom.SharedStorageDeleteMethod', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,13 +164,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec, 'network.mojom.SharedStorageModifierMethodWithOptions', [
       mojo.internal.StructField('arg_method', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SharedStorageBatchUpdateMethodsArgument
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, 'network.mojom.SharedStorageBatchUpdateMethodsArgument', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

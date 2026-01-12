@@ -78,8 +78,8 @@ mojo.internal.bindings.blink.mojom.SerializedArrayBufferContentsSpec = { $: {} }
 // Struct: SerializedArrayBufferContents
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerializedArrayBufferContentsSpec, 'blink.mojom.SerializedArrayBufferContents', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_byte_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_byte_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);

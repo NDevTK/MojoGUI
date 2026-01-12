@@ -79,20 +79,20 @@ mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec = { $: {} };
 // Struct: SharedImageExportResult
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, 'gpu.mojom.SharedImageExportResult', [
-      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ExportedSharedImage
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, 'gpu.mojom.ExportedSharedImage', [
-      mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_debug_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 32, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_buffer_usage', 40, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_texture_target', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_software', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 32, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_buffer_usage', 40, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_texture_target', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_software', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);

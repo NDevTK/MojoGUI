@@ -112,9 +112,9 @@ mojo.internal.bindings.blink.mojom.DevToolsExecutionContextType = {
 // Struct: DevToolsMessage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsMessageSpec, 'blink.mojom.DevToolsMessage', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: DevToolsSessionState
 mojo.internal.Struct(
@@ -129,7 +129,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_io_session', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reattach_session_state', 24, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reattach_session_state', 24, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_expects_binary_responses', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec, 'blink.mojom.DevToolsAgent_InspectElement_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,13 +415,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec, 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params', [
       mojo.internal.StructField('arg_worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_worker_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context_type', 40, 0, mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_waiting_for_debugger', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_worker_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_type', 40, 0, mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_waiting_for_debugger', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec, 'blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_Params', [
@@ -734,7 +734,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRequest = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec, 'blink.mojom.DevToolsSession_DispatchProtocolCommand_Params', [
       mojo.internal.StructField('arg_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_call_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -951,16 +951,16 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionRequest = mojo.internal.bindin
 // Interface: DevToolsSessionHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec, 'blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.DevToolsMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.DevToolsMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_call_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec, 'blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.DevToolsMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.DevToolsMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 8, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

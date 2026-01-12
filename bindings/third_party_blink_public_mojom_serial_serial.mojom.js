@@ -97,8 +97,8 @@ mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChang
 // Struct: SerialPortInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, 'blink.mojom.SerialPortInfo', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_usb_vendor_id', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_usb_product_id', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_usb_vendor_id', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 // Struct: SerialPortFilter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, 'blink.mojom.SerialPortFilter', [
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 0, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_product_id', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_vendor_id', 14, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -132,27 +132,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
-      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec, 'blink.mojom.SerialService_RequestPort_Params', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec, 'blink.mojom.SerialService_RequestPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec, 'blink.mojom.SerialService_OpenPort_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -165,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec, 'blink.mojom.SerialService_ForgetPort_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRequest = mojo.internal.bindings
 // Interface: SerialServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec, 'blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

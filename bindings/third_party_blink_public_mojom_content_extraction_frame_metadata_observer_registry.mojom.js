@@ -257,7 +257,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRequest = mojo.int
 // Interface: MetaTagsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
-      mojo.internal.StructField('arg_meta_tags', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_tags', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

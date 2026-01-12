@@ -307,7 +307,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec, 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_seq_no', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -320,7 +320,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_seq_no', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -626,14 +626,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_FocusChanged_Params', [
-      mojo.internal.StructField('arg_new_focus_state', 0, 0, mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_focus_state', 0, 0, mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params', [
-      mojo.internal.StructField('arg_most_visited_info', 0, 0, mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_most_visited_info', 0, 0, mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -645,7 +645,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.search.mojom.NtpThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.search.mojom.NtpThemeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

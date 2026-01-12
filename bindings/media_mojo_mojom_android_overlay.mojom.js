@@ -95,8 +95,8 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_Pa
 // Struct: AndroidOverlayConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, 'media.mojom.AndroidOverlayConfig', [
-      mojo.internal.StructField('arg_routing_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_routing_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_secure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_power_efficient', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -107,7 +107,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
       mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderRequest = mojo.internal
 // Interface: AndroidOverlay
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec, 'media.mojom.AndroidOverlay_ScheduleLayout_Params', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

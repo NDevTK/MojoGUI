@@ -89,16 +89,16 @@ mojo.internal.bindings.metrics.mojom.ProfileType = {
 // Struct: SampledProfile
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.SampledProfileSpec, 'metrics.mojom.SampledProfile', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: CallStackProfileCollector
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
-      mojo.internal.StructField('arg_start_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_type', 8, 0, mojo.internal.bindings.metrics.mojom.ProfileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_type', 16, 0, mojo.internal.bindings.metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -107,7 +107,7 @@ mojo.internal.Union(
     mojo.internal.bindings.arc.mojom.DecoderBufferSpec, 'arc.mojom.DecoderBuffer', {
       'arg_buffer': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.arc.mojom.BufferSpec.$,
+        'type': mojo.internal.bindings.arc.mojom.BufferSpec,
         'nullable': false,
       },
       'arg_end_of_stream': {
@@ -130,15 +130,15 @@ mojo.internal.Struct(
 // Struct: VideoDecoderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoderConfigSpec, 'arc.mojom.VideoDecoderConfig', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 0, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: VideoDecoder
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ParamsSpec, 'arc.mojom.VideoDecoder_Initialize_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_pool', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.arc.mojom.VideoFramePoolRemote), null, false, 0, undefined),
     ],
@@ -146,19 +146,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'arc.mojom.VideoDecoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ParamsSpec, 'arc.mojom.VideoDecoder_Decode_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.arc.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.arc.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ResponseParamsSpec, 'arc.mojom.VideoDecoder_Decode_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRequest = mojo.internal.bindings.ar
 // Interface: VideoDecoderClient
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
-      mojo.internal.StructField('arg_visible_rect', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -499,7 +499,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnError_ParamsSpec, 'arc.mojom.VideoDecoderClient_OnError_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

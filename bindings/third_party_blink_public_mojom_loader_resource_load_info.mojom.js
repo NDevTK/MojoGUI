@@ -108,7 +108,7 @@ mojo.internal.bindings.blink.mojom.ResourceType = {
 // Struct: CommonNetworkInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [
-      mojo.internal.StructField('arg_remote_endpoint', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote_endpoint', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_network_accessed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_always_access_network', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -117,8 +117,8 @@ mojo.internal.Struct(
 // Struct: RedirectInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RedirectInfoSpec, 'blink.mojom.RedirectInfo', [
-      mojo.internal.StructField('arg_origin_of_new_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_info', 8, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_of_new_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 8, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -126,22 +126,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec, 'blink.mojom.ResourceLoadInfo', [
       mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_final_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_final_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_destination', 40, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_priority', 48, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_info', 64, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_chain', 72, 0, mojo.internal.bindings.network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_timing_info', 80, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_body_bytes', 88, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_received_bytes', 96, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_redirect_info_chain', 104, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_http_status_code', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_was_cached', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_did_use_server_http_auth', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 48, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_chain', 56, 0, mojo.internal.bindings.network.mojom.ProxyChainSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_timing_info', 64, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_body_bytes', 72, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_received_bytes', 80, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_info_chain', 88, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RedirectInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_destination', 96, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_priority', 100, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 108, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_was_cached', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_did_use_server_http_auth', 112, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 128]]);

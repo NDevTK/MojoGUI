@@ -79,15 +79,15 @@ mojo.internal.bindings.blink.mojom.CloneableMessageSpec = { $: {} };
 // Struct: CloneableMessage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CloneableMessageSpec, 'blink.mojom.CloneableMessage', [
-      mojo.internal.StructField('arg_encoded_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blobs', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sender_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stack_trace_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stack_trace_debugger_id_first', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stack_trace_debugger_id_second', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sender_agent_cluster_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_system_access_tokens', 56, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stack_trace_should_pause', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_locked_to_sender_agent_cluster', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_encoded_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blobs', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedBlobSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sender_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stack_trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stack_trace_debugger_id_first', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stack_trace_debugger_id_second', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sender_agent_cluster_id', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_system_access_tokens', 64, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stack_trace_should_pause', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_locked_to_sender_agent_cluster', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);

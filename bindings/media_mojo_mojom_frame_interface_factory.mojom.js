@@ -288,13 +288,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParams', [
-      mojo.internal.StructField('arg_cdm_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -80,11 +80,11 @@ mojo.internal.bindings.blink.mojom.StorageKeySpec = { $: {} };
 // Struct: StorageKey
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageKeySpec, 'blink.mojom.StorageKey', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_level_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ancestor_chain_bit', 24, 0, mojo.internal.bindings.blink.mojom.AncestorChainBitSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_level_site_if_third_party_enabled', 32, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ancestor_chain_bit_if_third_party_enabled', 40, 0, mojo.internal.bindings.blink.mojom.AncestorChainBitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_level_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_level_site_if_third_party_enabled', 24, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ancestor_chain_bit', 32, 0, mojo.internal.bindings.blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ancestor_chain_bit_if_third_party_enabled', 36, 0, mojo.internal.bindings.blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);

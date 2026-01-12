@@ -89,8 +89,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchR
 // Struct: SearchResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, 'ash.shortcut_customization.mojom.SearchResult', [
-      mojo.internal.StructField('arg_accelerator_layout_info', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerator_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_layout_info', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -264,14 +264,14 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
 // Interface: SearchHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

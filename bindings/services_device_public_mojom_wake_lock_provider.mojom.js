@@ -95,23 +95,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec, 'device.mojom.WakeLockProvider_GetWakeLockWithoutContext_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wake_lock', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wake_lock', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 20, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec, 'device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.WakeLockObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.WakeLockObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec, 'device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRequest = mojo.internal.bind
 // Interface: WakeLockObserver
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec, 'device.mojom.WakeLockObserver_OnWakeLockDeactivated_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

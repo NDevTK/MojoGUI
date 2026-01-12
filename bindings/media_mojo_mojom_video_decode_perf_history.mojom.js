@@ -81,7 +81,7 @@ mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponsePa
 // Interface: VideoDecodePerfHistory
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

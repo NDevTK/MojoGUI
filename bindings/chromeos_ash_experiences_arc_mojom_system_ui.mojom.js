@@ -98,10 +98,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec, 'arc.mojom.SystemUiInstance_SetOverlayColor_Params', [
-      mojo.internal.StructField('arg_theme_style', 0, 0, mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_color', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_theme_style', 4, 0, mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.arc.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {

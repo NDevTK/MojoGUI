@@ -78,8 +78,8 @@ mojo.internal.bindings.storage.mojom.BucketClientInfoSpec = { $: {} };
 // Struct: BucketClientInfo
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BucketClientInfoSpec, 'storage.mojom.BucketClientInfo', [
-      mojo.internal.StructField('arg_context_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_token', 8, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_process_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_context_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_token', 16, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_process_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);

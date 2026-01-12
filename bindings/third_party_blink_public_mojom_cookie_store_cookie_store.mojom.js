@@ -88,9 +88,9 @@ mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSp
 // Struct: CookieChangeSubscription
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, 'blink.mojom.CookieChangeSubscription', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_type', 16, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -98,7 +98,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -111,7 +111,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -92,8 +92,8 @@ mojo.internal.Struct(
 // Struct: RendererSettings
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.RendererSettingsSpec, 'viz.mojom.RendererSettings', [
-      mojo.internal.StructField('arg_occlusion_culler_settings', 0, 0, mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlay_strategies', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.OverlayStrategySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_occlusion_culler_settings', 0, 0, mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_strategies', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.OverlayStrategySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_highp_threshold_min', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_slow_down_compositing_scale_factor', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),

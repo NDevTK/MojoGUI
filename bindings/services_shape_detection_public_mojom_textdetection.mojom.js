@@ -85,21 +85,21 @@ mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParams
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.TextDetectionResultSpec, 'shape_detection.mojom.TextDetectionResult', [
       mojo.internal.StructField('arg_raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_corner_points', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_corner_points', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: TextDetection
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ParamsSpec, 'shape_detection.mojom.TextDetection_Detect_Params', [
-      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.TextDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.TextDetectionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.TextDetectionResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

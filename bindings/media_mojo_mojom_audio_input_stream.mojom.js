@@ -318,7 +318,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRequest = mojo.internal.bindi
 // Interface: AudioInputStreamClient
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec, 'media.mojom.AudioInputStreamClient_OnError_Params', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.media.mojom.InputStreamErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.media.mojom.InputStreamErrorCodeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

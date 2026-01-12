@@ -80,7 +80,7 @@ mojo.internal.Union(
     mojo.internal.bindings.gfx.mojom.TransformDataSpec, 'gfx.mojom.TransformData', {
       'arg_axis_2d': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec.$,
+        'type': mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec,
         'nullable': false,
       },
       'arg_matrix': {
@@ -93,6 +93,6 @@ mojo.internal.Union(
 // Struct: Transform
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TransformSpec, 'gfx.mojom.Transform', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.gfx.mojom.TransformDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.gfx.mojom.TransformDataSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

@@ -80,7 +80,7 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoa
 // Interface: SubresourceLoaderUpdater
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [
-      mojo.internal.StructField('arg_subresource_loader_factories', 0, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 0, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

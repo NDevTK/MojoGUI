@@ -86,9 +86,9 @@ mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInf
 // Struct: FrameRoutingInfo
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_frame_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_token', 16, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_frame_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_token', 16, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_routing_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -101,7 +101,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
-      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

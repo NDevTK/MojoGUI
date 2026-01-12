@@ -112,7 +112,7 @@ mojo.internal.Union(
       },
       'arg_decoded_frame': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.media.mojom.VideoFrameSpec.$,
+        'type': mojo.internal.bindings.media.mojom.VideoFrameSpec,
         'nullable': true,
       },
     });
@@ -120,16 +120,16 @@ mojo.internal.Union(
 // Struct: ExtractVideoFrameResult
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec, 'chrome.mojom.ExtractVideoFrameResult', [
-      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: MediaStreamInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, 'chrome.mojom.MediaStreamInfo', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_properties', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_properties', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -145,7 +145,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_genre', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_language', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_tags', 72, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_tags', 72, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_height', 80, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('arg_width', 84, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('arg_rotation', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -174,8 +174,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.chrome.mojom.MediaMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attached_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AttachedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.chrome.mojom.MediaMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attached_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AttachedImageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_parse_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -190,14 +190,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_Params', [
-      mojo.internal.StructField('arg_decode_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decode_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

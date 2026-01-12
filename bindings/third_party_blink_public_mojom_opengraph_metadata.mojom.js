@@ -78,6 +78,6 @@ mojo.internal.bindings.blink.mojom.OpenGraphMetadataSpec = { $: {} };
 // Struct: OpenGraphMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OpenGraphMetadataSpec, 'blink.mojom.OpenGraphMetadata', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);

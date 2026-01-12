@@ -80,7 +80,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromR
 // Interface: SpeechRecognitionAudioForwarder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.AudioDataS16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.AudioDataS16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

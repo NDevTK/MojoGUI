@@ -81,7 +81,7 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec 
 // Interface: StructuredMetricsService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec, 'crosapi.mojom.StructuredMetricsService_Record_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.metrics.structured.mojom.EventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.metrics.structured.mojom.EventSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

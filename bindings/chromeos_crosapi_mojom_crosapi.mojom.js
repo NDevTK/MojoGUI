@@ -109,7 +109,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec, 'crosapi.mojom.Crosapi_BindBrowserCdmFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

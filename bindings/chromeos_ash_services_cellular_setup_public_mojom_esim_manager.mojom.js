@@ -165,11 +165,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec, 'ash.cellular_setup.mojom.ESimProfileProperties', [
       mojo.internal.StructField('arg_eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_iccid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nickname', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_provider', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_code', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nickname', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_provider', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_code', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 48, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -733,7 +733,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParams', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.EuiccPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.EuiccPropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -755,8 +755,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profiles', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -767,7 +767,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -775,14 +775,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_Params', [
       mojo.internal.StructField('arg_activation_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_confirmation_code', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_install_method', 16, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_method', 16, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallMethodSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -793,7 +793,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParams', [
-      mojo.internal.StructField('arg_qr_code', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.QRCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_qr_code', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.QRCodeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1221,7 +1221,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParams', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1233,7 +1233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1244,19 +1244,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_Params', [
-      mojo.internal.StructField('arg_nickname', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nickname', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

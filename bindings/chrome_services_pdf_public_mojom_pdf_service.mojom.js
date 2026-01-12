@@ -90,13 +90,13 @@ mojo.internal.bindings.pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = { $:
 // Interface: Ocr
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec, 'pdf.mojom.Ocr_PerformOcr_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec, 'pdf.mojom.Ocr_PerformOcr_ResponseParams', [
-      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

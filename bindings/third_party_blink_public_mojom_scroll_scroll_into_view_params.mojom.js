@@ -92,17 +92,17 @@ mojo.internal.bindings.blink.mojom.Behavior = {
 // Struct: ScrollAlignment
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec, 'blink.mojom.ScrollAlignment', [
-      mojo.internal.StructField('arg_rect_visible', 0, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rect_hidden', 8, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rect_partial', 16, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_visible', 0, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_hidden', 4, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_partial', 8, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: FocusedEditableParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec, 'blink.mojom.FocusedEditableParams', [
-      mojo.internal.StructField('arg_relative_location', 0, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_location', 0, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_can_zoom', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -110,13 +110,13 @@ mojo.internal.Struct(
 // Struct: ScrollIntoViewParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScrollIntoViewParamsSpec, 'blink.mojom.ScrollIntoViewParams', [
-      mojo.internal.StructField('arg_align_x', 0, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_align_y', 8, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.ScrollTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_behavior', 24, 0, mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_for_focused_editable', 32, 0, mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_make_visible_in_visual_viewport', 40, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_is_for_scroll_sequence', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin_boundaries', 40, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_align_x', 0, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_align_y', 8, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_for_focused_editable', 16, 0, mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.blink.mojom.ScrollTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_behavior', 28, 0, mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_make_visible_in_visual_viewport', 32, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_is_for_scroll_sequence', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_boundaries', 32, 2, mojo.internal.Bool, true, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);

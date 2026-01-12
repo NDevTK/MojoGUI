@@ -105,7 +105,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.Backend = {
 // Interface: SearchMetricsReporter
 mojo.internal.Struct(
     mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_Params', [
-      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -283,12 +283,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterReque
 // Interface: LocalSearchService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params', [
-      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_backend', 8, 0, mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporter_remote', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_index_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporter_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_index_id', 16, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_backend', 20, 0, mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParams', [

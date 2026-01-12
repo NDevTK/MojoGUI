@@ -81,13 +81,13 @@ mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_Re
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_Params', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -77,7 +77,7 @@ mojo.internal.bindings.network.mojom.IPEndPointSpec = { $: {} };
 // Struct: IPEndPoint
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IPEndPointSpec, 'network.mojom.IPEndPoint', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 24]]);

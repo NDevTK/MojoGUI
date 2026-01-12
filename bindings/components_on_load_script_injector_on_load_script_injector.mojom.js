@@ -82,7 +82,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_ClearO
 // Interface: OnLoadScriptInjector
 mojo.internal.Struct(
     mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params', [
-      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

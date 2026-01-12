@@ -108,7 +108,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params', [
-      mojo.internal.StructField('arg_tool', 0, 0, mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool', 0, 0, mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

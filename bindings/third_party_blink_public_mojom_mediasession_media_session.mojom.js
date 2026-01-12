@@ -115,12 +115,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
       'arg_seek_to': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec,
         'nullable': false,
       },
       'arg_enter_picture_in_picture': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec,
         'nullable': false,
       },
     });
@@ -128,7 +128,7 @@ mojo.internal.Union(
 // Struct: MediaSessionSeekToDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec, 'blink.mojom.MediaSessionSeekToDetails', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_fast_seek', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -136,26 +136,26 @@ mojo.internal.Struct(
 // Struct: MediaSessionEnterPictureInPictureDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SpecMediaMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, 'blink.mojom.SpecMediaMetadata', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artwork', 24, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_chapterInfo', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artwork', 24, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_chapterInfo', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: MediaSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,43 +328,43 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPositionState_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec, 'blink.mojom.MediaSessionService_SetMicrophoneState_Params', [
-      mojo.internal.StructField('arg_microphone_state', 0, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_microphone_state', 0, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec, 'blink.mojom.MediaSessionService_SetCameraState_Params', [
-      mojo.internal.StructField('arg_camera_state', 0, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_camera_state', 0, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec, 'blink.mojom.MediaSessionService_EnableAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec, 'blink.mojom.MediaSessionService_DisableAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

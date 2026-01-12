@@ -294,8 +294,8 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRequest = mojo.intern
 // Interface: RecordingServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec, 'recording.mojom.RecordingServiceClient_OnRecordingEnded_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.recording.mojom.RecordingStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_thumbnail', 8, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.recording.mojom.RecordingStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -467,9 +467,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -481,11 +481,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subtree_capture_id', 64, 0, mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_window_size_dip', 72, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subtree_capture_id', 64, 0, mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_size_dip', 72, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_scale_factor', 80, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 96]]);
@@ -497,10 +497,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_crop_region_dip', 64, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 48, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_size_dip', 56, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_crop_region_dip', 64, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_scale_factor', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 88]]);
@@ -512,21 +512,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec, 'recording.mojom.RecordingService_OnRecordedWindowChangingRoot_Params', [
-      mojo.internal.StructField('arg_new_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_frame_sink_size_dip', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_frame_sink_size_dip', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_new_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec, 'recording.mojom.RecordingService_OnRecordedWindowSizeChanged_Params', [
-      mojo.internal.StructField('arg_new_window_size_dip', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_window_size_dip', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec, 'recording.mojom.RecordingService_OnFrameSinkSizeChanged_Params', [
-      mojo.internal.StructField('arg_new_frame_sink_size_dip', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_frame_sink_size_dip', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_new_device_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);

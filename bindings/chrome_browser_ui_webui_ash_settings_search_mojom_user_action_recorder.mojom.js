@@ -139,8 +139,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
-      mojo.internal.StructField('arg_setting', 0, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_setting', 8, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

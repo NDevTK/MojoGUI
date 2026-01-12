@@ -82,7 +82,7 @@ mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec 
 // Interface: ProvisionFetcher
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_Params', [
-      mojo.internal.StructField('arg_default_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

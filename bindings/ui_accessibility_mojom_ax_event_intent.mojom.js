@@ -77,9 +77,9 @@ mojo.internal.bindings.ax.mojom.EventIntentSpec = { $: {} };
 // Struct: EventIntent
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.EventIntentSpec, 'ax.mojom.EventIntent', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.ax.mojom.CommandSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_type', 8, 0, mojo.internal.bindings.ax.mojom.InputEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_boundary', 16, 0, mojo.internal.bindings.ax.mojom.TextBoundarySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_move_direction', 24, 0, mojo.internal.bindings.ax.mojom.MoveDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.ax.mojom.CommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_type', 4, 0, mojo.internal.bindings.ax.mojom.InputEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_boundary', 8, 0, mojo.internal.bindings.ax.mojom.TextBoundarySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_move_direction', 12, 0, mojo.internal.bindings.ax.mojom.MoveDirectionSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);

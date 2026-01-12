@@ -87,7 +87,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec
 // Interface: Autoclick
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec, 'ax.mojom.Autoclick_RequestScrollableBoundsForPoint_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ax.mojom.AutoclickRequest = mojo.internal.bindings.ax.moj
 // Interface: AutoclickClient
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec, 'ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_Params', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

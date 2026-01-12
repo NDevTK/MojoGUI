@@ -77,6 +77,6 @@ mojo.internal.bindings.viz.mojom.FilterOperationsSpec = { $: {} };
 // Struct: FilterOperations
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationsSpec, 'viz.mojom.FilterOperations', [
-      mojo.internal.StructField('arg_operations', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FilterOperationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_operations', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FilterOperationSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -95,7 +95,7 @@ mojo.internal.bindings.blink.mojom.ViewportFit = {
 // Interface: DisplayCutoutHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.ViewportFitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.ViewportFitSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutHostRequest = mojo.internal.bind
 // Interface: DisplayCutoutClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec, 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params', [
-      mojo.internal.StructField('arg_safe_area', 0, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safe_area', 0, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

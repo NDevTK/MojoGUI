@@ -342,14 +342,14 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRequest = mojo.internal.b
 // Interface: PlatformAccessProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParams', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

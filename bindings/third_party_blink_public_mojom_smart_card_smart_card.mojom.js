@@ -87,9 +87,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec, 'blink.mojom.SmartCardService_CreateContext_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.blink.mojom.SmartCardServicePendingReceiver = class {
   constructor(handle) {

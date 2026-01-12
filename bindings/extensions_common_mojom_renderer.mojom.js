@@ -108,27 +108,27 @@ mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec = { $: {}
 // Struct: ExtensionLoadedParams
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec, 'extensions.mojom.ExtensionLoadedParams', [
-      mojo.internal.StructField('arg_manifest', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.extensions.mojom.ManifestLocationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_permissions', 24, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_withheld_permissions', 32, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_specific_permissions', 40, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_blocked_hosts', 48, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_allowed_hosts', 56, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_worker_activation_token', 72, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_guid', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_flags', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uses_default_policy_blocked_allowed_hosts', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_user_scripts_allowed', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_permissions', 16, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_withheld_permissions', 24, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_specific_permissions', 32, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_blocked_hosts', 40, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_allowed_hosts', 48, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker_activation_token', 64, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_guid', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 80, 0, mojo.internal.bindings.extensions.mojom.ManifestLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_flags', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uses_default_policy_blocked_allowed_hosts', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_user_scripts_allowed', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 104]]);
 
 // Struct: UserScriptWorldInfo
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec, 'extensions.mojom.UserScriptWorldInfo', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_world_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_csp', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_enable_messaging', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 // Interface: Renderer
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec, 'extensions.mojom.Renderer_ActivateExtension_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,19 +150,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec, 'extensions.mojom.Renderer_LoadExtensions_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec, 'extensions.mojom.Renderer_UnloadExtension_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec, 'extensions.mojom.Renderer_SuspendExtension_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -173,7 +173,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec, 'extensions.mojom.Renderer_CancelSuspendExtension_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -185,17 +185,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec, 'extensions.mojom.Renderer_SetUserScriptsAllowed_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_allowed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec, 'extensions.mojom.Renderer_SetSessionInfo_Params', [
-      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.bindings.extensions.mojom.ChannelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.bindings.extensions.mojom.FeatureSessionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.bindings.extensions.mojom.ChannelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 4, 0, mojo.internal.bindings.extensions.mojom.FeatureSessionTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec, 'extensions.mojom.Renderer_SetSystemFont_Params', [
@@ -212,19 +212,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec, 'extensions.mojom.Renderer_SetScriptingAllowlist_Params', [
-      mojo.internal.StructField('arg_extension_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec, 'extensions.mojom.Renderer_UpdateUserScriptWorlds_Params', [
-      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec, 'extensions.mojom.Renderer_ClearUserScriptWorldConfig_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_world_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -251,33 +251,33 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec, 'extensions.mojom.Renderer_UpdatePermissions_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_permissions', 8, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_withheld_permissions', 16, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_blocked_hosts', 24, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_allowed_hosts', 32, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_permissions', 8, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_withheld_permissions', 16, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_blocked_hosts', 24, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_allowed_hosts', 32, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_uses_default_policy_host_restrictions', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec, 'extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_Params', [
-      mojo.internal.StructField('arg_default_policy_blocked_hosts', 0, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_policy_allowed_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_policy_blocked_hosts', 0, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_policy_allowed_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec, 'extensions.mojom.Renderer_UpdateUserHostRestrictions_Params', [
-      mojo.internal.StructField('arg_user_blocked_hosts', 0, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_allowed_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_blocked_hosts', 0, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_allowed_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec, 'extensions.mojom.Renderer_UpdateTabSpecificPermissions_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_hosts', 8, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_update_origin_allowlist', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -285,14 +285,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec, 'extensions.mojom.Renderer_UpdateUserScripts_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 8, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 8, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec, 'extensions.mojom.Renderer_ClearTabSpecificPermissions_Params', [
-      mojo.internal.StructField('arg_extension_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_update_origin_allowlist', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

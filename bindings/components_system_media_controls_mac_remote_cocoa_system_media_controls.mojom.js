@@ -143,37 +143,37 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetTitle_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetArtist_Params', [
-      mojo.internal.StructField('arg_artist', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artist', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetAlbum_Params', [
-      mojo.internal.StructField('arg_album', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_album', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetThumbnail_Params', [
-      mojo.internal.StructField('arg_thumbnail', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPosition_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -859,7 +859,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

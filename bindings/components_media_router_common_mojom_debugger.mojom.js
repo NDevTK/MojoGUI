@@ -95,9 +95,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_OnMirroringStats_Params', [
-      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [

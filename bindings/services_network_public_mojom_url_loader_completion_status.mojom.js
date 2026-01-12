@@ -79,26 +79,26 @@ mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = { $: {} };
 // Struct: BlockedByResponseReasonWrapper
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec, 'network.mojom.BlockedByResponseReasonWrapper', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: URLLoaderCompletionStatus
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, 'network.mojom.URLLoaderCompletionStatus', [
-      mojo.internal.StructField('arg_completion_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_completion_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_data_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_body_length', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_decoded_body_length', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cors_error_status', 32, 0, mojo.internal.bindings.network.mojom.CorsErrorStatusSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trust_token_operation_status', 40, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ssl_info', 48, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_blocked_by_response_reason', 56, 0, mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_resolve_error_info', 64, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extended_error_code', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_exists_in_cache', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_report_orb_blocking', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_collapse_initiator', 80, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cors_error_status', 32, 0, mojo.internal.bindings.network.mojom.CorsErrorStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ssl_info', 40, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blocked_by_response_reason', 48, 0, mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_resolve_error_info', 56, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extended_error_code', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_operation_status', 72, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_exists_in_cache', 76, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_report_orb_blocking', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_collapse_initiator', 76, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 88]]);

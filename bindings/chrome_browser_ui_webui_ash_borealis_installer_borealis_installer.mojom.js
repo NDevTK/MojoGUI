@@ -683,7 +683,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.borealis.mojom.InstallResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.borealis.mojom.InstallResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

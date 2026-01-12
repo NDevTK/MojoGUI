@@ -136,7 +136,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_required_features', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_instructions', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_followed_by_internal_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_added_milestone', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 88]]);
@@ -171,7 +171,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParams', [
-      mojo.internal.StructField('arg_tutorial_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tutorial_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParams', [
-      mojo.internal.StructField('arg_session_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -205,7 +205,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParams', [
-      mojo.internal.StructField('arg_feature_promos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_promos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -273,7 +273,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParams', [
-      mojo.internal.StructField('arg_new_badges', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_badges', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -284,7 +284,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParams', [
-      mojo.internal.StructField('arg_whats_new_modules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_whats_new_modules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,7 +295,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParams', [
-      mojo.internal.StructField('arg_whats_new_editions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_whats_new_editions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -306,7 +306,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParams', [
-      mojo.internal.StructField('arg_ntp_promos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ntp_promos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -317,7 +317,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParams', [
-      mojo.internal.StructField('arg_ntp_promo_preferences', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ntp_promo_preferences', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

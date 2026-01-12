@@ -85,13 +85,13 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_Fetc
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params', [
       mojo.internal.StructField('arg_destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_type', 8, 0, mojo.internal.bindings.printing.mojom.PrinterTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_type', 8, 0, mojo.internal.bindings.printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

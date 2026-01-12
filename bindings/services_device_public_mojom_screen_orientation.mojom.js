@@ -87,13 +87,13 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnable
 // Interface: ScreenOrientation
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [
-      mojo.internal.StructField('arg_orientation', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_orientation', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

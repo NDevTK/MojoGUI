@@ -83,7 +83,7 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponsePar
 // Interface: GuestContentsHost
 mojo.internal.Struct(
     mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_Params', [
-      mojo.internal.StructField('arg_frame_to_swap', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_to_swap', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

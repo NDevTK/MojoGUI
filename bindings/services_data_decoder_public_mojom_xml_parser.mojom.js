@@ -108,16 +108,16 @@ mojo.internal.bindings.data_decoder.mojom.WhitespaceBehavior = {
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec, 'data_decoder.mojom.XmlParser_Parse_Params', [
       mojo.internal.StructField('arg_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_whitespace_behavior', 8, 0, mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_whitespace_behavior', 8, 0, mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec, 'data_decoder.mojom.XmlParser_Parse_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.data_decoder.mojom.XmlParserPendingReceiver = class {
   constructor(handle) {

@@ -118,7 +118,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_project_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_metrics', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_uptime', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_system_uptime', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_is_event_sequence', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
     [[0, 32], [1, 48]]);

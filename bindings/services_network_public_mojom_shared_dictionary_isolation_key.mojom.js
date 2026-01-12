@@ -78,7 +78,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec = { $: {} 
 // Struct: SharedDictionaryIsolationKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, 'network.mojom.SharedDictionaryIsolationKey', [
-      mojo.internal.StructField('arg_frame_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

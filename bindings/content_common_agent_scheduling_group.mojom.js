@@ -88,7 +88,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWor
 // Interface: AgentSchedulingGroupHost
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -262,20 +262,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateView_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateViewParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateViewParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateFrame_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateFrameParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateFrameParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_global_scope_creation_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_global_scope_creation_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

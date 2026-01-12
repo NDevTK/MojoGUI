@@ -293,7 +293,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec, 'ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParams', [
-      mojo.internal.StructField('arg_ticks', 0, 0, mojo.internal.Array(mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ticks', 0, 0, mojo.internal.Array(mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_default_index', 8, 0, mojo.internal.Int8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_low_space_available', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -644,14 +644,14 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRequest = mojo.in
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnProgressUpdate_Params', [
-      mojo.internal.StructField('arg_install_state', 0, 0, mojo.internal.bindings.crostini.mojom.InstallerStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_fraction', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_install_state', 8, 0, mojo.internal.bindings.crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnInstallFinished_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.crostini.mojom.InstallerErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.crostini.mojom.InstallerErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

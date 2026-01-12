@@ -81,10 +81,10 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec
 // Interface: ThreadTypeSwitcher
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
-      mojo.internal.StructField('arg_thread_type', 0, 0, mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_platform_thread_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_thread_type', 4, 0, mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.content.mojom.ThreadTypeSwitcherPendingReceiver = class {
   constructor(handle) {

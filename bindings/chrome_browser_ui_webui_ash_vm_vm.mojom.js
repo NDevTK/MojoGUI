@@ -88,7 +88,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParams', [
-      mojo.internal.StructField('arg_diagnostics', 0, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_diagnostics', 0, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

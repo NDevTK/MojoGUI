@@ -88,11 +88,11 @@ mojo.internal.bindings.gfx.mojom.RRectFType = {
 // Struct: RRectF
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RRectFSpec, 'gfx.mojom.RRectF', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upper_left', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upper_right', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lower_right', 32, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lower_left', 40, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upper_left', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upper_right', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lower_right', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lower_left', 32, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.gfx.mojom.RRectFTypeSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);

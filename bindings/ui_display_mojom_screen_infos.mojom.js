@@ -78,8 +78,8 @@ mojo.internal.bindings.display.mojom.ScreenInfosSpec = { $: {} };
 // Struct: ScreenInfos
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.ScreenInfosSpec, 'display.mojom.ScreenInfos', [
-      mojo.internal.StructField('arg_screen_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.ScreenInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.ScreenInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_current_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_system_cursor_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_cursor_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

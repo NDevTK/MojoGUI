@@ -80,7 +80,7 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Param
 // Interface: BeginFrameObserver
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

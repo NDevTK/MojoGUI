@@ -88,15 +88,15 @@ mojo.internal.bindings.mojo.native.SerializedHandleType = {
 // Struct: SerializedHandle
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.native.SerializedHandleSpec, 'mojo.native.SerializedHandle', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_the_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_the_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: NativeStruct
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.native.NativeStructSpec, 'mojo.native.NativeStruct', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.native.SerializedHandleSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -304,7 +304,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRequest = mojo.internal.bindi
 // Interface: DevToolsFrontendHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec, 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

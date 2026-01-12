@@ -92,15 +92,15 @@ mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToP
 // Struct: ProxyConfigWithAnnotation
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec, 'network.mojom.ProxyConfigWithAnnotation', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ProxyConfigClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec, 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params', [
-      mojo.internal.StructField('arg_proxy_config', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_config', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

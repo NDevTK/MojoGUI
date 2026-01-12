@@ -78,6 +78,6 @@ mojo.internal.bindings.extensions.mojom.ExtraResponseDataSpec = { $: {} };
 // Struct: ExtraResponseData
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ExtraResponseDataSpec, 'extensions.mojom.ExtraResponseData', [
-      mojo.internal.StructField('arg_blobs', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blobs', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedBlobSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

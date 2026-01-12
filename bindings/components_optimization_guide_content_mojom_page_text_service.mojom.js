@@ -94,15 +94,15 @@ mojo.internal.bindings.optimization_guide.mojom.TextDumpEvent = {
 // Struct: PageTextDumpRequest
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 4, 0, mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Interface: PageTextConsumer
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params', [
-      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRequest = mojo.i
 // Interface: PageTextService
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_consumer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

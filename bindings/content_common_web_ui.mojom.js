@@ -86,7 +86,7 @@ mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec, 'content.mojom.WebUIHost_Send_Params', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

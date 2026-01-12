@@ -79,7 +79,7 @@ mojo.internal.bindings.media.mojom.CaptureHandleSpec = { $: {} };
 // Struct: CaptureHandle
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CaptureHandleSpec, 'media.mojom.CaptureHandle', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_handle', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_handle', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);

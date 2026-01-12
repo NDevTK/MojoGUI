@@ -85,6 +85,6 @@ mojo.internal.Struct(
 // Struct: BigString16
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.BigString16Spec, 'mojo_base.mojom.BigString16', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

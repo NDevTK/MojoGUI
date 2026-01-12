@@ -81,7 +81,7 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Param
 // Interface: DelegatedInkPointRenderer
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

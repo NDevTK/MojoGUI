@@ -88,20 +88,20 @@ mojo.internal.bindings.network.mojom.LogType = {
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec, 'network.mojom.PreviousOperatorEntry', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: CTLogInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CTLogInfoSpec, 'network.mojom.CTLogInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disqualified_at', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mmd', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disqualified_at', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mmd', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_current_operator', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_operators', 48, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_type', 56, 0, mojo.internal.bindings.network.mojom.LogTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_operators', 48, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_type', 56, 0, mojo.internal.bindings.network.mojom.LogTypeSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);

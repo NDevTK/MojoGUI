@@ -88,8 +88,8 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_R
 // Interface: AcceleratorFetcherObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params', [
-      mojo.internal.StructField('arg_actionId', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerators', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerators', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actionId', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRequest = mojo
 // Interface: AcceleratorFetcher
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec, 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params', [
-      mojo.internal.StructField('arg_actionIds', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actionIds', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorActionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -268,7 +268,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParams', [
-      mojo.internal.StructField('arg_meta_key', 0, 0, mojo.internal.bindings.ui.mojom.MetaKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 0, 0, mojo.internal.bindings.ui.mojom.MetaKeySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

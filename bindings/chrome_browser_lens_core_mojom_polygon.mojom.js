@@ -94,11 +94,11 @@ mojo.internal.bindings.lens.mojom.CoordinateType = {
 // Struct: Polygon
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.PolygonSpec, 'lens.mojom.Polygon', [
-      mojo.internal.StructField('arg_vertex', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.VertexSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_vertex_ordering', 8, 0, mojo.internal.bindings.lens.mojom.VertexOrderingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coordinate_type', 16, 0, mojo.internal.bindings.lens.mojom.CoordinateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vertex', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.VertexSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vertex_ordering', 8, 0, mojo.internal.bindings.lens.mojom.VertexOrderingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coordinate_type', 12, 0, mojo.internal.bindings.lens.mojom.CoordinateTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Vertex
 mojo.internal.Struct(

@@ -102,8 +102,8 @@ mojo.internal.bindings.action_chips.mojom.ChipType = {
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -113,8 +113,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab', 24, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab', 16, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRequest = mojo.inter
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec, 'action_chips.mojom.Page_OnActionChipsChanged_Params', [
-      mojo.internal.StructField('arg_action_chips', 0, 0, mojo.internal.Array(mojo.internal.bindings.action_chips.mojom.ActionChipSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_chips', 0, 0, mojo.internal.Array(mojo.internal.bindings.action_chips.mojom.ActionChipSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -83,7 +83,7 @@ mojo.internal.bindings.ax.mojom.AssistantStructureSpec = { $: {} };
 // Struct: AssistantTree
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantTreeSpec, 'ax.mojom.AssistantTree', [
-      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AssistantNodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AssistantNodeSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -91,9 +91,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantNodeSpec, 'ax.mojom.AssistantNode', [
       mojo.internal.StructField('arg_children_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection', 24, 0, mojo.internal.bindings.gfx.mojom.RangeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 24, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_class_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_role', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_text_size', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -109,16 +109,16 @@ mojo.internal.Struct(
 // Struct: AssistantExtra
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantExtraSpec, 'ax.mojom.AssistantExtra', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds_pixel', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds_pixel', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AssistantStructure
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantStructureSpec, 'ax.mojom.AssistantStructure', [
-      mojo.internal.StructField('arg_assistant_tree', 0, 0, mojo.internal.bindings.ax.mojom.AssistantTreeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_assistant_extra', 8, 0, mojo.internal.bindings.ax.mojom.AssistantExtraSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_assistant_tree', 0, 0, mojo.internal.bindings.ax.mojom.AssistantTreeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_assistant_extra', 8, 0, mojo.internal.bindings.ax.mojom.AssistantExtraSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);

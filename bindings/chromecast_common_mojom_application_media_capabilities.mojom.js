@@ -94,7 +94,7 @@ mojo.internal.Struct(
 // Interface: ApplicationMediaCapabilitiesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

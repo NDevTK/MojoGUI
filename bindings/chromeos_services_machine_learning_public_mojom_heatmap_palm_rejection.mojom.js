@@ -102,14 +102,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_input_node', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_output_node', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_palm_threshold', 24, 0, mojo.internal.Double, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_crop_heatmap', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec.$, null, true, 3, undefined),
+      mojo.internal.StructField('arg_crop_heatmap', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec, null, true, 3, undefined),
     ],
     [[0, 32], [1, 40], [3, 48]]);
 
 // Struct: HeatmapProcessedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec, 'chromeos.machine_learning.mojom.HeatmapProcessedEvent', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_palm', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 // Interface: HeatmapPalmRejectionClient
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec, 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

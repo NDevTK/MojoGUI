@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PointerLockResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PointerLockResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

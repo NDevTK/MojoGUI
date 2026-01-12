@@ -79,9 +79,9 @@ mojo.internal.bindings.ui.mojom.CursorSpec = { $: {} };
 // Struct: Cursor
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.CursorSpec, 'ui.mojom.Cursor', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.CursorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hotspot', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap', 16, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image_scale_factor', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hotspot', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ui.mojom.CursorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_scale_factor', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);

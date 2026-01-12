@@ -712,7 +712,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRequest = mojo.interna
 // Interface: LensSidePanelPage
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_LoadResultsInFrame_Params', [
-      mojo.internal.StructField('arg_results_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -736,10 +736,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_should_show_error_page', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_should_show_error_page', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec, 'lens.mojom.LensSidePanelPage_SuppressGhostLoader_Params', [
@@ -748,7 +748,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_PageContentTypeChanged_Params', [
-      mojo.internal.StructField('arg_new_page_content_type', 0, 0, mojo.internal.bindings.lens.mojom.PageContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_page_content_type', 0, 0, mojo.internal.bindings.lens.mojom.PageContentTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

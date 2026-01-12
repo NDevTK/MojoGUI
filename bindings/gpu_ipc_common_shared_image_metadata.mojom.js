@@ -80,11 +80,11 @@ mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec = { $: {} };
 // Struct: SharedImageMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec, 'gpu.mojom.SharedImageMetadata', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.viz.mojom.SharedImageFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 16, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_origin', 24, 0, mojo.internal.bindings.skia.mojom.SurfaceOriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alpha_type', 32, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 24, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_origin', 32, 0, mojo.internal.bindings.skia.mojom.SurfaceOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alpha_type', 36, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_usage', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);

@@ -91,14 +91,14 @@ mojo.internal.Struct(
 // Interface: OriginTrialStateHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_Params', [
-      mojo.internal.StructField('arg_origin_trial_features', 0, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.RuntimeFeatureSpec.$, mojo.internal.bindings.blink.mojom.OriginTrialFeatureStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_trial_features', 0, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.RuntimeFeatureSpec, mojo.internal.bindings.blink.mojom.OriginTrialFeatureStateSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_EnablePersistentTrial_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

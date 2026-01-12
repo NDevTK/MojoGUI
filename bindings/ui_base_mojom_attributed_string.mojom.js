@@ -80,8 +80,8 @@ mojo.internal.bindings.ui.mojom.AttributedStringSpec = { $: {} };
 // Struct: FontAttribute
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.FontAttributeSpec, 'ui.mojom.FontAttribute', [
-      mojo.internal.StructField('arg_font_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_effective_range', 8, 0, mojo.internal.bindings.gfx.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_effective_range', 8, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_font_point_size', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 // Struct: AttributedString
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.AttributedStringSpec, 'ui.mojom.AttributedString', [
-      mojo.internal.StructField('arg_string', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.FontAttributeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_string', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.FontAttributeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

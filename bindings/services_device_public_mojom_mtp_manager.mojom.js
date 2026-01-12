@@ -108,7 +108,7 @@ mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec =
 // Interface: MtpManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageAttached_Params', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -331,7 +331,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('arg_storages', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpStorageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storages', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_ResponseParams', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -355,7 +355,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParams', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -439,7 +439,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetFileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_file_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpFileEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpFileEntrySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

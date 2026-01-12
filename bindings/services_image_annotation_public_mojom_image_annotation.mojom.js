@@ -111,12 +111,12 @@ mojo.internal.Union(
     mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec, 'image_annotation.mojom.AnnotateImageResult', {
       'arg_error_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec.$,
+        'type': mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec,
         'nullable': false,
       },
       'arg_annotations': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.image_annotation.mojom.AnnotationSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.image_annotation.mojom.AnnotationSpec, false),
         'nullable': false,
       },
     });
@@ -124,9 +124,9 @@ mojo.internal.Union(
 // Struct: Annotation
 mojo.internal.Struct(
     mojo.internal.bindings.image_annotation.mojom.AnnotationSpec, 'image_annotation.mojom.Annotation', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

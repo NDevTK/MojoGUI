@@ -78,7 +78,7 @@ mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec = { $: {} };
 // Struct: DispatchFetchEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec, 'blink.mojom.DispatchFetchEventParams', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_resulting_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_preload_url_loader_client_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, true, 0, undefined),

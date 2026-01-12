@@ -86,12 +86,12 @@ mojo.internal.bindings.blink.mojom.FrameOcclusionState = {
 // Struct: ViewportIntersectionState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewportIntersectionStateSpec, 'blink.mojom.ViewportIntersectionState', [
-      mojo.internal.StructField('arg_viewport_intersection', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_frame_intersection', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_occlusion_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameOcclusionStateSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_outermost_main_frame_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_outermost_main_frame_scroll_position', 40, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_frame_transform', 48, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_intersection', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame_intersection', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outermost_main_frame_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outermost_main_frame_scroll_position', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame_transform', 40, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_occlusion_state', 48, 0, mojo.internal.bindings.blink.mojom.FrameOcclusionStateSpec, 0, false, 0, undefined),
     ],
     [[0, 64]]);

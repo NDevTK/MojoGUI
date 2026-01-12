@@ -268,17 +268,17 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec, 'crosapi.mojom.GetOAuthAccessTokenResult', {
       'arg_none': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec,
         'nullable': false,
       },
       'arg_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec,
         'nullable': false,
       },
     });
@@ -291,8 +291,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_configured_via_policy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_uri', 32, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_printer_status', 40, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec.$, null, true, 4, undefined),
-      mojo.internal.StructField('arg_managed_print_options', 48, 0, mojo.internal.bindings.crosapi.mojom.ManagedPrintOptionsSpec.$, null, true, 5, undefined),
+      mojo.internal.StructField('arg_printer_status', 40, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec, null, true, 4, undefined),
+      mojo.internal.StructField('arg_managed_print_options', 48, 0, mojo.internal.bindings.crosapi.mojom.ManagedPrintOptionsSpec, null, true, 5, undefined),
     ],
     [[0, 40], [3, 48], [4, 56], [5, 64]]);
 
@@ -300,18 +300,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec, 'crosapi.mojom.PrinterStatus', [
       mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_reasons', 16, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.StatusReasonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_reasons', 16, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.StatusReasonSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: StatusReason
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.StatusReasonSpec, 'crosapi.mojom.StatusReason', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_severity', 8, 0, mojo.internal.bindings.crosapi.mojom.SeveritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_severity', 4, 0, mojo.internal.bindings.crosapi.mojom.SeveritySpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: Size
 mojo.internal.Struct(
@@ -332,8 +332,8 @@ mojo.internal.Struct(
 // Struct: SizeOption
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.SizeOptionSpec, 'crosapi.mojom.SizeOption', [
-      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.SizeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.SizeSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -348,8 +348,8 @@ mojo.internal.Struct(
 // Struct: DuplexOption
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DuplexOptionSpec, 'crosapi.mojom.DuplexOption', [
-      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.DuplexTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DuplexTypeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DuplexTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 8, 0, mojo.internal.bindings.crosapi.mojom.DuplexTypeSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -365,29 +365,29 @@ mojo.internal.Struct(
 // Struct: DpiOption
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DpiOptionSpec, 'crosapi.mojom.DpiOption', [
-      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.DpiSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DpiSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.DpiSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DpiSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: QualityOption
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.QualityOptionSpec, 'crosapi.mojom.QualityOption', [
-      mojo.internal.StructField('arg_default_value', 0, 0, mojo.internal.bindings.crosapi.mojom.QualityTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allowed_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.QualityTypeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.QualityTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 8, 0, mojo.internal.bindings.crosapi.mojom.QualityTypeSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ManagedPrintOptions
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ManagedPrintOptionsSpec, 'crosapi.mojom.ManagedPrintOptions', [
-      mojo.internal.StructField('arg_media_size', 0, 0, mojo.internal.bindings.crosapi.mojom.SizeOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_type', 8, 0, mojo.internal.bindings.crosapi.mojom.StringOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duplex', 16, 0, mojo.internal.bindings.crosapi.mojom.DuplexOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 32, 0, mojo.internal.bindings.crosapi.mojom.DpiOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quality', 40, 0, mojo.internal.bindings.crosapi.mojom.QualityOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_print_as_image', 48, 0, mojo.internal.bindings.crosapi.mojom.BoolOptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_size', 0, 0, mojo.internal.bindings.crosapi.mojom.SizeOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_type', 8, 0, mojo.internal.bindings.crosapi.mojom.StringOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duplex', 16, 0, mojo.internal.bindings.crosapi.mojom.DuplexOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.crosapi.mojom.BoolOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 32, 0, mojo.internal.bindings.crosapi.mojom.DpiOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quality', 40, 0, mojo.internal.bindings.crosapi.mojom.QualityOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_print_as_image', 48, 0, mojo.internal.bindings.crosapi.mojom.BoolOptionSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -396,23 +396,23 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintJobSpec, 'crosapi.mojom.PrintJob', [
       mojo.internal.StructField('arg_device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.crosapi.mojom.SourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_mode', 32, 0, mojo.internal.bindings.printing.mojom.ColorModelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duplex_mode', 40, 0, mojo.internal.bindings.crosapi.mojom.DuplexModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_size', 48, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_vendor_id', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_job_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_count', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_copies', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_size', 24, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_vendor_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_job_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 48, 0, mojo.internal.bindings.crosapi.mojom.SourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_mode', 52, 0, mojo.internal.bindings.printing.mojom.ColorModelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duplex_mode', 56, 0, mojo.internal.bindings.crosapi.mojom.DuplexModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_copies', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 72]]);
 
 // Struct: PrintServersConfig
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec, 'crosapi.mojom.PrintServersConfig', [
-      mojo.internal.StructField('arg_fetching_mode', 0, 0, mojo.internal.bindings.crosapi.mojom.ServerPrintersFetchingModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_print_servers', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.PrintServerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_print_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.PrintServerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetching_mode', 8, 0, mojo.internal.bindings.crosapi.mojom.ServerPrintersFetchingModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -420,7 +420,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintServerSpec, 'crosapi.mojom.PrintServer', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -428,46 +428,46 @@ mojo.internal.Struct(
 // Struct: CapabilitiesResponse
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CapabilitiesResponseSpec, 'crosapi.mojom.CapabilitiesResponse', [
-      mojo.internal.StructField('arg_basic_info', 0, 0, mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capabilities', 8, 0, mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_default_color_mode_deprecated', 16, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_duplex_mode_deprecated', 24, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_pin_mode_deprecated', 32, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_color_modes_deprecated', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_duplex_modes_deprecated', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_0', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_secure_protocol', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_1', 56, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec.$, null, false, 1, undefined),
+      mojo.internal.StructField('arg_basic_info', 0, 0, mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 8, 0, mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_color_modes_deprecated', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_duplex_modes_deprecated', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_0', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_default_color_mode_deprecated', 28, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_duplex_mode_deprecated', 32, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_pin_mode_deprecated', 36, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_secure_protocol', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_1', 44, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
     ],
-    [[0, 64], [1, 72]]);
+    [[0, 56], [1, 56]]);
 
 // Struct: Policies
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PoliciesSpec, 'crosapi.mojom.Policies', [
-      mojo.internal.StructField('arg_print_header_footer_allowed', 0, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_print_header_footer_default', 8, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_background_graphics_modes', 16, 0, mojo.internal.bindings.crosapi.mojom.BackgroundGraphicsModeRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_graphics_default', 24, 0, mojo.internal.bindings.crosapi.mojom.BackgroundGraphicsModeRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_paper_size_default', 32, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_max_sheets_allowed', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_sheets_allowed_has_value', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_pin_modes', 48, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec.$, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_color_mode', 56, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec.$, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_duplex_mode', 64, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec.$, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_pin_mode', 72, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec.$, null, false, 1, undefined),
-      mojo.internal.StructField('arg_allowed_color_modes', 80, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_allowed_duplex_modes', 84, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_default_print_pdf_as_image', 88, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec.$, null, false, 2, undefined),
+      mojo.internal.StructField('arg_paper_size_default', 0, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_print_header_footer_allowed', 8, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_print_header_footer_default', 12, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_background_graphics_modes', 16, 0, mojo.internal.bindings.crosapi.mojom.BackgroundGraphicsModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_graphics_default', 20, 0, mojo.internal.bindings.crosapi.mojom.BackgroundGraphicsModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_sheets_allowed', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_sheets_allowed_has_value', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_color_modes', 32, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_allowed_duplex_modes', 36, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_allowed_pin_modes', 40, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_default_color_mode', 44, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_default_duplex_mode', 48, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_default_pin_mode', 52, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_default_print_pdf_as_image', 56, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 2, undefined),
     ],
-    [[0, 56], [1, 96], [2, 104]]);
+    [[0, 40], [1, 64], [2, 72]]);
 
 // Struct: PrintJobUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec, 'crosapi.mojom.PrintJobUpdate', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pages_printed', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pages_printed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: OAuthNotNeeded
 mojo.internal.Struct(
@@ -491,7 +491,7 @@ mojo.internal.Struct(
 // Interface: PrintServerObserver
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec, 'crosapi.mojom.PrintServerObserver_OnPrintServersChanged_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -708,15 +708,15 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec, 'crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_Params', [
       mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_job_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_job_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 12, 0, mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec, 'crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_Params', [
       mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_job_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -928,7 +928,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRequest = mojo.internal.bin
 // Interface: LocalPrintersObserver
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec, 'crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_Params', [
-      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1100,7 +1100,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinters_ResponseParams', [
-      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1112,7 +1112,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetCapability_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.crosapi.mojom.CapabilitiesResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.crosapi.mojom.CapabilitiesResponseSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1124,7 +1124,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1136,7 +1136,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1152,7 +1152,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec, 'crosapi.mojom.LocalPrinter_CreatePrintJob_Params', [
-      mojo.internal.StructField('arg_job', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintJobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_job', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintJobSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1181,7 +1181,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1214,7 +1214,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPolicies_ResponseParams', [
-      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.crosapi.mojom.PoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.crosapi.mojom.PoliciesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1236,14 +1236,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParams', [
-      mojo.internal.StructField('arg_deny_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PrinterTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_deny_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PrinterTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintJobObserver_Params', [
       mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintJobSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1272,7 +1272,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParams', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.IppClientInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.IppClientInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1284,7 +1284,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParams', [
-      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

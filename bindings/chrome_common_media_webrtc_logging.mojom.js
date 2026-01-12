@@ -88,7 +88,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = { $: {}
 // Struct: WebRtcLoggingMessage
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, 'chrome.mojom.WebRtcLoggingMessage', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Interface: WebRtcLoggingClient
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnAddMessages_Params', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

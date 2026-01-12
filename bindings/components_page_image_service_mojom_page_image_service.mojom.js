@@ -104,22 +104,22 @@ mojo.internal.Struct(
 // Struct: ImageResult
 mojo.internal.Struct(
     mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, 'page_image_service.mojom.ImageResult', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: PageImageServiceHandler
 mojo.internal.Struct(
     mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.bindings.page_image_service.mojom.ClientIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.page_image_service.mojom.OptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.bindings.page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.page_image_service.mojom.ImageResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

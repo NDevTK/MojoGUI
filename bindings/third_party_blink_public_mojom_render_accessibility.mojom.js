@@ -94,18 +94,18 @@ mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec = { $: {
 // Struct: HitTestResponse
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HitTestResponseSpec, 'blink.mojom.HitTestResponse', [
-      mojo.internal.StructField('arg_stitched_child_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_frame_transformed_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stitched_child_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_frame_token', 16, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_frame_transformed_point', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Interface: RenderAccessibilityHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_Params', [
-      mojo.internal.StructField('arg_events_and_updates', 0, 0, mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_and_scroll_updates', 8, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_events_and_updates', 0, 0, mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_and_scroll_updates', 8, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_token', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_Params', [
-      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRequest = mojo.interna
 // Interface: RenderAccessibility
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec, 'blink.mojom.RenderAccessibility_SetMode_Params', [
-      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.bindings.ax.mojom.AXModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.bindings.ax.mojom.AXModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -347,21 +347,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_to_fire', 8, 0, mojo.internal.bindings.ax.mojom.EventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_to_fire', 8, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_ResponseParams', [
-      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.blink.mojom.HitTestResponseSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec, 'blink.mojom.RenderAccessibility_PerformAction_Params', [
-      mojo.internal.StructField('arg_action_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

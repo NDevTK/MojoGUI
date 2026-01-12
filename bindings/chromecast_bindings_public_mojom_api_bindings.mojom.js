@@ -96,14 +96,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_bindings', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.mojom.ApiBindingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bindings', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.mojom.ApiBindingSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec, 'chromecast.mojom.ApiBindings_Connect_Params', [
       mojo.internal.StructField('arg_port_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -84,8 +84,8 @@ mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec = { $: 
 // Struct: SharedFile
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedFileSpec, 'blink.mojom.SharedFile', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -94,14 +94,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ShareService_Share_ParamsSpec, 'blink.mojom.ShareService_Share_Params', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SharedFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SharedFileSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec, 'blink.mojom.ShareService_Share_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ShareErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ShareErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

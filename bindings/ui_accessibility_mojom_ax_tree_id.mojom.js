@@ -85,7 +85,7 @@ mojo.internal.Union(
       },
       'arg_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec,
         'nullable': false,
       },
     });

@@ -82,8 +82,8 @@ mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Res
 // Interface: WebAppShortcutCopier
 mojo.internal.Struct(
     mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params', [
-      mojo.internal.StructField('arg_source_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

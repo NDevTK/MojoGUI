@@ -83,25 +83,25 @@ mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_Resp
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [
-      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params', [
-      mojo.internal.StructField('arg_impl', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_impl', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

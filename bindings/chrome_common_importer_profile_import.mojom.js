@@ -165,17 +165,17 @@ mojo.internal.Struct(
 // Struct: ImportedBookmarkEntry
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec, 'chrome.mojom.ImportedBookmarkEntry', [
-      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.chrome.mojom.SchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signon_realm', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_username_element', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_username_value', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password_element', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password_value', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blocked_by_user', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_signon_realm', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_element', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_value', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_element', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_value', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 56, 0, mojo.internal.bindings.chrome.mojom.SchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_by_user', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Interface: ProfileImportObserver
 mojo.internal.Struct(
@@ -192,13 +192,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportItemStart_Params', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportItemFinished_Params', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -210,27 +210,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_Params', [
-      mojo.internal.StructField('arg_history_rows_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_history_rows_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_visit_source', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnHomePageImportReady_Params', [
-      mojo.internal.StructField('arg_home_page', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_home_page', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_Params', [
-      mojo.internal.StructField('arg_first_folder_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_first_folder_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_bookmarks_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_Params', [
-      mojo.internal.StructField('arg_bookmarks_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bookmarks_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_Params', [
-      mojo.internal.StructField('arg_favicons_group', 0, 0, mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicons_group', 0, 0, mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,7 +254,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_Params', [
-      mojo.internal.StructField('arg_search_engines', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_engines', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_unique_on_host_and_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -267,7 +267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_Params', [
-      mojo.internal.StructField('arg_autofill_form_data_entry_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_autofill_form_data_entry_group', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1050,7 +1050,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRequest = mojo.internal
 // Interface: ProfileImport
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec, 'chrome.mojom.ProfileImport_StartImport_Params', [
-      mojo.internal.StructField('arg_source_profile', 0, 0, mojo.internal.bindings.chrome.mojom.SourceProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_profile', 0, 0, mojo.internal.bindings.chrome.mojom.SourceProfileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_localized_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_items', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
@@ -1064,7 +1064,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec, 'chrome.mojom.ProfileImport_ReportImportItemFinished_Params', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.chrome.mojom.ImportItemSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

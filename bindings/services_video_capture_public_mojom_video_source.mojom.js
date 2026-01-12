@@ -108,12 +108,12 @@ mojo.internal.Union(
     mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec, 'video_capture.mojom.CreatePushSubscriptionResultCode', {
       'arg_success_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec.$,
+        'type': mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec,
         'nullable': false,
       },
       'arg_error_code': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec.$,
+        'type': mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec,
         'nullable': false,
       },
     });
@@ -146,13 +146,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -185,7 +185,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_Params', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRequest = 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_Params', [
       mojo.internal.StructField('arg_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_requested_settings', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requested_settings', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_subscription', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_force_reopen_with_new_settings', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -699,10 +699,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings_source_was_opened_with', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings_source_was_opened_with', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.video_capture.mojom.VideoSourcePendingReceiver = class {
   constructor(handle) {

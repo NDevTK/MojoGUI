@@ -101,7 +101,7 @@ mojo.internal.bindings.sharing.mojom.LocationStandardFormat = {
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.LocationHintSpec, 'sharing.mojom.LocationHint', [
       mojo.internal.StructField('arg_location', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -493,7 +493,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params', [
       mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_peer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_hint', 16, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_hint', 16, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -507,7 +507,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
       mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_hint', 8, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_hint', 8, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -81,13 +81,13 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumer
 // Interface: MemoryConsumerTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

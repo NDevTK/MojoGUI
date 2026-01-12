@@ -129,7 +129,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_status_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceListHostRequest = mojo.
 // Interface: DeviceListClient
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec, 'global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_Params', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.global_media_controls.mojom.DeviceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -789,7 +789,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceServiceRequest = mojo.i
 // Interface: DevicePickerProvider
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_CreateItem_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -810,19 +810,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_Params', [
-      mojo.internal.StructField('arg_artwork_image', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_artwork_image', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_Params', [
-      mojo.internal.StructField('arg_favicon_image', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_favicon_image', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

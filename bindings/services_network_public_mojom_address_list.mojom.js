@@ -77,7 +77,7 @@ mojo.internal.bindings.network.mojom.AddressListSpec = { $: {} };
 // Struct: AddressList
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AddressListSpec, 'network.mojom.AddressList', [
-      mojo.internal.StructField('arg_addresses', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_addresses', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_dns_aliases', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

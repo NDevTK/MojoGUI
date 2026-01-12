@@ -88,7 +88,7 @@ mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseP
 // Interface: QuotaClient
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_Params', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,19 +105,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParams', [
-      mojo.internal.StructField('arg_storage_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageKeySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_Params', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

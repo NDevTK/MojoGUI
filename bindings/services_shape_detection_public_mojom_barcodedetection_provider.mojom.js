@@ -83,7 +83,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateS
 // Struct: BarcodeDetectorOptions
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, 'shape_detection.mojom.BarcodeDetectorOptions', [
-      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -91,7 +91,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -102,7 +102,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParams', [
-      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

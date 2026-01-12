@@ -175,34 +175,34 @@ mojo.internal.bindings.dlp_internals.mojom.UserType = {
 // Struct: DataTransferEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec, 'dlp_internals.mojom.DataTransferEndpoint', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentRestrictionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec, 'dlp_internals.mojom.ContentRestrictionInfo', [
-      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.bindings.dlp_internals.mojom.LevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restriction', 8, 0, mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 12, 0, mojo.internal.bindings.dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: RenderFrameHostInfo
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec, 'dlp_internals.mojom.RenderFrameHostInfo', [
-      mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: WebContentsInfo
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec, 'dlp_internals.mojom.WebContentsInfo', [
-      mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -210,7 +210,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec, 'dlp_internals.mojom.EventDestination', [
       mojo.internal.StructField('arg_url_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.bindings.dlp_internals.mojom.ComponentSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.bindings.dlp_internals.mojom.ComponentSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -218,17 +218,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec, 'dlp_internals.mojom.DlpEvent', [
       mojo.internal.StructField('arg_source_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_restriction', 16, 0, mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.dlp_internals.mojom.ModeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_micro_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_timestamp_micro_$flag', originalFieldName: 'arg_timestamp_micro' }),
-      mojo.internal.StructField('arg_user_type', 40, 0, mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_content_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_triggered_rule_name', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_triggered_rule_id', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_micro_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_timestamp_micro_$value', originalFieldName: 'arg_timestamp_micro' }),
+      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_micro_$value', 16, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_timestamp_micro_$flag', originalFieldName: 'arg_timestamp_micro' }),
+      mojo.internal.StructField('arg_content_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_triggered_rule_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_triggered_rule_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_restriction', 48, 0, mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mode', 52, 0, mojo.internal.bindings.dlp_internals.mojom.ModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_user_type', 56, 0, mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_micro_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_timestamp_micro_$value', originalFieldName: 'arg_timestamp_micro' }),
     ],
-    [[0, 88]]);
+    [[0, 72]]);
 
 // Struct: FileDatabaseEntry
 mojo.internal.Struct(
@@ -245,7 +245,7 @@ mojo.internal.Struct(
 // Interface: ReportingObserver
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec, 'dlp_internals.mojom.ReportingObserver_OnReportEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -417,7 +417,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParams', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -428,7 +428,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_web_contents_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -445,7 +445,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParams', [
-      mojo.internal.StructField('arg_db_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_db_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

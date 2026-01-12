@@ -87,14 +87,14 @@ mojo.internal.bindings.tabs_api.mojom.Type = {
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, 'tabs_api.mojom.NodeId', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.tabs_api.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.tabs_api.mojom.TypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Position
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.PositionSpec, 'tabs_api.mojom.Position', [
-      mojo.internal.StructField('arg_parent_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parent_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

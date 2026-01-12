@@ -117,40 +117,40 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_manufacturer', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.midi.mojom.PortStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.midi.mojom.PortStateSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: MidiSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec, 'midi.mojom.MidiSessionClient_AddInputPort_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.midi.mojom.PortInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.midi.mojom.PortInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec, 'midi.mojom.MidiSessionClient_AddOutputPort_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.midi.mojom.PortInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.midi.mojom.PortInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec, 'midi.mojom.MidiSessionClient_SetInputPortState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.midi.mojom.PortStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.midi.mojom.PortStateSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec, 'midi.mojom.MidiSessionClient_SetOutputPortState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.midi.mojom.PortStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.midi.mojom.PortStateSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec, 'midi.mojom.MidiSessionClient_SessionStarted_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.midi.mojom.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.midi.mojom.ResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -163,7 +163,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec, 'midi.mojom.MidiSessionClient_DataReceived_Params', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -764,7 +764,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderRequest = mojo.internal.bin
 mojo.internal.Struct(
     mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec, 'midi.mojom.MidiSession_SendData_Params', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

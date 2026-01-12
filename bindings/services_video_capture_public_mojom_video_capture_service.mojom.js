@@ -295,7 +295,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec, 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('arg_luid', 0, 0, mojo.internal.bindings.gpu.mojom.LuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_luid', 0, 0, mojo.internal.bindings.gpu.mojom.LuidSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

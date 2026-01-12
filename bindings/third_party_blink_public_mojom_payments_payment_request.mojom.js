@@ -187,10 +187,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentResponseSpec, 'payments.mojom.PaymentResponse', [
       mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shipping_address', 16, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_address', 16, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_shipping_option', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payer', 32, 0, mojo.internal.bindings.payments.mojom.PayerDetailSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_get_assertion_authenticator_response', 40, 0, mojo.internal.bindings.blink.mojom.GetAssertionAuthenticatorResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payer', 32, 0, mojo.internal.bindings.payments.mojom.PayerDetailSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_get_assertion_authenticator_response', 40, 0, mojo.internal.bindings.blink.mojom.GetAssertionAuthenticatorResponseSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -207,7 +207,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentItemSpec, 'payments.mojom.PaymentItem', [
       mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_amount', 8, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_amount', 8, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pending', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -217,7 +217,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, 'payments.mojom.PaymentShippingOption', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_amount', 16, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_amount', 16, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -227,14 +227,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationRequestSpec, 'payments.mojom.SecurePaymentConfirmationRequest', [
       mojo.internal.StructField('arg_credential_ids', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_instrument', 16, 0, mojo.internal.bindings.blink.mojom.PaymentCredentialInstrumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payee_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_instrument', 16, 0, mojo.internal.bindings.blink.mojom.PaymentCredentialInstrumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payee_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_payee_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_rp_id', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extensions', 56, 0, mojo.internal.bindings.blink.mojom.AuthenticationExtensionsClientInputsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_browser_bound_pub_key_cred_params', 64, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PublicKeyCredentialParametersSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_entities_logos', 72, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extensions', 56, 0, mojo.internal.bindings.blink.mojom.AuthenticationExtensionsClientInputsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_browser_bound_pub_key_cred_params', 64, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PublicKeyCredentialParametersSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_entities_logos', 72, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_show_opt_out', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 96]]);
@@ -243,14 +243,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.NetworkOrIssuerInformationSpec, 'payments.mojom.NetworkOrIssuerInformation', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PaymentEntityLogo
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec, 'payments.mojom.PaymentEntityLogo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -260,32 +260,32 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, 'payments.mojom.PaymentMethodData', [
       mojo.internal.StructField('arg_supported_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_stringified_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_environment', 16, 0, mojo.internal.bindings.payments.mojom.AndroidPayEnvironmentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_networks', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.BasicCardNetworkSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_payment_confirmation', 32, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationRequestSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_min_google_play_services_version', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_api_version', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_networks', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.BasicCardNetworkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_payment_confirmation', 24, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_environment', 32, 0, mojo.internal.bindings.payments.mojom.AndroidPayEnvironmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_google_play_services_version', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_version', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: PaymentDetailsModifier
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, 'payments.mojom.PaymentDetailsModifier', [
-      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentItemSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_additional_display_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentItemSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 16, 0, mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentItemSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_additional_display_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 16, 0, mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: PaymentDetails
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentDetailsSpec, 'payments.mojom.PaymentDetails', [
-      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentItemSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentItemSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_options', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentItemSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentItemSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_options', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 32, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_shipping_address_errors', 40, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_address_errors', 40, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_stringified_payment_method_errors', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -294,13 +294,13 @@ mojo.internal.Struct(
 // Struct: PaymentOptions
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentOptionsSpec, 'payments.mojom.PaymentOptions', [
-      mojo.internal.StructField('arg_shipping_type', 0, 0, mojo.internal.bindings.payments.mojom.PaymentShippingTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_name', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_email', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_phone', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_shipping', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shipping_type', 0, 0, mojo.internal.bindings.payments.mojom.PaymentShippingTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_name', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_email', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_phone', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_shipping', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Interface: PaymentRequestClient
 mojo.internal.Struct(
@@ -312,7 +312,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnShippingAddressChange_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -324,20 +324,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnPayerDetailChange_Params', [
-      mojo.internal.StructField('arg_detail', 0, 0, mojo.internal.bindings.payments.mojom.PayerDetailSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_detail', 0, 0, mojo.internal.bindings.payments.mojom.PayerDetailSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnPaymentResponse_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.PaymentResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.PaymentResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.payments.mojom.PaymentErrorReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.payments.mojom.PaymentErrorReasonSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -354,13 +354,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnCanMakePayment_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentQueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentQueryResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.HasEnrolledInstrumentQueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.HasEnrolledInstrumentQueryResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -371,8 +371,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec, 'payments.mojom.PaymentRequestClient_AllowConnectToSource_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_before_redirects', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_before_redirects', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_did_follow_redirect', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -1037,9 +1037,9 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRequest = mojo.interna
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec, 'payments.mojom.PaymentRequest_Init_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.PaymentRequestClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.bindings.payments.mojom.PaymentDetailsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.payments.mojom.PaymentOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.bindings.payments.mojom.PaymentDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.payments.mojom.PaymentOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1052,7 +1052,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequest_UpdateWith_ParamsSpec, 'payments.mojom.PaymentRequest_UpdateWith_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.payments.mojom.PaymentDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.payments.mojom.PaymentDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1068,13 +1068,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequest_Complete_ParamsSpec, 'payments.mojom.PaymentRequest_Complete_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCompleteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCompleteSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequest_Retry_ParamsSpec, 'payments.mojom.PaymentRequest_Retry_Params', [
-      mojo.internal.StructField('arg_errors', 0, 0, mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_errors', 0, 0, mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

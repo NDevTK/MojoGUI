@@ -92,12 +92,12 @@ mojo.internal.Union(
     mojo.internal.bindings.extensions.mojom.CodeInjectionSpec, 'extensions.mojom.CodeInjection', {
       'arg_css': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.extensions.mojom.CSSInjectionSpec.$,
+        'type': mojo.internal.bindings.extensions.mojom.CSSInjectionSpec,
         'nullable': false,
       },
       'arg_js': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.extensions.mojom.JSInjectionSpec.$,
+        'type': mojo.internal.bindings.extensions.mojom.JSInjectionSpec,
         'nullable': false,
       },
     });
@@ -106,7 +106,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.JSSourceSpec, 'extensions.mojom.JSSource', [
       mojo.internal.StructField('arg_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -121,20 +121,20 @@ mojo.internal.Struct(
 // Struct: JSInjection
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.JSInjectionSpec, 'extensions.mojom.JSInjection', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.JSSourceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_world', 8, 0, mojo.internal.bindings.extensions.mojom.ExecutionWorldSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_world_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wants_result', 24, 0, mojo.internal.bindings.blink.mojom.WantResultOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 32, 0, mojo.internal.bindings.blink.mojom.UserActivationOptionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wait_for_promise', 40, 0, mojo.internal.bindings.blink.mojom.PromiseResultOptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.JSSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_world_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_world', 16, 0, mojo.internal.bindings.extensions.mojom.ExecutionWorldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wants_result', 20, 0, mojo.internal.bindings.blink.mojom.WantResultOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 24, 0, mojo.internal.bindings.blink.mojom.UserActivationOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wait_for_promise', 28, 0, mojo.internal.bindings.blink.mojom.PromiseResultOptionSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);
 
 // Struct: CSSInjection
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.CSSInjectionSpec, 'extensions.mojom.CSSInjection', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.CSSSourceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_css_origin', 8, 0, mojo.internal.bindings.extensions.mojom.CSSOriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 16, 0, mojo.internal.bindings.extensions.mojom.OperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.CSSSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_origin', 8, 0, mojo.internal.bindings.extensions.mojom.CSSOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 12, 0, mojo.internal.bindings.extensions.mojom.OperationSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

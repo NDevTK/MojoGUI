@@ -138,7 +138,7 @@ mojo.internal.bindings.storage.mojom.FileWriteAccess = {
 // Struct: StrictRelativePath
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, 'storage.mojom.StrictRelativePath', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,7 +158,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec, 'storage.mojom.FileLock_Release_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -337,7 +337,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec, 'storage.mojom.Directory_PathExists_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -349,49 +349,49 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec, 'storage.mojom.Directory_GetEntries_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.storage.mojom.GetEntriesModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.storage.mojom.GetEntriesModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec, 'storage.mojom.Directory_GetEntries_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec, 'storage.mojom.Directory_OpenFile_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.storage.mojom.FileOpenModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_read_access', 16, 0, mojo.internal.bindings.storage.mojom.FileReadAccessSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_write_access', 24, 0, mojo.internal.bindings.storage.mojom.FileWriteAccessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.storage.mojom.FileOpenModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_read_access', 12, 0, mojo.internal.bindings.storage.mojom.FileReadAccessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_write_access', 16, 0, mojo.internal.bindings.storage.mojom.FileWriteAccessSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec, 'storage.mojom.Directory_OpenFile_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec, 'storage.mojom.Directory_CreateDirectory_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec, 'storage.mojom.Directory_CreateDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec, 'storage.mojom.Directory_DeleteFile_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,51 +403,51 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec, 'storage.mojom.Directory_GetFileInfo_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec, 'storage.mojom.Directory_GetFileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec, 'storage.mojom.Directory_GetPathAccess_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec, 'storage.mojom.Directory_GetPathAccess_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.storage.mojom.PathAccessInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.storage.mojom.PathAccessInfoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec, 'storage.mojom.Directory_RenameFile_Params', [
-      mojo.internal.StructField('arg_old_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_path', 8, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_old_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_path', 8, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec, 'storage.mojom.Directory_RenameFile_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec, 'storage.mojom.Directory_LockFile_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.storage.mojom.StrictRelativePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec, 'storage.mojom.Directory_LockFile_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lock', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.FileLockRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_lock', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.FileLockRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

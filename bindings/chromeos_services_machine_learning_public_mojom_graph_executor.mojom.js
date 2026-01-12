@@ -97,15 +97,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResult = {
 // Interface: GraphExecutor
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_Params', [
-      mojo.internal.StructField('arg_inputs', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_inputs', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_output_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_outputs', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_outputs', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

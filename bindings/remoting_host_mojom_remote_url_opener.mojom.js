@@ -91,13 +91,13 @@ mojo.internal.bindings.remoting.mojom.OpenUrlResult = {
 // Interface: RemoteUrlOpener
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

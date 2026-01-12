@@ -130,7 +130,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_agent_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_serialized_selector', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -304,8 +304,8 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentRequest = mojo.internal.bindin
 // Interface: AnnotationAgentHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec, 'blink.mojom.AnnotationAgentHost_DidFinishAttachment_Params', [
-      mojo.internal.StructField('arg_document_relative_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attachment_result', 8, 0, mojo.internal.bindings.blink.mojom.AttachmentResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_relative_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attachment_result', 8, 0, mojo.internal.bindings.blink.mojom.AttachmentResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -472,32 +472,32 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentHostRequest = mojo.internal.bi
 // Interface: AnnotationAgentContainer
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec, 'blink.mojom.AnnotationAgentContainer_CreateAgent_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selector', 24, 0, mojo.internal.bindings.blink.mojom.SelectorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_search_range_start_node_id_$value', 32, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_search_range_start_node_id_$flag', originalFieldName: 'arg_search_range_start_node_id' }),
-      mojo.internal.StructField('arg_search_range_start_node_id_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_search_range_start_node_id_$value', originalFieldName: 'arg_search_range_start_node_id' }),
+      mojo.internal.StructField('arg_selector', 0, 0, mojo.internal.bindings.blink.mojom.SelectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_range_start_node_id_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_search_range_start_node_id_$flag', originalFieldName: 'arg_search_range_start_node_id' }),
+      mojo.internal.StructField('arg_search_range_start_node_id_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_search_range_start_node_id_$value', originalFieldName: 'arg_search_range_start_node_id' }),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec, 'blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec, 'blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ready_status', 16, 0, mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ready_status', 12, 0, mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec, 'blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

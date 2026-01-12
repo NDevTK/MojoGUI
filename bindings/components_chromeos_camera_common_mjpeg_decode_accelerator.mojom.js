@@ -103,10 +103,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec, 'chromeos_camera.mojom.BitstreamBuffer', [
       mojo.internal.StructField('arg_memory_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_iv', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsamples', 40, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SubsampleEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsamples', 40, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_size', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -126,8 +126,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params', [
-      mojo.internal.StructField('arg_input_buffer', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_buffer', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_buffer_size', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -135,14 +135,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitstream_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bitstream_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_Params', [
-      mojo.internal.StructField('arg_dst_frame', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DmaBufVideoFrameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_frame', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DmaBufVideoFrameSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_src_dmabuf_fd', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_src_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

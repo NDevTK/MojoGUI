@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParams', [
-      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.sharing.mojom.AdvertisementSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.sharing.mojom.AdvertisementSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParams', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.sharing.mojom.FrameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.sharing.mojom.FrameSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {

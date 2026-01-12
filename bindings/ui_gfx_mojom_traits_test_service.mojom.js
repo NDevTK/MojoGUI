@@ -87,49 +87,49 @@ mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_Params', [
-      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_Params', [
-      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_Params', [
-      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -88,7 +88,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.file_suggestion.mojom.FileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

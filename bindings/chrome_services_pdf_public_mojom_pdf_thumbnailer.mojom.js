@@ -90,8 +90,8 @@ mojo.internal.bindings.pdf.mojom.kMaxHeightPixels = 512;
 // Struct: ThumbParams
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, 'pdf.mojom.ThumbParams', [
-      mojo.internal.StructField('arg_size_px', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size_px', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_stretch', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_keep_aspect', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -100,14 +100,14 @@ mojo.internal.Struct(
 // Interface: PdfThumbnailer
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.pdf.mojom.ThumbParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParams', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

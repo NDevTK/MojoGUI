@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParams', [
-      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -114,7 +114,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParams', [
-      mojo.internal.StructField('arg_font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

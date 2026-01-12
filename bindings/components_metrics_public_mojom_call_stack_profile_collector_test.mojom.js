@@ -81,13 +81,13 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampled
 // Interface: CallStackProfileCollectorTest
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

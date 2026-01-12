@@ -143,29 +143,29 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_control_support', 24, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing_mode', 32, 0, mojo.internal.bindings.blink.mojom.FacingModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_availability', 40, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_control_support', 24, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing_mode', 32, 0, mojo.internal.bindings.blink.mojom.FacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability', 36, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: VideoInputDeviceCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec, 'blink.mojom.VideoInputDeviceCapabilities', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_control_support', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_formats', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing_mode', 32, 0, mojo.internal.bindings.blink.mojom.FacingModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_availability', 40, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_control_support', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing_mode', 32, 0, mojo.internal.bindings.blink.mojom.FacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability', 36, 0, mojo.internal.bindings.media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: SelectAudioOutputResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec, 'blink.mojom.SelectAudioOutputResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_info', 8, 0, mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -174,8 +174,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec, 'blink.mojom.AudioInputDeviceCapabilities', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_latency', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_channels', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sample_rate', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_valid', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -195,9 +195,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParams', [
-      mojo.internal.StructField('arg_enumeration', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_input_device_capabilities', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_input_device_capabilities', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_enumeration', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_input_device_capabilities', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_input_device_capabilities', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -208,7 +208,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParams', [
-      mojo.internal.StructField('arg_video_input_device_capabilities', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_input_device_capabilities', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -220,7 +220,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParams', [
-      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -232,7 +232,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParams', [
-      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -243,7 +243,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParams', [
-      mojo.internal.StructField('arg_audio_input_device_capabilities', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_input_device_capabilities', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -258,7 +258,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.CaptureHandleConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.CaptureHandleConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -270,7 +270,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -288,7 +288,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -300,7 +300,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -955,8 +955,8 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRequest = mojo.inte
 // Interface: MediaDevicesListener
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec, 'blink.mojom.MediaDevicesListener_OnDevicesChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

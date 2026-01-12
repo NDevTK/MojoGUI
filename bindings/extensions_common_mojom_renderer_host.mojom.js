@@ -86,36 +86,36 @@ mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponsePa
 // Interface: RendererHost
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddAPIActionToActivityLog_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddEventToActivityLog_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddDOMActionToActivityLog_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_title', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 16, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_title', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_call_type', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec, 'extensions.mojom.RendererHost_GetMessageBundle_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

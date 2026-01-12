@@ -98,15 +98,15 @@ mojo.internal.Struct(
 // Struct: PrivacyItem
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrivacyItemSpec, 'arc.mojom.PrivacyItem', [
-      mojo.internal.StructField('arg_permission_group', 0, 0, mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_application', 8, 0, mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_application', 0, 0, mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_group', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PrivacyItemsHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params', [
-      mojo.internal.StructField('arg_privacy_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PrivacyItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PrivacyItemSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -384,7 +384,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.RectSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_displayId', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

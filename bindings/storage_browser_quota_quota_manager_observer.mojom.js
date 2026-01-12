@@ -81,13 +81,13 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsS
 // Interface: QuotaManagerObserver
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [
-      mojo.internal.StructField('arg_bucket_info', 0, 0, mojo.internal.bindings.storage.mojom.BucketInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_info', 0, 0, mojo.internal.bindings.storage.mojom.BucketInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -101,10 +101,10 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Res
 // Struct: Theme
 mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
-      mojo.internal.StructField('arg_border_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_border_glow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrim_colors', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.SkColorSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_magic_cursor_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_glow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrim_colors', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_magic_cursor_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -519,13 +519,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.actor.ui.mojom.ThemeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

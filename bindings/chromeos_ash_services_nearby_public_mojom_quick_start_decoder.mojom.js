@@ -89,10 +89,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderPendingReceiver = class {
   constructor(handle) {

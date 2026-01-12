@@ -78,13 +78,13 @@ mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec, 'blink.mojom.FrameOwnerProperties', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollbar_mode', 8, 0, mojo.internal.bindings.blink.mojom.ScrollbarModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_scheme', 16, 0, mojo.internal.bindings.blink.mojom.ColorSchemeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_color_scheme', 24, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_margin_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_margin_height', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_fullscreen', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_payment_request', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_display_none', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_mode', 8, 0, mojo.internal.bindings.blink.mojom.ScrollbarModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_margin_width', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_margin_height', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_scheme', 20, 0, mojo.internal.bindings.blink.mojom.ColorSchemeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_color_scheme', 24, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_fullscreen', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_payment_request', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_display_none', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);

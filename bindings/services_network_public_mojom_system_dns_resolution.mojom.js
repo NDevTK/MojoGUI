@@ -82,15 +82,15 @@ mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpe
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
       mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_addr_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_network', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_addr_family', 16, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_ResponseParams', [
-      mojo.internal.StructField('arg_addr_list', 0, 0, mojo.internal.bindings.network.mojom.AddressListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_addr_list', 0, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_os_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_net_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

@@ -85,7 +85,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -94,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

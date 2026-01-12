@@ -83,7 +83,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDec
 // Interface: VideoDecoderFactoryProcess
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec, 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params', [
-      mojo.internal.StructField('arg_gpu_feature_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuRemote), null, true, 0, undefined),
     ],

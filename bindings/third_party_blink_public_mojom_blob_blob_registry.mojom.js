@@ -259,7 +259,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_elements', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -280,7 +280,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -108,15 +108,15 @@ mojo.internal.bindings.arc.mojom.DeviceType = {
 // Struct: MountPointInfo
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MountPointInfoSpec, 'arc.mojom.MountPointInfo', [
-      mojo.internal.StructField('arg_mount_event', 0, 0, mojo.internal.bindings.arc.mojom.MountEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 40, 0, mojo.internal.bindings.arc.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 48, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_source_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fs_uuid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_event', 32, 0, mojo.internal.bindings.arc.mojom.MountEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 36, 0, mojo.internal.bindings.arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 2, undefined),
     ],
-    [[0, 56], [2, 64]]);
+    [[0, 48], [2, 56]]);
 
 // Interface: VolumeMounterHost
 mojo.internal.Struct(
@@ -410,13 +410,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec, 'arc.mojom.VolumeMounterInstance_OnMountEvent_Params', [
-      mojo.internal.StructField('arg_mount_point_info', 0, 0, mojo.internal.bindings.arc.mojom.MountPointInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_point_info', 0, 0, mojo.internal.bindings.arc.mojom.MountPointInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

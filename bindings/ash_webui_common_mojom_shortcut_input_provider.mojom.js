@@ -87,15 +87,15 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShort
 // Interface: ShortcutInputObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_Params', [
-      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_Params', [
-      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

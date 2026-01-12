@@ -96,7 +96,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec =
 // Interface: MessageCallback
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec, 'chromecast.mojom.MessageCallback_OnMessage_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -271,7 +271,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec, 'chromecast.mojom.WebUi_CallJavascriptFunction_Params', [
       mojo.internal.StructField('arg_function', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -488,7 +488,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_ResponseParams', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

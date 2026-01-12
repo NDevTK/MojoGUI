@@ -118,12 +118,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec, 'crosapi.mojom.PasskeyCreationResult', {
       'arg_response': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec,
         'nullable': false,
       },
     });
@@ -133,12 +133,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec, 'crosapi.mojom.PasskeyAssertionResult', {
       'arg_response': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec,
         'nullable': false,
       },
     });
@@ -150,7 +150,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_user_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_display_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_verification', 32, 0, mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_verification', 32, 0, mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -168,7 +168,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_credential_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_challenge', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_data_hash', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_verification', 32, 0, mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_verification', 32, 0, mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -183,29 +183,29 @@ mojo.internal.Struct(
 // Interface: PasskeyAuthenticator
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Create_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Create_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Assert_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorPendingReceiver = class {
   constructor(handle) {

@@ -81,8 +81,8 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpe
 // Interface: FakeDriveFsLauncher
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec, 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params', [
-      mojo.internal.StructField('arg_datadir_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_datadir_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_mojo_socket_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 32]]);

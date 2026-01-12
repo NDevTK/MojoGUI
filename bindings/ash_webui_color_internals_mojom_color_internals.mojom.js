@@ -87,15 +87,15 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallp
 // Struct: WallpaperCalculatedColors
 mojo.internal.Struct(
     mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, 'ash.color_internals.mojom.WallpaperCalculatedColors', [
-      mojo.internal.StructField('arg_k_mean_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_celebi_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_k_mean_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_celebi_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: WallpaperColorsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
-      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

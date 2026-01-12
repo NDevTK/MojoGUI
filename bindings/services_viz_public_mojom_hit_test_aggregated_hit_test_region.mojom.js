@@ -78,9 +78,9 @@ mojo.internal.bindings.viz.mojom.AggregatedHitTestRegionSpec = { $: {} };
 // Struct: AggregatedHitTestRegion
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.AggregatedHitTestRegionSpec, 'viz.mojom.AggregatedHitTestRegion', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transform', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_async_hit_test_reasons', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_child_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),

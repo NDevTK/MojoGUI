@@ -81,7 +81,7 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_
 // Interface: ManifestUrlChangeObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec, 'blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_Params', [
-      mojo.internal.StructField('arg_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -84,13 +84,13 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec =
 // Interface: SharedWorkerClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnCreated_Params', [
-      mojo.internal.StructField('arg_creation_context_type', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_context_type', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnConnected_Params', [
-      mojo.internal.StructField('arg_features_used', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_features_used', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -102,13 +102,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnReportException_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnFeatureUsed_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

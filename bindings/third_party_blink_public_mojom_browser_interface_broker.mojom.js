@@ -81,7 +81,7 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpe
 // Interface: BrowserInterfaceBroker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec, 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

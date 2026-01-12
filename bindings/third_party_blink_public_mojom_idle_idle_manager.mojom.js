@@ -96,7 +96,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerError = {
 // Struct: IdleState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IdleStateSpec, 'blink.mojom.IdleState', [
-      mojo.internal.StructField('arg_idle_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_idle_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_screen_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 // Interface: IdleMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec, 'blink.mojom.IdleMonitor_Update_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_overridden_by_devtools', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -278,8 +278,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

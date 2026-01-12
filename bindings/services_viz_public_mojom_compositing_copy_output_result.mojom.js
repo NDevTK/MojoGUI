@@ -92,12 +92,12 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultDestination = {
 // Struct: CopyOutputResult
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CopyOutputResultSpec, 'viz.mojom.CopyOutputResult', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap', 24, 0, mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mailbox', 32, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_releaser', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.TextureReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mailbox', 16, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 24, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_releaser', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.TextureReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_format', 40, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 44, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);

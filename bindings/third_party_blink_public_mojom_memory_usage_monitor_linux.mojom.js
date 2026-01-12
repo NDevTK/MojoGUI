@@ -81,8 +81,8 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSp
 // Interface: MemoryUsageMonitorLinux
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec, 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params', [
-      mojo.internal.StructField('arg_statm_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_statm_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

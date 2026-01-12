@@ -77,8 +77,8 @@ mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec = { $: {} };
 // Struct: MaskFilterInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec, 'gfx.mojom.MaskFilterInfo', [
-      mojo.internal.StructField('arg_rounded_corner_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gradient_mask', 8, 0, mojo.internal.bindings.gfx.mojom.LinearGradientSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rounded_corner_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RRectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gradient_mask', 8, 0, mojo.internal.bindings.gfx.mojom.LinearGradientSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_clip_id_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_clip_id_$flag', originalFieldName: 'arg_clip_id' }),
       mojo.internal.StructField('arg_clip_id_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_clip_id_$value', originalFieldName: 'arg_clip_id' }),
     ],

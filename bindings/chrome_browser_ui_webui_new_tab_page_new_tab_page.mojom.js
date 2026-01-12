@@ -204,17 +204,17 @@ mojo.internal.Union(
     mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec, 'new_tab_page.mojom.PromoPart', {
       'arg_image': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec.$,
+        'type': mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec,
         'nullable': false,
       },
       'arg_link': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec.$,
+        'type': mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec,
         'nullable': false,
       },
       'arg_text': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec.$,
+        'type': mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec,
         'nullable': false,
       },
     });
@@ -222,30 +222,30 @@ mojo.internal.Union(
 // Struct: BackgroundImage
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec, 'new_tab_page.mojom.BackgroundImage', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_2x', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attribution_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_2x', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_attribution_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_size', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_repeat_x', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_repeat_y', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_position_x', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_position_y', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image_source', 64, 0, mojo.internal.bindings.new_tab_page.mojom.NtpBackgroundImageSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_source', 64, 0, mojo.internal.bindings.new_tab_page.mojom.NtpBackgroundImageSourceSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: Theme
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.ThemeSpec, 'new_tab_page.mojom.Theme', [
-      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_logo_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_logo_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_image_collection_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image', 32, 0, mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image', 32, 0, mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_image_attribution_1', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_image_attribution_2', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image_attribution_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_most_visited', 64, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_most_visited', 64, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_baseline', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_gm3', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_custom_background', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -257,11 +257,11 @@ mojo.internal.Struct(
 // Struct: ImageDoodle
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec, 'new_tab_page.mojom.ImageDoodle', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_animation_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_impression_log_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_animation_impression_log_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_animation_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_impression_log_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_animation_impression_log_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_width', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -270,17 +270,17 @@ mojo.internal.Struct(
 // Struct: AllModeImageDoodle
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec, 'new_tab_page.mojom.AllModeImageDoodle', [
-      mojo.internal.StructField('arg_light', 0, 0, mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dark', 8, 0, mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_on_click_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_share_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_light', 0, 0, mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dark', 8, 0, mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_on_click_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_share_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: InteractiveDoodle
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.InteractiveDoodleSpec, 'new_tab_page.mojom.InteractiveDoodle', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -289,8 +289,8 @@ mojo.internal.Struct(
 // Struct: Doodle
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.DoodleSpec, 'new_tab_page.mojom.Doodle', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_interactive', 8, 0, mojo.internal.bindings.new_tab_page.mojom.InteractiveDoodleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interactive', 8, 0, mojo.internal.bindings.new_tab_page.mojom.InteractiveDoodleSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -298,8 +298,8 @@ mojo.internal.Struct(
 // Struct: PromoImagePart
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec, 'new_tab_page.mojom.PromoImagePart', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -307,7 +307,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec, 'new_tab_page.mojom.PromoLinkPart', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -322,8 +322,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PromoSpec, 'new_tab_page.mojom.Promo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_middle_slot_parts', 16, 0, mojo.internal.Array(mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_middle_slot_parts', 16, 0, mojo.internal.Array(mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -506,10 +506,10 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactoryRequest = mojo.inter
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec, 'new_tab_page.mojom.PageHandler_SetMostVisitedSettings_Params', [
-      mojo.internal.StructField('arg_shortcuts_type', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shortcuts_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shortcuts_type', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shortcuts_visible', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec, 'new_tab_page.mojom.PageHandler_GetMostVisitedSettings_Params', [
@@ -518,10 +518,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParams', [
-      mojo.internal.StructField('arg_shortcuts_type', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shortcuts_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shortcuts_type', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shortcuts_visible', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec, 'new_tab_page.mojom.PageHandler_GetDoodle_Params', [
@@ -530,7 +530,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetDoodle_ResponseParams', [
-      mojo.internal.StructField('arg_doodle', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_doodle', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -593,7 +593,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -672,44 +672,44 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnPromoRendered_Params', [
       mojo.internal.StructField('arg_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageClicked_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageRendered_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParams', [
       mojo.internal.StructField('arg_image_click_params', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_interaction_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interaction_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleShared_Params', [
-      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_doodle_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_doodle_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_channel', 16, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -2243,7 +2243,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRequest = mojo.internal.bin
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page.mojom.Page_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.new_tab_page.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.new_tab_page.mojom.ThemeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2267,7 +2267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec, 'new_tab_page.mojom.Page_SetPromo_Params', [
-      mojo.internal.StructField('arg_promo', 0, 0, mojo.internal.bindings.new_tab_page.mojom.PromoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_promo', 0, 0, mojo.internal.bindings.new_tab_page.mojom.PromoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

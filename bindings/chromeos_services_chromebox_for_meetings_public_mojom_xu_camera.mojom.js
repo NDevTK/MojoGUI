@@ -123,12 +123,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec, 'ash.cfm.mojom.CtrlType', {
       'arg_mapping_ctrl': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec.$,
+        'type': mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec,
         'nullable': false,
       },
       'arg_query_ctrl': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec.$,
+        'type': mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec,
         'nullable': false,
       },
     });
@@ -144,7 +144,7 @@ mojo.internal.Struct(
 // Struct: MenuEntries
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec, 'ash.cfm.mojom.MenuEntries', [
-      mojo.internal.StructField('arg_menu_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_menu_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec, 'ash.cfm.mojom.ControlMapping', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_guid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_menu_entries', 16, 0, mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_menu_entries', 16, 0, mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_v4l2_type', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_data_type', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -189,7 +189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_MapCtrl_Params', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mapping_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mapping_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -203,7 +203,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_Params', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fn', 16, 0, mojo.internal.bindings.ash.cfm.mojom.GetFnSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fn', 16, 0, mojo.internal.bindings.ash.cfm.mojom.GetFnSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

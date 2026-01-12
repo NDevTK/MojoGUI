@@ -77,7 +77,7 @@ mojo.internal.bindings.network.mojom.SiteForCookiesSpec = { $: {} };
 // Struct: SiteForCookies
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SiteForCookiesSpec, 'network.mojom.SiteForCookies', [
-      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_schemefully_same', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

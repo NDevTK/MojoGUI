@@ -122,20 +122,20 @@ mojo.internal.bindings.app_home.mojom.AppType = {
 // Struct: AppInfo
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.AppInfoSpec, 'app_home.mojom.AppInfo', [
-      mojo.internal.StructField('arg_app_type', 0, 0, mojo.internal.bindings.app_home.mojom.AppTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_run_on_os_login_mode', 40, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_store_page_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_may_show_run_on_os_login_mode', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_toggle_run_on_os_login_mode', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_locally_installed', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_open_in_window', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_uninstall', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_store_page_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_type', 40, 0, mojo.internal.bindings.app_home.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_run_on_os_login_mode', 44, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_may_show_run_on_os_login_mode', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_toggle_run_on_os_login_mode', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_locally_installed', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_open_in_window', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_uninstall', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: ClickEvent
 mojo.internal.Struct(
@@ -324,7 +324,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec, 'app_home.mojom.PageHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('arg_app_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.app_home.mojom.AppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.app_home.mojom.AppInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -365,14 +365,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec, 'app_home.mojom.PageHandler_LaunchApp_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_event', 8, 0, mojo.internal.bindings.app_home.mojom.ClickEventSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_click_event', 8, 0, mojo.internal.bindings.app_home.mojom.ClickEventSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec, 'app_home.mojom.PageHandler_SetRunOnOsLoginMode_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_run_on_os_login_mode', 8, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_run_on_os_login_mode', 8, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -390,7 +390,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec, 'app_home.mojom.PageHandler_SetUserDisplayMode_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_mode', 8, 0, mojo.internal.bindings.web_app.mojom.UserDisplayModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_mode', 8, 0, mojo.internal.bindings.web_app.mojom.UserDisplayModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -971,19 +971,19 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRequest = mojo.internal.binding
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec, 'app_home.mojom.Page_AddApp_Params', [
-      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec, 'app_home.mojom.Page_RemoveApp_Params', [
-      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec, 'app_home.mojom.Page_UpdateApp_Params', [
-      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 0, 0, mojo.internal.bindings.app_home.mojom.AppInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

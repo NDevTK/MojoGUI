@@ -81,13 +81,13 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsS
 // Interface: VideoDecodeStatsRecorder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.bindings.media.mojom.PredictionTargetsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.bindings.media.mojom.PredictionTargetsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

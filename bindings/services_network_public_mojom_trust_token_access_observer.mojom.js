@@ -88,17 +88,17 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec, 'network.mojom.TrustTokenAccessDetails', {
       'arg_issuance': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.network.mojom.TrustTokenIssuanceDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenIssuanceDetailsSpec,
         'nullable': false,
       },
       'arg_redemption': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.TrustTokenRedemptionDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenRedemptionDetailsSpec,
         'nullable': false,
       },
       'arg_signing': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.network.mojom.TrustTokenSigningDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenSigningDetailsSpec,
         'nullable': false,
       },
     });
@@ -106,8 +106,8 @@ mojo.internal.Union(
 // Struct: TrustTokenIssuanceDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenIssuanceDetailsSpec, 'network.mojom.TrustTokenIssuanceDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issuer', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -115,8 +115,8 @@ mojo.internal.Struct(
 // Struct: TrustTokenRedemptionDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenRedemptionDetailsSpec, 'network.mojom.TrustTokenRedemptionDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issuer', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 // Struct: TrustTokenSigningDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenSigningDetailsSpec, 'network.mojom.TrustTokenSigningDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_blocked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

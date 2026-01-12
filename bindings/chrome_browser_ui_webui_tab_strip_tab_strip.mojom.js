@@ -128,24 +128,24 @@ mojo.internal.bindings.tab_strip.mojom.Page_ThemeChanged_ParamsSpec = { $: {} };
 // Struct: Tab
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.TabSpec, 'tab_strip.mojom.Tab', [
-      mojo.internal.StructField('arg_alert_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active_favicon_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_alert_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active_favicon_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_group_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network_state', 32, 0, mojo.internal.bindings.tabs.mojom.TabNetworkStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_blocked', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_crashed', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_default_favicon', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_pinned', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_hide_throbber', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_icon', 64, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_network_state', 56, 0, mojo.internal.bindings.tabs.mojom.TabNetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_crashed', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_default_favicon', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_hide_throbber', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_icon', 60, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: TabGroupVisualData
 mojo.internal.Struct(
@@ -332,7 +332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec, 'tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.tab_strip.mojom.TabGroupVisualDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.tab_strip.mojom.TabGroupVisualDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec, 'tab_strip.mojom.PageHandler_GetTabs_ResponseParams', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip.mojom.TabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip.mojom.TabSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1362,7 +1362,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec, 'tab_strip.mojom.Page_TabGroupVisualsChanged_Params', [
       mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_group', 8, 0, mojo.internal.bindings.tab_strip.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_group', 8, 0, mojo.internal.bindings.tab_strip.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1395,7 +1395,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.Page_TabCreated_ParamsSpec, 'tab_strip.mojom.Page_TabCreated_Params', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_strip.mojom.TabSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_strip.mojom.TabSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1428,7 +1428,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip.mojom.Page_TabUpdated_ParamsSpec, 'tab_strip.mojom.Page_TabUpdated_Params', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_strip.mojom.TabSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_strip.mojom.TabSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

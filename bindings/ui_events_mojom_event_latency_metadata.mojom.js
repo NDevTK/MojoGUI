@@ -78,8 +78,8 @@ mojo.internal.bindings.ui.mojom.EventLatencyMetadataSpec = { $: {} };
 // Struct: EventLatencyMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.EventLatencyMetadataSpec, 'ui.mojom.EventLatencyMetadata', [
-      mojo.internal.StructField('arg_arrived_in_browser_main_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrolls_blocking_touch_dispatched_to_renderer', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dispatched_to_renderer', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_arrived_in_browser_main_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrolls_blocking_touch_dispatched_to_renderer', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dispatched_to_renderer', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

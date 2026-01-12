@@ -95,7 +95,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_track', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_screenshot', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_task_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -105,7 +105,7 @@ mojo.internal.Struct(
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

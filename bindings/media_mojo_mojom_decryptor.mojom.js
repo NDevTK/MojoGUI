@@ -115,27 +115,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec, 'media.mojom.Decryptor_Decrypt_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 16, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, 'media.mojom.Decryptor_Decrypt_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec, 'media.mojom.Decryptor_CancelDecrypt_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -147,7 +147,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,40 +159,40 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_Params', [
-      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioBufferSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_buffers', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_Params', [
-      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frame', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_releaser', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_frame', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_releaser', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec, 'media.mojom.Decryptor_ResetDecoder_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec, 'media.mojom.Decryptor_DeinitializeDecoder_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

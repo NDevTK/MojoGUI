@@ -78,7 +78,7 @@ mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec = { $: {} };
 // Struct: WaylandPresentationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, 'wl.mojom.WaylandPresentationInfo', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

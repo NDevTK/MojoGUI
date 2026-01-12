@@ -82,13 +82,13 @@ mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtension
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

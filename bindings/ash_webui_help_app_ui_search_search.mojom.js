@@ -93,8 +93,8 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = { $
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, 'ash.help_app.mojom.SearchResult', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_path_with_parameters', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -105,9 +105,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, 'ash.help_app.mojom.SearchConcept', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tags', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tag_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_path_with_parameters', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
@@ -283,20 +283,20 @@ mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRequest = mojo.in
 // Interface: SearchHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
-      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

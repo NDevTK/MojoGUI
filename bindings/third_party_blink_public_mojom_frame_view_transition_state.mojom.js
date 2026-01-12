@@ -101,9 +101,9 @@ mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizing = {
 // Struct: ViewTransitionElementLayeredBoxProperties
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, 'blink.mojom.ViewTransitionElementLayeredBoxProperties', [
-      mojo.internal.StructField('arg_content_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_padding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_box_sizing', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_padding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_box_sizing', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -111,17 +111,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec, 'blink.mojom.ViewTransitionElement', [
       mojo.internal.StructField('arg_tag_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_border_box_rect_in_enclosing_layer_css_space', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_viewport_matrix', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overflow_rect_in_layout_space', 24, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_captured_rect_in_layout_space', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_snapshot_id', 40, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_captured_css_properties', 48, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec.$, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_children_css_properties', 56, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec.$, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_border_offset', 64, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_box_rect_in_enclosing_layer_css_space', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_matrix', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overflow_rect_in_layout_space', 24, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_captured_rect_in_layout_space', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_snapshot_id', 40, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_captured_css_properties', 48, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_children_css_properties', 56, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_offset', 64, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_class_list', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_containing_group_name', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_layered_box_properties', 88, 0, mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_layered_box_properties', 88, 0, mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_paint_order', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 112]]);
@@ -129,10 +129,10 @@ mojo.internal.Struct(
 // Struct: ViewTransitionState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, 'blink.mojom.ViewTransitionState', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_transition_token', 8, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_snapshot_root_size_at_capture', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframe_snapshot_id', 24, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_transition_token', 8, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_snapshot_root_size_at_capture', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframe_snapshot_id', 24, 0, mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_id_to_auto_name_map', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_pixel_ratio', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_next_element_resource_id', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),

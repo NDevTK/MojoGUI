@@ -170,16 +170,16 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = 
 // Struct: HelpContent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec, 'ash.os_feedback_ui.mojom.HelpContent', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SearchRequest
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec, 'ash.os_feedback_ui.mojom.SearchRequest', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 // Struct: SearchResponse
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec, 'ash.os_feedback_ui.mojom.SearchResponse', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_total_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -197,7 +197,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec, 'ash.os_feedback_ui.mojom.FeedbackContext', [
       mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_autofill_metadata', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_extra_diagnostics', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_category_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -212,17 +212,17 @@ mojo.internal.Struct(
 // Struct: AttachedFile
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec, 'ash.os_feedback_ui.mojom.AttachedFile', [
-      mojo.internal.StructField('arg_file_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Report
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec, 'ash.os_feedback_ui.mojom.Report', [
-      mojo.internal.StructField('arg_feedback_context', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attached_file', 16, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_feedback_context', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attached_file', 16, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_include_system_logs_and_histograms', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_include_screenshot', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_contact_user_consent_granted', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -235,13 +235,13 @@ mojo.internal.Struct(
 // Interface: HelpContentProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -419,7 +419,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParams', [
-      mojo.internal.StructField('arg_feedback_context', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback_context', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -436,13 +436,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SendReportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.SendReportStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -474,25 +474,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_Params', [
-      mojo.internal.StructField('arg_exit_path', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exit_path', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params', [
-      mojo.internal.StructField('arg_outcome', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outcome', 0, 0, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

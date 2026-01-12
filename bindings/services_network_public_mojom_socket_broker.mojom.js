@@ -83,26 +83,26 @@ mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParams
 // Interface: SocketBroker
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [
-      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_ResponseParams', [
-      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_Params', [
-      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_ResponseParams', [
-      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

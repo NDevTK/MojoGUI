@@ -83,25 +83,25 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponsePa
 // Interface: ImageTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

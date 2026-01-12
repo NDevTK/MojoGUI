@@ -112,7 +112,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabPageType = {
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec, 'new_tab_footer.mojom.ManagementNotice', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_bitmap_data_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_bitmap_data_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec, 'new_tab_footer.mojom.BackgroundAttribution', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -325,13 +325,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -861,20 +861,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_Params', [
-      mojo.internal.StructField('arg_notice', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_notice', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_Params', [
-      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_customize_chrome', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_customize_chrome', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_Params', [
-      mojo.internal.StructField('arg_background_image_attribution', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

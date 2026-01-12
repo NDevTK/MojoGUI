@@ -113,8 +113,8 @@ mojo.internal.Struct(
 // Struct: SessionRequestedRecord
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec, 'webxr.mojom.SessionRequestedRecord', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.XRSessionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requested_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.XRSessionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requested_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -122,10 +122,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec, 'webxr.mojom.SessionRejectedRecord', [
       mojo.internal.StructField('arg_trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_reason', 8, 0, mojo.internal.bindings.device.mojom.RequestSessionErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rejected_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_reason_description', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rejected_features', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_rejected_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_reason_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rejected_features', 24, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_reason', 32, 0, mojo.internal.bindings.device.mojom.RequestSessionErrorSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -133,8 +133,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec, 'webxr.mojom.SessionStartedRecord', [
       mojo.internal.StructField('arg_trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_started_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_started_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -142,18 +142,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec, 'webxr.mojom.SessionStoppedRecord', [
       mojo.internal.StructField('arg_trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stopped_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stopped_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RuntimeInfo
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec, 'webxr.mojom.RuntimeInfo', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_features', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ar_blend_mode_supported', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ar_blend_mode_supported', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: WebXrInternalsHandler
 mojo.internal.Struct(
@@ -163,7 +163,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec, 'webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.webxr.mojom.DeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -174,7 +174,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec, 'webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParams', [
-      mojo.internal.StructField('arg_active_runtimes', 0, 0, mojo.internal.Array(mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_runtimes', 0, 0, mojo.internal.Array(mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -447,49 +447,49 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRequest = mojo.internal.
 // Interface: XRInternalsSessionListener
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_Params', [
-      mojo.internal.StructField('arg_session_requested_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_requested_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_Params', [
-      mojo.internal.StructField('arg_session_rejected_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_rejected_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_Params', [
-      mojo.internal.StructField('arg_session_started_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_started_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_Params', [
-      mojo.internal.StructField('arg_session_stopped_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_stopped_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_Params', [
-      mojo.internal.StructField('arg_runtime_added_record', 0, 0, mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_runtime_added_record', 0, 0, mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogFrameData_Params', [
-      mojo.internal.StructField('arg_xrframe_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xrframe_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_Params', [
-      mojo.internal.StructField('arg_xrlogging_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrLogMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xrlogging_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrLogMessageSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

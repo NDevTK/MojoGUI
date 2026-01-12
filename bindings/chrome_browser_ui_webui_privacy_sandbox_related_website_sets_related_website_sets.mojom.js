@@ -94,7 +94,7 @@ mojo.internal.Union(
     mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, 'related_website_sets.mojom.GetRelatedWebsiteSetsResponse', {
       'arg_related_website_sets': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetSpec, false),
         'nullable': false,
       },
       'arg_error_message': {
@@ -108,7 +108,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.related_website_sets.mojom.MemberSpec, 'related_website_sets.mojom.Member', [
       mojo.internal.StructField('arg_site', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.related_website_sets.mojom.SiteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.related_website_sets.mojom.SiteTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetSpec, 'related_website_sets.mojom.RelatedWebsiteSet', [
       mojo.internal.StructField('arg_primary_site', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_member_sites', 8, 0, mojo.internal.Array(mojo.internal.bindings.related_website_sets.mojom.MemberSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_member_sites', 8, 0, mojo.internal.Array(mojo.internal.bindings.related_website_sets.mojom.MemberSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_managed_by_enterprise', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

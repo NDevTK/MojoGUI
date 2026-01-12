@@ -99,7 +99,7 @@ mojo.internal.Union(
     mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec, 'content.mojom.MhtmlOutputHandle', {
       'arg_file_handle': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec,
         'nullable': false,
       },
       'arg_producer_handle': {
@@ -113,8 +113,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, 'content.mojom.SerializeAsMHTMLParams', [
       mojo.internal.StructField('arg_mhtml_boundary_marker', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_handle', 24, 0, mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_mhtml_binary_encoding', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_mhtml_popup_overlay_removal', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -124,14 +124,14 @@ mojo.internal.Struct(
 // Interface: MhtmlFileWriter
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_digests_of_uris_to_skip', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -152,17 +152,17 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec, 'ash.diagnostics.mojom.NetworkTypeProperties', {
       'arg_cellular': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec.$,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec,
         'nullable': false,
       },
       'arg_ethernet': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec.$,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec,
         'nullable': false,
       },
       'arg_wifi': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec.$,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec,
         'nullable': false,
       },
     });
@@ -183,18 +183,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_iccid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_roaming_state', 24, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lock_type', 32, 0, mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_roaming', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_sim_locked', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_roaming_state', 24, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_lock_type', 32, 0, mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_roaming', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sim_locked', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: EthernetStateProperties
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec, 'ash.diagnostics.mojom.EthernetStateProperties', [
-      mojo.internal.StructField('arg_authentication', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_authentication', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -203,24 +203,24 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec, 'ash.diagnostics.mojom.WiFiStateProperties', [
       mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 24, 0, mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: Network
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec, 'ash.diagnostics.mojom.Network', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type_properties', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_observer_guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mac_address', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ip_config', 48, 0, mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type_properties', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ip_config', 32, 0, mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 44, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Interface: NetworkListObserver
 mojo.internal.Struct(
@@ -393,7 +393,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRequest = mojo.i
 // Interface: NetworkStateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec, 'ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_Params', [
-      mojo.internal.StructField('arg_network', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

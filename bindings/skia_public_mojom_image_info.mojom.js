@@ -100,22 +100,22 @@ mojo.internal.bindings.skia.mojom.AlphaType = {
 // Struct: ImageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.ImageInfoSpec, 'skia.mojom.ImageInfo', [
-      mojo.internal.StructField('arg_color_type', 0, 0, mojo.internal.bindings.skia.mojom.ColorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alpha_type', 8, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_transfer_function', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_color_to_xyz_matrix', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_width', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_transfer_function', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_to_xyz_matrix', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_type', 16, 0, mojo.internal.bindings.skia.mojom.ColorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alpha_type', 20, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: BitmapN32ImageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec, 'skia.mojom.BitmapN32ImageInfo', [
-      mojo.internal.StructField('arg_alpha_type', 0, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_transfer_function', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_color_to_xyz_matrix', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_transfer_function', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_to_xyz_matrix', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_alpha_type', 16, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

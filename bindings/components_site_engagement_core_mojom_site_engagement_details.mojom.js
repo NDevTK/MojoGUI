@@ -84,7 +84,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSi
 // Struct: SiteEngagementDetails
 mojo.internal.Struct(
     mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, 'site_engagement.mojom.SiteEngagementDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_base_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_installed_bonus', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -99,13 +99,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);

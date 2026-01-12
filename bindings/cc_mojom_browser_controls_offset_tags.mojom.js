@@ -78,8 +78,8 @@ mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec = { $: {} };
 // Struct: BrowserControlsOffsetTags
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec, 'cc.mojom.BrowserControlsOffsetTags', [
-      mojo.internal.StructField('arg_top_controls_offset_tag', 0, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_offset_tag', 8, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_offset_tag', 16, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_offset_tag', 0, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_offset_tag', 8, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_offset_tag', 16, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

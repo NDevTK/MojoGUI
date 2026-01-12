@@ -100,10 +100,10 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSp
 // Struct: RequestParams
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec, 'cert_verifier.mojom.RequestParams', [
-      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ocsp_response', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sct_list', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ocsp_response', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sct_list', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -294,8 +294,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -304,20 +304,20 @@ mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_Params', [
       mojo.internal.StructField('arg_binding', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tls_certificate', 16, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_log_source', 24, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tls_certificate', 16, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_log_source', 24, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParams', [
-      mojo.internal.StructField('arg_verified_cert', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verified_cert', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_SetConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRequest = mo
 // Interface: CertVerifierRequest
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec, 'cert_verifier.mojom.CertVerifierRequest_Complete_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.CertVerifyResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.CertVerifyResultSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

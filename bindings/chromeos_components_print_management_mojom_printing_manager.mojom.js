@@ -148,33 +148,33 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.LaunchSource = {
 // Struct: CompletedPrintJobInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo', [
-      mojo.internal.StructField('arg_completion_status', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_completion_status', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ActivePrintJobInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo', [
-      mojo.internal.StructField('arg_active_state', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printed_pages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_printed_pages', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_active_state', 4, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: PrintJobInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.PrintJobInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_printer_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_uri', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_error_code', 48, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_completed_info', 56, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_active_print_job_info', 64, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_number_of_pages', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_uri', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_completed_info', 48, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active_print_job_info', 56, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_number_of_pages', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_error_code', 68, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Interface: PrintJobsObserver
 mojo.internal.Struct(
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Params', [
-      mojo.internal.StructField('arg_print_job', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_print_job', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -411,7 +411,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParams', [
-      mojo.internal.StructField('arg_print_jobs', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_print_jobs', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
 // Interface: PrintManagementHandler
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.LaunchSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.printing.printing_manager.mojom.LaunchSourceSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -80,11 +80,11 @@ mojo.internal.bindings.storage.mojom.BucketInfoSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BucketInfoSpec, 'storage.mojom.BucketInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_key', 8, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 8, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiration', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiration', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_quota', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_durability', 40, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_persistent', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_durability', 40, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_persistent', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);

@@ -86,7 +86,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaE
 // Struct: MediaEngagementScoreDetails
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsSpec, 'media.mojom.MediaEngagementScoreDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_last_media_playback_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_visits', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -121,7 +121,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -132,7 +132,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.MediaEngagementConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.MediaEngagementConfigSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

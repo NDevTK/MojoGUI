@@ -690,7 +690,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRequest = mojo.inter
 // Interface: AudioOutputStreamProvider
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec, 'media.mojom.AudioOutputStreamProvider_Acquire_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -859,7 +859,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRequest = mojo.inter
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec, 'media.mojom.AudioOutputStreamProviderClient_Created_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

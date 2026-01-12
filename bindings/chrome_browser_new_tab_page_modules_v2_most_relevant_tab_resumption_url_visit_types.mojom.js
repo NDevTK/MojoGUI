@@ -109,24 +109,24 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSource = {
 // Struct: Decoration
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec, 'ntp.most_relevant_tab_resumption.mojom.Decoration', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_string', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: URLVisit
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, 'ntp.most_relevant_tab_resumption.mojom.URLVisit', [
-      mojo.internal.StructField('arg_form_factor', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoration', 40, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url_key', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_training_request_id', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_known_to_sync', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_session_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoration', 24, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url_key', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_training_request_id', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_form_factor', 64, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 68, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_known_to_sync', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 88]]);

@@ -95,12 +95,12 @@ mojo.internal.Union(
     mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec, 'paint_preview.mojom.SerializedRecording', {
       'arg_file': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec,
         'nullable': false,
       },
       'arg_buffer': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.BigBufferSpec,
         'nullable': false,
       },
     });

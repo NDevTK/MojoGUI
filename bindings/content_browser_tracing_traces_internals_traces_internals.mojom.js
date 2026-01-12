@@ -164,30 +164,30 @@ mojo.internal.bindings.traces_internals.mojom.TracingScenarioState = {
 // Struct: ClientTraceReport
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec, 'traces_internals.mojom.ClientTraceReport', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scenario_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_upload_rule_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_state', 40, 0, mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_reason', 56, 0, mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_rule_value_$value', 64, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_upload_rule_value_$flag', originalFieldName: 'arg_upload_rule_value' }),
-      mojo.internal.StructField('arg_upload_rule_value_$flag', 68, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_upload_rule_value_$value', originalFieldName: 'arg_upload_rule_value' }),
-      mojo.internal.StructField('arg_has_trace_content', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_rule_value_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_upload_rule_value_$flag', originalFieldName: 'arg_upload_rule_value' }),
+      mojo.internal.StructField('arg_upload_state', 52, 0, mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_reason', 56, 0, mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_rule_value_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_upload_rule_value_$value', originalFieldName: 'arg_upload_rule_value' }),
+      mojo.internal.StructField('arg_has_trace_content', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: Scenario
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.ScenarioSpec, 'traces_internals.mojom.Scenario', [
       mojo.internal.StructField('arg_scenario_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_state', 16, 0, mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_local_scenario', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_current_state', 16, 0, mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_local_scenario', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: TraceCategory
 mojo.internal.Struct(
@@ -370,10 +370,10 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryReque
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec, 'traces_internals.mojom.PageHandler_StartTraceSession_Params', [
-      mojo.internal.StructField('arg_config_pb', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_privacy_filters', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_config_pb', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_privacy_filters', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_StartTraceSession_ResponseParams', [
@@ -388,10 +388,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParams', [
-      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec, 'traces_internals.mojom.PageHandler_StopTraceSession_Params', [
@@ -411,7 +411,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParams', [
-      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -435,13 +435,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParams', [
-      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_DeleteSingleTrace_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -464,7 +464,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_UserUploadSingleTrace_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -476,15 +476,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_DownloadTrace_Params', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_DownloadTrace_ResponseParams', [
-      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec, 'traces_internals.mojom.PageHandler_GetAllScenarios_Params', [
@@ -493,7 +493,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ScenarioSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ScenarioSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -523,9 +523,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_Params', [
-      mojo.internal.StructField('arg_config_pb', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config_pb', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParams', [
@@ -569,7 +569,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParams', [
-      mojo.internal.StructField('arg_shield_icon_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shield_icon_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1708,10 +1708,10 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRequest = mojo.internal
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec, 'traces_internals.mojom.Page_OnTraceComplete_Params', [
-      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trace', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.traces_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {

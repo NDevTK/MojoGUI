@@ -81,7 +81,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagn
 // Interface: AshEventReporter
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec, 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

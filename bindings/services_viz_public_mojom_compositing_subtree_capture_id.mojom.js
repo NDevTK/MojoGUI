@@ -78,6 +78,6 @@ mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec = { $: {} };
 // Struct: SubtreeCaptureId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec, 'viz.mojom.SubtreeCaptureId', [
-      mojo.internal.StructField('arg_subtree_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subtree_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

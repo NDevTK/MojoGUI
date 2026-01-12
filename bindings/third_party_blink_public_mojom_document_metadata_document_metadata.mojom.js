@@ -84,9 +84,9 @@ mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSp
 // Struct: WebPage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPageSpec, 'blink.mojom.WebPage', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.EntitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.EntitySpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -98,7 +98,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.blink.mojom.WebPageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.blink.mojom.WebPageSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

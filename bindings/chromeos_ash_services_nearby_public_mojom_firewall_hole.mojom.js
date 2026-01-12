@@ -201,7 +201,7 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleRequest = mojo.internal.binding
 // Interface: FirewallHoleFactory
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

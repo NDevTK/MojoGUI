@@ -307,8 +307,8 @@ mojo.internal.bindings.chrome.mojom.ZipListenerRequest = mojo.internal.bindings.
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec, 'chrome.mojom.ZipFileCreator_CreateZipFile_Params', [
       mojo.internal.StructField('arg_src_dir', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_zip_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_zip_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);

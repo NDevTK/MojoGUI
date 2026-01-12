@@ -100,23 +100,23 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_Para
 // Struct: LayerContextSettings
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec, 'viz.mojom.LayerContextSettings', [
-      mojo.internal.StructField('arg_scrollbar_animator', 0, 0, mojo.internal.bindings.cc.mojom.ScrollbarAnimatorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollbar_fade_delay', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollbar_fade_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollbar_thinning_duration', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_occlusion_tracking_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_damaged_frame_limit', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_idle_thickness_scale', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_show_threshold', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_hide_threshold', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_draw_mode_is_gpu', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_early_damage_check', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_edge_anti_aliasing', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_backface_visibility_interop', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_fluent_scrollbar', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_fluent_overlay_scrollbar', 56, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_fade_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_fade_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_thinning_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_occlusion_tracking_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_damaged_frame_limit', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_animator', 36, 0, mojo.internal.bindings.cc.mojom.ScrollbarAnimatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_idle_thickness_scale', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_show_threshold', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_hide_threshold', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_mode_is_gpu', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_early_damage_check', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_edge_anti_aliasing', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_backface_visibility_interop', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_fluent_scrollbar', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_fluent_overlay_scrollbar', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: CompositorFrameSinkParams
 mojo.internal.Struct(
@@ -130,7 +130,7 @@ mojo.internal.Struct(
 // Interface: CompositorFrameSink
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec, 'viz.mojom.CompositorFrameSink_SetParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,16 +142,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec, 'viz.mojom.CompositorFrameSink_SubmitCompositorFrame_Params', [
-      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_test_region_list', 16, 0, mojo.internal.bindings.viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_region_list', 16, 0, mojo.internal.bindings.viz.mojom.HitTestRegionListSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_submit_time', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec, 'viz.mojom.CompositorFrameSink_DidNotProduceFrame_Params', [
-      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -162,14 +162,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec, 'viz.mojom.CompositorFrameSink_BindLayerContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.viz.mojom.PendingLayerContextSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.viz.mojom.PendingLayerContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec, 'viz.mojom.CompositorFrameSink_SetThreads_Params', [
-      mojo.internal.StructField('arg_threads', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_threads', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -600,15 +600,15 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRequest = mojo.internal.bind
 // Interface: CompositorFrameSinkClient
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec, 'viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_Params', [
-      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec, 'viz.mojom.CompositorFrameSinkClient_OnBeginFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -620,7 +620,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec, 'viz.mojom.CompositorFrameSinkClient_ReclaimResources_Params', [
-      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -632,7 +632,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec, 'viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_Params', [
-      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

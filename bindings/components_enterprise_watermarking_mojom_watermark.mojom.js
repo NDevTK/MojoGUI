@@ -78,7 +78,7 @@ mojo.internal.bindings.watermark.mojom.WatermarkBlockSpec = { $: {} };
 // Struct: WatermarkBlock
 mojo.internal.Struct(
     mojo.internal.bindings.watermark.mojom.WatermarkBlockSpec, 'watermark.mojom.WatermarkBlock', [
-      mojo.internal.StructField('arg_serialized_skpicture', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serialized_skpicture', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

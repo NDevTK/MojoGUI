@@ -91,38 +91,38 @@ mojo.internal.bindings.network.mojom.SiteType = {
 // Struct: FirstPartySetEntry
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, 'network.mojom.FirstPartySetEntry', [
-      mojo.internal.StructField('arg_primary', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site_type', 8, 0, mojo.internal.bindings.network.mojom.SiteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_primary', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_type', 8, 0, mojo.internal.bindings.network.mojom.SiteTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FirstPartySetMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec, 'network.mojom.FirstPartySetMetadata', [
-      mojo.internal.StructField('arg_frame_entry', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_entry', 8, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_entry', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_entry', 8, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FirstPartySetEntryOverride
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec, 'network.mojom.FirstPartySetEntryOverride', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FirstPartySetsContextConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec, 'network.mojom.FirstPartySetsContextConfig', [
-      mojo.internal.StructField('arg_customizations', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_aliases', 8, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_customizations', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_aliases', 8, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FirstPartySetsCacheFilter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec, 'network.mojom.FirstPartySetsCacheFilter', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, mojo.internal.Int64, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_run_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -130,9 +130,9 @@ mojo.internal.Struct(
 // Struct: GlobalFirstPartySets
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec, 'network.mojom.GlobalFirstPartySets', [
-      mojo.internal.StructField('arg_public_sets_version', 0, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sets', 8, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_aliases', 16, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, mojo.internal.bindings.network.mojom.SchemefulSiteSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manual_config', 24, 0, mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_sets_version', 0, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sets', 8, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_aliases', 16, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manual_config', 24, 0, mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

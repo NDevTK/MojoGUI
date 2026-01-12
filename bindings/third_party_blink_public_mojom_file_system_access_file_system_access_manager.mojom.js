@@ -112,17 +112,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, 'blink.mojom.TypeSpecificFilePickerOptionsUnion', {
       'arg_open_file_picker_options': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec,
         'nullable': false,
       },
       'arg_save_file_picker_options': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec,
         'nullable': false,
       },
       'arg_directory_picker_options': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec,
         'nullable': false,
       },
     });
@@ -132,7 +132,7 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, 'blink.mojom.FilePickerStartInOptionsUnion', {
       'arg_well_known_directory': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec.$,
+        'type': mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec,
         'nullable': false,
       },
       'arg_directory_token': {
@@ -145,7 +145,7 @@ mojo.internal.Union(
 // Struct: ChooseFileSystemEntryAcceptsOption
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, 'blink.mojom.ChooseFileSystemEntryAcceptsOption', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_types', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 // Struct: AcceptsTypesInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, 'blink.mojom.AcceptsTypesInfo', [
-      mojo.internal.StructField('arg_accepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_include_accepts_all', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -162,7 +162,7 @@ mojo.internal.Struct(
 // Struct: OpenFilePickerOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec, 'blink.mojom.OpenFilePickerOptions', [
-      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_can_select_multiple_files', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 // Struct: SaveFilePickerOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec, 'blink.mojom.SaveFilePickerOptions', [
-      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_suggested_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -178,18 +178,18 @@ mojo.internal.Struct(
 // Struct: DirectoryPickerOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec, 'blink.mojom.DirectoryPickerOptions', [
-      mojo.internal.StructField('arg_permission_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FilePickerOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, 'blink.mojom.FilePickerOptions', [
-      mojo.internal.StructField('arg_type_specific_options', 0, 0, mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_starting_directory_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_in_options', 16, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_start_in_options', 0, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type_specific_options', 16, 0, mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_starting_directory_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: FileSystemAccessManager
 mojo.internal.Struct(
@@ -199,7 +199,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -212,21 +212,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -252,8 +252,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

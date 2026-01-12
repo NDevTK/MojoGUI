@@ -80,7 +80,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged
 // Interface: ServiceWorkerWorkerClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

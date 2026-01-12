@@ -114,20 +114,20 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReason 
 // Struct: ActivationState
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec, 'subresource_filter.mojom.ActivationState', [
-      mojo.internal.StructField('arg_activation_level', 0, 0, mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_reason', 8, 0, mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_filtering_disabled_for_document', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_generic_blocking_rules_disabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_measure_performance', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_logging', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_level', 0, 0, mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_reason', 4, 0, mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_filtering_disabled_for_document', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_generic_blocking_rules_disabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_measure_performance', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_logging', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: DocumentLoadStatistics
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec, 'subresource_filter.mojom.DocumentLoadStatistics', [
-      mojo.internal.StructField('arg_evaluation_total_wall_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_evaluation_total_cpu_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_evaluation_total_wall_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_evaluation_total_cpu_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_num_loads_total', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_num_loads_evaluated', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_num_loads_matching_rules', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 // Interface: SubresourceFilterRulesetObserver
 mojo.internal.Struct(
     mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_Params', [
-      mojo.internal.StructField('arg_ruleset_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ruleset_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

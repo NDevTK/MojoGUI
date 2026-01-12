@@ -85,7 +85,7 @@ mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponsePa
 // Struct: EventFilteringInfo
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_window_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_instance_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -98,9 +98,9 @@ mojo.internal.Struct(
 // Struct: DispatchEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
-      mojo.internal.StructField('arg_host_id', 0, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_id', 0, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filtering_info', 16, 0, mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filtering_info', 16, 0, mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_worker_thread_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_event_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_user_gesture', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -110,8 +110,8 @@ mojo.internal.Struct(
 // Interface: EventDispatcher
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

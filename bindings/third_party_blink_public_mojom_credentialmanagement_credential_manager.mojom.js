@@ -114,19 +114,19 @@ mojo.internal.bindings.blink.mojom.CredentialManagerError = {
 // Struct: CredentialInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CredentialInfoSpec, 'blink.mojom.CredentialInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.CredentialTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_federation', 40, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_federation', 32, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: CredentialManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec, 'blink.mojom.CredentialManager_Store_Params', [
-      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -147,16 +147,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
-      mojo.internal.StructField('arg_mediation', 0, 0, mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_federations', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_passwords', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_federations', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mediation', 8, 0, mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_passwords', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, 'blink.mojom.CredentialManager_Get_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

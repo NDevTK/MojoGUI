@@ -105,26 +105,26 @@ mojo.internal.bindings.chrome.mojom.PluginStatus = {
 // Struct: PluginInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginInfoSpec, 'chrome.mojom.PluginInfo', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chrome.mojom.PluginStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_plugin', 8, 0, mojo.internal.bindings.content.mojom.WebPluginInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actual_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_identifier', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_plugin', 0, 0, mojo.internal.bindings.content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actual_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_name', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 32, 0, mojo.internal.bindings.chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PluginParam
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginParamSpec, 'chrome.mojom.PluginParam', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PluginHost
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec, 'chrome.mojom.PluginHost_OpenPDF_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostRequest = mojo.internal.bindings.c
 // Interface: PluginAuthHost
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec, 'chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -459,15 +459,15 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostRequest = mojo.internal.bindin
 // Interface: PluginInfoHost
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParams', [
-      mojo.internal.StructField('arg_plugin_info', 0, 0, mojo.internal.bindings.chrome.mojom.PluginInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_plugin_info', 0, 0, mojo.internal.bindings.chrome.mojom.PluginInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

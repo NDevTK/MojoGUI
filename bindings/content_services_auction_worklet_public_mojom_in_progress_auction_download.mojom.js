@@ -79,8 +79,8 @@ mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec = { $
 // Struct: InProgressAuctionDownload
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec, 'auction_worklet.mojom.InProgressAuctionDownload', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoints', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoints', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_request_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
