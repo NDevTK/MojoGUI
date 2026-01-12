@@ -19,8 +19,8 @@ const WelcomeManager = (function () {
                 <code>chrome --enable-blink-features=MojoJS,MojoJSTest</code>
             </li>
             <li>
-                <strong>Option 2: Use a Setup Script</strong><br>
-                For deeper research, use a target like <code>content_shell</code> or a specialized environment that exposes these bindings by default.
+                <strong>Option 2: Developer Builds (Advanced)</strong><br>
+                Use <code>content_shell</code>, a minimal Chromium test browser often used by developers to test Mojo interfaces without full browser security restrictions.
             </li>
         </ul>
         <div class="alert-box">
