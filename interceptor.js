@@ -349,8 +349,8 @@
             if (this.interceptors.has(ifaceName)) return true;
             try {
                 let interceptor;
-                try { interceptor = new MojoInterfaceInterceptor(ifaceName, "process"); }
-                catch (e) { interceptor = new MojoInterfaceInterceptor(ifaceName, "context"); }
+                try { interceptor = new MojoInterfaceInterceptor(ifaceName, "context"); }
+                catch (e) { interceptor = new MojoInterfaceInterceptor(ifaceName, "process"); }
                 interceptor.oninterfacerequest = (e) => this.handleRequest(ifaceName, e.handle);
                 interceptor.start();
                 this.interceptors.set(ifaceName, interceptor);
