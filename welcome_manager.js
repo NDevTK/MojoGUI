@@ -39,10 +39,10 @@ const WelcomeManager = (function () {
 
         <div class="step-card">
             <h4><span class="step-number">⚡</span> How this Tool Works</h4>
-            <p><strong>MojoGUI</strong> monkey-patches the global <code>Mojo.bindInterface</code> function. This allows us to:</p>
+            <p><strong>MojoGUI</strong> uses the <code>MojoInterfaceInterceptor</code> API to capture interface requests relative to the current context. This allows us to:</p>
             <ul>
                 <li><strong>Log:</strong> See every message sent between the page and the browser.</li>
-                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly.</li>
+                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly (<a href="#" onclick="alert('Proxies are created dynamically!')">Dynamic Proxying</a>).</li>
                 <li><strong>Fuzz:</strong> Send custom messages to test browser security.</li>
             </ul>
         </div>
@@ -158,9 +158,16 @@ const WelcomeManager = (function () {
             safeHTML = safeHTMLImpl;
         }
 
-        // 1. Precise Mojo Detection (Matching app.js)
-        const isMojoNetEnabled = (typeof Mojo !== 'undefined' && Mojo.bindInterface) ||
-            (typeof mojo !== 'undefined' && mojo.bindInterface);
+        // 1. Precise Mojo Detection (Matching app.js & interceptor requirements)
+        // We specifically need MojoInterfaceInterceptor for full functionality
+        const hasMojoSupport = (typeof MojoInterfaceInterceptor !== 'undefined') ||
+            (typeof Mojo !== 'undefined' && Mojo.bindInterface);
+
+        // Priority Check: Detection Failed & No Data
+        if (!hasMojoSupport && (!interfaces || interfaces.length === 0)) {
+            createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
+            return; // Blocking modal, stop here
+        }
 
         // 2. Check Version Tracker
         if (window.VersionTracker) {
@@ -168,25 +175,9 @@ const WelcomeManager = (function () {
 
             if (updates) {
                 if (updates.isFirstVisit) {
-                    // First visit logic
-                    if (!isMojoNetEnabled && (!interfaces || interfaces.length === 0)) {
-                        // Priority 1: Missing Mojo
-                        createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
-                    } else {
-                        // Priority 2: Welcome (Mojo exists OR just viewing dumps)
-                        createModal("👋 Welcome to MojoGUI", WELCOME_HTML);
-                    }
-                } else {
-                    // Changes detected logic
-                    if (updates.added || updates.changed || updates.removed) {
-                        createModal("⚡ What's New", buildWhatsNewHtml(updates));
-                    }
-                }
-            } else {
-                // Not first visit, no changes.
-                // Fallback: If Mojo completely missing on repeat visit?
-                if (!isMojoNetEnabled && (!interfaces || interfaces.length === 0)) {
-                    createModal("⚠️ Mojo Setup Required", ENABLE_GUIDE_HTML);
+                    createModal("👋 Welcome to MojoGUI", WELCOME_HTML);
+                } else if (updates.added || updates.changed || updates.removed) {
+                    createModal("⚡ What's New", buildWhatsNewHtml(updates));
                 }
             }
         }
