@@ -89,11 +89,6 @@
         copyBtn: document.getElementById('copyBtn'),
         executeBtn: document.getElementById('executeBtn'),
 
-        // Results
-        resultsSection: document.getElementById('resultsSection'),
-        executionResults: document.getElementById('executionResults'),
-        clearResultsBtn: document.getElementById('clearResultsBtn'),
-
         // Toast
         toastContainer: document.getElementById('toastContainer'),
 
@@ -108,7 +103,7 @@
         interceptorDetails: document.getElementById('interceptorDetails'),
         codeContainer: document.getElementById('codeContainer'),
         // resultsSection duplicate in original, keeping last
-        resultsSection: document.getElementById('resultsSection'),
+
         clearActivityBtn: document.getElementById('clearActivityBtn'),
 
         // New UI Elements
@@ -141,50 +136,7 @@
         setupEventListeners();
     }
 
-    function getInterceptorFormValues(interceptId) {
-        const inputs = document.querySelectorAll(`.intercept-input[data-id="${interceptId}"]`);
-        const params = [];
 
-        inputs.forEach(input => {
-            const index = parseInt(input.dataset.index);
-            const type = input.dataset.type;
-            let value;
-
-            if (input.type === 'checkbox') {
-                value = input.checked;
-            } else {
-                value = input.value;
-                // Type conversion
-                if (type === 'json' || type.includes('array') || type.includes('map') || type.includes('object')) {
-                    // If empty string, treat as null or empty? 
-                    // Usually for complex types we expect valid JSON
-                    if (value.trim()) {
-                        value = safeParse(value);
-                    } else {
-                        value = null;
-                    }
-                } else if (input.type === 'number') {
-                    value = parseFloat(value);
-                } else if (!input.type || input.type === 'text') {
-                    // Check if it's supposed to be a BigInt (e.g. ends with 'n' or type is likely integer)
-                    // Our safeParse/safeStringify uses '123n' convention.
-                    // If the schema type says int64/uint64, we force BigInt even if user typed plain number.
-                    // If user typed '123n', it becomes BigInt(123).
-                    // If user typed '123' and type is int64, it becomes BigInt(123).
-
-                    const isBigIntType = type && (type.includes('int64') || type.includes('uint64'));
-
-                    if (value.endsWith('n') && /^-?\d+n$/.test(value)) {
-                        value = BigInt(value.slice(0, -1));
-                    } else if (isBigIntType && /^-?\d+$/.test(value)) {
-                        value = BigInt(value);
-                    }
-                }
-            }
-            params[index] = value;
-        });
-        return params;
-    }
 
     function checkMojoAvailability() {
         // Check for both legacy (Mojo) and standard (mojo) namespaces
@@ -302,8 +254,7 @@
         // Reset button
         elements.resetBtn.addEventListener('click', resetParams);
 
-        // Clear results
-        elements.clearResultsBtn.addEventListener('click', clearResults);
+
 
         // Interceptor
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
