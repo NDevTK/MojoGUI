@@ -1216,9 +1216,9 @@
         if (data.proxyId) row.dataset.proxyId = data.proxyId;
 
         // Visual indicator for manual vs intercept
-        let typeIcon = 'ðŸ“¡';
-        if (type === 'MANUAL') typeIcon = 'ðŸ› ï¸';
-        if (type === 'SYSTEM') typeIcon = 'âš ï¸';
+        let typeIcon = '📡';
+        if (type === 'MANUAL') typeIcon = '🛠️';
+        if (type === 'SYSTEM') typeIcon = '⚠️';
 
         let displayStatus = status || 'Pending';
         let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
