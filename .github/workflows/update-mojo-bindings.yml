@@ -526,7 +526,7 @@ jobs:
                           fqn = f"{module}.{leaf_name}"
                           if global_kind_map.get(fqn) == 'interface':
                                return f"{current_ns}.{leaf_name}Remote"
-                          return f"{current_ns}.{leaf_name}Spec.$"
+                          return f"{current_ns}.{leaf_name}Spec"
                   
                   # Explicit FQN?
                   if '.' in clean_name and not clean_name.startswith('mojo.'):
@@ -540,7 +540,7 @@ jobs:
                       if kind == 'interface': suffix = 'Remote' # Use Remote as the type reference usually
                       
                       res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
-                      if kind != 'interface': res_type += '.$'
+                      # Fix: Do not append .$ for non-interface types. StructField expects the Spec wrapper.
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
                       return res_type
@@ -555,7 +555,7 @@ jobs:
                       if kind == 'interface': suffix = 'Remote'
                       
                       res_type = f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
-                      if kind != 'interface': res_type += '.$'
+                      # Fix: Do not append .$ for non-interface types. StructField expects the Spec wrapper.
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
                       return res_type
@@ -694,7 +694,8 @@ jobs:
                       if 'Interface' in p_type: return 8, 8
                       
                       # Pointers (Structs, Arrays, Maps, Unions)
-                      spec_name = p_type.replace('Spec', '')
+                      # Fix: Strip mojo.internal.bindings prefix to match global_kind_map keys
+                      spec_name = p_type.replace('Spec', '').replace('mojo.internal.bindings.', '')
                       kind = global_kind_map.get(spec_name)
                       if kind == 'enum': return 4, 4
                       if kind == 'union': return 16, 8
