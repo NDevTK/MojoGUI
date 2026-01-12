@@ -21,7 +21,7 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 
 ### Option 1: GitHub Pages (Recommended)
 
-Visit the hosted version: `https://ndevtk.github.io/MojoGUI`
+Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 
 ### Option 2: Local Development
 
