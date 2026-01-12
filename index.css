@@ -1011,6 +1011,13 @@ body::before {
 @media (max-width: 1024px) {
 
     /* Switch from App-style (100vh) to Document-style layout on mobile */
+    html,
+    body {
+        overflow: auto;
+        /* Enable scroll on mobile */
+        height: auto;
+    }
+
     .app-container {
         height: auto;
         min-height: 100vh;
@@ -1466,4 +1473,165 @@ input:checked+.switch-slider::before {
 
 .switch-label:hover .switch-slider {
     border-color: var(--border-focus);
+}
+
+/* ========================================
+   Welcome Modal & Dialogs
+   ======================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-highlight);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(20px) scale(0.95);
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-elevated);
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.modal-body {
+    padding: var(--space-lg);
+    overflow-y: auto;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.modal-body h3 {
+    color: var(--text-primary);
+    margin: var(--space-md) 0 var(--space-sm);
+    font-size: 1.1rem;
+}
+
+.modal-body ul {
+    margin-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.modal-body li {
+    margin-bottom: var(--space-xs);
+}
+
+.modal-body code {
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    color: var(--accent-secondary);
+    font-size: 0.85rem;
+}
+
+.modal-footer {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    background: var(--bg-secondary);
+}
+
+.step-card {
+    background: var(--bg-tertiary);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--border-subtle);
+}
+
+.step-card h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.step-number {
+    background: var(--accent-primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.whats-new-item {
+    padding: var(--space-sm);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.whats-new-item:last-child {
+    border-bottom: none;
+}
+
+.whats-new-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-right: var(--space-sm);
+    text-transform: uppercase;
+}
+
+.badge-new {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.badge-changed {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--info);
 }

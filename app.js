@@ -221,6 +221,12 @@
         }
 
         await loadInterfaces();
+
+        // Initialize Welcome/Update Manager
+        if (window.WelcomeManager) {
+            WelcomeManager.init(state.interfaces);
+        }
+
         setupEventListeners();
     }
 
