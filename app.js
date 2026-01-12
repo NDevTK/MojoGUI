@@ -1346,7 +1346,12 @@
                 let isMethodActive = isIfaceActive;
 
                 // If interface is active, check if this specific method is Auto-Forwarded (Ignored)
-                if (isIfaceActive && btnMethod) {
+                // OR if we are in LOG mode (which is effectively Forwarding)
+                const mode = InterceptorManager.getMode(btnIface);
+
+                if (mode === 'LOG') {
+                    isMethodActive = false; // LOG mode = Forwarding
+                } else if (isIfaceActive && btnMethod) {
                     const key = `${btnIface}.${btnMethod}`;
                     if (state.autoForwardMethods.has(key)) {
                         isMethodActive = false;
@@ -1372,17 +1377,26 @@
             showToast(`Started intercepting ${ifaceName}`, 'success');
         } else {
             // Interface is ALREADY ON.
-            // If button says "Stop" (Active) -> We want to Ignore this method (Auto-Forward)
-            // If button says "Intercept" (Inactive) -> We want to Stop Ignoring (Block)
+            const mode = InterceptorManager.getMode(ifaceName);
 
-            if (state.autoForwardMethods.has(key)) {
-                // Was Ignored -> Enable Blocking
+            if (mode === 'LOG') {
+                // In LOG mode (Forwarding). User clicked "Forwarding", so they want to BLOCK (Intercept).
+                // Switch Interface to INTERCEPT mode.
+                InterceptorManager.start(ifaceName, 'INTERCEPT');
+                // Ensure this method is NOT ignored (so it blocks).
                 state.autoForwardMethods.delete(key);
-                showToast(`Resumed intercepting ${methodName}`, 'success');
+                showToast(`Switched ${ifaceName} to Intercept Mode`, 'success');
             } else {
-                // Was Blocking -> Set to Ignore
-                state.autoForwardMethods.add(key);
-                showToast(`Auto-forwarding ${methodName}`, 'info');
+                // Already in INTERCEPT mode. Toggle granular method blocking.
+                if (state.autoForwardMethods.has(key)) {
+                    // Was Ignored -> Enable Blocking
+                    state.autoForwardMethods.delete(key);
+                    showToast(`Resumed intercepting ${methodName}`, 'success');
+                } else {
+                    // Was Blocking -> Set to Ignore
+                    state.autoForwardMethods.add(key);
+                    showToast(`Auto-forwarding ${methodName}`, 'info');
+                }
             }
         }
 
@@ -1457,9 +1471,17 @@
                 (() => {
                     const isIfaceActive = typeof InterceptorManager !== 'undefined' && InterceptorManager.isActive(iface);
                     let isBtnActive = isIfaceActive;
-                    if (isIfaceActive && state.autoForwardMethods.has(`${iface}.${method}`)) {
-                        isBtnActive = false;
+
+                    // Check Mode: LOG mode is Forwarding (Inactive Button)
+                    if (isIfaceActive && typeof InterceptorManager !== 'undefined') {
+                        const mode = InterceptorManager.getMode(iface);
+                        if (mode === 'LOG') {
+                            isBtnActive = false;
+                        } else if (state.autoForwardMethods.has(`${iface}.${method}`)) {
+                            isBtnActive = false;
+                        }
                     }
+
                     return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Blocking' : 'Forwarding'}</button>`;
                 })() :
                 ''}

@@ -1216,8 +1216,8 @@ body::before {
     color: var(--text-primary);
     white-space: pre-wrap;
     word-break: break-all;
-    max-height: 500px;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
 }
 
 .error-text {
@@ -1249,6 +1249,8 @@ body::before {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9rem;
+    table-layout: fixed;
+    /* Enforce strict column widths */
 }
 
 .interceptor-table th {
@@ -1260,6 +1262,38 @@ body::before {
     top: 0;
     color: var(--text-secondary);
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Specific Column Widths */
+.interceptor-table th:nth-child(1),
+.interceptor-table td:nth-child(1) {
+    width: 100px;
+    /* Timestamp */
+}
+
+.interceptor-table th:nth-child(3),
+.interceptor-table td:nth-child(3) {
+    width: 100px;
+    /* Status */
+}
+
+.interceptor-table th:nth-child(4),
+.interceptor-table td:nth-child(4) {
+    width: 110px;
+    /* Action Button */
+    text-align: right;
+}
+
+/* Main Content Column (Name) - Takes remaining space */
+.interceptor-table th:nth-child(2),
+.interceptor-table td:nth-child(2) {
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .interceptor-table td {
@@ -1268,6 +1302,7 @@ body::before {
     color: var(--text-secondary);
     font-family: var(--font-mono);
     font-size: 0.8rem;
+    vertical-align: middle;
 }
 
 .type-icon {
@@ -1358,7 +1393,7 @@ body::before {
 .params-editor {
     width: 100%;
     min-height: 80px;
-    max-height: 400px;
+    max-height: none;
     background: transparent;
     border: none;
     color: var(--text-secondary);
@@ -1383,8 +1418,8 @@ body::before {
     min-width: 0;
     /* Remove fixed max-height, let flexbox handle it if parent is constrained */
     /* Or use a reasonable max-height */
-    max-height: 50vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
