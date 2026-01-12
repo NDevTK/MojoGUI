@@ -23,8 +23,14 @@ const WelcomeManager = (function () {
                 Use <code>content_shell</code>, a minimal Chromium test browser often used by developers to test Mojo interfaces without full browser security restrictions.
             </li>
         </ul>
-        <div class="alert-box">
-             <strong>Why is this needed?</strong> MojoJS is a privileged API usually restricted to WebUI pages. To research standard rendering contexts, you must explicitly enable it via flags.
+        <div class="alert-box" style="border-left-color: #ff4444; background: rgba(255, 68, 68, 0.1);">
+             <strong>⚠️ Security Warning</strong>
+             <p>This tool is designed for **security research purposes only**. MojoJS provides direct access to Chromium's IPC system, which is a privileged interface.</p>
+             <ul style="margin-bottom: 0;">
+                <li>Never enable MojoJS when browsing untrusted websites.</li>
+                <li>The generated code may interact with sensitive browser APIs.</li>
+                <li>Always use in an isolated environment for testing.</li>
+             </ul>
         </div>
     `;
 
