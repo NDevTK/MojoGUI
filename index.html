@@ -65,6 +65,10 @@
                         </svg>
                         Docs
                     </a>
+                    <div class="status-badge" id="mojoStatus">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Checking...</span>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -74,26 +78,13 @@
             <!-- Sidebar - Interface Browser -->
             <aside class="sidebar">
                 <div class="sidebar-header">
-                    <h2>MojoGUI</h2>
-                    <div class="mojo-status" id="mojoStatus">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Checking...</span>
+                    <h2>Interfaces</h2>
+                    <div style="display: flex; gap: 8px;">
+                        <span class="interface-count" id="interfaceCount">0</span>
                     </div>
                 </div>
 
-                <div class="sidebar-actions">
-                    <button id="launchSandboxBtn" class="btn btn-outline full-width"
-                        title="Open a clean sandbox window for testing">
-                        <span class="icon">🚀</span> Launch Sandbox
-                    </button>
-                    <!-- Activity Log Toggle -->
-                    <button id="viewTrafficBtn" class="btn btn-outline full-width" style="margin-top: 5px;">
-                        <span class="icon">📊</span> Activity Log
-                        <span class="badge" id="trafficBadge" style="display:none">0</span>
-                    </button>
-                </div>
-
-                <div class="sidebar-search">
+                <div class="search-box">
                     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8" />
                         <path d="M21 21l-4.35-4.35" />
@@ -217,26 +208,40 @@
             <!-- Code Panel -->
             <aside class="code-panel">
                 <div class="panel-header">
-                    height="16">
-                    <polygon points="5,3 19,12 5,21" />
-                    </svg>
-                    Execute
-                    </button>
+                    <div class="panel-title">
+                        <h3>Generated Code</h3>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="btn btn-icon" id="copyBtn" title="Copy to clipboard">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                height="18">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-primary" id="executeBtn" disabled>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                                height="16">
+                                <polygon points="5,3 19,12 5,21" />
+                            </svg>
+                            Execute
+                        </button>
+                    </div>
                 </div>
-    </div>
 
-    <div class="code-container" id="codeContainer">
-        <pre class="code-block"><code id="generatedCode">// Select an interface and method to generate code</code></pre>
-    </div>
+                <div class="code-container" id="codeContainer">
+                    <pre
+                        class="code-block"><code id="generatedCode">// Select an interface and method to generate code</code></pre>
+                </div>
 
-    <!-- Interceptor Panel (Removed from here) -->
+                <!-- Interceptor Panel (Removed from here) -->
 
-    <!-- Results Section Removed (Now integrated into Traffic Log) -->
-    </aside>
-    </main>
+                <!-- Results Section Removed (Now integrated into Traffic Log) -->
+            </aside>
+        </main>
 
-    <!-- Toast Notifications -->
-    <div class="toast-container" id="toastContainer"></div>
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
     </div>
 
     <!-- Scripts -->
@@ -296,11 +301,11 @@
     </script>
     <script src="bindings/interface_support.js"></script>
     <script src="bindings/index.js"></script>
-    <script src="interceptor.js"></script>
     <script src="parser.js"></script>
-    <script src="welcome_manager.js"></script>
+
+    <script src="interceptor.js"></script>
     <script src="version_tracker.js"></script>
-    <script src="sandbox_manager.js"></script>
+    <script src="welcome_manager.js"></script>
     <script src="app.js"></script>
 </body>
 

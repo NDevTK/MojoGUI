@@ -350,10 +350,7 @@
             try {
                 let interceptor;
                 try { interceptor = new MojoInterfaceInterceptor(ifaceName, "process"); }
-                catch (e) {
-                    console.warn(`[InterceptorManager] "process" scope failed for ${ifaceName}, falling back to context: ${e.message}`);
-                    interceptor = new MojoInterfaceInterceptor(ifaceName, "context");
-                }
+                catch (e) { interceptor = new MojoInterfaceInterceptor(ifaceName, "context"); }
                 interceptor.oninterfacerequest = (e) => this.handleRequest(ifaceName, e.handle);
                 interceptor.start();
                 this.interceptors.set(ifaceName, interceptor);

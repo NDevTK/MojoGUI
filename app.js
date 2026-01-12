@@ -176,7 +176,6 @@
         generatedCode: document.getElementById('generatedCode'),
         copyBtn: document.getElementById('copyBtn'),
         executeBtn: document.getElementById('executeBtn'),
-        executeSandboxBtn: document.getElementById('executeSandboxBtn'),
 
         // Toast
         toastContainer: document.getElementById('toastContainer'),
@@ -198,8 +197,7 @@
         // New UI Elements
         closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
         interfacePanel: document.getElementById('interfacePanel'),
-        paramsPanel: document.getElementById('paramsPanel'),
-        launchSandboxBtn: document.getElementById('launchSandboxBtn')
+        paramsPanel: document.getElementById('paramsPanel')
     };
 
     // ========================================
@@ -346,14 +344,6 @@
 
         // Execute button
         elements.executeBtn.addEventListener('click', executeCode);
-        if (elements.executeSandboxBtn) {
-            elements.executeSandboxBtn.addEventListener('click', executeCodeInSandbox);
-        }
-
-        // Sandbox Launch
-        if (elements.launchSandboxBtn) {
-            elements.launchSandboxBtn.addEventListener('click', () => SandboxManager.launch());
-        }
 
         // Reset button
         elements.resetBtn.addEventListener('click', resetParams);
@@ -571,7 +561,6 @@
         updateGeneratedCode();
 
         elements.executeBtn.disabled = !state.mojoAvailable;
-        if (elements.executeSandboxBtn) elements.executeSandboxBtn.disabled = false; // Always enabled, as sandbox might work even if parent doesn't? No, but let's allow it.
         elements.resetBtn.disabled = false;
     }
 
@@ -1418,21 +1407,6 @@
 
         updateInterceptButtonState(true, ifaceName);
     };
-
-    function executeCodeInSandbox() {
-        const code = elements.generatedCode.innerText;
-        if (!code || code.trim() === '// Select an interface and method to generate code') {
-            showToast('No code to execute', 'error');
-            return;
-        }
-
-        showToast('Sending to Sandbox...', 'info');
-        if (window.SandboxManager) {
-            SandboxManager.execute(code);
-        } else {
-            showToast('Sandbox Manager not loaded', 'error');
-        }
-    }
 
     function clearActivityLog() {
         elements.interceptorTableBody.innerHTML = '';
