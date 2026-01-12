@@ -84,13 +84,16 @@ const WelcomeManager = (function () {
         return html;
     }
 
+    // --- External Security Helpers ---
+    let safeHTML = (html) => html; // Default fallback
+
     // --- DOM Helpers ---
 
     function createModal(title, contentHtml) {
         const overlay = document.createElement('div');
         overlay.className = 'modal-overlay';
 
-        overlay.innerHTML = `
+        const htmlString = `
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>${title}</h2>
@@ -104,6 +107,9 @@ const WelcomeManager = (function () {
                 </div>
             </div>
         `;
+
+        // Use injected safeHTML function
+        overlay.innerHTML = safeHTML(htmlString);
 
         document.body.appendChild(overlay);
 
@@ -132,7 +138,11 @@ const WelcomeManager = (function () {
 
     // --- Public API ---
 
-    function init(interfaces) {
+    function init(interfaces, safeHTMLImpl) {
+        // Inject security helper if provided
+        if (safeHTMLImpl) {
+            safeHTML = safeHTMLImpl;
+        }
         // 1. Check if Mojo exists
         // Note: We check window.Mojo, but sometimes it's under window.chrome.mojo etc.
         // Assuming global Mojo for this tool per existing codebase.
