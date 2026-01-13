@@ -1264,7 +1264,7 @@ jobs:
                   js_code += "    ]);\n"
                   js_code += "    ordinals.forEach((ord, idx) => {\n"
                   js_code += "      this.ordinalMap.set(ord, idx); // Scrambled/Explicit\n"
-                  js_code += "      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)\n"
+                  
                   js_code += "    });\n"
                   js_code += "    console.log('[GeneratedReceiver] Constructed for ' + this.impl);\n"
                   js_code += "  }\n"
