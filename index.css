@@ -262,10 +262,16 @@ body::before {
 }
 
 .status-badge.logged .status-dot,
-.status-dot.logged {
+.status-dot.logged,
+.status-dot.forwarded {
     background: var(--info);
     animation: none;
     box-shadow: 0 0 5px var(--info);
+}
+
+.status-dot.dropped {
+    background: var(--text-tertiary);
+    animation: none;
 }
 
 @keyframes pulse {

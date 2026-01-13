@@ -1517,7 +1517,7 @@
         if (row) {
             const statusCell = row.cells[2];
             let displayStatus = status;
-            let statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
+            let statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : (status === 'Forwarded' ? 'logged' : ''));
             let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
 
             // Preserve 'Logged' status visual
@@ -1727,7 +1727,8 @@
         if (row) row.classList.add('active');
 
         // Show details with action buttons
-        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error') && !row.cells[2].innerHTML.includes('Logged');
+        // Show details with action buttons
+        const isPending = detail.status === 'Pending';
         const isManual = detail.type === 'MANUAL';
 
         const methodDef = findMethodDefinition(iface, method);
@@ -1858,7 +1859,10 @@
         if (drop) {
             // We need to call resumeCall on the proxy
             const proxy = MojoProxyRegistry.get(proxyId);
-            if (proxy) proxy.resumeCall(id, null, true);
+            if (proxy) {
+                proxy.resumeCall(id, null, true);
+                updateActivityRow(id, 'Dropped');
+            }
         } else {
             const proxy = MojoProxyRegistry.get(proxyId);
             if (proxy) {
@@ -1867,6 +1871,9 @@
                 const restoredParams = reconcileKeys(params, originalParams);
 
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
+                // Update UI immediately
+                updateActivityRow(id, 'Forwarded');
+
                 // Update history with modified params
                 if (row && row.__details) {
                     row.__details.params = restoredParams;
