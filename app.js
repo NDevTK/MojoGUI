@@ -86,7 +86,6 @@
                 const fileEntry = data.files.find(f => f.filename === filename);
 
                 if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
-                    console.groupCollapsed(`[MojoGUI] Loading dependencies for ${filename}`);
                     const loadPromises = fileEntry.imports.map(async (importPath) => {
                         // Improved matching logic:
                         // 1. Exact match
@@ -121,7 +120,6 @@
                         // Fail hard is safer to avoid confusing TypeErrors.
                         throw e;
                     }
-                    console.groupEnd();
                 }
 
                 return new Promise((resolve, reject) => {
