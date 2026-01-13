@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FrameVisibilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FrameLifecycleStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FrameVisibilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FrameLifecycleStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: FrameVisibility
 mojo.internal.bindings.blink.mojom.FrameVisibility = {

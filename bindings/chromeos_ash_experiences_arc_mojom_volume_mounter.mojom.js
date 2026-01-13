@@ -122,8 +122,8 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.arc.mojom.MountEventSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.MountEventSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.MountPointInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VolumeMounterHost = {};
 mojo.internal.bindings.arc.mojom.VolumeMounterHostSpec = { $ : {} };

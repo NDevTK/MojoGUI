@@ -125,7 +125,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.HitTestResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.HitTestResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost = {};
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostSpec = { $ : {} };

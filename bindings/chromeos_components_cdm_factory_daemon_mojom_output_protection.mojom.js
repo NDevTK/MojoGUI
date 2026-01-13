@@ -122,8 +122,8 @@
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection = {};
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection.$interfaceName = 'chromeos.cdm.mojom.OutputProtection';

@@ -122,8 +122,8 @@
 mojo.internal.bindings.access_code_cast.mojom = mojo.internal.bindings.access_code_cast.mojom || {};
 mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 
-mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory.$interfaceName = 'access_code_cast.mojom.PageHandlerFactory';

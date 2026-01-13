@@ -122,7 +122,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GeopositionResultSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GeopositionSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GeopositionErrorSpec = { $: {} };

@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
 
-mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WifiSecurityType
 mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityType = {

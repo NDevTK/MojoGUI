@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_health
 mojo.internal.bindings.ash.cros_healthd.internal = mojo.internal.bindings.ash.cros_healthd.internal || {};
 mojo.internal.bindings.ash.cros_healthd.internal.mojom = mojo.internal.bindings.ash.cros_healthd.internal.mojom || {};
 
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};

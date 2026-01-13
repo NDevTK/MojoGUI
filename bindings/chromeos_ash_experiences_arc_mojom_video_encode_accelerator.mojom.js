@@ -122,9 +122,9 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.BitrateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ConstantBitrateSpec = { $: {} };

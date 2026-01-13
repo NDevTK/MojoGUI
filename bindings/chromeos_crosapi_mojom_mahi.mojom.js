@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec = { $: {} };

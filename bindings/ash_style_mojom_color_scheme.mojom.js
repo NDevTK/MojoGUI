@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.style = mojo.internal.bindings.ash.style || {};
 mojo.internal.bindings.ash.style.mojom = mojo.internal.bindings.ash.style.mojom || {};
 
-mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ColorScheme
 mojo.internal.bindings.ash.style.mojom.ColorScheme = {

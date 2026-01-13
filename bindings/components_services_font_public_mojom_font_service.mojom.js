@@ -122,8 +122,8 @@
 mojo.internal.bindings.font_service.mojom = mojo.internal.bindings.font_service.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontIdentitySpec = { $: {} };
 mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec = { $: {} };

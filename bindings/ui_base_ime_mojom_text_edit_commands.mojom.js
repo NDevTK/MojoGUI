@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.TextEditCommandSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.TextEditCommandSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TextEditCommand
 mojo.internal.bindings.ui.mojom.TextEditCommand = {

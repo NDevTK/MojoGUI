@@ -121,7 +121,7 @@
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 
-mojo.internal.bindings.cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraMetadataSpec = { $: {} };
 

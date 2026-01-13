@@ -121,11 +121,11 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.UserActivationOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.WantResultOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PromiseResultOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.EvaluationTimingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.LoadEventBlockingOptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.UserActivationOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WantResultOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PromiseResultOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EvaluationTimingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.LoadEventBlockingOptionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: UserActivationOption
 mojo.internal.bindings.blink.mojom.UserActivationOption = {

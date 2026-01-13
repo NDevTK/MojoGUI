@@ -121,8 +121,8 @@
  mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 
-mojo.internal.bindings.bluetooth.mojom.PropertySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.bluetooth.mojom.GattResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.bluetooth.mojom.PropertySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.GattResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec = { $: {} };

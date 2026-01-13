@@ -125,10 +125,10 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.auction_worklet.mojom.KAnonymityBidModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.auction_worklet.mojom.KAnonymityStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.auction_worklet.mojom.BidRoleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.auction_worklet.mojom.ReportingIdFieldSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.auction_worklet.mojom.KAnonymityBidModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.KAnonymityStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.BidRoleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReportingIdFieldSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec = { $: {} };

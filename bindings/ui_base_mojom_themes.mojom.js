@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: BrowserColorVariant
 mojo.internal.bindings.ui.mojom.BrowserColorVariant = {

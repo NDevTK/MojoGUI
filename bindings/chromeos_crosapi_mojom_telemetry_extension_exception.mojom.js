@@ -121,7 +121,7 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec = { $: {} };

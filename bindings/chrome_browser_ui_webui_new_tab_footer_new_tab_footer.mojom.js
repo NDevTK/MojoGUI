@@ -123,7 +123,7 @@ mojo.internal.bindings.new_tab_footer.mojom = mojo.internal.bindings.new_tab_foo
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec = { $: {} };
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory = {};

@@ -122,7 +122,7 @@
 mojo.internal.bindings.content.optional_numerics_unittest = mojo.internal.bindings.content.optional_numerics_unittest || {};
 mojo.internal.bindings.content.optional_numerics_unittest.mojom = mojo.internal.bindings.content.optional_numerics_unittest.mojom || {};
 
-mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec = { $: {} };
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec = { $: {} };
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec = { $: {} };

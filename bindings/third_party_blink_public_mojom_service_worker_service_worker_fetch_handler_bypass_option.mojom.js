@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ServiceWorkerFetchHandlerBypassOption
 mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOption = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.StubInterface = {};
 mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec = { $ : {} };
 mojo.internal.bindings.remote_cocoa.mojom.StubInterface.$interfaceName = 'remote_cocoa.mojom.StubInterface';

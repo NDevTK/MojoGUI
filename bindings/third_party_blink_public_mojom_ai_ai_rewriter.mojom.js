@@ -121,9 +121,9 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AIRewriterToneSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AIRewriterFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AIRewriterLengthSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AIRewriterToneSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIRewriterFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIRewriterLengthSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIRewriterCreateOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIRewriter = {};
 mojo.internal.bindings.blink.mojom.AIRewriterSpec = { $ : {} };

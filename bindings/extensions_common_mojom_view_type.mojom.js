@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.ViewTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ViewType
 mojo.internal.bindings.extensions.mojom.ViewType = {

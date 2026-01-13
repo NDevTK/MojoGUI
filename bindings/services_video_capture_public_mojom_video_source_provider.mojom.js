@@ -122,7 +122,7 @@
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider = {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = { $ : {} };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider.$interfaceName = 'video_capture.mojom.VideoSourceProvider';

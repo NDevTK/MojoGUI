@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.MixedContentContextTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.MixedContentContextTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: MixedContentContextType
 mojo.internal.bindings.blink.mojom.MixedContentContextType = {

@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = { $: {} };

@@ -124,9 +124,9 @@ mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver = {};

@@ -121,8 +121,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.TypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.DemuxerStream = {};
 mojo.internal.bindings.media.mojom.DemuxerStreamSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.DemuxerStream.$interfaceName = 'media.mojom.DemuxerStream';

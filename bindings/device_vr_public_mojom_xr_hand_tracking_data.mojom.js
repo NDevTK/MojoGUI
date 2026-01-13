@@ -122,7 +122,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.device.mojom.XRHandJointSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.XRHandJointSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.XRHandJointDataSpec = { $: {} };
 mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec = { $: {} };
 

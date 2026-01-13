@@ -125,9 +125,9 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.orca.mojom.MetricEventSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.orca.mojom.MetricEventSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec = { $: {} };
 mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec = { $: {} };

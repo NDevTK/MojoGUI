@@ -123,7 +123,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CertVerifyResultSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = { $: {} };

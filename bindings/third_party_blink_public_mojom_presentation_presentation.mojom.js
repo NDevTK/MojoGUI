@@ -122,10 +122,10 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PresentationErrorSpec = { $: {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.RotationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.RotationSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Rotation
 mojo.internal.bindings.chromeos.machine_learning.mojom.Rotation = {

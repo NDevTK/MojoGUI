@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec = { $: {} };
 
 // External type stubs (from imports)

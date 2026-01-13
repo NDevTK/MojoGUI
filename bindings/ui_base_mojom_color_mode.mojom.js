@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.ColorModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ColorMode
 mojo.internal.bindings.ui.mojom.ColorMode = {

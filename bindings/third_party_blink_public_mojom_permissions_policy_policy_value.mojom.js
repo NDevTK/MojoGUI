@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PolicyValueSpec = { $: {} };
 
 // Enum: PolicyValueType

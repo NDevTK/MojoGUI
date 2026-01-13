@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.LogTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec = { $: {} };
 mojo.internal.bindings.network.mojom.CTLogInfoSpec = { $: {} };
 

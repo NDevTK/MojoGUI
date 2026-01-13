@@ -121,7 +121,7 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.CommandBufferNamespaceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.SyncTokenSpec = { $: {} };
 
 // Enum: CommandBufferNamespace

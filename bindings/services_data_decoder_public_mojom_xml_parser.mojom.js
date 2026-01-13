@@ -122,7 +122,7 @@
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.data_decoder.mojom.XmlParser = {};
 mojo.internal.bindings.data_decoder.mojom.XmlParserSpec = { $ : {} };
 mojo.internal.bindings.data_decoder.mojom.XmlParser.$interfaceName = 'data_decoder.mojom.XmlParser';

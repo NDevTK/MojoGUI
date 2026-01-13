@@ -121,7 +121,7 @@
  mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 
-mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: GattServiceErrorCode
 mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCode = {

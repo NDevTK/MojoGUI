@@ -121,7 +121,7 @@
  mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.sandbox.mojom = mojo.internal.bindings.sandbox.mojom || {};
 
-mojo.internal.bindings.sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Sandbox
 mojo.internal.bindings.sandbox.mojom.Sandbox = {

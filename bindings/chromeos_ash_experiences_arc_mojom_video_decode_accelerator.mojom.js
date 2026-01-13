@@ -122,7 +122,7 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.BitstreamBufferSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PictureSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec = { $: {} };

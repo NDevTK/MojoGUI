@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.quick_start = mojo.internal.bindings.ash.quick_start || {};
 mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_start.mojom || {};
 
-mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec = { $: {} };
 mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec = { $: {} };
 mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec = { $: {} };

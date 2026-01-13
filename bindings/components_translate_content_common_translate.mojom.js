@@ -123,7 +123,7 @@ mojo.internal.bindings.translate.mojom = mojo.internal.bindings.translate.mojom 
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.translate.mojom.TranslateErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.translate.mojom.TranslateErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec = { $: {} };
 mojo.internal.bindings.translate.mojom.TranslateAgent = {};
 mojo.internal.bindings.translate.mojom.TranslateAgentSpec = { $ : {} };

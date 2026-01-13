@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.commerce = mojo.internal.bindings.commerce || {};
 
-mojo.internal.bindings.shopping_service.mojom.PriceBucketSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.shopping_service.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.shopping_service.mojom.PriceBucketSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.shopping_service.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.shopping_service.mojom.PricePointSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec = { $: {} };
 mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec = { $: {} };

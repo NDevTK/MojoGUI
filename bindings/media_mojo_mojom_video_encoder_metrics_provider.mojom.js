@@ -122,7 +122,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider = {};
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider.$interfaceName = 'media.mojom.VideoEncoderMetricsProvider';

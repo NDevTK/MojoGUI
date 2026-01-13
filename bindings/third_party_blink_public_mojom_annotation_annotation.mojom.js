@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AttachmentResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AttachmentResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SelectorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AnnotationAgent = {};

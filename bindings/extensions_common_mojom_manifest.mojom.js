@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.ManifestLocationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.ManifestLocationSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ManifestLocation
 mojo.internal.bindings.extensions.mojom.ManifestLocation = {

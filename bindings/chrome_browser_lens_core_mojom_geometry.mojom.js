@@ -122,7 +122,7 @@
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.GeometrySpec = { $: {} };
 

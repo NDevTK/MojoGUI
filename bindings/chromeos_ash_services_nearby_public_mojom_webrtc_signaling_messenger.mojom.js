@@ -121,7 +121,7 @@
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
 
-mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.sharing.mojom.LocationHintSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener = {};
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec = { $ : {} };

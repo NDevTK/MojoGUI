@@ -124,7 +124,7 @@ mojo.internal.bindings.ash.settings.app_notification = mojo.internal.bindings.as
 mojo.internal.bindings.ash.settings.app_notification.mojom = mojo.internal.bindings.ash.settings.app_notification.mojom || {};
 mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
 
-mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler = {};
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec = { $ : {} };

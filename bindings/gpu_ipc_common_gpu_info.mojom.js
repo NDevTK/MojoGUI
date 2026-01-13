@@ -124,11 +124,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 
-mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.OverlaySupportSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.OverlaySupportSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.GpuDeviceSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = { $: {} };

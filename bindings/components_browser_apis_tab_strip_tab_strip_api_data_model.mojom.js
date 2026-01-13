@@ -123,9 +123,9 @@ mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom ||
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.tabs_api.mojom.AlertStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tabs_api.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tabs_api.mojom.LayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tabs_api.mojom.AlertStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs_api.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs_api.mojom.LayoutSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tabs_api.mojom.DataSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.ImageSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabSpec = { $: {} };

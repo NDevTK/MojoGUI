@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.babelorca = mojo.internal.bindings.ash.babelorca || {
 mojo.internal.bindings.ash.babelorca.mojom = mojo.internal.bindings.ash.babelorca.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec = { $: {} };
 mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec = { $: {} };
 mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec = { $: {} };

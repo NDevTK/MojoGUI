@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SourceRegistrationTimeConfig
 mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfig = {

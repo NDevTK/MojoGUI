@@ -123,9 +123,9 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyListSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyRulesSpec = { $: {} };

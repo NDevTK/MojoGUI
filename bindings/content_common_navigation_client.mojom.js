@@ -125,9 +125,9 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
 mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };

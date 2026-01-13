@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.DialogButtonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.DialogButtonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DialogButton
 mojo.internal.bindings.ui.mojom.DialogButton = {

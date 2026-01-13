@@ -121,7 +121,7 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.FileTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.MtpFileEntrySpec = { $: {} };
 
 // Enum: FileType

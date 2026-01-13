@@ -121,9 +121,9 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ButtonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.DispatchTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ButtonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DispatchTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EventTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Button
 mojo.internal.bindings.blink.mojom.Button = {

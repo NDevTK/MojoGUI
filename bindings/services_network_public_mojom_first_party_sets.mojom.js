@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.SiteTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec = { $: {} };
 mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec = { $: {} };
 mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec = { $: {} };

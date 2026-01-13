@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost = {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec = { $ : {} };

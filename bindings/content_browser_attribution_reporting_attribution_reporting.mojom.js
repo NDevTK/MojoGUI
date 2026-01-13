@@ -121,9 +121,9 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.ReportTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.attribution_reporting.mojom.RegistrationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.ReportTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting.mojom.RegistrationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ReportType
 mojo.internal.bindings.attribution_reporting.mojom.ReportType = {

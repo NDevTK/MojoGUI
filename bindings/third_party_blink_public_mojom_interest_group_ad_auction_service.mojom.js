@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AbortableAdAuction = {};
 mojo.internal.bindings.blink.mojom.AbortableAdAuctionSpec = { $ : {} };

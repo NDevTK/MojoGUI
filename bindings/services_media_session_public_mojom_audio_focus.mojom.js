@@ -122,8 +122,8 @@
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media_session.mojom.EnforcementModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_session.mojom.EnforcementModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec = { $: {} };
 mojo.internal.bindings.media_session.mojom.AudioFocusObserver = {};
 mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec = { $ : {} };

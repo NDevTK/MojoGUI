@@ -121,8 +121,8 @@
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
-mojo.internal.bindings.ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.TtsVoiceSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.TtsOptionsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.TtsEventSpec = { $: {} };

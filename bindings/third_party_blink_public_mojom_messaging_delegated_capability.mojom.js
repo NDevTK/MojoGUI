@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DelegatedCapability
 mojo.internal.bindings.blink.mojom.DelegatedCapability = {

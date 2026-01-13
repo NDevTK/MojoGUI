@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.loc
 mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.local_search_service.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.local_search_service.mojom.ResponseStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.local_search_service.mojom.ContentSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.DataSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchParamsSpec = { $: {} };

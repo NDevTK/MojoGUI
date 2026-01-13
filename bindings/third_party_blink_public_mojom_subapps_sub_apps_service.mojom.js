@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec = { $: {} };

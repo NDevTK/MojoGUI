@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookieAccessObserver = {};
 mojo.internal.bindings.network.mojom.CookieAccessObserverSpec = { $ : {} };

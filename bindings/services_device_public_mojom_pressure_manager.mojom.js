@@ -122,7 +122,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec = { $: {} };
 mojo.internal.bindings.device.mojom.PressureManager = {};
 mojo.internal.bindings.device.mojom.PressureManagerSpec = { $ : {} };

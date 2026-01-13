@@ -121,7 +121,7 @@
  mojo.internal.bindings.custom_help_bubble = mojo.internal.bindings.custom_help_bubble || {};
 mojo.internal.bindings.custom_help_bubble.mojom = mojo.internal.bindings.custom_help_bubble.mojom || {};
 
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.$interfaceName = 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory';

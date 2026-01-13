@@ -123,7 +123,7 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost = {};
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost.$interfaceName = 'arc.mojom.OnDeviceSafetyHost';

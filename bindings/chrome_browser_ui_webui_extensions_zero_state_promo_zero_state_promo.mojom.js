@@ -121,7 +121,7 @@
  mojo.internal.bindings.zero_state_promo = mojo.internal.bindings.zero_state_promo || {};
 mojo.internal.bindings.zero_state_promo.mojom = mojo.internal.bindings.zero_state_promo.mojom || {};
 
-mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory.$interfaceName = 'zero_state_promo.mojom.PageHandlerFactory';

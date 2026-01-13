@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DevicePostureProvider = {};
 mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DevicePostureProvider.$interfaceName = 'blink.mojom.DevicePostureProvider';

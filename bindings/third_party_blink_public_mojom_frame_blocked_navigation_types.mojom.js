@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.NavigationBlockedReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.NavigationBlockedReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: NavigationBlockedReason
 mojo.internal.bindings.blink.mojom.NavigationBlockedReason = {

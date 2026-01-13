@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety 
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession = {};
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession.$interfaceName = 'ash.cros_safety.mojom.CloudSafetySession';

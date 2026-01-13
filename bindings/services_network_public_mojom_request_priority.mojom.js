@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.RequestPrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.FetchPriorityAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.RequestPrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.FetchPriorityAttributeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RequestPriority
 mojo.internal.bindings.network.mojom.RequestPriority = {

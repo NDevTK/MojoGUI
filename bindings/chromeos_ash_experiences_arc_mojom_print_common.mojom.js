@@ -121,10 +121,10 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.PrintPageRangeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintResolutionSpec = { $: {} };

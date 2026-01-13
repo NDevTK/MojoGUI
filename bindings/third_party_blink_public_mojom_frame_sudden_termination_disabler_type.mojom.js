@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SuddenTerminationDisablerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SuddenTerminationDisablerTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SuddenTerminationDisablerType
 mojo.internal.bindings.blink.mojom.SuddenTerminationDisablerType = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.SimulateRightClickModifierSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.SimulateRightClickModifierSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SimulateRightClickModifier
 mojo.internal.bindings.ui.mojom.SimulateRightClickModifier = {

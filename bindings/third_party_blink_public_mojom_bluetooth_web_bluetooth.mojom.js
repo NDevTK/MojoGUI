@@ -123,9 +123,9 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.WebBluetoothWriteTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebBluetoothWriteTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.WebBluetoothLeScanFilterSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebBluetoothCompanySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebBluetoothDataFilterSpec = { $: {} };

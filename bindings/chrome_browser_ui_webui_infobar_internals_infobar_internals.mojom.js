@@ -121,7 +121,7 @@
  mojo.internal.bindings.infobar_internals = mojo.internal.bindings.infobar_internals || {};
 mojo.internal.bindings.infobar_internals.mojom = mojo.internal.bindings.infobar_internals.mojom || {};
 
-mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec = { $: {} };
 mojo.internal.bindings.infobar_internals.mojom.Page = {};
 mojo.internal.bindings.infobar_internals.mojom.PageSpec = { $ : {} };

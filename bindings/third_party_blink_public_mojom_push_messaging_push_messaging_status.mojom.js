@@ -121,11 +121,11 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PushEventStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PushUnregistrationReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PushUnregistrationStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PushEventStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PushUnregistrationReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PushUnregistrationStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PushEventStatus
 mojo.internal.bindings.blink.mojom.PushEventStatus = {

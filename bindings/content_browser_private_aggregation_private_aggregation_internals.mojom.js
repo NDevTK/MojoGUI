@@ -123,7 +123,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom = mojo.internal.bindi
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = { $: {} };
 mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec = { $: {} };

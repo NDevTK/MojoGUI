@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SharedWorkerCreationContextType
 mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextType = {

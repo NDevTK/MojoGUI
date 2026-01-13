@@ -121,8 +121,8 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.CameraIntentModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.CameraIntentActionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.CameraIntentModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CameraIntentActionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CameraIntentMode
 mojo.internal.bindings.arc.mojom.CameraIntentMode = {

@@ -122,15 +122,15 @@
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = { $: {} };
 

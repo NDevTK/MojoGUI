@@ -126,7 +126,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.WorkItemSpec = { $: {} };
 mojo.internal.bindings.content.mojom.WebTestRunTestConfigurationSpec = { $: {} };
 mojo.internal.bindings.content.mojom.WebTestRendererDumpResultSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WasActivatedOption
 mojo.internal.bindings.blink.mojom.WasActivatedOption = {

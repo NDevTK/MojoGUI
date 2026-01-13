@@ -122,8 +122,8 @@
 mojo.internal.bindings.privacy_sandbox.notice = mojo.internal.bindings.privacy_sandbox.notice || {};
 mojo.internal.bindings.privacy_sandbox.notice.mojom = mojo.internal.bindings.privacy_sandbox.notice.mojom || {};
 
-mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PrivacySandboxNoticeEvent
 mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEvent = {

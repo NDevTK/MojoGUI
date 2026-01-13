@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ParsedHeadersSpec = { $: {} };
 
 // External type stubs (from imports)

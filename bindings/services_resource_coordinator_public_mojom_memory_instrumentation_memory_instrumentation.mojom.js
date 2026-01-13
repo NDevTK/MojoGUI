@@ -122,13 +122,13 @@
 mojo.internal.bindings.memory_instrumentation.mojom = mojo.internal.bindings.memory_instrumentation.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.memory_instrumentation.mojom.DumpTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.LevelOfDetailSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.DeterminismSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.MemoryMapOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.MemDumpFlagsSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.memory_instrumentation.mojom.RequestOutcomeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.memory_instrumentation.mojom.DumpTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.LevelOfDetailSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.DeterminismSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.ProcessTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.MemoryMapOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.MemDumpFlagsSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.memory_instrumentation.mojom.RequestOutcomeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.RequestArgsSpec = { $: {} };
 mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec = { $: {} };

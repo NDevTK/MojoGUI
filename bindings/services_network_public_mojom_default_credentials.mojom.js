@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.DefaultCredentialsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.DefaultCredentialsSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DefaultCredentials
 mojo.internal.bindings.network.mojom.DefaultCredentials = {

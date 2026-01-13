@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.proxy_resolver = mojo.internal.bindings.proxy_resolver || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.NavigationDeliveryTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.NavigationDeliveryTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.URLResponseHeadSpec = { $: {} };
 
 // External type stubs (from imports)

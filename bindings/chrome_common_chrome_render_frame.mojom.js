@@ -128,7 +128,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame = {};
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame.$interfaceName = 'chrome.mojom.ChromeRenderFrame';

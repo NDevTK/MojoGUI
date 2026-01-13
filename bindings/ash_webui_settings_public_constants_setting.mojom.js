@@ -122,7 +122,7 @@
 mojo.internal.bindings.chromeos.settings = mojo.internal.bindings.chromeos.settings || {};
 mojo.internal.bindings.chromeos.settings.mojom = mojo.internal.bindings.chromeos.settings.mojom || {};
 
-mojo.internal.bindings.chromeos.settings.mojom.SettingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.settings.mojom.SettingSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Setting
 mojo.internal.bindings.chromeos.settings.mojom.Setting = {

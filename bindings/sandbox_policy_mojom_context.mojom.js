@@ -121,7 +121,7 @@
  mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.sandbox.mojom = mojo.internal.bindings.sandbox.mojom || {};
 
-mojo.internal.bindings.sandbox.mojom.ContextSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.sandbox.mojom.ContextSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Context
 mojo.internal.bindings.sandbox.mojom.Context = {

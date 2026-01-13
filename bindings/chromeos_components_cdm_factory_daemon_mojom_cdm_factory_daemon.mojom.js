@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory = {};
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactorySpec = { $ : {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory.$interfaceName = 'chromeos.cdm.mojom.CdmFactory';

@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DisplayCutoutHost = {};
 mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.DisplayCutoutHost.$interfaceName = 'blink.mojom.DisplayCutoutHost';

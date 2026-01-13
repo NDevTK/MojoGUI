@@ -125,10 +125,10 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom = mojo.internal.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.printing.printing_manager.mojom.LaunchSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.printing.printing_manager.mojom.LaunchSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = { $: {} };
 mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.MatchOriginAsFallbackBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.MatchOriginAsFallbackBehaviorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: MatchOriginAsFallbackBehavior
 mojo.internal.bindings.extensions.mojom.MatchOriginAsFallbackBehavior = {

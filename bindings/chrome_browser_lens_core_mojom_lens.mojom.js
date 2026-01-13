@@ -125,8 +125,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.lens.mojom.UserActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.lens.mojom.SemanticEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.UserActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.SemanticEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.OverlayThemeSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.LensPageHandlerFactory = {};
 mojo.internal.bindings.lens.mojom.LensPageHandlerFactorySpec = { $ : {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.SystemUiInstance = {};
 mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.SystemUiInstance.$interfaceName = 'arc.mojom.SystemUiInstance';

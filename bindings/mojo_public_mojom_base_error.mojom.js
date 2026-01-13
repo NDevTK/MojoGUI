@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base.mojom.ErrorSpec = { $: {} };
 
 // Enum: Code

@@ -121,7 +121,7 @@
  mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 
-mojo.internal.bindings.service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener = {};
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec = { $ : {} };

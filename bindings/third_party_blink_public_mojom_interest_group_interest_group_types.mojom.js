@@ -123,10 +123,10 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: {} };

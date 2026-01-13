@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
 mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
 
-mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDog = {};
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec = { $ : {} };

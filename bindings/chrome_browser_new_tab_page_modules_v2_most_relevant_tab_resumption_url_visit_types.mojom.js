@@ -124,9 +124,9 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom = mojo.internal.bi
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec = { $: {} };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = { $: {} };
 

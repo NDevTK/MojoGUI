@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerEventStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerEventStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ServiceWorkerEventStatus
 mojo.internal.bindings.blink.mojom.ServiceWorkerEventStatus = {

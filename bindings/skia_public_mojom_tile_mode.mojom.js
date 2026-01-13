@@ -121,7 +121,7 @@
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 
-mojo.internal.bindings.skia.mojom.TileModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.skia.mojom.TileModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TileMode
 mojo.internal.bindings.skia.mojom.TileMode = {

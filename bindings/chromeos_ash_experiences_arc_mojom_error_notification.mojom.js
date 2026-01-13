@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ErrorDetailsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost = {};
 mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec = { $ : {} };

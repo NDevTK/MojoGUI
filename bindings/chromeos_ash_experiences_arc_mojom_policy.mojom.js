@@ -122,8 +122,8 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.PolicyHost = {};
 mojo.internal.bindings.arc.mojom.PolicyHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PolicyHost.$interfaceName = 'arc.mojom.PolicyHost';

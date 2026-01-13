@@ -125,10 +125,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.side_panel.mojom.CustomizeChromeSectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCollectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCategorySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.mojom.CustomizeChromeSectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCollectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCategorySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.side_panel.mojom.BackgroundImageSpec = { $: {} };
 mojo.internal.bindings.side_panel.mojom.ThirdPartyThemeInfoSpec = { $: {} };
 mojo.internal.bindings.side_panel.mojom.ThemeSpec = { $: {} };

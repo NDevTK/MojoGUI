@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.TtsUtteranceSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TtsVoiceSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TtsHost = {};

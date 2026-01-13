@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TreeScopeType
 mojo.internal.bindings.blink.mojom.TreeScopeType = {

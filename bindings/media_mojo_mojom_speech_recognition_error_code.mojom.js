@@ -121,7 +121,7 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SpeechRecognitionErrorCode
 mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCode = {

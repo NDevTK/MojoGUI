@@ -124,10 +124,10 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.OpaqueSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OpaqueSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec = { $: {} };

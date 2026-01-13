@@ -123,7 +123,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSpec = { $: {} };
 

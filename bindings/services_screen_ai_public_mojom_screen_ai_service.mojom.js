@@ -124,9 +124,9 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.screen_ai.mojom.DirectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.screen_ai.mojom.DirectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.LineBoxSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.WordBoxSpec = { $: {} };

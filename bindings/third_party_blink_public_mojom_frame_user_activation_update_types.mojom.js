@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: UserActivationUpdateType
 mojo.internal.bindings.blink.mojom.UserActivationUpdateType = {

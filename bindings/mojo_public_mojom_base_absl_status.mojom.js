@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AbslStatusCode
 mojo.internal.bindings.mojo_base.mojom.AbslStatusCode = {

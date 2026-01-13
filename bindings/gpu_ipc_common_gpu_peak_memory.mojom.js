@@ -121,7 +121,7 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSourceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: GpuPeakMemoryAllocationSource
 mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSource = {

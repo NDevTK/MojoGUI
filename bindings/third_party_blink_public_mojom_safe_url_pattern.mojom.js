@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModifierSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ModifierSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PatternTemplateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FixedPatternSpec = { $: {} };

@@ -123,7 +123,7 @@ mojo.internal.bindings.data_sharing.mojom = mojo.internal.bindings.data_sharing.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec = { $: {} };
 mojo.internal.bindings.data_sharing.mojom.GroupDataSpec = { $: {} };
 

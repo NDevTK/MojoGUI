@@ -125,7 +125,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks = {};

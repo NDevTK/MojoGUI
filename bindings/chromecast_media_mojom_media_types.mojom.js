@@ -122,11 +122,11 @@
 mojo.internal.bindings.chromecast.media = mojo.internal.bindings.chromecast.media || {};
 mojo.internal.bindings.chromecast.media.mojom = mojo.internal.bindings.chromecast.media.mojom || {};
 
-mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec = { $: {} };
 
 // Enum: AudioCodec

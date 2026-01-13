@@ -121,7 +121,7 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ContextLostReason
 mojo.internal.bindings.viz.mojom.ContextLostReason = {

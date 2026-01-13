@@ -124,7 +124,7 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.coral.mojom.EntitySpec = { $: {} };
 mojo.internal.bindings.coral.mojom.GroupResultSpec = { $: {} };
 mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec = { $: {} };

@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.help_app = mojo.internal.bindings.ash.help_app || {};
 mojo.internal.bindings.ash.help_app.mojom = mojo.internal.bindings.ash.help_app.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec = { $: {} };
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec = { $ : {} };

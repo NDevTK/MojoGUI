@@ -122,7 +122,7 @@
 mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimization_guide.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer = {};
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec = { $ : {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DebugKeySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PrivateAggregationHost = {};

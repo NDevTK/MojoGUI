@@ -121,7 +121,7 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.GeolocationClientIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.GeolocationClientIdSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: GeolocationClientId
 mojo.internal.bindings.device.mojom.GeolocationClientId = {

@@ -122,9 +122,9 @@
 mojo.internal.bindings.unexportable_keys.mojom = mojo.internal.bindings.unexportable_keys.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService = {};

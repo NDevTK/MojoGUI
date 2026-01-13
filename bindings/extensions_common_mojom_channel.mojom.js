@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.ChannelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.ChannelSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Channel
 mojo.internal.bindings.extensions.mojom.Channel = {

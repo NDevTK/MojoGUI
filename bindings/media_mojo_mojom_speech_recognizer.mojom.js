@@ -121,7 +121,7 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.AvailabilityStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.AvailabilityStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognizer = {};
 mojo.internal.bindings.media.mojom.SpeechRecognizerSpec = { $ : {} };

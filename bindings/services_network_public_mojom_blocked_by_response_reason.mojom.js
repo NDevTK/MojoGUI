@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: BlockedByResponseReason
 mojo.internal.bindings.network.mojom.BlockedByResponseReason = {

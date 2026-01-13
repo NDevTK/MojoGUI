@@ -122,8 +122,8 @@
 mojo.internal.bindings.midi.mojom = mojo.internal.bindings.midi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.midi.mojom.ResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.midi.mojom.PortStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.midi.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.midi.mojom.PortStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.midi.mojom.PortInfoSpec = { $: {} };
 mojo.internal.bindings.midi.mojom.MidiSessionClient = {};
 mojo.internal.bindings.midi.mojom.MidiSessionClientSpec = { $ : {} };

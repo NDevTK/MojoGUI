@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest = {};

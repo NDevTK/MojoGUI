@@ -121,8 +121,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec = { $: {} };
 
 // External type stubs (from imports)

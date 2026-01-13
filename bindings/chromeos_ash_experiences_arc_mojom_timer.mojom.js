@@ -122,8 +122,8 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ClockIdSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.TimerHost = {};
 mojo.internal.bindings.arc.mojom.TimerHostSpec = { $ : {} };

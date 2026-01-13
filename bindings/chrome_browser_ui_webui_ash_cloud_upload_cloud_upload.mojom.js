@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.cloud_upload = mojo.internal.bindings.ash.cloud_upload || {};
 mojo.internal.bindings.ash.cloud_upload.mojom = mojo.internal.bindings.ash.cloud_upload.mojom || {};
 
-mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec = { $: {} };

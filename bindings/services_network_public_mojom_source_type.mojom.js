@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.SourceTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SourceType
 mojo.internal.bindings.network.mojom.SourceType = {

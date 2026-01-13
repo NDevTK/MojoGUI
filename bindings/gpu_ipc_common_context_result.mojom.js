@@ -121,7 +121,7 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.ContextResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.ContextResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ContextResult
 mojo.internal.bindings.gpu.mojom.ContextResult = {

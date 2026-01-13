@@ -123,7 +123,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom = mojo.internal.bindings.auto
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec = { $: {} };
 mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec = { $: {} };

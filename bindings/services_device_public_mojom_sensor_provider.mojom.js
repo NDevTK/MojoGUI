@@ -122,10 +122,10 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorInitParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec = { $: {} };

@@ -124,7 +124,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec = { $: {} };

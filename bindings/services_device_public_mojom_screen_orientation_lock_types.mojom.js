@@ -121,8 +121,8 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScreenOrientationLockResult
 mojo.internal.bindings.device.mojom.ScreenOrientationLockResult = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = { $: {} };

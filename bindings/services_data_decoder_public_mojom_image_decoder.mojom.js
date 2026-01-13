@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec = { $: {} };
 mojo.internal.bindings.data_decoder.mojom.ImageDecoder = {};
 mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec = { $ : {} };

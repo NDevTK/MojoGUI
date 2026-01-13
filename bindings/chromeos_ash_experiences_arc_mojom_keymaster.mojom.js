@@ -121,8 +121,8 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.KeyPurposeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.KeyFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.KeyPurposeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.KeyFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.IntegerKeyParamSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KeyParameterSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KeyCharacteristicsSpec = { $: {} };

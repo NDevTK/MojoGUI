@@ -122,7 +122,7 @@
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec = { $: {} };
 
 // External type stubs (from imports)

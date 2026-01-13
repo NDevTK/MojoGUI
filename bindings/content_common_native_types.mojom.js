@@ -121,9 +121,9 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 
-mojo.internal.bindings.content.mojom.ScrollbarButtonsPlacementSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.ScrollerStyleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.ScrollbarButtonsPlacementSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.ScrollerStyleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScrollbarButtonsPlacement
 mojo.internal.bindings.content.mojom.ScrollbarButtonsPlacement = {

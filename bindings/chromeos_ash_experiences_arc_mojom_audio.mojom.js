@@ -121,8 +121,8 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AudioSwitchSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.AudioSwitchSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.AudioHost = {};
 mojo.internal.bindings.arc.mojom.AudioHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.AudioHost.$interfaceName = 'arc.mojom.AudioHost';

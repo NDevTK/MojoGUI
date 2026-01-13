@@ -121,8 +121,8 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController = {};
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec = { $ : {} };

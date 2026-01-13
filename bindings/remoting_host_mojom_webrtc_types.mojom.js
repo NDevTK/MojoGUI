@@ -121,7 +121,7 @@
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopFrameSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopRectSpec = { $: {} };

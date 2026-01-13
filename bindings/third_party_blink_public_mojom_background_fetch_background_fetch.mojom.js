@@ -123,9 +123,9 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec = { $: {} };

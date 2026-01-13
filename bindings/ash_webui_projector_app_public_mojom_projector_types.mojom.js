@@ -122,12 +122,12 @@
 mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
 mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
 
-mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec = { $: {} };
 mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec = { $: {} };

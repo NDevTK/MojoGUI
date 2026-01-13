@@ -127,11 +127,11 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.gpu.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.ErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.ContextTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: {} };

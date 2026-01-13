@@ -121,7 +121,7 @@
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 
-mojo.internal.bindings.auction_worklet.mojom.RejectReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.auction_worklet.mojom.RejectReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RejectReason
 mojo.internal.bindings.auction_worklet.mojom.RejectReason = {

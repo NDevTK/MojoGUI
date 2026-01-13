@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ShareError
 mojo.internal.bindings.blink.mojom.ShareError = {

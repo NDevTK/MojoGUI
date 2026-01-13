@@ -122,7 +122,7 @@
 mojo.internal.bindings.customize_buttons.mojom = mojo.internal.bindings.customize_buttons.mojom || {};
 mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
 
-mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandlerFactory';

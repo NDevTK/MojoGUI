@@ -123,10 +123,10 @@ mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.mojom.RendererPoolSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.RendererTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.RendererPoolSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastWebService = {};
 mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec = { $ : {} };

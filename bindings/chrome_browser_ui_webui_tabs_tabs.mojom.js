@@ -121,8 +121,8 @@
  mojo.internal.bindings.tabs = mojo.internal.bindings.tabs || {};
 mojo.internal.bindings.tabs.mojom = mojo.internal.bindings.tabs.mojom || {};
 
-mojo.internal.bindings.tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TabAlertState
 mojo.internal.bindings.tabs.mojom.TabAlertState = {

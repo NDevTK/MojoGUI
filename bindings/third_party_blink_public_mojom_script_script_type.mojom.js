@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScriptType
 mojo.internal.bindings.blink.mojom.ScriptType = {

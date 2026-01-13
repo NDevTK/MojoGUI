@@ -121,12 +121,12 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventPointerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.EventTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.EventPointerTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum().$ };
 
 mojo.internal.bindings.ui.mojom.kEventFlagNone = 0x00000;
 

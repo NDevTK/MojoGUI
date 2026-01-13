@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ScaleFactorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ScaleFactorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScaleFactor
 mojo.internal.bindings.arc.mojom.ScaleFactor = {

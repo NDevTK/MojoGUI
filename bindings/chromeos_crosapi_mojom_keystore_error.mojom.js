@@ -121,7 +121,7 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.KeystoreErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.KeystoreErrorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: KeystoreError
 mojo.internal.bindings.crosapi.mojom.KeystoreError = {

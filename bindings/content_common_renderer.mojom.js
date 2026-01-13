@@ -126,7 +126,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.Renderer = {};

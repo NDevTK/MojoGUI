@@ -122,8 +122,8 @@
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.storage.mojom.FailClassSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.FailClassSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FailMethodSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.MockFailureInjector = {};
 mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.MockFailureInjector.$interfaceName = 'storage.mojom.MockFailureInjector';

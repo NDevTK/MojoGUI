@@ -121,7 +121,7 @@
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.KeyActionSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec = { $: {} };

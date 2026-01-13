@@ -123,8 +123,8 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.FocusRingInfoSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.UserInterface = {};
 mojo.internal.bindings.ax.mojom.UserInterfaceSpec = { $ : {} };

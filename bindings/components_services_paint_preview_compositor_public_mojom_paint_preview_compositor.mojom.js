@@ -127,8 +127,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec = { $: {} };
 mojo.internal.bindings.paint_preview.mojom.FrameDataSpec = { $: {} };

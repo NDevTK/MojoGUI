@@ -122,8 +122,8 @@
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService = {};
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec = { $ : {} };
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService.$interfaceName = 'payments.mojom.SecurePaymentConfirmationService';

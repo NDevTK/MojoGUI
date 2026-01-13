@@ -121,7 +121,7 @@
  mojo.internal.bindings.mirroring = mojo.internal.bindings.mirroring || {};
 mojo.internal.bindings.mirroring.mojom = mojo.internal.bindings.mirroring.mojom || {};
 
-mojo.internal.bindings.mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mirroring.mojom.SessionObserver = {};
 mojo.internal.bindings.mirroring.mojom.SessionObserverSpec = { $ : {} };
 mojo.internal.bindings.mirroring.mojom.SessionObserver.$interfaceName = 'mirroring.mojom.SessionObserver';

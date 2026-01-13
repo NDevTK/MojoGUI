@@ -123,7 +123,7 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.UserInput = {};

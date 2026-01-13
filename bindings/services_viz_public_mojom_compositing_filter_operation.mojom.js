@@ -123,7 +123,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.FilterOperationSpec = { $: {} };
 
 // External type stubs (from imports)

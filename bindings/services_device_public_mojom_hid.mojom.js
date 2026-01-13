@@ -121,7 +121,7 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.HidBusTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.HidBusTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.HidUsageAndPageSpec = { $: {} };
 mojo.internal.bindings.device.mojom.HidReportItemSpec = { $: {} };
 mojo.internal.bindings.device.mojom.HidReportDescriptionSpec = { $: {} };

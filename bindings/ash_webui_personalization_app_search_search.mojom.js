@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.pers
 mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.personalization_app.mojom.SearchConceptIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.personalization_app.mojom.SearchConceptIdSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.personalization_app.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SearchResultsObserver = {};
 mojo.internal.bindings.ash.personalization_app.mojom.SearchResultsObserverSpec = { $ : {} };

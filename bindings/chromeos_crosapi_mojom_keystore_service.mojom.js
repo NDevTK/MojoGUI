@@ -121,11 +121,11 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.KeyTagSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeyTagSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec = { $: {} };

@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.UtilReadIcon = {};
 mojo.internal.bindings.chrome.mojom.UtilReadIconSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.UtilReadIcon.$interfaceName = 'chrome.mojom.UtilReadIcon';

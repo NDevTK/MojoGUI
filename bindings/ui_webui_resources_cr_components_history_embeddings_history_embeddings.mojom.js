@@ -123,8 +123,8 @@ mojo.internal.bindings.history_embeddings.mojom = mojo.internal.bindings.history
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec = { $: {} };
 mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec = { $: {} };
 mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec = { $: {} };

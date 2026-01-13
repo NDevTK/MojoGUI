@@ -121,7 +121,7 @@
  mojo.internal.bindings.variations = mojo.internal.bindings.variations || {};
 mojo.internal.bindings.variations.mojom = mojo.internal.bindings.variations.mojom || {};
 
-mojo.internal.bindings.variations.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.variations.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.variations.mojom.VariationsHeadersSpec = { $: {} };
 
 // Enum: GoogleWebVisibility

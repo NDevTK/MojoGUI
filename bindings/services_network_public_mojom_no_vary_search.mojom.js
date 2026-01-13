@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.SearchParamsVarianceSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NoVarySearchSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.proximity_auth = mojo.internal.bindings.proximity_auth || {};
 mojo.internal.bindings.proximity_auth.mojom = mojo.internal.bindings.proximity_auth.mojom || {};
 
-mojo.internal.bindings.proximity_auth.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.proximity_auth.mojom.AuthTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AuthType
 mojo.internal.bindings.proximity_auth.mojom.AuthType = {

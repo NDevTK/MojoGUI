@@ -122,7 +122,7 @@
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.AlertBridge = {};
 mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec = { $ : {} };

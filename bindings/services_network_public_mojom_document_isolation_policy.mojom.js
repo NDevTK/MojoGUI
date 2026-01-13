@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec = { $: {} };
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporter = {};
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterSpec = { $ : {} };

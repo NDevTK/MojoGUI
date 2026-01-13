@@ -121,7 +121,7 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.SingleplanarFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.SingleplanarFormatSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SingleplanarFormat
 mojo.internal.bindings.viz.mojom.SingleplanarFormat = {

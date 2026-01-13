@@ -123,8 +123,8 @@ mojo.internal.bindings.device_signals.mojom = mojo.internal.bindings.device_sign
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec = { $: {} };
 mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec = { $: {} };
 mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec = { $: {} };

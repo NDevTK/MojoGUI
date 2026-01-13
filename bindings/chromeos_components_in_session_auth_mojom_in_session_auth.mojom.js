@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.auth = mojo.internal.bindings.chromeos.auth || {
 mojo.internal.bindings.chromeos.auth.mojom = mojo.internal.bindings.chromeos.auth.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth = {};
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec = { $ : {} };

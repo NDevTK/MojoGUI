@@ -121,7 +121,7 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.ZOrderSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.ZOrderSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ZOrder
 mojo.internal.bindings.chromecast.mojom.ZOrder = {

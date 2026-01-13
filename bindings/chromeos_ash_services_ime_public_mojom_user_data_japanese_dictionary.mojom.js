@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 
-mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.JapaneseDictionarySpec = { $: {} };
 

@@ -121,7 +121,7 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 
-mojo.internal.bindings.content.mojom.WindowContainerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.WindowContainerTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WindowContainerType
 mojo.internal.bindings.content.mojom.WindowContainerType = {

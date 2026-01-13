@@ -125,10 +125,10 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_clusters.mojom.VisitActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.VisitActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history_clusters.mojom.QueryResultSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.PageHandler = {};
 mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec = { $ : {} };

@@ -122,9 +122,9 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.LinkHeaderSpec = { $: {} };
 
 // External type stubs (from imports)

@@ -124,11 +124,11 @@ mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.p
 mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec = { $: {} };
 mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec = { $: {} };

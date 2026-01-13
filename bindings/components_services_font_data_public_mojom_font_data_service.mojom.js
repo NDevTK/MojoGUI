@@ -122,7 +122,7 @@
 mojo.internal.bindings.font_data_service.mojom = mojo.internal.bindings.font_data_service.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec = { $: {} };
 mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec = { $: {} };
 mojo.internal.bindings.font_data_service.mojom.CoordinateSpec = { $: {} };

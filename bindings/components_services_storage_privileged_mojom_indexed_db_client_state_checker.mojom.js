@@ -121,7 +121,7 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 
-mojo.internal.bindings.storage.mojom.DisallowInactiveClientReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.DisallowInactiveClientReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker = {};
 mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker.$interfaceName = 'storage.mojom.IndexedDBClientStateChecker';

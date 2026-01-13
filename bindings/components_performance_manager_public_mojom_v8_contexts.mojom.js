@@ -122,7 +122,7 @@
 mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.performance_manager.mojom.V8ContextWorldTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.performance_manager.mojom.V8ContextWorldTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec = { $: {} };
 

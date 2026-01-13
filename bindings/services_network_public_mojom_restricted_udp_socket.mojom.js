@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket = {};
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = { $ : {} };

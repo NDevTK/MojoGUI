@@ -121,8 +121,8 @@
  mojo.internal.bindings.dom_distiller = mojo.internal.bindings.dom_distiller || {};
 mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distiller.mojom || {};
 
-mojo.internal.bindings.dom_distiller.mojom.ThemeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.dom_distiller.mojom.ThemeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Theme
 mojo.internal.bindings.dom_distiller.mojom.Theme = {

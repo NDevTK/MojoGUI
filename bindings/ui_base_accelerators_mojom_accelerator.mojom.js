@@ -122,7 +122,7 @@
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui.mojom.AcceleratorSpec = { $: {} };
 
 // External type stubs (from imports)

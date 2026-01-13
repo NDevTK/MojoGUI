@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
 
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserver = {};
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec = { $ : {} };

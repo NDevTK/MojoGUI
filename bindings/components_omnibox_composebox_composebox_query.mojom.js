@@ -121,8 +121,8 @@
  mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
 
-mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: FileUploadStatus
 mojo.internal.bindings.composebox_query.mojom.FileUploadStatus = {

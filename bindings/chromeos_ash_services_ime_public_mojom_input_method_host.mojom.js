@@ -123,11 +123,11 @@ mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.TextRangeSpec = { $: {} };

@@ -123,7 +123,7 @@ mojo.internal.bindings.spellcheck.mojom = mojo.internal.bindings.spellcheck.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellChecker = {};

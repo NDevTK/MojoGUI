@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.DestinationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.SourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.DestinationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.IntegrityPolicySpec = { $: {} };
 
 // Enum: Destination

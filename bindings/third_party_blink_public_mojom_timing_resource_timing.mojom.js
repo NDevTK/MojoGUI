@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CacheStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CacheStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec = { $: {} };
 

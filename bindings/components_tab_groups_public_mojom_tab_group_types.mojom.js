@@ -121,7 +121,7 @@
  mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.tab_groups.mojom = mojo.internal.bindings.tab_groups.mojom || {};
 
-mojo.internal.bindings.tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Color
 mojo.internal.bindings.tab_groups.mojom.Color = {

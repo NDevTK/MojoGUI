@@ -121,7 +121,7 @@
  mojo.internal.bindings.contextual_tasks = mojo.internal.bindings.contextual_tasks || {};
 mojo.internal.bindings.contextual_tasks.mojom = mojo.internal.bindings.contextual_tasks.mojom || {};
 
-mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TabSelectionMode
 mojo.internal.bindings.contextual_tasks.mojom.TabSelectionMode = {

@@ -125,7 +125,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec = { $: {} };
 mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec = { $: {} };
 mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec = { $: {} };

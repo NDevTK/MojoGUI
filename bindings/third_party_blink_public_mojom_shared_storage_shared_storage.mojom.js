@@ -124,9 +124,9 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost = {};

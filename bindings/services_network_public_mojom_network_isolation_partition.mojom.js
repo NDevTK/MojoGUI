@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: NetworkIsolationPartition
 mojo.internal.bindings.network.mojom.NetworkIsolationPartition = {

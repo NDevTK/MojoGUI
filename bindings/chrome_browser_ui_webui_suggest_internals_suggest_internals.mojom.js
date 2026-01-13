@@ -123,7 +123,7 @@ mojo.internal.bindings.suggest_internals.mojom = mojo.internal.bindings.suggest_
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.suggest_internals.mojom.RequestSpec = { $: {} };
 mojo.internal.bindings.suggest_internals.mojom.PageHandler = {};
 mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec = { $ : {} };

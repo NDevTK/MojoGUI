@@ -121,8 +121,8 @@
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 
-mojo.internal.bindings.skia.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.skia.mojom.AlphaTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.skia.mojom.ColorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skia.mojom.AlphaTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.skia.mojom.ImageInfoSpec = { $: {} };
 mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec = { $: {} };
 

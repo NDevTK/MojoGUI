@@ -125,10 +125,10 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow = {};

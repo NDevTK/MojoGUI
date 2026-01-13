@@ -121,7 +121,7 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: VerticalScrollDirection
 mojo.internal.bindings.viz.mojom.VerticalScrollDirection = {

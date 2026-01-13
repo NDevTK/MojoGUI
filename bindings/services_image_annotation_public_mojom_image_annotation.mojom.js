@@ -121,8 +121,8 @@
  mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};
 mojo.internal.bindings.image_annotation.mojom = mojo.internal.bindings.image_annotation.mojom || {};
 
-mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.AnnotationSpec = { $: {} };
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor = {};

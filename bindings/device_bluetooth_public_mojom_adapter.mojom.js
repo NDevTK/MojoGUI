@@ -121,7 +121,7 @@
  mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 
-mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec = { $: {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient = {};
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec = { $ : {} };

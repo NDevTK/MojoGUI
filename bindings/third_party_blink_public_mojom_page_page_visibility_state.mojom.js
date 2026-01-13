@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PageVisibilityState
 mojo.internal.bindings.blink.mojom.PageVisibilityState = {

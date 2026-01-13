@@ -121,7 +121,7 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.CdmRequestSpec = { $: {} };
 mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider = {};

@@ -121,13 +121,13 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.InstallPrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AppCategorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.InstallPrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AppCategorySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.InstallationResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppStorageSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppInfoSpec = { $: {} };

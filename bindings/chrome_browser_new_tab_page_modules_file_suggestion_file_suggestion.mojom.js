@@ -122,7 +122,7 @@
 mojo.internal.bindings.file_suggestion.mojom = mojo.internal.bindings.file_suggestion.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.file_suggestion.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.file_suggestion.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.file_suggestion.mojom.FileSpec = { $: {} };
 
 // External type stubs (from imports)

@@ -121,8 +121,8 @@
  mojo.internal.bindings.certificate_manager = mojo.internal.bindings.certificate_manager || {};
 mojo.internal.bindings.certificate_manager.mojom = mojo.internal.bindings.certificate_manager.mojom || {};
 
-mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec = { $: {} };

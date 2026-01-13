@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.HttpHeaderSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec = { $: {} };
 mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec = { $: {} };

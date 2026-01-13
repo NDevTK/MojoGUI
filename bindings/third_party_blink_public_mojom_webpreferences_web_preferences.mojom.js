@@ -124,14 +124,14 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.PointerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.HoverTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.OutputDeviceUpdateAbilityTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.EditingBehaviorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ViewportStyleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AutoplayPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PointerTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.HoverTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OutputDeviceUpdateAbilityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EditingBehaviorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ViewportStyleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AutoplayPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.WebPreferencesSpec = { $: {} };
 
 // External type stubs (from imports)

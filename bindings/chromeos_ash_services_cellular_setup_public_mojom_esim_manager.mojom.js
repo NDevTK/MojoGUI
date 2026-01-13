@@ -123,10 +123,10 @@ mojo.internal.bindings.ash.cellular_setup = mojo.internal.bindings.ash.cellular_
 mojo.internal.bindings.ash.cellular_setup.mojom = mojo.internal.bindings.ash.cellular_setup.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallMethodSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallMethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cellular_setup.mojom.EuiccPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.QRCodeSpec = { $: {} };

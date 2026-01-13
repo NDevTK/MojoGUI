@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
 mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
 
-mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SeaPenTemplateId
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateId = {

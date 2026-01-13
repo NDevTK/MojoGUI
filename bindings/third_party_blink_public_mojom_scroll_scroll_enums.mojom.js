@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ScrollTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ScrollTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScrollType
 mojo.internal.bindings.blink.mojom.ScrollType = {

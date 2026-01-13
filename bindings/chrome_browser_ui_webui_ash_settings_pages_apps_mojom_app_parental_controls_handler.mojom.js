@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.app_parental_controls = mojo.internal.bindings.ash.settings.app_parental_controls || {};
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom = mojo.internal.bindings.ash.settings.app_parental_controls.mojom || {};
 
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec = { $ : {} };

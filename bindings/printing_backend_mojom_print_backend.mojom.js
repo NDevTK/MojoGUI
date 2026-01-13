@@ -122,7 +122,7 @@
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.printing.mojom.AdvancedCapabilityTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.AdvancedCapabilityTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PaperMarginsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PaperSpec = { $: {} };

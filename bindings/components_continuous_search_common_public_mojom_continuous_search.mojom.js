@@ -123,9 +123,9 @@ mojo.internal.bindings.continuous_search.mojom = mojo.internal.bindings.continuo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.continuous_search.mojom.SearchResultSpec = { $: {} };
 mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec = { $: {} };
 mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec = { $: {} };

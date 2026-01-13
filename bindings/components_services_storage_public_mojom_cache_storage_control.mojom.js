@@ -123,7 +123,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.CacheStorageObserver = {};
 mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.CacheStorageObserver.$interfaceName = 'storage.mojom.CacheStorageObserver';

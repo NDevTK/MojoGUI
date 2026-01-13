@@ -123,10 +123,10 @@ mojo.internal.bindings.parent_access_ui.mojom = mojo.internal.bindings.parent_ac
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec = { $: {} };
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec = { $: {} };
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec = { $: {} };

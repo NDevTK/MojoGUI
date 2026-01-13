@@ -121,12 +121,12 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.RequestModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.RequestDestinationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.RedirectModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CredentialsModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.FetchResponseTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.FetchResponseSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.RequestModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RequestDestinationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RedirectModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CredentialsModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.FetchResponseTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.FetchResponseSourceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RequestMode
 mojo.internal.bindings.network.mojom.RequestMode = {

@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app ||
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.camera_app.mojom.OcrResultSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.LineSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.WordSpec = { $: {} };

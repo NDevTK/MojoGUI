@@ -122,15 +122,15 @@
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 
-mojo.internal.bindings.crosapi.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.ProbeBatteryResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ProbeBusInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec = { $: {} };

@@ -123,9 +123,9 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.CredentialInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CredentialManager = {};
 mojo.internal.bindings.blink.mojom.CredentialManagerSpec = { $ : {} };

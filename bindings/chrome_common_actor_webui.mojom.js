@@ -124,10 +124,10 @@ mojo.internal.bindings.actor.webui.mojom = mojo.internal.bindings.actor.webui.mo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: {} };
 mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec = { $: {} };
 mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec = { $: {} };

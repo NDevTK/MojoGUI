@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CredentialTypeFlags
 mojo.internal.bindings.blink.mojom.CredentialTypeFlags = {

@@ -122,12 +122,12 @@
 mojo.internal.bindings.ash.auth = mojo.internal.bindings.ash.auth || {};
 mojo.internal.bindings.ash.auth.mojom = mojo.internal.bindings.ash.auth.mojom || {};
 
-mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.auth.mojom.LocalAuthFactorsComplexitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.auth.mojom.LocalAuthFactorsComplexitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.auth.mojom.FactorObserver = {};
 mojo.internal.bindings.ash.auth.mojom.FactorObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.auth.mojom.FactorObserver.$interfaceName = 'ash.auth.mojom.FactorObserver';

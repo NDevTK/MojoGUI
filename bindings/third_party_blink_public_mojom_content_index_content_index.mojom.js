@@ -124,8 +124,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ContentCategorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ContentCategorySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ContentDescriptionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ContentIndexService = {};

@@ -121,10 +121,10 @@
  mojo.internal.bindings.connectors_internals = mojo.internal.bindings.connectors_internals || {};
 mojo.internal.bindings.connectors_internals.mojom = mojo.internal.bindings.connectors_internals.mojom || {};
 
-mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec = { $: {} };

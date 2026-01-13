@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.screens_oobe = mojo.internal.bindings.ash.screens_oobe || {};
 mojo.internal.bindings.ash.screens_oobe.mojom = mojo.internal.bindings.ash.screens_oobe.mojom || {};
 
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler.$interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler';

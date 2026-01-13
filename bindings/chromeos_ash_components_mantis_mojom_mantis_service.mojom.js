@@ -123,8 +123,8 @@ mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver = {};
 mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec = { $ : {} };
 mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver.$interfaceName = 'mantis.mojom.PlatformModelProgressObserver';

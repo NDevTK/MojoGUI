@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.AdSignalsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AdSignalsSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AdPropertiesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AdGeolocationSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AdTargetingSpec = { $: {} };

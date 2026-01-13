@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.EngagementLevelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.EngagementLevelSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: EngagementLevel
 mojo.internal.bindings.blink.mojom.EngagementLevel = {

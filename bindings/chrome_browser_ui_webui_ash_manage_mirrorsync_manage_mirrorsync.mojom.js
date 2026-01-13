@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.manage_mirrorsync = mojo.internal.bindings.ash.manage
 mojo.internal.bindings.ash.manage_mirrorsync.mojom = mojo.internal.bindings.ash.manage_mirrorsync.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory.$interfaceName = 'ash.manage_mirrorsync.mojom.PageHandlerFactory';

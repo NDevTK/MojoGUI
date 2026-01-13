@@ -122,7 +122,7 @@
 mojo.internal.bindings.language_detection.mojom = mojo.internal.bindings.language_detection.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver = {};
 mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverSpec = { $ : {} };
 mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver.$interfaceName = 'language_detection.mojom.ContentLanguageDetectionDriver';

@@ -125,9 +125,9 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec = { $: {} };

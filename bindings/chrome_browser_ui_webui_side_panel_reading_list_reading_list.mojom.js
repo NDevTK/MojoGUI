@@ -123,7 +123,7 @@ mojo.internal.bindings.reading_list.mojom = mojo.internal.bindings.reading_list.
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec = { $: {} };
 mojo.internal.bindings.reading_list.mojom.WindowSpec = { $: {} };

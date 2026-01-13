@@ -123,7 +123,7 @@ mojo.internal.bindings.tenor.mojom = mojo.internal.bindings.tenor.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tenor.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tenor.mojom.GifUrlsSpec = { $: {} };
 mojo.internal.bindings.tenor.mojom.GifResponseSpec = { $: {} };
 mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec = { $: {} };

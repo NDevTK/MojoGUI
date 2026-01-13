@@ -123,7 +123,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption = mojo.internal.bindings
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler.$interfaceName = 'ntp.most_relevant_tab_resumption.mojom.PageHandler';

@@ -123,7 +123,7 @@ mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider = {};
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider.$interfaceName = 'audio.mojom.DebugRecordingFileProvider';

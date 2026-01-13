@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AncestorChainBit
 mojo.internal.bindings.blink.mojom.AncestorChainBit = {

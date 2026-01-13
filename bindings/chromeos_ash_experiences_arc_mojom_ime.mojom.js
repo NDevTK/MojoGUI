@@ -121,9 +121,9 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.CompositionSegmentSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KeyEventDataSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ImeHost = {};

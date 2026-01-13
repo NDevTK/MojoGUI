@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntityDataSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntitySpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextAnnotationSpec = { $: {} };

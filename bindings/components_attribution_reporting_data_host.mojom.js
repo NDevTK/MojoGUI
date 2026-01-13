@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost = {};
 mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = { $ : {} };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost.$interfaceName = 'attribution_reporting.mojom.DataHost';

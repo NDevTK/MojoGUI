@@ -121,11 +121,11 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.MeteringModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.FillLightModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.MeteringModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.FillLightModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.RangeSpec = { $: {} };
 mojo.internal.bindings.media.mojom.PhotoStateSpec = { $: {} };
 mojo.internal.bindings.media.mojom.Point2DSpec = { $: {} };

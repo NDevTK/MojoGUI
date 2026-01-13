@@ -123,7 +123,7 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec = { $: {} };
 
 // External type stubs (from imports)

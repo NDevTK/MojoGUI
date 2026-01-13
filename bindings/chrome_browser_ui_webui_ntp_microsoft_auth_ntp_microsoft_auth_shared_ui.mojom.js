@@ -121,7 +121,7 @@
  mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 
-mojo.internal.bindings.new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = { $ : {} };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument';

@@ -125,9 +125,9 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec = { $: {} };
 mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec = { $: {} };

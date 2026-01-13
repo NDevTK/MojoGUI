@@ -123,8 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.IsolationInfoRequestTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.IsolationInfoSpec = { $: {} };
 
 // External type stubs (from imports)

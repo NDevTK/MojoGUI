@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.ScrollGranularitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.ScrollGranularitySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScrollGranularity
 mojo.internal.bindings.ui.mojom.ScrollGranularity = {

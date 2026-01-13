@@ -122,8 +122,8 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec = { $: {} };
 mojo.internal.bindings.network.mojom.FileEnumerator = {};
 mojo.internal.bindings.network.mojom.FileEnumeratorSpec = { $ : {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.page_image_service.mojom = mojo.internal.bindings.page_image_service.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.page_image_service.mojom.OptionsSpec = { $: {} };
 mojo.internal.bindings.page_image_service.mojom.ImageResultSpec = { $: {} };
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler = {};

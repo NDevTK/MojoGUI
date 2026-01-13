@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OperationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.MatchResponseSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec = { $: {} };

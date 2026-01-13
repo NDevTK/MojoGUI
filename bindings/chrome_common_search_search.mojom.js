@@ -122,9 +122,9 @@
 mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
 mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };

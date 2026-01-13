@@ -124,8 +124,8 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec = { $: {} };
 mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec = { $: {} };
 mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient = {};

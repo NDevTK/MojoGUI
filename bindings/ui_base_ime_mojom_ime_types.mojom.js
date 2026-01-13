@@ -121,12 +121,12 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui.mojom.ImeTextSpanSpec = { $: {} };
 
 // Enum: TextInputMode

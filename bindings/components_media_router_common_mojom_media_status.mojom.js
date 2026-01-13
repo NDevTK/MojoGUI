@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media_router.mojom.MediaImageSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaStatusSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaStatusObserver = {};

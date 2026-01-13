@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener = {};
 mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener.$interfaceName = 'blink.mojom.NonPersistentNotificationListener';

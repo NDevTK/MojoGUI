@@ -121,7 +121,7 @@
  mojo.internal.bindings.logger_common = mojo.internal.bindings.logger_common || {};
 mojo.internal.bindings.logger_common.mojom = mojo.internal.bindings.logger_common.mojom || {};
 
-mojo.internal.bindings.logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: LogSource
 mojo.internal.bindings.logger_common.mojom.LogSource = {

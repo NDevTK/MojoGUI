@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.CursorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.CursorTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CursorType
 mojo.internal.bindings.ui.mojom.CursorType = {

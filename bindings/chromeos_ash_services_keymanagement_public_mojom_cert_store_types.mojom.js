@@ -122,7 +122,7 @@
 mojo.internal.bindings.arc.keymanagement = mojo.internal.bindings.arc.keymanagement || {};
 mojo.internal.bindings.arc.keymanagement.mojom = mojo.internal.bindings.arc.keymanagement.mojom || {};
 
-mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ChapsSlot
 mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlot = {

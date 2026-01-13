@@ -125,7 +125,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.ServiceWorkerRegistrationDataSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerResourceRecordSpec = { $: {} };
 

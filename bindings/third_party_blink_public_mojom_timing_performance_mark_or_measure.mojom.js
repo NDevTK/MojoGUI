@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PerformanceMarkOrMeasureSpec = { $: {} };
 
 // External type stubs (from imports)

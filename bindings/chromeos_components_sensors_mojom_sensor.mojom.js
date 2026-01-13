@@ -122,10 +122,10 @@
 mojo.internal.bindings.chromeos.sensors = mojo.internal.bindings.chromeos.sensors || {};
 mojo.internal.bindings.chromeos.sensors.mojom = mojo.internal.bindings.chromeos.sensors.mojom || {};
 
-mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService = {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService.$interfaceName = 'chromeos.sensors.mojom.SensorService';

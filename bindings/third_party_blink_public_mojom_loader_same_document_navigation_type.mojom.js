@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SameDocumentNavigationType
 mojo.internal.bindings.blink.mojom.SameDocumentNavigationType = {

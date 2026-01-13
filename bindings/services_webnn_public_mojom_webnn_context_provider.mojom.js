@@ -122,7 +122,7 @@
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webnn.mojom.CreateContextResultSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec = { $: {} };

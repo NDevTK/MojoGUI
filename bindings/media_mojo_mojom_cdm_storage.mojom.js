@@ -121,8 +121,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.CdmStorage = {};
 mojo.internal.bindings.media.mojom.CdmStorageSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmStorage.$interfaceName = 'media.mojom.CdmStorage';

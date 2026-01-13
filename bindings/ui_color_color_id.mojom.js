@@ -121,7 +121,7 @@
  mojo.internal.bindings.color = mojo.internal.bindings.color || {};
 mojo.internal.bindings.color.mojom = mojo.internal.bindings.color.mojom || {};
 
-mojo.internal.bindings.color.mojom.RendererColorIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.color.mojom.RendererColorIdSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RendererColorId
 mojo.internal.bindings.color.mojom.RendererColorId = {

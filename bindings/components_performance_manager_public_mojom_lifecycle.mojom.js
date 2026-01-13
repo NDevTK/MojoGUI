@@ -121,7 +121,7 @@
  mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
 mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
 
-mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: LifecycleState
 mojo.internal.bindings.performance_manager.mojom.LifecycleState = {

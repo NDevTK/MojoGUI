@@ -126,8 +126,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.watermark = mojo.internal.bindings.watermark || {};
 
-mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PrintCompositor = {};
 mojo.internal.bindings.printing.mojom.PrintCompositorSpec = { $ : {} };
 mojo.internal.bindings.printing.mojom.PrintCompositor.$interfaceName = 'printing.mojom.PrintCompositor';

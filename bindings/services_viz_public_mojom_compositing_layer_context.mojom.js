@@ -124,7 +124,7 @@ mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.PendingLayerContextSpec = { $: {} };

@@ -124,15 +124,15 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
-mojo.internal.bindings.read_anything.mojom.InstallationStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.ReadAnythingPresentationStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.ColorsSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.LetterSpacingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.LineSpacingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.HighlightGranularitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.LineFocusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.read_anything.mojom.DistillationStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.read_anything.mojom.InstallationStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.ErrorCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.ReadAnythingPresentationStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.ColorsSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.LetterSpacingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.LineSpacingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.HighlightGranularitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.LineFocusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_anything.mojom.DistillationStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory = {};
@@ -294,11 +294,14 @@ mojo.internal.bindings.read_anything.mojom.HighlightGranularity = {
 // Enum: LineFocus
 mojo.internal.bindings.read_anything.mojom.LineFocus = {
   kOff: 0,
-  kWindow1: 1,
-  kWindow3: 2,
-  kWindow5: 3,
   kLineStatic: 4,
   kLineCursor: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
 };
 
 // Enum: DistillationStatus

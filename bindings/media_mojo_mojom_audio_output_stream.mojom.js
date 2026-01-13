@@ -121,7 +121,7 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.AudioOutputStream = {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioOutputStream.$interfaceName = 'media.mojom.AudioOutputStream';

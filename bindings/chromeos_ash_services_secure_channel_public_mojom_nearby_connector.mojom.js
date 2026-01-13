@@ -122,8 +122,8 @@
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec = { $ : {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener.$interfaceName = 'ash.secure_channel.mojom.NearbyConnectionStateListener';

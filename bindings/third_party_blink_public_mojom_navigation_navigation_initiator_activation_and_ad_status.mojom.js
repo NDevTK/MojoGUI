@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: NavigationInitiatorActivationAndAdStatus
 mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatus = {

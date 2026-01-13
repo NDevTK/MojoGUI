@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DisplayMode
 mojo.internal.bindings.blink.mojom.DisplayMode = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.WebBundleHandle = {};
 mojo.internal.bindings.network.mojom.WebBundleHandleSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.WebBundleHandle.$interfaceName = 'network.mojom.WebBundleHandle';

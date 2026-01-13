@@ -122,12 +122,12 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.HdcpVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.ExceptionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.HdcpVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.ExceptionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.CdmConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmPromiseResultSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmKeyInformationSpec = { $: {} };

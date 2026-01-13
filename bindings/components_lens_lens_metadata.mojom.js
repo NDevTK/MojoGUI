@@ -123,8 +123,8 @@ mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.lens.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.lens.mojom.PhaseSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.ImageFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.PhaseSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.LatencyLogSpec = { $: {} };
 
 // External type stubs (from imports)

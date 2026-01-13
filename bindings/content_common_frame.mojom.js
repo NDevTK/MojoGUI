@@ -133,10 +133,10 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.ViewWidgetTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.ChildFrameOwnerElementTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.FrameDeleteIntentionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.CreateNewWindowStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.ViewWidgetTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.ChildFrameOwnerElementTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.FrameDeleteIntentionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.CreateNewWindowStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.CreateMainFrameUnionSpec = { $: {} };
 mojo.internal.bindings.content.mojom.CreateViewParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.CreateLocalMainFrameParamsSpec = { $: {} };

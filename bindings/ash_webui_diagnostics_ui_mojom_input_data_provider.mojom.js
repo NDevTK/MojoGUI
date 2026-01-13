@@ -122,8 +122,8 @@
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.diagnostics.mojom.KeyEventSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesSpec = { $: {} };

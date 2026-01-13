@@ -121,7 +121,7 @@
  mojo.internal.bindings.signin = mojo.internal.bindings.signin || {};
 mojo.internal.bindings.signin.mojom = mojo.internal.bindings.signin.mojom || {};
 
-mojo.internal.bindings.signin.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.signin.mojom.AccountTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.signin.mojom.AccountIdSpec = { $: {} };
 
 // Enum: AccountType

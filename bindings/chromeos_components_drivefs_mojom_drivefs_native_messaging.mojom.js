@@ -121,7 +121,7 @@
  mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
 mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
 
-mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec = { $: {} };
 mojo.internal.bindings.drivefs.mojom.NativeMessagingPort = {};
 mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec = { $ : {} };

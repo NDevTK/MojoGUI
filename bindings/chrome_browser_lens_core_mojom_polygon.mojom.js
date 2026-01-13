@@ -121,8 +121,8 @@
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 
-mojo.internal.bindings.lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.PolygonSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.VertexSpec = { $: {} };
 

@@ -125,8 +125,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FocusResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ExtendableMessageEventSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerHost = {};

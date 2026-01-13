@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.SixPackShortcutModifierSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.SixPackShortcutModifierSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SixPackShortcutModifier
 mojo.internal.bindings.ui.mojom.SixPackShortcutModifier = {

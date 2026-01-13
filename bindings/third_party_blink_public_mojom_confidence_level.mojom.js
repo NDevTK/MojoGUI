@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ConfidenceLevel
 mojo.internal.bindings.blink.mojom.ConfidenceLevel = {

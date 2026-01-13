@@ -122,7 +122,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media.mojom.MediaURLSchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.MediaURLSchemeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.MediaMetricsProvider = {};
 mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaMetricsProvider.$interfaceName = 'media.mojom.MediaMetricsProvider';

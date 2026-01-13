@@ -123,7 +123,7 @@ mojo.internal.bindings.on_device_translation.mojom = mojo.internal.bindings.on_d
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.on_device_translation.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_translation.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = { $: {} };
 mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = { $: {} };
 mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy = {};

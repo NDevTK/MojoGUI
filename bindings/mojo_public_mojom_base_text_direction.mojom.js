@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TextDirection
 mojo.internal.bindings.mojo_base.mojom.TextDirection = {

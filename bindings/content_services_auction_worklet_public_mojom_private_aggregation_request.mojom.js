@@ -123,9 +123,9 @@ mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_wo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec = { $: {} };

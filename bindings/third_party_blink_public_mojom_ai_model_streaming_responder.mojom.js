@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder = {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = { $ : {} };

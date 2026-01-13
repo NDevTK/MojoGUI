@@ -121,14 +121,14 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationPrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationExpandStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationRemoteInputStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationShownContentsSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcNotificationStyleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.MessageCenterVisibilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ArcNotificationButtonSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcNotificationFlagsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcNotificationDataSpec = { $: {} };

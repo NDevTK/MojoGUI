@@ -123,8 +123,8 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec = { $: {} };

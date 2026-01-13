@@ -122,8 +122,8 @@
 mojo.internal.bindings.ash.graduation_ui = mojo.internal.bindings.ash.graduation_ui || {};
 mojo.internal.bindings.ash.graduation_ui.mojom = mojo.internal.bindings.ash.graduation_ui.mojom || {};
 
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec = { $: {} };
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler = {};
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec = { $ : {} };

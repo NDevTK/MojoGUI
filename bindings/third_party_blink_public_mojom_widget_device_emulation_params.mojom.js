@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 
-mojo.internal.bindings.blink.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec = { $: {} };
 
 // External type stubs (from imports)

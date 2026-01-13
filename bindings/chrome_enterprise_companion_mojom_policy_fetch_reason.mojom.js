@@ -121,7 +121,7 @@
  mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_companion || {};
 mojo.internal.bindings.enterprise_companion.mojom = mojo.internal.bindings.enterprise_companion.mojom || {};
 
-mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PolicyFetchReason
 mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReason = {

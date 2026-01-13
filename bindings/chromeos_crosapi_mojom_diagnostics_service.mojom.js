@@ -121,13 +121,13 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineStatusEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUserMessageEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineCommandEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec = { $: {} };

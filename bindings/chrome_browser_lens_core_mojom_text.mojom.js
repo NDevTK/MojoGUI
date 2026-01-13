@@ -124,8 +124,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.lens.mojom.AlignmentSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.AlignmentSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.TextSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.TextLayoutSpec = { $: {} };
 mojo.internal.bindings.lens.mojom.WordSpec = { $: {} };

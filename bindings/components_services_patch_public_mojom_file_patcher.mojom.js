@@ -123,7 +123,7 @@ mojo.internal.bindings.patch.mojom = mojo.internal.bindings.patch.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.patch.mojom.FilePatcher = {};
 mojo.internal.bindings.patch.mojom.FilePatcherSpec = { $ : {} };
 mojo.internal.bindings.patch.mojom.FilePatcher.$interfaceName = 'patch.mojom.FilePatcher';

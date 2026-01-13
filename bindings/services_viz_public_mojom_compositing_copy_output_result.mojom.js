@@ -123,9 +123,9 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.CopyOutputResultErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.CopyOutputResultErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.CopyOutputResultSpec = { $: {} };
 
 // External type stubs (from imports)

@@ -124,7 +124,7 @@ mojo.internal.bindings.persistent_cache = mojo.internal.bindings.persistent_cach
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.CodeCacheHost = {};
 mojo.internal.bindings.blink.mojom.CodeCacheHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.CodeCacheHost.$interfaceName = 'blink.mojom.CodeCacheHost';

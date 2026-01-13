@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
 mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
 
-mojo.internal.bindings.ash.cfm.mojom.GetFnSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cfm.mojom.GetFnSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.ThreadSpec = { $: {} };
 
 // Enum: ThreadType

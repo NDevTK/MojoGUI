@@ -121,7 +121,7 @@
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
-mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AssistiveTechnologyType
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyType = {

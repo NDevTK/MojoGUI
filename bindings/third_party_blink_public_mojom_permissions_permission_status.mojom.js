@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PermissionStatus
 mojo.internal.bindings.blink.mojom.PermissionStatus = {

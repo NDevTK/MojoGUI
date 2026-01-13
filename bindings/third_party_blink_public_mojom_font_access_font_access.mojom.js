@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FontDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FontAccessManager = {};
 mojo.internal.bindings.blink.mojom.FontAccessManagerSpec = { $ : {} };

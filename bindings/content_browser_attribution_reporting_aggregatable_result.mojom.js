@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AggregatableResult
 mojo.internal.bindings.attribution_reporting.mojom.AggregatableResult = {

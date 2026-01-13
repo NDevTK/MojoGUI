@@ -124,10 +124,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorSupportedRateControlModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.ContentTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.StorageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.EncoderTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorSupportedRateControlModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.ContentTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StorageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.EncoderTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.BitrateSpec = { $: {} };
 mojo.internal.bindings.media.mojom.OptionalMetadataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorSupportedProfileSpec = { $: {} };

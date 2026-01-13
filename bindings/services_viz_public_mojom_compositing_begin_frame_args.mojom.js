@@ -122,7 +122,7 @@
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.viz.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.BeginFrameArgsTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.BeginFrameIdSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.BeginFrameAckSpec = { $: {} };

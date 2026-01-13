@@ -125,10 +125,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.SelectionGranularitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.PanActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ImeStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FocusStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SelectionGranularitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PanActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ImeStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FocusStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.KeyDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PointerDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WheelDataSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: V8CacheOptions
 mojo.internal.bindings.blink.mojom.V8CacheOptions = {

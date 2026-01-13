@@ -125,7 +125,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ElementSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSpec = { $: {} };

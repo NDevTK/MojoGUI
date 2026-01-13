@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.CSSSampleIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CSSSampleIdSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CSSSampleId
 mojo.internal.bindings.blink.mojom.CSSSampleId = {

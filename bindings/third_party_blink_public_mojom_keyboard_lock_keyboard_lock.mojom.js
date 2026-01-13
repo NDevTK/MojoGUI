@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.KeyboardLockService = {};
 mojo.internal.bindings.blink.mojom.KeyboardLockServiceSpec = { $ : {} };

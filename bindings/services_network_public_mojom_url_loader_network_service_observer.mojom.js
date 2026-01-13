@@ -123,8 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.TransportTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TransportTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.LoadInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ClientCertificateResponder = {};
 mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec = { $ : {} };

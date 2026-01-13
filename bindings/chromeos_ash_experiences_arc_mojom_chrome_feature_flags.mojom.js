@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.FeatureFlagsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance = {};
 mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceSpec = { $ : {} };

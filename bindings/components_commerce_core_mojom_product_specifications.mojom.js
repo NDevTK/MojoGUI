@@ -124,8 +124,8 @@ mojo.internal.bindings.commerce.product_specifications.mojom = mojo.internal.bin
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerSpec = { $ : {} };
 mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler.$interfaceName = 'commerce.product_specifications.mojom.ProductSpecificationsHandler';

@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PushSubscriptionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PushMessaging = {};

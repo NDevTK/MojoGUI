@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PreviewIdsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec = { $: {} };

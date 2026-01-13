@@ -122,9 +122,9 @@
 mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = { $: {} };
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec = { $: {} };
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver = {};

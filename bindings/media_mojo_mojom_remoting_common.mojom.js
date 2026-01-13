@@ -121,11 +121,11 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec = { $: {} };
 
 // Enum: RemotingStopReason

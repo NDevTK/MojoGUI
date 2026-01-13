@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.GestureDeviceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.InertialPhaseStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.GestureDeviceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.InertialPhaseStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: GestureDevice
 mojo.internal.bindings.blink.mojom.GestureDevice = {

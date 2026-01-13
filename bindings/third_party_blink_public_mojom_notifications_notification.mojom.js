@@ -124,9 +124,9 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.NotificationActionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NotificationDataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NotificationResourcesSpec = { $: {} };

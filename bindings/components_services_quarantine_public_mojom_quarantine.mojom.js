@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.quarantine.mojom.Quarantine = {};
 mojo.internal.bindings.quarantine.mojom.QuarantineSpec = { $ : {} };
 mojo.internal.bindings.quarantine.mojom.Quarantine.$interfaceName = 'quarantine.mojom.Quarantine';

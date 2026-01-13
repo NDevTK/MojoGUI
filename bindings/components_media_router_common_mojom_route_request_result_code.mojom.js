@@ -121,7 +121,7 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RouteRequestResultCode
 mojo.internal.bindings.media_router.mojom.RouteRequestResultCode = {

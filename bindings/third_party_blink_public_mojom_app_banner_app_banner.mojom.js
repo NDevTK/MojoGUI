@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AppBannerController = {};
 mojo.internal.bindings.blink.mojom.AppBannerControllerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AppBannerController.$interfaceName = 'blink.mojom.AppBannerController';

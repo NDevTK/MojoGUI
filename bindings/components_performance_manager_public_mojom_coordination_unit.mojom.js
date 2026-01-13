@@ -123,7 +123,7 @@ mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.perfor
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit = {};
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec = { $ : {} };
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit.$interfaceName = 'performance_manager.mojom.DocumentCoordinationUnit';

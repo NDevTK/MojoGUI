@@ -121,7 +121,7 @@
  mojo.internal.bindings.fuzz = mojo.internal.bindings.fuzz || {};
 mojo.internal.bindings.fuzz.mojom = mojo.internal.bindings.fuzz.mojom || {};
 
-mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzStructSpec = { $: {} };

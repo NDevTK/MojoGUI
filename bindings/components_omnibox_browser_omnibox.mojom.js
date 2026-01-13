@@ -121,8 +121,8 @@
  mojo.internal.bindings.omnibox = mojo.internal.bindings.omnibox || {};
 mojo.internal.bindings.omnibox.mojom = mojo.internal.bindings.omnibox.mojom || {};
 
-mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: NavigationPredictor
 mojo.internal.bindings.omnibox.mojom.NavigationPredictor = {

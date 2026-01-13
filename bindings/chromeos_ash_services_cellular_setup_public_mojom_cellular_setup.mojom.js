@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.cellular_setup = mojo.internal.bindings.ash.cellular_
 mojo.internal.bindings.ash.cellular_setup.mojom = mojo.internal.bindings.ash.cellular_setup.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec = { $: {} };
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler = {};
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerSpec = { $ : {} };

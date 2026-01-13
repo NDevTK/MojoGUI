@@ -122,7 +122,7 @@
 mojo.internal.bindings.drivefs.pinning_manager_types = mojo.internal.bindings.drivefs.pinning_manager_types || {};
 mojo.internal.bindings.drivefs.pinning_manager_types.mojom = mojo.internal.bindings.drivefs.pinning_manager_types.mojom || {};
 
-mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Stage
 mojo.internal.bindings.drivefs.pinning_manager_types.mojom.Stage = {

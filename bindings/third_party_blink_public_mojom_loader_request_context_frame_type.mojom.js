@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.RequestContextFrameTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.RequestContextFrameTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RequestContextFrameType
 mojo.internal.bindings.blink.mojom.RequestContextFrameType = {

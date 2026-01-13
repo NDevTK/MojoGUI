@@ -123,9 +123,9 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FacingModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FacingModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec = { $: {} };

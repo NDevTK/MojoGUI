@@ -122,8 +122,8 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.SessionSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.SessionSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec = { $: {} };
 
 // External type stubs (from imports)

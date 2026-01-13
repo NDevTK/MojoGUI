@@ -125,7 +125,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
-mojo.internal.bindings.mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec = { $: {} };
 mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec = { $: {} };
