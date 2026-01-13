@@ -256,9 +256,9 @@ mojo.internal.bindings.guest_view.mojom.ViewHandleRequest = mojo.internal.bindin
 // Interface: GuestViewHost
 mojo.internal.Struct(
     mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_element_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_guest_instance_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_guest_instance_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -269,11 +269,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
-      mojo.internal.StructField('arg_view_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_instance_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_handle_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.guest_view.mojom.GuestViewHostPendingReceiver = class {
   constructor(handle) {

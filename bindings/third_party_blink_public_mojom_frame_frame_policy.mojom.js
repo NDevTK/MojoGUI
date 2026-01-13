@@ -144,9 +144,9 @@ mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec = mojo.internal.binding
 // Struct: FramePolicy
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FramePolicySpec, 'blink.mojom.FramePolicy', [
-      mojo.internal.StructField('arg_container_policy', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_required_document_policy', 8, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec, mojo.internal.bindings.blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sandbox_flags', 16, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_deferred_fetch_policy', 20, 0, mojo.internal.bindings.blink.mojom.DeferredFetchPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sandbox_flags', 0, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deferred_fetch_policy', 4, 0, mojo.internal.bindings.blink.mojom.DeferredFetchPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_container_policy', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_required_document_policy', 16, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec, mojo.internal.bindings.blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

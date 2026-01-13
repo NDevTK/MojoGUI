@@ -161,8 +161,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_url_for_favicon', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_url_for_favicon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -242,8 +242,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateWriterClient_OnError_Params', [
-      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -459,8 +459,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateRewriterClient_OnError_Params', [
-      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -676,8 +676,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateSummarizerClient_OnError_Params', [
-      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -893,8 +893,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateProofreaderClient_OnError_Params', [
-      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

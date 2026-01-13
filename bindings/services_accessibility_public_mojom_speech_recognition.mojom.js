@@ -189,10 +189,10 @@ mojo.internal.Struct(
 // Struct: StartOptions
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.StartOptionsSpec, 'ax.mojom.StartOptions', [
-      mojo.internal.StructField('arg_locale', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interim_results_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_interim_results_$value', originalFieldName: 'arg_interim_results' }),
-      mojo.internal.StructField('arg_interim_results_$value', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_interim_results_$flag', originalFieldName: 'arg_interim_results' }),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interim_results_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_interim_results_$value', originalFieldName: 'arg_interim_results' }),
+      mojo.internal.StructField('arg_interim_results_$value', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_interim_results_$flag', originalFieldName: 'arg_interim_results' }),
+      mojo.internal.StructField('arg_locale', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -206,8 +206,8 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionStartInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec, 'ax.mojom.SpeechRecognitionStartInfo', [
-      mojo.internal.StructField('arg_observer_or_error', 0, 0, mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer_or_error', 8, 0, mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

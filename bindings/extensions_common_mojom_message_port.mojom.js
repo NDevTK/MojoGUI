@@ -209,17 +209,17 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.PortIdSpec, 'extensions.mojom.PortId', [
       mojo.internal.StructField('arg_context_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_serialization_format', 12, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_opener', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_opener', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_serialization_format', 16, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: MessagingEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec, 'extensions.mojom.MessagingEndpoint', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_native_app_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_native_app_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -227,9 +227,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec, 'extensions.mojom.TabConnectionInfo', [
       mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_lifecycle', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_lifecycle', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -474,8 +474,8 @@ mojo.internal.bindings.extensions.mojom.MessagePortRequest = mojo.internal.bindi
 // Interface: MessagePortHost
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec, 'extensions.mojom.MessagePortHost_ClosePort_Params', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_close_channel', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_close_channel', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

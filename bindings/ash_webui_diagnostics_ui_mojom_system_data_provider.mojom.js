@@ -201,11 +201,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_board_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_marketing_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_cpu_model_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version_info', 24, 0, mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_capabilities', 32, 0, mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_memory_kib', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_max_clock_speed_khz', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_threads_count', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_memory_kib', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_threads_count', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_info', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_capabilities', 48, 0, mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -250,11 +250,11 @@ mojo.internal.Struct(
 // Struct: CpuUsage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec, 'ash.diagnostics.mojom.CpuUsage', [
-      mojo.internal.StructField('arg_scaling_current_frequency_khz', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_usage_user', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_usage_system', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_usage_free', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_average_cpu_temp_celsius', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_usage_user', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_usage_system', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_usage_free', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scaling_current_frequency_khz', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -141,26 +141,26 @@ mojo.internal.bindings.skia.mojom.ImageInfoSpec = mojo.internal.bindings.skia.mo
 // Struct: BitmapN32
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.BitmapN32Spec, 'skia.mojom.BitmapN32', [
-      mojo.internal.StructField('arg_pixel_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_info', 16, 0, mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: BitmapWithArbitraryBpp
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, 'skia.mojom.BitmapWithArbitraryBpp', [
-      mojo.internal.StructField('arg_pixel_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_info', 16, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_UNUSED_row_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 0, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_UNUSED_row_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: BitmapMappedFromTrustedProcess
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec, 'skia.mojom.BitmapMappedFromTrustedProcess', [
-      mojo.internal.StructField('arg_pixel_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_info', 16, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_UNUSED_row_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 0, 0, mojo.internal.bindings.skia.mojom.ImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_UNUSED_row_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

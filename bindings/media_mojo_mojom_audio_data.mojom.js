@@ -126,9 +126,9 @@ mojo.internal.bindings.media.mojom.AudioDataS16Spec = { $: {} };
 // Struct: AudioDataS16
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioDataS16Spec, 'media.mojom.AudioDataS16', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

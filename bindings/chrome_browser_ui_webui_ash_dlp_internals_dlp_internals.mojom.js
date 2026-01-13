@@ -229,17 +229,17 @@ mojo.internal.bindings.dlp_internals.mojom.UserType = {
 // Struct: DataTransferEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec, 'dlp_internals.mojom.DataTransferEndpoint', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentRestrictionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec, 'dlp_internals.mojom.ContentRestrictionInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restriction', 8, 0, mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 12, 0, mojo.internal.bindings.dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 4, 0, mojo.internal.bindings.dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -273,26 +273,26 @@ mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec, 'dlp_internals.mojom.DlpEvent', [
       mojo.internal.StructField('arg_source_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_micro_$value', 16, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_timestamp_micro_$flag', originalFieldName: 'arg_timestamp_micro' }),
-      mojo.internal.StructField('arg_content_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_triggered_rule_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_triggered_rule_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_restriction', 48, 0, mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mode', 52, 0, mojo.internal.bindings.dlp_internals.mojom.ModeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_user_type', 56, 0, mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_micro_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_timestamp_micro_$value', originalFieldName: 'arg_timestamp_micro' }),
+      mojo.internal.StructField('arg_restriction', 16, 0, mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mode', 20, 0, mojo.internal.bindings.dlp_internals.mojom.ModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_micro_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_timestamp_micro_$value', originalFieldName: 'arg_timestamp_micro' }),
+      mojo.internal.StructField('arg_user_type', 28, 0, mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_micro_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_timestamp_micro_$flag', originalFieldName: 'arg_timestamp_micro' }),
+      mojo.internal.StructField('arg_content_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_triggered_rule_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_triggered_rule_id', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: FileDatabaseEntry
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec, 'dlp_internals.mojom.FileDatabaseEntry', [
-      mojo.internal.StructField('arg_inode_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_inode_$flag', originalFieldName: 'arg_inode' }),
-      mojo.internal.StructField('arg_crtime_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_crtime_$flag', originalFieldName: 'arg_crtime' }),
-      mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_referrer_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_inode_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_inode_$value', originalFieldName: 'arg_inode' }),
-      mojo.internal.StructField('arg_crtime_$flag', 32, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_crtime_$value', originalFieldName: 'arg_crtime' }),
+      mojo.internal.StructField('arg_inode_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_inode_$value', originalFieldName: 'arg_inode' }),
+      mojo.internal.StructField('arg_crtime_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_crtime_$value', originalFieldName: 'arg_crtime' }),
+      mojo.internal.StructField('arg_inode_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_inode_$flag', originalFieldName: 'arg_inode' }),
+      mojo.internal.StructField('arg_crtime_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_crtime_$flag', originalFieldName: 'arg_crtime' }),
+      mojo.internal.StructField('arg_source_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_referrer_url', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 

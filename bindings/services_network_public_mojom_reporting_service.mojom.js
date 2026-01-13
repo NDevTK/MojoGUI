@@ -169,9 +169,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_group', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 40, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_depth', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_attempts', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_depth', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_attempts', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 48, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_status', 56, 0, mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -179,17 +179,17 @@ mojo.internal.Struct(
 // Struct: ReportingApiEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec, 'network.mojom.ReportingApiEndpoint', [
-      mojo.internal.StructField('arg_network_anonymization_key', 0, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_source', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attempted_uploads', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_successful_uploads', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_attempted_reports', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_successful_reports', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_weight', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attempted_uploads', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_successful_uploads', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_attempted_reports', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_successful_reports', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_weight', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 48, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_source', 64, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 80]]);
 

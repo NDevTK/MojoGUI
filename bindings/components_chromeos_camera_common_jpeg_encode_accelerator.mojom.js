@@ -185,19 +185,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_Params', [
-      mojo.internal.StructField('arg_input_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_format', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_format', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_planes', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_exif_handle', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_exif_buffer_size', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size_height', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_quality', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_input_modifier', 44, 0, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('arg_input_modifier', 48, 0, mojo.internal.Uint64, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_has_input_modifier', 56, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
-    [[0, 56], [1, 72]]);
+    [[0, 56], [1, 64]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParams', [

@@ -133,9 +133,9 @@ mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.Siz
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayModeSpec, 'display.mojom.DisplayMode', [
       mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_refresh_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vsync_rate_min_$value', 12, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_vsync_rate_min_$flag', originalFieldName: 'arg_vsync_rate_min' }),
-      mojo.internal.StructField('arg_is_interlaced', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_vsync_rate_min_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_vsync_rate_min_$value', originalFieldName: 'arg_vsync_rate_min' }),
+      mojo.internal.StructField('arg_is_interlaced', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_vsync_rate_min_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_vsync_rate_min_$value', originalFieldName: 'arg_vsync_rate_min' }),
+      mojo.internal.StructField('arg_refresh_rate', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vsync_rate_min_$value', 16, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_vsync_rate_min_$flag', originalFieldName: 'arg_vsync_rate_min' }),
     ],
     [[0, 32]]);

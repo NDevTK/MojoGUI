@@ -611,8 +611,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_FormatModelInput_Params', [
       mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 8, 0, mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -624,9 +624,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safety_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safety_feature', 16, 0, mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safety_feature', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 16, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -758,9 +758,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_Params', [
-      mojo.internal.StructField('arg_consent_description_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_consent_confirmation_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consent_given', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_given', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_description_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_confirmation_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

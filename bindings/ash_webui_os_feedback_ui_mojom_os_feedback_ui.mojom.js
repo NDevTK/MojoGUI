@@ -259,16 +259,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec, 'ash.os_feedback_ui.mojom.FeedbackContext', [
       mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_autofill_metadata', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_extra_diagnostics', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_category_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trace_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_wifi_debug_logs_allowed', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_linked_cross_device_phone', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_internal_account', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_settings_search_do_not_record_metrics', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_from_autofill', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_debug_logs_allowed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_linked_cross_device_phone', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_internal_account', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_settings_search_do_not_record_metrics', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_from_autofill', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_autofill_metadata', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extra_diagnostics', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_category_tag', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

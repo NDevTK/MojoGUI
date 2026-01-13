@@ -180,8 +180,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [
       mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_comment', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pos', 24, 0, mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pos', 16, 0, mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_comment', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

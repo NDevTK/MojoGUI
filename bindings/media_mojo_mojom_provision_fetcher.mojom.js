@@ -143,8 +143,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -239,8 +239,8 @@ mojo.internal.Struct(
 // Struct: SelectAudioOutputResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec, 'blink.mojom.SelectAudioOutputResult', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 8, 0, mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -250,10 +250,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channels', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_valid', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_valid', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_channels', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_latency', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -324,10 +324,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_subscribe_audio_input', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_subscribe_video_input', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_subscribe_audio_output', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subscribe_audio_input', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subscribe_video_input', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subscribe_audio_output', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1029,8 +1029,8 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRequest = mojo.inte
 // Interface: MediaDevicesListener
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec, 'blink.mojom.MediaDevicesListener_OnDevicesChanged_Params', [
-      mojo.internal.StructField('arg_device_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -308,8 +308,8 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryRequest = mojo.int
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec, 'webui_examples.mojom.PageHandler_Navigate_Params', [
-      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_src', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

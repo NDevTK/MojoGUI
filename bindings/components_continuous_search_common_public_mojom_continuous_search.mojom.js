@@ -172,8 +172,8 @@ mojo.internal.Struct(
 // Struct: ResultGroup
 mojo.internal.Struct(
     mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -181,8 +181,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
       mojo.internal.StructField('arg_document_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_groups', 8, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_category_type', 16, 0, mojo.internal.bindings.continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_category_type', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 16, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -195,8 +195,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.continuous_search.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.continuous_search.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

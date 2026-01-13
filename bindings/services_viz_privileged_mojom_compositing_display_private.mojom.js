@@ -268,9 +268,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec, 'viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_Params', [
-      mojo.internal.StructField('arg_suggested_high', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_support', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_support', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_high', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

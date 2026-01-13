@@ -298,8 +298,8 @@ mojo.internal.Struct(
 // Struct: SplitTabVisualData
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec, 'tabs_api.mojom.SplitTabVisualData', [
-      mojo.internal.StructField('arg_split_ratio', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.tabs_api.mojom.LayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.tabs_api.mojom.LayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_split_ratio', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

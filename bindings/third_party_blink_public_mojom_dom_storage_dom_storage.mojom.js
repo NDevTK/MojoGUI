@@ -155,7 +155,7 @@ mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec, 'blink.mojom.DomStorageProvider_BindDomStorage_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DomStorageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DomStorageClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DomStorageClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

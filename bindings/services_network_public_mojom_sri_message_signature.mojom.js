@@ -165,8 +165,8 @@ mojo.internal.bindings.network.mojom.SRIMessageSignatureError = {
 // Struct: SRIMessageSignatureComponentParameter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SRIMessageSignatureComponentParameterSpec, 'network.mojom.SRIMessageSignatureComponentParameter', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -184,23 +184,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_components', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SRIMessageSignatureComponentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_created_$value', 24, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_created_$flag', originalFieldName: 'arg_created' }),
-      mojo.internal.StructField('arg_expires_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_expires_$flag', originalFieldName: 'arg_expires' }),
-      mojo.internal.StructField('arg_keyid', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tag', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serialized_signature_params', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_created_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_created_$value', originalFieldName: 'arg_created' }),
-      mojo.internal.StructField('arg_expires_$flag', 72, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_expires_$value', originalFieldName: 'arg_expires' }),
+      mojo.internal.StructField('arg_created_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_created_$value', originalFieldName: 'arg_created' }),
+      mojo.internal.StructField('arg_expires_$flag', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_expires_$value', originalFieldName: 'arg_expires' }),
+      mojo.internal.StructField('arg_created_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_created_$flag', originalFieldName: 'arg_created' }),
+      mojo.internal.StructField('arg_expires_$value', 40, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_expires_$flag', originalFieldName: 'arg_expires' }),
+      mojo.internal.StructField('arg_keyid', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tag', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serialized_signature_params', 72, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
 // Struct: SRIMessageSignatureIssue
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SRIMessageSignatureIssueSpec, 'network.mojom.SRIMessageSignatureIssue', [
-      mojo.internal.StructField('arg_signature_base', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_integrity_assertions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.network.mojom.SRIMessageSignatureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.network.mojom.SRIMessageSignatureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_base', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_integrity_assertions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

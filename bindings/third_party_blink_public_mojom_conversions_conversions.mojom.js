@@ -158,9 +158,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterDataHost_Params', [
       mojo.internal.StructField('arg_data_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration_eligibility', 16, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_for_background_requests', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_registration_eligibility', 4, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_for_background_requests', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_origins', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

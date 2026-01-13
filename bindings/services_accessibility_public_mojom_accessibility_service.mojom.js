@@ -360,9 +360,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
       mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.ax.mojom.AccessibilityServicePendingReceiver = class {
   constructor(handle) {

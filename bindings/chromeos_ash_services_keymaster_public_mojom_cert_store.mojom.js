@@ -163,8 +163,8 @@ mojo.internal.Struct(
 // Struct: ChromeOsKey
 mojo.internal.Struct(
     mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, 'arc.keymaster.mojom.ChromeOsKey', [
-      mojo.internal.StructField('arg_key_data', 0, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_base64_subject_public_key_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

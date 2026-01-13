@@ -165,10 +165,10 @@ mojo.internal.bindings.ash.personalization_app.mojom.SearchConceptId = {
 // Struct: SearchResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SearchResultSpec, 'ash.personalization_app.mojom.SearchResult', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_search_concept_id', 24, 0, mojo.internal.bindings.ash.personalization_app.mojom.SearchConceptIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_concept_id', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.SearchConceptIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance_score', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

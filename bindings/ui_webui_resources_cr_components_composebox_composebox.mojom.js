@@ -156,10 +156,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'composebox.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.composebox.mojom.PageRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.composebox.mojom.PageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_searchbox_page', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_searchbox_handler', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.searchbox.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_searchbox_page', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_searchbox_handler', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.searchbox.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.composebox.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {

@@ -169,7 +169,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_Params', [
       mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_to_engine_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_from_engine', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_engine', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_extra', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);

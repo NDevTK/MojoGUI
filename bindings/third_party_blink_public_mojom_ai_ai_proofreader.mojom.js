@@ -139,10 +139,10 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.b
 // Struct: AIProofreaderCreateOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [
-      mojo.internal.StructField('arg_correction_explanation_language', 0, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_correction_types', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_correction_explanations', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_correction_types', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_correction_explanations', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_correction_explanation_language', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

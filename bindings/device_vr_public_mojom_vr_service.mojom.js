@@ -582,11 +582,11 @@ mojo.internal.Struct(
 // Struct: XRSessionDeviceConfig
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRSessionDeviceConfigSpec, 'device.mojom.XRSessionDeviceConfig', [
-      mojo.internal.StructField('arg_views', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRViewSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_depth_configuration', 8, 0, mojo.internal.bindings.device.mojom.XRDepthConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_default_framebuffer_scale', 16, 0, mojo.internal.Float, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_viewport_scaling', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_anti_aliasing', 20, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_default_framebuffer_scale', 0, 0, mojo.internal.Float, 1.0, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_viewport_scaling', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_anti_aliasing', 4, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_views', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRViewSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_depth_configuration', 16, 0, mojo.internal.bindings.device.mojom.XRDepthConfigSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -596,14 +596,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_data_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_layer_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRLayerManagerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_client_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.XRSessionClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_enviroment_blend_mode', 20, 0, mojo.internal.bindings.device.mojom.XREnvironmentBlendModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_submit_frame_sink', 24, 0, mojo.internal.bindings.device.mojom.XRPresentationConnectionSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_enabled_features', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_config', 40, 0, mojo.internal.bindings.device.mojom.XRSessionDeviceConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enviroment_blend_mode', 48, 0, mojo.internal.bindings.device.mojom.XREnvironmentBlendModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interaction_mode', 52, 0, mojo.internal.bindings.device.mojom.XRInteractionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wants_fullscreen', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_interaction_mode', 48, 0, mojo.internal.bindings.device.mojom.XRInteractionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wants_fullscreen', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: XRPresentationConnection
 mojo.internal.Struct(
@@ -617,28 +617,28 @@ mojo.internal.Struct(
 // Struct: XRInputSourceDescription
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRInputSourceDescriptionSpec, 'device.mojom.XRInputSourceDescription', [
-      mojo.internal.StructField('arg_input_from_pointer', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_profiles', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_ray_mode', 16, 0, mojo.internal.bindings.device.mojom.XRTargetRayModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handedness', 20, 0, mojo.internal.bindings.device.mojom.XRHandednessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_ray_mode', 0, 0, mojo.internal.bindings.device.mojom.XRTargetRayModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handedness', 4, 0, mojo.internal.bindings.device.mojom.XRHandednessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_from_pointer', 8, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_profiles', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: XRInputSourceState
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRInputSourceStateSpec, 'device.mojom.XRInputSourceState', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.device.mojom.XRInputSourceDescriptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mojo_from_input', 8, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gamepad', 16, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_overlay_pointer_position', 24, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hand_tracking_data', 32, 0, mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_emulated_position', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_auxiliary', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_input_pressed', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_input_clicked', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_squeeze_pressed', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_squeeze_clicked', 44, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_emulated_position', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_auxiliary', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_input_pressed', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_input_clicked', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_squeeze_pressed', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_squeeze_clicked', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.device.mojom.XRInputSourceDescriptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_input', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gamepad', 24, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_overlay_pointer_position', 32, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hand_tracking_data', 40, 0, mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -732,13 +732,13 @@ mojo.internal.Struct(
 // Struct: XRView
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRViewSpec, 'device.mojom.XRView', [
-      mojo.internal.StructField('arg_depth_data', 0, 0, mojo.internal.bindings.device.mojom.XRDepthDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_geometry', 16, 0, mojo.internal.bindings.device.mojom.XRViewGeometrySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_viewport', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visibility_mask', 32, 0, mojo.internal.bindings.device.mojom.XRVisibilityMaskSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_visibility_mask_id', 40, 0, mojo.internal.bindings.device.mojom.XrVisibilityMaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eye', 48, 0, mojo.internal.bindings.device.mojom.XREyeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_first_person_observer', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_eye', 0, 0, mojo.internal.bindings.device.mojom.XREyeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_first_person_observer', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_geometry', 8, 0, mojo.internal.bindings.device.mojom.XRViewGeometrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_depth_data', 24, 0, mojo.internal.bindings.device.mojom.XRDepthDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_visibility_mask', 40, 0, mojo.internal.bindings.device.mojom.XRVisibilityMaskSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_visibility_mask_id', 48, 0, mojo.internal.bindings.device.mojom.XrVisibilityMaskIdSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -788,10 +788,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPlaneDataSpec, 'device.mojom.XRPlaneData', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.device.mojom.PlaneIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mojo_from_plane', 8, 0, mojo.internal.bindings.device.mojom.PoseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_polygon', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRPlanePointDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_orientation', 24, 0, mojo.internal.bindings.device.mojom.XRPlaneOrientationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_semantic_label', 28, 0, mojo.internal.bindings.device.mojom.XRSemanticLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_orientation', 8, 0, mojo.internal.bindings.device.mojom.XRPlaneOrientationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_semantic_label', 12, 0, mojo.internal.bindings.device.mojom.XRSemanticLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_plane', 16, 0, mojo.internal.bindings.device.mojom.PoseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_polygon', 24, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRPlanePointDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -863,13 +863,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRCubeMapSpec, 'device.mojom.XRCubeMap', [
       mojo.internal.StructField('arg_kNumComponentsPerPixel', 0, 0, mojo.internal.OpaqueStruct, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_positive_x', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_negative_x', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_positive_y', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_negative_y', 32, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_positive_z', 40, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_negative_z', 48, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_width_and_height', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width_and_height', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_positive_x', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_negative_x', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_positive_y', 32, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_negative_y', 40, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_positive_z', 48, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_negative_z', 56, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -909,18 +909,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pixel_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_norm_texture_from_norm_view', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_geometry', 32, 0, mojo.internal.bindings.device.mojom.XRViewGeometrySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_raw_value_to_meters', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_value_to_meters', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_geometry', 40, 0, mojo.internal.bindings.device.mojom.XRViewGeometrySpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: XRTrackedImageData
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRTrackedImageDataSpec, 'device.mojom.XRTrackedImageData', [
-      mojo.internal.StructField('arg_mojo_from_image', 0, 0, mojo.internal.bindings.device.mojom.PoseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_width_in_meters', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_actively_tracked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_actively_tracked', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_image', 8, 0, mojo.internal.bindings.device.mojom.PoseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width_in_meters', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -996,10 +996,10 @@ mojo.internal.Struct(
 // Struct: XRLayerMutableData
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRLayerMutableDataSpec, 'device.mojom.XRLayerMutableData', [
-      mojo.internal.StructField('arg_native_origin_information', 0, 0, mojo.internal.bindings.device.mojom.XRNativeOriginInformationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_layer_data', 16, 0, mojo.internal.bindings.device.mojom.XRLayerSpecificDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_opacity', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_blend_texture_source_alpha', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blend_texture_source_alpha', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_opacity', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_native_origin_information', 8, 0, mojo.internal.bindings.device.mojom.XRNativeOriginInformationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_data', 24, 0, mojo.internal.bindings.device.mojom.XRLayerSpecificDataSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1023,9 +1023,9 @@ mojo.internal.Struct(
 // Struct: XRRenderInfo
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRenderInfoSpec, 'device.mojom.XRRenderInfo', [
-      mojo.internal.StructField('arg_mojo_from_viewer', 0, 0, mojo.internal.bindings.device.mojom.VRPoseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_views', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRViewSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 16, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_viewer', 8, 0, mojo.internal.bindings.device.mojom.VRPoseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_views', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRViewSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1039,18 +1039,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_camera_image_buffer_shared_image', 32, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_camera_image_buffer_sync_token', 40, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_camera_image_size', 48, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mojo_from_floor', 56, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_state', 64, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRInputSourceStateSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_stage_parameters', 72, 0, mojo.internal.bindings.device.mojom.VRStageParametersSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_detected_planes_data', 80, 0, mojo.internal.bindings.device.mojom.XRPlaneDetectionDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_anchors_data', 88, 0, mojo.internal.bindings.device.mojom.XRAnchorsDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_composition_layers_data', 96, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRLayerFrameDataSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_light_estimation_data', 104, 0, mojo.internal.bindings.device.mojom.XRLightEstimationDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hit_test_subscription_results', 112, 0, mojo.internal.bindings.device.mojom.XRHitTestSubscriptionResultsDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tracked_images', 120, 0, mojo.internal.bindings.device.mojom.XRTrackedImagesDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stage_parameters_id', 128, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rendering_time_ratio', 132, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mojo_space_reset', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_space_reset', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_stage_parameters_id', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_floor', 64, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_state', 72, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRInputSourceStateSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_stage_parameters', 80, 0, mojo.internal.bindings.device.mojom.VRStageParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_detected_planes_data', 88, 0, mojo.internal.bindings.device.mojom.XRPlaneDetectionDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_anchors_data', 96, 0, mojo.internal.bindings.device.mojom.XRAnchorsDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_composition_layers_data', 104, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRLayerFrameDataSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_light_estimation_data', 112, 0, mojo.internal.bindings.device.mojom.XRLightEstimationDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_subscription_results', 120, 0, mojo.internal.bindings.device.mojom.XRHitTestSubscriptionResultsDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rendering_time_ratio', 128, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_images', 136, 0, mojo.internal.bindings.device.mojom.XRTrackedImagesDataSpec, null, true, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -1067,9 +1067,9 @@ mojo.internal.Struct(
 // Struct: XRFrameDataRequestOptions
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRFrameDataRequestOptionsSpec, 'device.mojom.XRFrameDataRequestOptions', [
-      mojo.internal.StructField('arg_stage_parameters_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_include_lighting_estimation_data', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_depth_active', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_lighting_estimation_data', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_depth_active', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_stage_parameters_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2504,41 +2504,41 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderRequest = mojo.internal.b
 // Interface: XRPresentationProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec, 'device.mojom.XRPresentationProvider_UpdateLayerBounds_Params', [
-      mojo.internal.StructField('arg_left_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_right_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_left_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_right_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrameMissing_Params', [
-      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrame_Params', [
-      mojo.internal.StructField('arg_time_waited', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_waited', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_Params', [
-      mojo.internal.StructField('arg_texture', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 16, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_texture', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_Params', [
-      mojo.internal.StructField('arg_layer_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.LayerIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_waited', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.LayerIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_waited', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

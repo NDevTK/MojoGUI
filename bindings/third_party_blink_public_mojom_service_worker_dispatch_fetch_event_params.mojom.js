@@ -142,6 +142,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_resulting_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_preload_url_loader_client_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_race_network_request_loader_factory', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_race_network_request_loader_factory', 28, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);

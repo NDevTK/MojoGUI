@@ -170,31 +170,31 @@ mojo.internal.Struct(
 // Struct: SiteInstanceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.SiteInstanceInfoSpec, 'mojom.SiteInstanceInfo', [
-      mojo.internal.StructField('arg_site_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_process_lock_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_partition', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_site_instance_group_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_browsing_instance_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_locked', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_requires_origin_keyed_process', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_sandbox_for_iframes', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_guest', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_pdf', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_are_javascript_optimizers_enabled', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_site_instance_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_browsing_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_locked', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_requires_origin_keyed_process', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_sandbox_for_iframes', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_guest', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_pdf', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_are_javascript_optimizers_enabled', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_site_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_process_lock_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_partition', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: FrameInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.FrameInfoSpec, 'mojom.FrameInfo', [
-      mojo.internal.StructField('arg_site_instance', 0, 0, mojo.internal.bindings.mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_committed_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routing_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_scheduling_group_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 36, 0, mojo.internal.bindings.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_scheduling_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 12, 0, mojo.internal.bindings.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_instance', 16, 0, mojo.internal.bindings.mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_committed_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subframes', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

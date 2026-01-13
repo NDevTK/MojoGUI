@@ -181,10 +181,10 @@ mojo.internal.bindings.device.mojom.LocationProviderManagerMode = {
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.AccessPointDataSpec, 'device.mojom.AccessPointData', [
       mojo.internal.StructField('arg_mac_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_radio_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_channel', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_to_noise', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_radio_signal_strength', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channel', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_to_noise', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -199,12 +199,12 @@ mojo.internal.Struct(
 // Struct: PositionCacheDiagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec, 'device.mojom.PositionCacheDiagnostics', [
-      mojo.internal.StructField('arg_last_network_result', 0, 0, mojo.internal.bindings.device.mojom.GeopositionResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_last_hit', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_last_miss', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hit_rate_$value', 32, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_hit_rate_$flag', originalFieldName: 'arg_hit_rate' }),
-      mojo.internal.StructField('arg_cache_size', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_rate_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_hit_rate_$value', originalFieldName: 'arg_hit_rate' }),
+      mojo.internal.StructField('arg_cache_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_rate_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_hit_rate_$value', originalFieldName: 'arg_hit_rate' }),
+      mojo.internal.StructField('arg_last_hit', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_last_miss', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_rate_$value', 24, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_hit_rate_$flag', originalFieldName: 'arg_hit_rate' }),
+      mojo.internal.StructField('arg_last_network_result', 32, 0, mojo.internal.bindings.device.mojom.GeopositionResultSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -224,11 +224,11 @@ mojo.internal.Struct(
 // Struct: GeolocationDiagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec, 'device.mojom.GeolocationDiagnostics', [
-      mojo.internal.StructField('arg_network_location_diagnostics', 0, 0, mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_position_cache_diagnostics', 8, 0, mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wifi_polling_policy_diagnostics', 16, 0, mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_provider_state', 24, 0, mojo.internal.bindings.device.mojom.ProviderStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_provider_manager_mode', 28, 0, mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_provider_state', 0, 0, mojo.internal.bindings.device.mojom.ProviderStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_provider_manager_mode', 4, 0, mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_location_diagnostics', 8, 0, mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_position_cache_diagnostics', 16, 0, mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wifi_polling_policy_diagnostics', 24, 0, mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -237,8 +237,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec, 'device.mojom.NetworkLocationResponse', [
       mojo.internal.StructField('arg_latitude', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_longitude', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_accuracy_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_accuracy_$flag', originalFieldName: 'arg_accuracy' }),
-      mojo.internal.StructField('arg_accuracy_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_accuracy_$value', originalFieldName: 'arg_accuracy' }),
+      mojo.internal.StructField('arg_accuracy_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_accuracy_$value', originalFieldName: 'arg_accuracy' }),
+      mojo.internal.StructField('arg_accuracy_$value', 24, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_accuracy_$flag', originalFieldName: 'arg_accuracy' }),
     ],
     [[0, 40]]);
 

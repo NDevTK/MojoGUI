@@ -235,8 +235,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
-      mojo.internal.StructField('arg_active_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -265,8 +265,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
-      mojo.internal.StructField('arg_wgpu_context_token', 0, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_wgpu_context_token', 8, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

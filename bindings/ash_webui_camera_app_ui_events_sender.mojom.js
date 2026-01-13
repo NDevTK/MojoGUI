@@ -458,32 +458,32 @@ mojo.internal.Struct(
 // Struct: VideoDetails
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.VideoDetailsSpec, 'ash.camera_app.mojom.VideoDetails', [
-      mojo.internal.StructField('arg_record_type_details', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.RecordTypeDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fps', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_muted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ever_paused', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ever_paused', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_fps', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_record_type_details', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.RecordTypeDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: CaptureEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.CaptureEventParamsSpec, 'ash.camera_app.mojom.CaptureEventParams', [
-      mojo.internal.StructField('arg_capture_details', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_zoom_ratio', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing', 28, 0, mojo.internal.bindings.ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_grid_type', 32, 0, mojo.internal.bindings.ash.camera_app.mojom.GridTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timer_type', 36, 0, mojo.internal.bindings.ash.camera_app.mojom.TimerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shutter_type', 40, 0, mojo.internal.bindings.ash.camera_app.mojom.ShutterTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_android_intent_result_type', 44, 0, mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_width', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_height', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_level', 56, 0, mojo.internal.bindings.ash.camera_app.mojom.ResolutionLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aspect_ratio_set', 60, 0, mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mirrored', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_window_maximized', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_window_portrait', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing', 4, 0, mojo.internal.bindings.ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mirrored', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_window_maximized', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_window_portrait', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_grid_type', 12, 0, mojo.internal.bindings.ash.camera_app.mojom.GridTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timer_type', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.TimerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shutter_type', 20, 0, mojo.internal.bindings.ash.camera_app.mojom.ShutterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_android_intent_result_type', 24, 0, mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_width', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_height', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_level', 36, 0, mojo.internal.bindings.ash.camera_app.mojom.ResolutionLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aspect_ratio_set', 40, 0, mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_details', 48, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_zoom_ratio', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -574,8 +574,8 @@ mojo.internal.Struct(
 // Struct: MemoryUsageEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.MemoryUsageEventParamsSpec, 'ash.camera_app.mojom.MemoryUsageEventParams', [
-      mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_behaviors_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_behaviors_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_usage', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -583,9 +583,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.OcrEventParamsSpec, 'ash.camera_app.mojom.OcrEventParams', [
       mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OcrEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_word_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_primary_language', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_primary_language', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_line_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_word_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

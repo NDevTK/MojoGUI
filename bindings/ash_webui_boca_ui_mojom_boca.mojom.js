@@ -462,11 +462,11 @@ mojo.internal.Union(
 // Struct: TabInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.TabInfoSpec, 'ash.boca.mojom.TabInfo', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id_$value', 24, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_id_$flag', originalFieldName: 'arg_id' }),
-      mojo.internal.StructField('arg_id_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_id_$value', originalFieldName: 'arg_id' }),
+      mojo.internal.StructField('arg_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_id_$value', originalFieldName: 'arg_id' }),
+      mojo.internal.StructField('arg_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_id_$flag', originalFieldName: 'arg_id' }),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -519,9 +519,9 @@ mojo.internal.Struct(
 // Struct: NetworkInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.NetworkInfoSpec, 'ash.boca.mojom.NetworkInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 12, 0, mojo.internal.bindings.ash.boca.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ash.boca.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -560,9 +560,9 @@ mojo.internal.Struct(
 // Struct: OnTaskConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.OnTaskConfigSpec, 'ash.boca.mojom.OnTaskConfig', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.boca.mojom.ControlledTabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_paused', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_paused', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.boca.mojom.ControlledTabSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -577,13 +577,13 @@ mojo.internal.Struct(
 // Struct: StudentActivity
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.StudentActivitySpec, 'ash.boca.mojom.StudentActivity', [
-      mojo.internal.StructField('arg_active_tab', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_view_screen_session_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_student_status_detail', 16, 0, mojo.internal.bindings.ash.boca.mojom.StudentStatusDetailSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_join_method', 20, 0, mojo.internal.bindings.ash.boca.mojom.JoinMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_active', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_caption_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_hand_raised', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_student_status_detail', 0, 0, mojo.internal.bindings.ash.boca.mojom.StudentStatusDetailSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_caption_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hand_raised', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_active_tab', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_join_method', 16, 0, mojo.internal.bindings.ash.boca.mojom.JoinMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_screen_session_code', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -833,8 +833,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec, 'ash.boca.mojom.PageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pref', 16, 0, mojo.internal.bindings.ash.boca.mojom.BocaValidPrefSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.boca.mojom.BocaValidPrefSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -3240,7 +3240,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRequest = mojo.internal.bindings.ash.b
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec, 'ash.boca.mojom.BocaPageHandlerFactory_Create_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

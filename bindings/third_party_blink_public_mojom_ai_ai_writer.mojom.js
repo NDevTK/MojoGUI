@@ -164,12 +164,12 @@ mojo.internal.bindings.blink.mojom.AIWriterLength = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec, 'blink.mojom.AIWriterCreateOptions', [
       mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_context_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_language', 24, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tone', 32, 0, mojo.internal.bindings.blink.mojom.AIWriterToneSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 36, 0, mojo.internal.bindings.blink.mojom.AIWriterFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 40, 0, mojo.internal.bindings.blink.mojom.AIWriterLengthSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tone', 8, 0, mojo.internal.bindings.blink.mojom.AIWriterToneSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 12, 0, mojo.internal.bindings.blink.mojom.AIWriterFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.bindings.blink.mojom.AIWriterLengthSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_context_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_language', 40, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -191,8 +191,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec, 'blink.mojom.AIWriter_MeasureUsage_ResponseParams', [
-      mojo.internal.StructField('arg_number_of_tokens_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_number_of_tokens_$flag', originalFieldName: 'arg_number_of_tokens' }),
-      mojo.internal.StructField('arg_number_of_tokens_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_number_of_tokens_$value', originalFieldName: 'arg_number_of_tokens' }),
+      mojo.internal.StructField('arg_number_of_tokens_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_number_of_tokens_$value', originalFieldName: 'arg_number_of_tokens' }),
+      mojo.internal.StructField('arg_number_of_tokens_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_number_of_tokens_$flag', originalFieldName: 'arg_number_of_tokens' }),
     ],
     [[0, 16]]);
 

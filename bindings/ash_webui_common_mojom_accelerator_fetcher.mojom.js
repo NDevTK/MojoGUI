@@ -148,8 +148,8 @@ mojo.internal.bindings.ui.mojom.MetaKeySpec = mojo.internal.bindings.ui.mojom.Me
 // Interface: AcceleratorFetcherObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params', [
-      mojo.internal.StructField('arg_accelerators', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_actionId', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actionId', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerators', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

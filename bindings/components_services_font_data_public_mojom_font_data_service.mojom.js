@@ -177,9 +177,9 @@ mojo.internal.Union(
 // Struct: TypefaceStyle
 mojo.internal.Struct(
     mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec, 'font_data_service.mojom.TypefaceStyle', [
-      mojo.internal.StructField('arg_slant', 0, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_weight', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_slant', 4, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -211,8 +211,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
       mojo.internal.StructField('arg_typeface_data', 0, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_variation_position', 16, 0, mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ttc_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_variation_position', 24, 0, mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -189,12 +189,12 @@ mojo.internal.Struct(
 // Struct: AuthChallengeInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, 'network.mojom.AuthChallengeInfo', [
-      mojo.internal.StructField('arg_challenger', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scheme', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_challenge', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_proxy', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_proxy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_challenger', 8, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_realm', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -217,8 +217,8 @@ mojo.internal.Struct(
 // Struct: ProxyServer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyServerSpec, 'network.mojom.ProxyServer', [
-      mojo.internal.StructField('arg_host_and_port', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scheme', 8, 0, mojo.internal.bindings.network.mojom.ProxySchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.network.mojom.ProxySchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_and_port', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -242,17 +242,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec, 'network.mojom.SSLCertRequestInfo', [
       mojo.internal.StructField('arg_host_and_port', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cert_authorities', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature_algorithms', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_proxy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_proxy', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cert_authorities', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_algorithms', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: SSLInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLInfoSpec, 'network.mojom.SSLInfo', [
-      mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_type', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -179,9 +179,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_source_file', 56, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_script_sample', 64, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_disposition', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_column_number', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status_code', 88, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status_code', 80, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_column_number', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 104]]);
 

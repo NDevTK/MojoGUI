@@ -146,19 +146,19 @@ mojo.internal.Struct(
 // Struct: RendererSettings
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.RendererSettingsSpec, 'viz.mojom.RendererSettings', [
-      mojo.internal.StructField('arg_occlusion_culler_settings', 0, 0, mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlay_strategies', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.OverlayStrategySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_highp_threshold_min', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_slow_down_compositing_scale_factor', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_antialiasing', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_antialiasing', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_blending_with_shaders', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_partial_swap_enabled', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_release_overlay_resources_after_gpu_query', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_clear_root_render_pass', 32, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_auto_resize_output_surface', 32, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_requires_alpha_channel', 32, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_antialiasing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_antialiasing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_blending_with_shaders', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_partial_swap_enabled', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_release_overlay_resources_after_gpu_query', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_clear_root_render_pass', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_auto_resize_output_surface', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_requires_alpha_channel', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_highp_threshold_min', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_slow_down_compositing_scale_factor', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_occlusion_culler_settings', 16, 0, mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_strategies', 24, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.OverlayStrategySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

@@ -190,13 +190,13 @@ mojo.internal.bindings.blink.mojom.BucketError = {
 // Struct: BucketPolicies
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketPoliciesSpec, 'blink.mojom.BucketPolicies', [
-      mojo.internal.StructField('arg_quota', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expires', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_durability', 16, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_persisted', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_persisted', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_durability', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_quota', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_persisted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_persisted', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_durability', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_quota', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_durability', 4, 0, mojo.internal.bindings.blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_expires', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

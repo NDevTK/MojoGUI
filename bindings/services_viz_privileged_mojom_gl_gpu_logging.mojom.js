@@ -129,9 +129,9 @@ mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = { $: {
 // Interface: GpuLogging
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec, 'viz.mojom.GpuLogging_RecordLogMessage_Params', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_severity', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_severity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_header', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

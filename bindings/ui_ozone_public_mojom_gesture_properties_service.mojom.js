@@ -208,23 +208,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_GetProperty_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_read_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_read_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

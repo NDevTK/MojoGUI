@@ -167,8 +167,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec, 'ash.settings.app_notification.mojom.App', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_notification_permission', 16, 0, mojo.internal.bindings.app_management.mojom.PermissionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_readiness', 24, 0, mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_readiness', 16, 0, mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_permission', 24, 0, mojo.internal.bindings.app_management.mojom.PermissionSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

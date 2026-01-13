@@ -143,9 +143,9 @@ mojo.internal.bindings.blink.mojom.LengthUnit = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdSizeSpec, 'blink.mojom.AdSize', [
       mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_width_units', 16, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_height_units', 20, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width_units', 8, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height_units', 12, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

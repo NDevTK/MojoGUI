@@ -172,8 +172,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnError_Params', [
-      mojo.internal.StructField('arg_quota_error_info', 0, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

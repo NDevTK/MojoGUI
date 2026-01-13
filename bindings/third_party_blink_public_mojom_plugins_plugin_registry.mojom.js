@@ -153,9 +153,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_filename', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_may_use_external_handler', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_may_use_external_handler', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

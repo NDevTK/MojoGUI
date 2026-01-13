@@ -288,43 +288,43 @@ mojo.internal.Struct(
 // Struct: Window
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.WindowSpec, 'tab_search.mojom.Window', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_host_window', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_host_window', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Tab
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.TabSpec, 'tab_search.mojom.Tab', [
-      mojo.internal.StructField('arg_alert_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time_ticks', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_elapsed_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_id', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_pinned', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_split', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_default_favicon', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_icon', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_split', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_default_favicon', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_icon', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alert_states', 8, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time_ticks', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_elapsed_text', 64, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: RecentlyClosedTab
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.RecentlyClosedTabSpec, 'tab_search.mojom.RecentlyClosedTab', [
-      mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_elapsed_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_elapsed_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -332,21 +332,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.TabGroupSpec, 'tab_search.mojom.TabGroup', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: RecentlyClosedTabGroup
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.RecentlyClosedTabGroupSpec, 'tab_search.mojom.RecentlyClosedTabGroup', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_elapsed_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 36, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 4, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_elapsed_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -360,19 +360,19 @@ mojo.internal.Struct(
 // Struct: TabOrganization
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.TabOrganizationSpec, 'tab_search.mojom.TabOrganization', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_organization_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_first_new_tab_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_organization_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_first_new_tab_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TabOrganizationSession
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.TabOrganizationSessionSpec, 'tab_search.mojom.TabOrganizationSession', [
-      mojo.internal.StructField('arg_organizations', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabOrganizationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.tab_search.mojom.TabOrganizationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.tab_search.mojom.TabOrganizationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_organizations', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabOrganizationSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.tab_search.mojom.TabOrganizationErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_active_tab_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -381,9 +381,9 @@ mojo.internal.Struct(
 // Struct: TabUpdateInfo
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.TabUpdateInfoSpec, 'tab_search.mojom.TabUpdateInfo', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_search.mojom.TabSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_in_active_window', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_in_host_window', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_active_window', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_host_window', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 8, 0, mojo.internal.bindings.tab_search.mojom.TabSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -591,9 +591,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_AcceptTabOrganization_Params', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_search.mojom.TabSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -606,9 +606,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RenameTabOrganization_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -720,9 +720,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RemoveTabFromOrganization_Params', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.tab_search.mojom.TabSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 8, 0, mojo.internal.bindings.tab_search.mojom.TabSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

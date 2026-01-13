@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.actor.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.CountSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ClickTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ClickCountSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum().$ };
@@ -179,14 +179,14 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Enum: Type
-mojo.internal.bindings.actor.mojom.Type = {
+// Enum: ClickType
+mojo.internal.bindings.actor.mojom.ClickType = {
   kLeft: 1,
   kRight: 2,
 };
 
-// Enum: Count
-mojo.internal.bindings.actor.mojom.Count = {
+// Enum: ClickCount
+mojo.internal.bindings.actor.mojom.ClickCount = {
   kSingle: 1,
   kDouble: 2,
 };
@@ -374,8 +374,8 @@ mojo.internal.Struct(
 // Struct: ClickAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ClickActionSpec, 'actor.mojom.ClickAction', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.bindings.actor.mojom.CountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.ClickTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.bindings.actor.mojom.ClickCountSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -394,9 +394,9 @@ mojo.internal.Struct(
 // Struct: TypeAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.TypeActionSpec, 'actor.mojom.TypeAction', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.actor.mojom.ModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_follow_by_enter', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.actor.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_follow_by_enter', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -440,9 +440,9 @@ mojo.internal.Struct(
 // Struct: ToolInvocation
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ToolInvocationSpec, 'actor.mojom.ToolInvocation', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.actor.mojom.ToolActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target', 16, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 32, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.actor.mojom.ToolActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target', 24, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_observed_target', 40, 0, mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -450,11 +450,11 @@ mojo.internal.Struct(
 // Struct: ActionResult
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_tool_response', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_execution_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_code', 24, 0, mojo.internal.bindings.actor.mojom.ActionResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requires_page_stabilization', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.actor.mojom.ActionResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requires_page_stabilization', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_tool_response', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_execution_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -469,12 +469,12 @@ mojo.internal.Struct(
 // Struct: JournalEntry
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.JournalEntrySpec, 'actor.mojom.JournalEntry', [
-      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_track_uuid', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 32, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalDetailsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track_uuid', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 40, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 

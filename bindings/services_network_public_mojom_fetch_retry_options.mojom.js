@@ -132,13 +132,13 @@ mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mo
 // Struct: FetchRetryOptions
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FetchRetryOptionsSpec, 'network.mojom.FetchRetryOptions', [
-      mojo.internal.StructField('arg_initial_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_backoff_factor_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_backoff_factor_$flag', originalFieldName: 'arg_backoff_factor' }),
-      mojo.internal.StructField('arg_max_age', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_max_attempts', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_backoff_factor_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_backoff_factor_$value', originalFieldName: 'arg_backoff_factor' }),
-      mojo.internal.StructField('arg_retry_after_unload', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_retry_non_idempotent', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_retry_only_if_server_unreached', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_attempts', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_backoff_factor_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_backoff_factor_$value', originalFieldName: 'arg_backoff_factor' }),
+      mojo.internal.StructField('arg_retry_after_unload', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_retry_non_idempotent', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_retry_only_if_server_unreached', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_delay', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_backoff_factor_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_backoff_factor_$flag', originalFieldName: 'arg_backoff_factor' }),
+      mojo.internal.StructField('arg_max_age', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);

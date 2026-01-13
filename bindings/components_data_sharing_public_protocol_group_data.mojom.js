@@ -150,11 +150,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_avatar_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_given_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_updated_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_role', 56, 0, mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 24, 0, mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_avatar_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_given_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_updated_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 

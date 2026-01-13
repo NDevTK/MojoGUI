@@ -168,9 +168,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.RequestParamsSpec, 'cert_verifier.mojom.RequestParams', [
       mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ocsp_response', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sct_list', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ocsp_response', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sct_list', 32, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

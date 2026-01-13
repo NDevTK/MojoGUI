@@ -430,9 +430,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec, 'storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParams', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_response_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_response_head', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1195,9 +1195,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scopes', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scopes', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1210,8 +1210,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1224,8 +1224,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1237,8 +1237,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParams', [
-      mojo.internal.StructField('arg_registrations', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1250,8 +1250,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParams', [
-      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1262,8 +1262,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParams', [
-      mojo.internal.StructField('arg_registrations', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerRegistrationDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerRegistrationDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1276,8 +1276,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParams', [
-      mojo.internal.StructField('arg_deleted_resources_size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deleted_resources_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1290,9 +1290,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParams', [
-      mojo.internal.StructField('arg_deleted_resources_size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_key_state', 12, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_key_state', 4, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deleted_resources_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1467,8 +1467,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1508,8 +1508,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1522,8 +1522,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParams', [
-      mojo.internal.StructField('arg_user_data', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_data', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1548,8 +1548,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerUserDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerUserDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1561,8 +1561,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerUserDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerUserDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1607,8 +1607,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParams', [
-      mojo.internal.StructField('arg_resource_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_ids', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1620,8 +1620,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParams', [
-      mojo.internal.StructField('arg_resource_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_ids', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1632,8 +1632,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParams', [
-      mojo.internal.StructField('arg_resource_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_ids', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1644,8 +1644,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParams', [
-      mojo.internal.StructField('arg_resource_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_ids', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

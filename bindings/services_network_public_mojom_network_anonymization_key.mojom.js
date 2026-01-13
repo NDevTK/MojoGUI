@@ -162,8 +162,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec, 'network.mojom.NonEmptyNetworkAnonymizationKey', [
       mojo.internal.StructField('arg_top_frame_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network_isolation_partition', 16, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_cross_site', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_cross_site', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_network_isolation_partition', 12, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

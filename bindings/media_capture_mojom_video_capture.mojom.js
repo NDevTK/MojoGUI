@@ -213,8 +213,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec, 'media.mojom.VideoCaptureObserver_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 8, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -660,8 +660,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec, 'media.mojom.VideoCaptureHost_ReleaseBuffer_Params', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feedback', 8, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 16, 0, mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

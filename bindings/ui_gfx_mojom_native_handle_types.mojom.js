@@ -171,10 +171,10 @@ mojo.internal.Union(
 // Struct: NativePixmapPlane
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec, 'gfx.mojom.NativePixmapPlane', [
-      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stride', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -183,10 +183,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec, 'gfx.mojom.NativePixmapHandle', [
       mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_collection_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_zero_copy_webgpu_import', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ram_coherency', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_zero_copy_webgpu_import', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ram_coherency', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_collection_handle', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

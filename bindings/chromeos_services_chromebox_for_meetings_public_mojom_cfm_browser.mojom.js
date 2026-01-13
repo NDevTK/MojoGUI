@@ -147,17 +147,17 @@ mojo.internal.Struct(
 // Struct: ProcessMemoryInformation
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec, 'chromeos.cfm.mojom.ProcessMemoryInformation', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_titles', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_info', 40, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_processes', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_open_fds', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_open_fds_soft_limit', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_private_memory_footprint_kb', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_processes', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_open_fds', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_open_fds_soft_limit', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_titles', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_private_memory_footprint_kb', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_info', 64, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 80]]);
 

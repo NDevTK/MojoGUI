@@ -313,9 +313,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParams', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protection_method', 12, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.display.mojom.HDCPStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protection_method', 16, 0, mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

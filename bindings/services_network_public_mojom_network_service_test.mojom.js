@@ -277,29 +277,29 @@ mojo.internal.bindings.network.mojom.ResolverType = {
 // Struct: Rule
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RuleSpec, 'network.mojom.Rule', [
-      mojo.internal.StructField('arg_host_pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_replacement', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dns_aliases', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolver_type', 24, 0, mojo.internal.bindings.network.mojom.ResolverTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_resolver_flags', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resolver_type', 0, 0, mojo.internal.bindings.network.mojom.ResolverTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_resolver_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_replacement', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_aliases', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: SimpleCacheOpenEntryResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec, 'network.mojom.SimpleCacheOpenEntryResult', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SimpleCacheEntryRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: SimpleCacheEntry
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ParamsSpec, 'network.mojom.SimpleCacheEntry_WriteData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_truncate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -327,8 +327,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec, 'network.mojom.SimpleCacheEntry_WriteSparseData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1486,8 +1486,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec, 'network.mojom.NetworkServiceTest_SetTestDohConfig_Params', [
-      mojo.internal.StructField('arg_doh_config', 0, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_dns_mode', 8, 0, mojo.internal.bindings.network.mojom.SecureDnsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_dns_mode', 0, 0, mojo.internal.bindings.network.mojom.SecureDnsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_doh_config', 8, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

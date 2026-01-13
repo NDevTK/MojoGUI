@@ -147,10 +147,10 @@ mojo.internal.bindings.network.mojom.Type = {
 // Struct: SharedDictionaryAccessDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec, 'network.mojom.SharedDictionaryAccessDetails', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_isolation_key', 8, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_blocked', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_blocked', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_isolation_key', 16, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -262,7 +262,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec, 'device.mojom.DeviceService_BindVibrationManager_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.VibrationManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.VibrationManagerListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.VibrationManagerListenerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

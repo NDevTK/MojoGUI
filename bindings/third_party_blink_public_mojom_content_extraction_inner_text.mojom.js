@@ -175,15 +175,15 @@ mojo.internal.Struct(
 // Struct: InnerTextParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, 'blink.mojom.InnerTextParams', [
-      mojo.internal.StructField('arg_node_id_$value', 0, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_node_id_$flag', originalFieldName: 'arg_node_id' }),
-      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$flag', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('arg_max_passages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_words_per_passage_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_min_words_per_passage_$flag', originalFieldName: 'arg_min_words_per_passage' }),
-      mojo.internal.StructField('arg_node_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_node_id_$value', originalFieldName: 'arg_node_id' }),
-      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$value', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$flag', 16, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$value', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$value', 16, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('arg_min_words_per_passage_$flag', 16, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_min_words_per_passage_$value', originalFieldName: 'arg_min_words_per_passage' }),
+      mojo.internal.StructField('arg_node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_node_id_$value', originalFieldName: 'arg_node_id' }),
+      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$value', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$value', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('arg_min_words_per_passage_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_min_words_per_passage_$value', originalFieldName: 'arg_min_words_per_passage' }),
+      mojo.internal.StructField('arg_node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_node_id_$flag', originalFieldName: 'arg_node_id' }),
+      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$flag', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('arg_max_passages', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_words_per_passage_$value', 16, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_min_words_per_passage_$flag', originalFieldName: 'arg_min_words_per_passage' }),
     ],
     [[0, 32]]);
 

@@ -303,14 +303,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params', [
       mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_video_decoder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dst_video_decoder', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tracker', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -338,9 +338,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params', [
       mojo.internal.StructField('arg_media_log', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_extension', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_extension', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateFlingingRenderer_Params', [

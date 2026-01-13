@@ -183,9 +183,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_top_level_navigation', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_top_level_navigation', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.blink.mojom.BlobURLStorePendingReceiver = class {
   constructor(handle) {

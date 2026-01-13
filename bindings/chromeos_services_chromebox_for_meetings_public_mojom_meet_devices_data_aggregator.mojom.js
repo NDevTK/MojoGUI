@@ -155,8 +155,8 @@ mojo.internal.bindings.ash.cfm.mojom.FilterType = {
 // Struct: DataFilter
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, 'ash.cfm.mojom.DataFilter', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_filter_type', 8, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter_type', 0, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

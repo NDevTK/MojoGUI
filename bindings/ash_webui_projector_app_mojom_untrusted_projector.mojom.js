@@ -260,8 +260,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pref', 16, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -295,12 +295,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_account_email', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_method', 32, 0, mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_credentials', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_api_key', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_credentials', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_api_key', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_account_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1367,7 +1367,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRequest = mojo.
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

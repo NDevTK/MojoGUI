@@ -579,14 +579,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec, 'global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_Params', [
       mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.global_media_controls.mojom.DeviceListHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec, 'global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_Params', [
       mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.global_media_controls.mojom.DeviceListHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

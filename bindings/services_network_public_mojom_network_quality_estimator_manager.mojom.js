@@ -142,10 +142,10 @@ mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec = mojo.internal
 // Interface: NetworkQualityEstimatorManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params', [
-      mojo.internal.StructField('arg_http_rtt', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transport_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_downlink_bandwidth_kbps', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_downlink_bandwidth_kbps', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

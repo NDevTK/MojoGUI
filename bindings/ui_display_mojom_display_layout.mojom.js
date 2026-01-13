@@ -154,8 +154,8 @@ mojo.internal.Struct(
 // Struct: DisplayLayout
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayLayoutSpec, 'display.mojom.DisplayLayout', [
-      mojo.internal.StructField('arg_primary_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_placement_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayPlacementSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_unified', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_default_unified', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_placement_list', 16, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayPlacementSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

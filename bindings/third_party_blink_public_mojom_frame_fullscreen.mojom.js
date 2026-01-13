@@ -126,10 +126,10 @@ mojo.internal.bindings.blink.mojom.FullscreenOptionsSpec = { $: {} };
 // Struct: FullscreenOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FullscreenOptionsSpec, 'blink.mojom.FullscreenOptions', [
-      mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_prefers_navigation_bar', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prefers_status_bar', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_prefixed', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_xr_overlay', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefers_navigation_bar', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefers_status_bar', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_prefixed', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_xr_overlay', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_display_id', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
     ],
     [[0, 24]]);

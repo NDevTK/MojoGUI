@@ -442,16 +442,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec, 'network.mojom.P2PSocketManager_CreateSocket_Params', [
-      mojo.internal.StructField('arg_local_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_range', 8, 0, mojo.internal.bindings.network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_address', 16, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 56, 0, mojo.internal.bindings.network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_range', 16, 0, mojo.internal.bindings.network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_address', 24, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 mojo.internal.bindings.network.mojom.P2PSocketManagerPendingReceiver = class {
   constructor(handle) {

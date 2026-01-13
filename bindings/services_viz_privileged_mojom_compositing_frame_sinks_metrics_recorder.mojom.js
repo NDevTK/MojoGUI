@@ -149,10 +149,10 @@ mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mo
 // Struct: FrameCountingPerSinkData
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
-      mojo.internal.StructField('arg_debug_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presented_frames', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_bucket', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_root', 18, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_root', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_start_bucket', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presented_frames', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

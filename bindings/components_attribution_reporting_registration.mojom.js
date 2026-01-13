@@ -263,8 +263,8 @@ mojo.internal.Struct(
 // Struct: SourceAggregatableDebugReportingConfig
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec, 'attribution_reporting.mojom.SourceAggregatableDebugReportingConfig', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_budget', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_budget', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -299,20 +299,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_expiry', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_trigger_data', 24, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_report_windows', 32, 0, mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_report_window', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_key_$value', 56, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_debug_key_$flag', originalFieldName: 'arg_debug_key' }),
-      mojo.internal.StructField('arg_filter_data', 64, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregation_keys', 72, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_level_epsilon', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_debug_reporting_config', 88, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_limit_priority', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_attribution_scopes_data', 104, 0, mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_named_budget_defs', 112, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_event_level_reports', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger_data_matching', 124, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerDataMatchingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_key_$flag', 128, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
-      mojo.internal.StructField('arg_debug_reporting', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_event_level_reports', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_key_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
+      mojo.internal.StructField('arg_debug_reporting', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_report_window', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_key_$value', 64, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_debug_key_$flag', originalFieldName: 'arg_debug_key' }),
+      mojo.internal.StructField('arg_filter_data', 72, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregation_keys', 80, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_data_matching', 88, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerDataMatchingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_level_epsilon', 96, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_debug_reporting_config', 104, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_limit_priority', 112, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_attribution_scopes_data', 120, 0, mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_named_budget_defs', 128, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec, null, false, 0, undefined),
     ],
     [[0, 144]]);
 
@@ -321,26 +321,26 @@ mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec, 'attribution_reporting.mojom.EventTriggerData', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dedup_key_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dedup_key_$flag', originalFieldName: 'arg_dedup_key' }),
-      mojo.internal.StructField('arg_filters', 24, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dedup_key_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dedup_key_$value', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_dedup_key_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dedup_key_$value', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_dedup_key_$value', 24, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dedup_key_$flag', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_filters', 32, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: AggregatableDedupKey
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec, 'attribution_reporting.mojom.AggregatableDedupKey', [
-      mojo.internal.StructField('arg_dedup_key_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dedup_key_$flag', originalFieldName: 'arg_dedup_key' }),
-      mojo.internal.StructField('arg_filters', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dedup_key_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dedup_key_$value', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_dedup_key_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dedup_key_$value', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_dedup_key_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dedup_key_$flag', originalFieldName: 'arg_dedup_key' }),
+      mojo.internal.StructField('arg_filters', 16, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AggregatableValuesValue
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec, 'attribution_reporting.mojom.AggregatableValuesValue', [
-      mojo.internal.StructField('arg_filtering_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_filtering_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -367,17 +367,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_filters', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregatable_trigger_data', 16, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregatable_values', 24, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_key_$value', 32, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_debug_key_$flag', originalFieldName: 'arg_debug_key' }),
-      mojo.internal.StructField('arg_aggregatable_dedup_keys', 40, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregation_coordinator_origin', 48, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trigger_context_id', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_debug_reporting_config', 64, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attribution_scopes', 72, 0, mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_named_budget_candidates', 80, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_registration_time_config', 88, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_key_$flag', 92, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
-      mojo.internal.StructField('arg_debug_reporting', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_aggregatable_filtering_id_max_bytes', 93, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_key_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
+      mojo.internal.StructField('arg_debug_reporting', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_filtering_id_max_bytes', 33, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_registration_time_config', 36, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_key_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_debug_key_$flag', originalFieldName: 'arg_debug_key' }),
+      mojo.internal.StructField('arg_aggregatable_dedup_keys', 48, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregation_coordinator_origin', 56, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trigger_context_id', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_debug_reporting_config', 72, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attribution_scopes', 80, 0, mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aggregatable_named_budget_candidates', 88, 0, mojo.internal.Array(mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec, false), null, false, 0, undefined),
     ],
     [[0, 104]]);
 

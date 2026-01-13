@@ -142,10 +142,10 @@ mojo.internal.bindings.blink.mojom.FrameCreationStackEvidence = {
 // Struct: FrameAdEvidence
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec, 'blink.mojom.FrameAdEvidence', [
-      mojo.internal.StructField('arg_latest_filter_list_result', 0, 0, mojo.internal.bindings.blink.mojom.FilterListResultSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_most_restrictive_filter_list_result', 4, 0, mojo.internal.bindings.blink.mojom.FilterListResultSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_created_by_ad_script', 8, 0, mojo.internal.bindings.blink.mojom.FrameCreationStackEvidenceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_complete', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_is_ad', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_complete', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_is_ad', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_latest_filter_list_result', 4, 0, mojo.internal.bindings.blink.mojom.FilterListResultSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_most_restrictive_filter_list_result', 8, 0, mojo.internal.bindings.blink.mojom.FilterListResultSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_created_by_ad_script', 12, 0, mojo.internal.bindings.blink.mojom.FrameCreationStackEvidenceSpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);

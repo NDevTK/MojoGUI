@@ -176,8 +176,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
       mojo.internal.StructField('arg_destination', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra_constants', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_file_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_mode', 24, 0, mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_mode', 16, 0, mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -583,11 +583,11 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceRequest = mojo.internal.bi
 // Interface: NetLogProxySink
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
-      mojo.internal.StructField('arg_net_log_source', 0, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_phase', 28, 0, mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_phase', 4, 0, mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

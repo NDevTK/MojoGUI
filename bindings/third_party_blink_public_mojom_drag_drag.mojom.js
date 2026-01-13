@@ -217,10 +217,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragItemBinarySpec, 'blink.mojom.DragItemBinary', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filename_extension', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_disposition', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_image_accessible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_image_accessible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filename_extension', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_disposition', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -239,8 +239,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragDataSpec, 'blink.mojom.DragData', [
       mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DragItemSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 16, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_force_default_action', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_default_action', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 20, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

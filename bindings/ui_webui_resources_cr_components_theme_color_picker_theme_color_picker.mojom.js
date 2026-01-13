@@ -156,19 +156,19 @@ mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec = mojo.internal.bindings
 // Struct: Theme
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec, 'theme_color_picker.mojom.Theme', [
-      mojo.internal.StructField('arg_background_image_main_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_seed_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_foreground_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color_picker_icon_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_seed_color_hue', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_color_variant', 44, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_background_image', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_third_party_theme', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark_mode', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_colors_managed_by_policy', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_grey_baseline', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_follow_device_theme', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_background_image', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_third_party_theme', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark_mode', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_colors_managed_by_policy', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_grey_baseline', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_follow_device_theme', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_seed_color_hue', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_image_main_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_seed_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_foreground_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_picker_icon_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_color_variant', 48, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -188,7 +188,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

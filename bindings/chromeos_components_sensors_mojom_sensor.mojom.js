@@ -264,10 +264,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
-      mojo.internal.StructField('arg_device_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_request', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServicePendingReceiver = class {
   constructor(handle) {
@@ -1322,8 +1322,8 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest
 // Interface: SensorServiceNewDevicesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec, 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params', [
-      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

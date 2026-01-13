@@ -134,10 +134,10 @@ mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCapture
 // Struct: AudioProcessingStats
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, 'media.mojom.AudioProcessingStats', [
-      mojo.internal.StructField('arg_echo_return_loss', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_return_loss_enhancement', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_echo_return_loss', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_echo_return_loss_enhancement', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_echo_return_loss', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_echo_return_loss_enhancement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_return_loss', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_return_loss_enhancement', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

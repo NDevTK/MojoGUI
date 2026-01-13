@@ -298,10 +298,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_info', 24, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceBatteryInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image_info', 32, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceImageInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 40, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_capability', 44, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.AudioOutputCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 24, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_capability', 28, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.AudioOutputCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_info', 32, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceBatteryInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_info', 40, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceImageInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_connection_state', 48, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.DeviceConnectionStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_blocked_by_policy', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -318,9 +318,9 @@ mojo.internal.Struct(
 // Struct: BluetoothSystemProperties
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothSystemPropertiesSpec, 'ash.bluetooth_config.mojom.BluetoothSystemProperties', [
-      mojo.internal.StructField('arg_paired_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.bluetooth_config.mojom.PairedBluetoothDevicePropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_state', 8, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothSystemStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modification_state', 12, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothModificationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_state', 0, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothSystemStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modification_state', 4, 0, mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothModificationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_paired_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.bluetooth_config.mojom.PairedBluetoothDevicePropertiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

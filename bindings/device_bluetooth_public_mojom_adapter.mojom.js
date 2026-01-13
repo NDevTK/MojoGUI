@@ -1558,8 +1558,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToDevice_ResponseParams', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

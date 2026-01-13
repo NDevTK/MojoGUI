@@ -179,18 +179,18 @@ mojo.internal.bindings.app_home.mojom.AppType = {
 // Struct: AppInfo
 mojo.internal.Struct(
     mojo.internal.bindings.app_home.mojom.AppInfoSpec, 'app_home.mojom.AppInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_store_page_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_app_type', 40, 0, mojo.internal.bindings.app_home.mojom.AppTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_run_on_os_login_mode', 44, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_may_show_run_on_os_login_mode', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_toggle_run_on_os_login_mode', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_locally_installed', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_open_in_window', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_uninstall', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_app_type', 0, 0, mojo.internal.bindings.app_home.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_may_show_run_on_os_login_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_toggle_run_on_os_login_mode', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_locally_installed', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_open_in_window', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_uninstall', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_run_on_os_login_mode', 40, 0, mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_store_page_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 

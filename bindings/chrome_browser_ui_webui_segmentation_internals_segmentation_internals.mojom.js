@@ -150,8 +150,8 @@ mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_ba
 // Struct: ServiceStatus
 mojo.internal.Struct(
     mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec, 'segmentation_internals.mojom.ServiceStatus', [
-      mojo.internal.StructField('arg_intialization_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_initialized', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_intialization_status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,11 +159,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec, 'segmentation_internals.mojom.SegmentInfo', [
       mojo.internal.StructField('arg_segment_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prediction_result', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prediction_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_can_execute_segment', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_can_execute_segment', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prediction_result', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prediction_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -663,8 +663,8 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRequest = mojo.in
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec, 'segmentation_internals.mojom.Page_OnServiceStatusChanged_Params', [
-      mojo.internal.StructField('arg_status_flag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_initialized', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status_flag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -166,9 +166,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec, 'service_manager.mojom.Service_OnStart_ResponseParams', [
       mojo.internal.StructField('arg_connector_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_control_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.service_manager.mojom.ServiceControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_control_receiver', 4, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.service_manager.mojom.ServiceControlRemote), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec, 'service_manager.mojom.Service_OnBindInterface_Params', [
@@ -187,7 +187,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec, 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params', [
       mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

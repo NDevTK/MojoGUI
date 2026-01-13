@@ -256,10 +256,10 @@ mojo.internal.Struct(
 // Struct: GoogleServiceAuthError
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, 'crosapi.mojom.GoogleServiceAuthError', [
-      mojo.internal.StructField('arg_network_error', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invalid_gaia_credentials_reason', 20, 0, mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_gaia_credentials_reason', 4, 0, mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_error', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_token_binding_challenge', 24, 0, mojo.internal.String, null, true, 14, undefined),
       mojo.internal.StructField('arg_scope_limited_unrecoverable_error_reason', 32, 0, mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec, null, false, 15, undefined),
     ],
@@ -276,9 +276,9 @@ mojo.internal.Struct(
 // Struct: AccountUpsertionResult
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, 'crosapi.mojom.AccountUpsertionResult', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.crosapi.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

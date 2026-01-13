@@ -145,7 +145,7 @@ mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaService_CreateInterfaceFactory_Params', [
       mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -265,23 +265,23 @@ mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyle = {
 // Struct: CreateWindowParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec, 'remote_cocoa.mojom.CreateWindowParams', [
-      mojo.internal.StructField('arg_style_mask', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_class', 8, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_titlebar_appears_transparent', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_window_title_hidden', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_animation_enabled', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_window_class', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_titlebar_appears_transparent', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_window_title_hidden', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_animation_enabled', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_style_mask', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NativeWidgetNSWindowInitParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowInitParams', [
-      mojo.internal.StructField('arg_state_restoration_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modal_type', 8, 0, mojo.internal.bindings.ui.mojom.ModalTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_translucent', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_window_server_shadow', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_into_collection_cycle', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_tooltip', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_modal_type', 0, 0, mojo.internal.bindings.ui.mojom.ModalTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_translucent', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_window_server_shadow', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_into_collection_cycle', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_tooltip', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_state_restoration_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -347,8 +347,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_Params', [
       mojo.internal.StructField('arg_ns_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_corner_radius_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_corner_radius_$flag', originalFieldName: 'arg_corner_radius' }),
-      mojo.internal.StructField('arg_corner_radius_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_corner_radius_$value', originalFieldName: 'arg_corner_radius' }),
+      mojo.internal.StructField('arg_corner_radius_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_corner_radius_$value', originalFieldName: 'arg_corner_radius' }),
+      mojo.internal.StructField('arg_corner_radius_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_corner_radius_$flag', originalFieldName: 'arg_corner_radius' }),
     ],
     [[0, 32]]);
 

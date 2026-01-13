@@ -154,9 +154,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParams', [
-      mojo.internal.StructField('arg_output_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matched_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_params', 8, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matched_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

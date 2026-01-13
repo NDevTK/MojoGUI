@@ -138,10 +138,10 @@ mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.inte
 // Struct: ViewTransitionRequest
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ViewTransitionRequestSpec, 'viz.mojom.ViewTransitionRequest', [
-      mojo.internal.StructField('arg_transition_token', 0, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_resource_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sequence_id', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_maybe_cross_frame_sink', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_maybe_cross_frame_sink', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_transition_token', 8, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sequence_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_resource_ids', 24, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);

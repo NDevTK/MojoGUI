@@ -142,8 +142,8 @@ mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_b
 // Struct: APIPermission
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.APIPermissionSpec, 'extensions.mojom.APIPermission', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -157,8 +157,8 @@ mojo.internal.Struct(
 // Struct: ManifestPermission
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec, 'extensions.mojom.ManifestPermission', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

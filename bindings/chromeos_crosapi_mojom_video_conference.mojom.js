@@ -196,8 +196,8 @@ mojo.internal.Struct(
 // Struct: VideoConferenceClientUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec, 'crosapi.mojom.VideoConferenceClientUpdate', [
-      mojo.internal.StructField('arg_title_change_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_added_or_removed_app', 8, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_added_or_removed_app', 0, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_change_info', 8, 0, mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -219,14 +219,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_activity_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_capturing_camera', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_capturing_microphone', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_capturing_screen', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_app_type', 36, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_is_capturing_camera', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_microphone', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_screen', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_app_type', 20, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_title', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
-    [[0, 48], [1, 48]]);
+    [[0, 48], [1, 32]]);
 
 // Interface: VideoConferenceManagerClient
 mojo.internal.Struct(

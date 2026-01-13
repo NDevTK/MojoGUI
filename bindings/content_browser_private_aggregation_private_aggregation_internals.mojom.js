@@ -186,8 +186,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_contributions', 40, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_body', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 56, 0, mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_body', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
 

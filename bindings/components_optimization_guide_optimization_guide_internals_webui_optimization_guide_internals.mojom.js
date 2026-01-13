@@ -527,10 +527,10 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRequ
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
       mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_source', 32, 0, mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_source', 8, 0, mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_line', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

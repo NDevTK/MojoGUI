@@ -159,9 +159,9 @@ mojo.internal.bindings.device.mojom.GeolocationPermissionLevel = {
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec, 'device.mojom.GeolocationContext_BindGeolocation_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_requesting_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_precise_permission', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_precise_permission', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 

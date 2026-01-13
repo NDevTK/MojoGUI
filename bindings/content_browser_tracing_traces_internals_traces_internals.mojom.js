@@ -231,13 +231,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_creation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_scenario_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_upload_rule_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_size', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_rule_value_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_upload_rule_value_$flag', originalFieldName: 'arg_upload_rule_value' }),
-      mojo.internal.StructField('arg_upload_state', 52, 0, mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_reason', 56, 0, mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_rule_value_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_upload_rule_value_$value', originalFieldName: 'arg_upload_rule_value' }),
-      mojo.internal.StructField('arg_has_trace_content', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_rule_value_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_upload_rule_value_$value', originalFieldName: 'arg_upload_rule_value' }),
+      mojo.internal.StructField('arg_has_trace_content', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_rule_value_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_upload_rule_value_$flag', originalFieldName: 'arg_upload_rule_value' }),
+      mojo.internal.StructField('arg_total_size', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_state', 48, 0, mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_reason', 52, 0, mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -246,9 +246,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.ScenarioSpec, 'traces_internals.mojom.Scenario', [
       mojo.internal.StructField('arg_scenario_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_state', 16, 0, mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_local_scenario', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_local_scenario', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_current_state', 20, 0, mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -256,9 +256,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec, 'traces_internals.mojom.TraceCategory', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_group', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_group', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -484,9 +484,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParams', [
-      mojo.internal.StructField('arg_percent_full', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_data_loss', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data_loss', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

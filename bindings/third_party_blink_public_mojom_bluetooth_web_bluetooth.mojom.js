@@ -355,14 +355,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_uuids', 16, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_data', 24, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.WebBluetoothCompanySpec, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_data', 32, 0, mojo.internal.Map(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_appearance', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_appearance_is_set', 42, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tx_power_is_set', 42, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tx_power', 43, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rssi_is_set', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rssi', 45, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_appearance_is_set', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tx_power_is_set', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rssi_is_set', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tx_power', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_appearance', 26, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rssi', 28, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_data', 32, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.WebBluetoothCompanySpec, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_data', 40, 0, mojo.internal.Map(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -394,8 +394,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RequestDevice_ResponseParams', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothDeviceSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothDeviceSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -443,30 +443,30 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec, 'blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_Params', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothDeviceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_services_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_quantity', 16, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quantity', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_services_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParams', [
-      mojo.internal.StructField('arg_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTServiceSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_services', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTServiceSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec, 'blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_Params', [
       mojo.internal.StructField('arg_service_instance_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_characteristics_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_quantity', 16, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quantity', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_characteristics_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParams', [
-      mojo.internal.StructField('arg_characteristics', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_characteristics', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -478,8 +478,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -524,15 +524,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec, 'blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_Params', [
       mojo.internal.StructField('arg_characteristics_instance_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptor_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_quantity', 16, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quantity', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothGATTQueryQuantitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor_uuid', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParams', [
-      mojo.internal.StructField('arg_descriptors', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTDescriptorSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptors', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebBluetoothRemoteGATTDescriptorSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -544,8 +544,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

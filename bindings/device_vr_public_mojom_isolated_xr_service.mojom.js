@@ -230,14 +230,14 @@ mojo.internal.bindings.device.mojom.kXrSandbox = mojo.internal.bindings.sandbox.
 // Struct: XRRuntimeSessionOptions
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRuntimeSessionOptionsSpec, 'device.mojom.XRRuntimeSessionOptions', [
-      mojo.internal.StructField('arg_required_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_optional_features', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracked_images', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRTrackedImageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_depth_options', 24, 0, mojo.internal.bindings.device.mojom.XRDepthOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 40, 0, mojo.internal.bindings.device.mojom.XRSessionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_process_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_render_frame_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.device.mojom.XRSessionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_process_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_required_features', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_optional_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_images', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRTrackedImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_depth_options', 40, 0, mojo.internal.bindings.device.mojom.XRDepthOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trace_id', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -943,11 +943,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec, 'device.mojom.ImmersiveOverlay_SubmitOverlayTexture_Params', [
-      mojo.internal.StructField('arg_texture', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_left_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_right_bounds', 24, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 32, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_texture', 8, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_left_bounds', 24, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_right_bounds', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1720,7 +1720,7 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec, 'device.mojom.XRDeviceService_BindRuntimeProvider_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

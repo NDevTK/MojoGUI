@@ -189,7 +189,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_blocked_interface_classes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_client', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -197,7 +197,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec, 'device.mojom.UsbDeviceManager_GetSecurityKeyDevice_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -228,8 +228,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lifeline_fd', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_interfaces_mask', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_interfaces_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_lifeline_fd', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -183,8 +183,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, 'ash.wifi_direct.mojom.WifiDirectConnectionProperties', [
       mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ipv4_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ipv4_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -197,23 +197,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParams', [
-      mojo.internal.StructField('arg_wifi_direct_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_direct_connection', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params', [
       mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frequency_$flag', originalFieldName: 'arg_frequency' }),
-      mojo.internal.StructField('arg_frequency_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frequency_$value', originalFieldName: 'arg_frequency' }),
+      mojo.internal.StructField('arg_frequency_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frequency_$value', originalFieldName: 'arg_frequency' }),
+      mojo.internal.StructField('arg_frequency_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frequency_$flag', originalFieldName: 'arg_frequency' }),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParams', [
-      mojo.internal.StructField('arg_wifi_direct_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_direct_connection', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -178,14 +178,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, 'blink.mojom.ServiceWorkerRegistrationObjectInfo', [
       mojo.internal.StructField('arg_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_remote', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_via_cache', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 20, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 28, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_installing', 32, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_waiting', 40, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_active', 48, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_update_via_cache', 56, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Interface: ServiceWorkerRegistrationObjectHost
 mojo.internal.Struct(
@@ -196,8 +196,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -208,8 +208,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -221,8 +221,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -233,9 +233,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -247,8 +247,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -158,9 +158,9 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LcpElementSpec, 'blink.mojom.LcpElement', [
       mojo.internal.StructField('arg_locator', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_predicted_index_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_predicted_index_$flag', originalFieldName: 'arg_predicted_index' }),
-      mojo.internal.StructField('arg_is_image', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_predicted_index_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_predicted_index_$value', originalFieldName: 'arg_predicted_index' }),
+      mojo.internal.StructField('arg_is_image', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_predicted_index_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_predicted_index_$value', originalFieldName: 'arg_predicted_index' }),
+      mojo.internal.StructField('arg_predicted_index_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_predicted_index_$flag', originalFieldName: 'arg_predicted_index' }),
     ],
     [[0, 24]]);
 

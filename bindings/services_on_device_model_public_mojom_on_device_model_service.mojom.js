@@ -298,10 +298,10 @@ mojo.internal.Struct(
 // Struct: LoadModelParams
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec, 'on_device_model.mojom.LoadModelParams', [
-      mojo.internal.StructField('arg_assets', 0, 0, mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_adaptation_ranks', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_backend_type', 16, 0, mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_tokens', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_backend_type', 0, 0, mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_tokens', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_assets', 8, 0, mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_adaptation_ranks', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_performance_hint', 24, 0, mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -861,7 +861,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
       mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_progress_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -897,8 +897,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_Params', [
       mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 8, 0, mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -910,9 +910,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safety_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safety_feature', 16, 0, mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safety_feature', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 16, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -148,10 +148,10 @@ mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValue = {
 // Struct: DocumentIsolationPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, 'network.mojom.DocumentIsolationPolicy', [
-      mojo.internal.StructField('arg_reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only_value', 20, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only_value', 4, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -368,12 +368,12 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.WifiConfigSpec, 'ash.camera_app.mojom.WifiConfig', [
       mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_eap_identity', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_eap_anonymous_identity', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_security', 32, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eap_method', 36, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_eap_phase2_method', 40, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_security', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_eap_method', 12, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_phase2_method', 24, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_identity', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_anonymous_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -2489,9 +2489,9 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRequest = mojo.
 // Interface: CameraAppHelper
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_intent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 12, 0, mojo.internal.bindings.arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2602,8 +2602,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_Params', [
-      mojo.internal.StructField('arg_destination', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.FileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.FileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDestinationSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

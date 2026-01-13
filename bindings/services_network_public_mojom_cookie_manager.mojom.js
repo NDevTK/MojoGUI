@@ -372,15 +372,15 @@ mojo.internal.Union(
 // Struct: CookieManagerParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManagerParamsSpec, 'network.mojom.CookieManagerParams', [
-      mojo.internal.StructField('arg_content_settings', 0, 0, mojo.internal.Map(mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_origin_cookies_allowed_schemes', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_matching_scheme_cookies_allowed_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_third_party_cookies_allowed_schemes', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_access_delegate_type', 32, 0, mojo.internal.bindings.network.mojom.CookieAccessDelegateTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_block_third_party_cookies', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tracking_protection_enabled_for_3pcd', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mitigations_enabled_for_3pcd', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_file_scheme_cookies', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_block_third_party_cookies', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tracking_protection_enabled_for_3pcd', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mitigations_enabled_for_3pcd', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_file_scheme_cookies', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_access_delegate_type', 4, 0, mojo.internal.bindings.network.mojom.CookieAccessDelegateTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_settings', 8, 0, mojo.internal.Map(mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_origin_cookies_allowed_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_matching_scheme_cookies_allowed_schemes', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_third_party_cookies_allowed_schemes', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -395,20 +395,20 @@ mojo.internal.Struct(
 // Struct: CookieSameSiteContext
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieSameSiteContextSpec, 'network.mojom.CookieSameSiteContext', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_schemeful_metadata', 8, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 16, 0, mojo.internal.bindings.network.mojom.ContextTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_schemeful_context', 20, 0, mojo.internal.bindings.network.mojom.ContextTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.network.mojom.ContextTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_schemeful_context', 4, 0, mojo.internal.bindings.network.mojom.ContextTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_schemeful_metadata', 16, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: CookieOptions
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieOptionsSpec, 'network.mojom.CookieOptions', [
-      mojo.internal.StructField('arg_same_site_cookie_context', 0, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exclude_httponly', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_update_access_time', 8, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_return_excluded_cookies', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exclude_httponly', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_update_access_time', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_return_excluded_cookies', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_same_site_cookie_context', 8, 0, mojo.internal.bindings.network.mojom.CookieSameSiteContextSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -423,14 +423,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_expiry', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_access', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_update', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_partition_key', 64, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_site_restrictions', 72, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 76, 0, mojo.internal.bindings.network.mojom.CookiePrioritySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source_scheme', 80, 0, mojo.internal.bindings.network.mojom.CookieSourceSchemeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source_port', 84, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_source_type', 88, 0, mojo.internal.bindings.network.mojom.CookieSourceTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_secure', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_httponly', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_httponly', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_site_restrictions', 68, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 72, 0, mojo.internal.bindings.network.mojom.CookiePrioritySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_scheme', 76, 0, mojo.internal.bindings.network.mojom.CookieSourceSchemeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_partition_key', 80, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source_port', 88, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_source_type', 92, 0, mojo.internal.bindings.network.mojom.CookieSourceTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -477,11 +477,11 @@ mojo.internal.Struct(
 // Struct: CookieAccessResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieAccessResultSpec, 'network.mojom.CookieAccessResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_effective_same_site', 8, 0, mojo.internal.bindings.network.mojom.CookieEffectiveSameSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_access_semantics', 12, 0, mojo.internal.bindings.network.mojom.CookieAccessSemanticsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope_semantics', 16, 0, mojo.internal.bindings.network.mojom.CookieScopeSemanticsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_allowed_to_access_secure_cookies', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_effective_same_site', 0, 0, mojo.internal.bindings.network.mojom.CookieEffectiveSameSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_semantics', 4, 0, mojo.internal.bindings.network.mojom.CookieAccessSemanticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope_semantics', 8, 0, mojo.internal.bindings.network.mojom.CookieScopeSemanticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_allowed_to_access_secure_cookies', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -512,9 +512,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cookie_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_host_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_partition_key_collection', 56, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeyCollectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_session_control', 64, 0, mojo.internal.bindings.network.mojom.CookieDeletionSessionControlSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_partitioned_state_only', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_session_control', 56, 0, mojo.internal.bindings.network.mojom.CookieDeletionSessionControlSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_partitioned_state_only', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_partition_key_collection', 64, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeyCollectionSpec, null, true, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -827,8 +827,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec, 'network.mojom.CookieManager_SetContentSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_settings_type', 8, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_settings_type', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

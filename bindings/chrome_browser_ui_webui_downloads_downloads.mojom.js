@@ -231,34 +231,34 @@ mojo.internal.bindings.downloads.mojom.SafeBrowsingState = {
 // Struct: Data
 mojo.internal.Struct(
     mojo.internal.bindings.downloads.mojom.DataSpec, 'downloads.mojom.Data', [
-      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_by_ext_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_by_ext_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_date_string', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_url', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_reason_text', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_status_text', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_in_folder_text', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_since_string', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_initiator_origin', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 104, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_percent', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_started', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_danger_type', 120, 0, mojo.internal.bindings.downloads.mojom.DangerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tailored_warning_type', 124, 0, mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 128, 0, mojo.internal.bindings.downloads.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_safe_browsing_state', 132, 0, mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_externally_removed', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dangerous', 136, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_insecure', 136, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_reviewable', 136, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_otr', 136, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_resume', 136, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_retry', 136, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_safe_browsing_verdict', 136, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_file_externally_removed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dangerous', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_insecure', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_reviewable', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_otr', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_resume', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_retry', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_safe_browsing_verdict', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_percent', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_started', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_danger_type', 12, 0, mojo.internal.bindings.downloads.mojom.DangerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_by_ext_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_by_ext_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tailored_warning_type', 40, 0, mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 44, 0, mojo.internal.bindings.downloads.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_date_string', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_url', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_reason_text', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_status_text', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_in_folder_text', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_since_string', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_initiator_origin', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 128, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_safe_browsing_state', 136, 0, mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec, null, false, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -1760,15 +1760,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.downloads.mojom.Page_UpdateItem_ParamsSpec, 'downloads.mojom.Page_UpdateItem_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.downloads.mojom.DataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.downloads.mojom.DataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.downloads.mojom.Page_InsertItems_ParamsSpec, 'downloads.mojom.Page_InsertItems_Params', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.downloads.mojom.DataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.downloads.mojom.DataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

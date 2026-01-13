@@ -208,9 +208,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_Register_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_registration', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -222,9 +222,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_registration', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -235,9 +235,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_infos', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -255,9 +255,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_purpose', 8, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purpose', 4, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_Params', [

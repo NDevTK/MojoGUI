@@ -243,8 +243,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPromiseParam_Params', [
       mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_json_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_field', 24, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -266,8 +266,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_Params', [
       mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buyer_timeouts', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field', 24, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buyer_timeouts', 24, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -951,8 +951,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_aborted_by_script', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_aborted_by_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

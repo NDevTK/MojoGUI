@@ -368,7 +368,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec, 'auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_Params', [
       mojo.internal.StructField('arg_bidder_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_storage_hosts', 8, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_shared_storage_hosts', 4, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_pause_for_debugger_on_start', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_experiment_group_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
+      mojo.internal.StructField('arg_experiment_group_id_$value', 14, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_experiment_group_id_$flag', originalFieldName: 'arg_experiment_group_id' }),
       mojo.internal.StructField('arg_url_loader_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_auction_network_events_handler', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_script_source_load', 32, 0, mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec, null, false, 0, undefined),
@@ -378,16 +381,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_top_window_origin', 64, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_permissions_policy_state', 72, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 80, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_experiment_group_id_$value', 88, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_experiment_group_id_$flag', originalFieldName: 'arg_experiment_group_id' }),
-      mojo.internal.StructField('arg_pause_for_debugger_on_start', 90, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_experiment_group_id_$flag', 90, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
     ],
-    [[0, 104]]);
+    [[0, 96]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec, 'auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_Params', [
       mojo.internal.StructField('arg_seller_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_storage_hosts', 8, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_shared_storage_hosts', 4, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_pause_for_debugger_on_start', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_experiment_group_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
+      mojo.internal.StructField('arg_send_creative_scanning_metadata_$flag', 12, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_creative_scanning_metadata_$value', originalFieldName: 'arg_send_creative_scanning_metadata' }),
+      mojo.internal.StructField('arg_send_creative_scanning_metadata_$value', 12, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_creative_scanning_metadata_$flag', originalFieldName: 'arg_send_creative_scanning_metadata' }),
+      mojo.internal.StructField('arg_experiment_group_id_$value', 14, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_experiment_group_id_$flag', originalFieldName: 'arg_experiment_group_id' }),
       mojo.internal.StructField('arg_url_loader_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_auction_network_events_handler', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_script_source_load', 32, 0, mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec, null, false, 0, undefined),
@@ -396,13 +401,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_permissions_policy_state', 56, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 64, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_load_seller_worklet_client', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_experiment_group_id_$value', 80, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_experiment_group_id_$flag', originalFieldName: 'arg_experiment_group_id' }),
-      mojo.internal.StructField('arg_pause_for_debugger_on_start', 82, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_experiment_group_id_$flag', 82, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
-      mojo.internal.StructField('arg_send_creative_scanning_metadata_$flag', 82, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_creative_scanning_metadata_$value', originalFieldName: 'arg_send_creative_scanning_metadata' }),
-      mojo.internal.StructField('arg_send_creative_scanning_metadata_$value', 82, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_creative_scanning_metadata_$flag', originalFieldName: 'arg_send_creative_scanning_metadata' }),
     ],
-    [[0, 96]]);
+    [[0, 88]]);
 
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServicePendingReceiver = class {
   constructor(handle) {

@@ -126,8 +126,8 @@ mojo.internal.bindings.arc.mojom.ArcBitmapSpec = { $: {} };
 // Struct: ArcBitmap
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcBitmapSpec, 'arc.mojom.ArcBitmap', [
-      mojo.internal.StructField('arg_pixel_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

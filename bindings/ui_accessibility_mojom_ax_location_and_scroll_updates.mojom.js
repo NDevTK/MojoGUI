@@ -133,8 +133,8 @@ mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec = mojo.internal.bindings.ax
 // Struct: AXLocationChange
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXLocationChangeSpec, 'ax.mojom.AXLocationChange', [
-      mojo.internal.StructField('arg_new_location', 0, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_new_location', 8, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

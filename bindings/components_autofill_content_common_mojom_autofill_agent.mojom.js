@@ -241,20 +241,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec, 'autofill.mojom.AutofillAgent_ApplyFieldsAction_Params', [
-      mojo.internal.StructField('arg_fields', 0, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_id', 8, 0, mojo.internal.bindings.autofill.mojom.FillIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_type', 16, 0, mojo.internal.bindings.autofill.mojom.FormActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_persistence', 20, 0, mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.autofill.mojom.FormActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_persistence', 4, 0, mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 8, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_id', 16, 0, mojo.internal.bindings.autofill.mojom.FillIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_supports_refill', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec, 'autofill.mojom.AutofillAgent_ApplyFieldAction_Params', [
-      mojo.internal.StructField('arg_field', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_type', 16, 0, mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_persistence', 20, 0, mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_persistence', 4, 0, mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1242,8 +1242,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_Params', [
-      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_password', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_password', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

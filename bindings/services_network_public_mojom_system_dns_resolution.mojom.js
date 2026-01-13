@@ -139,9 +139,9 @@ mojo.internal.bindings.network.mojom.AddressListSpec = mojo.internal.bindings.ne
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
       mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_network', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_addr_family', 16, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_addr_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

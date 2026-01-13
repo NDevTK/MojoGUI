@@ -143,10 +143,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_platform_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_architecture', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_model', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitness', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_factors', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mobile', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_wow64', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mobile', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wow64', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bitness', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_factors', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 88]]);
 

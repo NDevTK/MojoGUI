@@ -138,9 +138,9 @@ mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec = mojo.i
 // Struct: Status
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_space', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_code', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_space', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

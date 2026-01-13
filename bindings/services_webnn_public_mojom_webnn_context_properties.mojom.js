@@ -309,10 +309,10 @@ mojo.internal.Struct(
 // Struct: ContextProperties
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, 'webnn.mojom.ContextProperties', [
-      mojo.internal.StructField('arg_tensor_byte_length_limit', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data_type_limits', 8, 0, mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_operand_layout', 16, 0, mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resample_2d_axes', 20, 0, mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_batch_normalization_axis', 24, 0, mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_layout', 0, 0, mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resample_2d_axes', 4, 0, mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_normalization_axis', 8, 0, mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_byte_length_limit', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data_type_limits', 24, 0, mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);

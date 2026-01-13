@@ -702,8 +702,8 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRequest = mojo.in
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnProgressUpdate_Params', [
-      mojo.internal.StructField('arg_progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_install_state', 8, 0, mojo.internal.bindings.crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_state', 0, 0, mojo.internal.bindings.crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_fraction', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -152,9 +152,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.camera_app.mojom.WordSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box_angle', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_confidence', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_confidence', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

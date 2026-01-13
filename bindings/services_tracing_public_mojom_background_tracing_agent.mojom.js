@@ -153,9 +153,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
       mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flow_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_value_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_histogram_value_$flag', originalFieldName: 'arg_histogram_value' }),
-      mojo.internal.StructField('arg_histogram_value_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_histogram_value_$value', originalFieldName: 'arg_histogram_value' }),
+      mojo.internal.StructField('arg_histogram_value_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_histogram_value_$value', originalFieldName: 'arg_histogram_value' }),
+      mojo.internal.StructField('arg_histogram_value_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_histogram_value_$flag', originalFieldName: 'arg_histogram_value' }),
+      mojo.internal.StructField('arg_flow_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -175,23 +175,23 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInfoSpec, 'arc.mojom.ImeInfo', [
       mojo.internal.StructField('arg_ime_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_allowed_in_clamshell_mode', 24, 1, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('arg_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_allowed_in_clamshell_mode', 16, 1, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('arg_settings_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40], [8, 40]]);
+    [[0, 40], [8, 32]]);
 
 // Struct: TextInputState
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TextInputStateSpec, 'arc.mojom.TextInputState', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_range', 8, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_range', 16, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cursor_pos', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 28, 0, mojo.internal.bindings.arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_should_do_learning', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_first_update_after_operation', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor_pos', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_range', 16, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_range', 24, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_should_do_learning', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_first_update_after_operation', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_composition_text_range', 40, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, true, 6, undefined),
     ],
     [[0, 48], [6, 56]]);

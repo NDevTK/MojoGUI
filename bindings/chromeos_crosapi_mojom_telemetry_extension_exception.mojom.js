@@ -180,8 +180,8 @@ mojo.internal.Union(
 // Struct: TelemetryExtensionException
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec, 'crosapi.mojom.TelemetryExtensionException', [
-      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 // Struct: TelemetryExtensionUnsupported
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec, 'crosapi.mojom.TelemetryExtensionUnsupported', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

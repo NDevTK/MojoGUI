@@ -159,9 +159,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 16, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_processing_config', 24, 0, mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_automatic_gain_control', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_automatic_gain_control', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_processing_config', 32, 0, mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -380,11 +380,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_initially_muted', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_data_pipe', 16, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initially_muted', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver = class {
   constructor(handle) {

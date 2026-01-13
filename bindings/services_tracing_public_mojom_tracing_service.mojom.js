@@ -145,8 +145,8 @@ mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sa
 // Struct: ClientInfo
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ClientInfoSpec, 'tracing.mojom.ClientInfo', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

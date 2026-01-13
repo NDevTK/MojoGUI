@@ -216,9 +216,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_subject', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_type', 56, 0, mojo.internal.bindings.chrome.mojom.CertificateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_type', 40, 0, mojo.internal.bindings.chrome.mojom.CertificateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_subject', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -226,9 +226,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec, 'chrome.mojom.AntiVirusProduct', [
       mojo.internal.StructField('arg_product_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name_hash', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_version_hash', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name_hash', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_version_hash', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -236,10 +236,10 @@ mojo.internal.Struct(
 // Struct: TpmIdentifier
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec, 'chrome.mojom.TpmIdentifier', [
-      mojo.internal.StructField('arg_manufacturer_version', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_version_info', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tpm_specific_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_version_info', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tpm_specific_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -258,10 +258,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_arguments', 16, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_toast_activator_clsid', 48, 0, mojo.internal.bindings.chrome.mojom.ClsIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_index', 56, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_index', 40, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_app_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_toast_activator_clsid', 56, 0, mojo.internal.bindings.chrome.mojom.ClsIdSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -305,13 +305,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 16, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_extension', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type_index', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type_index', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_default_extension', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

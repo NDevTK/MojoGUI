@@ -201,8 +201,8 @@ mojo.internal.Struct(
 // Struct: KerberosConfig
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.smbfs.mojom.SourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.smbfs.mojom.SourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -249,8 +249,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
-      mojo.internal.StructField('arg_smbfs', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_smbfs', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

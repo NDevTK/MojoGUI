@@ -1262,9 +1262,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_Params', [
-      mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.bindings.media.mojom.MediaContentTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_audio', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_video', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_audio', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_video', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 4, 0, mojo.internal.bindings.media.mojom.MediaContentTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2013,9 +2013,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec, 'media.mojom.MediaPlayerHost_OnMediaPlayerAdded_Params', [
       mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.MediaPlayerObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_player_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_player_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.media.mojom.MediaPlayerHostPendingReceiver = class {
   constructor(handle) {

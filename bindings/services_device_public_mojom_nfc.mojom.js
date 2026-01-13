@@ -185,22 +185,22 @@ mojo.internal.bindings.device.mojom.NSRawTypeNameFormat = {
 // Struct: NDEFError
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFErrorSpec, 'device.mojom.NDEFError', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_type', 8, 0, mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NDEFRecord
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFRecordSpec, 'device.mojom.NDEFRecord', [
-      mojo.internal.StructField('arg_record_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_encoding', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_lang', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_message', 48, 0, mojo.internal.bindings.device.mojom.NDEFMessageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_category', 56, 0, mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_record_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_encoding', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_message', 56, 0, mojo.internal.bindings.device.mojom.NDEFMessageSpec, null, true, 0, undefined),
     ],
     [[0, 72]]);
 

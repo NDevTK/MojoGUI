@@ -334,9 +334,9 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRequest = mojo.interna
 // Interface: FuchsiaMediaCodecProvider
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('arg_stream_processor_request', 0, 0, mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_mode', 12, 0, mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_mode', 4, 0, mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_processor_request', 8, 0, mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

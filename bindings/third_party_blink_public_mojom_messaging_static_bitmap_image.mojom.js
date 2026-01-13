@@ -165,8 +165,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec, 'blink.mojom.AcceleratedStaticBitmapImage', [
       mojo.internal.StructField('arg_shared_image', 0, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_callback', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_alpha_type', 24, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alpha_type', 16, 0, mojo.internal.bindings.skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_callback', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

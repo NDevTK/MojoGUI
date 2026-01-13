@@ -232,8 +232,8 @@ mojo.internal.Struct(
 // Interface: MediaSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_action', 16, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

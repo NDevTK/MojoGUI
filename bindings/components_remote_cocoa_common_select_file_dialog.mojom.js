@@ -161,21 +161,21 @@ mojo.internal.Struct(
 // Interface: SelectFileDialog
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_types', 16, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_default_extension', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type_index', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_types', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_extension', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_ResponseParams', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_tags', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_was_cancelled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_was_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

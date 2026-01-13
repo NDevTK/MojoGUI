@@ -136,8 +136,8 @@ mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec = mojo.internal.bindin
 // Struct: Key
 mojo.internal.Struct(
     mojo.internal.bindings.os_crypt_async.mojom.KeySpec, 'os_crypt_async.mojom.Key', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm', 8, 0, mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -385,8 +385,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertEmoji_Params', [
       mojo.internal.StructField('arg_emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_search_length', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_variant', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_variant', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_search_length', 10, 0, mojo.internal.Int16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -425,8 +425,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetCategories_ResponseParams', [
-      mojo.internal.StructField('arg_gif_categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gif_categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -438,8 +438,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParams', [
-      mojo.internal.StructField('arg_featured_gifs', 0, 0, mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_featured_gifs', 8, 0, mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -452,8 +452,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_SearchGifs_ResponseParams', [
-      mojo.internal.StructField('arg_search_gifs', 0, 0, mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_gifs', 8, 0, mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -465,8 +465,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParams', [
-      mojo.internal.StructField('arg_selected_gifs', 0, 0, mojo.internal.Array(mojo.internal.bindings.tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_gifs', 8, 0, mojo.internal.Array(mojo.internal.bindings.tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -499,8 +499,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params', [
-      mojo.internal.StructField('arg_history', 0, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 8, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -158,8 +158,8 @@ mojo.internal.Union(
 // Struct: Property
 mojo.internal.Struct(
     mojo.internal.bindings.schema_org.mojom.PropertySpec, 'schema_org.mojom.Property', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.bindings.schema_org.mojom.ValuesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.bindings.schema_org.mojom.ValuesSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

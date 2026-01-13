@@ -163,9 +163,9 @@ mojo.internal.bindings.device.mojom.XRHandJoint = {
 // Struct: XRHandJointData
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRHandJointDataSpec, 'device.mojom.XRHandJointData', [
-      mojo.internal.StructField('arg_mojo_from_joint', 0, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_joint', 8, 0, mojo.internal.bindings.device.mojom.XRHandJointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_radius', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_joint', 0, 0, mojo.internal.bindings.device.mojom.XRHandJointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_radius', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_from_joint', 8, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

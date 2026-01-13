@@ -183,10 +183,10 @@ mojo.internal.Struct(
 // Struct: Tile
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TileSpec, 'viz.mojom.Tile', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.viz.mojom.TileContentsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_column_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_row_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_update_damage', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_column_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_row_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_update_damage', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 16, 0, mojo.internal.bindings.viz.mojom.TileContentsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

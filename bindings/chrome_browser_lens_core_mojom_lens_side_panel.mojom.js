@@ -176,7 +176,7 @@ mojo.internal.bindings.lens.mojom.SidePanelResultStatus = {
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -791,8 +791,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_should_show_error_page', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_show_error_page', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

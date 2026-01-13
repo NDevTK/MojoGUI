@@ -154,12 +154,12 @@ mojo.internal.Struct(
 // Struct: CSVPassword
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
-      mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_note', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invalid_url', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 40, 0, mojo.internal.bindings.password_manager.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.password_manager.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_note', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

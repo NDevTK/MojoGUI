@@ -154,8 +154,8 @@ mojo.internal.bindings.prefs.mojom.ValueState = {
 // Interface: TrackedPreferenceValidationDelegate
 mojo.internal.Struct(
     mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pref_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_external_validation_value_state', 28, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),

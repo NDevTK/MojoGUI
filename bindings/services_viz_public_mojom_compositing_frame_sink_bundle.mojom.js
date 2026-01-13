@@ -187,8 +187,8 @@ mojo.internal.Union(
 // Struct: BundledFrameSubmission
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec, 'viz.mojom.BundledFrameSubmission', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -205,18 +205,18 @@ mojo.internal.Struct(
 // Struct: BundledReturnedResources
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec, 'viz.mojom.BundledReturnedResources', [
-      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: BeginFrameInfo
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec, 'viz.mojom.BeginFrameInfo', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 24, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -236,8 +236,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec, 'viz.mojom.FrameSinkBundle_SetThreads_Params', [
-      mojo.internal.StructField('arg_threads', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_threads', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
