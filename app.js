@@ -39,7 +39,6 @@
             createScript: (input) => input,
             createScriptURL: (input) => input
         });
-        window.mojoTrustedPolicy = trustedPolicy;
     }
 
     function safeHTML(html) {
@@ -186,7 +185,6 @@
         interceptStatusDot: document.getElementById('interceptStatusDot'),
         noScrambleToggle: document.getElementById('noScrambleToggle'),
         viewTrafficBtn: document.getElementById('viewTrafficBtn'),
-        sandboxBtn: document.getElementById('sandboxBtn'),
         trafficBadge: document.getElementById('trafficBadge'),
         interceptorPanel: document.getElementById('interceptorPanel'),
         interceptorTableBody: document.getElementById('interceptorTableBody'),
@@ -385,13 +383,6 @@
         // Traffic View
         if (elements.viewTrafficBtn) {
             elements.viewTrafficBtn.addEventListener('click', () => showInterceptorPanel(!state.panelVisible));
-        }
-
-        if (elements.sandboxBtn) {
-            elements.sandboxBtn.addEventListener('click', async () => {
-                const { SandboxManager } = await import('./sandbox_manager.js');
-                SandboxManager.createVirtualFrame();
-            });
         }
 
         if (elements.closeInterceptorBtn) {

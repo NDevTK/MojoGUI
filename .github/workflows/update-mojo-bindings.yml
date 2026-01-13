@@ -399,7 +399,7 @@ jobs:
                   return TYPE_MAPPING[type_clean]
               
               # For unknown types (likely structs/enums), default to pointer
-              return 'mojo.internal.Pointer'
+              return 'mojo.internal.OpaqueStruct'
 
 
           def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
@@ -416,6 +416,9 @@ jobs:
               for s in parsed.get('structs', []): valid_types.add(s['name'])
               for e in parsed.get('enums', []): valid_types.add(e['name'])
               for i in parsed.get('interfaces', []): valid_types.add(i['name'])
+              
+              # Track external type references for stub generation
+              external_type_refs = set()  # (module, type_name, kind)
               
               imports = parsed.get('imports', [])
 
@@ -537,10 +540,13 @@ jobs:
                       
                       kind = global_kind_map.get(clean_name)
                       suffix = 'Spec'
-                      if kind == 'interface': suffix = 'Remote' # Use Remote as the type reference usually
+                      if kind == 'interface': suffix = 'Remote'
                       
                       res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
-                      # Fix: Do not append .$ for non-interface types. StructField expects the Spec wrapper.
+                      
+                      # Track external reference for stub generation
+                      if mod_prefix != module:
+                          external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
                       return res_type
@@ -555,20 +561,26 @@ jobs:
                       if kind == 'interface': suffix = 'Remote'
                       
                       res_type = f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
-                      # Fix: Do not append .$ for non-interface types. StructField expects the Spec wrapper.
+                      
+                      # Track external reference for stub generation
+                      if target_mod != module:
+                          external_type_refs.add((target_mod, clean_name, kind or 'struct'))
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
                       return res_type
                   
-                  # Fallback heuristic
+                  # Fallback heuristic - unknown type, assume it's external
                   if clean_name and clean_name[0].isupper():
-                      # Default to current namespace if unknown
+                      # Track as potential external for stub generation
+                      # We don't know the module, so guess current module or use fallback
+                      external_type_refs.add((module, clean_name, 'struct'))
                       ns = current_ns
                       if not ns.startswith('mojo.internal.bindings'):
                            ns = f"mojo.internal.bindings.{module}"
-                      return f"{ns}.{clean_name}Spec.$"
+                      # Return spec reference (will be stubbed if not defined)
+                      return f"{ns}.{clean_name}Spec"
 
-                  return 'mojo.internal.Pointer'
+                  return 'mojo.internal.OpaqueStruct'
 
               def resolve_mojo_type_raw(type_name):
                   """Helper to get the raw Spec/Remote name without Proxy/Request wrappers."""
@@ -607,13 +619,17 @@ jobs:
                       kind = global_kind_map.get(fqn)
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
+                      # Track external reference
+                      if target_mod != module:
+                          external_type_refs.add((target_mod, clean_name, kind or 'struct'))
                       return f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
 
                   # Fallback heuristic
                   if clean_name and clean_name[0].isupper():
+                       external_type_refs.add((module, clean_name, 'struct'))
                        return f"{current_ns}.{clean_name}Spec"
 
-                  return 'mojo.internal.Pointer'
+                  return 'mojo.internal.OpaqueStruct'
 
               def get_struct_layout(params):
                   """Calculate field offsets and size using Mojo's Best Fit algorithm."""
@@ -915,6 +931,26 @@ jobs:
            mojo.internal = mojo.internal || {{}};
            mojo.internal.bindings = mojo.internal.bindings || {{}};
            
+           // Fallback opaque struct type for unknown external types
+           mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {{
+             $: {{
+               structSpec: {{ name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{{version: 0, packedSize: 8}}] }},
+               encode: function(value, encoder, byteOffset, bitOffset, nullable) {{
+                 encoder.encodeOffset(byteOffset, 0);
+               }},
+               encodeNull: function(encoder, byteOffset) {{ }},
+               decode: function(decoder, byteOffset, bitOffset, nullable) {{
+                 try {{
+                   const offset = decoder.decodeOffset(byteOffset);
+                   return offset ? {{ _opaqueOffset: offset }} : null;
+                 }} catch (e) {{
+                   return null;
+                 }}
+               }},
+               arrayElementSize: nullable => 8,
+               isValidObjectKeyType: false,
+             }}
+           }};
 
            '''
                
@@ -972,6 +1008,52 @@ jobs:
                       js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
                       if not method.get('is_one_way'):
                           js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
+
+              # Pre-process structs, unions, interfaces to collect external type refs
+              # We call resolve_mojo_type on all fields to populate external_type_refs
+              for struct in parsed.get('structs', []):
+                  for field in struct.get('fields', []):
+                      if field and field.get('type'):
+                          resolve_mojo_type(field['type'])
+              for union in parsed.get('unions', []):
+                  for field in union.get('fields', []):
+                      if field and field.get('type'):
+                          resolve_mojo_type(field['type'])
+              for interface in parsed.get('interfaces', []):
+                  for method in interface.get('methods', []):
+                      for param in method.get('params', []):
+                          if param and param.get('type'):
+                              resolve_mojo_type(param['type'])
+                      for ret in (method.get('returns') or []):
+                          if ret and ret.get('type'):
+                              resolve_mojo_type(ret['type'])
+              
+              # Generate external type stubs with fallback decode
+              if external_type_refs:
+                  js_code += "\n// External type stubs (from imports)\n"
+                  declared_externals = set()
+                  for (ext_mod, ext_name, ext_kind) in sorted(external_type_refs):
+                      # Build namespace chain for external module
+                      ext_ns = "mojo.internal.bindings"
+                      for part in ext_mod.split('.'):
+                          ext_ns += f".{part}"
+                      
+                      full_ext_name = f"{ext_ns}.{ext_name}Spec"
+                      if full_ext_name in declared_externals:
+                          continue
+                      declared_externals.add(full_ext_name)
+                      
+                      # Ensure namespace chain exists (all intermediate levels)
+                      ns_chain = "mojo.internal.bindings"
+                      for part in ext_mod.split('.'):
+                          ns_chain += f".{part}"
+                          js_code += f"{ns_chain} = {ns_chain} || {{}};\n"
+                      
+                      # Create stub with fallback to Pointer (has valid encode/decode)
+                      if ext_kind == 'enum':
+                          js_code += f"{full_ext_name} = {full_ext_name} || {{ $: mojo.internal.Enum().$ }};\n"
+                      else:
+                          js_code += f"{full_ext_name} = {full_ext_name} || {{ $: mojo.internal.OpaqueStruct.$ }};\n"
 
               # Generate constants
               for const in parsed.get('constants', []):
@@ -1441,3 +1523,6 @@ jobs:
             git commit -m "Update Mojo JS bindings - $(date -u +%Y-%m-%d) [$CHANGED_COUNT files]"
             git push
           fi
+
+
+
