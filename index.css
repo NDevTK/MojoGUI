@@ -1379,9 +1379,16 @@ body::before {
     flex: 1;
     overflow-y: auto;
     border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
     border-radius: var(--radius-md);
     padding: var(--space-sm);
     background: rgba(0, 0, 0, 0.2);
+}
+
+.params-form-container .form-group:has(.params-editor) {
+    flex: 1;
+    min-height: 0;
 }
 
 .result-code,
@@ -1394,7 +1401,7 @@ body::before {
     background: rgba(0, 0, 0, 0.2) !important;
     padding: var(--space-md) !important;
     overflow-y: auto;
-    resize: none;
+    resize: none !important;
     /* Disable manual resize as it fills space */
 }
 
