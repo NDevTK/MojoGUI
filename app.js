@@ -402,6 +402,7 @@
         window.resumeIntercept = resumeIntercept;
         window.addEventListener('mojo-intercept', handleMojoIntercept);
         window.addEventListener('mojo-response', handleMojoResponse);
+        window.addEventListener('mojo-response-intercept', handleMojoResponseIntercept); // Fix: Add missing listener
         window.addEventListener('mojo-error', handleMojoError);
         window.switchToInterceptMode = switchToInterceptMode;
     }
@@ -1458,6 +1459,13 @@
     function addActivityRow(data) {
         const { id, interface: iface, method, params, timestamp, type, status } = data;
 
+        // Correctly handle duplicates: Update existing row if ID matches
+        const existingRow = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (existingRow) {
+            updateActivityRow(id, status || 'Pending', data.result); // Update status and result logic
+            return;
+        }
+
         const row = document.createElement('tr');
         row.dataset.id = id;
         row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
@@ -1872,7 +1880,11 @@
 
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
                 // Update UI immediately
-                updateActivityRow(id, 'Forwarded');
+                if (state.interceptResponses) {
+                    updateActivityRow(id, 'Pending Response');
+                } else {
+                    updateActivityRow(id, 'Forwarded');
+                }
 
                 // Update history with modified params
                 if (row && row.__details) {
