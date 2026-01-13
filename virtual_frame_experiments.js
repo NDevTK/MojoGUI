@@ -50,6 +50,11 @@
         await window.MojoBindings.loadBinding('content_common_frame_messages.mojom.js');
         // Load dependencies explicitly to be safe
         await window.MojoBindings.loadBinding('services_network_public_mojom_permissions_policy_permissions_policy.mojom.js');
+        await window.MojoBindings.loadBinding('url_mojom_url.mojom.js');
+        await window.MojoBindings.loadBinding('url_mojom_origin.mojom.js');
+        await window.MojoBindings.loadBinding('mojo_public_mojom_base_unguessable_token.mojom.js');
+        await window.MojoBindings.loadBinding('mojo_public_mojom_base_time.mojom.js');
+        await window.MojoBindings.loadBinding('third_party_blink_public_mojom_loader_referrer.mojom.js');
         log('[VirtualFrame] Bindings loaded.');
     } catch (e) {
         log('[VirtualFrame] Failed to load bindings (continuing anyway...):', e);
@@ -71,8 +76,13 @@
                     mojo.internal.Array(mojo.internal.Uint8, false),
                     null, false, 0
                 ),
+                mojo.internal.StructField(
+                    'handles', 8, 0,
+                    mojo.internal.Array(mojo.internal.OpaqueStruct.$, true), // SerializedHandle is likely opaque here, or could be defined.
+                    null, true, 0
+                ),
             ],
-            [[0, 16]]
+            [[0, 24]] // NativeStruct size is likely 24 (8 header + 8 data ptr + 8 handles ptr)
         );
     }
 
@@ -135,18 +145,18 @@
         const frameHostRemote = mojo.internal.bindings.content.mojom.FrameHost.getRemote();
         log('[VirtualFrame] FrameHost remote obtained:', frameHostRemote);
 
-        const urlSpec = { url: "https://www.google.com" };
-        const originSpec = { scheme: "https", host: "www.google.com", port: 443, nonce: null };
-        const pageStateVal = { data: [] };
-        const navToken = { high: BigInt(123), low: BigInt(456) };
-        const timeTicks = { internalValue: BigInt(Date.now() * 1000) };
+        const urlSpec = { arg_url: "https://www.google.com" };
+        const originSpec = { arg_scheme: "https", arg_host: "www.google.com", arg_port: 443, arg_nonce_if_opaque: null };
+        const pageStateVal = { data: [], handles: null };
+        const navToken = { arg_high: BigInt(123), arg_low: BigInt(456) };
+        const timeTicks = { arg_internal_value: BigInt(Date.now() * 1000) };
 
         const params = {
             item_sequence_number: BigInt(1),
             document_sequence_number: BigInt(1),
             navigation_api_key: "key",
             url: urlSpec,
-            referrer: { url: { url: "" }, policy: 1 },
+            referrer: { arg_url: { arg_url: "" }, arg_policy: 1 },
             transition: 0,
             should_update_history: false,
             contents_mime_type: "text/html",

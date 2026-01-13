@@ -841,8 +841,11 @@ jobs:
                       if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.Handle'): return 4, 4
                       if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double'): return 8, 8
                       
-                      # Interface types in MojoJS Lite are typically 8 bytes (Handle + Version/Reserved)
-                      if 'Interface' in p_type: return 8, 8
+                      # Interface Requests (Receivers) are just handles (4 bytes)
+                      if 'InterfaceRequest' in p_type or 'AssociatedInterfaceRequest' in p_type: return 4, 4
+                      
+                      # Interface Proxies (Remotes) are Handle+Version (8 bytes), but Alignment is 4 (2x uint32)
+                      if 'Interface' in p_type: return 8, 4
                       
                       # Pointers (Structs, Arrays, Maps, Unions)
                       # Fix: Strip mojo.internal.bindings prefix to match global_kind_map keys
@@ -864,46 +867,62 @@ jobs:
                       p['size'] = s
                       p['alignment'] = a
 
-                  # Sort: Version (asc), Size (desc), Ordinal (asc)
-                  # This minimizes padding by placing larger primitives first
-                  expanded_params.sort(key=lambda x: (
-                      x.get('min_version', 0), 
-                      -x.get('size', 0), 
-                      x.get('ordinal', 0), 
-                      x.get('sub_ordinal', 0)
-                  ))
+                  # Sort: Ordinal (asc), SubOrdinal (asc) - Standard Mojo input order
+                  expanded_params.sort(key=lambda x: (x.get('ordinal', 0), x.get('sub_ordinal', 0)))
                   
                   packed_fields = []
-                  current_offset = 0
-                  current_bool_byte = -1
-                  current_bool_bit = 0
-                  
-                  for p in expanded_params:
-                      size = p['size']
-                      align = p['alignment']
+                  if expanded_params:
+                      # 1. Place first field at offset 0
+                      first = expanded_params[0]
+                      first['offset'] = 0
+                      first['bit'] = 0
+                      packed_fields.append(first)
                       
-                      if p['type'] == 'mojo.internal.Bool':
-                          if current_bool_byte != -1 and current_bool_bit < 7:
-                              p['offset'] = current_bool_byte
-                              p['bit'] = current_bool_bit + 1
-                              current_bool_bit += 1
-                          else:
-                              # Start new bool byte
-                              pad = get_pad(current_offset, 1)
-                              p['offset'] = current_offset + pad
-                              p['bit'] = 0
-                              current_bool_byte = p['offset']
-                              current_bool_bit = 0
-                              current_offset = p['offset'] + 1
-                      else:
-                          # regular field
-                          pad = get_pad(current_offset, align)
-                          p['offset'] = current_offset + pad
-                          p['bit'] = 0
-                          current_offset = p['offset'] + size
-                          current_bool_byte = -1 # break bool sequence
-                      
-                      packed_fields.append(p)
+                      # 2. Pack remaining fields into holes or append
+                      for p in expanded_params[1:]:
+                          inserted = False
+                          
+                          # Try to insert into holes between existing packed fields
+                          last = packed_fields[0]
+                          for i in range(1, len(packed_fields)):
+                              next_f = packed_fields[i]
+                              
+                              # Calculate candidate offset if placed after 'last'
+                              cand_offset = -1
+                              cand_bit = 0
+                              
+                              if p['type'] == 'mojo.internal.Bool' and last['type'] == 'mojo.internal.Bool' and last['bit'] < 7:
+                                  cand_offset = last['offset']
+                                  cand_bit = last['bit'] + 1
+                              else:
+                                  # Align
+                                  start = last['offset'] + last['size']
+                                  pad = get_pad(start, p['alignment'])
+                                  cand_offset = start + pad
+                                  cand_bit = 0
+                              
+                              # Check if it fits before next_f
+                              if cand_offset + p['size'] <= next_f['offset']:
+                                  p['offset'] = cand_offset
+                                  p['bit'] = cand_bit
+                                  packed_fields.insert(i, p)
+                                  inserted = True
+                                  break
+                              
+                              last = next_f
+                              
+                          if not inserted:
+                              # Append to end
+                              last = packed_fields[-1]
+                              if p['type'] == 'mojo.internal.Bool' and last['type'] == 'mojo.internal.Bool' and last['bit'] < 7:
+                                  p['offset'] = last['offset']
+                                  p['bit'] = last['bit'] + 1
+                              else:
+                                  start = last['offset'] + last['size']
+                                  pad = get_pad(start, p['alignment'])
+                                  p['offset'] = start + pad
+                                  p['bit'] = 0
+                              packed_fields.append(p)
                   
                   # Generate JavaScript Argument Lists for StructField
                   fields_code = []
