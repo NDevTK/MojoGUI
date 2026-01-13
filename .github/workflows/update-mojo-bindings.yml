@@ -1036,6 +1036,9 @@ jobs:
               window.mojoScrambler = window.mojoScrambler || {{
                 // Per-interface scramble map (generated from BUILD.gn analysis)
                 _interfaceScrambleMap: {scramble_map_json},
+                // Lazy cache: keyed by "version|ifaceName"
+                _ordinalCache: {{}},
+                _lastVersion: null,
                 getOrdinals: function(ifaceName, methodSpecs) {{
                   const params = new URLSearchParams(window.location.search);
                   const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
@@ -1047,18 +1050,31 @@ jobs:
                     return methodSpecs.map((ms, idx) => ms.explicit !== null ? ms.explicit : idx);
                   }}
                   
+                  // Get current version (may change after async detection)
+                  const versionStr = window.mojoVersion || '{FALLBACK_VERSION_STRING}';
+                  
+                  // Invalidate cache if version changed
+                  if (this._lastVersion !== versionStr) {{
+                    this._ordinalCache = {{}};
+                    this._lastVersion = versionStr;
+                  }}
+                  
+                  // Check cache
+                  const cacheKey = ifaceName;
+                  if (this._ordinalCache[cacheKey]) {{
+                    return this._ordinalCache[cacheKey];
+                  }}
+                  
                   // Scrambling enabled: use SHA256 hash
+                  const p = versionStr.split('.');
+                  const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
+                  const shortName = ifaceName.split('.').pop();
+                  
                   const seen = new Set();
                   methodSpecs.forEach(ms => {{ if (ms.explicit !== null) seen.add(ms.explicit); }});
                   let i = 0;
-                  return methodSpecs.map((ms, idx) => {{
+                  const ordinals = methodSpecs.map((ms, idx) => {{
                     if (ms.explicit !== null) return ms.explicit;
-                    
-                    const versionStr = window.mojoVersion || '{FALLBACK_VERSION_STRING}';
-                    const p = versionStr.split('.');
-                    const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
-                    
-                    const shortName = ifaceName.split('.').pop();
                     while (true) {{
                       i++;
                       const h0 = SHA256(salt + shortName + i);
@@ -1069,6 +1085,10 @@ jobs:
                       }}
                     }}
                   }});
+                  
+                  // Cache the result
+                  this._ordinalCache[cacheKey] = ordinals;
+                  return ordinals;
                 }}
               }};
             }})();
