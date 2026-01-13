@@ -1390,6 +1390,46 @@ body::before {
     gap: var(--space-sm);
 }
 
+.btn-small {
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    height: 24px;
+    min-width: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-small:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.btn-small.active {
+    background: rgba(239, 68, 68, 0.15); /* Red for Blocking */
+    border-color: var(--error);
+    color: var(--error);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+/* Logged status for table rows */
+.status-dot.logged {
+    background: var(--info);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Forwarding/Logging button state (inactive active) */
+.btn-small:not(.active) {
+    /* Implicitly Logging/Forwarding */
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+    border-color: var(--info);
+}
+
 .params-editor {
     width: 100%;
     min-height: 80px;

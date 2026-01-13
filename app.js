@@ -1317,11 +1317,11 @@
         updateInterceptButtonState(isActive, nameTypeToUse);
 
         if (isActive) {
-            showToast(`Started intercepting ${nameTypeToUse}`, 'success');
+            showToast(`Blocking ${nameTypeToUse}`, 'success');
             // Show panel
             showInterceptorPanel(true);
         } else {
-            showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
+            showToast(`Logging ${nameTypeToUse}`, 'info');
         }
     }
 
@@ -1336,11 +1336,18 @@
             const currentShort = state.selectedInterface.name;
 
             if (!interfaceName || interfaceName === currentFQN || interfaceName === currentShort) {
-                const realState = interfaceName ? InterceptorManager.isActive(interfaceName) : isActive;
-                elements.interceptStatusDot.classList.toggle('active', realState);
-                elements.interceptToggleBtn.classList.toggle('active', realState);
+                const targetName = interfaceName || currentFQN;
+                const isRunning = InterceptorManager.isActive(targetName);
+                const mode = InterceptorManager.getMode(targetName);
+                const isBlocking = isRunning && mode === 'INTERCEPT';
+
+                elements.interceptStatusDot.classList.toggle('active', isBlocking);
+                elements.interceptToggleBtn.classList.toggle('active', isBlocking);
                 const text = elements.interceptToggleBtn.childNodes[2];
-                if (text) text.textContent = realState ? ' Stop Intercepting' : ' Intercept';
+                if (text) {
+                    if (!isRunning) text.textContent = ' Intercept';
+                    else text.textContent = isBlocking ? ' Blocking' : ' Logging';
+                }
             }
         }
 
@@ -1368,7 +1375,7 @@
                 }
 
                 btn.classList.toggle('active', isMethodActive);
-                btn.textContent = isMethodActive ? 'Blocking' : 'Forwarding';
+                btn.textContent = isMethodActive ? 'Blocking' : 'Logging';
             }
         });
     }
@@ -1389,12 +1396,12 @@
             const mode = InterceptorManager.getMode(ifaceName);
 
             if (mode === 'LOG') {
-                // In LOG mode (Forwarding). User clicked "Forwarding", so they want to BLOCK (Intercept).
-                // Switch Interface to INTERCEPT mode.
-                InterceptorManager.start(ifaceName, 'INTERCEPT');
+                // In LOG mode (Logging). User clicked "Logging", so they want to BLOCK (Intercept).
+                // Use shared toggle logic to switch to INTERCEPT mode.
+                InterceptorManager.toggle(ifaceName);
                 // Ensure this method is NOT ignored (so it blocks).
                 state.autoForwardMethods.delete(key);
-                showToast(`Switched ${ifaceName} to Intercept Mode`, 'success');
+                showToast(`Switched ${ifaceName} to Blocking Mode`, 'success');
             } else {
                 // Already in INTERCEPT mode. Toggle granular method blocking.
                 if (state.autoForwardMethods.has(key)) {
@@ -1404,7 +1411,7 @@
                 } else {
                     // Was Blocking -> Set to Ignore
                     state.autoForwardMethods.add(key);
-                    showToast(`Auto-forwarding ${methodName}`, 'info');
+                    showToast(`Logging ${methodName}`, 'info');
                 }
             }
         }
@@ -1462,7 +1469,8 @@
         if (type === 'SYSTEM') typeIcon = '⚠️';
 
         let displayStatus = status || 'Pending';
-        let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+        let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' :
+            (displayStatus === 'Logged' ? 'logged' : ''));
 
         // Check mode
         let currentMode = 'INTERCEPT';
@@ -1476,12 +1484,12 @@
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
             <td>
-                ${(data.mode === 'LOG') ?
+                ${(type === 'INTERCEPT') ?
                 (() => {
                     const isIfaceActive = typeof InterceptorManager !== 'undefined' && InterceptorManager.isActive(iface);
                     let isBtnActive = isIfaceActive;
 
-                    // Check Mode: LOG mode is Forwarding (Inactive Button)
+                    // Check Mode: LOG mode is Logging (Inactive Button)
                     if (isIfaceActive && typeof InterceptorManager !== 'undefined') {
                         const mode = InterceptorManager.getMode(iface);
                         if (mode === 'LOG') {
@@ -1491,7 +1499,7 @@
                         }
                     }
 
-                    return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Blocking' : 'Forwarding'}</button>`;
+                    return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Blocking' : 'Logging'}</button>`;
                 })() :
                 ''}
             </td>
@@ -1507,11 +1515,19 @@
     function updateActivityRow(id, status, resultData) {
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
         if (row) {
-            const statusCell = row.cells[2];
-            const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
+            let displayStatus = status;
+            let statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
             let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
 
-            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
+            // Preserve 'Logged' status visual
+            if (row.__details && (row.__details.status === 'Logged' || row.__details.mode === 'LOG')) {
+                if (status === 'Done') {
+                    displayStatus = 'Logged';
+                    statusDotClass = 'logged';
+                }
+            }
+
+            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(displayStatus)}`);
 
             // Merge result into the stored details so showInterceptDetails can display it
             if (row.__details) {
@@ -1542,11 +1558,11 @@
                 proxy.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
             }
 
-            // Log as 'Auto-Forwarded' (Pending -> Done instantly)
+            // Log as 'Logged' (Pending -> Done instantly)
             addActivityRow({
                 ...e.detail,
                 type: 'INTERCEPT',
-                status: 'Forwarded' // Special status
+                status: 'Logged' // Special status
             });
             return;
         }
@@ -1707,12 +1723,12 @@
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
                 ${(isPending && !isManual) ? `
                 <div class="action-buttons">
-                    <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Forward</button>
+                    <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Resume</button>
                     <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
                 </div>
                 ` : (!isPending) ? `
                 <div class="action-buttons">
-                    <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Forward (Replay)</button>
+                    <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Replay</button>
                 </div>
                 ` : ''}
             </div>
@@ -1746,6 +1762,11 @@
                     }
                 }
             }
+        }
+
+        if (params && !Array.isArray(params)) {
+            alert('Invalid Parameters: Must be an Array [...] of arguments.');
+            return;
         }
 
         const row = document.querySelector(`tr[data-id="${id}"]`);
@@ -1784,6 +1805,11 @@
             }
         } catch (e) {
             alert('Error parsing form values: ' + e.message);
+            return;
+        }
+
+        if (params && !Array.isArray(params)) {
+            alert('Invalid Parameters: Must be an Array [...] of arguments.');
             return;
         }
 

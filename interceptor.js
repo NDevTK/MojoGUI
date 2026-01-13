@@ -249,6 +249,16 @@
             const int = this.interceptors.get(ifaceName);
             if (int) { int.stop(); this.interceptors.delete(ifaceName); this.modes.delete(ifaceName); }
         },
+        toggle(ifaceName) {
+            if (!this.isActive(ifaceName)) {
+                this.start(ifaceName, 'INTERCEPT');
+                return true;
+            }
+            const mode = this.getMode(ifaceName);
+            const newMode = (mode === 'INTERCEPT') ? 'LOG' : 'INTERCEPT';
+            this.start(ifaceName, newMode);
+            return newMode === 'INTERCEPT';
+        },
         isActive(ifaceName) { return this.interceptors.has(ifaceName); },
         getMode(ifaceName) { return this.modes.get(ifaceName) || 'INTERCEPT'; }
     };
