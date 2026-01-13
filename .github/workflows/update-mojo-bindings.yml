@@ -1161,7 +1161,7 @@ jobs:
               
               # Pre-declare all Spec objects to handle circular dependencies
               for enum in parsed.get('enums', []):
-                  js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum() }};\n"
+                  js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
               for union in parsed.get('unions', []):
                   js_code += f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
               for struct in parsed.get('structs', []):
