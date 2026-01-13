@@ -9,7 +9,7 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 
 - 🔍 **Interface Browser** - Search and browse all available Mojo interfaces
 - 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
-- 🕵️ **Mojo Interceptor** - Intercept and modify messages with Adaptive Ordinal Learning
+- 🕵️ **Mojo Interceptor** - Intercept and modify messages
 - 📈 **Version Tracker** - Detect and log interface changes across Chrome versions
 - ⚡ **Live Code Generation** - See valid MojoJS code in real-time
 - 📋 **One-Click Copy** - Copy generated code to clipboard

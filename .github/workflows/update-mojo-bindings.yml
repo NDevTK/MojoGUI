@@ -39,14 +39,16 @@ jobs:
           git remote add origin https://chromium.googlesource.com/chromium/src.git
           git config core.sparseCheckout true
           
-          # Use universal pattern to get ALL .mojom files regardless of location
-          # Also get mojo/public for base types and dependencies
+          # Get .mojom files, BUILD.gn for scrambling detection, and chrome/VERSION for salt
           cat > .git/info/sparse-checkout << 'EOF'
           mojo/public/
           **/*.mojom
+          **/BUILD.gn
+          chrome/VERSION
           EOF
           
           git pull --depth=1 origin main || git pull --depth=1 origin master
+          
           
       - name: Create stub mojoms for generated files
         run: |
@@ -108,6 +110,135 @@ jobs:
               'string': 'mojo.internal.String',
               'handle': 'mojo.internal.Handle',
           }
+
+          # Per-interface scramble map: { "module.Interface": should_scramble }
+          INTERFACE_SCRAMBLE_MAP = {}
+          CHROME_VERSION_SALT = ""
+          FALLBACK_VERSION_STRING = "120.0.0.0"
+
+          def load_chrome_version():
+              """Load chrome/VERSION to use as scrambling salt and fallback version."""
+              global CHROME_VERSION_SALT, FALLBACK_VERSION_STRING
+              version_path = os.path.join(ROOT_DIR, 'chrome', 'VERSION')
+              if os.path.exists(version_path):
+                  with open(version_path, 'r') as f:
+                      CHROME_VERSION_SALT = f.read().strip()
+                  print(f"[Scramble] Loaded chrome version salt: {CHROME_VERSION_SALT[:50]}...")
+                  # Parse VERSION into version string for fallback
+                  major = minor = build = patch = "0"
+                  for line in CHROME_VERSION_SALT.split('\n'):
+                      if '=' in line:
+                          key, val = line.split('=', 1)
+                          if key == 'MAJOR': major = val.strip()
+                          elif key == 'MINOR': minor = val.strip()
+                          elif key == 'BUILD': build = val.strip()
+                          elif key == 'PATCH': patch = val.strip()
+                  FALLBACK_VERSION_STRING = f"{major}.{minor}.{build}.{patch}"
+                  print(f"[Scramble] Fallback version: {FALLBACK_VERSION_STRING}")
+              else:
+                  CHROME_VERSION_SALT = "MAJOR=120\nMINOR=0\nBUILD=0\nPATCH=0"
+                  FALLBACK_VERSION_STRING = "120.0.0.0"
+                  print("[Scramble] Using default version salt")
+
+          def parse_build_gn_for_scrambling():
+              """
+              Parse BUILD.gn files to find mojom() targets with scramble_message_ids settings.
+              Returns a dict mapping .mojom file paths to their scrambling preference.
+              """
+              mojom_file_scramble = {}  # { "relative/path/to.mojom": False } means NO scrambling
+              
+              for root, dirs, files in os.walk(ROOT_DIR):
+                  if 'BUILD.gn' in files:
+                      build_path = os.path.join(root, 'BUILD.gn')
+                      try:
+                          with open(build_path, 'r', encoding='utf-8', errors='ignore') as f:
+                              content = f.read()
+                          
+                          # Find mojom() targets using bracket counting for proper nesting
+                          pos = 0
+                          while True:
+                              # Find next mojom( declaration
+                              mojom_start = content.find('mojom(', pos)
+                              if mojom_start == -1:
+                                  break
+                              
+                              # Find the opening brace
+                              brace_start = content.find('{', mojom_start)
+                              if brace_start == -1:
+                                  pos = mojom_start + 6
+                                  continue
+                              
+                              # Count braces to find matching close
+                              depth = 1
+                              idx = brace_start + 1
+                              while idx < len(content) and depth > 0:
+                                  if content[idx] == '{':
+                                      depth += 1
+                                  elif content[idx] == '}':
+                                      depth -= 1
+                                  idx += 1
+                              
+                              block_content = content[brace_start+1:idx-1]
+                              pos = idx
+                              
+                              # Check for scramble_message_ids = false
+                              has_no_scramble = 'scramble_message_ids = false' in block_content or \
+                                               'scramble_message_ids=false' in block_content
+                              
+                              if has_no_scramble:
+                                  # Extract sources from this block
+                                  sources_match = re.search(r'sources\s*=\s*\[([^\]]+)\]', block_content, re.DOTALL)
+                                  if sources_match:
+                                      sources_str = sources_match.group(1)
+                                      # Extract individual .mojom files
+                                      for mojom_match in re.finditer(r'"([^"]+\.mojom)"', sources_str):
+                                          mojom_file = mojom_match.group(1)
+                                          # Make path relative to the BUILD.gn directory
+                                          rel_dir = os.path.relpath(root, ROOT_DIR)
+                                          full_mojom_path = os.path.normpath(os.path.join(rel_dir, mojom_file))
+                                          mojom_file_scramble[full_mojom_path] = False
+                                          print(f"[Scramble] Found no-scramble: {full_mojom_path}")
+                      except Exception as e:
+                          pass  # Skip files that can't be parsed
+              
+              return mojom_file_scramble
+
+          def build_interface_scramble_map(all_parsed_files, mojom_file_scramble):
+              """
+              Build a map from interface FQN to scramble setting.
+              Interfaces in files with scramble_message_ids=false get False, others get True (default scrambled).
+              """
+              global INTERFACE_SCRAMBLE_MAP
+              
+              for parsed in all_parsed_files:
+                  if not parsed or not parsed.get('module'):
+                      continue
+                  
+                  module = parsed['module']
+                  file_path = parsed.get('path', '')
+                  
+                  # Normalize path for lookup - strip ROOT_DIR prefix
+                  if file_path.startswith(ROOT_DIR):
+                      rel_path = file_path[len(ROOT_DIR):].lstrip(os.sep).lstrip('/')
+                  else:
+                      rel_path = file_path
+                  rel_path = os.path.normpath(rel_path)
+                  
+                  # Check if this file is in the no-scramble list
+                  should_scramble = True  # Default: scramble
+                  for no_scramble_path, setting in mojom_file_scramble.items():
+                      if rel_path.endswith(no_scramble_path) or no_scramble_path in rel_path:
+                          should_scramble = setting
+                          break
+                  
+                  # Map each interface to the scramble setting
+                  for iface in parsed.get('interfaces', []):
+                      fqn = f"{module}.{iface['name']}"
+                      INTERFACE_SCRAMBLE_MAP[fqn] = should_scramble
+              
+              print(f"[Scramble] Built map with {len(INTERFACE_SCRAMBLE_MAP)} interfaces")
+              no_scramble_count = sum(1 for v in INTERFACE_SCRAMBLE_MAP.values() if not v)
+              print(f"[Scramble] {no_scramble_count} interfaces marked as no-scramble")
 
           def parse_mojom(file_path):
               """Parse a .mojom file and extract interface definitions using regex."""
@@ -864,6 +995,9 @@ jobs:
                   return fields_code, packed_size, versions_code
 
               
+              # Serialize the per-interface scramble map for JavaScript
+              scramble_map_json = json.dumps(INTERFACE_SCRAMBLE_MAP)
+              
               # Build namespace chain
               js_code = f'''// Auto-generated MojoJS binding
            // Source: {parsed['path']}
@@ -899,36 +1033,45 @@ jobs:
                }}
                return h[0];
              }};
-             window.mojoScrambler = window.mojoScrambler || {{
-               getOrdinals: (ifaceName, methodSpecs) => {{
-                 const params = new URLSearchParams(window.location.search);
-                 const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-                 
-                 const seen = new Set();
-                 methodSpecs.forEach(ms => {{ if (ms.explicit !== null) seen.add(ms.explicit); }});
-                 let i = 0;
-                 return methodSpecs.map((ms, idx) => {{
-                   if (ms.explicit !== null) return ms.explicit;
-                   if (forceNoScramble) return idx;
-
-                   const versionStr = window.mojoVersion || '120.0.0.0';
-                   const p = versionStr.split('.');
-                   const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
-                   
-                   const shortName = ifaceName.split('.').pop();
-                   while (true) {{
-                     i++;
-                     const h0 = SHA256(salt + shortName + i);
-                     const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-                     if (!seen.has(ord)) {{
-                       seen.add(ord);
-                       return ord;
-                     }}
-                   }}
-                 }});
-               }}
-             }};
-           }})();
+              window.mojoScrambler = window.mojoScrambler || {{
+                // Per-interface scramble map (generated from BUILD.gn analysis)
+                _interfaceScrambleMap: {scramble_map_json},
+                getOrdinals: function(ifaceName, methodSpecs) {{
+                  const params = new URLSearchParams(window.location.search);
+                  const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+                  
+                  // Check per-interface setting from BUILD.gn
+                  const shouldScramble = this._interfaceScrambleMap[ifaceName];
+                  if (shouldScramble === false || forceNoScramble) {{
+                    // No scrambling: use explicit ordinals or sequential index
+                    return methodSpecs.map((ms, idx) => ms.explicit !== null ? ms.explicit : idx);
+                  }}
+                  
+                  // Scrambling enabled: use SHA256 hash
+                  const seen = new Set();
+                  methodSpecs.forEach(ms => {{ if (ms.explicit !== null) seen.add(ms.explicit); }});
+                  let i = 0;
+                  return methodSpecs.map((ms, idx) => {{
+                    if (ms.explicit !== null) return ms.explicit;
+                    
+                    const versionStr = window.mojoVersion || '{FALLBACK_VERSION_STRING}';
+                    const p = versionStr.split('.');
+                    const salt = 'MAJOR=' + p[0] + '\\n' + 'MINOR=' + (p[1]||0) + '\\n' + 'BUILD=' + (p[2]||0) + '\\n' + 'PATCH=' + (p[3]||0) + '\\n';
+                    
+                    const shortName = ifaceName.split('.').pop();
+                    while (true) {{
+                      i++;
+                      const h0 = SHA256(salt + shortName + i);
+                      const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+                      if (!seen.has(ord)) {{
+                        seen.add(ord);
+                        return ord;
+                      }}
+                    }}
+                  }});
+                }}
+              }};
+            }})();
 
            // Module namespace
            var mojo = mojo || {{}};
@@ -1450,6 +1593,15 @@ jobs:
                       for i in parsed.get('interfaces', []): global_kind_map[f"{mod_prefix}{i['name']}"] = 'interface'
               
               print(f"Global Type Map detected {len(global_kind_map)} types.")
+
+              # Load chrome version for scrambling salt
+              load_chrome_version()
+              
+              # Parse BUILD.gn files for per-interface scramble settings
+              mojom_file_scramble = parse_build_gn_for_scrambling()
+              
+              # Build the per-interface scramble map
+              build_interface_scramble_map([item['data'] for item in all_parsed], mojom_file_scramble)
 
               # Pass 2: Generate Bindings
               for item in all_parsed:

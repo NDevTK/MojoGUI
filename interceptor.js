@@ -2,191 +2,17 @@
  * MojoJS Security Research GUI
  * Interceptor & Proxy Logic
  * 
- * Implements Adaptive Ordinal Learning to support Scrambled and Unscrambled environments.
+ * Per-interface ordinal scrambling is now handled at build time via BUILD.gn analysis.
+ * This file contains only the core interception logic.
  */
 
 (async function (global) {
     'use strict';
 
     // ========================================
-    // GLOBAL SETTINGS & STATE
+    // GLOBAL SETTINGS
     // ========================================
     window.mojoNoScramble = window.mojoNoScramble || false;
-
-    // Stores: InterfaceName -> Map(MethodIndex -> WireOrdinal)
-    global.MojoLearnedProtocols = global.MojoLearnedProtocols || new Map();
-
-    function getLearnedOrdinal(interfaceName, methodIndex) {
-        const mapping = global.MojoLearnedProtocols.get(interfaceName);
-        return mapping ? mapping.get(methodIndex) : undefined;
-    }
-
-    function recordLearnedOrdinal(interfaceName, methodIndex, wireOrdinal) {
-        if (!global.MojoLearnedProtocols.has(interfaceName)) {
-            global.MojoLearnedProtocols.set(interfaceName, new Map());
-        }
-        const mapping = global.MojoLearnedProtocols.get(interfaceName);
-        if (mapping.get(methodIndex) !== wireOrdinal) {
-            console.log(`[Learner] Learned Truth: ${interfaceName}[${methodIndex}] -> Ordinal ${wireOrdinal}`);
-            mapping.set(methodIndex, wireOrdinal);
-            window.dispatchEvent(new CustomEvent('mojo-protocol-ready', {
-                detail: { interface: interfaceName, methodIndex, wireOrdinal }
-            }));
-        }
-    }
-
-    // --- HOOK: Receiver.prototype.mapOrdinal (The Teacher) ---
-    // This is where the browser's discovery logic "teaches" the receiver.
-    // We hook this globally so we learn even if an interface isn't explicitly intercepted yet.
-    function patchReceiverClass(cls, interfaceName) {
-        if (!cls || !cls.prototype || cls.prototype._interceptor_patched) return;
-        cls.prototype._interceptor_patched = true;
-
-        const originalMap = cls.prototype.mapOrdinal;
-        cls.prototype.mapOrdinal = function (hash, id) {
-            recordLearnedOrdinal(interfaceName, id, hash);
-            return originalMap.apply(this, arguments);
-        };
-
-        // --- GENERIC HEURISTIC DISCOVERY (ROUTER PEEK) ---
-        // Dynamically recover from ordinal collisions by inspecting traffic before dispatch.
-        const originalBind = cls.prototype.bind;
-        cls.prototype.bind = function (handle) {
-            // 1. Allow normal bind to proceed (sets up Router and Endpoint)
-            originalBind.apply(this, arguments);
-
-            // 2. Intercept the Router's incoming receiver
-            const router = this.router_;
-            if (router && router.incomingReceiver_) {
-                const originalAccept = router.incomingReceiver_.accept;
-                const receiverInstance = this; // 'this' is the Receiver instance
-
-                router.incomingReceiver_.accept = function (message) {
-                    try {
-                        const header = message.header;
-                        if (!header) return originalAccept.call(this, message);
-
-                        const currentId = receiverInstance.ordinalMap.get(header.ordinal);
-
-                        // Optimization: Lazy-load specs for this interface on first use.
-                        if (!receiverInstance._cachedSpecs) {
-                            receiverInstance._cachedSpecs = [];
-                            // Attempt to locate specs in the global mojo namespace matching this interface
-                            if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
-                                const parts = interfaceName.split('.');
-                                let scoped = global.mojo.internal.bindings;
-                                for (const p of parts) { if (!scoped) break; scoped = scoped[p]; }
-
-                                if (scoped) {
-                                    // Found the module. Collect ALL ParamsSpecs.
-                                    for (const key in scoped) {
-                                        if (key.endsWith('_ParamsSpec')) {
-                                            receiverInstance._cachedSpecs.push(scoped[key]);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        // Heuristic Size Matching
-                        if (message.payload instanceof DataView && message.payload.byteLength >= 4) {
-                            const size = message.payload.getUint32(0, true); // Struct size
-
-                            if (receiverInstance._cachedSpecs) {
-                                const matchingSpecs = receiverInstance._cachedSpecs.filter(spec =>
-                                    spec.$ && spec.$.structSpec && spec.$.structSpec.versions.some(v => v.packedSize === size)
-                                );
-
-                                // If exactly one spec matches this size, we have a candidate.
-                                if (matchingSpecs.length === 1) {
-                                    if (global.MojoBindings && global.MojoBindings._indexData) {
-                                        const parts = interfaceName.split('.');
-                                        const ifaceNameShort = parts[parts.length - 1];
-                                        const ifaceMod = parts.slice(0, -1).join('.');
-                                        const ifaceDef = global.MojoBindings._indexData.interfaces.find(i => i.name === ifaceNameShort && i.module === ifaceMod);
-
-                                        if (ifaceDef && ifaceDef.methods) {
-                                            const specName = matchingSpecs[0].$.structSpec.name;
-                                            const prefix = `${ifaceNameShort}_`;
-                                            const suffix = `_Params`;
-
-                                            if (specName.startsWith(prefix) && specName.endsWith(suffix)) {
-                                                const methodNameCamel = specName.substring(prefix.length, specName.length - suffix.length);
-                                                const targetMethodIndex = ifaceDef.methods.findIndex(m => m.name.toLowerCase() === methodNameCamel.toLowerCase());
-
-                                                if (targetMethodIndex !== -1 && currentId !== targetMethodIndex) {
-                                                    console.warn(`[Heuristic] Fix Ordinal ${header.ordinal}: ${currentId} -> ${targetMethodIndex} (${ifaceDef.methods[targetMethodIndex].name})`);
-                                                    receiverInstance.ordinalMap.set(header.ordinal, targetMethodIndex);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    } catch (e) { }
-
-                    return originalAccept.call(this, message);
-                };
-            }
-        };
-    }
-
-    // --- HOOK: mojoScrambler.getOrdinals (The Sync) ---
-    // Ensures Fresh Loaders (Execute button) use the learned truth.
-    if (window.mojoScrambler) {
-        const originalGetOrdinals = window.mojoScrambler.getOrdinals;
-        window.mojoScrambler.getOrdinals = function (interfaceName, methodSpecs) {
-            // Respect Global GUI Toggle
-            if (window.mojoNoScramble) {
-                console.log(`[Scrambler] Force No Scramble active for ${interfaceName}`);
-                return methodSpecs.map((_, idx) => idx);
-            }
-
-            const results = originalGetOrdinals.apply(this, arguments);
-
-            // Overlay Learned Truth
-            methodSpecs.forEach((spec, idx) => {
-                const learned = getLearnedOrdinal(interfaceName, idx);
-                if (learned !== undefined) {
-                    results[idx] = learned;
-                }
-            });
-
-            return results;
-        };
-    }
-
-    // --- HOOK: Router Error Handling (The Safety Net) ---
-    // Catches "invalid size" and other decoding errors from version mismatches
-    function patchRouterSafeguards() {
-        if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Router) {
-            const Router = mojo.internal.interfaceSupport.Router;
-            if (Router.prototype.onMessageReceived_ && !Router.prototype._safeguard_patched) {
-                const originalOnMessage = Router.prototype.onMessageReceived_;
-                Router.prototype.onMessageReceived_ = function (buffer, handles) {
-                    try {
-                        return originalOnMessage.call(this, buffer, handles);
-                    } catch (e) {
-                        console.warn("[MojoGUI] Caught Protocol Error:", e.message);
-                        window.dispatchEvent(new CustomEvent('mojo-error', {
-                            detail: {
-                                id: 'PROTOCOL_ERR', // Special ID
-                                error: 'Protocol Mismatch: ' + e.message,
-                                timestamp: Date.now()
-                            }
-                        }));
-                        // Prevent crash propagation
-                    }
-                };
-                Router.prototype._safeguard_patched = true;
-            }
-        }
-    }
-
-    // Attempt patch immediately and after delay
-    patchRouterSafeguards();
-    setTimeout(patchRouterSafeguards, 1000);
 
     // ========================================
     // MojoProxy
@@ -203,12 +29,8 @@
             if (comps && comps.Remote) {
                 try {
                     this.realRemote = new comps.Remote(realHandle);
-                    // No need to hookPipe here, we trust the learner + results
                 } catch (e) { console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e); }
             }
-
-            // Patch the receiver class immediately upon interception
-            if (comps.Receiver) patchReceiverClass(comps.Receiver, interfaceName);
 
             const registry = global.MojoProxyRegistry || new Map();
             global.MojoProxyRegistry = registry;
@@ -305,15 +127,6 @@
             if (mode === 'LOG') {
                 try {
                     const bridgedArgs = this.processArgs(args);
-
-                    // --- SYNC ORDinals ---
-                    if (this.realRemote.$ && this.realRemote.$.ordinals) {
-                        this.realRemote.$.ordinals.forEach((oldOrd, idx) => {
-                            const learned = getLearnedOrdinal(this.interfaceName, idx);
-                            if (learned !== undefined) this.realRemote.$.ordinals[idx] = learned;
-                        });
-                    }
-
                     const result = await this.realRemote[methodName](...bridgedArgs);
                     window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
                     return result;
@@ -338,14 +151,6 @@
             (async () => {
                 try {
                     const bridgedArgs = this.processArgs(modifiedArgs || originalArgs);
-
-                    if (this.realRemote.$ && this.realRemote.$.ordinals) {
-                        this.realRemote.$.ordinals.forEach((oldOrd, idx) => {
-                            const learned = getLearnedOrdinal(this.interfaceName, idx);
-                            if (learned !== undefined) this.realRemote.$.ordinals[idx] = learned;
-                        });
-                    }
-
                     const result = await this.realRemote[methodName](...bridgedArgs);
                     window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
                     resolve(result);
