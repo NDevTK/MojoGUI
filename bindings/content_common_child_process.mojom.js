@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
@@ -102,10 +122,21 @@ mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec
 mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec = mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: LoggingSettings
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.LoggingSettingsSpec, 'content.mojom.LoggingSettings', [
-      mojo.internal.StructField('arg_log_file_descriptor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_file_descriptor', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_logging_dest', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -350,7 +381,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, 'content.mojom.ChildProcess_GetTaskPort_ResponseParams', [
-      mojo.internal.StructField('arg_task_port', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_port', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

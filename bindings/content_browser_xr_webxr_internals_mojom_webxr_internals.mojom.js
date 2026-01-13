@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.webxr = mojo.internal.bindings.webxr || {};
 mojo.internal.bindings.webxr.mojom = mojo.internal.bindings.webxr.mojom || {};
@@ -99,6 +119,29 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = { $: {} };
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.RequestSessionErrorSpec = mojo.internal.bindings.device.mojom.RequestSessionErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRDeviceIdSpec = mojo.internal.bindings.device.mojom.XRDeviceIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRSessionFeatureSpec = mojo.internal.bindings.device.mojom.XRSessionFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRSessionOptionsSpec = mojo.internal.bindings.device.mojom.XRSessionOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec = mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XrLogMessageSpec = mojo.internal.bindings.device.mojom.XrLogMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: DeviceInfo
 mojo.internal.Struct(

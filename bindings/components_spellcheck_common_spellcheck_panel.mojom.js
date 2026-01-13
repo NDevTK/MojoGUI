@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.spellcheck = mojo.internal.bindings.spellcheck || {};
 mojo.internal.bindings.spellcheck.mojom = mojo.internal.bindings.spellcheck.mojom || {};
@@ -83,6 +103,11 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost.$interfaceName = 'spellcheck.mojom.SpellCheckPanelHost';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SpellCheckPanel
 mojo.internal.Struct(

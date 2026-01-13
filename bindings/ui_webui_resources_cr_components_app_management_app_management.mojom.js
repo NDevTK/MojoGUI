@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
 mojo.internal.bindings.app_management.mojom = mojo.internal.bindings.app_management.mojom || {};
@@ -124,6 +144,14 @@ mojo.internal.bindings.app_management.mojom.Page.$interfaceName = 'app_managemen
 mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.Page_OnAppRemoved_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
+mojo.internal.bindings.app_management.mojom = mojo.internal.bindings.app_management.mojom || {};
+mojo.internal.bindings.app_management.mojom.PermissionValueSpec = mojo.internal.bindings.app_management.mojom.PermissionValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AppType
 mojo.internal.bindings.app_management.mojom.AppType = {
@@ -217,12 +245,12 @@ mojo.internal.Union(
 // Struct: Permission
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PermissionSpec, 'app_management.mojom.Permission', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.app_management.mojom.PermissionValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_permission_type', 16, 0, mojo.internal.bindings.app_management.mojom.PermissionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_managed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.app_management.mojom.PermissionValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_permission_type', 24, 0, mojo.internal.bindings.app_management.mojom.PermissionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_managed', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: RunOnOsLogin
 mojo.internal.Struct(

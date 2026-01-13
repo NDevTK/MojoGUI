@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -95,6 +115,35 @@ mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_Params
 mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec = mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.CameraStateSpec = mojo.internal.bindings.media_session.mojom.CameraStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.ChapterInformationSpec = mojo.internal.bindings.media_session.mojom.ChapterInformationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaImageSpec = mojo.internal.bindings.media_session.mojom.MediaImageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaPositionSpec = mojo.internal.bindings.media_session.mojom.MediaPositionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec = mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec = mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: MediaSessionPlaybackState
 mojo.internal.bindings.blink.mojom.MediaSessionPlaybackState = {
@@ -154,10 +203,10 @@ mojo.internal.Struct(
 // Interface: MediaSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_action', 16, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.blink.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {

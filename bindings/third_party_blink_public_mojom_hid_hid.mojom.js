@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -89,6 +109,20 @@ mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec = mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.UsageFilterSpec = mojo.internal.bindings.blink.mojom.UsageFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.HidDeviceInfoSpec = mojo.internal.bindings.device.mojom.HidDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.HidUsageAndPageSpec = mojo.internal.bindings.device.mojom.HidUsageAndPageSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: DeviceIdFilter
 mojo.internal.Union(
@@ -131,10 +165,10 @@ mojo.internal.Struct(
 // Struct: HidDeviceFilter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec, 'blink.mojom.HidDeviceFilter', [
-      mojo.internal.StructField('arg_device_ids', 0, 0, mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.bindings.blink.mojom.UsageFilterSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_ids', 0, 0, mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_usage', 16, 0, mojo.internal.bindings.blink.mojom.UsageFilterSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);
 
 // Interface: HidService
 mojo.internal.Struct(

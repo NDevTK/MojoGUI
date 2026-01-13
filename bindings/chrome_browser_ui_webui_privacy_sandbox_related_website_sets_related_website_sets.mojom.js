@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.related_website_sets = mojo.internal.bindings.related_website_sets || {};
 mojo.internal.bindings.related_website_sets.mojom = mojo.internal.bindings.related_website_sets.mojom || {};
@@ -81,6 +101,11 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerS
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler.$interfaceName = 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler';
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.related_website_sets = mojo.internal.bindings.related_website_sets || {};
+mojo.internal.bindings.related_website_sets.mojom = mojo.internal.bindings.related_website_sets.mojom || {};
+mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec = mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SiteType
 mojo.internal.bindings.related_website_sets.mojom.SiteType = {
@@ -129,9 +154,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec, 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParams', [
-      mojo.internal.StructField('arg_related_website_sets_info', 0, 0, mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_related_website_sets_info', 0, 0, mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver = class {
   constructor(handle) {

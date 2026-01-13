@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
@@ -94,6 +114,26 @@ mojo.internal.bindings.extensions.mojom.MessagePortHost.$interfaceName = 'extens
 mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.MessageDataSpec = mojo.internal.bindings.extensions.mojom.MessageDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.extensions.mojom.kMaxMessageBytes = 67108864;
 
@@ -179,12 +219,12 @@ mojo.internal.Struct(
 // Struct: Message
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessageSpec, 'extensions.mojom.Message', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.extensions.mojom.MessageDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_from_privileged_context', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.extensions.mojom.MessageDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_from_privileged_context', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: MessagePort
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.lobster = mojo.internal.bindings.lobster || {};
 mojo.internal.bindings.lobster.mojom = mojo.internal.bindings.lobster.mojom || {};
@@ -99,6 +119,14 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSp
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.lobster = mojo.internal.bindings.lobster || {};
+mojo.internal.bindings.lobster.mojom = mojo.internal.bindings.lobster.mojom || {};
+mojo.internal.bindings.lobster.mojom.ResponseSpec = mojo.internal.bindings.lobster.mojom.ResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: StatusCode
 mojo.internal.bindings.lobster.mojom.StatusCode = {
@@ -179,9 +207,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.lobster.mojom.ResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.lobster.mojom.ResponseSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_Params', [

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
@@ -94,6 +114,23 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = 
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CaptureVersionSpec = mojo.internal.bindings.media.mojom.CaptureVersionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoBufferHandleSpec = mojo.internal.bindings.media.mojom.VideoBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec = mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec = mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoFrameInfoSpec = mojo.internal.bindings.media.mojom.VideoFrameInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: ReadyFrameInBuffer
 mojo.internal.Struct(

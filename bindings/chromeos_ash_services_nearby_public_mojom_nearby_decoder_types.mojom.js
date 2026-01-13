@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
@@ -92,6 +112,17 @@ mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.PublicCertificateSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.CancelFrameSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
+mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.mojom || {};
+mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec = mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.V1FrameSpec = mojo.internal.bindings.sharing.mojom.V1FrameSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Type
 mojo.internal.bindings.sharing.mojom.Type = {
@@ -142,7 +173,7 @@ mojo.internal.Union(
     mojo.internal.bindings.sharing.mojom.FrameSpec, 'sharing.mojom.Frame', {
       'arg_v1': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.sharing.mojom.V1FrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.V1FrameSpec,
         'nullable': false,
       },
     });

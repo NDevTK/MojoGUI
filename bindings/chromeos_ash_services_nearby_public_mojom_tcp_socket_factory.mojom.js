@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
@@ -81,6 +101,26 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_Para
 mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AddressListSpec = mojo.internal.bindings.network.mojom.AddressListSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TcpSocketFactory
 mojo.internal.Struct(
@@ -116,8 +156,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParams', [
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_peer_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_result', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);

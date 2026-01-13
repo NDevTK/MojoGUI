@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
@@ -88,6 +108,17 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDm
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SubsampleEntrySpec = mojo.internal.bindings.media.mojom.SubsampleEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DecodeError
 mojo.internal.bindings.chromeos_camera.mojom.DecodeError = {
   NO_ERRORS: 0,
@@ -101,7 +132,7 @@ mojo.internal.bindings.chromeos_camera.mojom.DecodeError = {
 // Struct: BitstreamBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec, 'chromeos_camera.mojom.BitstreamBuffer', [
-      mojo.internal.StructField('arg_memory_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -128,7 +159,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params', [
       mojo.internal.StructField('arg_input_buffer', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_buffer_size', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

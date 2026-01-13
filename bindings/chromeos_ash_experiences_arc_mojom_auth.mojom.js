@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
@@ -121,6 +141,17 @@ mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSp
 mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcSignInAccountSpec = mojo.internal.bindings.arc.mojom.ArcSignInAccountSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcSignInErrorSpec = mojo.internal.bindings.arc.mojom.ArcSignInErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcSignInResultSpec = mojo.internal.bindings.arc.mojom.ArcSignInResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ArcAuthCodeStatus
 mojo.internal.bindings.arc.mojom.ArcAuthCodeStatus = {
@@ -304,7 +335,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.arc.mojom.ArcSignInErrorSpec.$,
+        'type': mojo.internal.bindings.arc.mojom.ArcSignInErrorSpec,
         'nullable': true,
       },
     });
@@ -346,10 +377,10 @@ mojo.internal.Struct(
 // Interface: AuthHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec, 'arc.mojom.AuthHost_OnAuthorizationResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcSignInResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account', 8, 0, mojo.internal.bindings.arc.mojom.ArcSignInAccountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcSignInResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 16, 0, mojo.internal.bindings.arc.mojom.ArcSignInAccountSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec, 'arc.mojom.AuthHost_ReportMetrics_Params', [

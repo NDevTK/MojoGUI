@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
@@ -108,6 +128,41 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsS
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.ColorCalibrationSpec = mojo.internal.bindings.display.mojom.ColorCalibrationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec = mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec = mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec = mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.DisplaySnapshotSpec = mojo.internal.bindings.display.mojom.DisplaySnapshotSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.GammaAdjustmentSpec = mojo.internal.bindings.display.mojom.GammaAdjustmentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.HDCPStateSpec = mojo.internal.bindings.display.mojom.HDCPStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.ModesetFlagsSpec = mojo.internal.bindings.display.mojom.ModesetFlagsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec = mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DrmDevice
 mojo.internal.Struct(
@@ -166,7 +221,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_AddGraphicsDevice_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fd_mojo_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fd_mojo_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

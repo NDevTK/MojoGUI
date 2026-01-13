@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.read_anything = mojo.internal.bindings.read_anything || {};
 mojo.internal.bindings.read_anything.mojom = mojo.internal.bindings.read_anything.mojom || {};
@@ -147,6 +167,35 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsS
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXEventSpec = mojo.internal.bindings.ax.mojom.AXEventSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec = mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ListValueSpec = mojo.internal.bindings.mojo_base.mojom.ListValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.read_anything = mojo.internal.bindings.read_anything || {};
+mojo.internal.bindings.read_anything.mojom = mojo.internal.bindings.read_anything.mojom || {};
+mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec = mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: InstallationState
 mojo.internal.bindings.read_anything.mojom.InstallationState = {
@@ -249,10 +298,10 @@ mojo.internal.Union(
 // Struct: VoicePackInfo
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec, 'read_anything.mojom.VoicePackInfo', [
-      mojo.internal.StructField('arg_pack_state', 0, 0, mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pack_state', 0, 0, mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
@@ -91,6 +111,16 @@ mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
+mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
+mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec = mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
+mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
+mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec = mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: GetFn
 mojo.internal.bindings.ash.cfm.mojom.GetFn = {
@@ -174,10 +204,10 @@ mojo.internal.Struct(
 // Interface: XuCamera
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetUnitId_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_guid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_guid', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_GetUnitId_ResponseParams', [
@@ -188,10 +218,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_MapCtrl_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mapping_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mapping_ctrl', 16, 0, mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_MapCtrl_ResponseParams', [
@@ -201,11 +231,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fn', 16, 0, mojo.internal.bindings.ash.cfm.mojom.GetFnSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl', 16, 0, mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fn', 32, 0, mojo.internal.bindings.ash.cfm.mojom.GetFnSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_ResponseParams', [
@@ -216,11 +246,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_SetCtrl_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl', 8, 0, mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl', 16, 0, mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_SetCtrl_ResponseParams', [

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
@@ -93,6 +113,11 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver.$interfaceName = 'ash.settings.app_notification.mojom.AppNotificationsObserver';
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
+mojo.internal.bindings.app_management.mojom = mojo.internal.bindings.app_management.mojom || {};
+mojo.internal.bindings.app_management.mojom.PermissionSpec = mojo.internal.bindings.app_management.mojom.PermissionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Readiness
 mojo.internal.bindings.ash.settings.app_notification.mojom.Readiness = {

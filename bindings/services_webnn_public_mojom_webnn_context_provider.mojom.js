@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
@@ -82,6 +102,11 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = { $ : {} };
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider.$interfaceName = 'webnn.mojom.WebNNContextProvider';
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec = mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: PowerPreference
 mojo.internal.bindings.webnn.mojom.PowerPreference = {
@@ -119,8 +144,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_context_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_context_handle', 16, 0, mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_read_tensor_consumer', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_read_tensor_consumer', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
     ],
     [[0, 48]]);
 

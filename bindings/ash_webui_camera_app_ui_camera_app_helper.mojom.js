@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
@@ -201,6 +221,24 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_Res
 mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.CameraIntentActionSpec = mojo.internal.bindings.arc.mojom.CameraIntentActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.RotationSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.RotationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ScreenState
 mojo.internal.bindings.ash.camera_app.mojom.ScreenState = {

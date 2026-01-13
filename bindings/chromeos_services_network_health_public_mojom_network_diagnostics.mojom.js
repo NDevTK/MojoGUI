@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.network_diagnostics = mojo.internal.bindings.chromeos.network_diagnostics || {};
@@ -143,6 +163,26 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_diagnostics = mojo.internal.bindings.chromeos.network_diagnostics || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom = mojo.internal.bindings.chromeos.network_diagnostics.mojom || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec = mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_diagnostics = mojo.internal.bindings.chromeos.network_diagnostics || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom = mojo.internal.bindings.chromeos.network_diagnostics.mojom || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec = mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_diagnostics = mojo.internal.bindings.chromeos.network_diagnostics || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom = mojo.internal.bindings.chromeos.network_diagnostics.mojom || {};
+mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec = mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: RoutineType
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineType = {
@@ -415,7 +455,7 @@ mojo.internal.Union(
       },
       'arg_google_services_connectivity_problems': {
         'ordinal': 15,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec, false),
         'nullable': false,
       },
     });
@@ -485,13 +525,13 @@ mojo.internal.Struct(
 // Struct: RoutineResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, 'chromeos.network_diagnostics.mojom.RoutineResult', [
-      mojo.internal.StructField('arg_problems', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_verdict', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_value', 24, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec.$, null, true, 1, undefined),
-      mojo.internal.StructField('arg_source', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_problems', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 24, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_source', 48, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
     ],
-    [[0, 32], [1, 40], [2, 48]]);
+    [[0, 40], [1, 56], [2, 64]]);
 
 // Interface: NetworkDiagnosticsRoutines
 mojo.internal.Struct(

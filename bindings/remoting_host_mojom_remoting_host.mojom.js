@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
@@ -98,6 +118,14 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_Par
 mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: TransportRouteType
 mojo.internal.bindings.remoting.mojom.TransportRouteType = {
   kUndefined: 0,
@@ -124,8 +152,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec, 'remoting.mojom.RemotingHostControl_InitializePairingRegistry_Params', [
-      mojo.internal.StructField('arg_privileged_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unprivileged_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privileged_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unprivileged_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -393,7 +421,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Params', [
-      mojo.internal.StructField('arg_desktop_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

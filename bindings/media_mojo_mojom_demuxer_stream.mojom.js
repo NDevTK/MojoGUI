@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
@@ -99,7 +119,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_audio_config', 8, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_video_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),

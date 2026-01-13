@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
@@ -94,6 +114,41 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsS
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec = mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.FrameDataSpec = mojo.internal.bindings.gfx.mojom.FrameDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.HDRMetadataSpec = mojo.internal.bindings.gfx.mojom.HDRMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SwapResultSpec = mojo.internal.bindings.gfx.mojom.SwapResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mojom.SkColor4fSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = mojo.internal.bindings.viz.mojom.SharedImageFormatSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
+mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
+mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec = mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
+mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
+mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec = mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: WaylandBufferManagerHost
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
@@ -103,7 +158,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params', [
-      mojo.internal.StructField('arg_dmabuf_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dmabuf_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
@@ -118,7 +173,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params', [
-      mojo.internal.StructField('arg_shm_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shm_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),

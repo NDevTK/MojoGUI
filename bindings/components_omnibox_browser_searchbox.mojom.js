@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
@@ -142,6 +162,44 @@ mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSp
 mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
+mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
+mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
+mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
+mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.omnibox = mojo.internal.bindings.omnibox || {};
+mojo.internal.bindings.omnibox.mojom = mojo.internal.bindings.omnibox.mojom || {};
+mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec = mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
+mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
+mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec = mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ToolMode
 mojo.internal.bindings.searchbox.mojom.ToolMode = {
@@ -284,7 +342,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.searchbox.mojom.ToolModeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

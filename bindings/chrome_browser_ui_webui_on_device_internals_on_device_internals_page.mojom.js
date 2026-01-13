@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.on_device_internals = mojo.internal.bindings.on_device_internals || {};
 mojo.internal.bindings.on_device_internals.mojom = mojo.internal.bindings.on_device_internals.mojom || {};
@@ -107,6 +127,35 @@ mojo.internal.bindings.on_device_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.on_device_internals.mojom.Page.$interfaceName = 'on_device_internals.mojom.Page';
 mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec = mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.DeviceInfoSpec = mojo.internal.bindings.on_device_model.mojom.DeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec = mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec = mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: PageData
 mojo.internal.Struct(

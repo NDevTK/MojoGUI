@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -161,8 +181,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec, 'network.mojom.TCPBoundSocket_Connect_ResponseParams', [
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_peer_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_net_error', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -396,8 +416,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParams', [
-      mojo.internal.StructField('arg_receive_stream', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_ssl_info', 16, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_net_error', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -1046,8 +1066,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec, 'network.mojom.TCPServerSocket_Accept_ResponseParams', [
       mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_connected_socket', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_net_error', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);

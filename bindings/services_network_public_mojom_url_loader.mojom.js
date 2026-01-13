@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -93,6 +113,14 @@ mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponsePa
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.network.mojom.kClientDisconnectReason = 1;
 
 // Struct: URLRequestRedirectInfo
@@ -104,7 +132,7 @@ mojo.internal.Struct(
 // Struct: URLRequestRedirectInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
-      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -348,7 +376,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
       mojo.internal.StructField('arg_cached_metadata', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

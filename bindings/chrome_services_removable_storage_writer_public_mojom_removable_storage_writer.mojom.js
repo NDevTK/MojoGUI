@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
@@ -84,6 +104,11 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec = { $ : {} 
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient.$interfaceName = 'chrome.mojom.RemovableStorageWriterClient';
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
 

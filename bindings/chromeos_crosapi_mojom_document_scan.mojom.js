@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
@@ -116,6 +136,14 @@ mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
 mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.OptionConstraintRestrictionSpec = mojo.internal.bindings.crosapi.mojom.OptionConstraintRestrictionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.OptionValueSpec = mojo.internal.bindings.crosapi.mojom.OptionValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ScanFailureMode
 mojo.internal.bindings.crosapi.mojom.ScanFailureMode = {
@@ -304,30 +332,30 @@ mojo.internal.Struct(
 // Struct: OptionConstraint
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.OptionConstraintSpec, 'crosapi.mojom.OptionConstraint', [
-      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: ScannerOption
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ScannerOptionSpec, 'crosapi.mojom.ScannerOption', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 24, 0, mojo.internal.bindings.crosapi.mojom.OptionValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_constraint', 32, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unit', 44, 0, mojo.internal.bindings.crosapi.mojom.OptionUnitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_configurability', 48, 0, mojo.internal.bindings.crosapi.mojom.OptionConfigurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_isDetectable', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_isAutoSettable', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_isEmulated', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_isActive', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_isAdvanced', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_isInternal', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_constraint', 40, 0, mojo.internal.bindings.crosapi.mojom.OptionConstraintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 48, 0, mojo.internal.bindings.crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unit', 52, 0, mojo.internal.bindings.crosapi.mojom.OptionUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configurability', 56, 0, mojo.internal.bindings.crosapi.mojom.OptionConfigurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_isDetectable', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_isAutoSettable', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_isEmulated', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_isActive', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_isAdvanced', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_isInternal', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: GetScannerListResponse
 mojo.internal.Struct(
@@ -387,11 +415,11 @@ mojo.internal.Struct(
 // Struct: OptionSetting
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.OptionSettingSpec, 'crosapi.mojom.OptionSetting', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.crosapi.mojom.OptionValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: OptionGroup
 mojo.internal.Struct(

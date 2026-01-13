@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.fuzz = mojo.internal.bindings.fuzz || {};
 mojo.internal.bindings.fuzz.mojom = mojo.internal.bindings.fuzz.mojom || {};
@@ -94,6 +114,11 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec 
 mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.fuzz = mojo.internal.bindings.fuzz || {};
+mojo.internal.bindings.fuzz.mojom = mojo.internal.bindings.fuzz.mojom || {};
+mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec = mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: FuzzEnum
 mojo.internal.bindings.fuzz.mojom.FuzzEnum = {
@@ -197,12 +222,12 @@ mojo.internal.Union(
       },
       'arg_fuzz_union_map': {
         'ordinal': 18,
-        'type': mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$, false),
+        'type': mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec, false),
         'nullable': false,
       },
       'arg_fuzz_complex': {
         'ordinal': 19,
-        'type': mojo.internal.Array(mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$, false), false), false), false),
+        'type': mojo.internal.Array(mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec, false), false), false), false),
         'nullable': true,
       },
     });
@@ -225,8 +250,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fuzz_primitive_array', 40, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fuzz_primitive_map', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fuzz_array_map', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_fuzz_union_map', 64, 0, mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_fuzz_union_array', 72, 0, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fuzz_union_map', 64, 0, mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fuzz_union_array', 72, 0, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fuzz_struct_array', 80, 0, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzStructSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fuzz_nullable_array', 88, 0, mojo.internal.Array(mojo.internal.Int8, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_fuzz_complex', 96, 0, mojo.internal.Array(mojo.internal.Map(mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(mojo.internal.bindings.fuzz.mojom.FuzzStructSpec, false), false), false), false), null, true, 0, undefined),

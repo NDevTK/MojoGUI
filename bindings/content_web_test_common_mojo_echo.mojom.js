@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
@@ -136,6 +156,14 @@ mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_Re
 mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.NestedUnionSpec = mojo.internal.bindings.content.mojom.NestedUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.TestUnionSpec = mojo.internal.bindings.content.mojom.TestUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Union: TestUnion
 mojo.internal.Union(
     mojo.internal.bindings.content.mojom.TestUnionSpec, 'content.mojom.TestUnion', {
@@ -166,7 +194,7 @@ mojo.internal.Union(
       },
       'arg_union_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.content.mojom.TestUnionSpec.$,
+        'type': mojo.internal.bindings.content.mojom.TestUnionSpec,
         'nullable': false,
       },
     });
@@ -174,9 +202,9 @@ mojo.internal.Union(
 // Interface: MojoEcho
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParams', [
@@ -186,9 +214,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParams', [
@@ -198,9 +226,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromUnion_ResponseParams', [
@@ -216,9 +244,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsUnion_Params', [
@@ -228,9 +256,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsUnion_Params', [
@@ -240,15 +268,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParams', [
@@ -257,9 +285,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParams', [
@@ -269,9 +297,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromOptionalUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParams', [
@@ -281,9 +309,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParams', [
@@ -298,9 +326,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalUnion_Params', [
@@ -310,9 +338,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsOptionalUnion_Params', [
@@ -322,9 +350,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalUnion_Params', [
@@ -334,15 +362,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.TestUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParams', [
@@ -352,9 +380,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParams', [
@@ -364,9 +392,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParams', [
@@ -382,9 +410,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsNestedUnion_Params', [
@@ -394,9 +422,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsNestedUnion_Params', [
@@ -406,15 +434,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParams', [
@@ -423,9 +451,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParams', [
@@ -435,9 +463,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParams', [
@@ -447,9 +475,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_Params', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParams', [
@@ -464,9 +492,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_Params', [
@@ -476,9 +504,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_Params', [
@@ -488,9 +516,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_Params', [
@@ -500,9 +528,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec, 'content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParams', [
-      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_test_union', 0, 0, mojo.internal.bindings.content.mojom.NestedUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec, 'content.mojom.MojoEcho_EchoBoolArray_Params', [

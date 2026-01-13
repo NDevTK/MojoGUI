@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
 mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side_panel.customize_chrome || {};
@@ -114,6 +134,21 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient =
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec = { $ : {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_base.mojom.TokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
+mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side_panel.customize_chrome || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom = mojo.internal.bindings.side_panel.customize_chrome.mojom || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: DescriptorDName
 mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDName = {
@@ -203,12 +238,12 @@ mojo.internal.Struct(
 // Struct: InspirationDescriptors
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec, 'side_panel.customize_chrome.mojom.InspirationDescriptors', [
-      mojo.internal.StructField('arg_subject', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mood', 16, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject', 16, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_style', 24, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mood', 32, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: InspirationGroup
 mojo.internal.Struct(
@@ -230,12 +265,12 @@ mojo.internal.Struct(
 // Struct: ResultDescriptors
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec, 'side_panel.customize_chrome.mojom.ResultDescriptors', [
-      mojo.internal.StructField('arg_subject', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mood', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_style', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mood', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: WallpaperSearchHandlerFactory
 mojo.internal.Struct(

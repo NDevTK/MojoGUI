@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.userspace_swap = mojo.internal.bindings.userspace_swap || {};
 mojo.internal.bindings.userspace_swap.mojom = mojo.internal.bindings.userspace_swap.mojom || {};
@@ -98,7 +118,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Params', [
       mojo.internal.StructField('arg_uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
     ],

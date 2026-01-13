@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
@@ -106,6 +126,23 @@ mojo.internal.bindings.ash.mojom.GraphicsTabletSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.ButtonRemappingSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.KeyEventSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec = mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.MetaKeySpec = mojo.internal.bindings.ui.mojom.MetaKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ModifierKeySpec = mojo.internal.bindings.ui.mojom.ModifierKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.SimulateRightClickModifierSpec = mojo.internal.bindings.ui.mojom.SimulateRightClickModifierSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.SixPackShortcutModifierSpec = mojo.internal.bindings.ui.mojom.SixPackShortcutModifierSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: PolicyStatus
 mojo.internal.bindings.ash.mojom.PolicyStatus = {

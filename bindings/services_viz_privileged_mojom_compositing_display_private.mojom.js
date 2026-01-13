@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
@@ -110,6 +130,35 @@ mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_Params
 mojo.internal.bindings.viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.CALayerParamsSpec = mojo.internal.bindings.gfx.mojom.CALayerParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec = mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojom.TransformSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.ContextResultSpec = mojo.internal.bindings.gpu.mojom.ContextResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec = mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DisplayPrivate
 mojo.internal.Struct(

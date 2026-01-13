@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.media_app_ui = mojo.internal.bindings.ash.media_app_ui || {};
@@ -134,6 +154,36 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageSpec = { $ : {}
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage.$interfaceName = 'ash.media_app_ui.mojom.MantisUntrustedPage';
 mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.media_app_ui = mojo.internal.bindings.ash.media_app_ui || {};
+mojo.internal.bindings.ash.media_app_ui.mojom = mojo.internal.bindings.ash.media_app_ui.mojom || {};
+mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec = mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.InitializeResultSpec = mojo.internal.bindings.mantis.mojom.InitializeResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.MantisResultSpec = mojo.internal.bindings.mantis.mojom.MantisResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec = mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = mojo.internal.bindings.mantis.mojom.SegmentationModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.TouchPointSpec = mojo.internal.bindings.mantis.mojom.TouchPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Union: MantisUntrustedServiceResult
 mojo.internal.Union(
     mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, 'ash.media_app_ui.mojom.MantisUntrustedServiceResult', {
@@ -193,9 +243,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryPendingReceiver = class {
   constructor(handle) {

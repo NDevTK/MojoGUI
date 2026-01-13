@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
@@ -84,6 +104,14 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfac
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec = mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AgentSchedulingGroupHost
 mojo.internal.Struct(

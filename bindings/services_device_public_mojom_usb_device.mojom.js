@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
@@ -128,6 +148,20 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.UsbDeviceClient.$interfaceName = 'device.mojom.UsbDeviceClient';
 mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec = mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.device.mojom.kUsbAudioClass = 0x01;
 
@@ -319,7 +353,7 @@ mojo.internal.Struct(
 // Struct: UsbControlTransferParams
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, 'device.mojom.UsbControlTransferParams', [
-      mojo.internal.StructField('arg_kSecurityKeyAOAModel', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_kSecurityKeyAOAModel', 0, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.device.mojom.UsbControlTransferTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_recipient', 12, 0, mojo.internal.bindings.device.mojom.UsbControlTransferRecipientSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
@@ -345,9 +379,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, 'device.mojom.UsbDevice_Open_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDevice_Close_ParamsSpec, 'device.mojom.UsbDevice_Close_Params', [

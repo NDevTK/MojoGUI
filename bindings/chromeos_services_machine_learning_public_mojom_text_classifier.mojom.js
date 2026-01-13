@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
@@ -91,6 +111,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLangua
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntityDataSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntityDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AnnotationUsecase
 mojo.internal.bindings.chromeos.machine_learning.mojom.AnnotationUsecase = {
@@ -116,11 +145,11 @@ mojo.internal.Union(
 // Struct: TextEntity
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntitySpec, 'chromeos.machine_learning.mojom.TextEntity', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntityDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_confidence_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextEntityDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_confidence_score', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: TextAnnotation
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.connectors_internals = mojo.internal.bindings.connectors_internals || {};
 mojo.internal.bindings.connectors_internals.mojom = mojo.internal.bindings.connectors_internals.mojom || {};
@@ -97,6 +117,11 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertifica
 mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = { $: {} };
 mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.connectors_internals = mojo.internal.bindings.connectors_internals || {};
+mojo.internal.bindings.connectors_internals.mojom = mojo.internal.bindings.connectors_internals.mojom || {};
+mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec = mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: KeyManagerInitializedValue
 mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValue = {
@@ -154,13 +179,13 @@ mojo.internal.Struct(
 // Struct: LoadedKeyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, 'connectors_internals.mojom.LoadedKeyInfo', [
-      mojo.internal.StructField('arg_encoded_spki_hash', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_upload_status', 8, 0, mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trust_level', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_type', 20, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_ssl_key', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_key_upload_status', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_encoded_spki_hash', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_level', 24, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_type', 28, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_ssl_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: KeyInfo
 mojo.internal.Struct(

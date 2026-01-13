@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
 mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
@@ -76,6 +96,35 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
 mojo.internal.bindings.wl.mojom.TransformUnionSpec = { $: {} };
 mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.HDRMetadataSpec = mojo.internal.bindings.gfx.mojom.HDRMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.OverlayPriorityHintSpec = mojo.internal.bindings.gfx.mojom.OverlayPriorityHintSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.OverlayTransformSpec = mojo.internal.bindings.gfx.mojom.OverlayTransformSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojom.TransformSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
+mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
+mojo.internal.bindings.wl.mojom.TransformUnionSpec = mojo.internal.bindings.wl.mojom.TransformUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: TransformUnion
 mojo.internal.Union(
@@ -95,18 +144,18 @@ mojo.internal.Union(
 // Struct: WaylandOverlayConfig
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec, 'wl.mojom.WaylandOverlayConfig', [
-      mojo.internal.StructField('arg_color_space', 0, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hdr_metadata', 8, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transform', 16, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_crop_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_damage_region', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_access_fence_handle', 48, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_z_order', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_opacity', 68, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_priority_hint', 72, 0, mojo.internal.bindings.gfx.mojom.OverlayPriorityHintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_blend', 76, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 16, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hdr_metadata', 24, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_crop_rect', 40, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_damage_region', 48, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_fence_handle', 56, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_z_order', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_scale_factor', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_opacity', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_priority_hint', 80, 0, mojo.internal.bindings.gfx.mojom.OverlayPriorityHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_blend', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -128,6 +148,29 @@ mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost.$interfaceName = 'blink.mojom.MediaStreamTrackMetricsHost';
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec = mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec = mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec = mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoFacingModeSpec = mojo.internal.bindings.media.mojom.VideoFacingModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_base.mojom.TokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: MediaStreamType
 mojo.internal.bindings.blink.mojom.MediaStreamType = {

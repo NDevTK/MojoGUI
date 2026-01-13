@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
@@ -85,6 +105,17 @@ mojo.internal.bindings.mojo.interface_control.RequireVersionSpec = { $: {} };
 mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec = { $: {} };
 mojo.internal.bindings.mojo.interface_control.MessageAckSpec = { $: {} };
 mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
+mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
+mojo.internal.bindings.mojo.interface_control.RunInputSpec = mojo.internal.bindings.mojo.interface_control.RunInputSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
+mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
+mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
+mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
+mojo.internal.bindings.mojo.interface_control.RunOutputSpec = mojo.internal.bindings.mojo.interface_control.RunOutputSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.mojo.interface_control.kRunMessageId = 0xFFFFFFFF;
 
@@ -143,16 +174,16 @@ mojo.internal.Union(
 // Struct: RunMessageParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec, 'mojo.interface_control.RunMessageParams', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.interface_control.RunInputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.interface_control.RunInputSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: RunResponseMessageParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec, 'mojo.interface_control.RunResponseMessageParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.bindings.mojo.interface_control.RunOutputSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.bindings.mojo.interface_control.RunOutputSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: QueryVersion
 mojo.internal.Struct(
@@ -176,9 +207,9 @@ mojo.internal.Struct(
 // Struct: RunOrClosePipeMessageParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec, 'mojo.interface_control.RunOrClosePipeMessageParams', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: RequireVersion
 mojo.internal.Struct(

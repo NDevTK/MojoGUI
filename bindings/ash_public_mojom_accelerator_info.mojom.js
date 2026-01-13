@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
@@ -87,6 +107,17 @@ mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec = mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.AcceleratorSpec = mojo.internal.bindings.ui.mojom.AcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AcceleratorSource
 mojo.internal.bindings.ash.mojom.AcceleratorSource = {
@@ -205,13 +236,13 @@ mojo.internal.Struct(
 // Struct: AcceleratorInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec, 'ash.mojom.AcceleratorInfo', [
-      mojo.internal.StructField('arg_layout_properties', 0, 0, mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.ash.mojom.AcceleratorStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerator_locked', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_properties', 0, 0, mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 20, 0, mojo.internal.bindings.ash.mojom.AcceleratorStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locked', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_locked', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: AcceleratorLayoutInfo
 mojo.internal.Struct(

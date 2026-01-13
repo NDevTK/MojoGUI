@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.new_window_proxy = mojo.internal.bindings.new_window_proxy || {};
 mojo.internal.bindings.new_window_proxy.mojom = mojo.internal.bindings.new_window_proxy.mojom || {};
@@ -77,6 +97,11 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy = {};
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxySpec = { $ : {} };
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy.$interfaceName = 'new_window_proxy.mojom.NewWindowProxy';
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: NewWindowProxy
 mojo.internal.Struct(

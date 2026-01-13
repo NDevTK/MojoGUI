@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};
 mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
@@ -135,7 +155,7 @@ mojo.internal.bindings.smbfs.mojom.Source = {
 // Struct: Password
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
-      mojo.internal.StructField('arg_kMaxLength', 0, 0, mojo.internal.Pointer, 255, false, 0, undefined),
+      mojo.internal.StructField('arg_kMaxLength', 0, 0, mojo.internal.OpaqueStruct, 255, false, 0, undefined),
       mojo.internal.StructField('arg_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -152,7 +172,7 @@ mojo.internal.Struct(
 // Struct: CredentialStorageOptions
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
-      mojo.internal.StructField('arg_kMinSaltLength', 0, 0, mojo.internal.Pointer, 16, false, 0, undefined),
+      mojo.internal.StructField('arg_kMinSaltLength', 0, 0, mojo.internal.OpaqueStruct, 16, false, 0, undefined),
       mojo.internal.StructField('arg_account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],

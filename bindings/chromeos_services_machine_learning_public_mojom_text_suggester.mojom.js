@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
@@ -87,6 +107,12 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec = { $ :
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester.$interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TextSuggestionMode
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionMode = {
@@ -150,7 +176,7 @@ mojo.internal.Struct(
 // Struct: TextSuggesterResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

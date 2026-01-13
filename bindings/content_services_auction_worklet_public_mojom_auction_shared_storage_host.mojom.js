@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
@@ -79,6 +99,17 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostSpec = { $ 
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost.$interfaceName = 'auction_worklet.mojom.AuctionSharedStorageHost';
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.LockNameSpec = mojo.internal.bindings.network.mojom.LockNameSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec = mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AuctionWorkletFunction
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunction = {

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -107,6 +127,17 @@ mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = 
 mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: P2PSocketType
 mojo.internal.bindings.network.mojom.P2PSocketType = {
@@ -151,10 +182,10 @@ mojo.internal.Struct(
 // Struct: P2PHostAndIPEndPoint
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
-      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.OpaqueStruct, 3, false, 0, undefined),
     ],
     [[0, 40]]);
 

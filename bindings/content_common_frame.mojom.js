@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
@@ -147,6 +167,140 @@ mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_Pa
 mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BeginNavigationParamsSpec = mojo.internal.bindings.blink.mojom.BeginNavigationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec = mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec = mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CommitResultSpec = mojo.internal.bindings.blink.mojom.CommitResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec = mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec = mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DocumentTokenSpec = mojo.internal.bindings.blink.mojom.DocumentTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec = mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FramePolicySpec = mojo.internal.bindings.blink.mojom.FramePolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec = mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FrameTokenSpec = mojo.internal.bindings.blink.mojom.FrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ImpressionSpec = mojo.internal.bindings.blink.mojom.ImpressionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec = mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.OpenURLParamsSpec = mojo.internal.bindings.blink.mojom.OpenURLParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PictureInPictureWindowOptionsSpec = mojo.internal.bindings.blink.mojom.PictureInPictureWindowOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PolicyContainerSpec = mojo.internal.bindings.blink.mojom.PolicyContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec = mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PrerenderParamSpec = mojo.internal.bindings.blink.mojom.PrerenderParamSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ReferrerSpec = mojo.internal.bindings.blink.mojom.ReferrerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec = mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec = mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec = mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RendererPreferencesSpec = mojo.internal.bindings.blink.mojom.RendererPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec = mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec = mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.VisualPropertiesSpec = mojo.internal.bindings.blink.mojom.VisualPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebPreferencesSpec = mojo.internal.bindings.blink.mojom.WebPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WindowFeaturesSpec = mojo.internal.bindings.blink.mojom.WindowFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec = mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AttributionSupportSpec = mojo.internal.bindings.network.mojom.AttributionSupportSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLRequestBodySpec = mojo.internal.bindings.network.mojom.URLRequestBodySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.SchemeHostPortSpec = mojo.internal.bindings.url.mojom.SchemeHostPortSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ViewWidgetType
 mojo.internal.bindings.content.mojom.ViewWidgetType = {
@@ -1693,14 +1847,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec, 'content.mojom.FrameHost_DidCommitProvisionalLoad_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec, 'content.mojom.FrameHost_DidCommitSameDocumentNavigation_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_same_document_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

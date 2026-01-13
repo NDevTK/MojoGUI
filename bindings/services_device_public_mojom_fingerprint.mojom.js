@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
@@ -107,6 +127,11 @@ mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParams
 mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.FingerprintMessageSpec = mojo.internal.bindings.device.mojom.FingerprintMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ScanResult
 mojo.internal.bindings.device.mojom.ScanResult = {
@@ -182,10 +207,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec, 'device.mojom.FingerprintObserver_OnAuthScanDone_Params', [
-      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.device.mojom.FingerprintMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matches', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.device.mojom.FingerprintMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec, 'device.mojom.FingerprintObserver_OnSessionFailed_Params', [

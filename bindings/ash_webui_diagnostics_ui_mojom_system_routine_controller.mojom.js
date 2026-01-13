@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
@@ -88,6 +108,12 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController.$interfaceN
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
+mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: RoutineType
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineType = {
@@ -149,10 +175,10 @@ mojo.internal.Struct(
 // Struct: RoutineResultInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: RoutineRunner
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
@@ -141,6 +161,12 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_Pa
 mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
+mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ProbeCategoryEnum
 mojo.internal.bindings.crosapi.mojom.ProbeCategoryEnum = {

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
@@ -126,6 +146,29 @@ mojo.internal.bindings.viz.mojom.RendererInputRouterDelegateRegistry = {};
 mojo.internal.bindings.viz.mojom.RendererInputRouterDelegateRegistrySpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.RendererInputRouterDelegateRegistry.$interfaceName = 'viz.mojom.RendererInputRouterDelegateRegistry';
 mojo.internal.bindings.viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec = mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.input = mojo.internal.bindings.input || {};
+mojo.internal.bindings.input.mojom = mojo.internal.bindings.input.mojom || {};
+mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec = mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: RootCompositorFrameSinkParams
 mojo.internal.Struct(
@@ -277,9 +320,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec, 'viz.mojom.FrameSinkManager_RequestCopyOfOutput_Params', [
       mojo.internal.StructField('arg_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_exact_surface_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_exact_surface_id', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec, 'viz.mojom.FrameSinkManager_CacheBackBuffer_Params', [
@@ -414,8 +458,8 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote = class {
   stopThrottlingAllFrameSinks() {
     return this.$.stopThrottlingAllFrameSinks();
   }
-  requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id) {
-    return this.$.requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id);
+  requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id, arg_timeout) {
+    return this.$.requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id, arg_timeout);
   }
   cacheBackBuffer(arg_cache_id, arg_root_frame_sink_id) {
     return this.$.cacheBackBuffer(arg_cache_id, arg_root_frame_sink_id);
@@ -623,12 +667,12 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       false);
   }
 
-  requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id) {
+  requestCopyOfOutput(arg_surface_id, arg_request, arg_capture_exact_surface_id, arg_timeout) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec,
       null,
-      [arg_surface_id, arg_request, arg_capture_exact_surface_id],
+      [arg_surface_id, arg_request, arg_capture_exact_surface_id, arg_timeout],
       false);
   }
 
@@ -1533,7 +1577,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCopyOfOutput');
-          const result = this.impl.requestCopyOfOutput(params.arg_surface_id, params.arg_request, params.arg_capture_exact_surface_id);
+          const result = this.impl.requestCopyOfOutput(params.arg_surface_id, params.arg_request, params.arg_capture_exact_surface_id, params.arg_timeout);
           break;
         }
         case 17: {

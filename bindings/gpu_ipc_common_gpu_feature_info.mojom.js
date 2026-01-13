@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
@@ -75,6 +95,11 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.gpu.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.BufferFormatSpec = mojo.internal.bindings.gfx.mojom.BufferFormatSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: GpuFeatureStatus
 mojo.internal.bindings.gpu.mojom.GpuFeatureStatus = {
@@ -96,5 +121,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_applied_gpu_blocklist_entries', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_applied_gpu_driver_bug_list_entries', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_supported_buffer_formats_for_allocation_and_texturing', 48, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.BufferFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_nv12_for_allocation_and_texturing', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_p010_for_allocation_and_texturing', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);

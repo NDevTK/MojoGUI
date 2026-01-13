@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
@@ -98,6 +118,12 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscovera
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
+mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
+mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec = mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: MessageType
 mojo.internal.bindings.ash.quick_pair.mojom.MessageType = {
@@ -316,7 +342,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParams', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

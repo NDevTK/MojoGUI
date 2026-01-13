@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chrome_urls = mojo.internal.bindings.chrome_urls || {};
 mojo.internal.bindings.chrome_urls.mojom = mojo.internal.bindings.chrome_urls.mojom || {};
@@ -89,6 +109,11 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_Respon
 mojo.internal.bindings.chrome_urls.mojom.Page = {};
 mojo.internal.bindings.chrome_urls.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.chrome_urls.mojom.Page.$interfaceName = 'chrome_urls.mojom.Page';
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: WebuiUrlInfo
 mojo.internal.Struct(

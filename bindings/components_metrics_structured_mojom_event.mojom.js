@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 mojo.internal.bindings.metrics.structured = mojo.internal.bindings.metrics.structured || {};
@@ -76,6 +96,15 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec = { $: {} };
 mojo.internal.bindings.metrics.structured.mojom.EventSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
+mojo.internal.bindings.metrics.structured = mojo.internal.bindings.metrics.structured || {};
+mojo.internal.bindings.metrics.structured.mojom = mojo.internal.bindings.metrics.structured.mojom || {};
+mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec = mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: MetricValue
 mojo.internal.Union(
@@ -117,7 +146,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.metrics.structured.mojom.EventSpec, 'metrics.structured.mojom.Event', [
       mojo.internal.StructField('arg_project_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metrics', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.metrics.structured.mojom.MetricValueSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_system_uptime', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_is_event_sequence', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],

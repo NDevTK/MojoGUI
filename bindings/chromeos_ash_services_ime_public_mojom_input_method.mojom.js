@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
@@ -346,10 +366,10 @@ mojo.internal.bindings.ash.ime.mojom.InputMode = {
 // Enum: PunctuationStyle
 mojo.internal.bindings.ash.ime.mojom.PunctuationStyle = {
   kUnspecified: 0,
-  kKutenTouten: 1,
+  kToutenKuten: 1,
   kCommaPeriod: 2,
-  kKutenPeriod: 3,
-  kCommaTouten: 4,
+  kToutenPeriod: 3,
+  kCommaKuten: 4,
 };
 
 // Enum: SymbolStyle

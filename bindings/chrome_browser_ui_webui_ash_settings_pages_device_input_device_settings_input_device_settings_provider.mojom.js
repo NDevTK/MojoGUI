@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
@@ -155,6 +175,60 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceI
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.AcceleratorActionSpec = mojo.internal.bindings.ash.mojom.AcceleratorActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.ButtonSpec = mojo.internal.bindings.ash.mojom.ButtonSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.GraphicsTabletSpec = mojo.internal.bindings.ash.mojom.GraphicsTabletSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec = mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.KeyboardSpec = mojo.internal.bindings.ash.mojom.KeyboardSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.KeyboardPoliciesSpec = mojo.internal.bindings.ash.mojom.KeyboardPoliciesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec = mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.MouseSpec = mojo.internal.bindings.ash.mojom.MouseSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.MousePoliciesSpec = mojo.internal.bindings.ash.mojom.MousePoliciesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.MouseSettingsSpec = mojo.internal.bindings.ash.mojom.MouseSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.PointingStickSpec = mojo.internal.bindings.ash.mojom.PointingStickSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec = mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec = mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.TouchpadSpec = mojo.internal.bindings.ash.mojom.TouchpadSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec = mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
+mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
+mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec = mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.MetaKeySpec = mojo.internal.bindings.ui.mojom.MetaKeySpec || { $: mojo.internal.Enum().$ };
+
 // Union: ActionType
 mojo.internal.Union(
     mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec, 'ash.settings.mojom.ActionType', {
@@ -173,10 +247,10 @@ mojo.internal.Union(
 // Struct: ActionChoice
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec, 'ash.settings.mojom.ActionChoice', [
-      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.ash.settings.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: KeyboardSettingsObserver
 mojo.internal.Struct(

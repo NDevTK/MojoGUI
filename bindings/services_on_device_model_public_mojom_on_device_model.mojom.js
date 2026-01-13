@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
@@ -149,6 +169,23 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInput = {};
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInputSpec = { $ : {} };
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInput.$interfaceName = 'on_device_model.mojom.AsrStreamInput';
 mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.InputPieceSpec = mojo.internal.bindings.on_device_model.mojom.InputPieceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec = mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Token
 mojo.internal.bindings.on_device_model.mojom.Token = {
@@ -305,7 +342,7 @@ mojo.internal.Struct(
 // Struct: Input
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.InputSpec, 'on_device_model.mojom.Input', [
-      mojo.internal.StructField('arg_pieces', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.InputPieceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pieces', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.InputPieceSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -321,9 +358,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec, 'on_device_model.mojom.GenerateOptions', [
       mojo.internal.StructField('arg_max_output_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec.$, null, true, 2, undefined),
+      mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec, null, true, 2, undefined),
     ],
-    [[0, 16], [2, 24]]);
+    [[0, 16], [2, 32]]);
 
 // Struct: AudioData
 mojo.internal.Struct(

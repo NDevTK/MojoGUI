@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -98,6 +118,38 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpd
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec = mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CredentialsModeSpec = mojo.internal.bindings.network.mojom.CredentialsModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.LockNameSpec = mojo.internal.bindings.network.mojom.LockNameSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec = mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SharedStorageGetStatus
 mojo.internal.bindings.blink.mojom.SharedStorageGetStatus = {
@@ -398,7 +450,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_CreateWorklet_Params', [
       mojo.internal.StructField('arg_script_source_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_trial_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_trial_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_worklet_host', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_data_origin_type', 32, 0, mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_credentials_mode', 36, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec, null, false, 0, undefined),

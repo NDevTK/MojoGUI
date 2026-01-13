@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -90,6 +110,29 @@ mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec = { $:
 mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXActionDataSpec = mojo.internal.bindings.ax.mojom.AXActionDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec = mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXModeSpec = mojo.internal.bindings.ax.mojom.AXModeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec = mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventSpec = mojo.internal.bindings.ax.mojom.EventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: HitTestResponse
 mojo.internal.Struct(

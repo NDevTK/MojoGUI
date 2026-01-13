@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -75,11 +95,22 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLResponseHeadSpec = mojo.internal.bindings.network.mojom.URLResponseHeadSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: WorkerMainScriptLoadParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec, 'blink.mojom.WorkerMainScriptLoadParams', [
       mojo.internal.StructField('arg_response_head', 0, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_body', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader_client_endpoints', 16, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_redirect_infos', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_redirect_response_heads', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.URLResponseHeadSpec, false), null, false, 0, undefined),

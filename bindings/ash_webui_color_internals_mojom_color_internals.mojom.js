@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.color_internals = mojo.internal.bindings.ash.color_internals || {};
@@ -83,6 +103,11 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler = {};
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler.$interfaceName = 'ash.color_internals.mojom.WallpaperColorsHandler';
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: WallpaperCalculatedColors
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
@@ -219,6 +239,17 @@ mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattExecuteWrite_Param
 mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.BluetoothAdvertisingDataSpec = mojo.internal.bindings.arc.mojom.BluetoothAdvertisingDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.BluetoothPropertySpec = mojo.internal.bindings.arc.mojom.BluetoothPropertySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.arc.mojom.kUnknownPower = 127;
 
@@ -555,7 +586,7 @@ mojo.internal.Struct(
 // Struct: BluetoothAdvertisement
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothAdvertisementSpec, 'arc.mojom.BluetoothAdvertisement', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothAdvertisingDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothAdvertisingDataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.arc.mojom.BluetoothAdvertisementTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_include_tx_power', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1426,9 +1457,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec, 'arc.mojom.BluetoothHost_SetAdapterProperty_Params', [
-      mojo.internal.StructField('arg_property', 0, 0, mojo.internal.bindings.arc.mojom.BluetoothPropertySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_property', 0, 0, mojo.internal.bindings.arc.mojom.BluetoothPropertySpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec, 'arc.mojom.BluetoothHost_StartDiscovery_Params', [
@@ -3870,21 +3901,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec, 'arc.mojom.BluetoothInstance_OnAdapterProperties_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.arc.mojom.BluetoothStatusSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec, 'arc.mojom.BluetoothInstance_OnDeviceFound_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec, 'arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_Params', [
       mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.arc.mojom.BluetoothAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BluetoothPropertySpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

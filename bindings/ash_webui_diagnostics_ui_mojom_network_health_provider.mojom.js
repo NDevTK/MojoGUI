@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
@@ -98,6 +118,12 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec = { $ : {
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider.$interfaceName = 'ash.diagnostics.mojom.NetworkHealthProvider';
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
+mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AuthenticationType
 mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationType = {
@@ -212,15 +238,15 @@ mojo.internal.Struct(
 // Struct: Network
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec, 'ash.diagnostics.mojom.Network', [
-      mojo.internal.StructField('arg_type_properties', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_observer_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ip_config', 32, 0, mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 44, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type_properties', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer_guid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mac_address', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ip_config', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 48, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 52, 0, mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: NetworkListObserver
 mojo.internal.Struct(

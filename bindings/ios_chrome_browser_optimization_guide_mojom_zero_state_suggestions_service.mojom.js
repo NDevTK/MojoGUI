@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};
 mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
@@ -79,6 +99,14 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec = { $ : {} };
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService.$interfaceName = 'ai.mojom.ZeroStateSuggestionsService';
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = { $: {} };
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};
+mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: ZeroStateSuggestionsResponseResult
 mojo.internal.Union(
@@ -103,9 +131,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {

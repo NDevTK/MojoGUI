@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.enhanced_network_tts = mojo.internal.bindings.ash.enhanced_network_tts || {};
@@ -87,6 +107,12 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver = {};
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec = { $ : {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver.$interfaceName = 'ash.enhanced_network_tts.mojom.AudioDataObserver';
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.enhanced_network_tts = mojo.internal.bindings.ash.enhanced_network_tts || {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom = mojo.internal.bindings.ash.enhanced_network_tts.mojom || {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.kEnhancedNetworkTtsMaxCharacterSize = 1000;
 
@@ -325,9 +351,9 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest 
 // Interface: AudioDataObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec, 'ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver = class {
   constructor(handle) {

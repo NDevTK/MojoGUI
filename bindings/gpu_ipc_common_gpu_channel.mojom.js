@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
@@ -174,6 +194,47 @@ mojo.internal.bindings.gpu.mojom.OverlayStateObserver = {};
 mojo.internal.bindings.gpu.mojom.OverlayStateObserverSpec = { $ : {} };
 mojo.internal.bindings.gpu.mojom.OverlayStateObserver.$interfaceName = 'gpu.mojom.OverlayStateObserver';
 mojo.internal.bindings.gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.BufferUsageSpec = mojo.internal.bindings.gfx.mojom.BufferUsageSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec = mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
+mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
+mojo.internal.bindings.gl.mojom.GpuPreferenceSpec = mojo.internal.bindings.gl.mojom.GpuPreferenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec = mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = mojo.internal.bindings.viz.mojom.SharedImageFormatSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ContextType
 mojo.internal.bindings.gpu.mojom.ContextType = {
@@ -392,7 +453,7 @@ mojo.internal.Struct(
 // Struct: SwapBuffersCompleteParams
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec, 'gpu.mojom.SwapBuffersCompleteParams', [
-      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -674,8 +735,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec, 'gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_Params', [
       mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sysmem_token', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sysmem_token', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_usage', 32, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_register_with_image_pipe', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

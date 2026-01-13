@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
@@ -103,6 +123,23 @@ mojo.internal.bindings.media.mojom.VideoDecoderClient.$interfaceName = 'media.mo
 mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: Cdm
 mojo.internal.Union(
@@ -337,7 +374,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_target_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
     ],

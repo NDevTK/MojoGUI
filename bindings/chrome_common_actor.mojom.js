@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
 mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
@@ -106,6 +126,29 @@ mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec = { $ : {} };
 mojo.internal.bindings.actor.mojom.PageStabilityMonitor.$interfaceName = 'actor.mojom.PageStabilityMonitor';
 mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
+mojo.internal.bindings.actor.mojom.ToolActionSpec = mojo.internal.bindings.actor.mojom.ToolActionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
+mojo.internal.bindings.actor.mojom.ToolTargetSpec = mojo.internal.bindings.actor.mojom.ToolTargetSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec = mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Type
 mojo.internal.bindings.actor.mojom.Type = {
@@ -346,9 +389,9 @@ mojo.internal.Struct(
 // Struct: DragAndReleaseAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec, 'actor.mojom.DragAndReleaseAction', [
-      mojo.internal.StructField('arg_to_target', 0, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_to_target', 0, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: ScriptToolAction
 mojo.internal.Struct(
@@ -368,12 +411,12 @@ mojo.internal.Struct(
 // Struct: ToolInvocation
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ToolInvocationSpec, 'actor.mojom.ToolInvocation', [
-      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.actor.mojom.ToolActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target', 16, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observed_target', 24, 0, mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.actor.mojom.ToolActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target', 16, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 32, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observed_target', 40, 0, mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Struct: ActionResult
 mojo.internal.Struct(

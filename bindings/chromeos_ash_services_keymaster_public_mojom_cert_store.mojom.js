@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.keymaster = mojo.internal.bindings.arc.keymaster || {};
@@ -81,6 +101,16 @@ mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance.$interfaceName = 'arc.keymaster.mojom.CertStoreInstance';
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.keymanagement = mojo.internal.bindings.arc.keymanagement || {};
+mojo.internal.bindings.arc.keymanagement.mojom = mojo.internal.bindings.arc.keymanagement.mojom || {};
+mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec = mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.keymaster = mojo.internal.bindings.arc.keymaster || {};
+mojo.internal.bindings.arc.keymaster.mojom = mojo.internal.bindings.arc.keymaster.mojom || {};
+mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec = mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: KeyData
 mojo.internal.Union(
@@ -104,10 +134,10 @@ mojo.internal.Struct(
 // Struct: ChromeOsKey
 mojo.internal.Struct(
     mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, 'arc.keymaster.mojom.ChromeOsKey', [
-      mojo.internal.StructField('arg_base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 0, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base64_subject_public_key_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: CertStoreInstance
 mojo.internal.Struct(

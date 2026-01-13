@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
 mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
@@ -92,6 +112,11 @@ mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = { $
 mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.MantisResultSpec = mojo.internal.bindings.mantis.mojom.MantisResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: MantisError
 mojo.internal.bindings.mantis.mojom.MantisError = {
@@ -155,9 +180,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Inpainting_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_Params', [
@@ -170,9 +195,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_Params', [
@@ -183,9 +208,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_Params', [
@@ -209,9 +234,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Outpainting_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.MantisResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_Params', [

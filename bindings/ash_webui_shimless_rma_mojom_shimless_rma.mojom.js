@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.shimless_rma = mojo.internal.bindings.ash.shimless_rma || {};
@@ -284,6 +304,23 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternal
 mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.shimless_rma = mojo.internal.bindings.ash.shimless_rma || {};
+mojo.internal.bindings.ash.shimless_rma.mojom = mojo.internal.bindings.ash.shimless_rma.mojom || {};
+mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationResultSpec = mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.shimless_rma = mojo.internal.bindings.ash.shimless_rma || {};
+mojo.internal.bindings.ash.shimless_rma.mojom = mojo.internal.bindings.ash.shimless_rma.mojom || {};
+mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertySpec = mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.shimless_rma = mojo.internal.bindings.ash.shimless_rma || {};
+mojo.internal.bindings.ash.shimless_rma.mojom = mojo.internal.bindings.ash.shimless_rma.mojom || {};
+mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertyResultSpec = mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertyResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: State
 mojo.internal.bindings.ash.shimless_rma.mojom.State = {
@@ -569,7 +606,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertyResultSpec, 'ash.shimless_rma.mojom.StatePropertyResult', {
       'arg_property': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertySpec.$,
+        'type': mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertySpec,
         'nullable': false,
       },
       'arg_error': {
@@ -1882,9 +1919,9 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserverRequest =
 // Interface: HardwareVerificationStatusObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec, 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver = class {
   constructor(handle) {
@@ -2401,9 +2438,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParams', [
-      mojo.internal.StructField('arg_state_property_result', 0, 0, mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertyResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state_property_result', 0, 0, mojo.internal.bindings.ash.shimless_rma.mojom.StatePropertyResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_Params', [

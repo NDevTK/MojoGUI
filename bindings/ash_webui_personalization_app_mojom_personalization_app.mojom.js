@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
@@ -261,6 +281,38 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_S
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.CurrentBacklightStateSpec = mojo.internal.bindings.ash.personalization_app.mojom.CurrentBacklightStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.UserImageSpec = mojo.internal.bindings.ash.personalization_app.mojom.UserImageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.style = mojo.internal.bindings.ash.style || {};
+mojo.internal.bindings.ash.style.mojom = mojo.internal.bindings.ash.style.mojom || {};
+mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec = mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.ash.personalization_app.mojom.kStaticColorGoogleBlue = 0x4285F4;
 
@@ -3789,9 +3841,9 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRequest = mojo
 // Interface: UserImageObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec, 'ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_Params', [
-      mojo.internal.StructField('arg_user_image', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.UserImageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_image', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.UserImageSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec, 'ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params', [
@@ -6218,9 +6270,9 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRequest = mo
 // Interface: KeyboardBacklightObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_Params', [
-      mojo.internal.StructField('arg_currentBacklightState', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.CurrentBacklightStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_currentBacklightState', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.CurrentBacklightStateSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_Params', [

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.pipe_control = mojo.internal.bindings.mojo.pipe_control || {};
@@ -78,6 +98,11 @@ mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec = { $: {} };
 mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = { $: {} };
 mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec = { $: {} };
 mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
+mojo.internal.bindings.mojo.pipe_control = mojo.internal.bindings.mojo.pipe_control || {};
+mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.mojo.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
@@ -104,9 +129,9 @@ mojo.internal.Union(
 // Struct: RunOrClosePipeMessageParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec, 'mojo.pipe_control.RunOrClosePipeMessageParams', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: DisconnectReason
 mojo.internal.Struct(
@@ -127,13 +152,13 @@ mojo.internal.Struct(
 // Struct: PauseUntilFlushCompletes
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec, 'mojo.pipe_control.PauseUntilFlushCompletes', [
-      mojo.internal.StructField('arg_flush_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flush_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FlushAsync
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec, 'mojo.pipe_control.FlushAsync', [
-      mojo.internal.StructField('arg_flusher_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flusher_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
@@ -90,6 +110,41 @@ mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.AnimationSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.AnimationTimelineSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.cc.mojom.ElementIdSpec = mojo.internal.bindings.cc.mojom.ElementIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeFSpec = mojo.internal.bindings.gfx.mojom.SizeFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojom.TransformSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojom.Vector2dFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.Vector3dFSpec = mojo.internal.bindings.gfx.mojom.Vector3dFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec = mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TimingFunctionSpec = mojo.internal.bindings.viz.mojom.TimingFunctionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TransformOperationSpec = mojo.internal.bindings.viz.mojom.TransformOperationSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TimingStepPosition
 mojo.internal.bindings.viz.mojom.TimingStepPosition = {
@@ -203,7 +258,7 @@ mojo.internal.Union(
       },
       'arg_transform': {
         'ordinal': 4,
-        'type': mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransformOperationSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransformOperationSpec, false),
         'nullable': false,
       },
     });
@@ -245,30 +300,30 @@ mojo.internal.Struct(
 // Struct: AnimationKeyframe
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec, 'viz.mojom.AnimationKeyframe', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_function', 16, 0, mojo.internal.bindings.viz.mojom.TimingFunctionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_function', 16, 0, mojo.internal.bindings.viz.mojom.TimingFunctionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: AnimationKeyframeModel
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec, 'viz.mojom.AnimationKeyframeModel', [
-      mojo.internal.StructField('arg_element_id', 0, 0, mojo.internal.bindings.cc.mojom.ElementIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_function', 8, 0, mojo.internal.bindings.viz.mojom.TimingFunctionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keyframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scaled_duration', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_playback_rate', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_iterations', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_iteration_start', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time_offset', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_property_type', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 76, 0, mojo.internal.bindings.viz.mojom.AnimationDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_mode', 80, 0, mojo.internal.bindings.viz.mojom.AnimationFillModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_function', 0, 0, mojo.internal.bindings.viz.mojom.TimingFunctionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_element_id', 16, 0, mojo.internal.bindings.cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyframes', 24, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scaled_duration', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_playback_rate', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iterations', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iteration_start', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_offset', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_property_type', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 84, 0, mojo.internal.bindings.viz.mojom.AnimationDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_mode', 88, 0, mojo.internal.bindings.viz.mojom.AnimationFillModeSpec, null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 // Struct: Animation
 mojo.internal.Struct(

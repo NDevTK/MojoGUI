@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -184,8 +204,8 @@ mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyStorageAccessed_ParamsSp
 mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost = {};
 mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost.$interfaceName = 'blink.mojom.NonAssociatedLocalFrameHost';
@@ -305,9 +325,125 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetResizable_ParamsSpec = 
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DraggableRegionsChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec = mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec = mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RangeSpec = mojo.internal.bindings.gfx.mojom.RangeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.Vector2dSpec = mojo.internal.bindings.gfx.mojom.Vector2dSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigString16Spec = mojo.internal.bindings.mojo_base.mojom.BigString16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ListValueSpec = mojo.internal.bindings.mojo_base.mojom.ListValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec = mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CSPViolationSpec = mojo.internal.bindings.network.mojom.CSPViolationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ConnectionInfoSpec = mojo.internal.bindings.network.mojom.ConnectionInfoSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.LoadTimingInfoSpec = mojo.internal.bindings.network.mojom.LoadTimingInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.RedirectModeSpec = mojo.internal.bindings.network.mojom.RedirectModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.RequestDestinationSpec = mojo.internal.bindings.network.mojom.RequestDestinationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SourceLocationSpec = mojo.internal.bindings.network.mojom.SourceLocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec = mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mojom.SkColor4fSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.AttributedStringSpec = mojo.internal.bindings.ui.mojom.AttributedStringSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ScrollGranularitySpec = mojo.internal.bindings.ui.mojom.ScrollGranularitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.VirtualKeyboardModeSpec = mojo.internal.bindings.ui.mojom.VirtualKeyboardModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.blink.mojom.kMaxTitleChars = 4096;
 
-mojo.internal.bindings.blink.mojom.kMaxCrashReportStorageSize = 65536;
+mojo.internal.bindings.blink.mojom.kMaxCrashReportContextSize = 65536;
 
 // Enum: PluginActionType
 mojo.internal.bindings.blink.mojom.PluginActionType = {
@@ -1024,13 +1160,13 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec, 'blink.mojom.LocalFrameHost_InitializeCrashReportStorage_Params', [
+    mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec, 'blink.mojom.LocalFrameHost_InitializeCrashReportContext_Params', [
       mojo.internal.StructField('arg_length', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec, 'blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParams', [
+    mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec, 'blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParams', [
       mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -1300,8 +1436,8 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemote = class {
   setStorageAccessApiStatus(arg_status) {
     return this.$.setStorageAccessApiStatus(arg_status);
   }
-  initializeCrashReportStorage(arg_length) {
-    return this.$.initializeCrashReportStorage(arg_length);
+  initializeCrashReportContext(arg_length) {
+    return this.$.initializeCrashReportContext(arg_length);
   }
 };
 
@@ -2113,11 +2249,11 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
       false);
   }
 
-  initializeCrashReportStorage(arg_length) {
+  initializeCrashReportContext(arg_length) {
     return this.proxy.sendMessage(
       this.ordinals[80],  // ordinal
-      mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec,
+      mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec,
       [arg_length],
       false);
   }
@@ -4100,10 +4236,10 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetStorageAccessApiStatus failed with TypeError');
            }
         }
-        // Try Method 80: InitializeCrashReportStorage
+        // Try Method 80: InitializeCrashReportContext
         if (dispatchId === undefined) {
            try {
-             const structSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec.$.structSpec;
+             const structSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$.structSpec;
              const size = decoder.decodeUint32(0);
              const version = decoder.decodeUint32(4);
              let sizeMatch = false;
@@ -4114,13 +4250,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeCrashReportStorage (80)');
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeCrashReportContext (80)');
                  this.mapOrdinal(header.ordinal, 80);
                  dispatchId = 80;
                }
              }
            } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for InitializeCrashReportStorage failed with TypeError');
+             if (e instanceof TypeError) console.warn('[Discovery] trial for InitializeCrashReportContext failed with TypeError');
            }
         }
         if (dispatchId === undefined) {
@@ -4738,14 +4874,14 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
         }
         case 80: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.initializeCrashReportStorage');
-          const result = this.impl.initializeCrashReportStorage(params.arg_length);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.initializeCrashReportContext');
+          const result = this.impl.initializeCrashReportContext(params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InitializeCrashReportStorage FAILED:', e));
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec, response);
+            }).catch(e => console.error('[GeneratedReceiver] InitializeCrashReportContext FAILED:', e));
           }
           break;
         }

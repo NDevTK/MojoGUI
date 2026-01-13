@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
@@ -126,6 +146,65 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_Re
 mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec = mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.BlobSpec = mojo.internal.bindings.media.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CaptureVersionSpec = mojo.internal.bindings.media.mojom.CaptureVersionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PhotoSettingsSpec = mojo.internal.bindings.media.mojom.PhotoSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PhotoStateSpec = mojo.internal.bindings.media.mojom.PhotoStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoBufferHandleSpec = mojo.internal.bindings.media.mojom.VideoBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec = mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec = mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec = mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec = mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec = mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DeviceAccessResultCode
 mojo.internal.bindings.crosapi.mojom.DeviceAccessResultCode = {
   NOT_INITIALIZED: 0,
@@ -161,7 +240,7 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.VideoBufferHandleSpec, 'crosapi.mojom.VideoBufferHandle', {
       'arg_shared_buffer_handle': {
         'ordinal': 0,
-        'type': mojo.internal.Pointer,
+        'type': mojo.internal.OpaqueStruct,
         'nullable': false,
       },
       'arg_gpu_memory_buffer_handle': {

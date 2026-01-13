@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-12T01:05:59.703629Z",
+  "generated_at": "2026-01-13T11:32:36.382276Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1987,7 +1987,8 @@
         "NotifyAdditionalContext",
         "NotifyActuationOnWebSettingChanged",
         "NotifyActOnWebCapabilityChanged",
-        "NotifyOnboardingCompletedChanged"
+        "NotifyOnboardingCompletedChanged",
+        "NotifyActorTaskListRowClicked"
       ]
     },
     {
@@ -4063,32 +4064,6 @@
       ]
     },
     {
-      "name": "PageHandlerFactory",
-      "module": "reload_button.mojom",
-      "file": "chrome_browser_ui_webui_reload_button_reload_button.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ]
-    },
-    {
-      "name": "PageHandler",
-      "module": "reload_button.mojom",
-      "file": "chrome_browser_ui_webui_reload_button_reload_button.mojom.js",
-      "methods": [
-        "Reload",
-        "StopReload",
-        "ShowContextMenu"
-      ]
-    },
-    {
-      "name": "Page",
-      "module": "reload_button.mojom",
-      "file": "chrome_browser_ui_webui_reload_button_reload_button.mojom.js",
-      "methods": [
-        "SetReloadButtonState"
-      ]
-    },
-    {
       "name": "ResetPasswordHandler",
       "module": "mojom",
       "file": "chrome_browser_ui_webui_reset_password_reset_password.mojom.js",
@@ -4741,6 +4716,32 @@
         "SearchForIsolatedWebAppUpdates",
         "GetIsolatedWebAppDevModeAppInfo",
         "RotateKey"
+      ]
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "webui_toolbar.mojom",
+      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ]
+    },
+    {
+      "name": "PageHandler",
+      "module": "webui_toolbar.mojom",
+      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
+      "methods": [
+        "Reload",
+        "StopReload",
+        "ShowContextMenu"
+      ]
+    },
+    {
+      "name": "Page",
+      "module": "webui_toolbar.mojom",
+      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
+      "methods": [
+        "SetReloadButtonState"
       ]
     },
     {
@@ -12755,7 +12756,6 @@
         "GetRegistrationsForStorageKey",
         "GetUsageForStorageKey",
         "GetAllRegistrationsDeprecated",
-        "GetFakeRegistrationForClientUrl",
         "StoreRegistration",
         "DeleteRegistration",
         "UpdateToActiveState",
@@ -21427,7 +21427,7 @@
         "RecordWindowProxyUsageMetrics",
         "NotifyDocumentInteractive",
         "SetStorageAccessApiStatus",
-        "InitializeCrashReportStorage"
+        "InitializeCrashReportContext"
       ]
     },
     {
@@ -25716,12 +25716,6 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_ui_webui_reload_button_reload_button.mojom.js",
-      "source": "chrome/browser/ui/webui/reload_button/reload_button.mojom",
-      "module": "reload_button.mojom",
-      "imports": []
-    },
-    {
       "filename": "chrome_browser_ui_webui_reset_password_reset_password.mojom.js",
       "source": "chrome/browser/ui/webui/reset_password/reset_password.mojom",
       "module": "mojom",
@@ -25909,6 +25903,12 @@
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
+      "source": "chrome/browser/ui/webui/webui_toolbar/webui_toolbar.mojom",
+      "module": "webui_toolbar.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",

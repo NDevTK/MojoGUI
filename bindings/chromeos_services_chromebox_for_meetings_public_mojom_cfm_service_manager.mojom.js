@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
@@ -234,7 +254,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_Params', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -463,7 +483,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRequest = mojo.intern
 // Interface: CfmServiceAdaptor
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_Params', [
-      mojo.internal.StructField('arg_receiver_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

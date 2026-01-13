@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};
 mojo.internal.bindings.image_annotation.mojom = mojo.internal.bindings.image_annotation.mojom || {};
@@ -90,6 +110,11 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService = {};
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec = { $ : {} };
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService.$interfaceName = 'image_annotation.mojom.ImageAnnotationService';
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};
+mojo.internal.bindings.image_annotation.mojom = mojo.internal.bindings.image_annotation.mojom || {};
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AnnotateImageError
 mojo.internal.bindings.image_annotation.mojom.AnnotateImageError = {
@@ -321,9 +346,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.image_annotation.mojom.AnnotatorPendingReceiver = class {
   constructor(handle) {

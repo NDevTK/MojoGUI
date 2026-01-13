@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -82,6 +102,14 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.TrustTokenAccessObserver.$interfaceName = 'network.mojom.TrustTokenAccessObserver';
 mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec = mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: TrustTokenAccessDetails
 mojo.internal.Union(
@@ -132,9 +160,9 @@ mojo.internal.Struct(
 // Interface: TrustTokenAccessObserver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec, 'network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec, 'network.mojom.TrustTokenAccessObserver_Clone_Params', [

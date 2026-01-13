@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
@@ -85,6 +105,16 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_Pa
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
+mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
+mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec = mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.settings = mojo.internal.bindings.chromeos.settings || {};
+mojo.internal.bindings.chromeos.settings.mojom = mojo.internal.bindings.chromeos.settings.mojom || {};
+mojo.internal.bindings.chromeos.settings.mojom.SettingSpec = mojo.internal.bindings.chromeos.settings.mojom.SettingSpec || { $: mojo.internal.Enum().$ };
 
 // Union: SettingChangeValue
 mojo.internal.Union(
@@ -139,10 +169,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_setting', 8, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_setting', 16, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
@@ -86,6 +106,12 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_Param
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
+mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SetGesturePropErrorCode
 mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCode = {
@@ -160,18 +186,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_read_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_read_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParams', [

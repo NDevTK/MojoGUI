@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
@@ -78,6 +98,12 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec = { $: {} 
 mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: ValueList
 mojo.internal.Union(
@@ -123,7 +149,7 @@ mojo.internal.Struct(
 // Struct: Tensor
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, 'chromeos.machine_learning.mojom.Tensor', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shape', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shape', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

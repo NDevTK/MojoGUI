@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cloud_upload = mojo.internal.bindings.ash.cloud_upload || {};
@@ -115,6 +135,12 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmat
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cloud_upload = mojo.internal.bindings.ash.cloud_upload || {};
+mojo.internal.bindings.ash.cloud_upload.mojom = mojo.internal.bindings.ash.cloud_upload.mojom || {};
+mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec = mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: UserAction
 mojo.internal.bindings.ash.cloud_upload.mojom.UserAction = {
@@ -225,7 +251,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec, 'ash.cloud_upload.mojom.DialogArgs', [
       mojo.internal.StructField('arg_file_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog_specific_args', 8, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_specific_args', 8, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

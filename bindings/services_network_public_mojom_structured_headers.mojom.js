@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -79,6 +99,14 @@ mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec = { 
 mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec = { $: {} };
 mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec = { $: {} };
 mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec = mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: StructuredHeadersItem
 mojo.internal.Union(
@@ -123,18 +151,18 @@ mojo.internal.Union(
 // Struct: StructuredHeadersParameter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec, 'network.mojom.StructuredHeadersParameter', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_item', 8, 0, mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: StructuredHeadersParameterizedItem
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, 'network.mojom.StructuredHeadersParameterizedItem', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: StructuredHeadersParameterizedMember
 mojo.internal.Struct(

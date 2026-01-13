@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
@@ -89,6 +109,11 @@ mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_Respons
 mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: KeyType
 mojo.internal.bindings.media.mojom.KeyType = {
 };
@@ -96,7 +121,7 @@ mojo.internal.bindings.media.mojom.KeyType = {
 // Struct: SessionData
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SessionDataSpec, 'media.mojom.SessionData', [
-      mojo.internal.StructField('arg_KeyType', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_KeyType', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_set_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_type', 24, 0, mojo.internal.bindings.media.mojom.KeyTypeSpec, null, false, 0, undefined),

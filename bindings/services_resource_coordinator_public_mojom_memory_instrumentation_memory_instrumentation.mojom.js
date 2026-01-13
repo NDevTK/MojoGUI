@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
 mojo.internal.bindings.memory_instrumentation.mojom = mojo.internal.bindings.memory_instrumentation.mojom || {};
@@ -127,6 +147,20 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector = {};
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorSpec = { $ : {} };
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector.$interfaceName = 'memory_instrumentation.mojom.CoordinatorConnector';
 mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
+mojo.internal.bindings.memory_instrumentation.mojom = mojo.internal.bindings.memory_instrumentation.mojom || {};
+mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec = mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigStringSpec = mojo.internal.bindings.mojo_base.mojom.BigStringSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec = mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.memory_instrumentation.mojom.kProtectionFlagsRead = 4;
 
@@ -233,11 +267,11 @@ mojo.internal.Struct(
 // Struct: RawAllocatorDumpEntry
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntrySpec, 'memory_instrumentation.mojom.RawAllocatorDumpEntry', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_units', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_units', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: RawAllocatorDump
 mojo.internal.Struct(
@@ -262,10 +296,10 @@ mojo.internal.Struct(
 // Struct: VmRegion
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.VmRegionSpec, 'memory_instrumentation.mojom.VmRegion', [
-      mojo.internal.StructField('arg_kProtectionFlagsRead', 0, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsWrite', 8, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsExec', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsMayshare', 24, 0, mojo.internal.Pointer, 128, false, 0, undefined),
+      mojo.internal.StructField('arg_kProtectionFlagsRead', 0, 0, mojo.internal.OpaqueStruct, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_kProtectionFlagsWrite', 8, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_kProtectionFlagsExec', 16, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_kProtectionFlagsMayshare', 24, 0, mojo.internal.OpaqueStruct, 128, false, 0, undefined),
       mojo.internal.StructField('arg_start_address', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_size_in_bytes', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_module_timestamp', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),

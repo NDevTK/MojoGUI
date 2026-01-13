@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
@@ -92,6 +112,12 @@ mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierS
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.$interfaceName = 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
+mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.ash.cros_healthd.mojom.kFailedToStartId = 0;
 
@@ -265,11 +291,11 @@ mojo.internal.Struct(
 // Struct: RoutineUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
-      mojo.internal.StructField('arg_routine_update_union', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_percent', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output', 12, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_update_union', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_percent', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output', 20, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: DEPRECATED_LedLitUpRoutineReplier
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
@@ -80,6 +100,14 @@ mojo.internal.bindings.gfx.mojom.AHardwareBufferHandleSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.DXGIHandleSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.IOSurfaceHandleSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: GpuMemoryBufferPlatformHandle
 mojo.internal.Union(
@@ -116,7 +144,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec, 'gfx.mojom.NativePixmapPlane', [
       mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -126,7 +154,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec, 'gfx.mojom.NativePixmapHandle', [
       mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_collection_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_collection_handle', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_supports_zero_copy_webgpu_import', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_ram_coherency', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -136,8 +164,8 @@ mojo.internal.Struct(
 // Struct: AHardwareBufferHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.AHardwareBufferHandleSpec, 'gfx.mojom.AHardwareBufferHandle', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracking_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracking_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -151,7 +179,7 @@ mojo.internal.Struct(
 // Struct: DXGIHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DXGIHandleSpec, 'gfx.mojom.DXGIHandle', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_memory_handle', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
     ],
@@ -160,7 +188,7 @@ mojo.internal.Struct(
 // Struct: IOSurfaceHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.IOSurfaceHandleSpec, 'gfx.mojom.IOSurfaceHandle', [
-      mojo.internal.StructField('arg_mach_send_right', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mach_send_right', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_memory_handle', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_plane_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_plane_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),

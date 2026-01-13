@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
 mojo.internal.bindings.nearby.connections = mojo.internal.bindings.nearby.connections || {};
@@ -95,6 +115,21 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadSpec = { $: {} };
 mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec = { $: {} };
 mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec = { $: {} };
 mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.UUIDSpec = mojo.internal.bindings.bluetooth.mojom.UUIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
+mojo.internal.bindings.nearby.connections = mojo.internal.bindings.nearby.connections || {};
+mojo.internal.bindings.nearby.connections.mojom = mojo.internal.bindings.nearby.connections.mojom || {};
+mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec = mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Status
 mojo.internal.bindings.nearby.connections.mojom.Status = {
@@ -271,10 +306,10 @@ mojo.internal.Struct(
 // Struct: Payload
 mojo.internal.Struct(
     mojo.internal.bindings.nearby.connections.mojom.PayloadSpec, 'nearby.connections.mojom.Payload', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: PayloadTransferUpdate
 mojo.internal.Struct(

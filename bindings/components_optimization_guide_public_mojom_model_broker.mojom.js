@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_guide || {};
 mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimization_guide.mojom || {};
@@ -93,6 +113,14 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBroker = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec = { $ : {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker.$interfaceName = 'optimization_guide.mojom.ModelBroker';
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec = mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: OnDeviceFeature
 mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeature = {

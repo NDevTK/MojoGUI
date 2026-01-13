@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
@@ -79,6 +99,11 @@ mojo.internal.bindings.video_capture.mojom.Producer.$interfaceName = 'video_capt
 mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoBufferHandleSpec = mojo.internal.bindings.media.mojom.VideoBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Producer
 mojo.internal.Struct(

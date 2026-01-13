@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
 mojo.internal.bindings.url_rewrite.mojom = mojo.internal.bindings.url_rewrite.mojom || {};
@@ -87,6 +107,14 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver = {};
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec = { $ : {} };
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver.$interfaceName = 'url_rewrite.mojom.UrlRequestRulesReceiver';
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
+mojo.internal.bindings.url_rewrite.mojom = mojo.internal.bindings.url_rewrite.mojom || {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: UrlRequestAccessPolicy
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicy = {
@@ -141,7 +169,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec, 'url_rewrite.mojom.UrlRequestRule', [
       mojo.internal.StructField('arg_hosts_filter', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_schemes_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

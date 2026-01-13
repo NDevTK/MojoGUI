@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -79,6 +99,11 @@ mojo.internal.bindings.blink.mojom.FixedPatternSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WildcardPatternSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PatternTemplateSpec = mojo.internal.bindings.blink.mojom.PatternTemplateSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Modifier
 mojo.internal.bindings.blink.mojom.Modifier = {
@@ -143,10 +168,10 @@ mojo.internal.Struct(
 // Struct: SafeUrlPatternPart
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec, 'blink.mojom.SafeUrlPatternPart', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.blink.mojom.PatternTemplateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.bindings.blink.mojom.ModifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.blink.mojom.PatternTemplateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifier', 16, 0, mojo.internal.bindings.blink.mojom.ModifierSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: SafeUrlPatternOptions
 mojo.internal.Struct(

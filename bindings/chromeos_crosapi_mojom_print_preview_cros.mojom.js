@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
@@ -94,6 +114,40 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview
 mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.StatusReason = mojo.internal.bindings.StatusReason || {};
+mojo.internal.bindings.StatusReason.ReasonSpec = mojo.internal.bindings.StatusReason.ReasonSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.ColorModelSpec = mojo.internal.bindings.printing.mojom.ColorModelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.DuplexModeSpec = mojo.internal.bindings.printing.mojom.DuplexModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.IppClientInfoSpec = mojo.internal.bindings.printing.mojom.IppClientInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.MarginTypeSpec = mojo.internal.bindings.printing.mojom.MarginTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PrinterTypeSpec = mojo.internal.bindings.printing.mojom.PrinterTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec = mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ScalingType
 mojo.internal.bindings.crosapi.mojom.ScalingType = {

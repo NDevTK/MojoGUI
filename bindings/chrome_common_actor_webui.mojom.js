@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
 mojo.internal.bindings.actor.webui = mojo.internal.bindings.actor.webui || {};
@@ -96,6 +116,22 @@ mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec = { $
 mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec = { $: {} };
 mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec = { $: {} };
 mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.webui = mojo.internal.bindings.actor.webui || {};
+mojo.internal.bindings.actor.webui.mojom = mojo.internal.bindings.actor.webui.mojom || {};
+mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec = mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.webui = mojo.internal.bindings.actor.webui || {};
+mojo.internal.bindings.actor.webui.mojom = mojo.internal.bindings.actor.webui.mojom || {};
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: UserGrantedPermissionDuration
 mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDuration = {
@@ -241,10 +277,10 @@ mojo.internal.Struct(
 // Struct: SelectAutofillSuggestionsDialogResponse
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: UserConfirmationDialogPayload
 mojo.internal.Struct(
@@ -264,9 +300,9 @@ mojo.internal.Struct(
 // Struct: UserConfirmationDialogResponse
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec, 'actor.webui.mojom.UserConfirmationDialogResponse', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: NavigationConfirmationRequest
 mojo.internal.Struct(
@@ -279,6 +315,6 @@ mojo.internal.Struct(
 // Struct: NavigationConfirmationResponse
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec, 'actor.webui.mojom.NavigationConfirmationResponse', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

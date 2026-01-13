@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.font_data_service = mojo.internal.bindings.font_data_service || {};
 mojo.internal.bindings.font_data_service.mojom = mojo.internal.bindings.font_data_service.mojom || {};
@@ -91,6 +111,17 @@ mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames
 mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = { $: {} };
 mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.font_data_service = mojo.internal.bindings.font_data_service || {};
+mojo.internal.bindings.font_data_service.mojom = mojo.internal.bindings.font_data_service.mojom || {};
+mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec = mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TypefaceSlant
 mojo.internal.bindings.font_data_service.mojom.TypefaceSlant = {
@@ -150,11 +181,11 @@ mojo.internal.Struct(
 // Struct: MatchFamilyNameResult
 mojo.internal.Struct(
     mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
-      mojo.internal.StructField('arg_typeface_data', 0, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_variation_position', 8, 0, mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_typeface_data', 0, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_variation_position', 16, 0, mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ttc_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: FontDataService
 mojo.internal.Struct(

@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.mojo_service_manager = mojo.internal.bindings.chromeos.mojo_service_manager || {};
@@ -100,6 +120,19 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec =
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceObserver';
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.mojo_service_manager = mojo.internal.bindings.chromeos.mojo_service_manager || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom = mojo.internal.bindings.chromeos.mojo_service_manager.mojom || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.mojo_service_manager = mojo.internal.bindings.chromeos.mojo_service_manager || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom = mojo.internal.bindings.chromeos.mojo_service_manager.mojom || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: Type
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.Type = {
   kUnknown: 0,
@@ -127,7 +160,7 @@ mojo.internal.Union(
       },
       'arg_state': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec.$,
+        'type': mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec,
         'nullable': false,
       },
       'arg_error': {
@@ -209,7 +242,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Request_Params', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -221,9 +254,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_Params', [
@@ -533,7 +566,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRequest
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceProvider_Request_Params', [
       mojo.internal.StructField('arg_client_identity', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

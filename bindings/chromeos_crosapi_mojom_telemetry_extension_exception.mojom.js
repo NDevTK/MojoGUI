@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
@@ -78,6 +98,11 @@ mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = {
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Reason
 mojo.internal.bindings.crosapi.mojom.Reason = {
@@ -140,7 +165,7 @@ mojo.internal.Struct(
 // Struct: TelemetryExtensionUnsupported
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec, 'crosapi.mojom.TelemetryExtensionUnsupported', [
-      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

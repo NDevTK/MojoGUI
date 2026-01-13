@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
@@ -104,6 +124,38 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsS
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
+mojo.internal.bindings.actor.mojom.ActionResultSpec = mojo.internal.bindings.actor.mojom.ActionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
+mojo.internal.bindings.actor.mojom.TaskIdSpec = mojo.internal.bindings.actor.mojom.TaskIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
+mojo.internal.bindings.actor.mojom.ToolInvocationSpec = mojo.internal.bindings.actor.mojom.ToolInvocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WindowFeaturesSpec = mojo.internal.bindings.blink.mojom.WindowFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.LatencyLogSpec = mojo.internal.bindings.lens.mojom.LatencyLogSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.chrome.mojom.kDefaultQuality = 90;
 

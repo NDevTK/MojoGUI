@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -105,6 +125,20 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RemoteObjectGateway.$interfaceName = 'blink.mojom.RemoteObjectGateway';
 mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SingletonJavaScriptValue
 mojo.internal.bindings.blink.mojom.SingletonJavaScriptValue = {
@@ -158,7 +192,7 @@ mojo.internal.Union(
       },
       'arg_array_value': {
         'ordinal': 4,
-        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec, false),
         'nullable': false,
       },
       'arg_typed_array_value': {
@@ -214,10 +248,10 @@ mojo.internal.Struct(
 // Struct: RemoteInvocationResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec, 'blink.mojom.RemoteInvocationResult', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: RemoteObjectHost
 mojo.internal.Struct(
@@ -514,7 +548,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec, 'blink.mojom.RemoteObject_InvokeMethod_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_arguments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_arguments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

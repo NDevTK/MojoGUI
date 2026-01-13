@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.emoji_picker = mojo.internal.bindings.emoji_picker || {};
 mojo.internal.bindings.emoji_picker.mojom = mojo.internal.bindings.emoji_picker.mojom || {};
@@ -110,6 +130,23 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Param
 mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = { $: {} };
 mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = { $: {} };
 mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
+mojo.internal.bindings.tenor.mojom = mojo.internal.bindings.tenor.mojom || {};
+mojo.internal.bindings.tenor.mojom.GifResponseSpec = mojo.internal.bindings.tenor.mojom.GifResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
+mojo.internal.bindings.tenor.mojom = mojo.internal.bindings.tenor.mojom || {};
+mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec = mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
+mojo.internal.bindings.tenor.mojom = mojo.internal.bindings.tenor.mojom || {};
+mojo.internal.bindings.tenor.mojom.StatusSpec = mojo.internal.bindings.tenor.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: Feature
 mojo.internal.bindings.emoji_picker.mojom.Feature = {

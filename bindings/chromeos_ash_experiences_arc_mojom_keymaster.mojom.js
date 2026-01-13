@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
@@ -135,6 +155,11 @@ mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec = { $
 mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.IntegerKeyParamSpec = mojo.internal.bindings.arc.mojom.IntegerKeyParamSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: KeyPurpose
 mojo.internal.bindings.arc.mojom.KeyPurpose = {
   ENCRYPT: 0,
@@ -185,10 +210,10 @@ mojo.internal.Union(
 // Struct: KeyParameter
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.KeyParameterSpec, 'arc.mojom.KeyParameter', [
-      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.arc.mojom.IntegerKeyParamSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.arc.mojom.IntegerKeyParamSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: KeyCharacteristics
 mojo.internal.Struct(

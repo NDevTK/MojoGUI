@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
@@ -89,6 +109,14 @@ mojo.internal.bindings.tabs_api.mojom.SplitTabSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.ContainerSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
+mojo.internal.bindings.tab_groups.mojom = mojo.internal.bindings.tab_groups.mojom || {};
+mojo.internal.bindings.tab_groups.mojom.ColorSpec = mojo.internal.bindings.tab_groups.mojom.ColorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AlertState
 mojo.internal.bindings.tabs_api.mojom.AlertState = {

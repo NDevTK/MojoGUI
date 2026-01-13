@@ -68,6 +68,26 @@
  mojo.internal = mojo.internal || {};
  mojo.internal.bindings = mojo.internal.bindings || {};
  
+ // Fallback opaque struct type for unknown external types
+ mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {
+   $: {
+     structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       encoder.encodeOffset(byteOffset, 0);
+     },
+     encodeNull: function(encoder, byteOffset) { },
+     decode: function(decoder, byteOffset, bitOffset, nullable) {
+       try {
+         const offset = decoder.decodeOffset(byteOffset);
+         return offset ? { _opaqueOffset: offset } : null;
+       } catch (e) {
+         return null;
+       }
+     },
+     arrayElementSize: nullable => 8,
+     isValidObjectKeyType: false,
+   }
+ };
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
@@ -80,6 +100,11 @@ mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance.$interfaceName = 'arc.mojom.ArcShellExecutionInstance';
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = { $: {} };
+
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ArcShellCommand
 mojo.internal.bindings.arc.mojom.ArcShellCommand = {
@@ -120,9 +145,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
