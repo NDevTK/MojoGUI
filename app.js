@@ -1223,17 +1223,6 @@
         const manualId = 'manual_' + Date.now();
         // Use existing interfaceName/methodName from scope
 
-        // 1. Create a "Pending" entry in the Activity Table immediately
-        addActivityRow({
-            id: manualId,
-            interface: interfaceName,
-            method: methodName,
-            params: state.paramValues, // Best effort capture
-            timestamp: Date.now(),
-            type: 'MANUAL',
-            status: 'Executing...'
-        });
-
         // Ensure Activity Panel is visible
         showInterceptorPanel(true);
 
@@ -1276,13 +1265,13 @@
 
             // Wait for result
             const result = await resultPromise;
-            const duration = (performance.now() - startTime).toFixed(2);
-
-            // 2. Update the Activity Row with the result
-            updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
+            // Interceptor handles the traffic logging.
+            if (!result.success) {
+                showToast('Execution Error: ' + result.error, 'error');
+            }
 
         } catch (e) {
-            updateActivityRow(manualId, 'Error', { error: e.toString() });
+            showToast('Script Injection Error: ' + e.toString(), 'error');
         }
     }
 
@@ -1431,7 +1420,7 @@
     };
 
     function clearActivityLog() {
-        elements.interceptorTableBody.innerHTML = '';
+        elements.interceptorTableBody.textContent = '';
         elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Select a request to view details</p>
@@ -1526,6 +1515,7 @@
     function updateActivityRow(id, status, resultData) {
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
         if (row) {
+            const statusCell = row.cells[2];
             let displayStatus = status;
             let statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
             let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
@@ -1737,7 +1727,7 @@
         if (row) row.classList.add('active');
 
         // Show details with action buttons
-        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error') && !row.cells[2].innerHTML.includes('Logged');
         const isManual = detail.type === 'MANUAL';
 
         const methodDef = findMethodDefinition(iface, method);

@@ -1347,7 +1347,57 @@ body::before {
 .interceptor-details {
     flex: 1;
     padding: 1rem;
+    overflow: hidden;
+    /* Changed from overflow-y: auto to allow children to scroll if needed, or manage flex */
+    display: flex;
+    flex-direction: column;
+}
+
+.details-split-view {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: 10px;
+    flex: 1;
+    min-height: 0;
+}
+
+.details-column {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-column h5 {
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.params-form-container {
+    flex: 1;
     overflow-y: auto;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.result-code,
+.params-editor {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: var(--space-md) !important;
+    overflow-y: auto;
+    resize: none;
+    /* Disable manual resize as it fills space */
 }
 
 /* Status dots */
@@ -1409,11 +1459,35 @@ body::before {
 }
 
 .btn-small.active {
-    background: rgba(239, 68, 68, 0.15); /* Red for Blocking */
+    background: rgba(99, 102, 241, 0.15);
+    /* Purple/Indigo for Generic Active */
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+/* Toggle Buttons specifically */
+button[data-action="toggle-intercept"].active {
+    /* Blocking State - Red */
+    background: rgba(239, 68, 68, 0.15);
     border-color: var(--error);
     color: var(--error);
-    font-weight: 600;
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+/* Toggle Buttons specifically */
+button[data-action="toggle-intercept"]:not(.active) {
+    /* Logging State - Use Neutral or Accent? Neutral fits 'Not Blocking' best */
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border-color: var(--border-default);
+    /* Previously was Blue (--info) which clashed */
+}
+
+button[data-action="toggle-intercept"]:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
 }
 
 /* Logged status for table rows */
@@ -1430,51 +1504,11 @@ body::before {
     border-color: var(--info);
 }
 
-.params-editor {
-    width: 100%;
-    min-height: 80px;
-    max-height: none;
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    resize: vertical;
-    padding: var(--space-xs);
-    line-height: 1.4;
-}
 
-.details-split-view {
-    display: flex;
-    gap: var(--space-md);
-    margin-top: 10px;
-    /* Ensure it takes available height or fits content nicely */
-    flex: 1;
-    min-height: 0;
-}
 
-.details-column {
-    flex: 1;
-    min-width: 0;
-    /* Remove fixed max-height, let flexbox handle it if parent is constrained */
-    /* Or use a reasonable max-height */
-    max-height: none;
-    overflow-y: visible;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-subtle);
-    padding: var(--space-sm);
-    display: flex;
-    flex-direction: column;
-}
 
-.details-column h5 {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    margin-bottom: var(--space-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
+
+
 
 .params-editor:focus {
     outline: none;
