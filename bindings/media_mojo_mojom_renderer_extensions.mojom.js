@@ -222,7 +222,6 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionReceiver = cla
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -441,7 +440,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -660,7 +658,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverReceiver = cla
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -797,7 +794,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = cla
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

@@ -353,7 +353,6 @@ mojo.internal.bindings.blink.mojom.NavigationStateKeepAliveHandleReceiver = clas
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -776,7 +775,6 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -2031,7 +2029,6 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -3188,7 +3185,6 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -3418,7 +3414,6 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

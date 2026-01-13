@@ -184,7 +184,6 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRec
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -351,7 +350,6 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -518,7 +516,6 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

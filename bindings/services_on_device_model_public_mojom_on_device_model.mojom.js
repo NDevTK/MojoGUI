@@ -501,7 +501,6 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderReceiver = class 
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -698,7 +697,6 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -1027,7 +1025,6 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -1502,7 +1499,6 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -1829,7 +1825,6 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -2068,7 +2063,6 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -2235,7 +2229,6 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderReceiver = class 
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -2402,7 +2395,6 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInputReceiver = class {
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

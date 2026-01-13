@@ -348,7 +348,6 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -773,7 +772,6 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

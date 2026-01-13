@@ -217,7 +217,6 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
@@ -473,7 +472,6 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }

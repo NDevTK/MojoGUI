@@ -225,7 +225,6 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClien
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
