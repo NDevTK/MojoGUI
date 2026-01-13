@@ -566,9 +566,16 @@
 
 
     function getMethodParams(interfaceName, methodName) {
-        // First look up metadata from state.interfaces
-        // This handles cases where interfaceName might be simple or fully qualified
-        let ifaceMetadata = state.interfaces.find(i => i.name === interfaceName);
+        let ifaceMetadata = null;
+        // 0. Prioritize current selected interface if names match (avoids collisions for same-named interfaces across modules)
+        if (state.selectedInterface && (state.selectedInterface.name === interfaceName || interfaceName.endsWith('.' + state.selectedInterface.name))) {
+            ifaceMetadata = state.selectedInterface;
+        }
+
+        // 1. Fallback look up from metadata registry
+        if (!ifaceMetadata) {
+            ifaceMetadata = state.interfaces.find(i => i.name === interfaceName);
+        }
 
         // If not found by exact match, try matching by suffix (e.g. blink.mojom.Foo vs Foo)
         if (!ifaceMetadata) {
@@ -992,7 +999,6 @@
     function generateDefaultParams(ifaceMetadata, methodName) {
         // Attempts to resolve parameters from the Loaded Bindings in the page
         if (ifaceMetadata && ifaceMetadata.module) {
-            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
             // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
             const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
             const namespace = resolveNamespace(ifaceMetadata.module);
