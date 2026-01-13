@@ -1458,15 +1458,18 @@
     // Unified function to add rows to the table
     function addActivityRow(data) {
         const { id, interface: iface, method, params, timestamp, type, status } = data;
+        const rowId = `row_${id}`;
 
         // Correctly handle duplicates: Update existing row if ID matches
-        const existingRow = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        // Use getElementById for absolute reliability
+        const existingRow = document.getElementById(rowId);
         if (existingRow) {
-            updateActivityRow(id, status || 'Pending', data.result); // Update status and result logic
+            updateActivityRow(id, status || 'Pending', data.result);
             return;
         }
 
         const row = document.createElement('tr');
+        row.id = rowId; // Set ID for fast lookup
         row.dataset.id = id;
         row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
         if (data.proxyId) row.dataset.proxyId = data.proxyId;
@@ -1488,7 +1491,10 @@
         }
 
         row.innerHTML = safeHTML(`
-            <td>${new Date(timestamp).toLocaleTimeString()}</td>
+            <td>
+                ${new Date(timestamp).toLocaleTimeString()}
+                <div style="font-size:0.8em;opacity:0.7;font-family:monospace;">${id}</div>
+            </td>
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
             <td>
@@ -1521,7 +1527,8 @@
     }
 
     function updateActivityRow(id, status, resultData) {
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        // Use getElementById for consistency with addActivityRow
+        const row = document.getElementById(`row_${id}`);
         if (row) {
             const statusCell = row.cells[2];
             let displayStatus = status;
@@ -1548,6 +1555,8 @@
                     showInterceptDetails(row.__details);
                 }
             }
+        } else {
+            console.warn(`[UI] updateActivityRow failed: Row ${id} not found (row_${id}).`);
         }
     }
 
@@ -1635,12 +1644,10 @@
                 } else {
                     // Fallback if no def? This shouldn't happen if formContainer exists
                     console.warn('Form container exists but no def found for mapping?');
-                    result = values; // This might be wrong format for Mojo, but best effort
+                    result = values;
                 }
             } else {
                 // Fallback textarea
-                // We need to use specific ID for result textarea
-                // In showInterceptDetails, we will ensure the ID is interceptParams_{id}_res
                 const textarea = document.getElementById(`interceptParams_${id}_res`);
                 if (textarea) result = safeParse(textarea.value);
             }
@@ -1655,8 +1662,13 @@
         const proxy = MojoProxyRegistry.get(proxyId);
 
         if (proxy) {
-            proxy.sendResponse(id, result);
-            updateActivityRow(id, 'Done', result);
+            // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
+            const originalResult = (row && row.__details) ? row.__details.result : null;
+            const restoredResult = reconcileKeys(result, originalResult);
+
+            console.log(`[UI] Sending Response for ${id}`, restoredResult);
+            proxy.sendResponse(id, restoredResult);
+            updateActivityRow(id, 'Done', restoredResult);
             showToast('Response Sent', 'success');
         }
     };
@@ -1861,7 +1873,13 @@
             return;
         }
 
-        const row = document.querySelector(`tr[data-id="${id}"]`);
+        // Use consistent ID lookup
+        const row = document.getElementById(`row_${id}`);
+        if (!row) {
+            console.error(`[UI] resumeIntercept: Row ${id} not found.`);
+            return;
+        }
+
         const proxyId = row.dataset.proxyId;
 
         if (drop) {
@@ -1878,11 +1896,15 @@
                 const originalParams = (row && row.__details) ? row.__details.params : null;
                 const restoredParams = reconcileKeys(params, originalParams);
 
+                console.log(`[UI] Resuming call ${id}. InterceptResponses: ${state.interceptResponses}`);
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
+
                 // Update UI immediately
                 if (state.interceptResponses) {
+                    console.log(`[UI] resumeIntercept: Setting ${id} to Pending Response`);
                     updateActivityRow(id, 'Pending Response');
                 } else {
+                    console.log(`[UI] resumeIntercept: Setting ${id} to Forwarded`);
                     updateActivityRow(id, 'Forwarded');
                 }
 
@@ -1890,6 +1912,8 @@
                 if (row && row.__details) {
                     row.__details.params = restoredParams;
                 }
+            } else {
+                console.error(`[UI] Proxy ${proxyId} not found for call ${id}`);
             }
         }
     }

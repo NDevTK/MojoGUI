@@ -1408,7 +1408,8 @@ body::before {
     padding: var(--space-md) !important;
     overflow-y: auto;
     resize: none !important;
-    /* Disable manual resize as it fills space */
+    color: var(--text-primary);
+    /* Fix: Ensure text is white by default, not just on focus */
 }
 
 /* Status dots */
