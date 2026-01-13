@@ -16,7 +16,8 @@
         paramValues: {},
         mojoAvailable: false,
         panelVisible: false,
-        trafficCount: 0
+        trafficCount: 0,
+        interceptResponses: false
     };
 
     // ========================================
@@ -357,6 +358,16 @@
             elements.noScrambleToggle.addEventListener('change', (e) => {
                 window.mojoNoScramble = e.target.checked;
                 showToast(`Force No Scramble: ${window.mojoNoScramble ? 'ON' : 'OFF'}`);
+            });
+        }
+
+        // Intercept Responses Toggle
+        elements.interceptRespToggle = document.getElementById('interceptRespToggle');
+        if (elements.interceptRespToggle) {
+            elements.interceptRespToggle.checked = state.interceptResponses || false;
+            elements.interceptRespToggle.addEventListener('change', (e) => {
+                state.interceptResponses = e.target.checked;
+                showToast(state.interceptResponses ? 'Response Interception Enabled' : 'Response Interception Disabled');
             });
         }
 
@@ -1584,6 +1595,74 @@
         updateActivityRow(e.detail.id, 'Done', e.detail.result);
     }
 
+    function handleMojoResponseIntercept(e) {
+        const detail = e.detail;
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${detail.id}"]`);
+
+        if (row) {
+            // Update status to indicate we are editing response
+            updateActivityRow(detail.id, 'Response Edit', detail.result);
+
+            // If row is active, refresh detail view
+            if (row.classList.contains('active')) {
+                // Ensure detail includes result so we can edit it
+                if (row.__details) {
+                    row.__details.result = detail.result;
+                    row.__details.status = 'Response Edit';
+                    showInterceptDetails(row.__details);
+                }
+            }
+        }
+    }
+
+    window.sendResponse = function (id) {
+        let result = null;
+        try {
+            const formContainer = document.getElementById(`interceptForm_${id}_res`);
+            if (formContainer) {
+                // Try to map array values back to object keys if definition exists
+                const values = getInterceptorFormValues(id + '_res');
+
+                const row = document.querySelector(`tr[data-id="${id}"]`);
+                const iface = row.__details.interface;
+                const method = row.__details.method;
+                const methodDef = findMethodDefinition(iface, method);
+
+                if (methodDef && methodDef.responseParams) {
+                    const keys = methodDef.responseParams.map(p => p.name);
+                    result = {};
+                    keys.forEach((key, i) => {
+                        result[key] = values[i];
+                    });
+                } else {
+                    // Fallback if no def? This shouldn't happen if formContainer exists
+                    console.warn('Form container exists but no def found for mapping?');
+                    result = values; // This might be wrong format for Mojo, but best effort
+                }
+            } else {
+                // Fallback textarea
+                // We need to use specific ID for result textarea
+                // In showInterceptDetails, we will ensure the ID is interceptParams_{id}_res
+                const textarea = document.getElementById(`interceptParams_${id}_res`);
+                if (textarea) result = safeParse(textarea.value);
+            }
+
+        } catch (e) {
+            alert('Error parsing response: ' + e.message);
+            return;
+        }
+
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const proxyId = row.dataset.proxyId;
+        const proxy = MojoProxyRegistry.get(proxyId);
+
+        if (proxy) {
+            proxy.sendResponse(id, result);
+            updateActivityRow(id, 'Done', result);
+            showToast('Response Sent', 'success');
+        }
+    };
+
     function handleMojoError(e) {
         const { id, error } = e.detail;
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
@@ -1688,11 +1767,20 @@
                 // Mojo definitions often store response params in 'responseParams' or similar
                 // We will check methodDef.responseParams
                 if (methodDef && methodDef.responseParams) {
-                    responseHtml = `<div class="params-form-container" style="opacity: 0.9;">
+                    // Editable if Response Edit, otherwise read-only look
+                    const style = (detail.status === 'Response Edit') ? '' : 'opacity: 0.9; pointer-events: none;';
+                    responseHtml = `<div class="params-form-container" style="${style}">
                                         ${renderInterceptorForm(methodDef.responseParams, detail.result, id + '_res')}
                                       </div>`;
                 } else {
-                    responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>`;
+                    if (detail.status === 'Response Edit') {
+                        // Editable Textarea for fallback
+                        const displayParams = sanitizeKeys(detail.result);
+                        responseHtml = `<textarea id="interceptParams_${id}_res" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
+                    } else {
+                        // Read-only view
+                        responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>`;
+                    }
                 }
             }
 
@@ -1726,9 +1814,14 @@
                     <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Resume</button>
                     <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
                 </div>
-                ` : (!isPending) ? `
+                ` : (!isPending && detail.status !== 'Response Edit') ? `
                 <div class="action-buttons">
                     <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Replay</button>
+                </div>
+                ` : (detail.status === 'Response Edit') ? `
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-small" onclick="sendResponse('${id}')">Send Response</button>
+                    <!-- Maybe Drop Response? Proxy doesn't support dropResponse explicitly, but we could just drop connection? For now just Send. -->
                 </div>
                 ` : ''}
             </div>
@@ -1783,7 +1876,7 @@
                 const originalParams = (row && row.__details) ? row.__details.params : null;
                 const restoredParams = reconcileKeys(params, originalParams);
 
-                proxy.resumeCall(id, restoredParams, false);
+                proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
                 // Update history with modified params
                 if (row && row.__details) {
                     row.__details.params = restoredParams;

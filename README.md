@@ -9,7 +9,9 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 
 - 🔍 **Interface Browser** - Search and browse all available Mojo interfaces
 - 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
-- 🕵️ **Mojo Interceptor** - Intercept and modify messages
+- 🕵️ **Mojo Interceptor** - Block, Log, and Modify requests and responses
+- 🚥 **Traffic Control** - Toggle between "Blocking" (halt execution) and "Logging" (passive monitor) modes
+- 🛠️ **Response Editing** - Pause and modify return values from methods before they reach the renderer
 - 📈 **Version Tracker** - Detect and log interface changes across Chrome versions
 - ⚡ **Live Code Generation** - See valid MojoJS code in real-time
 - 📋 **One-Click Copy** - Copy generated code to clipboard
@@ -50,8 +52,12 @@ Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 1. **Select an Interface** - Use the sidebar to browse or search for interfaces
 2. **Choose a Method** - Click on a method to see its parameters
 3. **Configure Parameters** - Fill in the auto-generated form fields
-4. **Intercept Traffic** - Toggle interception to inspect requests in the Interceptor Panel
-5. **Copy or Execute** - Get the generated code or run it directly
+4. **Intercept Traffic**:
+   - **Blocking Mode**: Halts execution, allowing you to modify parameters before **Resuming** or **Dropping**.
+   - **Logging Mode**: Passively logs traffic to the history without blocking.
+   - **Response Interception**: Enable this to pause execution when a response is received, allowing you to modify return values.
+5. **Replay Requests** - Re-send captured requests with modified parameters
+6. **Copy or Execute** - Get the generated code or run it directly
 
 ## Enabling MojoJS in Chrome
 

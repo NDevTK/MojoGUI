@@ -141,10 +141,16 @@
             });
         }
 
-        resumeCall(callId, modifiedArgs, shouldDrop = false) {
+        resumeCall(callId, modifiedArgs, shouldDrop = false, interceptResponse = false) {
             const pending = this.pendingMessages.get(callId);
             if (!pending) return;
-            this.pendingMessages.delete(callId);
+
+            // If we are definitely done with this entry (dropping or not intercepting response), delete it.
+            // If intercepting response, we MUST keep it (or re-add it).
+            if (shouldDrop || !interceptResponse) {
+                this.pendingMessages.delete(callId);
+            }
+
             const { resolve, reject, methodName, originalArgs } = pending;
             if (shouldDrop) { resolve(undefined); return; }
 
@@ -152,13 +158,39 @@
                 try {
                     const bridgedArgs = this.processArgs(modifiedArgs || originalArgs);
                     const result = await this.realRemote[methodName](...bridgedArgs);
-                    window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
-                    resolve(result);
+
+                    if (interceptResponse) {
+                        // Update state to Response Stage
+                        pending.stage = 'RESPONSE';
+                        pending.originalResult = result;
+                        // pending object is still in map (if we didn't delete) or we need to ensure it is.
+                        // Since we didn't delete it above if interceptResponse=true, it's there.
+                        window.dispatchEvent(new CustomEvent('mojo-response-intercept', {
+                            detail: { id: callId, result: result, timestamp: Date.now(), proxyId: this.id, interface: this.interfaceName, method: methodName }
+                        }));
+                    } else {
+                        window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
+                        resolve(result);
+                    }
                 } catch (e) {
+                    // For errors, we usually just let them pass even if response intercept is on, 
+                    // unless we want to intercept errors too? For now, let's bubble errors.
+                    this.pendingMessages.delete(callId);
                     window.dispatchEvent(new CustomEvent('mojo-error', { detail: { id: callId, error: e.toString(), timestamp: Date.now() } }));
                     reject(e);
                 }
             })();
+        }
+
+        sendResponse(callId, modifiedResult) {
+            const pending = this.pendingMessages.get(callId);
+            if (!pending || pending.stage !== 'RESPONSE') return;
+
+            this.pendingMessages.delete(callId);
+            const { resolve } = pending;
+
+            window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: modifiedResult, timestamp: Date.now() } }));
+            resolve(modifiedResult);
         }
 
         static getInterfaceComponents(name) {
