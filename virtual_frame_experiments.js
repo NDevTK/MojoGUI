@@ -1,4 +1,7 @@
 (async function () {
+
+    if (location.hostname != 'localhost') return;
+
     // Visual Log Helper
     const logDiv = document.createElement('div');
     logDiv.style.position = 'fixed';
@@ -46,7 +49,7 @@
         await window.MojoBindings.loadBinding('content_common_navigation_client.mojom.js');
         await window.MojoBindings.loadBinding('content_common_frame_messages.mojom.js');
         // Load dependencies explicitly to be safe
-        await window.MojoBindings.loadBinding('services/network/public/mojom/permissions_policy/permissions_policy.mojom.js');
+        await window.MojoBindings.loadBinding('services_network_public_mojom_permissions_policy_permissions_policy.mojom.js');
         log('[VirtualFrame] Bindings loaded.');
     } catch (e) {
         log('[VirtualFrame] Failed to load bindings (continuing anyway...):', e);
@@ -120,10 +123,10 @@
             mojo.internal.StructField('commit_navigation_end', 184, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, true, 0),
             mojo.internal.StructField('commit_reply_sent', 192, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0),
         ],
-        [[0, 208]] // Fixed Size: 208 bytes (matches C++ sizeof)
+        [[0, 200]] // Fixed Size: 200 bytes (Calculated from field sizes)
     );
 
-    log('[VirtualFrame] Patching DidCommitProvisionalLoadParamsSpec, Size: 208');
+    log('[VirtualFrame] Patching DidCommitProvisionalLoadParamsSpec, Size: 200');
     mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec = DidCommitParamsSpec;
 
     // --- Handshake Logic ---
@@ -178,7 +181,7 @@
 
         const brokerPipe = Mojo.createMessagePipe();
         const interfaceParams = {
-            browser_interface_broker_receiver: new mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver(brokerPipe.handle0)
+            arg_browser_interface_broker_receiver: new mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver(brokerPipe.handle0)
         };
 
         await frameHostRemote.didCommitProvisionalLoad(params, interfaceParams);
