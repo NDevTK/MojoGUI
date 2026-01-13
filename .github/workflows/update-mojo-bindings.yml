@@ -545,7 +545,7 @@ jobs:
                       res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
                       
                       # Track external reference for stub generation
-                      if mod_prefix != module:
+                      if mod_prefix != module or iface_name not in valid_types:
                           external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
@@ -563,7 +563,7 @@ jobs:
                       res_type = f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
                       
                       # Track external reference for stub generation
-                      if target_mod != module:
+                      if target_mod != module or clean_name not in valid_types:
                           external_type_refs.add((target_mod, clean_name, kind or 'struct'))
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
@@ -600,6 +600,10 @@ jobs:
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
                       
+                      # Track external reference for stub generation
+                      if mod_prefix != module or iface_name not in valid_types:
+                          external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
+                      
                       return f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
 
                   # Local or Imported
@@ -620,7 +624,7 @@ jobs:
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
                       # Track external reference
-                      if target_mod != module:
+                      if target_mod != module or clean_name not in valid_types:
                           external_type_refs.add((target_mod, clean_name, kind or 'struct'))
                       return f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
 
