@@ -76,9 +76,20 @@ The repository includes a GitHub Action that automatically:
 
 1. Runs weekly (or on-demand)
 2. Sparse checkouts `.mojom` files from Chromium source
-3. Parses the `.mojom` files and generates JavaScript bindings
-4. Creates an index of all available interfaces
-5. Commits the updated bindings
+3. Parses `BUILD.gn` files to detect per-interface scrambling settings
+4. Generates JavaScript bindings with correct ordinal scrambling
+5. Creates an index of all available interfaces
+6. Commits the updated bindings
+
+### Ordinal Scrambling
+
+Chromium scrambles Mojo method ordinals in official builds using a version-based salt. The bindings automatically:
+
+- Detect browser version via `navigator.userAgentData.getHighEntropyValues`
+- Compute scrambled ordinals using `SHA256(salt + InterfaceName + counter)`
+- Respect per-interface `scramble_message_ids = false` settings from BUILD.gn
+
+> 💡 **Troubleshooting**: If you see "Message has invalid flags" or crashes, the version may be mismatched. Check `window.mojoVersion` in the console.
 
 ### Manual Trigger
 
